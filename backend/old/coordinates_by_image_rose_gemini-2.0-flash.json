@@ -1,0 +1,157 @@
+{
+    "rose_001": {
+        "chart_type": "rose",
+        "data": {
+            "UJX": {
+                "feedback": [
+                    147.5
+                ],
+                "amplifier": 200.0,
+                "with_grid": [
+                    147.5,
+                    null
+                ],
+                "origin": 198.0,
+                "no_grid": [
+                    140.0,
+                    null
+                ]
+            },
+            "GVIC": {
+                "feedback": [
+                    112.0
+                ],
+                "amplifier": 150,
+                "with_grid": [
+                    112.0,
+                    null
+                ],
+                "origin": 138.0,
+                "no_grid": [
+                    119.0,
+                    null
+                ]
+            },
+            "PZOQ": {
+                "feedback": [
+                    74.0
+                ],
+                "amplifier": 117,
+                "with_grid": [
+                    74.0,
+                    null
+                ],
+                "origin": 114.0,
+                "no_grid": [
+                    100.0,
+                    null
+                ]
+            },
+            "QLZ": {
+                "feedback": [
+                    168.0
+                ],
+                "amplifier": 150,
+                "with_grid": [
+                    168.0,
+                    null
+                ],
+                "origin": 146.0,
+                "no_grid": [
+                    152.0,
+                    null
+                ]
+            },
+            "FUDX": {
+                "feedback": [
+                    132.5
+                ],
+                "amplifier": 175,
+                "with_grid": [
+                    132.5,
+                    null
+                ],
+                "origin": 158.0,
+                "no_grid": [
+                    132.0,
+                    null
+                ]
+            },
+            "YG": {
+                "feedback": [
+                    112.0
+                ],
+                "amplifier": 150,
+                "with_grid": [
+                    112.0,
+                    null
+                ],
+                "origin": 144.0,
+                "no_grid": [
+                    87,
+                    null
+                ]
+            },
+            "ZR": {
+                "feedback": [
+                    63.0
+                ],
+                "amplifier": 150,
+                "with_grid": [
+                    63.0,
+                    null
+                ],
+                "origin": 140.0,
+                "no_grid": [
+                    40,
+                    null
+                ]
+            },
+            "JXMY": {
+                "feedback": [
+                    116.7
+                ],
+                "amplifier": 75,
+                "with_grid": [
+                    116.7,
+                    null
+                ],
+                "origin": 150.0,
+                "no_grid": [
+                    60,
+                    null
+                ]
+            },
+            "XYG": {
+                "feedback": [
+                    137.5
+                ],
+                "amplifier": 193.5,
+                "with_grid": [
+                    137.5,
+                    null
+                ],
+                "origin": 184.0,
+                "no_grid": [
+                    112.0,
+                    null
+                ]
+            },
+            "DW": {
+                "feedback": [
+                    125.0
+                ],
+                "amplifier": 190,
+                "with_grid": [
+                    125.0,
+                    null
+                ],
+                "origin": 192.0,
+                "no_grid": [
+                    113.0,
+                    null
+                ]
+            }
+        }
+    }
+}
