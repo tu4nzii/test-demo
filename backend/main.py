@@ -14,9 +14,10 @@ import uvicorn
 # 导入现有的玫瑰图处理模块
 from demo_rose.demo_rose_circle_find import RoseChartEncoder
 from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
-from demo_rose.demo_data_solve_rose import process_rose_evaluation_data
+from demo_rose.demo_data_solve_rose import RoseChartDataProcessor
 from demo_rose.demo_evaluation_rose import RoseChartEvaluator
 from fastapi.middleware.cors import CORSMiddleware
+from function_call.chart_type import detect_chart
 import time
 
 app = FastAPI(title="图表分析后端服务", description="提供图表（如玫瑰图）图像处理、坐标轴识别、数据处理和评估功能")
@@ -37,17 +38,29 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # 配置路径
 UPLOAD_DIR = "./data/upload"
 OUTPUT_DIR = "./data/output/rose"
 FEEDBACK_DIR = "./data/feedback"
 AMPLIFIER_DIR = "./data/amplifier/rose"
+TEMP_DIR = "./data/temp"  # 临时文件夹路径
 
 # 创建必要的目录
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(FEEDBACK_DIR, exist_ok=True)
 os.makedirs(AMPLIFIER_DIR, exist_ok=True)
+os.makedirs(TEMP_DIR, exist_ok=True)
+
+@app.get("/api/get_type/")
+async def get_type():
+    """获取支持的图表类型"""
+
+    return {
+        "status": "success",
+        "types": ["rose"]
+    }
 
 @app.post("/api/upload/", response_model=Dict)
 async def upload_chart(file: UploadFile = File(...), json_data: UploadFile = File(...)):
@@ -57,16 +70,34 @@ async def upload_chart(file: UploadFile = File(...), json_data: UploadFile = Fil
         json_content = json.loads(await json_data.read())
         file_ext = os.path.splitext(file.filename)[1] if os.path.splitext(file.filename)[1] else '.png'
         # print(json_content)
-        chart_id = json_content.get('chart_id', f"rose_{int(time.time())}")
+        # 生成chart_id，使用通用格式而不是特定于图表类型
+        # chart_id = json_content.get('chart_id', f"chart_{int(time.time())}")
+        chart_id = f"chart_{int(time.time())}"
+        print(chart_id)
         image_path = os.path.join(UPLOAD_DIR, f"{chart_id}{file_ext}")
-        with open(image_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
         
-        # 2. 解析并保存JSON数据
+        # 保存图片到临时位置（temp文件夹中）
+        with tempfile.NamedTemporaryFile(delete=False, suffix=file_ext, dir=TEMP_DIR) as temp_file:
+            shutil.copyfileobj(file.file, temp_file)
+            temp_file_path = temp_file.name
+        
+        # 检测图表类型
+        detection_result = detect_chart(temp_file_path)
+        chart_type = detection_result.get('type', 'rose')  # 默认使用rose作为回退
+        confidence = detection_result.get('confidence', 0.5)
+        
+        # 将临时文件移动到最终位置
+        shutil.move(temp_file_path, image_path)
+
+        # 在JSON内容中添加图表类型信息
+        json_content['chart_type'] = chart_type
+        json_content['chart_type_confidence'] = confidence
+        json_content['chart_id'] = chart_id  # 确保chart_id在JSON中存在
+        
         json_path = os.path.join(UPLOAD_DIR, f"{chart_id}.json")
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(json_content, f, ensure_ascii=False, indent=2)
-        
+
         return {
             "status": "success",
             "chart_id": chart_id,
@@ -74,7 +105,11 @@ async def upload_chart(file: UploadFile = File(...), json_data: UploadFile = Fil
         }
         
     except Exception as e:
+        # 清理可能的临时文件
+        if 'temp_file_path' in locals() and os.path.exists(temp_file_path):
+            os.unlink(temp_file_path)
         raise HTTPException(status_code=500, detail=f"上传失败: {str(e)}")
+
 
 @app.post("/api/process/", response_model=Dict)
 async def process_chart(chart_id: str):
@@ -185,7 +220,7 @@ async def evaluate_chart(chart_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"评估失败: {str(e)}")
 
-@app.get("/api/image/{chart_id}") # 【核心修改点 2】: 路径参数从 image_name 改为 chart_id
+@app.get("/api/image/{chart_id}")
 async def get_image(chart_id: str):
     """获取处理后的图像"""
     # 【核心修改点 3】: 在函数内部根据 chart_id 构造完整的文件名
