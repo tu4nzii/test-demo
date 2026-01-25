@@ -1,0 +1,78 @@
+{
+  "chart_id": "scatter_002",
+  "x_ticks": [
+    4400.0,
+    5750.0,
+    7100.0,
+    8450.0,
+    9800.0
+  ],
+  "y_ticks": [
+    64.0,
+    66.5,
+    69.0,
+    71.5,
+    74.0
+  ],
+  "x_pixels": [
+    165,
+    356,
+    547,
+    738,
+    929
+  ],
+  "y_pixels": [
+    565,
+    454,
+    343,
+    232,
+    121
+  ],
+  "x_ticks_encrypted": [
+    4400.0,
+    5075.0,
+    5750.0,
+    6425.0,
+    7100.0,
+    7775.0,
+    8450.0,
+    9125.0,
+    9800.0
+  ],
+  "y_ticks_encrypted": [
+    64.0,
+    65.25,
+    66.5,
+    67.75,
+    69.0,
+    70.25,
+    71.5,
+    72.75,
+    74.0
+  ],
+  "x_pixels_encrypted": [
+    165,
+    260,
+    356,
+    451,
+    547,
+    642,
+    738,
+    833,
+    929
+  ],
+  "y_pixels_encrypted": [
+    565,
+    509,
+    454,
+    398,
+    343,
+    287,
+    232,
+    176,
+    121
+  ],
+  "image_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts\\test1110\\scatter_002.png",
+  "basic_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\scatter_002_grid.png",
+  "encrypted_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\scatter_002_with_grid.png"
+}

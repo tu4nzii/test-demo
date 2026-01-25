@@ -1,0 +1,78 @@
+{
+  "chart_id": "scatter_004",
+  "x_ticks": [
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0
+  ],
+  "y_ticks": [
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0
+  ],
+  "x_pixels": [
+    150,
+    350,
+    550,
+    750,
+    950
+  ],
+  "y_pixels": [
+    576,
+    462,
+    348,
+    234,
+    120
+  ],
+  "x_ticks_encrypted": [
+    10.0,
+    11.25,
+    12.5,
+    13.75,
+    15.0,
+    16.25,
+    17.5,
+    18.75,
+    20.0
+  ],
+  "y_ticks_encrypted": [
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "x_pixels_encrypted": [
+    150,
+    250,
+    350,
+    450,
+    550,
+    650,
+    750,
+    850,
+    950
+  ],
+  "y_pixels_encrypted": [
+    576,
+    519,
+    462,
+    405,
+    348,
+    291,
+    234,
+    177,
+    120
+  ],
+  "image_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts\\test1110\\scatter_004.png",
+  "basic_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\scatter_004_grid.png",
+  "encrypted_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\scatter_004_with_grid.png"
+}

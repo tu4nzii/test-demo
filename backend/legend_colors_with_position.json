@@ -1,0 +1,54 @@
+[
+  {
+    "index": 1,
+    "hex_color": "#DF5A5B",
+    "top_left": {
+      "x": 9,
+      "y": 108
+    },
+    "center": {
+      "x": 36,
+      "y": 119
+    },
+    "area": 561.0
+  },
+  {
+    "index": 2,
+    "hex_color": "#FF9E4A",
+    "top_left": {
+      "x": 9,
+      "y": 46
+    },
+    "center": {
+      "x": 36,
+      "y": 57
+    },
+    "area": 571.0
+  },
+  {
+    "index": 3,
+    "hex_color": "#DFDF9B",
+    "top_left": {
+      "x": 10,
+      "y": 15
+    },
+    "center": {
+      "x": 36,
+      "y": 25
+    },
+    "area": 453.0
+  },
+  {
+    "index": 4,
+    "hex_color": "#B5CCEA",
+    "top_left": {
+      "x": 10,
+      "y": 78
+    },
+    "center": {
+      "x": 36,
+      "y": 87
+    },
+    "area": 427.0
+  }
+]

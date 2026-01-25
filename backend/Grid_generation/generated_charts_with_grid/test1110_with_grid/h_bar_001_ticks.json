@@ -1,0 +1,78 @@
+{
+  "chart_id": "h_bar_001",
+  "x_ticks": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6
+  ],
+  "y_ticks": [
+    100.0,
+    50.0,
+    0.0
+  ],
+  "x_pixels": [
+    76,
+    190,
+    304,
+    418,
+    532,
+    646,
+    760
+  ],
+  "y_pixels": [
+    160,
+    300,
+    440
+  ],
+  "x_ticks_encrypted": [
+    0.0,
+    0.05,
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "y_ticks_encrypted": [
+    100.0,
+    75.0,
+    50.0,
+    25.0,
+    0.0
+  ],
+  "x_pixels_encrypted": [
+    76,
+    133,
+    190,
+    247,
+    304,
+    361,
+    418,
+    475,
+    532,
+    589,
+    646,
+    703,
+    760
+  ],
+  "y_pixels_encrypted": [
+    160,
+    230,
+    300,
+    370,
+    440
+  ],
+  "image_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts\\test1110\\h_bar_001.png",
+  "basic_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\h_bar_001_grid.png",
+  "encrypted_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\h_bar_001_with_grid.png"
+}

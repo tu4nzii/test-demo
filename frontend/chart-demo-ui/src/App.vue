@@ -17,6 +17,8 @@ const processedImageUrl = ref('');
 
 // Data from backend
 const chartId = ref('');
+const chartType = ref('');
+const confidence = ref('');
 const evaluationResults = ref(null);
 
 // UI State
@@ -76,6 +78,8 @@ async function uploadFiles() {
       }
     });
     chartId.value = response.data.chart_id;
+    chartType.value = response.data.chart_type;
+    confidence.value = response.data.confidence;
     statusMessage.value = `上传成功！图表ID: ${chartId.value}`;
   } catch (error) {
     console.error("Upload error:", error);
@@ -179,6 +183,25 @@ async function evaluateChart() {
             <h3>原始图片</h3>
             <div class="large-image-container">
               <img :src="originalImageUrl" alt="Original Chart Preview" />
+            </div>
+          </div>
+          
+          <!-- 图表信息显示区域 -->
+          <div v-if="chartId" class="chart-info">
+            <h3>图表信息</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">图表ID:</span>
+                <span class="info-value">{{ chartId }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">图表类型:</span>
+                <span class="info-value">{{ chartType }}</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">置信度:</span>
+                <span class="info-value">{{ confidence }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -489,6 +512,48 @@ input[type="file"]:focus {
   color: #666666;
   background-color: #f9f9f9;
   min-height: 400px;
+}
+
+/* 图表信息区域样式 */
+.chart-info {
+  margin-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1.5rem;
+}
+
+.chart-info h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #333333;
+  font-size: 1.1rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #333333;
+}
+
+.info-value {
+  font-weight: 600;
+  color: #0066cc;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* 响应式设计 */

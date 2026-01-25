@@ -157,11 +157,11 @@ class RoseChartEvaluator:
         end_angle_cv = -start_angle
         
         # 绘制扇形掩码
-        axes = (outer_radius, outer_radius)
+        out_axes = (outer_radius, outer_radius)
         cv2.ellipse(
             mask,
             (center_x, center_y),
-            axes,
+            out_axes,
             angle=0,
             startAngle=start_angle_cv,
             endAngle=end_angle_cv,
@@ -242,7 +242,9 @@ class RoseChartEvaluator:
         """根据图表类型和提示类型生成对应的提示文本"""
         # 获取图表类型
         chart_type = dataset.get('chart_type', '')
-        
+        start_angle = dataset.get('start_angle', 0)
+        # print(f"当前处理: {item_name}, 网格类型: {prompt_type}, 图表类型: {chart_type}")
+        # print(f"{dataset.get('axis_labels')[str(start_angle)]}对应范围为{start_angle}-{dataset.get('axes_angles')[1]}")
         if prompt_type == "with_grid":
             if chart_type == 'radar':
                 return f'''
@@ -270,14 +272,14 @@ Do not include any explanations or additional text.
 您正在分析一张玫瑰图。它通过扇形的**最远端半径**来展示数据，每个扇形代表一个类别，其长度表示数据值的大小。
 以下为图表的详细信息：
     - 存在以下径向网格线（同心圆），对应的刻度值为{dataset.get('r_ticks', [])},标注在对应网格虚线上
-    - 存在以下角度网格线，将圆分成多个扇形区域，{dataset.get('theta_ticks', [])}分别对应每个扇形区域，扇形区域的分界为{dataset.get('theta_angles', [])}（单位为度）
+    - 存在以下角度网格线，将圆分成多个扇形区域，{dataset.get('axis_labels')}分别对应每个扇形区域，扇形区域的分界为{dataset.get('axes_angles', [])}（单位为度）
 
 您的任务是估计标记为"{item_name}"的对应扇形的的值：
 以下为提示：
-    1. **在玫瑰图上找到"{item_name}"对应的扇形区域，即确定其角度范围。**,非常重要，以x轴正方向为0度，可以理解为{dataset.get('theta_ticks')[0]}对应范围为0-{dataset.get('theta_angles')[1]}度，{dataset.get('theta_ticks')[1]}对应范围为{dataset.get('theta_angles')[1]}-{dataset.get('theta_angles')[2]}度，以此类推
-    例子：该图的{dataset.get('theta_ticks')[0]}对应范围为0-{dataset.get('theta_angles')[1]}度，处在图最右端
+    1. **在玫瑰图上找到"{item_name}"对应的扇形区域，即确定其角度范围。**,{dataset.get('axis_labels')[str(start_angle)]}对应范围为{start_angle}-{dataset.get('axes_angles')[1]}"
+    例子：该图的{dataset.get('axis_labels')[str(start_angle)]}对应范围为{start_angle}-{dataset.get('axes_angles')[1]}度，处在图最右端
     2. 确定其径向位置，找到其处于哪两个网格线之间，网格线包含以下刻度{dataset.get('r_ticks', [])}，必须准确的识别其位于哪两个网格线之间
-    例子：该图的"{dataset.get('theta_ticks')[0]}"的值就为{dataset['data_points'][dataset.get('theta_ticks')[0]]}
+
     3. 根据其扇形和相对于两个网格线的位置，插值计算其数据值。
 
 **记住，一定要插值，利用好网格线的刻度值**
@@ -338,7 +340,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
 您正在分析一张玫瑰图。它通过扇形的**最远端半径**来展示数据，每个扇形代表一个类别，其长度表示数据值的大小。
 以下为图表的详细信息：
     - 存在以下径向网格线（同心圆），对应的刻度值为{dataset.get('r_ticks', [])},标注在对应网格虚线上
-    - 存在以下角度网格线，将圆分成多个扇形区域，{dataset.get('theta_ticks', [])}分别对应每个扇形区域，扇形区域的分界为{dataset.get('theta_angles', [])}（单位为度）
+    - 存在以下角度网格线，将圆分成多个扇形区域，{dataset.get('axis_lables')}分别对应每个扇形区域，扇形区域的分界为{dataset.get('axes_angles', [])}（单位为度）
 
 您的任务是估计标记为"{item_name}"的对应扇形的值：
 
@@ -374,8 +376,8 @@ Your task is to estimate the value of the data point labeled "{item_name}":
 '''.strip()
             elif chart_type == 'rose':
                 return f'''
-你的任务是估计对应颜色为{dataset.get('series_color', {}).get(item_name.split(',')[0].strip(), '未知颜色')}的扇形的径向最远边界值为多少
--请先找到{item_name}对应颜色为{dataset.get('series_color', {}).get(item_name.split(',')[0].strip(), '未知颜色')}的扇形，**并且找到其最远端的边界**
+                该图片为玫瑰图中{item_name}数据的放大，请你根据该图片，估计{item_name}对应的数值。
+-**找到扇形并且找到其最远端的边界**
 -然后找到该边界处于哪两个基准线之间
 -最后依据基准线的数值，插值出数值
 ⚠️ 仅以以下确切的JSON格式响应：
@@ -486,6 +488,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                 # 生成提示并调用LLM
                 try:
                     prompt = self.generate_prompt(item_name, grid_type, dataset)
+                    # print(f"当前处理: {item_name}, 网格类型: {grid_type}, 提示: {prompt}")
                     coords = self.call_llm_response(prompt, image_path, item_name, dataset)
                     
                     # 获取轴标签和角度映射
@@ -576,23 +579,20 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                             # 确定内外半径
                             if coords[0] is not None:
                                 inner_radius = 0
-                                outer_radius = radius + 200
+                                outer_radius = radius + 150
                                 # 确保不超过最大半径
-                                if outer_radius > dataset['r_pixels'][-1]:
-                                    outer_radius = dataset['r_pixels'][-1] + 50
+                                if outer_radius > dataset['r_ticks'][-1] * arg_a + arg_b:
+                                    outer_radius = radius
                             else:
                                 inner_radius = 0
                                 outer_radius = radius
-                            
+                            print(f"当前处理: {item_name}, 半径范围: {inner_radius}-{outer_radius}")
                             # 裁剪并放大图像
                             scale_factor = 2
                             amplifier_image_path = os.path.join(self.amplifier_image_dir, 
                                                                 f'{chart_id}_{grid_type}_{item_name}.png')
                             
-                            amplifier_image = self.crop_axis_label_region(amplifier_path, center_x, center_y, 
-                                                                         target_angle, outer_radius, angle_width, 
-                                                                         inner_radius, 30, scale_factor, 
-                                                                         r_ticks, arg_a, arg_b)
+                            amplifier_image = self.crop_axis_label_region(amplifier_path, center_x, center_y, target_angle, outer_radius, angle_width, inner_radius,30, scale_factor,r_ticks,arg_a,arg_b)
                             
                             # 保存放大图像
                             if amplifier_image.size > 0:
@@ -605,7 +605,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                             amplifier_prompt = self.generate_prompt(item_name, 'amplifier', dataset)
                             amplifier_coords = self.call_llm_response(amplifier_prompt, amplifier_image_path, 
                                                                       item_name, dataset)
-                            
+                            print(f"放大结果: {amplifier_prompt}")
                             # 保存放大结果
                             if amplifier_coords is not None:
                                 self.results_by_image[chart_id]['data'][item_name]['amplifier'] = amplifier_coords[0]
@@ -653,7 +653,7 @@ if __name__ == '__main__':
     evaluator = RoseChartEvaluator()
     
     # 指定要处理的单个JSON文件路径
-    json_file_path = './data/output/result/rose/rose_001_evalution_datasets.json'
+    json_file_path = './data/output/rose/result/chart_1761120786_evalution_datasets.json'
     
     # 处理单个图像
     evaluator.process_single_image(json_file_path)

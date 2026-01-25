@@ -1,0 +1,78 @@
+{
+  "chart_id": "bubble_002",
+  "x_ticks": [
+    -8000.0,
+    2500.0,
+    13000.0,
+    23500.0,
+    34000.0
+  ],
+  "y_ticks": [
+    60.0,
+    64.0,
+    68.0,
+    72.0,
+    76.0
+  ],
+  "x_pixels": [
+    108,
+    243,
+    378,
+    513,
+    648
+  ],
+  "y_pixels": [
+    648,
+    504,
+    360,
+    216,
+    72
+  ],
+  "x_ticks_encrypted": [
+    -8000.0,
+    -2750.0,
+    2500.0,
+    7750.0,
+    13000.0,
+    18250.0,
+    23500.0,
+    28750.0,
+    34000.0
+  ],
+  "y_ticks_encrypted": [
+    60.0,
+    62.0,
+    64.0,
+    66.0,
+    68.0,
+    70.0,
+    72.0,
+    74.0,
+    76.0
+  ],
+  "x_pixels_encrypted": [
+    108,
+    175,
+    243,
+    310,
+    378,
+    445,
+    513,
+    580,
+    648
+  ],
+  "y_pixels_encrypted": [
+    648,
+    576,
+    504,
+    432,
+    360,
+    288,
+    216,
+    144,
+    72
+  ],
+  "image_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts\\test1110\\bubble_002.png",
+  "basic_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\bubble_002_grid.png",
+  "encrypted_grid_path": "C:\\Users\\98185\\Desktop\\Grid_generation\\generated_charts_with_grid\\test1110_with_grid\\bubble_002_with_grid.png"
+}
