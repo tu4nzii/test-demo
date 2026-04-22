@@ -1,0 +1,80 @@
+{
+  "chart_id": "line_078",
+  "image_paths": {
+    "no_grid": "charts/line/line_078.png",
+    "with_grid": "charts/line/line_078_grid.png",
+    "grid_with_grid": "charts/line/line_078_grid_with_grid.png"
+  },
+  "data_points": {
+    "Romney": {
+      "Jan": 0.0,
+      "Feb": 45.0,
+      "Mar": 42.0,
+      "Apr": 45.0,
+      "May": 0.0,
+      "Jun": 0.0,
+      "Jul": 43.0
+    },
+    "Obama": {
+      "Jan": 0.0,
+      "Feb": 52.0,
+      "Mar": 0.0,
+      "Apr": 0.0,
+      "May": 49.0,
+      "Jun": 0.0,
+      "Jul": 505051.0
+    }
+  },
+  "x_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul"
+  ],
+  "y_ticks": [
+    0.0,
+    50000.0,
+    100000.0,
+    150000.0,
+    200000.0,
+    250000.0,
+    300000.0,
+    350000.0,
+    400000.0,
+    450000.0,
+    500000.0,
+    550000.0,
+    600000.0
+  ],
+  "x_pixels": [
+    224,
+    369,
+    515,
+    660,
+    805,
+    951,
+    1096
+  ],
+  "y_pixels": [
+    453,
+    422,
+    392,
+    361,
+    331,
+    300,
+    269,
+    239,
+    208,
+    178,
+    147,
+    117,
+    86
+  ],
+  "series_color": {
+    "Romney": "#d62728",
+    "Obama": "#9467bd"
+  }
+}

@@ -1,0 +1,32 @@
+﻿{
+  "chart_id": "008",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_008.png"
+  },
+  "data_points": {
+    "English but less than \"very well\"": 139.7,
+    "English \"very well\"": 220.3
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "English but less than \"very well\"": "#a6761d",
+    "English \"very well\"": "#fed9a6"
+  }
+}

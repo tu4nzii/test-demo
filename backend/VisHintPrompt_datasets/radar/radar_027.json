@@ -1,0 +1,93 @@
+{
+  "chart_id": "radar_027",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "EOFSR": {
+      "D": 10.0,
+      "B": 89.0,
+      "C": 94.0,
+      "A": 77.0,
+      "E": 88.0
+    },
+    "ZOQXA": {
+      "C": 65.0,
+      "A": 44.0,
+      "D": 23.0,
+      "B": 11.0,
+      "E": 65.0
+    },
+    "QXVF": {
+      "C": 65.0,
+      "E": 58.0,
+      "A": 33.0,
+      "B": 92.0,
+      "D": 76.0
+    },
+    "HJMCK": {
+      "B": 64.0,
+      "C": 56.0,
+      "A": 55.0,
+      "E": 76.0,
+      "D": 82.0
+    },
+    "PRIDLH": {
+      "A": 47.0,
+      "E": 53.0,
+      "D": 91.0,
+      "C": 28.0,
+      "B": 21.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_027.png"
+  },
+  "series_color": {
+    "EOFSR": "#ff7f0e",
+    "ZOQXA": "#c7c7c7",
+    "QXVF": "#ff9896",
+    "HJMCK": "#f7b6d2",
+    "PRIDLH": "#c49c94"
+  },
+  "num_entities": 5,
+  "fill_enabled": false,
+  "num_vars": 5
+}

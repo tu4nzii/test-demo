@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "044",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_044.png"
+  },
+  "data_points": {
+    "DK": 3.6,
+    "Recovering, but not so strongly": 241.2,
+    "Not recovering at all": 86.4
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "DK": "#ccebc5",
+    "Recovering, but not so strongly": "#beaed4",
+    "Not recovering at all": "#f0027f"
+  }
+}

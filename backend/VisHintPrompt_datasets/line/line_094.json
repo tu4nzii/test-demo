@@ -1,0 +1,62 @@
+{
+  "chart_id": "line_094",
+  "image_paths": {
+    "no_grid": "charts/line/line_094.png",
+    "with_grid": "charts/line/line_094_grid.png",
+    "grid_with_grid": "charts/line/line_094_grid_with_grid.png"
+  },
+  "data_points": {
+    "Rep Rep/Lean": {
+      "2018": 72.0,
+      "2019": 70.0,
+      "2020": 77.0
+    },
+    "Dem Lean Dem": {
+      "2018": 20.0,
+      "2019": 19.0,
+      "2020": 28.0
+    },
+    "Total": {
+      "2018": 44.0,
+      "2019": 0.0,
+      "2020": 46.0
+    }
+  },
+  "x_ticks": [
+    "2018",
+    "2019",
+    "2020"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "x_pixels": [
+    179,
+    528,
+    877
+  ],
+  "y_pixels": [
+    376,
+    338,
+    300,
+    263,
+    225,
+    188,
+    150,
+    113,
+    75
+  ],
+  "series_color": {
+    "Rep Rep/Lean": "#e377c2",
+    "Dem Lean Dem": "#7f7f7f",
+    "Total": "#bcbd22"
+  }
+}

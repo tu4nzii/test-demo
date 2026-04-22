@@ -1,0 +1,76 @@
+{
+  "chart_id": "line_168",
+  "image_paths": {
+    "no_grid": "charts/line/line_168.png",
+    "with_grid": "charts/line/line_168_grid.png",
+    "grid_with_grid": "charts/line/line_168_grid_with_grid.png"
+  },
+  "data_points": {
+    "Russia favora bility in U.S.": {
+      "2007": 0.0,
+      "2009": 43.0,
+      "2011": 49.0,
+      "2013": 19.0,
+      "2015": 22.0,
+      "2017": 29.0
+    },
+    "U.S. favorability in Russia": {
+      "2007": 0.0,
+      "2009": 0.0,
+      "2011": 56.0,
+      "2013": 0.0,
+      "2015": 0.0,
+      "2017": 0.0
+    }
+  },
+  "x_ticks": [
+    "2007",
+    "2009",
+    "2011",
+    "2013",
+    "2015",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    149,
+    265,
+    382,
+    498,
+    615,
+    731
+  ],
+  "y_pixels": [
+    313,
+    292,
+    271,
+    250,
+    229,
+    208,
+    187,
+    165,
+    144,
+    123,
+    102,
+    81,
+    60
+  ],
+  "series_color": {
+    "Russia favora bility in U.S.": "#1f77b4",
+    "U.S. favorability in Russia": "#ff7f0e"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "chart_id": "line_093",
+  "image_paths": {
+    "no_grid": "charts/line/line_093.png",
+    "with_grid": "charts/line/line_093_grid.png",
+    "grid_with_grid": "charts/line/line_093_grid_with_grid.png"
+  },
+  "data_points": {
+    "Democrats": {
+      "Dec 2008": 0.0,
+      "Jul 2009": 0.0,
+      "Jan 2010": 24.0,
+      "Jul 2010": 0.0,
+      "Jan 2011": 26.0,
+      "Jul 2011": 40.0
+    },
+    "Republicans": {
+      "Dec 2008": 48.0,
+      "Jul 2009": 48.0,
+      "Jan 2010": 0.0,
+      "Jul 2010": 0.0,
+      "Jan 2011": 0.0,
+      "Jul 2011": 64.0
+    }
+  },
+  "x_ticks": [
+    "Dec 2008",
+    "Jul 2009",
+    "Jan 2010",
+    "Jul 2010",
+    "Jan 2011",
+    "Jul 2011"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    224,
+    398,
+    573,
+    747,
+    922,
+    1096
+  ],
+  "y_pixels": [
+    451,
+    425,
+    399,
+    373,
+    347,
+    321,
+    295,
+    269,
+    243,
+    217,
+    191,
+    165,
+    139,
+    112,
+    86
+  ],
+  "series_color": {
+    "Democrats": "#e377c2",
+    "Republicans": "#7f7f7f"
+  }
+}

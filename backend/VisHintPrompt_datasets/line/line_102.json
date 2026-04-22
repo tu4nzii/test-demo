@@ -1,0 +1,77 @@
+{
+  "chart_id": "line_102",
+  "image_paths": {
+    "no_grid": "charts/line/line_102.png",
+    "with_grid": "charts/line/line_102_grid.png",
+    "grid_with_grid": "charts/line/line_102_grid_with_grid.png"
+  },
+  "data_points": {
+    "Mix of good and bad news": {
+      "Dec 2008": 19.0,
+      "May 2009": 0.0,
+      "Oct 2009": 0.68,
+      "Jan 2010": 65.0,
+      "Jun Jul": 65.0,
+      "Jan 2011": 68.0
+    },
+    "Mostly bad news": {
+      "Dec 2008": 80.0,
+      "May 2009": 31.0,
+      "Oct 2009": 0.0,
+      "Jan 2010": 29.0,
+      "Jun Jul": 42.0,
+      "Jan 2011": 24.0
+    },
+    "Mostly good news": {
+      "Dec 2008": 0.0,
+      "May 2009": 0.0,
+      "Oct 2009": 0.0,
+      "Jan 2010": 0.0,
+      "Jun Jul": 0.0,
+      "Jan 2011": 0.0
+    }
+  },
+  "x_ticks": [
+    "Dec 2008",
+    "May 2009",
+    "Oct 2009",
+    "Jan 2010",
+    "Jun Jul",
+    "Jan 2011"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "x_pixels": [
+    179,
+    319,
+    458,
+    598,
+    737,
+    877
+  ],
+  "y_pixels": [
+    376,
+    339,
+    303,
+    267,
+    231,
+    195,
+    159,
+    123,
+    86
+  ],
+  "series_color": {
+    "Mix of good and bad news": "#1f77b4",
+    "Mostly bad news": "#ff7f0e",
+    "Mostly good news": "#2ca02c"
+  }
+}

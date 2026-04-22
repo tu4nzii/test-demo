@@ -10,7 +10,7 @@ class RadarColorMatcher:
     """雷达图实体颜色匹配器"""
     def __init__(self):
         # API配置
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
+        self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
         self.url = "https://api.vveai.com/v1/chat/completions"
         self.headers = {
             "Content-Type": "application/json",
@@ -116,7 +116,7 @@ class RadarColorMatcher:
         """
         
         payload = {
-            "model": "gemini-2.0-flash",
+            "model": "gemini-2.5-pro",
             "messages": [
                 {
                     "role": "user",
@@ -394,7 +394,7 @@ class RadarColorMatcher:
         """
         
         payload = {
-            "model": "gemini-2.5-flash",
+            "model": "gemini-2.5-pro",
             "messages": [
                 {
                     "role": "user",

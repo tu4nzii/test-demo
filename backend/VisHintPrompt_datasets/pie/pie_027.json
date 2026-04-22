@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "027",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_027.png"
+  },
+  "data_points": {
+    "More democratic": 118.76,
+    "DK": 18.56,
+    "About the same": 222.68
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "More democratic": "#9467bd",
+    "DK": "#b3de69",
+    "About the same": "#fccde5"
+  }
+}

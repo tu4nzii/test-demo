@@ -1,0 +1,68 @@
+{
+  "chart_id": "h_bar_015",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_015.png",
+    "with_grid": "charts/h_bar/h_bar_015_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_015_grid_with_grid.png"
+  },
+  "data_points": {
+    "Height in meters": {
+      "Fuji-san": 3776.0,
+      "Kita-dake": 3193.0,
+      "Aino-dake": 3190.0,
+      "Yari-ga-dake": 3180.0,
+      "Higashi-dake": 3141.0,
+      "Akaishi-dake": 3121.0,
+      "Karasawa-dake": 3110.0,
+      "Kitahotaka-dake": 3106.0,
+      "Obami-dake": 3101.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0
+  ],
+  "y_ticks": [
+    "Fuji-san",
+    "Kita-dake",
+    "Aino-dake",
+    "Yari-ga-dake",
+    "Higashi-dake",
+    "Akaishi-dake",
+    "Karasawa-dake",
+    "Kitahotaka-dake",
+    "Obami-dake"
+  ],
+  "x_pixels": [
+    319,
+    469,
+    619,
+    769,
+    919,
+    1069,
+    1220,
+    1370,
+    1520
+  ],
+  "y_pixels": [
+    957,
+    868,
+    779,
+    689,
+    600,
+    511,
+    421,
+    332,
+    243
+  ],
+  "series_color": {
+    "Height in meters": "#66c2a5"
+  }
+}

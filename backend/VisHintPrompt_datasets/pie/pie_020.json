@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "020",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_020.png"
+  },
+  "data_points": {
+    "Not sate": 35.22,
+    "Safe": 324.78
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Not sate": "#e6ab02",
+    "Safe": "#aec7e8"
+  }
+}

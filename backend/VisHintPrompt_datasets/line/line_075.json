@@ -1,0 +1,78 @@
+{
+  "chart_id": "line_075",
+  "image_paths": {
+    "no_grid": "charts/line/line_075.png",
+    "with_grid": "charts/line/line_075_grid.png",
+    "grid_with_grid": "charts/line/line_075_grid_with_grid.png"
+  },
+  "data_points": {
+    "Independents": {
+      "3.0": 0.0,
+      "5.0": 0.0,
+      "nan": 0.0,
+      "9.0": 38.0,
+      "13.0": 0.0
+    },
+    "Democrats": {
+      "3.0": 0.0,
+      "5.0": 24.0,
+      "nan": 33.0,
+      "9.0": 0.0,
+      "13.0": 33.0
+    },
+    "Republicans": {
+      "3.0": 90.0,
+      "5.0": 82.0,
+      "nan": 58.0,
+      "9.0": 73.0,
+      "13.0": 58.0
+    }
+  },
+  "x_ticks": [
+    "3.0",
+    "5.0",
+    "nan",
+    "9.0",
+    "nan",
+    "13.0"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    134,
+    239,
+    344,
+    448,
+    553,
+    658
+  ],
+  "y_pixels": [
+    301,
+    277,
+    252,
+    228,
+    204,
+    179,
+    155,
+    131,
+    106,
+    82,
+    58
+  ],
+  "series_color": {
+    "Independents": "#e377c2",
+    "Democrats": "#7f7f7f",
+    "Republicans": "#bcbd22"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "chart_id": "line_189",
+  "image_paths": {
+    "no_grid": "charts/line/line_189.png",
+    "with_grid": "charts/line/line_189_grid.png",
+    "grid_with_grid": "charts/line/line_189_grid_with_grid.png"
+  },
+  "data_points": {
+    "Can't rate": {
+      "MAR 2013": 29.0,
+      "SEPT 201": 30.0,
+      "FEB 2014": 23.0,
+      "FEB 2015": 15.0,
+      "JUN 2015": 27.0,
+      "OLOCT 20": 20.0,
+      "JAN 2017": 111.0
+    },
+    "Unfavorable": {
+      "MAR 2013": 0.0,
+      "SEPT 201": 0.0,
+      "FEB 2014": 0.0,
+      "FEB 2015": 15.0,
+      "JUN 2015": 0.0,
+      "OLOCT 20": 0.0,
+      "JAN 2017": 119.0
+    },
+    "Favorable": {
+      "MAR 2013": 57.0,
+      "SEPT 201": 58.0,
+      "FEB 2014": 66.0,
+      "FEB 2015": 70.0,
+      "JUN 2015": 64.0,
+      "OLOCT 20": 68.0,
+      "JAN 2017": 70.0
+    }
+  },
+  "x_ticks": [
+    "MAR 2013",
+    "SEPT 201",
+    "FEB 2014",
+    "FEB 2015",
+    "JUN 2015",
+    "OLOCT 20",
+    "JAN 2017"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0
+  ],
+  "x_pixels": [
+    179,
+    295,
+    412,
+    528,
+    644,
+    761,
+    877
+  ],
+  "y_pixels": [
+    376,
+    351,
+    327,
+    303,
+    278,
+    254,
+    230,
+    205,
+    181,
+    157,
+    133,
+    108,
+    84
+  ],
+  "series_color": {
+    "Can't rate": "#d62728",
+    "Unfavorable": "#9467bd",
+    "Favorable": "#8c564b"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "chart_id": "h_bar_155",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_155.png",
+    "with_grid": "charts/h_bar/h_bar_155_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_155_grid_with_grid.png"
+  },
+  "data_points": {
+    "Real commodity price index, metals, 1850": {
+      "Nickel": 416.08,
+      "Lead": 138.68,
+      "Copper": 115.81,
+      "Zinc": 86.29,
+      "Tin": 61.75,
+      "Steel": 58.31
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Nickel",
+    "Lead",
+    "Copper",
+    "Zinc",
+    "Tin",
+    "Steel"
+  ],
+  "x_pixels": [
+    71,
+    131,
+    190,
+    249,
+    309,
+    368,
+    428,
+    487,
+    546,
+    606,
+    665
+  ],
+  "y_pixels": [
+    391,
+    335,
+    278,
+    222,
+    165,
+    109
+  ],
+  "series_color": {
+    "Real commodity price index, metals, 1850": "#1f77b4"
+  }
+}

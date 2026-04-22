@@ -1,0 +1,51 @@
+{
+  "chart_id": "v_bar_190",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_190.png",
+    "with_grid": "charts/v_bar/v_bar_190_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_190_grid_with_grid.png"
+  },
+  "data_points": {
+    "Equipment sales in million U.S. dollars": {
+      "2011": 210.38,
+      "2010": 191.76
+    }
+  },
+  "x_ticks": [
+    "2011",
+    "2010"
+  ],
+  "y_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0
+  ],
+  "x_pixels": [
+    487,
+    1053
+  ],
+  "y_pixels": [
+    800,
+    732,
+    664,
+    596,
+    528,
+    460,
+    392,
+    324,
+    256,
+    188,
+    120
+  ],
+  "series_color": {
+    "Equipment sales in million U.S. dollars": "#66c2a5"
+  }
+}

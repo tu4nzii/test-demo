@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "025",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_025.png"
+  },
+  "data_points": {
+    "Agree": 170.72,
+    "Strongly agree": 167.01,
+    "Disa gree": 22.27
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Agree": "#dbdb8d",
+    "Strongly agree": "#17becf",
+    "Disa gree": "#9467bd"
+  }
+}

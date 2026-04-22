@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_142",
+  "image_paths": {
+    "no_grid": "charts/line/line_142.png",
+    "with_grid": "charts/line/line_142_grid.png",
+    "grid_with_grid": "charts/line/line_142_grid_with_grid.png"
+  },
+  "data_points": {
+    "Displaced outside home country": {
+      "2012": 0.0,
+      "2016": 0.0,
+      "2017": 0.0
+    },
+    "Displaced within home country": {
+      "2012": 5.0,
+      "2016": 8.9,
+      "2017": 12.5
+    }
+  },
+  "x_ticks": [
+    "2012",
+    "2016",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0
+  ],
+  "x_pixels": [
+    186,
+    550,
+    914
+  ],
+  "y_pixels": [
+    376,
+    355,
+    333,
+    311,
+    289,
+    268,
+    246,
+    224,
+    202,
+    181,
+    159,
+    137,
+    115,
+    94,
+    72
+  ],
+  "series_color": {
+    "Displaced outside home country": "#1f77b4",
+    "Displaced within home country": "#ff7f0e"
+  }
+}

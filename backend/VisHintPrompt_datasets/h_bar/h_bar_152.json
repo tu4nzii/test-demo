@@ -1,0 +1,89 @@
+{
+  "chart_id": "h_bar_152",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_152.png",
+    "with_grid": "charts/h_bar/h_bar_152_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_152_grid_with_grid.png"
+  },
+  "data_points": {
+    "Touchdowns scored": {
+      "Frank Gifford": 78.0,
+      "Tiki Barber": 68.0,
+      "Joe Morrison": 65.0,
+      "Brandon Jacobs": 64.0,
+      "Amani Toomer": 58.0,
+      "Alex Webster": 56.0,
+      "Kyle Rote": 52.0,
+      "Rodney Hampton": 51.0,
+      "Joe Morris": 50.0,
+      "Ron Johnson": 48.0,
+      "Odell Beckham": 44.0,
+      "Homer Jones": 36.0,
+      "Ahmad Bradshaw": 35.0,
+      "Plaxico Burress": 33.0,
+      "Bill Paschal": 30.0,
+      "Mark Bavaro": 28.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "y_ticks": [
+    "Frank Gifford",
+    "Tiki Barber",
+    "Joe Morrison",
+    "Brandon Jacobs",
+    "Amani Toomer",
+    "Alex Webster",
+    "Kyle Rote",
+    "Rodney Hampton",
+    "Joe Morris",
+    "Ron Johnson",
+    "Odell Beckham",
+    "Homer Jones",
+    "Ahmad Bradshaw",
+    "Plaxico Burress",
+    "Bill Paschal",
+    "Mark Bavaro"
+  ],
+  "x_pixels": [
+    292,
+    442,
+    592,
+    742,
+    892,
+    1042,
+    1192,
+    1342,
+    1492
+  ],
+  "y_pixels": [
+    973,
+    923,
+    873,
+    824,
+    774,
+    724,
+    675,
+    625,
+    575,
+    525,
+    476,
+    426,
+    376,
+    327,
+    277,
+    227
+  ],
+  "series_color": {
+    "Touchdowns scored": "#66c2a5"
+  }
+}

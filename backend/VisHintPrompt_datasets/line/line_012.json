@@ -1,0 +1,78 @@
+{
+  "chart_id": "line_012",
+  "image_paths": {
+    "no_grid": "charts/line/line_012.png",
+    "with_grid": "charts/line/line_012_grid.png",
+    "grid_with_grid": "charts/line/line_012_grid_with_grid.png"
+  },
+  "data_points": {
+    "Confidence Obama in": {
+      "2013": 69.0,
+      "2014": 52.0,
+      "2015": 63.0
+    },
+    "U.S. respects personal freedoms": {
+      "2013": 0.0,
+      "2014": 0.0,
+      "2015": 58.0
+    },
+    "Favorable U.S. view of": {
+      "2013": 73.0,
+      "2014": 65.0,
+      "2015": 73.0
+    }
+  },
+  "x_ticks": [
+    "2013",
+    "2014",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "x_pixels": [
+    179,
+    528,
+    877
+  ],
+  "y_pixels": [
+    376,
+    357,
+    338,
+    319,
+    300,
+    281,
+    262,
+    243,
+    224,
+    205,
+    186,
+    167,
+    148,
+    129,
+    110,
+    91,
+    72
+  ],
+  "series_color": {
+    "Confidence Obama in": "#d62728",
+    "U.S. respects personal freedoms": "#9467bd",
+    "Favorable U.S. view of": "#8c564b"
+  }
+}

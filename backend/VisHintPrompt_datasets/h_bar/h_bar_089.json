@@ -1,0 +1,88 @@
+{
+  "chart_id": "h_bar_089",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_089.png",
+    "with_grid": "charts/h_bar/h_bar_089_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_089_grid_with_grid.png"
+  },
+  "data_points": {
+    "Population in millions": {
+      "Maharashtra": 50.82,
+      "Uttar Pradesh": 44.5,
+      "Tamil Nadu": 34.92,
+      "West Bengal": 29.09,
+      "Andhra Pradesh": 28.22,
+      "Gujarat": 25.75,
+      "Karnataka": 23.63,
+      "Madhya Pradesh": 20.07,
+      "Rajasthan": 17.05,
+      "Delhi": 16.37,
+      "Kerala": 15.93,
+      "Bihar": 11.76,
+      "Punjab": 10.4
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "Maharashtra",
+    "Uttar Pradesh",
+    "Tamil Nadu",
+    "West Bengal",
+    "Andhra Pradesh",
+    "Gujarat",
+    "Karnataka",
+    "Madhya Pradesh",
+    "Rajasthan",
+    "Delhi",
+    "Kerala",
+    "Bihar",
+    "Punjab"
+  ],
+  "x_pixels": [
+    136,
+    180,
+    224,
+    268,
+    312,
+    357,
+    401,
+    445,
+    489,
+    533,
+    577,
+    621,
+    665
+  ],
+  "y_pixels": [
+    403,
+    378,
+    352,
+    327,
+    301,
+    276,
+    250,
+    224,
+    199,
+    173,
+    148,
+    122,
+    97
+  ],
+  "series_color": {
+    "Population in millions": "#1f77b4"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "chart_id": "v_bar_170",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_170.png",
+    "with_grid": "charts/v_bar/v_bar_170_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_170_grid_with_grid.png"
+  },
+  "data_points": {
+    "Trade value in billion Canadian dollars": {
+      "2020": 4.29,
+      "2019": 5.71,
+      "2018": 6.17,
+      "2017": 4.96,
+      "2016": 3.93,
+      "2015": 3.83,
+      "2014": 6.11,
+      "2013": 7.32
+    }
+  },
+  "x_ticks": [
+    "2020",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013"
+  ],
+  "y_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0
+  ],
+  "x_pixels": [
+    179,
+    254,
+    328,
+    403,
+    477,
+    552,
+    626,
+    701
+  ],
+  "y_pixels": [
+    480,
+    454,
+    429,
+    404,
+    378,
+    352,
+    327,
+    302,
+    276,
+    250,
+    225,
+    200,
+    174,
+    148,
+    123,
+    98,
+    72
+  ],
+  "series_color": {
+    "Trade value in billion Canadian dollars": "#1f77b4"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "chart_id": "v_bar_181",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_181.png",
+    "with_grid": "charts/v_bar/v_bar_181_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_181_grid_with_grid.png"
+  },
+  "data_points": {
+    "United Kingdom": {
+      "2018": 10.4,
+      "2017": 8.0,
+      "2016": 6.8,
+      "2015": 4.9
+    },
+    "Rest of Europe": {
+      "2018": 7.7,
+      "2017": 3.8,
+      "2016": 2.3,
+      "2015": 1.1
+    }
+  },
+  "x_ticks": [
+    "2018",
+    "2017",
+    "2016",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0
+  ],
+  "x_pixels": [
+    210,
+    363,
+    517,
+    670
+  ],
+  "y_pixels": [
+    480,
+    446,
+    412,
+    378,
+    344,
+    310,
+    276,
+    242,
+    208,
+    174,
+    140,
+    106,
+    72
+  ],
+  "series_color": {
+    "United Kingdom": "#1f77b4",
+    "Rest of Europe": "#ff7f0e"
+  }
+}

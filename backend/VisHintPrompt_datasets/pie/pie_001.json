@@ -1,0 +1,32 @@
+﻿{
+  "chart_id": "001",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_001.png"
+  },
+  "data_points": {
+    "Refused  to use": 240.0,
+    "Don't know": 120.0
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Refused  to use": "#fed9a6",
+    "Don't know": "#7fc97f"
+  }
+}

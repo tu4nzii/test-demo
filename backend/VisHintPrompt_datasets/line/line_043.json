@@ -1,0 +1,76 @@
+{
+  "chart_id": "line_043",
+  "image_paths": {
+    "no_grid": "charts/line/line_043.png",
+    "with_grid": "charts/line/line_043_grid.png",
+    "grid_with_grid": "charts/line/line_043_grid_with_grid.png"
+  },
+  "data_points": {
+    "Less important powerful and role than 10 years ago": {
+      "1974": 0.0,
+      "1984": 25.0,
+      "1994": 0.0,
+      "2004": 20.0,
+      "2014": 48.0
+    },
+    "More important and powerful role than 10 years ago": {
+      "1974": 28.0,
+      "1984": 0.0,
+      "1994": 0.0,
+      "2004": 0.0,
+      "2014": 0.0
+    },
+    "As important and powerful role as 10 years ago": {
+      "1974": 0.0,
+      "1984": 0.0,
+      "1994": 0.0,
+      "2004": 31.0,
+      "2014": 0.0
+    }
+  },
+  "x_ticks": [
+    "1974",
+    "1984",
+    "1994",
+    "2004",
+    "2014"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    134,
+    265,
+    396,
+    527,
+    658
+  ],
+  "y_pixels": [
+    300,
+    276,
+    252,
+    228,
+    204,
+    180,
+    156,
+    132,
+    108,
+    84,
+    60
+  ],
+  "series_color": {
+    "Less important powerful and role than 10 years ago": "#1f77b4",
+    "More important and powerful role than 10 years ago": "#ff7f0e",
+    "As important and powerful role as 10 years ago": "#2ca02c"
+  }
+}

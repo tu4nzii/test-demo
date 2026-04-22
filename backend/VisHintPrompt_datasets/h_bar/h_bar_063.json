@@ -1,0 +1,57 @@
+{
+  "chart_id": "h_bar_063",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_063.png",
+    "with_grid": "charts/h_bar/h_bar_063_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_063_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of procedures": {
+      "Brazil": 2267405.0,
+      "Mexico": 1043247.0,
+      "Argentina": 608960.0,
+      "Colombia": 408789.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250000.0,
+    500000.0,
+    750000.0,
+    1000000.0,
+    1250000.0,
+    1500000.0,
+    1750000.0,
+    2000000.0,
+    2250000.0,
+    2500000.0
+  ],
+  "y_ticks": [
+    "Brazil",
+    "Mexico",
+    "Argentina",
+    "Colombia"
+  ],
+  "x_pixels": [
+    102,
+    158,
+    215,
+    271,
+    327,
+    384,
+    440,
+    496,
+    552,
+    609,
+    665
+  ],
+  "y_pixels": [
+    379,
+    293,
+    207,
+    121
+  ],
+  "series_color": {
+    "Number of procedures": "#66c2a5"
+  }
+}

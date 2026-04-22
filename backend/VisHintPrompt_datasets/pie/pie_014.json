@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "014",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_014.png"
+  },
+  "data_points": {
+    "Required to provide services": 183.75,
+    "Allowed  to refuse services": 176.25
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Required to provide services": "#fddaec",
+    "Allowed  to refuse services": "#7fc97f"
+  }
+}

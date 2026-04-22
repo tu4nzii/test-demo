@@ -1,0 +1,66 @@
+{
+  "chart_id": "line_179",
+  "image_paths": {
+    "no_grid": "charts/line/line_179.png",
+    "with_grid": "charts/line/line_179_grid.png",
+    "grid_with_grid": "charts/line/line_179_grid_with_grid.png"
+  },
+  "data_points": {
+    "Values": {
+      "Oct.": 9.945,
+      "Nov,": 8355.0,
+      "Dec": 7371.0,
+      "Jan": 6777.0,
+      "Feb,": 4.58,
+      "Mar,": 2070.0,
+      "Apr.": 3316.0
+    }
+  },
+  "x_ticks": [
+    "Oct.",
+    "Nov,",
+    "Dec",
+    "Jan",
+    "Feb,",
+    "Mar,",
+    "Apr."
+  ],
+  "y_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0
+  ],
+  "x_pixels": [
+    179,
+    295,
+    412,
+    528,
+    644,
+    761,
+    877
+  ],
+  "y_pixels": [
+    377,
+    347,
+    316,
+    286,
+    255,
+    225,
+    194,
+    164,
+    133,
+    103,
+    72
+  ],
+  "series_color": {
+    "Values": "#d62728"
+  }
+}

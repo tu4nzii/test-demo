@@ -1,0 +1,66 @@
+{
+  "chart_id": "line_077",
+  "image_paths": {
+    "no_grid": "charts/line/line_077.png",
+    "with_grid": "charts/line/line_077_grid.png",
+    "grid_with_grid": "charts/line/line_077_grid_with_grid.png"
+  },
+  "data_points": {
+    "Republican": {
+      "2006": -62.0,
+      "2009": 35.0,
+      "2012": 48.0
+    },
+    "Independent": {
+      "2006": 79.0,
+      "2009": 56.0,
+      "2012": 65.0
+    },
+    "Democrat": {
+      "2006": 86.0,
+      "2009": 75.0,
+      "2012": 85.0
+    }
+  },
+  "x_ticks": [
+    "2006",
+    "2009",
+    "2012"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    134,
+    396,
+    658
+  ],
+  "y_pixels": [
+    208,
+    193,
+    178,
+    163,
+    148,
+    133,
+    118,
+    103,
+    88,
+    73,
+    58
+  ],
+  "series_color": {
+    "Republican": "#d62728",
+    "Independent": "#9467bd",
+    "Democrat": "#8c564b"
+  }
+}

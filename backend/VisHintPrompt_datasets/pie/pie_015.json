@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "015",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_015.png"
+  },
+  "data_points": {
+    "About the right amount": 4.64,
+    "DK": 0.18,
+    "More than About the fair share right amount": 354.83,
+    "Less than fair share": 0.35
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "About the right amount": "#17becf",
+    "DK": "#386cb0",
+    "More than About the fair share right amount": "#7fc97f",
+    "Less than fair share": "#b3de69"
+  }
+}

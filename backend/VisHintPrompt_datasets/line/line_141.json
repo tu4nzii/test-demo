@@ -1,0 +1,73 @@
+{
+  "chart_id": "line_141",
+  "image_paths": {
+    "no_grid": "charts/line/line_141.png",
+    "with_grid": "charts/line/line_141_grid.png",
+    "grid_with_grid": "charts/line/line_141_grid_with_grid.png"
+  },
+  "data_points": {
+    "Less important role": {
+      "2017": 0.0,
+      "2018": 10.0
+    },
+    "More important role": {
+      "2017": 59.0,
+      "2018": 72.0
+    },
+    "As important as10 years ago": {
+      "2017": 0.0,
+      "2018": 15.0
+    }
+  },
+  "x_ticks": [
+    "2017",
+    "2018"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "x_pixels": [
+    112,
+    548
+  ],
+  "y_pixels": [
+    251,
+    238,
+    226,
+    213,
+    200,
+    187,
+    175,
+    162,
+    149,
+    137,
+    124,
+    111,
+    99,
+    86,
+    73,
+    61,
+    48
+  ],
+  "series_color": {
+    "Less important role": "#1f77b4",
+    "More important role": "#ff7f0e",
+    "As important as10 years ago": "#2ca02c"
+  }
+}

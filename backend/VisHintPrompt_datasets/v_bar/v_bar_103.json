@@ -1,0 +1,67 @@
+{
+  "chart_id": "v_bar_103",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_103.png",
+    "with_grid": "charts/v_bar/v_bar_103_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_103_grid_with_grid.png"
+  },
+  "data_points": {
+    "Corruption Perceptions Index score": {
+      "2020": 51.0,
+      "2019": 53.0,
+      "2018": 47.0,
+      "2016": 49.0,
+      "2015": 50.0,
+      "2014": 52.0
+    }
+  },
+  "x_ticks": [
+    "2020",
+    "2019",
+    "2018",
+    "2016",
+    "2015",
+    "2014"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    166,
+    253,
+    341,
+    429,
+    517,
+    604
+  ],
+  "y_pixels": [
+    400,
+    372,
+    343,
+    315,
+    287,
+    258,
+    230,
+    202,
+    173,
+    145,
+    117,
+    88,
+    60
+  ],
+  "series_color": {
+    "Corruption Perceptions Index score": "#1f77b4"
+  }
+}

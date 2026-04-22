@@ -1,0 +1,92 @@
+{
+  "chart_id": "line_107",
+  "image_paths": {
+    "no_grid": "charts/line/line_107.png",
+    "with_grid": "charts/line/line_107_grid.png",
+    "grid_with_grid": "charts/line/line_107_grid_with_grid.png"
+  },
+  "data_points": {
+    "Following campaign closely news very": {
+      "1994": 18.0,
+      "1998": 21.0,
+      "2002": 0.0,
+      "2006": 0.0,
+      "2010": 30.0
+    },
+    "Given lot of thought the election a to 15": {
+      "1994": 0.0,
+      "1998": 0.0,
+      "2002": 0.0,
+      "2006": 0.0,
+      "2010": 0.0
+    },
+    "Definitely will vote": {
+      "1994": 66.0,
+      "1998": 64.0,
+      "2002": 0.0,
+      "2006": 0.0,
+      "2010": 0.0
+    },
+    "Given a lot of thought to the election": {
+      "1994": 0.0,
+      "1998": 0.0,
+      "2002": 0.0,
+      "2006": 0.0,
+      "2010": 55.0
+    }
+  },
+  "x_ticks": [
+    "1994",
+    "1998",
+    "2002",
+    "2006",
+    "2010"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    112,
+    221,
+    330,
+    439,
+    548
+  ],
+  "y_pixels": [
+    250,
+    236,
+    222,
+    207,
+    193,
+    178,
+    164,
+    149,
+    135,
+    120,
+    106,
+    91,
+    77,
+    62,
+    48
+  ],
+  "series_color": {
+    "Following campaign closely news very": "#e377c2",
+    "Given lot of thought the election a to 15": "#7f7f7f",
+    "Definitely will vote": "#bcbd22",
+    "Given a lot of thought to the election": "#17becf"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "chart_id": "line_027",
+  "image_paths": {
+    "no_grid": "charts/line/line_027.png",
+    "with_grid": "charts/line/line_027_grid.png",
+    "grid_with_grid": "charts/line/line_027_grid_with_grid.png"
+  },
+  "data_points": {
+    "Favorable": {
+      "Dec": 0.0,
+      "110": 0.0,
+      "Jan": 39.0,
+      "112": 0.0,
+      "13": 43.0,
+      "Oct": 0.0,
+      "Mar": 0.0,
+      "115": 0.0
+    },
+    "Unfavorable": {
+      "Dec": 0.0,
+      "110": 0.0,
+      "Jan": 0.0,
+      "112": 32.0,
+      "13": 0.0,
+      "Oct": 0.0,
+      "Mar": 0.0,
+      "115": 0.0
+    }
+  },
+  "x_ticks": [
+    "Dec",
+    "110",
+    "Jan",
+    "112",
+    "Jan",
+    "13",
+    "Oct",
+    "Mar",
+    "115"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    134,
+    200,
+    265,
+    331,
+    396,
+    461,
+    527,
+    592,
+    658
+  ],
+  "y_pixels": [
+    302,
+    277,
+    253,
+    228,
+    204,
+    180,
+    155,
+    131,
+    106,
+    82,
+    58
+  ],
+  "series_color": {
+    "Favorable": "#1f77b4",
+    "Unfavorable": "#ff7f0e"
+  }
+}

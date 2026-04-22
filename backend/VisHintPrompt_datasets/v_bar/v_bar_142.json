@@ -1,0 +1,68 @@
+{
+  "chart_id": "v_bar_142",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_142.png",
+    "with_grid": "charts/v_bar/v_bar_142_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_142_grid_with_grid.png"
+  },
+  "data_points": {
+    "Full-time student": {
+      "Less than 20 hours": 14.9,
+      "20 to 34 hours": 22.9,
+      "35 or more hours": 7.9
+    },
+    "Part-time student": {
+      "Less than 20 hours": 14.0,
+      "20 to 34 hours": 33.0,
+      "35 or more hours": 32.7
+    }
+  },
+  "x_ticks": [
+    "Less than 20 hours",
+    "20 to 34 hours",
+    "35 or more hours"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0,
+    32.5,
+    35.0
+  ],
+  "x_pixels": [
+    232,
+    440,
+    648
+  ],
+  "y_pixels": [
+    480,
+    451,
+    422,
+    393,
+    363,
+    334,
+    305,
+    276,
+    247,
+    218,
+    189,
+    159,
+    130,
+    101,
+    72
+  ],
+  "series_color": {
+    "Full-time student": "#1f77b4",
+    "Part-time student": "#ff7f0e"
+  }
+}

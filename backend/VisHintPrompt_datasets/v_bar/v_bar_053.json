@@ -1,0 +1,62 @@
+{
+  "chart_id": "v_bar_053",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_053.png",
+    "with_grid": "charts/v_bar/v_bar_053_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_053_grid_with_grid.png"
+  },
+  "data_points": {
+    "Shipments in millions": {
+      "2015": 34.25,
+      "2014": 22.59,
+      "2013": 13.45
+    }
+  },
+  "x_ticks": [
+    "2015",
+    "2014",
+    "2013"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0,
+    32.5,
+    35.0
+  ],
+  "x_pixels": [
+    203,
+    385,
+    567
+  ],
+  "y_pixels": [
+    400,
+    376,
+    353,
+    329,
+    305,
+    282,
+    258,
+    235,
+    211,
+    187,
+    164,
+    140,
+    116,
+    93,
+    69
+  ],
+  "series_color": {
+    "Shipments in millions": "#1f77b4"
+  }
+}

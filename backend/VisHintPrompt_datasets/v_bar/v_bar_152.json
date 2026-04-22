@@ -1,0 +1,64 @@
+{
+  "chart_id": "v_bar_152",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_152.png",
+    "with_grid": "charts/v_bar/v_bar_152_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_152_grid_with_grid.png"
+  },
+  "data_points": {
+    "Private sector": {
+      "Yes": 66.0,
+      "No": 29.0
+    },
+    "Public sector": {
+      "Yes": 50.0,
+      "No": 49.0
+    }
+  },
+  "x_ticks": [
+    "Yes",
+    "No"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    244,
+    526
+  ],
+  "y_pixels": [
+    400,
+    376,
+    351,
+    327,
+    303,
+    279,
+    254,
+    230,
+    206,
+    181,
+    157,
+    133,
+    109,
+    84,
+    60
+  ],
+  "series_color": {
+    "Private sector": "#87ceeb",
+    "Public sector": "#4682b4"
+  }
+}

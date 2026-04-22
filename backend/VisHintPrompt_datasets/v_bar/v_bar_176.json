@@ -1,0 +1,70 @@
+{
+  "chart_id": "v_bar_176",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_176.png",
+    "with_grid": "charts/v_bar/v_bar_176_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_176_grid_with_grid.png"
+  },
+  "data_points": {
+    "Smartphone users in millions": {
+      "2024*": 5.19,
+      "2023*": 5.14,
+      "2022*": 5.09,
+      "2021": 5.04,
+      "2020": 4.98,
+      "2019": 4.81,
+      "2018": 4.6
+    }
+  },
+  "x_ticks": [
+    "2024*",
+    "2023*",
+    "2022*",
+    "2021",
+    "2020",
+    "2019",
+    "2018"
+  ],
+  "y_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0
+  ],
+  "x_pixels": [
+    321,
+    471,
+    620,
+    770,
+    920,
+    1069,
+    1219
+  ],
+  "y_pixels": [
+    800,
+    743,
+    687,
+    630,
+    573,
+    517,
+    460,
+    403,
+    347,
+    290,
+    233,
+    177,
+    120
+  ],
+  "series_color": {
+    "Smartphone users in millions": "#87ceeb"
+  }
+}

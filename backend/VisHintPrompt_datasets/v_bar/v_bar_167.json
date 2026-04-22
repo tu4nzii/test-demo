@@ -1,0 +1,76 @@
+{
+  "chart_id": "v_bar_167",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_167.png",
+    "with_grid": "charts/v_bar/v_bar_167_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_167_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of respondents": {
+      "Avon": 30.0,
+      "Oriflame": 21.0,
+      "L'Oreal": 19.0,
+      "Max Factor": 17.0,
+      "Maybelline": 15.0,
+      "Bourjois": 12.0,
+      "Faberlic": 11.0,
+      "Mary Kay": 10.0,
+      "Lumene": 9.0
+    }
+  },
+  "x_ticks": [
+    "Avon",
+    "Oriflame",
+    "L'Oreal",
+    "Max Factor",
+    "Maybelline",
+    "Bourjois",
+    "Faberlic",
+    "Mary Kay",
+    "Lumene"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0
+  ],
+  "x_pixels": [
+    307,
+    423,
+    539,
+    654,
+    770,
+    886,
+    1001,
+    1117,
+    1233
+  ],
+  "y_pixels": [
+    800,
+    746,
+    692,
+    638,
+    584,
+    530,
+    476,
+    422,
+    368,
+    314,
+    260,
+    206,
+    152
+  ],
+  "series_color": {
+    "Share of respondents": "#87ceeb"
+  }
+}

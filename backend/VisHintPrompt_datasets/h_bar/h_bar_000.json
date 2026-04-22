@@ -1,0 +1,48 @@
+{
+  "chart_id": "h_bar_000",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_000.png",
+    "with_grid": "charts/h_bar/h_bar_000_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_000_grid_with_grid.png"
+  },
+  "data_points": {
+    "Change in child deaths from pneumonia by risk factor, Dominica, 2000": {
+      "Child wasting": 1.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "y_ticks": [
+    "Child wasting"
+  ],
+  "x_pixels": [
+    192,
+    300,
+    409,
+    517,
+    626,
+    734,
+    842,
+    951,
+    1059,
+    1167,
+    1276
+  ],
+  "y_pixels": [
+    500
+  ],
+  "series_color": {
+    "Change in child deaths from pneumonia by risk factor, Dominica, 2000": "#87ceeb"
+  }
+}

@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "005",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_005.png"
+  },
+  "data_points": {
+    "Audience": 32.12,
+    "Advertising": 92.34,
+    "Philanthropy VC& Capital  Advertising": 226.17,
+    "Other": 9.37
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Audience": "#9edae5",
+    "Advertising": "#e377c2",
+    "Philanthropy VC& Capital  Advertising": "#e6ab02",
+    "Other": "#beaed4"
+  }
+}

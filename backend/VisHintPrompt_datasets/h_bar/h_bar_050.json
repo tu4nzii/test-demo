@@ -1,0 +1,88 @@
+{
+  "chart_id": "h_bar_050",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_050.png",
+    "with_grid": "charts/h_bar/h_bar_050_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_050_grid_with_grid.png"
+  },
+  "data_points": {
+    "2019**": {
+      "New England": 52478.0,
+      "Mid-Atlantic": 153394.0,
+      "East North Central": 120653.0,
+      "West North Central": 123281.0,
+      "South Atlantic": 253001.0,
+      "East South Central": 49893.0,
+      "West South Central": 202757.0,
+      "Mountain": 112075.0,
+      "Pacific": 239394.0
+    },
+    "2020***": {
+      "New England": 52664.0,
+      "Mid-Atlantic": 153348.0,
+      "East North Central": 120774.0,
+      "West North Central": 121844.0,
+      "South Atlantic": 257735.0,
+      "East South Central": 50405.0,
+      "West South Central": 211344.0,
+      "Mountain": 113397.0,
+      "Pacific": 243998.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25000.0,
+    50000.0,
+    75000.0,
+    100000.0,
+    125000.0,
+    150000.0,
+    175000.0,
+    200000.0,
+    225000.0,
+    250000.0,
+    275000.0,
+    300000.0
+  ],
+  "y_ticks": [
+    "New England",
+    "Mid-Atlantic",
+    "East North Central",
+    "West North Central",
+    "South Atlantic",
+    "East South Central",
+    "West South Central",
+    "Mountain",
+    "Pacific"
+  ],
+  "x_pixels": [
+    129,
+    173,
+    218,
+    263,
+    307,
+    352,
+    397,
+    442,
+    486,
+    531,
+    576,
+    620,
+    665
+  ],
+  "y_pixels": [
+    349,
+    317,
+    286,
+    254,
+    222,
+    191,
+    159,
+    128,
+    96
+  ],
+  "series_color": {
+    "2019**": "#87ceeb",
+    "2020***": "#4682b4"
+  }
+}

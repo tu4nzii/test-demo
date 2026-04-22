@@ -1,0 +1,87 @@
+{
+  "chart_id": "h_bar_125",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_125.png",
+    "with_grid": "charts/h_bar/h_bar_125_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_125_grid_with_grid.png"
+  },
+  "data_points": {
+    "Points in millions": {
+      "Dustin Johnson": 7.14,
+      "Justin Thomas": 4.34,
+      "Harris English": 4.01,
+      "Jon Rahm": 3.78,
+      "Bryson DeChambeau": 3.2,
+      "Xander Schauffele": 2.78,
+      "Jason Kokrak": 2.72,
+      "Collin Morikawa": 2.64,
+      "Matthew Wolff": 2.63,
+      "Patrick Cantlay": 2.29
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0
+  ],
+  "y_ticks": [
+    "Dustin Johnson",
+    "Justin Thomas",
+    "Harris English",
+    "Jon Rahm",
+    "Bryson DeChambeau",
+    "Xander Schauffele",
+    "Jason Kokrak",
+    "Collin Morikawa",
+    "Matthew Wolff",
+    "Patrick Cantlay"
+  ],
+  "x_pixels": [
+    342,
+    415,
+    489,
+    563,
+    636,
+    710,
+    784,
+    857,
+    931,
+    1004,
+    1078,
+    1152,
+    1225,
+    1299,
+    1373,
+    1446,
+    1520
+  ],
+  "y_pixels": [
+    961,
+    881,
+    800,
+    720,
+    640,
+    560,
+    480,
+    400,
+    319,
+    239
+  ],
+  "series_color": {
+    "Points in millions": "#66c2a5"
+  }
+}

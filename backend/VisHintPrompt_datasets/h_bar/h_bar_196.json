@@ -1,0 +1,57 @@
+{
+  "chart_id": "h_bar_196",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_196.png",
+    "with_grid": "charts/h_bar/h_bar_196_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_196_grid_with_grid.png"
+  },
+  "data_points": {
+    "Net sales in million U.S. dollars": {
+      "North America": 2483.9,
+      "Western Europe": 945.9,
+      "Asia-Pacific": 628.6,
+      "Rest of World*": 294.7
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0,
+    2250.0,
+    2500.0
+  ],
+  "y_ticks": [
+    "North America",
+    "Western Europe",
+    "Asia-Pacific",
+    "Rest of World*"
+  ],
+  "x_pixels": [
+    225,
+    349,
+    473,
+    597,
+    721,
+    846,
+    970,
+    1094,
+    1218,
+    1342,
+    1466
+  ],
+  "y_pixels": [
+    910,
+    703,
+    497,
+    290
+  ],
+  "series_color": {
+    "Net sales in million U.S. dollars": "#1f77b4"
+  }
+}

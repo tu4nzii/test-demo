@@ -1,0 +1,64 @@
+{
+  "chart_id": "v_bar_173",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_173.png",
+    "with_grid": "charts/v_bar/v_bar_173_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_173_grid_with_grid.png"
+  },
+  "data_points": {
+    "Percentage of FDI projects": {
+      "Europe": 54.3,
+      "U.S.": 27.5,
+      "Japan": 4.6,
+      "BIC*": 5.6,
+      "Others": 8.0
+    }
+  },
+  "x_ticks": [
+    "Europe",
+    "U.S.",
+    "Japan",
+    "BIC*",
+    "Others"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    198,
+    319,
+    440,
+    561,
+    682
+  ],
+  "y_pixels": [
+    480,
+    446,
+    412,
+    378,
+    344,
+    310,
+    276,
+    242,
+    208,
+    174,
+    140,
+    106,
+    72
+  ],
+  "series_color": {
+    "Percentage of FDI projects": "#87ceeb"
+  }
+}

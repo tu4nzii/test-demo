@@ -1,0 +1,59 @@
+{
+  "chart_id": "v_bar_036",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_036.png",
+    "with_grid": "charts/v_bar/v_bar_036_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_036_grid_with_grid.png"
+  },
+  "data_points": {
+    "Increase in members": {
+      "Male": 23.2,
+      "Female": 32.2
+    }
+  },
+  "x_ticks": [
+    "Male",
+    "Female"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0,
+    32.5,
+    35.0
+  ],
+  "x_pixels": [
+    244,
+    526
+  ],
+  "y_pixels": [
+    400,
+    376,
+    351,
+    327,
+    303,
+    279,
+    254,
+    230,
+    206,
+    181,
+    157,
+    133,
+    109,
+    84,
+    60
+  ],
+  "series_color": {
+    "Increase in members": "#66c2a5"
+  }
+}

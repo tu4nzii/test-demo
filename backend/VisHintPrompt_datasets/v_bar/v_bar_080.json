@@ -1,0 +1,69 @@
+{
+  "chart_id": "v_bar_080",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_080.png",
+    "with_grid": "charts/v_bar/v_bar_080_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_080_grid_with_grid.png"
+  },
+  "data_points": {
+    "Million U.S. dollars": {
+      "Other outlets (excluding Walmart)": 343.9,
+      "Food outlets": 559.2,
+      "Drug outlets": 604.7,
+      "Total": 1507.8
+    }
+  },
+  "x_ticks": [
+    "Other outlets (excluding Walmart)",
+    "Food outlets",
+    "Drug outlets",
+    "Total"
+  ],
+  "y_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0,
+    1100.0,
+    1200.0,
+    1300.0,
+    1400.0,
+    1500.0,
+    1600.0
+  ],
+  "x_pixels": [
+    368,
+    636,
+    904,
+    1172
+  ],
+  "y_pixels": [
+    800,
+    758,
+    715,
+    672,
+    630,
+    588,
+    545,
+    502,
+    460,
+    418,
+    375,
+    332,
+    290,
+    248,
+    205,
+    162,
+    120
+  ],
+  "series_color": {
+    "Million U.S. dollars": "#87ceeb"
+  }
+}

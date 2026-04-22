@@ -1,0 +1,76 @@
+{
+  "chart_id": "line_081",
+  "image_paths": {
+    "no_grid": "charts/line/line_081.png",
+    "with_grid": "charts/line/line_081_grid.png",
+    "grid_with_grid": "charts/line/line_081_grid_with_grid.png"
+  },
+  "data_points": {
+    "Obama supporters": {
+      "Apr": 59.0,
+      "May": 0.0,
+      "Jun": 0.0,
+      "Jul": 62.0
+    },
+    "Romney supporters": {
+      "Apr": 72.0,
+      "May": 0.0,
+      "Jun": 70.0,
+      "Jul": 70.0
+    }
+  },
+  "x_ticks": [
+    "Apr",
+    "May",
+    "Jun",
+    "Jul"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "x_pixels": [
+    134,
+    309,
+    483,
+    658
+  ],
+  "y_pixels": [
+    301,
+    286,
+    271,
+    255,
+    240,
+    225,
+    210,
+    195,
+    179,
+    164,
+    149,
+    134,
+    118,
+    103,
+    88,
+    73,
+    58
+  ],
+  "series_color": {
+    "Obama supporters": "#d62728",
+    "Romney supporters": "#9467bd"
+  }
+}

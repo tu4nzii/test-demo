@@ -1,0 +1,74 @@
+{
+  "chart_id": "line_083",
+  "image_paths": {
+    "no_grid": "charts/line/line_083.png",
+    "with_grid": "charts/line/line_083_grid.png",
+    "grid_with_grid": "charts/line/line_083_grid_with_grid.png"
+  },
+  "data_points": {
+    "Protect the right of Americans to own guns": {
+      "19.0": 34.0,
+      "20.0": 0.0,
+      "7.0": 32.0,
+      "9.0": 45.0,
+      "nan": 49.0
+    },
+    "Control gun ownership": {
+      "19.0": 0.0,
+      "20.0": 0.0,
+      "7.0": 60.0,
+      "9.0": 49.0,
+      "nan": 45.0
+    }
+  },
+  "x_ticks": [
+    "19.0",
+    "20.0",
+    "20.0",
+    "7.0",
+    "9.0",
+    "nan"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    224,
+    398,
+    573,
+    747,
+    922,
+    1096
+  ],
+  "y_pixels": [
+    451,
+    422,
+    393,
+    364,
+    335,
+    306,
+    277,
+    248,
+    219,
+    190,
+    162,
+    133,
+    104
+  ],
+  "series_color": {
+    "Protect the right of Americans to own guns": "#d62728",
+    "Control gun ownership": "#9467bd"
+  }
+}

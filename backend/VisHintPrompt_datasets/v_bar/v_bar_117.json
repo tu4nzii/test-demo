@@ -1,0 +1,60 @@
+{
+  "chart_id": "v_bar_117",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_117.png",
+    "with_grid": "charts/v_bar/v_bar_117_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_117_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of hiring": {
+      "2017": 25.0,
+      "2014": 20.0,
+      "2013": 16.0,
+      "2011": 22.0,
+      "2010": 17.0
+    }
+  },
+  "x_ticks": [
+    "2017",
+    "2014",
+    "2013",
+    "2011",
+    "2010"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0
+  ],
+  "x_pixels": [
+    173,
+    279,
+    385,
+    491,
+    597
+  ],
+  "y_pixels": [
+    400,
+    368,
+    335,
+    303,
+    270,
+    238,
+    206,
+    173,
+    141,
+    109,
+    76
+  ],
+  "series_color": {
+    "Share of hiring": "#66c2a5"
+  }
+}

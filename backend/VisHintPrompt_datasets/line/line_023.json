@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_023",
+  "image_paths": {
+    "no_grid": "charts/line/line_023.png",
+    "with_grid": "charts/line/line_023_grid.png",
+    "grid_with_grid": "charts/line/line_023_grid_with_grid.png"
+  },
+  "data_points": {
+    "Leave EU": {
+      "2013": 46.0,
+      "2014": 0.0,
+      "2015": 36.0
+    },
+    "Remain in ELU": {
+      "2013": 0.0,
+      "2014": 50.0,
+      "2015": 55.0
+    }
+  },
+  "x_ticks": [
+    "2013",
+    "2014",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    186,
+    550,
+    914
+  ],
+  "y_pixels": [
+    376,
+    351,
+    325,
+    300,
+    275,
+    249,
+    224,
+    199,
+    173,
+    148,
+    123,
+    97,
+    72
+  ],
+  "series_color": {
+    "Leave EU": "#1f77b4",
+    "Remain in ELU": "#ff7f0e"
+  }
+}

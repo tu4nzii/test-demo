@@ -1,0 +1,62 @@
+{
+  "chart_id": "line_197",
+  "image_paths": {
+    "no_grid": "charts/line/line_197.png",
+    "with_grid": "charts/line/line_197_grid.png",
+    "grid_with_grid": "charts/line/line_197_grid_with_grid.png"
+  },
+  "data_points": {
+    "Definitely": {
+      "Nov '12": 0.0,
+      "Apr '15": 0.0,
+      "Apr '16": 0.0
+    },
+    "Maybe": {
+      "Nov '12": 36.0,
+      "Apr '15": 0.0,
+      "Apr '16": 40.0
+    },
+    "Definitely not": {
+      "Nov '12": 0.0,
+      "Apr '15": 0.0,
+      "Apr '16": 0.0
+    }
+  },
+  "x_ticks": [
+    "Nov '12",
+    "Apr '15",
+    "Apr '16"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0
+  ],
+  "x_pixels": [
+    134,
+    396,
+    658
+  ],
+  "y_pixels": [
+    300,
+    272,
+    243,
+    214,
+    185,
+    156,
+    127,
+    98,
+    69
+  ],
+  "series_color": {
+    "Definitely": "#d62728",
+    "Maybe": "#9467bd",
+    "Definitely not": "#8c564b"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "chart_id": "v_bar_178",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_178.png",
+    "with_grid": "charts/v_bar/v_bar_178_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_178_grid_with_grid.png"
+  },
+  "data_points": {
+    "Capital investment in trillion South Korean won": {
+      "2028**": 20.24,
+      "2018*": 13.15,
+      "2017": 12.47,
+      "2016": 11.31,
+      "2015": 10.33,
+      "2014": 9.68,
+      "2013": 9.54,
+      "2012": 8.95
+    }
+  },
+  "x_ticks": [
+    "2028**",
+    "2018*",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0
+  ],
+  "x_pixels": [
+    179,
+    254,
+    328,
+    403,
+    477,
+    552,
+    626,
+    701
+  ],
+  "y_pixels": [
+    480,
+    439,
+    398,
+    358,
+    317,
+    276,
+    235,
+    194,
+    154,
+    113,
+    72
+  ],
+  "series_color": {
+    "Capital investment in trillion South Korean won": "#1f77b4"
+  }
+}

@@ -17,7 +17,7 @@ class ChartTypeDetector:
         配置API参数和支持的图表类型列表
         """
         # 配置参数 - 复用项目中的大模型API配置
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
+        self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
         self.url = "https://api.vveai.com/v1/chat/completions"
         self.headers = {
             "Content-Type": "application/json",
@@ -25,7 +25,7 @@ class ChartTypeDetector:
         }
         
         # 支持的图表类型列表
-        self.supported_types = ["rose", "radar"]
+        self.supported_types = ["bubble", "donut", "h_bar", "line", "pie", "radar", "rose", "scatter", "v_bar"]
     
     def extract_json_response(self, content: str):
         """从LLM响应中提取JSON内容
@@ -43,7 +43,7 @@ class ChartTypeDetector:
             json_str = match.group(1)
             return json.loads(json_str)
         except Exception as e:
-            print(f"❌ JSON解析失败: {e}")
+            print(f"[错误] JSON解析失败: {e}")
             return None
     
     def image_to_base64(self, image_path):
@@ -92,11 +92,18 @@ class ChartTypeDetector:
             # 构建提示和请求体
             prompt = f"""
             请你分析这个图表图像，并判断它属于哪种图表类型。
-            
+
             可能的图表类型包括：
-            - rose: 玫瑰图，通常有多个扇区从中心向外延伸，类似于饼图但角度均匀分布
+            - bubble: 气泡图，数据点以气泡形式展示，气泡大小表示第三个变量
+            - donut: 环形图，类似于饼图但中心有空洞，形成环形
+            - h_bar: 水平条形图，条形水平排列，通常用于比较类别数据
+            - line: 折线图，数据点通过直线连接，显示趋势变化
+            - pie: 饼图，圆形被分割成多个扇区，表示各部分占比
             - radar: 雷达图，有多个坐标轴从中心向外辐射，形成多边形
-            
+            - rose: 玫瑰图（南丁格尔玫瑰图），多个扇区从中心向外延伸，类似于饼图但角度均匀分布
+            - scatter: 散点图，数据点随机分布，用于显示两个变量之间的关系
+            - v_bar: 垂直条形图，条形垂直排列，通常用于比较类别数据
+
             请严格按照以下JSON格式返回结果：
             ```json
             {{
@@ -104,9 +111,9 @@ class ChartTypeDetector:
                 "confidence": <confidence_score>
             }}
             ```
-            
+
             其中：
-            - <chart_type> 必须是 "rose" 或 "radar" 中的一个
+            - <chart_type> 必须是 "bubble"、"donut"、"h_bar"、"line"、"pie"、"radar"、"rose"、"scatter" 或 "v_bar" 中的一个
             - <confidence_score> 是一个0到1之间的浮点数，表示你对判断结果的置信度
             """
             
@@ -157,17 +164,17 @@ class ChartTypeDetector:
             if not isinstance(confidence, (int, float)) or confidence < 0 or confidence > 1:
                 raise ValueError(f"无效的置信度值: {confidence}")
             
-            print(f"✅ 图表类型检测成功: {chart_type}, 置信度: {confidence}")
+            print(f"[成功] 图表类型检测成功: {chart_type}, 置信度: {confidence}")
             return {
                 "type": chart_type,
                 "confidence": float(confidence)
             }
             
         except Exception as e:
-            print(f"❌ 图表类型检测失败: {e}")
+            print(f"[错误] 图表类型检测失败: {e}")
             # 返回默认值，以便系统可以继续工作
             return {
-                "type": "rose",  # 默认类型为玫瑰图
+                "type": "v_bar",  # 默认类型为垂直条形图
                 "confidence": 0.5,
                 "error": str(e)
             }

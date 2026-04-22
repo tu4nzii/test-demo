@@ -1,0 +1,82 @@
+{
+  "chart_id": "line_149",
+  "image_paths": {
+    "no_grid": "charts/line/line_149.png",
+    "with_grid": "charts/line/line_149_grid.png",
+    "grid_with_grid": "charts/line/line_149_grid_with_grid.png"
+  },
+  "data_points": {
+    "Favorable view of China": {
+      "2014": 31.0,
+      "2015": 0.0,
+      "2016": 31.0,
+      "2017": 26.0
+    },
+    "Favorable view of U.S.": {
+      "2014": 0.0,
+      "2015": 0.0,
+      "2016": 56.0,
+      "2017": 0.0
+    },
+    "Confidence in the U.S. president": {
+      "2014": 0.0,
+      "2015": 0.0,
+      "2016": 5856.0,
+      "2017": 40.0
+    },
+    "Confidence in Xi Jinping": {
+      "2014": 0.0,
+      "2015": 29.0,
+      "2016": 15.0,
+      "2017": 0.0
+    }
+  },
+  "x_ticks": [
+    "2014",
+    "2015",
+    "2016",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0
+  ],
+  "x_pixels": [
+    179,
+    412,
+    644,
+    877
+  ],
+  "y_pixels": [
+    376,
+    351,
+    326,
+    301,
+    277,
+    252,
+    227,
+    203,
+    178,
+    153,
+    129,
+    104,
+    79
+  ],
+  "series_color": {
+    "Favorable view of China": "#e377c2",
+    "Favorable view of U.S.": "#7f7f7f",
+    "Confidence in the U.S. president": "#bcbd22",
+    "Confidence in Xi Jinping": "#17becf"
+  }
+}

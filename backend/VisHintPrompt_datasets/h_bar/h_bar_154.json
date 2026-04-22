@@ -1,0 +1,59 @@
+{
+  "chart_id": "h_bar_154",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_154.png",
+    "with_grid": "charts/h_bar/h_bar_154_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_154_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average price in U.S. dollars": {
+      "United States*": 194.0,
+      "Canada": 110.0,
+      "Switzerland": 76.0,
+      "Spain": 71.0,
+      "Netherlands": 52.0,
+      "England": 46.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0
+  ],
+  "y_ticks": [
+    "United States*",
+    "Canada",
+    "Switzerland",
+    "Spain",
+    "Netherlands",
+    "England"
+  ],
+  "x_pixels": [
+    290,
+    441,
+    592,
+    743,
+    894,
+    1045,
+    1196,
+    1347,
+    1498
+  ],
+  "y_pixels": [
+    939,
+    803,
+    668,
+    532,
+    397,
+    261
+  ],
+  "series_color": {
+    "Average price in U.S. dollars": "#1f77b4"
+  }
+}

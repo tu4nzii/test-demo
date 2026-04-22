@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "007",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_007.png"
+  },
+  "data_points": {
+    "Kept at present levels": 140.4,
+    "DK": 21.6,
+    "Increased": 86.4,
+    "Decreased": 111.6
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Kept at present levels": "#bebada",
+    "DK": "#ffffb3",
+    "Increased": "#386cb0",
+    "Decreased": "#fccde5"
+  }
+}

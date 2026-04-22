@@ -1,0 +1,96 @@
+{
+  "chart_id": "h_bar_029",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_029.png",
+    "with_grid": "charts/h_bar/h_bar_029_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_029_grid_with_grid.png"
+  },
+  "data_points": {
+    "A great deal": {
+      "Lean Rep": 33.0,
+      "Rep": 57.0,
+      "Re p/Lean Rep": 49.0,
+      "Total": 23.0
+    },
+    "a fair amount": {
+      "Lean Rep": 40.0,
+      "Rep": 31.0,
+      "Re p/Lean Rep": 34.0,
+      "Total": 22.0
+    },
+    "Not too much": {
+      "Lean Rep": 18.0,
+      "Rep": 6.0,
+      "Re p/Lean Rep": 10.0,
+      "Total": 18.0
+    },
+    "Not too much.1": {
+      "Lean Rep": 8.0,
+      "Rep": 5.0,
+      "Re p/Lean Rep": 6.0,
+      "Total": 35.0
+    },
+    "Not at all": {
+      "Lean Rep": 0.0,
+      "Rep": 0.0,
+      "Re p/Lean Rep": 0.0,
+      "Total": 0.0
+    },
+    "Not at all.1": {
+      "Lean Rep": 0.0,
+      "Rep": 0.0,
+      "Re p/Lean Rep": 0.0,
+      "Total": 0.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "Lean Rep",
+    "Rep",
+    "Re p/Lean Rep",
+    "Total"
+  ],
+  "x_pixels": [
+    287,
+    390,
+    493,
+    596,
+    698,
+    801,
+    904,
+    1006,
+    1109,
+    1212,
+    1315,
+    1417,
+    1520
+  ],
+  "y_pixels": [
+    802,
+    635,
+    469,
+    302
+  ],
+  "series_color": {
+    "A great deal": "#66c2a5",
+    "a fair amount": "#fc8d62",
+    "Not too much": "#8da0cb",
+    "Not too much.1": "#e78ac3",
+    "Not at all": "#66c2a5",
+    "Not at all.1": "#fc8d62"
+  }
+}

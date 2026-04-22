@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_135",
+  "image_paths": {
+    "no_grid": "charts/line/line_135.png",
+    "with_grid": "charts/line/line_135_grid.png",
+    "grid_with_grid": "charts/line/line_135_grid_with_grid.png"
+  },
+  "data_points": {
+    "NET Excellent/ good": {
+      "Feb 2014": 54.0,
+      "June 2015": 55.0,
+      "Jan 2018": 45.0,
+      "Sept. 2018": 331.0
+    },
+    "NET Only fair/ poor": {
+      "Feb 2014": 39.0,
+      "June 2015": 0.0,
+      "Jan 2018": 46.0,
+      "Sept. 2018": 62.0
+    }
+  },
+  "x_ticks": [
+    "Feb 2014",
+    "June 2015",
+    "Jan 2018",
+    "Sept. 2018"
+  ],
+  "y_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0,
+    275.0,
+    300.0,
+    325.0,
+    350.0
+  ],
+  "x_pixels": [
+    112,
+    257,
+    403,
+    548
+  ],
+  "y_pixels": [
+    250,
+    236,
+    222,
+    207,
+    193,
+    178,
+    164,
+    149,
+    135,
+    120,
+    106,
+    91,
+    77,
+    62,
+    48
+  ],
+  "series_color": {
+    "NET Excellent/ good": "#d62728",
+    "NET Only fair/ poor": "#9467bd"
+  }
+}

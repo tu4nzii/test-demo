@@ -1,0 +1,56 @@
+{
+  "chart_id": "donut_025",
+  "image_paths": {
+    "no_grid": "charts/donut/donut_025.png",
+    "with_grid": "charts/donut/donut_025_grid.png"
+  },
+  "data_points": {
+    "A": 0.09,
+    "B": 0.2,
+    "C": 0.03,
+    "D": 0.29,
+    "E": 0.13,
+    "F": 0.25
+  },
+  "data_points1": {
+    "A": 32,
+    "B": 73,
+    "C": 12,
+    "D": 104,
+    "E": 48,
+    "F": 91
+  },
+  "center": [
+    256,
+    202
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    70,
+    140
+  ],
+  "theta_ticks": [
+    "0.0°",
+    "60.0°",
+    "120.0°",
+    "180.0°",
+    "240.0°",
+    "300.0°"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "series_color": {
+    "A": "#ff0000",
+    "B": "#4b0082",
+    "C": "#ff00ff",
+    "D": "#8b00ff",
+    "E": "#0000ff",
+    "F": "#b22222"
+  }
+}

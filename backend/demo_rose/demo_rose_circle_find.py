@@ -11,7 +11,7 @@ import re
 class RoseChartEncoder:
     def __init__(self):
         # 配置参数
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
+        self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
         self.url = "https://api.vveai.com/v1/chat/completions"
         self.headers = {
             "Content-Type": "application/json",

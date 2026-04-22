@@ -1,0 +1,85 @@
+{
+  "chart_id": "line_272",
+  "image_paths": {
+    "no_grid": "charts/line/line_272.png",
+    "with_grid": "charts/line/line_272_grid.png",
+    "grid_with_grid": "charts/line/line_272_grid_with_grid.png"
+  },
+  "data_points": {
+    "Rural": {
+      "January": 108.4,
+      "February": 108.3,
+      "March": 108.3,
+      "April": 108.4,
+      "May": 109.3,
+      "June": 110.6
+    },
+    "Urban": {
+      "January": 110.4,
+      "February": 110.4,
+      "March": 110.4,
+      "April": 110.4,
+      "May": 111.2,
+      "June": 111.8
+    },
+    "All India": {
+      "January": 109.1,
+      "February": 109.0,
+      "March": 109.0,
+      "April": 109.1,
+      "May": 109.9,
+      "June": 111.0
+    }
+  },
+  "x_ticks": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0
+  ],
+  "x_pixels": [
+    224,
+    398,
+    573,
+    747,
+    922,
+    1096
+  ],
+  "y_pixels": [
+    468,
+    436,
+    404,
+    373,
+    341,
+    309,
+    277,
+    245,
+    214,
+    182,
+    150,
+    118,
+    86
+  ],
+  "series_color": {
+    "Rural": "#e377c2",
+    "Urban": "#7f7f7f",
+    "All India": "#bcbd22"
+  }
+}

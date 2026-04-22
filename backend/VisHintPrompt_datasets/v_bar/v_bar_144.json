@@ -1,0 +1,64 @@
+{
+  "chart_id": "v_bar_144",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_144.png",
+    "with_grid": "charts/v_bar/v_bar_144_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_144_grid_with_grid.png"
+  },
+  "data_points": {
+    "Inhabitants in millions": {
+      "2026*": 2.76,
+      "2025*": 2.75,
+      "2022*": 2.74,
+      "2019": 2.73,
+      "2016": 2.72
+    }
+  },
+  "x_ticks": [
+    "2026*",
+    "2025*",
+    "2022*",
+    "2019",
+    "2016"
+  ],
+  "y_ticks": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0
+  ],
+  "x_pixels": [
+    395,
+    638,
+    880,
+    1122,
+    1365
+  ],
+  "y_pixels": [
+    960,
+    892,
+    824,
+    756,
+    688,
+    620,
+    552,
+    484,
+    416,
+    348,
+    280,
+    212,
+    144
+  ],
+  "series_color": {
+    "Inhabitants in millions": "#1f77b4"
+  }
+}

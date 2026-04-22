@@ -1,0 +1,64 @@
+{
+  "chart_id": "v_bar_052",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_052.png",
+    "with_grid": "charts/v_bar/v_bar_052_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_052_grid_with_grid.png"
+  },
+  "data_points": {
+    "Cumulative capacity growth rate": {
+      "2022": 8.8,
+      "2021": 9.6,
+      "2019": 9.7,
+      "2018": 9.8,
+      "2017": 10.6
+    }
+  },
+  "x_ticks": [
+    "2022",
+    "2021",
+    "2019",
+    "2018",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0
+  ],
+  "x_pixels": [
+    346,
+    558,
+    770,
+    982,
+    1194
+  ],
+  "y_pixels": [
+    800,
+    743,
+    687,
+    630,
+    573,
+    517,
+    460,
+    403,
+    347,
+    290,
+    233,
+    177,
+    120
+  ],
+  "series_color": {
+    "Cumulative capacity growth rate": "#1f77b4"
+  }
+}

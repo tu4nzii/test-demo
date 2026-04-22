@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "033",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_033.png"
+  },
+  "data_points": {
+    "Depends": 0.39,
+    "No, would not": 356.07,
+    "Yes, would": 3.54
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Depends": "#ccebc5",
+    "No, would not": "#1f77b4",
+    "Yes, would": "#e6ab02"
+  }
+}

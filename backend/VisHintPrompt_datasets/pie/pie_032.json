@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "032",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_032.png"
+  },
+  "data_points": {
+    "No answer": 14.4,
+    "Don't understand people like them": 212.4,
+    "Understand people like them": 133.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "No answer": "#c5b0d5",
+    "Don't understand people like them": "#7fc97f",
+    "Understand people like them": "#fb8072"
+  }
+}

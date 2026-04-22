@@ -1,0 +1,80 @@
+{
+  "chart_id": "line_109",
+  "image_paths": {
+    "no_grid": "charts/line/line_109.png",
+    "with_grid": "charts/line/line_109_grid.png",
+    "grid_with_grid": "charts/line/line_109_grid_with_grid.png"
+  },
+  "data_points": {
+    "REPUBLICAN LEADERS": {
+      "Jan": 0.0,
+      "Apr": 0.0,
+      "Jul": 33.0,
+      "Oct": 0.0,
+      "t10": 0.0
+    },
+    "DEMOCRATICLEADERS": {
+      "Jan": 25.0,
+      "Apr": 38.0,
+      "Jul": 35.0,
+      "Oct": 24.0,
+      "t10": 0.0
+    }
+  },
+  "x_ticks": [
+    "Jan",
+    "Apr",
+    "Jul",
+    "Oct",
+    "Jan",
+    "Apr",
+    "Jul",
+    "Oct",
+    "t10"
+  ],
+  "y_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0,
+    550.0,
+    600.0
+  ],
+  "x_pixels": [
+    179,
+    266,
+    353,
+    441,
+    528,
+    615,
+    703,
+    790,
+    877
+  ],
+  "y_pixels": [
+    377,
+    352,
+    326,
+    301,
+    275,
+    250,
+    225,
+    199,
+    174,
+    148,
+    123,
+    97,
+    72
+  ],
+  "series_color": {
+    "REPUBLICAN LEADERS": "#d62728",
+    "DEMOCRATICLEADERS": "#9467bd"
+  }
+}

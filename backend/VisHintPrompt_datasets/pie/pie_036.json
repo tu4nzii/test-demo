@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "036",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_036.png"
+  },
+  "data_points": {
+    "Favor": 346.5,
+    "DK/Ref": 13.5
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Favor": "#ffff99",
+    "DK/Ref": "#decbe4"
+  }
+}

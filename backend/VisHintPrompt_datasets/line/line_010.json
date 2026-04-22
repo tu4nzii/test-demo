@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_010",
+  "image_paths": {
+    "no_grid": "charts/line/line_010.png",
+    "with_grid": "charts/line/line_010_grid.png",
+    "grid_with_grid": "charts/line/line_010_grid_with_grid.png"
+  },
+  "data_points": {
+    "Approve": {
+      "Aug 2014": 54.0,
+      "Jul 2015": 6326.0
+    },
+    "Disapprove": {
+      "Aug 2014": 31.0,
+      "Jul 2015": 26.0
+    }
+  },
+  "x_ticks": [
+    "Aug 2014",
+    "Jul 2015"
+  ],
+  "y_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0,
+    6500.0,
+    7000.0
+  ],
+  "x_pixels": [
+    186,
+    914
+  ],
+  "y_pixels": [
+    377,
+    356,
+    334,
+    312,
+    290,
+    268,
+    247,
+    225,
+    203,
+    181,
+    159,
+    137,
+    116,
+    94,
+    72
+  ],
+  "series_color": {
+    "Approve": "#1f77b4",
+    "Disapprove": "#ff7f0e"
+  }
+}

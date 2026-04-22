@@ -1,0 +1,70 @@
+{
+  "chart_id": "line_036",
+  "image_paths": {
+    "no_grid": "charts/line/line_036.png",
+    "with_grid": "charts/line/line_036_grid.png",
+    "grid_with_grid": "charts/line/line_036_grid_with_grid.png"
+  },
+  "data_points": {
+    "Doesn't matter what kind of gov't we have": {
+      "2012": 0.0,
+      "2013": 0.0,
+      "2014": 24.0
+    },
+    "Democracy is preferable to other kindsof": {
+      "2012": 0.0,
+      "2013": 0.0,
+      "2014": 0.0
+    },
+    "Sometimes non-democratic gov't can be": {
+      "2012": 20.0,
+      "2013": 0.0,
+      "2014": 26.0
+    }
+  },
+  "x_ticks": [
+    "2012",
+    "2013",
+    "2014"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0
+  ],
+  "x_pixels": [
+    149,
+    440,
+    731
+  ],
+  "y_pixels": [
+    314,
+    293,
+    272,
+    250,
+    229,
+    208,
+    187,
+    166,
+    145,
+    123,
+    102,
+    81,
+    60
+  ],
+  "series_color": {
+    "Doesn't matter what kind of gov't we have": "#d62728",
+    "Democracy is preferable to other kindsof": "#9467bd",
+    "Sometimes non-democratic gov't can be": "#8c564b"
+  }
+}

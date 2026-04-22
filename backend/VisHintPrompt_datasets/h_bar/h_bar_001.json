@@ -1,0 +1,58 @@
+{
+  "chart_id": "h_bar_001",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_001.png",
+    "with_grid": "charts/h_bar/h_bar_001_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_001_grid_with_grid.png"
+  },
+  "data_points": {
+    "Cocoa bean yields, 1961": {
+      "Vanuatu": 0.51,
+      "Sri Lanka": 0.24,
+      "Timor": 0.13
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "y_ticks": [
+    "Vanuatu",
+    "Sri Lanka",
+    "Timor"
+  ],
+  "x_pixels": [
+    76,
+    133,
+    190,
+    247,
+    304,
+    361,
+    418,
+    475,
+    532,
+    589,
+    646,
+    703,
+    760
+  ],
+  "y_pixels": [
+    440,
+    300,
+    160
+  ],
+  "series_color": {
+    "Cocoa bean yields, 1961": "#1f77b4"
+  }
+}

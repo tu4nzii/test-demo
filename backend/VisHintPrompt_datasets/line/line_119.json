@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_119",
+  "image_paths": {
+    "no_grid": "charts/line/line_119.png",
+    "with_grid": "charts/line/line_119_grid.png",
+    "grid_with_grid": "charts/line/line_119_grid_with_grid.png"
+  },
+  "data_points": {
+    "It matters wins the really who presidential election": {
+      "2000": 50.0,
+      "2004": 67.0,
+      "2008": 63.0,
+      "2012": 63.0,
+      "2016": 74.0,
+      "2020": 83.0
+    },
+    "Things will be pretty much the same regardless of who is elected": {
+      "2000": 44.0,
+      "2004": 29.0,
+      "2008": 32.0,
+      "2012": 34.0,
+      "2016": 22.0,
+      "2020": 16.0
+    }
+  },
+  "x_ticks": [
+    "2000",
+    "2004",
+    "2008",
+    "2012",
+    "2016",
+    "2020"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    149,
+    265,
+    382,
+    498,
+    615,
+    731
+  ],
+  "y_pixels": [
+    325,
+    298,
+    272,
+    246,
+    219,
+    192,
+    166,
+    140,
+    113,
+    86,
+    60
+  ],
+  "series_color": {
+    "It matters wins the really who presidential election": "#d62728",
+    "Things will be pretty much the same regardless of who is elected": "#9467bd"
+  }
+}

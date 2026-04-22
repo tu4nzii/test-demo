@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "047",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_047.png"
+  },
+  "data_points": {
+    ", Under revlew or pending": 38.75,
+    ", Approved": 309.87,
+    ", Denied": 11.38
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    ", Under revlew or pending": "#ffff99",
+    ", Approved": "#ffbb78",
+    ", Denied": "#dbdb8d"
+  }
+}

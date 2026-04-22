@@ -1,0 +1,76 @@
+{
+  "chart_id": "line_113",
+  "image_paths": {
+    "no_grid": "charts/line/line_113.png",
+    "with_grid": "charts/line/line_113_grid.png",
+    "grid_with_grid": "charts/line/line_113_grid_with_grid.png"
+  },
+  "data_points": {
+    "Percent who followed very closely": {
+      "Apr 23-26": 0.0,
+      "May 13-16": 58.0,
+      "Jun 17-20": 55.0,
+      "Jul Jul 2": 0.0,
+      "Jul 22-25": 0.0,
+      "Aug 12-15": 39.0
+    },
+    "Percent of coverage": {
+      "Apr 23-26": 16.0,
+      "May 13-16": 0.0,
+      "Jun 17-20": 0.0,
+      "Jul Jul 2": 15.0,
+      "Jul 22-25": 0.0,
+      "Aug 12-15": 0.0
+    }
+  },
+  "x_ticks": [
+    "Apr 23-26",
+    "May 13-16",
+    "Jun 17-20",
+    "Jul Jul 2",
+    "Jul 22-25",
+    "Aug 12-15"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    134,
+    239,
+    344,
+    448,
+    553,
+    658
+  ],
+  "y_pixels": [
+    300,
+    280,
+    261,
+    241,
+    221,
+    201,
+    181,
+    161,
+    141,
+    121,
+    101,
+    81,
+    61
+  ],
+  "series_color": {
+    "Percent who followed very closely": "#d62728",
+    "Percent of coverage": "#9467bd"
+  }
+}

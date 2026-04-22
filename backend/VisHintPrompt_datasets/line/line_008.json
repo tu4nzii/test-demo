@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_008",
+  "image_paths": {
+    "no_grid": "charts/line/line_008.png",
+    "with_grid": "charts/line/line_008_grid.png",
+    "grid_with_grid": "charts/line/line_008_grid_with_grid.png"
+  },
+  "data_points": {
+    "Russia favorability in China": {
+      "2007": 54.0,
+      "2009": 46.0,
+      "2011": 48.0,
+      "2013": 49.0,
+      "2015": 51.0
+    },
+    "China favorability in Russia": {
+      "2007": 60.0,
+      "2009": 58.0,
+      "2011": 0.0,
+      "2013": 62.0,
+      "2015": 79.0
+    }
+  },
+  "x_ticks": [
+    "2007",
+    "2009",
+    "2011",
+    "2013",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "x_pixels": [
+    224,
+    442,
+    660,
+    878,
+    1096
+  ],
+  "y_pixels": [
+    451,
+    407,
+    363,
+    319,
+    275,
+    231,
+    187,
+    143,
+    99
+  ],
+  "series_color": {
+    "Russia favorability in China": "#d62728",
+    "China favorability in Russia": "#9467bd"
+  }
+}

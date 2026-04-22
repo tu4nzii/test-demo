@@ -1,0 +1,61 @@
+{
+  "chart_id": "v_bar_022",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_022.png",
+    "with_grid": "charts/v_bar/v_bar_022_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_022_grid_with_grid.png"
+  },
+  "data_points": {
+    "Market value in billion euros": {
+      "2020": 28.0,
+      "2019": 26.0,
+      "2018": 22.0,
+      "2015": 17.0
+    }
+  },
+  "x_ticks": [
+    "2020",
+    "2019",
+    "2018",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0
+  ],
+  "x_pixels": [
+    184,
+    318,
+    452,
+    586
+  ],
+  "y_pixels": [
+    400,
+    372,
+    343,
+    315,
+    287,
+    258,
+    230,
+    202,
+    173,
+    145,
+    117,
+    88,
+    60
+  ],
+  "series_color": {
+    "Market value in billion euros": "#66c2a5"
+  }
+}

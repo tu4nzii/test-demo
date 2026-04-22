@@ -1,0 +1,56 @@
+{
+  "chart_id": "line_157",
+  "image_paths": {
+    "no_grid": "charts/line/line_157.png",
+    "with_grid": "charts/line/line_157_grid.png",
+    "grid_with_grid": "charts/line/line_157_grid_with_grid.png"
+  },
+  "data_points": {
+    "Being tough with China on territorial disputes": {
+      "2015": 0.0,
+      "2017": 28.0
+    },
+    "Having strong a economic relationship with China": {
+      "2015": 43.0,
+      "2017": 0.0
+    }
+  },
+  "x_ticks": [
+    "2015",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    179,
+    877
+  ],
+  "y_pixels": [
+    377,
+    346,
+    316,
+    285,
+    255,
+    224,
+    194,
+    163,
+    133,
+    102,
+    72
+  ],
+  "series_color": {
+    "Being tough with China on territorial disputes": "#d62728",
+    "Having strong a economic relationship with China": "#9467bd"
+  }
+}

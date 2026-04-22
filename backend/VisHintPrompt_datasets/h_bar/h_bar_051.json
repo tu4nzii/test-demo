@@ -1,0 +1,75 @@
+{
+  "chart_id": "h_bar_051",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_051.png",
+    "with_grid": "charts/h_bar/h_bar_051_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_051_grid_with_grid.png"
+  },
+  "data_points": {
+    "Revenue in million U.S. dollars": {
+      "Mercedes": 451.0,
+      "Ferrari": 426.0,
+      "Red Bull Racing": 327.0,
+      "Renault": 195.0,
+      "Williams": 176.0,
+      "Toro Rosso": 172.0,
+      "McLaren": 165.0,
+      "Racing Point": 104.0,
+      "Haas F1": 95.0,
+      "Alfa Romeo": 84.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Mercedes",
+    "Ferrari",
+    "Red Bull Racing",
+    "Renault",
+    "Williams",
+    "Toro Rosso",
+    "McLaren",
+    "Racing Point",
+    "Haas F1",
+    "Alfa Romeo"
+  ],
+  "x_pixels": [
+    153,
+    214,
+    275,
+    335,
+    396,
+    457,
+    517,
+    578,
+    639,
+    699,
+    760
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    360,
+    320,
+    280,
+    240,
+    200,
+    160,
+    120
+  ],
+  "series_color": {
+    "Revenue in million U.S. dollars": "#1f77b4"
+  }
+}

@@ -48,17 +48,21 @@ IMG_PATHS = {}
 
 # 自动遍历 data/precision 下所有子目录
 precision_root = './Grid_generation'
-chart_types = os.listdir(precision_root)
-
-for chart_type in chart_types:
-    subdir = os.path.join(precision_root, chart_type)
-    if not os.path.isdir(subdir):
-        continue
-    for fname in os.listdir(subdir):
-        if fname.endswith(".png"):
-            index = fname.replace(".png", "")  # chart000
-            name = f"{chart_type}_chart{index[-3:]}"  # bar_chart000
-            IMG_PATHS[name] = os.path.join(subdir, fname)
+if os.path.exists(precision_root):
+    chart_types = os.listdir(precision_root)
+    
+    for chart_type in chart_types:
+        subdir = os.path.join(precision_root, chart_type)
+        if not os.path.isdir(subdir):
+            continue
+        for fname in os.listdir(subdir):
+            if fname.endswith(".png"):
+                index = fname.replace(".png", "")  # chart000
+                name = f"{chart_type}_chart{index[-3:]}"  # bar_chart000
+                IMG_PATHS[name] = os.path.join(subdir, fname)
+else:
+    # 如果目录不存在，保持 IMG_PATHS 为空
+    pass
 
 
 

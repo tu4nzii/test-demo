@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "038",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_038.png"
+  },
+  "data_points": {
+    "Religious & ethnic hatred": 59.38,
+    "Pollution and environment": 74.23,
+    "Nuclear wea pons": 181.86,
+    "Inequality": 44.54
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Religious & ethnic hatred": "#7570b3",
+    "Pollution and environment": "#e6ab02",
+    "Nuclear wea pons": "#aec7e8",
+    "Inequality": "#666666"
+  }
+}

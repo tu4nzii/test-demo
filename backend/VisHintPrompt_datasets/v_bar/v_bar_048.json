@@ -1,0 +1,75 @@
+{
+  "chart_id": "v_bar_048",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_048.png",
+    "with_grid": "charts/v_bar/v_bar_048_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_048_grid_with_grid.png"
+  },
+  "data_points": {
+    "2017": {
+      "Asia": 9776.0,
+      "Europe": 1578.0,
+      "Africa": 152.0,
+      "Americas": 1710.0
+    },
+    "2018": {
+      "Asia": 10239.0,
+      "Europe": 1666.0,
+      "Africa": 105.0,
+      "Americas": 1754.0
+    },
+    "2019": {
+      "Asia": 10181.0,
+      "Europe": 1622.0,
+      "Africa": 94.0,
+      "Americas": 1739.0
+    }
+  },
+  "x_ticks": [
+    "Asia",
+    "Europe",
+    "Africa",
+    "Americas"
+  ],
+  "y_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0
+  ],
+  "x_pixels": [
+    210,
+    363,
+    517,
+    670
+  ],
+  "y_pixels": [
+    480,
+    446,
+    412,
+    378,
+    344,
+    310,
+    276,
+    242,
+    208,
+    174,
+    140,
+    106,
+    72
+  ],
+  "series_color": {
+    "2017": "#1f77b4",
+    "2018": "#ff7f0e",
+    "2019": "#2ca02c"
+  }
+}

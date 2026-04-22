@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_111",
+  "image_paths": {
+    "no_grid": "charts/line/line_111.png",
+    "with_grid": "charts/line/line_111_grid.png",
+    "grid_with_grid": "charts/line/line_111_grid_with_grid.png"
+  },
+  "data_points": {
+    "Checks on news from time time to": {
+      "2002": 48.0,
+      "2004": 46.0,
+      "2006": 48.0,
+      "2008": 51.0,
+      "2010": 0.0
+    },
+    "Gets news at ular reg times": {
+      "2002": 0.0,
+      "2004": 52.0,
+      "2006": 50.0,
+      "2008": 0.0,
+      "2010": 33.0
+    }
+  },
+  "x_ticks": [
+    "2002",
+    "2004",
+    "2006",
+    "2008",
+    "2010"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    224,
+    442,
+    660,
+    878,
+    1096
+  ],
+  "y_pixels": [
+    452,
+    422,
+    391,
+    361,
+    330,
+    300,
+    269,
+    239,
+    208,
+    178,
+    147,
+    117,
+    86
+  ],
+  "series_color": {
+    "Checks on news from time time to": "#1f77b4",
+    "Gets news at ular reg times": "#ff7f0e"
+  }
+}

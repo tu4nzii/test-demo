@@ -1,0 +1,93 @@
+{
+  "chart_id": "h_bar_169",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_169.png",
+    "with_grid": "charts/h_bar/h_bar_169_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_169_grid_with_grid.png"
+  },
+  "data_points": {
+    "Unfa vora ble": {
+      "ISIS": 28.0,
+      "Lashkar--Taiba": 36.0,
+      "al Qaeda": NaN,
+      "Afghan Taliban": 53.0,
+      "Tehriki-Taliba n (TTP)": 60.0,
+      "Taliban": 72.0
+    },
+    "Favorable": {
+      "ISIS": NaN,
+      "Lashkar--Taiba": 14.0,
+      "al Qaeda": 45.0,
+      "Afghan Taliban": NaN,
+      "Tehriki-Taliba n (TTP)": NaN,
+      "Taliban": 623.0
+    },
+    "Don't know": {
+      "ISIS": 62.0,
+      "Lashkar--Taiba": 49.0,
+      "al Qaeda": 45.0,
+      "Afghan Taliban": 38.0,
+      "Tehriki-Taliba n (TTP)": 30.0,
+      "Taliban": 23.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "y_ticks": [
+    "ISIS",
+    "Lashkar--Taiba",
+    "al Qaeda",
+    "Afghan Taliban",
+    "Tehriki-Taliba n (TTP)",
+    "Taliban"
+  ],
+  "x_pixels": [
+    123,
+    127,
+    132,
+    136,
+    140,
+    144,
+    148,
+    152,
+    156,
+    161,
+    165,
+    169,
+    173,
+    177,
+    181,
+    185,
+    190
+  ],
+  "y_pixels": [
+    343,
+    296,
+    249,
+    201,
+    154,
+    107
+  ],
+  "series_color": {
+    "Unfa vora ble": "#1f77b4",
+    "Favorable": "#ff7f0e",
+    "Don't know": "#2ca02c"
+  }
+}

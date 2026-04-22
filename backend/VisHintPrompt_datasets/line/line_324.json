@@ -1,0 +1,57 @@
+{
+  "chart_id": "line_324",
+  "image_paths": {
+    "no_grid": "charts/line/line_324.png",
+    "with_grid": "charts/line/line_324_grid.png",
+    "grid_with_grid": "charts/line/line_324_grid_with_grid.png"
+  },
+  "data_points": {
+    "2016": {
+      "Q4": 146.0,
+      "Q3": 117.0,
+      "Q2": 137.0,
+      "Q1": 186.0
+    },
+    "2017": {
+      "Q1": 184.0
+    }
+  },
+  "x_ticks": [
+    "Q4",
+    "Q3",
+    "Q2",
+    "Q1"
+  ],
+  "y_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0
+  ],
+  "x_pixels": [
+    112,
+    257,
+    403,
+    548
+  ],
+  "y_pixels": [
+    260,
+    234,
+    207,
+    180,
+    154,
+    128,
+    101,
+    74,
+    48
+  ],
+  "series_color": {
+    "2016": "#e377c2",
+    "2017": "#7f7f7f"
+  }
+}

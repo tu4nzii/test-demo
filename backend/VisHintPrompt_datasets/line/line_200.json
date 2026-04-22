@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_200",
+  "image_paths": {
+    "no_grid": "charts/line/line_200.png",
+    "with_grid": "charts/line/line_200_grid.png",
+    "grid_with_grid": "charts/line/line_200_grid_with_grid.png"
+  },
+  "data_points": {
+    "The worst is still to come": {
+      "Apr": 73.0,
+      "Jun": 59.0,
+      "Nov": 71.0
+    },
+    "The worst is behind us": {
+      "Apr": 26.0,
+      "Jun": 40.0,
+      "Nov": 28.0
+    }
+  },
+  "x_ticks": [
+    "Apr",
+    "Jun",
+    "Nov"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "x_pixels": [
+    224,
+    660,
+    1096
+  ],
+  "y_pixels": [
+    468,
+    444,
+    420,
+    396,
+    373,
+    349,
+    325,
+    301,
+    277,
+    253,
+    230,
+    206,
+    182,
+    158,
+    134,
+    110,
+    86
+  ],
+  "series_color": {
+    "The worst is still to come": "#e377c2",
+    "The worst is behind us": "#7f7f7f"
+  }
+}

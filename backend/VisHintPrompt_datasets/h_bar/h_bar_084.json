@@ -1,0 +1,83 @@
+{
+  "chart_id": "h_bar_084",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_084.png",
+    "with_grid": "charts/h_bar/h_bar_084_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_084_grid_with_grid.png"
+  },
+  "data_points": {
+    "Deal value in billion U.S. dollar": {
+      "Goldman Sachs": 68.94,
+      "Barclays": 56.34,
+      "Credit Suisse": 55.4,
+      "Evercore Partners": 49.33,
+      "Centerview Partners": 45.87,
+      "Lazard": 19.18,
+      "Rothschild": 18.76,
+      "Morgan Stanley": 15.93,
+      "Deutsche Bank": 14.33,
+      "VTB Capital": 6.33
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "y_ticks": [
+    "Goldman Sachs",
+    "Barclays",
+    "Credit Suisse",
+    "Evercore Partners",
+    "Centerview Partners",
+    "Lazard",
+    "Rothschild",
+    "Morgan Stanley",
+    "Deutsche Bank",
+    "VTB Capital"
+  ],
+  "x_pixels": [
+    324,
+    393,
+    463,
+    532,
+    602,
+    671,
+    741,
+    810,
+    880,
+    949,
+    1019,
+    1088,
+    1158,
+    1227,
+    1297
+  ],
+  "y_pixels": [
+    801,
+    734,
+    667,
+    600,
+    533,
+    467,
+    400,
+    333,
+    266,
+    199
+  ],
+  "series_color": {
+    "Deal value in billion U.S. dollar": "#1f77b4"
+  }
+}

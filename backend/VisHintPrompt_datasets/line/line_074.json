@@ -1,0 +1,91 @@
+{
+  "chart_id": "line_074",
+  "image_paths": {
+    "no_grid": "charts/line/line_074.png",
+    "with_grid": "charts/line/line_074_grid.png",
+    "grid_with_grid": "charts/line/line_074_grid_with_grid.png"
+  },
+  "data_points": {
+    "Warming mostly because of human activity": {
+      "2006": 4747.0,
+      "2007": 0.0,
+      "2008": 0.0,
+      "2009": 36.0,
+      "2010": 3436.0,
+      "2011": 38.0,
+      "2012": 0.0,
+      "2013": 0.0
+    },
+    "Yes, solid evidence the earth is warming": {
+      "2006": 0.0,
+      "2007": 0.0,
+      "2008": 0.0,
+      "2009": 0.0,
+      "2010": 63.0,
+      "2011": 63.0,
+      "2012": 0.0,
+      "2013": 0.99
+    },
+    "Yes, solid evidence the earth warming IS": {
+      "2006": 0.0,
+      "2007": 0.0,
+      "2008": 0.0,
+      "2009": 0.0,
+      "2010": 0.0,
+      "2011": 0.0,
+      "2012": 0.0,
+      "2013": 0.0
+    }
+  },
+  "x_ticks": [
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013"
+  ],
+  "y_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0
+  ],
+  "x_pixels": [
+    186,
+    290,
+    394,
+    498,
+    602,
+    706,
+    810,
+    914
+  ],
+  "y_pixels": [
+    376,
+    345,
+    315,
+    285,
+    254,
+    224,
+    193,
+    163,
+    133,
+    102,
+    72
+  ],
+  "series_color": {
+    "Warming mostly because of human activity": "#e377c2",
+    "Yes, solid evidence the earth is warming": "#7f7f7f",
+    "Yes, solid evidence the earth warming IS": "#bcbd22"
+  }
+}

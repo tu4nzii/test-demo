@@ -1,0 +1,76 @@
+{
+  "chart_id": "h_bar_048",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_048.png",
+    "with_grid": "charts/h_bar/h_bar_048_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_048_grid_with_grid.png"
+  },
+  "data_points": {
+    "Very": {
+      "Assessing someone's race": 15.0,
+      "Assessing someone's gender": 16.0,
+      "Identifying individual people": 21.0
+    },
+    "Somewhat": {
+      "Assessing someone's race": 46.0,
+      "Assessing someone's gender": 47.0,
+      "Identifying individual people": 53.0
+    },
+    "Not too": {
+      "Assessing someone's race": 19.0,
+      "Assessing someone's gender": 19.0,
+      "Identifying individual people": 11.0
+    },
+    "Not at all": {
+      "Assessing someone's race": 0.0,
+      "Assessing someone's gender": 0.0,
+      "Identifying individual people": 1.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "Assessing someone's race",
+    "Assessing someone's gender",
+    "Identifying individual people"
+  ],
+  "x_pixels": [
+    139,
+    183,
+    227,
+    271,
+    314,
+    358,
+    402,
+    446,
+    490,
+    534,
+    577,
+    621,
+    665
+  ],
+  "y_pixels": [
+    323,
+    228,
+    132
+  ],
+  "series_color": {
+    "Very": "#87ceeb",
+    "Somewhat": "#4682b4",
+    "Not too": "#fa8072",
+    "Not at all": "#ffd700"
+  }
+}

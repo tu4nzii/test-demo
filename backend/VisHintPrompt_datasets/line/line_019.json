@@ -1,0 +1,87 @@
+{
+  "chart_id": "line_019",
+  "image_paths": {
+    "no_grid": "charts/line/line_019.png",
+    "with_grid": "charts/line/line_019_grid.png",
+    "grid_with_grid": "charts/line/line_019_grid_with_grid.png"
+  },
+  "data_points": {
+    "Earth is warming, mostly because of natural patterns in earth's environment": {
+      "2006": 30.0,
+      "2009": 0.0,
+      "2012": 0.0,
+      "2015": 0.0
+    },
+    "No evidence earth is warming": {
+      "2006": 66.0,
+      "2009": 0.0,
+      "2012": 0.0,
+      "2015": 0.0
+    },
+    "Earth is warming, mostly because of human activity, such as burning fossil fuels": {
+      "2006": 0.0,
+      "2009": 0.0,
+      "2012": 0.0,
+      "2015": 175.0
+    }
+  },
+  "x_ticks": [
+    "2006",
+    "2009",
+    "2012",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0,
+    170.0,
+    180.0
+  ],
+  "x_pixels": [
+    134,
+    309,
+    483,
+    658
+  ],
+  "y_pixels": [
+    300,
+    287,
+    274,
+    261,
+    248,
+    234,
+    221,
+    208,
+    195,
+    181,
+    168,
+    155,
+    142,
+    129,
+    115,
+    102,
+    89,
+    76,
+    63
+  ],
+  "series_color": {
+    "Earth is warming, mostly because of natural patterns in earth's environment": "#1f77b4",
+    "No evidence earth is warming": "#ff7f0e",
+    "Earth is warming, mostly because of human activity, such as burning fossil fuels": "#2ca02c"
+  }
+}

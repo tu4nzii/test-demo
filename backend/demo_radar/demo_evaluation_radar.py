@@ -12,13 +12,13 @@ import numpy as np
 class RadarChartEvaluator:
     def __init__(self):
         # 初始化API参数和配置
-        self.api_key = "sk-BH7u759dHuV910Xo9d3bC5A45d524b7c9c2b95528d09D92d"
+        self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
         self.url = "https://api.vveai.com/v1/chat/completions"
         self.headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self.api_key}"
         }
-        self.llm_model = "gemini-2.0-flash"
+        self.llm_model = "gemini-2.5-pro"
         
         # 定义临时文件目录
         self.feedback_image_dir = './data/feedback'

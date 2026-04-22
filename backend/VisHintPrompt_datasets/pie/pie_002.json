@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "002",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_002.png"
+  },
+  "data_points": {
+    "a IVL little": 43.64,
+    "Increased": 112.73,
+    "Stay about A lot the same": 40.0,
+    "a little": 72.73,
+    "Decreased": 90.91
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "a IVL little": "#bf5b17",
+    "Increased": "#c5b0d5",
+    "Stay about A lot the same": "#1b9e77",
+    "a little": "#beaed4",
+    "Decreased": "#bcbd22"
+  }
+}

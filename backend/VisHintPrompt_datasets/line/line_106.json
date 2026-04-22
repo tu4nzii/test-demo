@@ -1,0 +1,76 @@
+{
+  "chart_id": "line_106",
+  "image_paths": {
+    "no_grid": "charts/line/line_106.png",
+    "with_grid": "charts/line/line_106_grid.png",
+    "grid_with_grid": "charts/line/line_106_grid_with_grid.png"
+  },
+  "data_points": {
+    "Favor": {
+      "Apr 2009": 68.0,
+      "Feb 2010": 63.0,
+      "May 2010": 54.0,
+      "June 201": 0.0,
+      "Oct 2010": 0.0
+    },
+    "Oppose": {
+      "Apr 2009": 0.0,
+      "Feb 2010": 0.0,
+      "May 2010": 38.0,
+      "June 201": 0.0,
+      "Oct 2010": 0.0
+    }
+  },
+  "x_ticks": [
+    "Apr 2009",
+    "Feb 2010",
+    "May 2010",
+    "June 201",
+    "Oct 2010"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    134,
+    265,
+    396,
+    527,
+    658
+  ],
+  "y_pixels": [
+    300,
+    283,
+    266,
+    249,
+    232,
+    215,
+    198,
+    181,
+    164,
+    147,
+    130,
+    113,
+    96,
+    79,
+    62
+  ],
+  "series_color": {
+    "Favor": "#d62728",
+    "Oppose": "#9467bd"
+  }
+}

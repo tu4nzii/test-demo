@@ -1,0 +1,108 @@
+{
+  "chart_id": "line_067",
+  "image_paths": {
+    "no_grid": "charts/line/line_067.png",
+    "with_grid": "charts/line/line_067_grid.png",
+    "grid_with_grid": "charts/line/line_067_grid_with_grid.png"
+  },
+  "data_points": {
+    "Disapprove": {
+      "201": 0.0,
+      "Dec": 0.0,
+      "Jan": 0.0,
+      "Feb": 0.0,
+      "Mar": 0.0,
+      "Apr": 0.0,
+      "May": 0.0,
+      "Jun": 0.0,
+      "Jul": 0.0,
+      "Aug": 46.0,
+      "Sep": 0.0,
+      "Oct": 51.0,
+      "Nov": 53.0
+    },
+    "Approve": {
+      "201": 0.0,
+      "Dec": 0.0,
+      "Jan": 0.0,
+      "Feb": 0.0,
+      "Mar": 0.0,
+      "Apr": 0.0,
+      "May": 51.0,
+      "Jun": 49.0,
+      "Jul": 0.0,
+      "Aug": 46.0,
+      "Sep": 0.0,
+      "Oct": 0.0,
+      "Nov": 0.0
+    }
+  },
+  "x_ticks": [
+    "201",
+    "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "201",
+    "Dec"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    149,
+    191,
+    232,
+    274,
+    315,
+    357,
+    398,
+    440,
+    482,
+    523,
+    565,
+    606,
+    648,
+    689,
+    731
+  ],
+  "y_pixels": [
+    313,
+    292,
+    271,
+    250,
+    229,
+    208,
+    187,
+    166,
+    144,
+    123,
+    102,
+    81,
+    60
+  ],
+  "series_color": {
+    "Disapprove": "#d62728",
+    "Approve": "#9467bd"
+  }
+}

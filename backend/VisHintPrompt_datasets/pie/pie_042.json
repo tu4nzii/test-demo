@@ -1,0 +1,44 @@
+﻿{
+  "chart_id": "042",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_042.png"
+  },
+  "data_points": {
+    "Sikh": 37.11,
+    "Jain": 7.42,
+    "Protestant": 40.82,
+    "Hindu": 189.28,
+    "All Christian": 66.8,
+    "Catholic": 18.56
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Sikh": "#7f7f7f",
+    "Jain": "#ffffb3",
+    "Protestant": "#17becf",
+    "Hindu": "#ffff99",
+    "All Christian": "#fdc086",
+    "Catholic": "#d62728"
+  }
+}

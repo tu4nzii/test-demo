@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "023",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_023.png"
+  },
+  "data_points": {
+    "Less important": 68.4,
+    "More important": 86.4,
+    "As important as last year": 187.2,
+    "DK/Ref": 18.0
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Less important": "#ff7f0e",
+    "More important": "#80b1d3",
+    "As important as last year": "#66a61e",
+    "DK/Ref": "#666666"
+  }
+}

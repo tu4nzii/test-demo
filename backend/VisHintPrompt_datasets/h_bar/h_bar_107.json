@@ -1,0 +1,70 @@
+{
+  "chart_id": "h_bar_107",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_107.png",
+    "with_grid": "charts/h_bar/h_bar_107_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_107_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of centuries scored": {
+      "SR Tendulkar (INDIA)": 51.0,
+      "JH Kallis (ICC/SA)": 45.0,
+      "RT Ponting (AUS)": 41.0,
+      "KC Sangakkara (SL)": 38.0,
+      "R Dravid (ICC/INDIA)": 36.0,
+      "Younis Khan (PAK)": 34.0,
+      "AN Cook (ENG)": 33.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "SR Tendulkar (INDIA)",
+    "JH Kallis (ICC/SA)",
+    "RT Ponting (AUS)",
+    "KC Sangakkara (SL)",
+    "R Dravid (ICC/INDIA)",
+    "Younis Khan (PAK)",
+    "AN Cook (ENG)"
+  ],
+  "x_pixels": [
+    278,
+    382,
+    485,
+    589,
+    692,
+    796,
+    899,
+    1003,
+    1106,
+    1210,
+    1313,
+    1417,
+    1520
+  ],
+  "y_pixels": [
+    947,
+    831,
+    716,
+    600,
+    484,
+    369,
+    253
+  ],
+  "series_color": {
+    "Number of centuries scored": "#66c2a5"
+  }
+}

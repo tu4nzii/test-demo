@@ -1,0 +1,80 @@
+{
+  "chart_id": "v_bar_105",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_105.png",
+    "with_grid": "charts/v_bar/v_bar_105_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_105_grid_with_grid.png"
+  },
+  "data_points": {
+    "Population growth compared to previous year": {
+      "2019": 1.08,
+      "2018": 1.16,
+      "2017": 1.35,
+      "2016": 1.26,
+      "2015": 1.06,
+      "2014": 0.99,
+      "2013": 0.85,
+      "2012": 0.74,
+      "2011": 0.76
+    }
+  },
+  "x_ticks": [
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012",
+    "2011"
+  ],
+  "y_ticks": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4
+  ],
+  "x_pixels": [
+    307,
+    423,
+    539,
+    654,
+    770,
+    886,
+    1001,
+    1117,
+    1233
+  ],
+  "y_pixels": [
+    800,
+    752,
+    704,
+    656,
+    608,
+    560,
+    512,
+    464,
+    416,
+    368,
+    320,
+    272,
+    224,
+    176,
+    128
+  ],
+  "series_color": {
+    "Population growth compared to previous year": "#87ceeb"
+  }
+}

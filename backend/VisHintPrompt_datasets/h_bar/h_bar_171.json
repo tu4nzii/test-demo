@@ -1,0 +1,71 @@
+{
+  "chart_id": "h_bar_171",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_171.png",
+    "with_grid": "charts/h_bar/h_bar_171_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_171_grid_with_grid.png"
+  },
+  "data_points": {
+    "Points scored": {
+      "Russell Westbrook": 18859.0,
+      "Gary Payton": 18207.0,
+      "Kevin Durant": 17566.0,
+      "Fred Brown": 14018.0,
+      "Jack Sikma": 12034.0,
+      "Rashard Lewis": 10251.0,
+      "Shawn Kemp": 10148.0,
+      "Gus Williams": 9676.0,
+      "Dale Ellis": 9405.0,
+      "Xavier McDaniel": 8438.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2500.0,
+    5000.0,
+    7500.0,
+    10000.0,
+    12500.0,
+    15000.0,
+    17500.0,
+    20000.0
+  ],
+  "y_ticks": [
+    "Russell Westbrook",
+    "Gary Payton",
+    "Kevin Durant",
+    "Fred Brown",
+    "Jack Sikma",
+    "Rashard Lewis",
+    "Shawn Kemp",
+    "Gus Williams",
+    "Dale Ellis",
+    "Xavier McDaniel"
+  ],
+  "x_pixels": [
+    251,
+    409,
+    568,
+    727,
+    885,
+    1044,
+    1203,
+    1361,
+    1520
+  ],
+  "y_pixels": [
+    961,
+    881,
+    800,
+    720,
+    640,
+    560,
+    480,
+    400,
+    319,
+    239
+  ],
+  "series_color": {
+    "Points scored": "#1f77b4"
+  }
+}

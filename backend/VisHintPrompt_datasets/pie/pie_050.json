@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "050",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_050.png"
+  },
+  "data_points": {
+    "Same": 133.04,
+    "Increased": 203.48,
+    "Not Su": 23.48
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Same": "#c49c94",
+    "Increased": "#ffed6f",
+    "Not Su": "#9467bd"
+  }
+}

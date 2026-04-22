@@ -1,0 +1,54 @@
+{
+  "chart_id": "h_bar_075",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_075.png",
+    "with_grid": "charts/h_bar/h_bar_075_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_075_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of firms with female top managers, 2013": {
+      "Zambia": 23.8,
+      "Nepal": 17.2,
+      "Suriname": 15.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0
+  ],
+  "y_ticks": [
+    "Zambia",
+    "Nepal",
+    "Suriname"
+  ],
+  "x_pixels": [
+    78,
+    146,
+    214,
+    282,
+    351,
+    419,
+    487,
+    555,
+    624,
+    692,
+    760
+  ],
+  "y_pixels": [
+    440,
+    300,
+    160
+  ],
+  "series_color": {
+    "Share of firms with female top managers, 2013": "#1f77b4"
+  }
+}

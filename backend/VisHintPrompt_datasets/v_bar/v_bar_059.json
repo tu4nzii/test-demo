@@ -1,0 +1,73 @@
+{
+  "chart_id": "v_bar_059",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_059.png",
+    "with_grid": "charts/v_bar/v_bar_059_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_059_grid_with_grid.png"
+  },
+  "data_points": {
+    "Net revenue in million euros": {
+      "2020": 139.6,
+      "2019": 160.4,
+      "2018": 129.1,
+      "2017": 93.1
+    }
+  },
+  "x_ticks": [
+    "2020",
+    "2019",
+    "2018",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0,
+    170.0,
+    180.0
+  ],
+  "x_pixels": [
+    421,
+    727,
+    1033,
+    1339
+  ],
+  "y_pixels": [
+    960,
+    915,
+    869,
+    824,
+    779,
+    733,
+    688,
+    643,
+    597,
+    552,
+    507,
+    461,
+    416,
+    371,
+    325,
+    280,
+    235,
+    189,
+    144
+  ],
+  "series_color": {
+    "Net revenue in million euros": "#87ceeb"
+  }
+}

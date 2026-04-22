@@ -1,0 +1,57 @@
+{
+  "chart_id": "v_bar_045",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_045.png",
+    "with_grid": "charts/v_bar/v_bar_045_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_045_grid_with_grid.png"
+  },
+  "data_points": {
+    "Advertising expenses in million U.S. dollars": {
+      "2020": 238.0,
+      "2019": 247.1,
+      "2018": 228.4,
+      "2017": 178.3
+    }
+  },
+  "x_ticks": [
+    "2020",
+    "2019",
+    "2018",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0
+  ],
+  "x_pixels": [
+    368,
+    636,
+    904,
+    1172
+  ],
+  "y_pixels": [
+    800,
+    734,
+    669,
+    603,
+    538,
+    472,
+    407,
+    341,
+    276,
+    210,
+    145
+  ],
+  "series_color": {
+    "Advertising expenses in million U.S. dollars": "#1f77b4"
+  }
+}

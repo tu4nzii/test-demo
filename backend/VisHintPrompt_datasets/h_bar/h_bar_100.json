@@ -1,0 +1,76 @@
+{
+  "chart_id": "h_bar_100",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_100.png",
+    "with_grid": "charts/h_bar/h_bar_100_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_100_grid_with_grid.png"
+  },
+  "data_points": {
+    "2010": {
+      "North America": 19.5,
+      "Western Europe": 18.9,
+      "Latin America": 8.9,
+      "Asia Pacific": 6.0,
+      "Eastern Europe": 3.3,
+      "Australasia": 1.9,
+      "Middle East and Africa": 0.8
+    },
+    "2011": {
+      "North America": 20.2,
+      "Western Europe": 19.1,
+      "Latin America": 9.7,
+      "Asia Pacific": 6.2,
+      "Eastern Europe": 3.7,
+      "Australasia": 2.1,
+      "Middle East and Africa": 0.8
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0
+  ],
+  "y_ticks": [
+    "North America",
+    "Western Europe",
+    "Latin America",
+    "Asia Pacific",
+    "Eastern Europe",
+    "Australasia",
+    "Middle East and Africa"
+  ],
+  "x_pixels": [
+    113,
+    178,
+    242,
+    307,
+    372,
+    437,
+    501,
+    566,
+    631,
+    695,
+    760
+  ],
+  "y_pixels": [
+    414,
+    365,
+    316,
+    267,
+    218,
+    169,
+    120
+  ],
+  "series_color": {
+    "2010": "#87ceeb",
+    "2011": "#4682b4"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_090",
+  "image_paths": {
+    "no_grid": "charts/line/line_090.png",
+    "with_grid": "charts/line/line_090_grid.png",
+    "grid_with_grid": "charts/line/line_090_grid_with_grid.png"
+  },
+  "data_points": {
+    "Only fair/Poor": {
+      "May 2011": 0.0,
+      "Aug 2011": 0.0,
+      "Nov 2011": 0.0,
+      "Jan 2012": 0.0
+    },
+    "Excellent/Good": {
+      "May 2011": 0.0,
+      "Aug 2011": 0.0,
+      "Nov 2011": 48.0,
+      "Jan 2012": 46.0
+    }
+  },
+  "x_ticks": [
+    "May 2011",
+    "Aug 2011",
+    "Nov 2011",
+    "Jan 2012"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    112,
+    257,
+    403,
+    548
+  ],
+  "y_pixels": [
+    250,
+    230,
+    210,
+    190,
+    170,
+    150,
+    130,
+    110,
+    90,
+    70,
+    50
+  ],
+  "series_color": {
+    "Only fair/Poor": "#d62728",
+    "Excellent/Good": "#9467bd"
+  }
+}

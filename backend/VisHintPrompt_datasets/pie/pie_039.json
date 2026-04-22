@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "039",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_039.png"
+  },
+  "data_points": {
+    "Don't know": 10.69,
+    "Not follow Quran": 53.47,
+    "Follow values of Islam": 188.91,
+    "Strictly follow Quran": 106.93
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Don't know": "#fdc086",
+    "Not follow Quran": "#8dd3c7",
+    "Follow values of Islam": "#ffed6f",
+    "Strictly follow Quran": "#bc80bd"
+  }
+}

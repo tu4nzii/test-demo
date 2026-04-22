@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_178",
+  "image_paths": {
+    "no_grid": "charts/line/line_178.png",
+    "with_grid": "charts/line/line_178_grid.png",
+    "grid_with_grid": "charts/line/line_178_grid_with_grid.png"
+  },
+  "data_points": {
+    "Russia should be more respected around the world": {
+      "2012": 73.0,
+      "2017": 56.0
+    },
+    "Russia isas respected around the world asit should be": {
+      "2012": 0.0,
+      "2017": 0.0
+    }
+  },
+  "x_ticks": [
+    "2012",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "x_pixels": [
+    186,
+    914
+  ],
+  "y_pixels": [
+    376,
+    357,
+    338,
+    319,
+    300,
+    281,
+    262,
+    243,
+    224,
+    205,
+    186,
+    167,
+    148,
+    129,
+    110,
+    91,
+    72
+  ],
+  "series_color": {
+    "Russia should be more respected around the world": "#1f77b4",
+    "Russia isas respected around the world asit should be": "#ff7f0e"
+  }
+}

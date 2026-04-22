@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "026",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_026.png"
+  },
+  "data_points": {
+    "Do more to regulate what advertisers do with customers' personal info": 230.4,
+    "Refused": 7.2,
+    "Not get more involved": 122.4
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Do more to regulate what advertisers do with customers' personal info": "#7fc97f",
+    "Refused": "#fddaec",
+    "Not get more involved": "#bc80bd"
+  }
+}

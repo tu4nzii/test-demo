@@ -1,0 +1,71 @@
+{
+  "chart_id": "v_bar_063",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_063.png",
+    "with_grid": "charts/v_bar/v_bar_063_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_063_grid_with_grid.png"
+  },
+  "data_points": {
+    "Change in bounce rate": {
+      "Europe": -0.8,
+      "Nordics": 7.0,
+      "United Kingdom": -4.1,
+      "France": 4.2,
+      "Germany": -1.6,
+      "Spain": -0.1
+    }
+  },
+  "x_ticks": [
+    "Europe",
+    "Nordics",
+    "United Kingdom",
+    "France",
+    "Germany",
+    "Spain"
+  ],
+  "y_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0
+  ],
+  "x_pixels": [
+    331,
+    507,
+    682,
+    858,
+    1033,
+    1209
+  ],
+  "y_pixels": [
+    541,
+    513,
+    485,
+    457,
+    429,
+    402,
+    374,
+    346,
+    318,
+    290,
+    262,
+    234,
+    207,
+    179,
+    151
+  ],
+  "series_color": {
+    "Change in bounce rate": "#87ceeb"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "chart_id": "h_bar_164",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_164.png",
+    "with_grid": "charts/h_bar/h_bar_164_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_164_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of utilities": {
+      "Municipal": 950.0,
+      "Cooperative": 853.0,
+      "Retail power marketer": 266.0,
+      "Investor owned": 178.0,
+      "Political subdivision": 131.0,
+      "Wholesale power marketer": 32.0,
+      "Transmission": 20.0,
+      "Community choice aggregator": 19.0,
+      "State": 17.0,
+      "Municipal marketing authority": 14.0,
+      "Behind the meter": 15.0,
+      "Federal": 9.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0
+  ],
+  "y_ticks": [
+    "Municipal",
+    "Cooperative",
+    "Retail power marketer",
+    "Investor owned",
+    "Political subdivision",
+    "Wholesale power marketer",
+    "Transmission",
+    "Community choice aggregator",
+    "State",
+    "Municipal marketing authority",
+    "Behind the meter",
+    "Federal"
+  ],
+  "x_pixels": [
+    135,
+    188,
+    241,
+    294,
+    347,
+    400,
+    453,
+    506,
+    559,
+    612,
+    665
+  ],
+  "y_pixels": [
+    403,
+    375,
+    347,
+    319,
+    292,
+    264,
+    236,
+    208,
+    181,
+    153,
+    125,
+    97
+  ],
+  "series_color": {
+    "Number of utilities": "#1f77b4"
+  }
+}

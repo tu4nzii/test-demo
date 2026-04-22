@@ -1,0 +1,57 @@
+{
+  "chart_id": "v_bar_082",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_082.png",
+    "with_grid": "charts/v_bar/v_bar_082_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_082_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of manner and intention": {
+      "Unintentional": 35.0,
+      "Intentional self-inflicted": 5.0,
+      "Assault": 49.0,
+      "Other/undetermined": 11.0
+    }
+  },
+  "x_ticks": [
+    "Unintentional",
+    "Intentional self-inflicted",
+    "Assault",
+    "Other/undetermined"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    184,
+    318,
+    452,
+    586
+  ],
+  "y_pixels": [
+    400,
+    367,
+    334,
+    301,
+    268,
+    235,
+    202,
+    169,
+    136,
+    103,
+    70
+  ],
+  "series_color": {
+    "Share of manner and intention": "#1f77b4"
+  }
+}

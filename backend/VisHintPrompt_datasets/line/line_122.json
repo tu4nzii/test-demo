@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_122",
+  "image_paths": {
+    "no_grid": "charts/line/line_122.png",
+    "with_grid": "charts/line/line_122_grid.png",
+    "grid_with_grid": "charts/line/line_122_grid_with_grid.png"
+  },
+  "data_points": {
+    "Substantive": {
+      "101st": 63.0,
+      "105th": 89.0,
+      "110th": 64.0,
+      "115th": 69.0
+    },
+    "Ceremonial": {
+      "101st": 37.0,
+      "105th": 0.0,
+      "110th": 36.0,
+      "115th": 32.0
+    }
+  },
+  "x_ticks": [
+    "101st",
+    "105th",
+    "110th",
+    "115th"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    186,
+    429,
+    671,
+    914
+  ],
+  "y_pixels": [
+    376,
+    346,
+    316,
+    285,
+    255,
+    224,
+    194,
+    163,
+    133,
+    102,
+    72
+  ],
+  "series_color": {
+    "Substantive": "#d62728",
+    "Ceremonial": "#9467bd"
+  }
+}

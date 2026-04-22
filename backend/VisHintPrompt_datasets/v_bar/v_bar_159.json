@@ -1,0 +1,63 @@
+{
+  "chart_id": "v_bar_159",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_159.png",
+    "with_grid": "charts/v_bar/v_bar_159_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_159_grid_with_grid.png"
+  },
+  "data_points": {
+    "Brand value in million U.S. dollars": {
+      "2017": 228.0,
+      "2016": 155.0,
+      "2015": 150.0,
+      "2014": 143.0,
+      "2013": 137.0,
+      "2012": 127.0
+    }
+  },
+  "x_ticks": [
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012"
+  ],
+  "y_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0
+  ],
+  "x_pixels": [
+    331,
+    507,
+    682,
+    858,
+    1033,
+    1209
+  ],
+  "y_pixels": [
+    800,
+    732,
+    664,
+    596,
+    528,
+    460,
+    392,
+    324,
+    256,
+    188,
+    120
+  ],
+  "series_color": {
+    "Brand value in million U.S. dollars": "#87ceeb"
+  }
+}

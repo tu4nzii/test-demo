@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_115",
+  "image_paths": {
+    "no_grid": "charts/line/line_115.png",
+    "with_grid": "charts/line/line_115_grid.png",
+    "grid_with_grid": "charts/line/line_115_grid_with_grid.png"
+  },
+  "data_points": {
+    "Democrat/Lean Dem": {
+      "2017": 34.0,
+      "2018": 27.0,
+      "2019": 28.0
+    },
+    "Rep Republican/L.aan": {
+      "2017": 62.0,
+      "2018": 59.0,
+      "2019": 48.0
+    }
+  },
+  "x_ticks": [
+    "2017",
+    "2018",
+    "2019"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    149,
+    440,
+    731
+  ],
+  "y_pixels": [
+    325,
+    306,
+    287,
+    268,
+    249,
+    230,
+    211,
+    192,
+    174,
+    155,
+    136,
+    117,
+    98,
+    79,
+    60
+  ],
+  "series_color": {
+    "Democrat/Lean Dem": "#1f77b4",
+    "Rep Republican/L.aan": "#ff7f0e"
+  }
+}

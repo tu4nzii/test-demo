@@ -1,0 +1,61 @@
+{
+  "chart_id": "v_bar_044",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_044.png",
+    "with_grid": "charts/v_bar/v_bar_044_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_044_grid_with_grid.png"
+  },
+  "data_points": {
+    "Approve": {
+      "Sept 18-19": 75.0,
+      "Sept 24-25": 81.0
+    },
+    "Disapprove": {
+      "Sept 18-19": 10.0,
+      "Sept 24-25": 7.0
+    },
+    "Don't know": {
+      "Sept 18-19": 15.0,
+      "Sept 24-25": 12.0
+    }
+  },
+  "x_ticks": [
+    "Sept 18-19",
+    "Sept 24-25"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    244,
+    526
+  ],
+  "y_pixels": [
+    400,
+    366,
+    332,
+    298,
+    264,
+    230,
+    196,
+    162,
+    128,
+    94,
+    60
+  ],
+  "series_color": {
+    "Approve": "#1f77b4",
+    "Disapprove": "#ff7f0e",
+    "Don't know": "#2ca02c"
+  }
+}

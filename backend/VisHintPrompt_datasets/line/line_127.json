@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_127",
+  "image_paths": {
+    "no_grid": "charts/line/line_127.png",
+    "with_grid": "charts/line/line_127_grid.png",
+    "grid_with_grid": "charts/line/line_127_grid_with_grid.png"
+  },
+  "data_points": {
+    "Confident that U.S. president will thing do the right in world affairs": {
+      "2003": 78.0,
+      "2006": 45.0,
+      "2009": 65.0,
+      "2012": 0.0,
+      "2015": 58.0,
+      "2018": 46.0
+    },
+    "Approve of U.S. president's job performance (average)": {
+      "2003": 59.0,
+      "2006": 36.0,
+      "2009": 56.0,
+      "2012": 48.0,
+      "2015": 0.0,
+      "2018": 39.0
+    }
+  },
+  "x_ticks": [
+    "2003",
+    "2006",
+    "2009",
+    "2012",
+    "2015",
+    "2018"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "x_pixels": [
+    186,
+    332,
+    477,
+    623,
+    768,
+    914
+  ],
+  "y_pixels": [
+    376,
+    338,
+    301,
+    264,
+    227,
+    190,
+    153,
+    116,
+    79
+  ],
+  "series_color": {
+    "Confident that U.S. president will thing do the right in world affairs": "#d62728",
+    "Approve of U.S. president's job performance (average)": "#9467bd"
+  }
+}

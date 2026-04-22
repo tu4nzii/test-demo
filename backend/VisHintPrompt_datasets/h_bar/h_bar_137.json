@@ -1,0 +1,87 @@
+{
+  "chart_id": "h_bar_137",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_137.png",
+    "with_grid": "charts/h_bar/h_bar_137_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_137_grid_with_grid.png"
+  },
+  "data_points": {
+    "Values": {
+      "Support Dem cand": 75.0,
+      "Sup port Rep cand": 74.0,
+      "HS or less": 63.0,
+      "College grad": NaN,
+      "Postgrad": 76.0,
+      "65+": 83.0,
+      "50-64": 70.0,
+      "30-49": 59.0,
+      "Ages 18-29": 48.0,
+      "Hispanic": 56.0,
+      "Black": 57.0,
+      "Female": 64.0,
+      "Male": 69.0,
+      "Total": 66.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "Support Dem cand",
+    "Sup port Rep cand",
+    "HS or less",
+    "College grad",
+    "Postgrad",
+    "65+",
+    "50-64",
+    "30-49",
+    "Ages 18-29",
+    "Hispanic",
+    "Black",
+    "Female",
+    "Male",
+    "Total"
+  ],
+  "x_pixels": [
+    126,
+    179,
+    233,
+    287,
+    341,
+    395,
+    449,
+    503,
+    557,
+    611,
+    665
+  ],
+  "y_pixels": [
+    405,
+    381,
+    358,
+    334,
+    311,
+    288,
+    264,
+    241,
+    217,
+    194,
+    171,
+    147,
+    124,
+    100
+  ],
+  "series_color": {
+    "Values": "#66c2a5"
+  }
+}

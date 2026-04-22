@@ -205,6 +205,8 @@ from function_calling.axis.infer_axes import infer_axes_from_lines
 from function_calling.ticks.detect_ticks import scan_pixels_for_ticks
 from function_calling.ticks.filter_ticks import filter_ticks
 from function_calling.label.recognize_tick_labels import recognize_tick_labels
+from function_calling.label.extract_tick_labels_with_llm import extract_tick_labels_with_llm
+from function_calling.color.extract_chart_colors import extract_chart_series_color
 from function_calling.image.draw_grid_from_ticks import draw_grid_from_ticks
 from utils.image_io import load_image, save_image
 
@@ -277,7 +279,7 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
                         # 计算文本位置 - 放在X轴上方，确保足够空间
                         text_x = x_pix - text_size[0] // 2
                         # 确保文本在X轴上方有足够空间，避免重叠
-                        text_y = x_axis_y - 8  # 适当间距
+                        text_y = x_axis_y + 16  # 适当间距
                         
                         # 边界检查，确保不与图表内容重叠
                         chart_content_margin = 50  # 图表内容边缘距离
@@ -398,6 +400,7 @@ def process_chart(image_path, output_dir):
         
         # 尝试使用numpy和cv2.imdecode处理中文路径问题
         try:
+            import numpy as np
             # 读取文件内容
             img_data = np.fromfile(image_path, dtype=np.uint8)
             # 解码图像
@@ -496,35 +499,24 @@ def process_chart(image_path, output_dir):
         logger.error(f"前序处理出错: {e}")
         return None
     
-    # 6. 识别刻度标签
-    logger.debug("开始识别刻度标签...")
-    x_labels = []
-    y_labels = []
+    # 6. 使用model_processor.py中的函数提取刻度标签和颜色
+    logger.debug("开始使用模型提取刻度标签和颜色...")
     
-    try:
-        # 使用大模型识别刻度标签
-        logger.debug("使用大模型识别刻度标签...")
-        x_labels = recognize_tick_labels_with_llm(img, x_filtered_ticks, direction='x')
-        y_labels = recognize_tick_labels_with_llm(img, y_filtered_ticks, direction='y')
-        
-        # 如果大模型识别失败，回退到OCR方法
-        if len(x_labels) < 3:
-            logger.debug("大模型X轴识别不足，回退到OCR方法")
-            for region_size in [25, 30, 35]:
-                x_labels = recognize_tick_labels(img, x_filtered_ticks, direction='x', label_region=region_size)
-                if len(x_labels) >= 3:
-                    break
-        
-        if len(y_labels) < 3:
-            logger.debug("大模型Y轴识别不足，回退到OCR方法")
-            for region_size in [25, 30, 35]:
-                y_labels = recognize_tick_labels(img, y_filtered_ticks, direction='y', label_region=region_size)
-                if len(y_labels) >= 3:
-                    break
-    except Exception as e:
-        logger.error(f"识别刻度标签时出错: {e}")
+    # 处理刻度标签
+    ticks_result = extract_tick_labels_with_llm(image_path, cache_dir=None)
+    x_ticks_values = ticks_result.get("x_ticks", [])
+    y_ticks_values = ticks_result.get("y_ticks", [])
+    x_axis_type = ticks_result.get("x_axis_type", "数值轴")
+    y_axis_type = ticks_result.get("y_axis_type", "数值轴")
     
-    logger.debug(f"识别到 X轴标签 {len(x_labels)} 个, Y轴标签 {len(y_labels)} 个")
+    # 处理图例颜色
+    colors_result = extract_chart_series_color(image_path)
+    if isinstance(colors_result, list):
+        colors_data = colors_result
+    else:
+        colors_data = [{"name": "Series 1", "color": str(colors_result)}]
+    
+    logger.debug(f"模型处理结果: X轴{len(x_ticks_values)}个刻度, Y轴{len(y_ticks_values)}个刻度, {len(colors_data)}个颜色")
     
     # 初始化刻度数据列表
     chart_id = os.path.splitext(os.path.basename(image_path))[0]  # 定义chart_id变量
@@ -533,55 +525,59 @@ def process_chart(image_path, output_dir):
     y_ticks_data = []
     y_pixels_data = []
     
-    # 使用OCR识别结果生成刻度数据
-    logger.debug("使用OCR识别结果生成刻度数据")
-    if x_labels:
-        for item in sorted(x_labels, key=lambda x: (x['tick'][0] + x['tick'][2]) // 2):
+    # 计算检测到的刻度线的中心位置
+    x_pixel_positions = sorted([(t[0] + t[2]) // 2 for t in x_filtered_ticks])
+    y_pixel_positions = sorted([(t[1] + t[3]) // 2 for t in y_filtered_ticks], reverse=True)
+    
+    # 匹配X轴刻度
+    if x_ticks_values and x_pixel_positions:
+        # 确保数值数量与刻度数量匹配
+        if len(x_ticks_values) > len(x_pixel_positions):
+            x_ticks_values = x_ticks_values[:len(x_pixel_positions)]
+        elif len(x_ticks_values) < len(x_pixel_positions):
+            # 如果数值不足，使用已有数值插值
+            if len(x_ticks_values) >= 2:
+                import numpy as np
+                x_positions = np.linspace(0, 1, len(x_pixel_positions))
+                orig_positions = np.linspace(0, 1, len(x_ticks_values))
+                interpolated = np.interp(x_positions, orig_positions, x_ticks_values)
+                x_ticks_values = interpolated.tolist()
+        
+        # 匹配刻度值和像素位置
+        for i, (tick_value, pixel_pos) in enumerate(zip(x_ticks_values, x_pixel_positions)):
             try:
-                value = float(item['text'])
+                value = float(tick_value)
                 x_ticks_data.append(value)
-                x_pixels_data.append((item['tick'][0] + item['tick'][2]) // 2)
+                x_pixels_data.append(pixel_pos)
             except ValueError:
-                continue
+                # 如果是文字轴，直接添加
+                x_ticks_data.append(tick_value)
+                x_pixels_data.append(pixel_pos)
     
-    if y_labels:
-        for item in sorted(y_labels, key=lambda x: (x['tick'][1] + x['tick'][3]) // 2, reverse=True):
+    # 匹配Y轴刻度
+    if y_ticks_values and y_pixel_positions:
+        # 确保数值数量与刻度数量匹配
+        if len(y_ticks_values) > len(y_pixel_positions):
+            y_ticks_values = y_ticks_values[:len(y_pixel_positions)]
+        elif len(y_ticks_values) < len(y_pixel_positions):
+            # 如果数值不足，使用已有数值插值
+            if len(y_ticks_values) >= 2:
+                import numpy as np
+                y_positions = np.linspace(0, 1, len(y_pixel_positions))
+                orig_positions = np.linspace(0, 1, len(y_ticks_values))
+                interpolated = np.interp(y_positions, orig_positions, y_ticks_values)
+                y_ticks_values = interpolated.tolist()
+        
+        # 匹配刻度值和像素位置
+        for i, (tick_value, pixel_pos) in enumerate(zip(y_ticks_values, y_pixel_positions)):
             try:
-                value = float(item['text'])
+                value = float(tick_value)
                 y_ticks_data.append(value)
-                y_pixels_data.append((item['tick'][1] + item['tick'][3]) // 2)
+                y_pixels_data.append(pixel_pos)
             except ValueError:
-                continue
-    
-    # 如果OCR识别的刻度不足，尝试使用刻度线位置推断值
-    if len(x_ticks_data) < 2 and x_filtered_ticks:
-        logger.debug("OCR识别失败，尝试使用刻度线位置推断值")
-        # 基于像素位置生成模拟值
-        x_pixel_positions = sorted([(t[0] + t[2]) // 2 for t in x_filtered_ticks])
-        min_pixel = min(x_pixel_positions)
-        max_pixel = max(x_pixel_positions)
-        if min_pixel != max_pixel:
-            # 生成均匀分布的值
-            range_size = max_pixel - min_pixel
-            for i, pix in enumerate(x_pixel_positions):
-                # 从0开始，按位置比例生成值
-                value = (pix - min_pixel) / range_size * 100  # 生成0-100的值
-                x_ticks_data.append(value)
-                x_pixels_data.append(pix)
-    
-    if len(y_ticks_data) < 2 and y_filtered_ticks:
-        # 基于像素位置生成模拟值
-        y_pixel_positions = sorted([(t[1] + t[3]) // 2 for t in y_filtered_ticks])
-        min_pixel = min(y_pixel_positions)
-        max_pixel = max(y_pixel_positions)
-        if min_pixel != max_pixel:
-            # 生成均匀分布的值（Y轴通常是倒序的，从上到下增大）
-            range_size = max_pixel - min_pixel
-            for i, pix in enumerate(y_pixel_positions):
-                # 从0开始，按位置比例生成值（注意Y轴方向）
-                value = (max_pixel - pix) / range_size * 100  # 生成0-100的值
-                y_ticks_data.append(value)
-                y_pixels_data.append(pix)
+                # 如果是文字轴，直接添加
+                y_ticks_data.append(tick_value)
+                y_pixels_data.append(pixel_pos)
     
     if len(x_ticks_data) < 2 or len(y_ticks_data) < 2:
         logger.warning(f"有效刻度数量不足: {image_path}")
@@ -592,31 +588,41 @@ def process_chart(image_path, output_dir):
     # 生成加密刻度和对应的加密像素位置
     logger.debug("生成加密刻度和对应的加密像素位置...")
     
-    # 生成加密刻度
-    x_ticks_encrypted = generate_encrypted_ticks(x_ticks_data)
-    y_ticks_encrypted = generate_encrypted_ticks(y_ticks_data)
+    # 判断是否为数值轴
+    is_x_numeric = x_axis_type == "数值轴"
+    is_y_numeric = y_axis_type == "数值轴"
+    
+    # 生成加密刻度（只对数字轴加密）
+    x_ticks_encrypted = generate_encrypted_ticks(x_ticks_data, is_numeric_axis=is_x_numeric)
+    y_ticks_encrypted = generate_encrypted_ticks(y_ticks_data, is_numeric_axis=is_y_numeric)
     
     # 生成对应的加密像素位置
-    x_pixels_encrypted = []
-    y_pixels_encrypted = []
+    # 对于数字轴，需要插入中间像素位置；对于文字轴，不需要
+    if is_x_numeric:
+        x_pixels_encrypted = []
+        for i in range(len(x_ticks_data)):
+            # 添加原始像素位置
+            x_pixels_encrypted.append(x_pixels_data[i])
+            # 如果不是最后一个点，计算并添加中间像素位置
+            if i < len(x_ticks_data) - 1:
+                mid_pixel = (x_pixels_data[i] + x_pixels_data[i + 1]) // 2
+                x_pixels_encrypted.append(mid_pixel)
+    else:
+        # 文字轴，不插入中间像素位置
+        x_pixels_encrypted = x_pixels_data.copy()
     
-    # 为X轴生成加密像素位置
-    for i in range(len(x_ticks_data)):
-        # 添加原始像素位置
-        x_pixels_encrypted.append(x_pixels_data[i])
-        # 如果不是最后一个点，计算并添加中间像素位置
-        if i < len(x_ticks_data) - 1:
-            mid_pixel = (x_pixels_data[i] + x_pixels_data[i + 1]) // 2
-            x_pixels_encrypted.append(mid_pixel)
-    
-    # 为Y轴生成加密像素位置
-    for i in range(len(y_ticks_data)):
-        # 添加原始像素位置
-        y_pixels_encrypted.append(y_pixels_data[i])
-        # 如果不是最后一个点，计算并添加中间像素位置
-        if i < len(y_ticks_data) - 1:
-            mid_pixel = (y_pixels_data[i] + y_pixels_data[i + 1]) // 2
-            y_pixels_encrypted.append(mid_pixel)
+    if is_y_numeric:
+        y_pixels_encrypted = []
+        for i in range(len(y_ticks_data)):
+            # 添加原始像素位置
+            y_pixels_encrypted.append(y_pixels_data[i])
+            # 如果不是最后一个点，计算并添加中间像素位置
+            if i < len(y_ticks_data) - 1:
+                mid_pixel = (y_pixels_data[i] + y_pixels_data[i + 1]) // 2
+                y_pixels_encrypted.append(mid_pixel)
+    else:
+        # 文字轴，不插入中间像素位置
+        y_pixels_encrypted = y_pixels_data.copy()
     
     logger.debug(f"生成加密刻度: X轴={len(x_ticks_encrypted)}个, Y轴={len(y_ticks_encrypted)}个")
     logger.debug(f"生成加密像素位置: X轴={len(x_pixels_encrypted)}个, Y轴={len(y_pixels_encrypted)}个")
@@ -677,9 +683,12 @@ def process_chart(image_path, output_dir):
         "y_ticks_encrypted": y_ticks_encrypted,
         "x_pixels_encrypted": x_pixels_encrypted,
         "y_pixels_encrypted": y_pixels_encrypted,
+        "x_axis_type": x_axis_type,
+        "y_axis_type": y_axis_type,
         "image_path": image_path,
         "basic_grid_path": basic_grid_path,
-        "encrypted_grid_path": encrypted_grid_path
+        "encrypted_grid_path": encrypted_grid_path,
+        "colors": colors_data
     }
     
     output_json_path = os.path.join(output_dir, f"{chart_id}_ticks.json")
@@ -693,17 +702,29 @@ def process_chart(image_path, output_dir):
     logger.info(f"处理完成: {chart_id}")
     return tick_data
 
-def generate_encrypted_ticks(original_ticks):
+def generate_encrypted_ticks(original_ticks, is_numeric_axis=True):
     """
     根据原始刻度生成加密刻度（在原刻度之间插入中间值）
+    对于数字轴，插入中间值；对于文字轴，不插入中间值
     """
     encrypted_ticks = []
+    if not is_numeric_axis:
+        # 文字轴，不加密，直接返回原值
+        return original_ticks.copy()
+    
+    # 数字轴，插入中间值
     for i in range(len(original_ticks)):
         encrypted_ticks.append(original_ticks[i])
         if i < len(original_ticks) - 1:
-            # 在两个刻度之间插入中间值
-            mid_value = (original_ticks[i] + original_ticks[i + 1]) / 2
-            encrypted_ticks.append(mid_value)
+            # 检查是否为数值类型
+            try:
+                val1 = float(original_ticks[i])
+                val2 = float(original_ticks[i + 1])
+                mid_value = (val1 + val2) / 2
+                encrypted_ticks.append(mid_value)
+            except (ValueError, TypeError):
+                # 如果不是数值，不插入中间值
+                pass
     return encrypted_ticks
 
 

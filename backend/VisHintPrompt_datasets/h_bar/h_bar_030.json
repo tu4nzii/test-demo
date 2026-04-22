@@ -1,0 +1,69 @@
+{
+  "chart_id": "h_bar_030",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_030.png",
+    "with_grid": "charts/h_bar/h_bar_030_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_030_grid_with_grid.png"
+  },
+  "data_points": {
+    "Spending in billion U.S. dollars": {
+      "Bangkok": 20.03,
+      "Singapore": 16.56,
+      "Tokyo": 13.77,
+      "Phuket": 12.01,
+      "Kuala Lumpur": 11.13,
+      "Seoul": 9.31,
+      "Bali": 8.86,
+      "Sydney": 8.03
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0
+  ],
+  "y_ticks": [
+    "Bangkok",
+    "Singapore",
+    "Tokyo",
+    "Phuket",
+    "Kuala Lumpur",
+    "Seoul",
+    "Bali",
+    "Sydney"
+  ],
+  "x_pixels": [
+    135,
+    188,
+    241,
+    294,
+    347,
+    400,
+    453,
+    506,
+    559,
+    612,
+    665
+  ],
+  "y_pixels": [
+    397,
+    355,
+    313,
+    271,
+    229,
+    187,
+    145,
+    103
+  ],
+  "series_color": {
+    "Spending in billion U.S. dollars": "#1f77b4"
+  }
+}

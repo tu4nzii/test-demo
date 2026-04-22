@@ -1,0 +1,78 @@
+{
+  "chart_id": "v_bar_068",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_068.png",
+    "with_grid": "charts/v_bar/v_bar_068_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_068_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of children born per woman": {
+      "2018": 1.42,
+      "2017": 1.43,
+      "2016": 1.44,
+      "2015": 1.45,
+      "2012": 1.41,
+      "2011": 1.39,
+      "2009": 1.37
+    }
+  },
+  "x_ticks": [
+    "2018",
+    "2017",
+    "2016",
+    "2015",
+    "2012",
+    "2011",
+    "2009"
+  ],
+  "y_ticks": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4,
+    1.5,
+    1.6
+  ],
+  "x_pixels": [
+    321,
+    471,
+    620,
+    770,
+    920,
+    1069,
+    1219
+  ],
+  "y_pixels": [
+    800,
+    758,
+    715,
+    672,
+    630,
+    588,
+    545,
+    502,
+    460,
+    418,
+    375,
+    332,
+    290,
+    248,
+    205,
+    162,
+    120
+  ],
+  "series_color": {
+    "Number of children born per woman": "#87ceeb"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "chart_id": "h_bar_133",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_133.png",
+    "with_grid": "charts/h_bar/h_bar_133_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_133_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of cases": {
+      "Iran": 32332.0,
+      "Israel": 3035.0,
+      "Oman": 1292.0,
+      "Saudi Arabia": 1104.0,
+      "Lebanon": 891.0,
+      "Qatar": 549.0,
+      "Egypt": 495.0,
+      "Bahrain": 466.0,
+      "Iraq": 458.0,
+      "United Arab Emirates": 333.0,
+      "Kuwait": 225.0,
+      "Jordan": 212.0,
+      "Palestinian territories": 91.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2500.0,
+    5000.0,
+    7500.0,
+    10000.0,
+    12500.0,
+    15000.0,
+    17500.0,
+    20000.0,
+    22500.0,
+    25000.0,
+    27500.0,
+    30000.0,
+    32500.0,
+    35000.0
+  ],
+  "y_ticks": [
+    "Iran",
+    "Israel",
+    "Oman",
+    "Saudi Arabia",
+    "Lebanon",
+    "Qatar",
+    "Egypt",
+    "Bahrain",
+    "Iraq",
+    "United Arab Emirates",
+    "Kuwait",
+    "Jordan",
+    "Palestinian territories"
+  ],
+  "x_pixels": [
+    140,
+    178,
+    215,
+    253,
+    290,
+    328,
+    365,
+    403,
+    440,
+    478,
+    515,
+    553,
+    590,
+    628,
+    665
+  ],
+  "y_pixels": [
+    403,
+    378,
+    352,
+    327,
+    301,
+    276,
+    250,
+    224,
+    199,
+    173,
+    148,
+    122,
+    97
+  ],
+  "series_color": {
+    "Number of cases": "#1f77b4"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_086",
+  "image_paths": {
+    "no_grid": "charts/line/line_086.png",
+    "with_grid": "charts/line/line_086_grid.png",
+    "grid_with_grid": "charts/line/line_086_grid_with_grid.png"
+  },
+  "data_points": {
+    "Democratic Party": {
+      "May 2008": 55.0,
+      "April 2009": 48.0,
+      "April 2010": 50.0,
+      "March 2011": 48.0,
+      "March 2012": 49.0
+    },
+    "Republican Party": {
+      "May 2008": 39.0,
+      "April 2009": 40.0,
+      "April 2010": 37.0,
+      "March 2011": 0.0,
+      "March 2012": 36.0
+    }
+  },
+  "x_ticks": [
+    "May 2008",
+    "April 2009",
+    "April 2010",
+    "March 2011",
+    "March 2012"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    149,
+    295,
+    440,
+    585,
+    731
+  ],
+  "y_pixels": [
+    313,
+    292,
+    271,
+    250,
+    229,
+    208,
+    187,
+    166,
+    144,
+    123,
+    102,
+    81,
+    60
+  ],
+  "series_color": {
+    "Democratic Party": "#e377c2",
+    "Republican Party": "#7f7f7f"
+  }
+}

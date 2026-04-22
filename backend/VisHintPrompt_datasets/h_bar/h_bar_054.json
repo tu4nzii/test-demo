@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_054",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_054.png",
+    "with_grid": "charts/h_bar/h_bar_054_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_054_grid_with_grid.png"
+  },
+  "data_points": {
+    "a lot": {
+      "Transgender people": 15.0,
+      "Bisexual men 8": 8.0,
+      "Gay men 15": 15.0,
+      "Lesbians 25": 25.0,
+      "Bisexual women 33": 33.0
+    },
+    "Some": {
+      "Transgender people": 80.0,
+      "Bisexual men 8": 44.0,
+      "Gay men 15": 56.0,
+      "Lesbians 25": 60.0,
+      "Bisexual women 33": 45.0
+    },
+    "Only little a non": {
+      "Transgender people": 0.0,
+      "Bisexual men 8": 46.0,
+      "Gay men 15": 27.0,
+      "Lesbians 25": 14.0,
+      "Bisexual women 33": 21.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "y_ticks": [
+    "Transgender people",
+    "Bisexual men 8",
+    "Gay men 15",
+    "Lesbians 25",
+    "Bisexual women 33"
+  ],
+  "x_pixels": [
+    162,
+    233,
+    304,
+    375,
+    446,
+    518,
+    589,
+    660,
+    732
+  ],
+  "y_pixels": [
+    406,
+    338,
+    270,
+    202,
+    134
+  ],
+  "series_color": {
+    "a lot": "#1f77b4",
+    "Some": "#ff7f0e",
+    "Only little a non": "#2ca02c"
+  }
+}

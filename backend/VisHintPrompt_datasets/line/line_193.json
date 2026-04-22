@@ -1,0 +1,64 @@
+{
+  "chart_id": "line_193",
+  "image_paths": {
+    "no_grid": "charts/line/line_193.png",
+    "with_grid": "charts/line/line_193_grid.png",
+    "grid_with_grid": "charts/line/line_193_grid_with_grid.png"
+  },
+  "data_points": {
+    "Good": {
+      "2007": 28.0,
+      "2016": 30.0
+    },
+    "Bad": {
+      "2007": 0.0,
+      "2016": 68.0
+    }
+  },
+  "x_ticks": [
+    "2007",
+    "2016"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    134,
+    658
+  ],
+  "y_pixels": [
+    300,
+    283,
+    266,
+    249,
+    232,
+    215,
+    198,
+    181,
+    164,
+    147,
+    130,
+    113,
+    96,
+    79,
+    62
+  ],
+  "series_color": {
+    "Good": "#1f77b4",
+    "Bad": "#ff7f0e"
+  }
+}

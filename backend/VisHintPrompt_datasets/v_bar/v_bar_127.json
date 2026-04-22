@@ -1,0 +1,51 @@
+{
+  "chart_id": "v_bar_127",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_127.png",
+    "with_grid": "charts/v_bar/v_bar_127_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_127_grid_with_grid.png"
+  },
+  "data_points": {
+    "Sales in billion U.S. dollars": {
+      "2015": 2.5,
+      "2013": 2.3
+    }
+  },
+  "x_ticks": [
+    "2015",
+    "2013"
+  ],
+  "y_ticks": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5
+  ],
+  "x_pixels": [
+    278,
+    602
+  ],
+  "y_pixels": [
+    480,
+    441,
+    402,
+    363,
+    325,
+    286,
+    247,
+    208,
+    169,
+    130,
+    91
+  ],
+  "series_color": {
+    "Sales in billion U.S. dollars": "#87ceeb"
+  }
+}

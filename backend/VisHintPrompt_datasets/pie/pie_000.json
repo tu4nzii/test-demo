@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "000",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_000.png"
+  },
+  "data_points": {
+    "More than  friends": 265.5,
+    "Refused": 0.9,
+    "friend": 54.9,
+    "No friends": 38.7
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "More than  friends": "#ff7f0e",
+    "Refused": "#ff9896",
+    "friend": "#1f77b4",
+    "No friends": "#fbb4ae"
+  }
+}

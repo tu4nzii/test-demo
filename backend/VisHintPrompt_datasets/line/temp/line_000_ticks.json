@@ -1,0 +1,78 @@
+{
+  "chart_id": "line_000",
+  "x_ticks": [
+    2005.0,
+    2007.0,
+    2005.0,
+    2011.0,
+    2015.0,
+    2015.0
+  ],
+  "y_ticks": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "x_pixels": [
+    186,
+    332,
+    477,
+    623,
+    768,
+    914
+  ],
+  "y_pixels": [
+    326,
+    224,
+    123,
+    72
+  ],
+  "x_ticks_encrypted": [
+    2005.0,
+    2006.0,
+    2007.0,
+    2006.0,
+    2005.0,
+    2008.0,
+    2011.0,
+    2013.0,
+    2015.0,
+    2015.0,
+    2015.0
+  ],
+  "y_ticks_encrypted": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "x_pixels_encrypted": [
+    186,
+    259,
+    332,
+    404,
+    477,
+    550,
+    623,
+    695,
+    768,
+    841,
+    914
+  ],
+  "y_pixels_encrypted": [
+    326,
+    275,
+    224,
+    173,
+    123,
+    97,
+    72
+  ],
+  "image_path": "F:\\program\\test-demo\\backend\\VisHintPrompt_datasets\\line\\line_000.png",
+  "basic_grid_path": "F:\\program\\test-demo\\backend\\VisHintPrompt_datasets\\line\\temp\\line_000_grid.png",
+  "encrypted_grid_path": "F:\\program\\test-demo\\backend\\VisHintPrompt_datasets\\line\\temp\\line_000_with_grid.png"
+}

@@ -1,0 +1,67 @@
+{
+  "chart_id": "v_bar_191",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_191.png",
+    "with_grid": "charts/v_bar/v_bar_191_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_191_grid_with_grid.png"
+  },
+  "data_points": {
+    "Discrimination in the family": {
+      "China (People's Republic of)": 3.2,
+      "Cambodia": 16.6
+    }
+  },
+  "x_ticks": [
+    "China (People's Republic of)",
+    "Cambodia"
+  ],
+  "y_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0,
+    18.0
+  ],
+  "x_pixels": [
+    278,
+    602
+  ],
+  "y_pixels": [
+    480,
+    457,
+    435,
+    412,
+    389,
+    367,
+    344,
+    321,
+    299,
+    276,
+    253,
+    231,
+    208,
+    185,
+    163,
+    140,
+    117,
+    95,
+    72
+  ],
+  "series_color": {
+    "Discrimination in the family": "#66c2a5"
+  }
+}

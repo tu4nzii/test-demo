@@ -1,0 +1,30 @@
+﻿{
+  "chart_id": "004",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_004.png"
+  },
+  "data_points": {
+    "Mixed race": 360.0
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Mixed race": "#fed9a6"
+  }
+}

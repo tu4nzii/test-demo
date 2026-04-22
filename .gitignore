@@ -1,0 +1,7 @@
+# Python
+__pycache__/
+
+# Project specific
+VishintPrompt_evaluatation/
+test_output/
+*.log

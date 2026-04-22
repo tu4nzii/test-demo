@@ -1,0 +1,57 @@
+{
+  "chart_id": "v_bar_148",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_148.png",
+    "with_grid": "charts/v_bar/v_bar_148_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_148_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of respondents": {
+      "Business travel bans": 49.0,
+      "Reduced direct contact": 48.0,
+      "Contingency plans": 42.0,
+      "Cancel non-essential meetings/events": 40.0
+    }
+  },
+  "x_ticks": [
+    "Business travel bans",
+    "Reduced direct contact",
+    "Contingency plans",
+    "Cancel non-essential meetings/events"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    210,
+    363,
+    517,
+    670
+  ],
+  "y_pixels": [
+    480,
+    440,
+    401,
+    361,
+    321,
+    282,
+    242,
+    202,
+    163,
+    123,
+    83
+  ],
+  "series_color": {
+    "Share of respondents": "#87ceeb"
+  }
+}

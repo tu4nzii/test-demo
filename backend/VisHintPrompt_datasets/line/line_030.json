@@ -1,0 +1,65 @@
+{
+  "chart_id": "line_030",
+  "image_paths": {
+    "no_grid": "charts/line/line_030.png",
+    "with_grid": "charts/line/line_030_grid.png",
+    "grid_with_grid": "charts/line/line_030_grid_with_grid.png"
+  },
+  "data_points": {
+    "Emerging markets": {
+      "2007": 33.0,
+      "2014": 51.0
+    },
+    "Developing economies": {
+      "2007": 0.0,
+      "2014": 0.0
+    },
+    "Advanced economies": {
+      "2007": 0.0,
+      "2014": 54.0
+    }
+  },
+  "x_ticks": [
+    "2007",
+    "2014"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    179,
+    877
+  ],
+  "y_pixels": [
+    376,
+    351,
+    326,
+    300,
+    275,
+    250,
+    224,
+    199,
+    173,
+    148,
+    123,
+    97,
+    72
+  ],
+  "series_color": {
+    "Emerging markets": "#d62728",
+    "Developing economies": "#9467bd",
+    "Advanced economies": "#8c564b"
+  }
+}

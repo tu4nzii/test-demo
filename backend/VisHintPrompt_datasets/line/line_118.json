@@ -1,0 +1,60 @@
+{
+  "chart_id": "line_118",
+  "image_paths": {
+    "no_grid": "charts/line/line_118.png",
+    "with_grid": "charts/line/line_118_grid.png",
+    "grid_with_grid": "charts/line/line_118_grid_with_grid.png"
+  },
+  "data_points": {
+    "West Germany": {
+      "1991": 51.0,
+      "2009": 0.0,
+      "2019": 88.0
+    },
+    "East Germany": {
+      "1991": 59.0,
+      "2009": 79.0,
+      "2019": 81.0
+    }
+  },
+  "x_ticks": [
+    "1991",
+    "2009",
+    "2019"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    149,
+    440,
+    731
+  ],
+  "y_pixels": [
+    314,
+    288,
+    263,
+    238,
+    212,
+    187,
+    162,
+    136,
+    111,
+    85,
+    60
+  ],
+  "series_color": {
+    "West Germany": "#d62728",
+    "East Germany": "#9467bd"
+  }
+}

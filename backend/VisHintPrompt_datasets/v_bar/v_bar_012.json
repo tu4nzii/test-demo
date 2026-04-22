@@ -1,0 +1,60 @@
+{
+  "chart_id": "v_bar_012",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_012.png",
+    "with_grid": "charts/v_bar/v_bar_012_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_012_grid_with_grid.png"
+  },
+  "data_points": {
+    "Jersey sponsorship revenue in million GBP": {
+      "2019/20 (Etihad)": 45.0,
+      "2017/18 (Etihad)": 35.0,
+      "2016/17 (Etihad)": 20.0,
+      "2010/11 (Etihad)": 7.5,
+      "2009/10 (Etihad)": 7.34
+    }
+  },
+  "x_ticks": [
+    "2019/20 (Etihad)",
+    "2017/18 (Etihad)",
+    "2016/17 (Etihad)",
+    "2010/11 (Etihad)",
+    "2009/10 (Etihad)"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    198,
+    319,
+    440,
+    561,
+    682
+  ],
+  "y_pixels": [
+    480,
+    439,
+    398,
+    358,
+    317,
+    276,
+    235,
+    194,
+    154,
+    113,
+    72
+  ],
+  "series_color": {
+    "Jersey sponsorship revenue in million GBP": "#1f77b4"
+  }
+}

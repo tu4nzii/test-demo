@@ -1,0 +1,63 @@
+{
+  "chart_id": "h_bar_022",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_022.png",
+    "with_grid": "charts/h_bar/h_bar_022_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_022_grid_with_grid.png"
+  },
+  "data_points": {
+    "Homicide rate by age of the victim, South Asia, 2011": {
+      "70+ years old": 4.93,
+      "15-49 years old": 4.84,
+      "50-69 years old": 4.27,
+      "All ages": 3.55,
+      "Under-5s": 1.46,
+      "5-14 years old": 0.88
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0
+  ],
+  "y_ticks": [
+    "70+ years old",
+    "15-49 years old",
+    "50-69 years old",
+    "All ages",
+    "Under-5s",
+    "5-14 years old"
+  ],
+  "x_pixels": [
+    309,
+    426,
+    543,
+    660,
+    777,
+    894,
+    1011,
+    1128,
+    1245,
+    1362,
+    1479
+  ],
+  "y_pixels": [
+    939,
+    803,
+    668,
+    532,
+    397,
+    261
+  ],
+  "series_color": {
+    "Homicide rate by age of the victim, South Asia, 2011": "#1f77b4"
+  }
+}

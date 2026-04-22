@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "017",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_017.png"
+  },
+  "data_points": {
+    "Republican congressional leaders": 164.48,
+    "DK": 21.64,
+    "President Obama": 173.14,
+    "Both Neither (Vol.)": 0.74
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Republican congressional leaders": "#fddaec",
+    "DK": "#fdc086",
+    "President Obama": "#666666",
+    "Both Neither (Vol.)": "#d9d9d9"
+  }
+}

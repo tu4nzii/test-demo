@@ -1,0 +1,75 @@
+{
+  "chart_id": "v_bar_123",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_123.png",
+    "with_grid": "charts/v_bar/v_bar_123_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_123_grid_with_grid.png"
+  },
+  "data_points": {
+    "Change between 2000 and 2019": {
+      "Alzheimer's disease": 145.2,
+      "Breast cancer": 1.1,
+      "Prostate cancer": 1.8,
+      "Heart disease": -7.3,
+      "Stroke": -10.5,
+      "HIV": -65.2
+    }
+  },
+  "x_ticks": [
+    "Alzheimer's disease",
+    "Breast cancer",
+    "Prostate cancer",
+    "Heart disease",
+    "Stroke",
+    "HIV"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0
+  ],
+  "x_pixels": [
+    166,
+    253,
+    341,
+    429,
+    517,
+    604
+  ],
+  "y_pixels": [
+    291,
+    276,
+    262,
+    248,
+    233,
+    219,
+    204,
+    190,
+    175,
+    161,
+    147,
+    132,
+    118,
+    103,
+    89,
+    74,
+    60
+  ],
+  "series_color": {
+    "Change between 2000 and 2019": "#87ceeb"
+  }
+}

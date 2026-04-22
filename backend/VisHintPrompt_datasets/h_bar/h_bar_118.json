@@ -1,0 +1,64 @@
+{
+  "chart_id": "h_bar_118",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_118.png",
+    "with_grid": "charts/h_bar/h_bar_118_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_118_grid_with_grid.png"
+  },
+  "data_points": {
+    "Value of M&A deal in billion euros": {
+      "Vostok Oil": 5.73,
+      "Payakhskoye oil field": 4.1,
+      "IKS Holding": 1.71,
+      "Uralkali": 1.66,
+      "Elga coal complex": 1.17
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0
+  ],
+  "y_ticks": [
+    "Vostok Oil",
+    "Payakhskoye oil field",
+    "IKS Holding",
+    "Uralkali",
+    "Elga coal complex"
+  ],
+  "x_pixels": [
+    244,
+    334,
+    425,
+    515,
+    605,
+    695,
+    786,
+    876,
+    966,
+    1056,
+    1147,
+    1237,
+    1327
+  ],
+  "y_pixels": [
+    773,
+    636,
+    500,
+    364,
+    227
+  ],
+  "series_color": {
+    "Value of M&A deal in billion euros": "#1f77b4"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "chart_id": "h_bar_099",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_099.png",
+    "with_grid": "charts/h_bar/h_bar_099_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_099_grid_with_grid.png"
+  },
+  "data_points": {
+    "Revenue in million U.S. dollars": {
+      "Palantir": 418.0,
+      "Pivotal": 300.0,
+      "Splunk": 283.0,
+      "Mu Sigma": 160.0,
+      "Actian": 138.0,
+      "Opera Solutions": 124.0,
+      "MarkLogic": 96.0,
+      "Syncsort": 75.0,
+      "Cloudera": 73.0,
+      "MongoDB": 62.0,
+      "Hortonworks": 55.0,
+      "Guavus": 54.0,
+      "Alteryx": 48.0,
+      "1010data": 45.0,
+      "MapR": 35.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Palantir",
+    "Pivotal",
+    "Splunk",
+    "Mu Sigma",
+    "Actian",
+    "Opera Solutions",
+    "MarkLogic",
+    "Syncsort",
+    "Cloudera",
+    "MongoDB",
+    "Hortonworks",
+    "Guavus",
+    "Alteryx",
+    "1010data",
+    "MapR"
+  ],
+  "x_pixels": [
+    220,
+    331,
+    442,
+    553,
+    664,
+    775,
+    886,
+    997,
+    1108,
+    1219,
+    1330
+  ],
+  "y_pixels": [
+    810,
+    765,
+    721,
+    677,
+    633,
+    588,
+    544,
+    500,
+    456,
+    412,
+    367,
+    323,
+    279,
+    235,
+    190
+  ],
+  "series_color": {
+    "Revenue in million U.S. dollars": "#1f77b4"
+  }
+}

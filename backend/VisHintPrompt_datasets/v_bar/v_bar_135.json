@@ -1,0 +1,58 @@
+{
+  "chart_id": "v_bar_135",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_135.png",
+    "with_grid": "charts/v_bar/v_bar_135_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_135_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of users in millions": {
+      "2016": 5.13,
+      "2015": 4.92,
+      "2014": 4.66
+    }
+  },
+  "x_ticks": [
+    "2016",
+    "2015",
+    "2014"
+  ],
+  "y_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0
+  ],
+  "x_pixels": [
+    406,
+    770,
+    1134
+  ],
+  "y_pixels": [
+    800,
+    743,
+    687,
+    630,
+    573,
+    517,
+    460,
+    403,
+    347,
+    290,
+    233,
+    177,
+    120
+  ],
+  "series_color": {
+    "Number of users in millions": "#87ceeb"
+  }
+}

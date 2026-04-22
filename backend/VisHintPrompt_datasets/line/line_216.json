@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_216",
+  "image_paths": {
+    "no_grid": "charts/line/line_216.png",
+    "with_grid": "charts/line/line_216_grid.png",
+    "grid_with_grid": "charts/line/line_216_grid_with_grid.png"
+  },
+  "data_points": {
+    "Illegal inall/most cases": {
+      "1995": 0.0,
+      "1999": 0.0,
+      "2003": 48.0,
+      "2007": 43.0,
+      "2011": 39.0,
+      "2015": 43.0
+    },
+    "Legal inall/most cases": {
+      "1995": 0.0,
+      "1999": 0.0,
+      "2003": 49.0,
+      "2007": 0.0,
+      "2011": 46.0,
+      "2015": 0.0
+    }
+  },
+  "x_ticks": [
+    "1995",
+    "1999",
+    "2003",
+    "2007",
+    "2011",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    186,
+    332,
+    477,
+    623,
+    768,
+    914
+  ],
+  "y_pixels": [
+    376,
+    346,
+    317,
+    287,
+    258,
+    228,
+    199,
+    169,
+    140,
+    110,
+    81
+  ],
+  "series_color": {
+    "Illegal inall/most cases": "#d62728",
+    "Legal inall/most cases": "#9467bd"
+  }
+}

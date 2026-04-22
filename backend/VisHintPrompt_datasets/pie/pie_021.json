@@ -1,0 +1,38 @@
+﻿{
+  "chart_id": "021",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_021.png"
+  },
+  "data_points": {
+    "Not much orno confidence atall": 255.6,
+    "Some confidence": 97.2,
+    "a lot of confidence": 7.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Not much orno confidence atall": "#e377c2",
+    "Some confidence": "#d95f02",
+    "a lot of confidence": "#fdb462"
+  }
+}

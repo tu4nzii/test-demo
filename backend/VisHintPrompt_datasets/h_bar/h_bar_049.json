@@ -1,0 +1,60 @@
+{
+  "chart_id": "h_bar_049",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_049.png",
+    "with_grid": "charts/h_bar/h_bar_049_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_049_grid_with_grid.png"
+  },
+  "data_points": {
+    "Expenditures in million Canadian dollars": {
+      "Municipal police services*": 8551.55,
+      "Provincial police services*": 2384.32,
+      "RCMP - contract policing**": 2740.54,
+      "RCMP - federal and international policing**": 932.13,
+      "RCMP - operational support and services**": 1463.94
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0
+  ],
+  "y_ticks": [
+    "Municipal police services*",
+    "Provincial police services*",
+    "RCMP - contract policing**",
+    "RCMP - federal and international policing**",
+    "RCMP - operational support and services**"
+  ],
+  "x_pixels": [
+    182,
+    240,
+    298,
+    355,
+    413,
+    471,
+    529,
+    587,
+    644,
+    702,
+    760
+  ],
+  "y_pixels": [
+    464,
+    382,
+    300,
+    218,
+    136
+  ],
+  "series_color": {
+    "Expenditures in million Canadian dollars": "#87ceeb"
+  }
+}

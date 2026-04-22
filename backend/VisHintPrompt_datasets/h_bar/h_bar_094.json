@@ -1,0 +1,75 @@
+{
+  "chart_id": "h_bar_094",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_094.png",
+    "with_grid": "charts/h_bar/h_bar_094_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_094_grid_with_grid.png"
+  },
+  "data_points": {
+    "Hypothetical number of deaths from energy production": {
+      "Brown coal": 5.2,
+      "Coal": 3.91,
+      "Oil": 2.93,
+      "Biomass": 736170.0,
+      "Gas": 448539.0,
+      "Nuclear": 11766.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50000.0,
+    100000.0,
+    150000.0,
+    200000.0,
+    250000.0,
+    300000.0,
+    350000.0,
+    400000.0,
+    450000.0,
+    500000.0,
+    550000.0,
+    600000.0,
+    650000.0,
+    700000.0,
+    750000.0,
+    800000.0
+  ],
+  "y_ticks": [
+    "Brown coal",
+    "Coal",
+    "Oil",
+    "Biomass",
+    "Gas",
+    "Nuclear"
+  ],
+  "x_pixels": [
+    112,
+    147,
+    181,
+    216,
+    251,
+    285,
+    320,
+    354,
+    389,
+    423,
+    458,
+    492,
+    527,
+    561,
+    596,
+    630,
+    665
+  ],
+  "y_pixels": [
+    391,
+    335,
+    278,
+    222,
+    165,
+    109
+  ],
+  "series_color": {
+    "Hypothetical number of deaths from energy production": "#1f77b4"
+  }
+}

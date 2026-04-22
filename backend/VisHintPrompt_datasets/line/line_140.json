@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_140",
+  "image_paths": {
+    "no_grid": "charts/line/line_140.png",
+    "with_grid": "charts/line/line_140_grid.png",
+    "grid_with_grid": "charts/line/line_140_grid_with_grid.png"
+  },
+  "data_points": {
+    "China's military strength": {
+      "2012": 28.0,
+      "2014": 0.0,
+      "2016": 36.0,
+      "2018": 29.0
+    },
+    "China's economic strength": {
+      "2012": 59.0,
+      "2014": 0.0,
+      "2016": 50.0,
+      "2018": 58.0
+    }
+  },
+  "x_ticks": [
+    "2012",
+    "2014",
+    "2016",
+    "2018"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    134,
+    309,
+    483,
+    658
+  ],
+  "y_pixels": [
+    300,
+    281,
+    261,
+    242,
+    222,
+    202,
+    183,
+    163,
+    144,
+    124,
+    104,
+    85,
+    65
+  ],
+  "series_color": {
+    "China's military strength": "#e377c2",
+    "China's economic strength": "#7f7f7f"
+  }
+}

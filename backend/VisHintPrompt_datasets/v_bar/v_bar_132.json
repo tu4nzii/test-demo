@@ -1,0 +1,59 @@
+{
+  "chart_id": "v_bar_132",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_132.png",
+    "with_grid": "charts/v_bar/v_bar_132_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_132_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of victims": {
+      "2019": 1326.0,
+      "2018": 1229.0
+    }
+  },
+  "x_ticks": [
+    "2019",
+    "2018"
+  ],
+  "y_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0,
+    1100.0,
+    1200.0,
+    1300.0,
+    1400.0
+  ],
+  "x_pixels": [
+    278,
+    602
+  ],
+  "y_pixels": [
+    480,
+    451,
+    422,
+    393,
+    363,
+    334,
+    305,
+    276,
+    247,
+    218,
+    189,
+    159,
+    130,
+    101,
+    72
+  ],
+  "series_color": {
+    "Number of victims": "#87ceeb"
+  }
+}

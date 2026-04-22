@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_101",
+  "image_paths": {
+    "no_grid": "charts/line/line_101.png",
+    "with_grid": "charts/line/line_101_grid.png",
+    "grid_with_grid": "charts/line/line_101_grid_with_grid.png"
+  },
+  "data_points": {
+    "Control gun ownership": {
+      "1993": 0.0,
+      "1999": 0.0,
+      "2003": 0.0,
+      "2008": 58.0,
+      "2010": 50.0
+    },
+    "Protect rightsof Americans to own juns": {
+      "1993": 3.0,
+      "1999": 30.0,
+      "2003": 0.0,
+      "2008": 0.0,
+      "2010": 0.0
+    }
+  },
+  "x_ticks": [
+    "1993",
+    "1999",
+    "2003",
+    "2008",
+    "2010"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    112,
+    221,
+    330,
+    439,
+    548
+  ],
+  "y_pixels": [
+    250,
+    234,
+    217,
+    201,
+    184,
+    167,
+    151,
+    134,
+    117,
+    101,
+    84,
+    68,
+    51
+  ],
+  "series_color": {
+    "Control gun ownership": "#e377c2",
+    "Protect rightsof Americans to own juns": "#7f7f7f"
+  }
+}

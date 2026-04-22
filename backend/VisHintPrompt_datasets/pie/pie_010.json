@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "010",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_010.png"
+  },
+  "data_points": {
+    "Don't know": 58.6,
+    "Strong ties with Russia": 125.58,
+    "Strong (VOL  ties": 175.81
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Don't know": "#f2f2f2",
+    "Strong ties with Russia": "#666666",
+    "Strong (VOL  ties": "#8c564b"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "chart_id": "h_bar_156",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_156.png",
+    "with_grid": "charts/h_bar/h_bar_156_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_156_grid_with_grid.png"
+  },
+  "data_points": {
+    "Taste rating": {
+      "Chick-fil-A": 8.1,
+      "El Pollo Loco": 7.7,
+      "Bojangles' Famous Chicken n' Biscuits": 7.6,
+      "Zaxby's": 7.3,
+      "KFC": 7.1
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "y_ticks": [
+    "Chick-fil-A",
+    "El Pollo Loco",
+    "Bojangles' Famous Chicken n' Biscuits",
+    "Zaxby's",
+    "KFC"
+  ],
+  "x_pixels": [
+    302,
+    405,
+    508,
+    610,
+    713,
+    816,
+    919,
+    1022,
+    1124,
+    1227,
+    1330
+  ],
+  "y_pixels": [
+    773,
+    636,
+    500,
+    364,
+    227
+  ],
+  "series_color": {
+    "Taste rating": "#1f77b4"
+  }
+}

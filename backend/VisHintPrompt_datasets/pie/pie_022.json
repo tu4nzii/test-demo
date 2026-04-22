@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "022",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_022.png"
+  },
+  "data_points": {
+    "Not doing enough to protect them and their sources": 181.82,
+    "Doing enough to protect them and their sources": 170.91,
+    "No answer": 7.27
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Not doing enough to protect them and their sources": "#ff9896",
+    "Doing enough to protect them and their sources": "#1b9e77",
+    "No answer": "#e5d8bd"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "chart_id": "h_bar_172",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_172.png",
+    "with_grid": "charts/h_bar/h_bar_172_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_172_grid_with_grid.png"
+  },
+  "data_points": {
+    "Brand value in billion CHF": {
+      "Nestlé": 17.75,
+      "UBS": 7.92,
+      "Rolex": 7.25,
+      "Zurich": 7.04,
+      "Credit Suisse": 5.74,
+      "Nescafe": 5.48,
+      "Swisscom": 4.82,
+      "Swiss Re": 4.49,
+      "ABB": 4.33
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0
+  ],
+  "y_ticks": [
+    "Nestlé",
+    "UBS",
+    "Rolex",
+    "Zurich",
+    "Credit Suisse",
+    "Nescafe",
+    "Swisscom",
+    "Swiss Re",
+    "ABB"
+  ],
+  "x_pixels": [
+    229,
+    391,
+    552,
+    713,
+    875,
+    1036,
+    1197,
+    1359,
+    1520
+  ],
+  "y_pixels": [
+    957,
+    868,
+    779,
+    689,
+    600,
+    511,
+    421,
+    332,
+    243
+  ],
+  "series_color": {
+    "Brand value in billion CHF": "#66c2a5"
+  }
+}

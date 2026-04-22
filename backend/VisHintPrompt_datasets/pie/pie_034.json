@@ -1,0 +1,34 @@
+﻿{
+  "chart_id": "034",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_034.png"
+  },
+  "data_points": {
+    "Generally pay attention": 165.6,
+    "Generally do NOT pay attention": 190.8,
+    "DK": 3.6
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Generally pay attention": "#f0027f",
+    "Generally do NOT pay attention": "#bf5b17",
+    "DK": "#ccebc5"
+  }
+}

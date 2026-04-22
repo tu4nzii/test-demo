@@ -1,0 +1,74 @@
+{
+  "chart_id": "v_bar_158",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_158.png",
+    "with_grid": "charts/v_bar/v_bar_158_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_158_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of debtors in millions": {
+      "June 2018": 61.8,
+      "May 2018": 61.4,
+      "April 2018": 61.2,
+      "March 2018": 61.0,
+      "February 2018": 60.5,
+      "January 2018": 60.1,
+      "December 2017": 60.4
+    }
+  },
+  "x_ticks": [
+    "June 2018",
+    "May 2018",
+    "April 2018",
+    "March 2018",
+    "February 2018",
+    "January 2018",
+    "December 2017"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    367,
+    538,
+    709,
+    880,
+    1051,
+    1222,
+    1393
+  ],
+  "y_pixels": [
+    960,
+    902,
+    843,
+    785,
+    727,
+    669,
+    610,
+    552,
+    494,
+    435,
+    377,
+    319,
+    261,
+    202,
+    144
+  ],
+  "series_color": {
+    "Number of debtors in millions": "#87ceeb"
+  }
+}

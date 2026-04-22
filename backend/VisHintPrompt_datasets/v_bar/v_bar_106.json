@@ -1,0 +1,66 @@
+{
+  "chart_id": "v_bar_106",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_106.png",
+    "with_grid": "charts/v_bar/v_bar_106_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_106_grid_with_grid.png"
+  },
+  "data_points": {
+    "GDP growth compared to previous year": {
+      "2026*": 3.5,
+      "2023*": 4.0,
+      "2020*": -0.9,
+      "2019": -0.03,
+      "2018": 3.36,
+      "2017": 4.95,
+      "2016": 4.31
+    }
+  },
+  "x_ticks": [
+    "2026*",
+    "2023*",
+    "2020*",
+    "2019",
+    "2018",
+    "2017",
+    "2016"
+  ],
+  "y_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0
+  ],
+  "x_pixels": [
+    367,
+    538,
+    709,
+    880,
+    1051,
+    1222,
+    1393
+  ],
+  "y_pixels": [
+    809,
+    745,
+    682,
+    619,
+    555,
+    492,
+    428,
+    365,
+    302,
+    238,
+    175
+  ],
+  "series_color": {
+    "GDP growth compared to previous year": "#87ceeb"
+  }
+}

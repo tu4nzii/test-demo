@@ -1,0 +1,70 @@
+{
+  "chart_id": "line_156",
+  "image_paths": {
+    "no_grid": "charts/line/line_156.png",
+    "with_grid": "charts/line/line_156_grid.png",
+    "grid_with_grid": "charts/line/line_156_grid_with_grid.png"
+  },
+  "data_points": {
+    "Print Newspapers": {
+      "2016": 57.0,
+      "2017": 0.0
+    },
+    "Radio": {
+      "2016": 0.0,
+      "2017": 0.0
+    },
+    "Online": {
+      "2016": 38.0,
+      "2017": 43.0
+    },
+    "Television": {
+      "2016": 0.0,
+      "2017": 50.0
+    }
+  },
+  "x_ticks": [
+    "2016",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    179,
+    877
+  ],
+  "y_pixels": [
+    376,
+    350,
+    325,
+    300,
+    274,
+    249,
+    224,
+    198,
+    173,
+    148,
+    123,
+    97,
+    72
+  ],
+  "series_color": {
+    "Print Newspapers": "#e377c2",
+    "Radio": "#7f7f7f",
+    "Online": "#bcbd22",
+    "Television": "#17becf"
+  }
+}

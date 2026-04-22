@@ -1,0 +1,60 @@
+{
+  "chart_id": "v_bar_113",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_113.png",
+    "with_grid": "charts/v_bar/v_bar_113_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_113_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of classified hotels": {
+      "1*": 74.0,
+      "2*": 316.0,
+      "3*": 4670.0,
+      "4*": 2679.0,
+      "5*": 122.0
+    }
+  },
+  "x_ticks": [
+    "1*",
+    "2*",
+    "3*",
+    "4*",
+    "5*"
+  ],
+  "y_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0
+  ],
+  "x_pixels": [
+    173,
+    279,
+    385,
+    491,
+    597
+  ],
+  "y_pixels": [
+    400,
+    366,
+    332,
+    298,
+    264,
+    230,
+    196,
+    162,
+    128,
+    94,
+    60
+  ],
+  "series_color": {
+    "Number of classified hotels": "#87ceeb"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "chart_id": "v_bar_049",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_049.png",
+    "with_grid": "charts/v_bar/v_bar_049_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_049_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of respondents": {
+      "Good thing": 45.0,
+      "Don't know": 9.0
+    }
+  },
+  "x_ticks": [
+    "Good thing",
+    "Don't know"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    487,
+    1053
+  ],
+  "y_pixels": [
+    800,
+    732,
+    664,
+    596,
+    528,
+    460,
+    392,
+    324,
+    256,
+    188,
+    120
+  ],
+  "series_color": {
+    "Share of respondents": "#1f77b4"
+  }
+}

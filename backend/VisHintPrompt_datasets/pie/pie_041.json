@@ -1,0 +1,40 @@
+﻿{
+  "chart_id": "041",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_041.png"
+  },
+  "data_points": {
+    "Boys and girls equally": 184.29,
+    "Girls": 10.71,
+    "Boys Girls": 160.71,
+    "Don't know": 4.29
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Boys and girls equally": "#2ca02c",
+    "Girls": "#d62728",
+    "Boys Girls": "#ffffcc",
+    "Don't know": "#1f77b4"
+  }
+}

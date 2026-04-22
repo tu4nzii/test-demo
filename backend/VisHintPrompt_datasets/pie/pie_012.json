@@ -1,0 +1,32 @@
+﻿{
+  "chart_id": "012",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_012.png"
+  },
+  "data_points": {
+    "Doesn't really bother me": 320.0,
+    "Bothers me": 40.0
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Doesn't really bother me": "#7570b3",
+    "Bothers me": "#b3cde3"
+  }
+}

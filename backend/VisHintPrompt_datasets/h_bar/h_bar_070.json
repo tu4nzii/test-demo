@@ -1,0 +1,60 @@
+{
+  "chart_id": "h_bar_070",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_070.png",
+    "with_grid": "charts/h_bar/h_bar_070_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_070_grid_with_grid.png"
+  },
+  "data_points": {
+    "Per capita consumption of low-carbon energy, 2003": {
+      "Portugal": 4625.0,
+      "Latvia": 2762.0,
+      "Colombia": 2409.0,
+      "World": 2396.0,
+      "Italy": 2218.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0
+  ],
+  "y_ticks": [
+    "Portugal",
+    "Latvia",
+    "Colombia",
+    "World",
+    "Italy"
+  ],
+  "x_pixels": [
+    205,
+    336,
+    468,
+    600,
+    731,
+    862,
+    994,
+    1126,
+    1257,
+    1388,
+    1520
+  ],
+  "y_pixels": [
+    927,
+    764,
+    600,
+    436,
+    273
+  ],
+  "series_color": {
+    "Per capita consumption of low-carbon energy, 2003": "#1f77b4"
+  }
+}

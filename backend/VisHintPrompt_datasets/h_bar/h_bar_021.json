@@ -1,0 +1,57 @@
+{
+  "chart_id": "h_bar_021",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_021.png",
+    "with_grid": "charts/h_bar/h_bar_021_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_021_grid_with_grid.png"
+  },
+  "data_points": {
+    "Customer experience index in index points": {
+      "Czech Republic": 80.4,
+      "Russia": 79.9,
+      "Turkey": 78.8,
+      "Poland": 76.4
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "Czech Republic",
+    "Russia",
+    "Turkey",
+    "Poland"
+  ],
+  "x_pixels": [
+    302,
+    424,
+    546,
+    667,
+    789,
+    911,
+    1033,
+    1155,
+    1276,
+    1398,
+    1520
+  ],
+  "y_pixels": [
+    910,
+    703,
+    497,
+    290
+  ],
+  "series_color": {
+    "Customer experience index in index points": "#1f77b4"
+  }
+}

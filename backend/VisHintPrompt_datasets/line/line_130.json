@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_130",
+  "image_paths": {
+    "no_grid": "charts/line/line_130.png",
+    "with_grid": "charts/line/line_130_grid.png",
+    "grid_with_grid": "charts/line/line_130_grid_with_grid.png"
+  },
+  "data_points": {
+    "Support Dem candidate": {
+      "Sept 2006": 0.0,
+      "Oct 2010": 0.0,
+      "Sept 2014": 36.0,
+      "Sept 2018": 0.0
+    },
+    "Support Rep candidate": {
+      "Sept 2006": 33.0,
+      "Oct 2010": 57.0,
+      "Sept 2014": 0.0,
+      "Sept 2018": 59.0
+    }
+  },
+  "x_ticks": [
+    "Sept 2006",
+    "Oct 2010",
+    "Sept 2014",
+    "Sept 2018"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    179,
+    412,
+    644,
+    877
+  ],
+  "y_pixels": [
+    376,
+    351,
+    327,
+    302,
+    278,
+    253,
+    229,
+    204,
+    180,
+    155,
+    131,
+    106,
+    82
+  ],
+  "series_color": {
+    "Support Dem candidate": "#1f77b4",
+    "Support Rep candidate": "#ff7f0e"
+  }
+}

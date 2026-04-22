@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_069",
+  "image_paths": {
+    "no_grid": "charts/line/line_069.png",
+    "with_grid": "charts/line/line_069_grid.png",
+    "grid_with_grid": "charts/line/line_069_grid_with_grid.png"
+  },
+  "data_points": {
+    "The political system can work fine Congress the problem membersof are": {
+      "Mar 2010": 52.0,
+      "Dec 2011": 55.0,
+      "Jan 2013": 56.0,
+      "Oct 2013": 32.0
+    },
+    "Most members have good intentions it's the political system that's broken": {
+      "Mar 2010": 0.0,
+      "Dec 2011": 0.0,
+      "Jan 2013": 0.0,
+      "Oct 2013": 0.0
+    }
+  },
+  "x_ticks": [
+    "Mar 2010",
+    "Dec 2011",
+    "Jan 2013",
+    "Oct 2013"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "x_pixels": [
+    224,
+    515,
+    805,
+    1096
+  ],
+  "y_pixels": [
+    451,
+    421,
+    390,
+    360,
+    329,
+    299,
+    269,
+    238,
+    208,
+    178,
+    147,
+    117,
+    86
+  ],
+  "series_color": {
+    "The political system can work fine Congress the problem membersof are": "#d62728",
+    "Most members have good intentions it's the political system that's broken": "#9467bd"
+  }
+}

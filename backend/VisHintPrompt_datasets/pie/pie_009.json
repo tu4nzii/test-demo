@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "009",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_009.png"
+  },
+  "data_points": {
+    "State and local level": 25.71,
+    "Both equally": 68.2,
+    "National level": 16.77,
+    "No  answer State and local level": 249.32
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "State and local level": "#ffff99",
+    "Both equally": "#f7b6d2",
+    "National level": "#fed9a6",
+    "No  answer State and local level": "#a6761d"
+  }
+}

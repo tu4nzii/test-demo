@@ -1,0 +1,53 @@
+{
+  "chart_id": "v_bar_026",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_026.png",
+    "with_grid": "charts/v_bar/v_bar_026_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_026_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share in total export": {
+      "China": 20.0,
+      "India": 11.0,
+      "South Korea": 9.0,
+      "United States": 5.0
+    }
+  },
+  "x_ticks": [
+    "China",
+    "India",
+    "South Korea",
+    "United States"
+  ],
+  "y_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0
+  ],
+  "x_pixels": [
+    421,
+    727,
+    1033,
+    1339
+  ],
+  "y_pixels": [
+    960,
+    863,
+    766,
+    669,
+    571,
+    474,
+    377,
+    280,
+    183
+  ],
+  "series_color": {
+    "Share in total export": "#87ceeb"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "chart_id": "h_bar_037",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_037.png",
+    "with_grid": "charts/h_bar/h_bar_037_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_037_grid_with_grid.png"
+  },
+  "data_points": {
+    "Share of Out-of-Pocket Expenditure on Healthcare, 2010": {
+      "Togo": 47.72,
+      "Indonesia": 47.21,
+      "Jamaica": 30.9,
+      "Bolivia": 27.9,
+      "Saudi Arabia": 19.84
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "y_ticks": [
+    "Togo",
+    "Indonesia",
+    "Jamaica",
+    "Bolivia",
+    "Saudi Arabia"
+  ],
+  "x_pixels": [
+    92,
+    149,
+    206,
+    264,
+    321,
+    378,
+    435,
+    492,
+    549,
+    607,
+    664
+  ],
+  "y_pixels": [
+    386,
+    318,
+    250,
+    182,
+    114
+  ],
+  "series_color": {
+    "Share of Out-of-Pocket Expenditure on Healthcare, 2010": "#1f77b4"
+  }
+}

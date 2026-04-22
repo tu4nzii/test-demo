@@ -1,0 +1,36 @@
+﻿{
+  "chart_id": "016",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_016.png"
+  },
+  "data_points": {
+    "No more secure": 233.81,
+    "More secure": 126.19
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "No more secure": "#d95f02",
+    "More secure": "#ff9896"
+  }
+}

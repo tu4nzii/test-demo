@@ -1,0 +1,64 @@
+{
+  "chart_id": "v_bar_180",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_180.png",
+    "with_grid": "charts/v_bar/v_bar_180_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_180_grid_with_grid.png"
+  },
+  "data_points": {
+    "Annual transaction volume in billion U.S. dollars": {
+      "2019*": 1080.0,
+      "2018*": 930.0,
+      "2017*": 780.0,
+      "2016*": 620.0,
+      "2015": 450.0
+    }
+  },
+  "x_ticks": [
+    "2019*",
+    "2018*",
+    "2017*",
+    "2016*",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0,
+    1100.0,
+    1200.0
+  ],
+  "x_pixels": [
+    173,
+    279,
+    385,
+    491,
+    597
+  ],
+  "y_pixels": [
+    400,
+    372,
+    343,
+    315,
+    287,
+    258,
+    230,
+    202,
+    173,
+    145,
+    117,
+    88,
+    60
+  ],
+  "series_color": {
+    "Annual transaction volume in billion U.S. dollars": "#87ceeb"
+  }
+}

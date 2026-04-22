@@ -1,0 +1,74 @@
+{
+  "chart_id": "v_bar_031",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_031.png",
+    "with_grid": "charts/v_bar/v_bar_031_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_031_grid_with_grid.png"
+  },
+  "data_points": {
+    "Value in billion Indian rupees": {
+      "FY 2018": 1350.0,
+      "FY 2017": 1180.0,
+      "FY 2016": 1070.0,
+      "FY 2015": 970.0,
+      "FY 2014": 900.0,
+      "FY 2013": 840.0,
+      "FY 2012": 800.0
+    }
+  },
+  "x_ticks": [
+    "FY 2018",
+    "FY 2017",
+    "FY 2016",
+    "FY 2015",
+    "FY 2014",
+    "FY 2013",
+    "FY 2012"
+  ],
+  "y_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0,
+    1100.0,
+    1200.0,
+    1300.0,
+    1400.0
+  ],
+  "x_pixels": [
+    160,
+    235,
+    310,
+    385,
+    460,
+    535,
+    610
+  ],
+  "y_pixels": [
+    400,
+    376,
+    352,
+    328,
+    304,
+    280,
+    256,
+    232,
+    208,
+    184,
+    160,
+    136,
+    112,
+    88,
+    64
+  ],
+  "series_color": {
+    "Value in billion Indian rupees": "#1f77b4"
+  }
+}

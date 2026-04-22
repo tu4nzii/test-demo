@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_174",
+  "image_paths": {
+    "no_grid": "charts/line/line_174.png",
+    "with_grid": "charts/line/line_174_grid.png",
+    "grid_with_grid": "charts/line/line_174_grid_with_grid.png"
+  },
+  "data_points": {
+    "Confidence in U.S. president": {
+      "2002": 0.0,
+      "2005": 28.0,
+      "2008": 18.0,
+      "2011": 4141.0,
+      "2014": 0.0,
+      "2017": 53.0
+    },
+    "U.S. Favorable view of": {
+      "2002": 0.0,
+      "2005": 46.0,
+      "2008": 46.0,
+      "2011": 56.0,
+      "2014": 5.0,
+      "2017": 0.0
+    }
+  },
+  "x_ticks": [
+    "2002",
+    "2005",
+    "2008",
+    "2011",
+    "2014",
+    "2017"
+  ],
+  "y_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0
+  ],
+  "x_pixels": [
+    179,
+    319,
+    458,
+    598,
+    737,
+    877
+  ],
+  "y_pixels": [
+    377,
+    347,
+    316,
+    286,
+    255,
+    225,
+    194,
+    164,
+    133,
+    103,
+    72
+  ],
+  "series_color": {
+    "Confidence in U.S. president": "#e377c2",
+    "U.S. Favorable view of": "#7f7f7f"
+  }
+}

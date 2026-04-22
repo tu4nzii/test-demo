@@ -1,0 +1,72 @@
+{
+  "chart_id": "line_213",
+  "image_paths": {
+    "no_grid": "charts/line/line_213.png",
+    "with_grid": "charts/line/line_213_grid.png",
+    "grid_with_grid": "charts/line/line_213_grid_with_grid.png"
+  },
+  "data_points": {
+    "Democratic government": {
+      "2002": 0.0,
+      "2007": 55.0,
+      "2012": 68.0,
+      "2015": 56.0
+    },
+    "Strong leader": {
+      "2002": 37.0,
+      "2007": 34.0,
+      "2012": 26.0,
+      "2015": 36.0
+    }
+  },
+  "x_ticks": [
+    "2002",
+    "2007",
+    "2012",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "x_pixels": [
+    179,
+    412,
+    644,
+    877
+  ],
+  "y_pixels": [
+    376,
+    354,
+    333,
+    312,
+    291,
+    269,
+    248,
+    227,
+    205,
+    184,
+    163,
+    142,
+    120,
+    99,
+    78
+  ],
+  "series_color": {
+    "Democratic government": "#e377c2",
+    "Strong leader": "#7f7f7f"
+  }
+}
