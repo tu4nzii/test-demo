@@ -289,9 +289,11 @@ def format_tick_value(value, decimal_places):
         # 文字轴或其他类型，直接返回
         return str(value)
 
-def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encrypted, x_axis, y_axis):
+def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encrypted, x_axis, y_axis, x_axis_type="数值轴", y_axis_type="数值轴"):
     """
     绘制加密网格 - 在基础网格上添加加密刻度和文本
+    只对加密生成的部分添加文本框和文本，不覆盖原有刻度
+    文字轴不加密，不需要生成文本框和文本
     """
     # 先绘制基础网格
     canvas = draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis)
@@ -307,6 +309,7 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
         
         logger.debug(f"准备绘制加密刻度文本: X轴像素点数量={len(x_pixels)}, 加密刻度数量={len(x_ticks_encrypted)}")
         logger.debug(f"Y轴像素点数量={len(y_pixels)}, 加密刻度数量={len(y_ticks_encrypted)}")
+        logger.debug(f"X轴类型: {x_axis_type}, Y轴类型: {y_axis_type}")
         
         # 计算X轴的最大小数位数
         x_max_decimal = calculate_max_decimal_places(x_ticks_encrypted)
@@ -316,110 +319,112 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
         y_max_decimal = calculate_max_decimal_places(y_ticks_encrypted)
         logger.debug(f"Y轴最大小数位数: {y_max_decimal}")
         
-        # 为X轴绘制加密刻度文本
+        # 为X轴绘制加密刻度文本（只对数字轴加密部分）
         drawn_x_texts = 0
-        x_min, x_max = min(x_axis[0], x_axis[2]), max(x_axis[0], x_axis[2])
-        x_axis_y = max(y_axis[1], y_axis[3])  # X轴的Y坐标
-        
-        # 确保x_pixels和x_ticks_encrypted长度匹配
-        if len(x_pixels) == len(x_ticks_encrypted):
-            # 智能过滤：避免标签太密集导致重叠
-            skip_factor = max(1, len(x_pixels) // 10)  # 根据点数量决定跳过因子
+        if x_axis_type == "数值轴":
+            x_min, x_max_val = min(x_axis[0], x_axis[2]), max(x_axis[0], x_axis[2])
+            x_axis_y = max(y_axis[1], y_axis[3])  # X轴的Y坐标
             
-            for i in range(0, len(x_pixels), skip_factor):
-                x_pix = x_pixels[i]
-                # 检查索引是否有效
-                if i < len(x_ticks_encrypted):
-                    tick_value = x_ticks_encrypted[i]
-                    
-                    # 确保值有效并格式化
-                    if tick_value is not None:
-                        # 格式化刻度值，保留X轴的最大小数位数
-                        text = format_tick_value(tick_value, x_max_decimal)
-                        
-                        # 获取文本大小
-                        text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
-                        
-                        # 计算文本位置 - 放在X轴上方，确保足够空间
-                        text_x = x_pix - text_size[0] // 2
-                        # 确保文本在X轴上方有足够空间，避免重叠
-                        text_y = x_axis_y + 16  # 适当间距
-                        
-                        # 边界检查，确保不与图表内容重叠
-                        chart_content_margin = 50  # 图表内容边缘距离
-                        if (0 <= text_x and text_x + text_size[0] <= canvas.shape[1] and \
-                           0 <= text_y - text_size[1] - padding and text_y + padding <= canvas.shape[0] and \
-                           text_y >= chart_content_margin):  # 确保在图表内容下方
-                            # 使用半透明背景，减少对图表的遮挡
-                            overlay = canvas.copy()
-                            cv2.rectangle(overlay, 
-                                        (text_x - padding, text_y - text_size[1] - padding),
-                                        (text_x + text_size[0] + padding, text_y + padding),
-                                        (255, 255, 255), -1)
-                            # 添加透明度
-                            alpha = 0.7  # 透明度因子
-                            cv2.addWeighted(overlay, alpha, canvas, 1 - alpha, 0, canvas)
-                            # 添加细边框
-                            cv2.rectangle(canvas, 
-                                        (text_x - padding, text_y - text_size[1] - padding),
-                                        (text_x + text_size[0] + padding, text_y + padding),
-                                        (0, 0, 0), 1)
-                            # 绘制红色文本
-                            cv2.putText(canvas, text, (text_x, text_y), 
-                                        font, font_scale, font_color, thickness, cv2.LINE_AA)
-                            drawn_x_texts += 1
+            # 确保x_pixels和x_ticks_encrypted长度匹配
+            if len(x_pixels) == len(x_ticks_encrypted):
+                # 加密刻度是在原始刻度之间插入的，所以偶数索引是原始刻度，奇数索引是加密生成的
+                for i in range(len(x_pixels)):
+                    # 只处理加密生成的刻度（奇数索引）
+                    if i % 2 == 1:
+                        x_pix = x_pixels[i]
+                        # 检查索引是否有效
+                        if i < len(x_ticks_encrypted):
+                            tick_value = x_ticks_encrypted[i]
+                            
+                            # 确保值有效并格式化
+                            if tick_value is not None:
+                                # 格式化刻度值，保留X轴的最大小数位数
+                                text = format_tick_value(tick_value, x_max_decimal)
+                                
+                                # 获取文本大小
+                                text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
+                                
+                                # 计算文本位置 - 放在X轴上方，确保足够空间
+                                text_x = x_pix - text_size[0] // 2
+                                # 确保文本在X轴上方有足够空间，避免重叠
+                                text_y = x_axis_y + 16  # 适当间距
+                                
+                                # 边界检查，确保不与图表内容重叠
+                                chart_content_margin = 50  # 图表内容边缘距离
+                                if (0 <= text_x and text_x + text_size[0] <= canvas.shape[1] and \
+                                   0 <= text_y - text_size[1] - padding and text_y + padding <= canvas.shape[0] and \
+                                   text_y >= chart_content_margin):  # 确保在图表内容下方
+                                    # 使用半透明背景，减少对图表的遮挡
+                                    overlay = canvas.copy()
+                                    cv2.rectangle(overlay, 
+                                                (text_x - padding, text_y - text_size[1] - padding),
+                                                (text_x + text_size[0] + padding, text_y + padding),
+                                                (255, 255, 255), -1)
+                                    # 添加透明度
+                                    alpha = 0.7  # 透明度因子
+                                    cv2.addWeighted(overlay, alpha, canvas, 1 - alpha, 0, canvas)
+                                    # 添加细边框
+                                    cv2.rectangle(canvas, 
+                                                (text_x - padding, text_y - text_size[1] - padding),
+                                                (text_x + text_size[0] + padding, text_y + padding),
+                                                (0, 0, 0), 1)
+                                    # 绘制红色文本
+                                    cv2.putText(canvas, text, (text_x, text_y), 
+                                                font, font_scale, font_color, thickness, cv2.LINE_AA)
+                                    drawn_x_texts += 1
         
-        # 为Y轴绘制加密刻度文本
+        # 为Y轴绘制加密刻度文本（只对数字轴加密部分）
         drawn_y_texts = 0
-        y_min, y_max = min(y_axis[1], y_axis[3]), max(y_axis[1], y_axis[3])
-        y_axis_x = min(x_axis[0], x_axis[2])  # Y轴的X坐标
-        
-        # 确保y_pixels和y_ticks_encrypted长度匹配
-        if len(y_pixels) == len(y_ticks_encrypted):
-            # 智能过滤：避免标签太密集导致重叠
-            skip_factor = max(1, len(y_pixels) // 10)  # 根据点数量决定跳过因子
+        if y_axis_type == "数值轴":
+            y_min, y_max_val = min(y_axis[1], y_axis[3]), max(y_axis[1], y_axis[3])
+            y_axis_x = min(x_axis[0], x_axis[2])  # Y轴的X坐标
             
-            for i in range(0, len(y_pixels), skip_factor):
-                y_pix = y_pixels[i]
-                # 检查索引是否有效
-                if i < len(y_ticks_encrypted):
-                    tick_value = y_ticks_encrypted[i]
-                    
-                    # 确保值有效并格式化
-                    if tick_value is not None:
-                        # 格式化刻度值，保留Y轴的最大小数位数
-                        text = format_tick_value(tick_value, y_max_decimal)
-                        
-                        # 获取文本大小
-                        text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
-                        
-                        # 计算文本位置 - 放在Y轴左侧，避免与图表重叠
-                        text_x = y_axis_x - text_size[0] - 8  # 放在Y轴左侧
-                        text_y = y_pix + text_size[1] // 2
-                        
-                        # 边界检查，确保不与图表内容重叠
-                        chart_content_margin = 50  # 图表内容边缘距离
-                        if (0 <= text_y and text_y - text_size[1] - padding >= 0 and \
-                           text_x - padding >= 0 and text_x + text_size[0] + padding <= canvas.shape[1] and \
-                           text_x <= canvas.shape[1] - chart_content_margin):  # 确保在图表内容左侧
-                            # 使用半透明背景，减少对图表的遮挡
-                            overlay = canvas.copy()
-                            cv2.rectangle(overlay, 
-                                        (text_x - padding, text_y - text_size[1] - padding),
-                                        (text_x + text_size[0] + padding, text_y + padding),
-                                        (255, 255, 255), -1)
-                            # 添加透明度
-                            alpha = 0.7  # 透明度因子
-                            cv2.addWeighted(overlay, alpha, canvas, 1 - alpha, 0, canvas)
-                            # 添加细边框
-                            cv2.rectangle(canvas, 
-                                        (text_x - padding, text_y - text_size[1] - padding),
-                                        (text_x + text_size[0] + padding, text_y + padding),
-                                        (0, 0, 0), 1)
-                            # 绘制红色文本
-                            cv2.putText(canvas, text, (text_x, text_y), 
-                                        font, font_scale, font_color, thickness, cv2.LINE_AA)
-                            drawn_y_texts += 1
+            # 确保y_pixels和y_ticks_encrypted长度匹配
+            if len(y_pixels) == len(y_ticks_encrypted):
+                # 加密刻度是在原始刻度之间插入的，所以偶数索引是原始刻度，奇数索引是加密生成的
+                for i in range(len(y_pixels)):
+                    # 只处理加密生成的刻度（奇数索引）
+                    if i % 2 == 1:
+                        y_pix = y_pixels[i]
+                        # 检查索引是否有效
+                        if i < len(y_ticks_encrypted):
+                            tick_value = y_ticks_encrypted[i]
+                            
+                            # 确保值有效并格式化
+                            if tick_value is not None:
+                                # 格式化刻度值，保留Y轴的最大小数位数
+                                text = format_tick_value(tick_value, y_max_decimal)
+                                
+                                # 获取文本大小
+                                text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
+                                
+                                # 计算文本位置 - 放在Y轴左侧，避免与图表重叠
+                                text_x = y_axis_x - text_size[0] - 8  # 放在Y轴左侧
+                                text_y = y_pix + text_size[1] // 2
+                                
+                                # 边界检查，确保不与图表内容重叠
+                                chart_content_margin = 50  # 图表内容边缘距离
+                                if (0 <= text_y and text_y - text_size[1] - padding >= 0 and \
+                                   text_x - padding >= 0 and text_x + text_size[0] + padding <= canvas.shape[1] and \
+                                   text_x <= canvas.shape[1] - chart_content_margin):  # 确保在图表内容左侧
+                                    # 使用半透明背景，减少对图表的遮挡
+                                    overlay = canvas.copy()
+                                    cv2.rectangle(overlay, 
+                                                (text_x - padding, text_y - text_size[1] - padding),
+                                                (text_x + text_size[0] + padding, text_y + padding),
+                                                (255, 255, 255), -1)
+                                    # 添加透明度
+                                    alpha = 0.7  # 透明度因子
+                                    cv2.addWeighted(overlay, alpha, canvas, 1 - alpha, 0, canvas)
+                                    # 添加细边框
+                                    cv2.rectangle(canvas, 
+                                                (text_x - padding, text_y - text_size[1] - padding),
+                                                (text_x + text_size[0] + padding, text_y + padding),
+                                                (0, 0, 0), 1)
+                                    # 绘制红色文本
+                                    cv2.putText(canvas, text, (text_x, text_y), 
+                                                font, font_scale, font_color, thickness, cv2.LINE_AA)
+                                    drawn_y_texts += 1
         
         logger.debug(f"成功绘制加密刻度文本: X轴{drawn_x_texts}个, Y轴{drawn_y_texts}个")
         
@@ -770,7 +775,18 @@ def process_chart(image_path, output_dir):
     encrypted_grid_path = os.path.join(output_dir, f"{chart_id}_with_grid.png")
     try:
         # 使用加密像素位置和加密刻度绘制加密网格
-        encrypted_grid_img = draw_encrypted_grid(img, x_pixels_encrypted, y_pixels_encrypted, x_ticks_encrypted, y_ticks_encrypted, x_axis, y_axis)
+        # 传递轴类型参数，只对数字轴加密部分添加文本
+        encrypted_grid_img = draw_encrypted_grid(
+            img, 
+            x_pixels_encrypted, 
+            y_pixels_encrypted, 
+            x_ticks_encrypted, 
+            y_ticks_encrypted, 
+            x_axis, 
+            y_axis,
+            x_axis_type=x_axis_type,
+            y_axis_type=y_axis_type
+        )
         # 保存加密网格图像
         try:
             success, encoded_img = cv2.imencode('.png', encrypted_grid_img)
