@@ -234,6 +234,61 @@ def draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis):
     
     return canvas
 
+def calculate_max_decimal_places(ticks):
+    """
+    计算一组刻度的最大小数位数
+    对输入的所有刻度值，先消除误差，再计算最大小数位
+    """
+    max_decimal = 0
+    for tick in ticks:
+        if isinstance(tick, (int, float)) or (isinstance(tick, str) and tick.replace('.', '', 1).isdigit()):
+            try:
+                # 先转换为浮点数
+                if isinstance(tick, str):
+                    num = float(tick)
+                else:
+                    num = tick
+                # 消除浮点数误差
+                formatted = f"{num:.12f}"
+                # 计算小数位数
+                decimal_places = count_decimal_places(formatted)
+                max_decimal = max(max_decimal, decimal_places)
+            except:
+                pass
+    return max_decimal
+
+def format_tick_value(value, decimal_places):
+    """
+    格式化刻度值，保留指定的小数位数
+    关键：使用字符串格式化消除浮点数误差
+    """
+    logger.debug(f"格式化前原始值: {value}, 目标小数位数: {decimal_places}")
+    
+    try:
+        # 转换为浮点数
+        if isinstance(value, str):
+            num = float(value)
+        else:
+            num = float(value)
+        
+        # 第一步：误差消除
+        # 使用字符串格式化到12位小数，再四舍五入到decimal_places+1位
+        num = round(float(f"{num:.12f}"), decimal_places + 1)
+        logger.debug(f"误差消除后: {num}")
+        
+        # 第二步：强制格式化到指定小数位数
+        if decimal_places > 0:
+            formatted = f"{num:.{decimal_places}f}"
+        else:
+            formatted = f"{int(round(num))}"
+        
+        logger.debug(f"格式化后: {formatted}")
+        return formatted
+    except Exception as e:
+        logger.error(f"格式化刻度值时出错: {e}")
+        # 文字轴或其他类型，直接返回
+        return str(value)
+
 def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encrypted, x_axis, y_axis):
     """
     绘制加密网格 - 在基础网格上添加加密刻度和文本
@@ -253,6 +308,14 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
         logger.debug(f"准备绘制加密刻度文本: X轴像素点数量={len(x_pixels)}, 加密刻度数量={len(x_ticks_encrypted)}")
         logger.debug(f"Y轴像素点数量={len(y_pixels)}, 加密刻度数量={len(y_ticks_encrypted)}")
         
+        # 计算X轴的最大小数位数
+        x_max_decimal = calculate_max_decimal_places(x_ticks_encrypted)
+        logger.debug(f"X轴最大小数位数: {x_max_decimal}")
+        
+        # 计算Y轴的最大小数位数
+        y_max_decimal = calculate_max_decimal_places(y_ticks_encrypted)
+        logger.debug(f"Y轴最大小数位数: {y_max_decimal}")
+        
         # 为X轴绘制加密刻度文本
         drawn_x_texts = 0
         x_min, x_max = min(x_axis[0], x_axis[2]), max(x_axis[0], x_axis[2])
@@ -269,9 +332,10 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
                 if i < len(x_ticks_encrypted):
                     tick_value = x_ticks_encrypted[i]
                     
-                    # 确保值有效并格式化，限制小数位数
+                    # 确保值有效并格式化
                     if tick_value is not None:
-                        text = f"{tick_value:.1f}" if isinstance(tick_value, float) else str(tick_value)
+                        # 格式化刻度值，保留X轴的最大小数位数
+                        text = format_tick_value(tick_value, x_max_decimal)
                         
                         # 获取文本大小
                         text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
@@ -321,9 +385,10 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
                 if i < len(y_ticks_encrypted):
                     tick_value = y_ticks_encrypted[i]
                     
-                    # 确保值有效并格式化，限制小数位数
+                    # 确保值有效并格式化
                     if tick_value is not None:
-                        text = f"{tick_value:.1f}" if isinstance(tick_value, float) else str(tick_value)
+                        # 格式化刻度值，保留Y轴的最大小数位数
+                        text = format_tick_value(tick_value, y_max_decimal)
                         
                         # 获取文本大小
                         text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
@@ -366,6 +431,42 @@ def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encr
         logger.error(f"错误详情: {traceback.format_exc()}")
     
     return canvas
+
+def count_decimal_places(value):
+    """
+    计算浮点数的小数位数
+    改用字符串方式计算，处理浮点数误差
+    """
+    try:
+        # 转换为浮点数
+        if isinstance(value, str):
+            value = float(value)
+        
+        # 先消除浮点数误差
+        s = f"{value:.12f}"
+        
+        # 处理科学计数法
+        if 'e' in s.lower():
+            # 转换为普通小数形式
+            parts = s.lower().split('e')
+            num = float(parts[0])
+            exp = int(parts[1])
+            s = f"{num * (10 ** exp):.12f}"
+        
+        # 去掉末尾的0
+        if '.' in s:
+            # 分割整数和小数部分
+            int_part, dec_part = s.split('.')
+            # 去掉小数部分末尾的0
+            dec_part = dec_part.rstrip('0')
+            # 如果小数部分为空，返回0
+            if not dec_part:
+                return 0
+            # 返回小数部分长度
+            return len(dec_part)
+        return 0
+    except:
+        return 0
 
 def process_chart(image_path, output_dir):
     """
@@ -520,9 +621,9 @@ def process_chart(image_path, output_dir):
     
     # 初始化刻度数据列表
     chart_id = os.path.splitext(os.path.basename(image_path))[0]  # 定义chart_id变量
-    x_ticks_data = []
+    x_ticks_data = []  # 数值轴存储为float，文字轴存储为字符串
     x_pixels_data = []
-    y_ticks_data = []
+    y_ticks_data = []  # 数值轴存储为float，文字轴存储为字符串
     y_pixels_data = []
     
     # 计算检测到的刻度线的中心位置
@@ -538,21 +639,30 @@ def process_chart(image_path, output_dir):
             # 如果数值不足，使用已有数值插值
             if len(x_ticks_values) >= 2:
                 import numpy as np
-                x_positions = np.linspace(0, 1, len(x_pixel_positions))
-                orig_positions = np.linspace(0, 1, len(x_ticks_values))
-                interpolated = np.interp(x_positions, orig_positions, x_ticks_values)
-                x_ticks_values = interpolated.tolist()
+                # 尝试转换为数值进行插值
+                try:
+                    numeric_values = [float(v) for v in x_ticks_values]
+                    x_positions = np.linspace(0, 1, len(x_pixel_positions))
+                    orig_positions = np.linspace(0, 1, len(numeric_values))
+                    interpolated = np.interp(x_positions, orig_positions, numeric_values)
+                    x_ticks_values = interpolated.tolist()
+                except:
+                    # 如果是文字轴，无法插值，保持原样
+                    pass
         
         # 匹配刻度值和像素位置
         for i, (tick_value, pixel_pos) in enumerate(zip(x_ticks_values, x_pixel_positions)):
-            try:
-                value = float(tick_value)
-                x_ticks_data.append(value)
-                x_pixels_data.append(pixel_pos)
-            except ValueError:
-                # 如果是文字轴，直接添加
-                x_ticks_data.append(tick_value)
-                x_pixels_data.append(pixel_pos)
+            if x_axis_type == "数值轴":
+                try:
+                    value = float(tick_value)
+                    x_ticks_data.append(value)
+                except ValueError:
+                    # 如果是数值轴但值不是数字，转换为字符串
+                    x_ticks_data.append(str(tick_value))
+            else:
+                # 文字轴，直接存储为字符串
+                x_ticks_data.append(str(tick_value))
+            x_pixels_data.append(pixel_pos)
     
     # 匹配Y轴刻度
     if y_ticks_values and y_pixel_positions:
@@ -563,21 +673,30 @@ def process_chart(image_path, output_dir):
             # 如果数值不足，使用已有数值插值
             if len(y_ticks_values) >= 2:
                 import numpy as np
-                y_positions = np.linspace(0, 1, len(y_pixel_positions))
-                orig_positions = np.linspace(0, 1, len(y_ticks_values))
-                interpolated = np.interp(y_positions, orig_positions, y_ticks_values)
-                y_ticks_values = interpolated.tolist()
+                # 尝试转换为数值进行插值
+                try:
+                    numeric_values = [float(v) for v in y_ticks_values]
+                    y_positions = np.linspace(0, 1, len(y_pixel_positions))
+                    orig_positions = np.linspace(0, 1, len(numeric_values))
+                    interpolated = np.interp(y_positions, orig_positions, numeric_values)
+                    y_ticks_values = interpolated.tolist()
+                except:
+                    # 如果是文字轴，无法插值，保持原样
+                    pass
         
         # 匹配刻度值和像素位置
         for i, (tick_value, pixel_pos) in enumerate(zip(y_ticks_values, y_pixel_positions)):
-            try:
-                value = float(tick_value)
-                y_ticks_data.append(value)
-                y_pixels_data.append(pixel_pos)
-            except ValueError:
-                # 如果是文字轴，直接添加
-                y_ticks_data.append(tick_value)
-                y_pixels_data.append(pixel_pos)
+            if y_axis_type == "数值轴":
+                try:
+                    value = float(tick_value)
+                    y_ticks_data.append(value)
+                except ValueError:
+                    # 如果是数值轴但值不是数字，转换为字符串
+                    y_ticks_data.append(str(tick_value))
+            else:
+                # 文字轴，直接存储为字符串
+                y_ticks_data.append(str(tick_value))
+            y_pixels_data.append(pixel_pos)
     
     if len(x_ticks_data) < 2 or len(y_ticks_data) < 2:
         logger.warning(f"有效刻度数量不足: {image_path}")
@@ -721,6 +840,8 @@ def generate_encrypted_ticks(original_ticks, is_numeric_axis=True):
                 val1 = float(original_ticks[i])
                 val2 = float(original_ticks[i + 1])
                 mid_value = (val1 + val2) / 2
+                # 消除中间值的浮点数误差
+                mid_value = round(float(f"{mid_value:.12f}"), 10)
                 encrypted_ticks.append(mid_value)
             except (ValueError, TypeError):
                 # 如果不是数值，不插入中间值
