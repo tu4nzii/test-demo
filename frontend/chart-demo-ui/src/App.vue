@@ -32,6 +32,26 @@ const errorMessage = ref('');
 const isUploadDisabled = computed(() => !imageFile.value || !jsonFile.value || isLoadingUpload.value);
 const isProcessDisabled = computed(() => !chartId.value || isLoadingProcess.value);
 const isEvaluateDisabled = computed(() => !processedImageUrl.value || isLoadingEvaluate.value);
+const evaluationSummary = computed(() => {
+  if (!evaluationResults.value) return [];
+
+  return [
+    ['success', evaluationResults.value.success],
+    ['chart_id', evaluationResults.value.chart_id],
+    ['chart_type', evaluationResults.value.chart_type],
+    ['x_ticks_count', evaluationResults.value.x_ticks_count],
+    ['y_ticks_count', evaluationResults.value.y_ticks_count],
+    ['x_encrypted_ticks_count', evaluationResults.value.x_encrypted_ticks_count],
+    ['y_encrypted_ticks_count', evaluationResults.value.y_encrypted_ticks_count],
+    ['colors_count', evaluationResults.value.colors_count],
+    ['has_basic_grid', evaluationResults.value.has_basic_grid],
+    ['has_encrypted_grid', evaluationResults.value.has_encrypted_grid],
+  ].filter(([, value]) => value !== undefined && value !== null);
+});
+const evaluationJson = computed(() => {
+  if (!evaluationResults.value) return '';
+  return JSON.stringify(evaluationResults.value, null, 2);
+});
 
 
 // --- Methods ---
@@ -238,22 +258,17 @@ async function evaluateChart() {
                 <thead>
                   <tr>
                     <th>标签名</th>
-                    <th>amplifier</th>
-                    <th>feedback</th>
-                    <th>grid</th>
-                    <th>baseline</th>
+                    <th>Value</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(data, key) in evaluationResults.rose_000.data" :key="key">
+                  <tr v-for="([key, value]) in evaluationSummary" :key="key">
                     <td>{{ key }}</td>
-                    <td>{{ data.amplifier }}</td>
-                    <td>{{ data.feedback[0] }}</td>
-                    <td>{{ data.with_grid[0] }}</td>
-                    <td>{{ data.origin }}</td>
+                    <td>{{ value }}</td>
                   </tr>
                 </tbody>
               </table>
+              <pre class="json-preview">{{ evaluationJson }}</pre>
             </div>
             <div v-else class="placeholder">
               <p>预测结果将在此处显示</p>

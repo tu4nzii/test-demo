@@ -1,7 +1,23 @@
 # Python
 __pycache__/
+*.py[cod]
 
 # Project specific
 VishintPrompt_evaluatation/
 test_output/
 *.log
+.venv/
+venv/
+
+# Frontend build/cache
+frontend/chart-demo-ui/dist/
+frontend/chart-demo-ui/node_modules/
+
+# Backend runtime output
+backend/data/cache/
+backend/data/logs/
+backend/data/upload/
+backend/data/processed/
+backend/data/results/
+backend/data/output/
+backend/**/__pycache__/

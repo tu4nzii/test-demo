@@ -58,7 +58,9 @@ async def chat_with_gemini(messages: list) -> str:
     messages格式: [{"role": "user", "content": "消息内容"}, ...]
     """
     payload = {
-        "model": "gemini-2.5-pro",
+        # "model": "gemini-2.5-pro",
+        # "model": "gemini-2.5-flash",
+        "model": "gemini-2.5-flash-lite-thinking",
         "messages": messages,
         "temperature": 0.7
     }

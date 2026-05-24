@@ -1,236 +1,222 @@
-import os
 import json
-import asyncio
-from typing import Dict, Protocol
+import os
+import shutil
+import tempfile
+from typing import Any, Dict, Optional, Protocol, Type
 
-# 从现有的玫瑰图处理模块导入必要的类
-from demo_rose.demo_rose_circle_find import RoseChartEncoder
+from demo_radar.demo_axis_find_radar import RadarChartAxisFinder
+from demo_radar.demo_evaluation_radar import RadarChartEvaluator
+from demo_radar.demo_radar_circle_find import RadarChartEncoder
 from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
 from demo_rose.demo_evaluation_rose import RoseChartEvaluator
-
-# 从直角坐标系处理模块导入必要的函数
+from demo_rose.demo_rose_circle_find import RoseChartEncoder
 from Grid_generation.grid_generation import process_chart
 
-# 图表处理器接口定义
+
+SUPPORTED_CHART_TYPES = [
+    "rose",
+    "radar",
+    "v_bar",
+    "h_bar",
+    "line",
+    "scatter",
+    "bubble",
+    "donut",
+    "pie",
+]
+CARTESIAN_CHART_TYPES = {"v_bar", "h_bar", "line", "scatter", "bubble", "donut", "pie"}
+
+
 class ChartProcessor(Protocol):
-    """图表处理器的抽象接口"""
-    def encode_image(self, image_path: str, output_dir: str) -> str:
-        """加密图表图像"""
-        ...
-    
-    def find_axis(self, image_path: str) -> dict:
-        """查找图表坐标轴"""
-        ...
-    
-    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> dict:
-        """处理图表数据"""
-        ...
-    
-    def evaluate(self, eval_data_path: str) -> dict:
-        """评估图表处理结果"""
-        ...
-    
-    def save_evaluation_results(self, results: dict, output_path: str) -> None:
-        """保存评估结果"""
+    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
         ...
 
-# 玫瑰图处理器实现
-class RoseChartProcessor:
-    """玫瑰图处理器的具体实现"""
-    def encode_image(self, image_path: str, output_dir: str) -> str:
-        """使用demo_rose_circle_find处理图片，获取加密后的图片"""
-        encoder = RoseChartEncoder()
-        return encoder.process_single_image(image_path, output_dir)
-    
-    def find_axis(self, image_path: str) -> dict:
-        """使用demo_axis_find_rose找到坐标轴"""
-        axis_finder = RoseChartAxisFinder()
-        return axis_finder.process_single_image(image_path)
-    
-    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> dict:
-        """使用demo_data_solve_rose处理数据"""
-        # 准备文件路径
+    def find_axis(self, image_path: str) -> Dict[str, Any]:
+        ...
+
+    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
+        ...
+
+    def evaluate(self, eval_data_path: str) -> Dict[str, Any]:
+        ...
+
+    def save_evaluation_results(self, results: Dict[str, Any], output_path: str) -> None:
+        ...
+
+
+def load_json(path: str) -> Dict[str, Any]:
+    with open(path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return data if isinstance(data, dict) else {"data": data}
+
+
+def dump_json(path: str, data: Dict[str, Any], indent: int = 4) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as file:
+        json.dump(data, file, ensure_ascii=False, indent=indent)
+
+
+def extract_data_points(original_data: Dict[str, Any]) -> Dict[str, Any]:
+    if isinstance(original_data.get("data_points"), dict):
+        return original_data["data_points"]
+    if isinstance(original_data.get("data"), dict):
+        return original_data["data"]
+    return {}
+
+
+class BaseChartProcessor:
+    chart_type = "chart"
+
+    def save_evaluation_results(self, results: Dict[str, Any], output_path: str) -> None:
+        dump_json(output_path, results)
+
+
+class PolarChartProcessor(BaseChartProcessor):
+    encoder_cls: Type[Any]
+    axis_finder_cls: Type[Any]
+    evaluator_cls: Type[Any]
+
+    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
+        return self.encoder_cls().process_single_image(image_path, output_dir)
+
+    def find_axis(self, image_path: str) -> Dict[str, Any]:
+        return self.axis_finder_cls().process_single_image(image_path)
+
+    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
         target_json_path = os.path.join(output_dir, f"{chart_id}.json")
-        
         if not os.path.exists(target_json_path):
             return None
-        
-        # 读取现有的结果文件
-        with open(target_json_path, 'r', encoding='utf-8') as f:
-            rose_data = json.load(f)
-        
-        # 添加必要的字段
-        rose_data['chart_id'] = chart_id
-        rose_data['chart_type'] = 'rose'
-        
-        # 读取原始JSON数据
-        with open(json_path, 'r', encoding='utf-8') as f:
-            original_data = json.load(f)
-        
-        # 转换labels和values为data键值对
-        rose_data['data'] = {}
-        if 'data_points' in original_data:
-            for label, value in original_data['data_points'].items():
-                rose_data['data'][label] = value
-        
-        return rose_data
-    
-    def evaluate(self, eval_data_path: str) -> dict:
-        """使用demo_evaluation_rose进行评估"""
-        evaluator = RoseChartEvaluator()
+
+        chart_data = load_json(target_json_path)
+        chart_data["chart_id"] = chart_id
+        chart_data["chart_type"] = self.chart_type
+        chart_data["data"] = extract_data_points(load_json(json_path))
+        return chart_data
+
+    def evaluate(self, eval_data_path: str) -> Dict[str, Any]:
+        evaluator = self.evaluator_cls()
         evaluator.process_single_image(eval_data_path)
-        # 尝试获取结果，如果evaluator没有直接暴露results属性
-        # 我们可以先保存到临时文件，然后读取
-        import tempfile
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.json', mode='w', encoding='utf-8') as temp_file:
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".json", mode="w", encoding="utf-8") as temp_file:
             temp_path = temp_file.name
-        
+
         try:
             evaluator.save_results(temp_path)
-            # 检查文件是否存在且不为空
             if not os.path.exists(temp_path) or os.path.getsize(temp_path) == 0:
-                # 如果没有结果，返回空结果结构
-                return {"error": "评估未产生结果，可能是数据格式不符合要求"}
-            
-            with open(temp_path, 'r', encoding='utf-8') as f:
-                content = f.read().strip()
-                if not content:
-                    return {"error": "评估结果为空"}
-                results = json.loads(content)
-            return results
-        except json.JSONDecodeError as e:
-            # 如果 JSON 解析失败，返回错误信息
-            return {"error": f"JSON解析失败: {str(e)}"}
-        except Exception as e:
-            return {"error": f"评估过程出错: {str(e)}"}
+                return {"error": "Evaluation produced no results"}
+
+            content = open(temp_path, "r", encoding="utf-8").read().strip()
+            if not content:
+                return {"error": "Evaluation result is empty"}
+            return json.loads(content)
+        except json.JSONDecodeError as error:
+            return {"error": f"Evaluation JSON parse failed: {error}"}
+        except Exception as error:
+            return {"error": f"Evaluation failed: {error}"}
         finally:
             if os.path.exists(temp_path):
                 try:
                     os.unlink(temp_path)
-                except:
+                except OSError:
                     pass
-    
-    def save_evaluation_results(self, results: dict, output_path: str) -> None:
-        """保存评估结果到文件"""
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=4)
 
-# 直角坐标系图表处理器实现
-class CartesianChartProcessor:
-    """直角坐标系图表处理器的具体实现"""
-    def encode_image(self, image_path: str, output_dir: str) -> str:
-        """处理图片，获取加密后的图片"""
-        # 调用grid_generation模块处理图像
+
+class RoseChartProcessor(PolarChartProcessor):
+    chart_type = "rose"
+    encoder_cls = RoseChartEncoder
+    axis_finder_cls = RoseChartAxisFinder
+    evaluator_cls = RoseChartEvaluator
+
+
+class RadarChartProcessor(PolarChartProcessor):
+    chart_type = "radar"
+    encoder_cls = RadarChartEncoder
+    axis_finder_cls = RadarChartAxisFinder
+    evaluator_cls = RadarChartEvaluator
+
+
+class CartesianChartProcessor(BaseChartProcessor):
+    chart_type = "cartesian"
+
+    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
         result = process_chart(image_path, output_dir)
-        if result and 'encrypted_grid_path' in result:
-            return result['encrypted_grid_path']
+        if result:
+            return result.get("encrypted_grid_path")
         return None
-    
-    def find_axis(self, image_path: str) -> dict:
-        """查找图表坐标轴"""
-        # 创建临时输出目录
-        temp_output = os.path.join(os.path.dirname(image_path), 'temp_output')
+
+    def find_axis(self, image_path: str) -> Dict[str, Any]:
+        temp_output = os.path.join(os.path.dirname(image_path), "temp_output")
         os.makedirs(temp_output, exist_ok=True)
-        
+
         try:
-            # 调用grid_generation模块处理图像
             result = process_chart(image_path, temp_output)
-            if result:
-                # 提取坐标轴信息
-                axis_info = {
-                    'x_ticks': result.get('x_ticks', []),
-                    'y_ticks': result.get('y_ticks', []),
-                    'x_axis_type': '数值轴',
-                    'y_axis_type': '数值轴'
-                }
-                return axis_info
+            if not result:
+                return {}
+
+            return {
+                "x_ticks": result.get("x_ticks", []),
+                "y_ticks": result.get("y_ticks", []),
+                "x_axis_type": result.get("x_axis_type", "numeric"),
+                "y_axis_type": result.get("y_axis_type", "numeric"),
+            }
         finally:
-            # 清理临时目录
-            import shutil
             if os.path.exists(temp_output):
                 shutil.rmtree(temp_output)
-        
-        return {}
-    
-    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> dict:
-        """处理图表数据"""
-        # 调用grid_generation模块处理图像
+
+    def process_data(self, chart_id: str, image_path: str, json_path: str, output_dir: str) -> Optional[Dict[str, Any]]:
         result = process_chart(image_path, output_dir)
-        
-        if result:
-            # 构建返回数据结构
-            chart_data = {
-                'chart_id': chart_id,
-                'chart_type': 'cartesian',
-                'x_ticks': result.get('x_ticks', []),
-                'y_ticks': result.get('y_ticks', []),
-                'x_axis_type': '数值轴',
-                'y_axis_type': '数值轴',
-                'colors': [],
-                'image_path': result.get('image_path', ''),
-                'basic_grid_path': result.get('basic_grid_path', ''),
-                'encrypted_grid_path': result.get('encrypted_grid_path', '')
-            }
-            
-            # 尝试读取原始JSON数据并添加data字段
-            if os.path.exists(json_path):
-                try:
-                    with open(json_path, 'r', encoding='utf-8') as f:
-                        original_data = json.load(f)
-                    if 'data_points' in original_data:
-                        chart_data['data'] = original_data['data_points']
-                except:
-                    pass
-            
-            return chart_data
-        
-        return None
-    
-    def evaluate(self, eval_data_path: str) -> dict:
-        """评估图表处理结果"""
-        # 创建临时输出目录
-        temp_output = os.path.join(os.path.dirname(eval_data_path), 'temp_eval')
+        if not result:
+            return None
+
+        chart_data = {
+            "chart_id": chart_id,
+            "chart_type": self.chart_type,
+            "x_ticks": result.get("x_ticks", []),
+            "y_ticks": result.get("y_ticks", []),
+            "x_axis_type": result.get("x_axis_type", "numeric"),
+            "y_axis_type": result.get("y_axis_type", "numeric"),
+            "colors": result.get("colors", []),
+            "image_path": result.get("image_path", ""),
+            "basic_grid_path": result.get("basic_grid_path", ""),
+            "encrypted_grid_path": result.get("encrypted_grid_path", ""),
+        }
+
+        if os.path.exists(json_path):
+            chart_data["data"] = extract_data_points(load_json(json_path))
+
+        return chart_data
+
+    def evaluate(self, eval_data_path: str) -> Dict[str, Any]:
+        temp_output = os.path.join(os.path.dirname(eval_data_path), "temp_eval")
         os.makedirs(temp_output, exist_ok=True)
-        
+
         try:
-            # 调用grid_generation模块处理图像
             result = process_chart(eval_data_path, temp_output)
             if result:
-                # 构建评估结果
-                evaluation_result = {
-                    'chart_id': result.get('chart_id', ''),
-                    'x_ticks_count': len(result.get('x_ticks', [])),
-                    'y_ticks_count': len(result.get('y_ticks', [])),
-                    'colors_count': 0,
-                    'success': True
+                return {
+                    "chart_id": result.get("chart_id", ""),
+                    "x_ticks_count": len(result.get("x_ticks", [])),
+                    "y_ticks_count": len(result.get("y_ticks", [])),
+                    "colors_count": len(result.get("colors", [])),
+                    "success": True,
                 }
-                return evaluation_result
         finally:
-            # 清理临时目录
-            import shutil
             if os.path.exists(temp_output):
                 shutil.rmtree(temp_output)
-        
-        return {"error": "评估失败"}
-    
-    def save_evaluation_results(self, results: dict, output_path: str) -> None:
-        """保存评估结果到文件"""
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=4)
+
+        return {"error": "Evaluation failed"}
+
 
 class ChartProcessorFactory:
-    """根据图表类型创建相应的处理器"""
-    @staticmethod
-    def create_processor(chart_type: str) -> ChartProcessor:
-        """创建并返回指定类型的图表处理器"""
-        if chart_type == 'rose':
-            return RoseChartProcessor()
-        elif chart_type in ['v_bar', 'h_bar', 'line', 'scatter', 'bubble', 'donut', 'pie']:
-            return CartesianChartProcessor()
-        # 可以在这里添加更多图表类型的处理器
-        else:
-            # 默认使用直角坐标系处理器作为回退
+    _processors = {
+        "rose": RoseChartProcessor,
+        "radar": RadarChartProcessor,
+    }
+
+    @classmethod
+    def create_processor(cls, chart_type: str) -> ChartProcessor:
+        if chart_type in CARTESIAN_CHART_TYPES:
             return CartesianChartProcessor()
 
-# 支持的图表类型
-SUPPORTED_CHART_TYPES = ['rose', 'v_bar', 'h_bar', 'line', 'scatter', 'bubble', 'donut', 'pie']
+        processor_cls = cls._processors.get(chart_type, CartesianChartProcessor)
+        return processor_cls()

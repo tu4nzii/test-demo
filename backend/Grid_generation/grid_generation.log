@@ -59002,3 +59002,1158 @@ AttributeError: 'NoneType' object has no attribute 'send'
 2025-11-20 19:43:11,573 - INFO - Y轴加密刻度数量: 9
 2025-11-20 19:43:11,573 - INFO - X轴加密像素位置数量: 9
 2025-11-20 19:43:11,573 - INFO - Y轴加密像素位置数量: 9
+2026-05-24 19:32:18,706 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:33:58,157 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:34:57,341 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_field with data[36:55]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_value with data[57:105]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_field with data[107:119]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_value with data[121:130]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_data with data[134:11169]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_field with data[11207:11226]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_value with data[11228:11282]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_field with data[11284:11296]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_value with data[11298:11314]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_data with data[11318:12178]
+2026-05-24 19:34:57,342 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:34:57,342 - DEBUG - Calling on_end with no data
+2026-05-24 19:34:57,367 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,403 - INFO - HTTP Request: POST http://testserver/api/upload/ "HTTP/1.1 200 OK"
+2026-05-24 19:34:57,403 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:34:57,406 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\39fdb669-b52d-4086-a563-63b2ee4d9b23_image.png
+2026-05-24 19:34:57,406 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar
+2026-05-24 19:34:57,406 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\39fdb669-b52d-4086-a563-63b2ee4d9b23_image.png
+2026-05-24 19:34:57,406 - DEBUG - 图像文件大小: 11035 字节
+2026-05-24 19:34:57,406 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\39fdb669-b52d-4086-a563-63b2ee4d9b23_image.png
+2026-05-24 19:34:57,408 - INFO - 成功加载图像，形状: (600, 800, 3)
+2026-05-24 19:34:57,408 - DEBUG - 图像尺寸: 800x600
+2026-05-24 19:34:57,410 - DEBUG - 开始检测直线...
+2026-05-24 19:34:57,417 - DEBUG - 检测到 71 条原始直线
+2026-05-24 19:34:57,431 - DEBUG - 合并后得到 22 条直线
+2026-05-24 19:34:57,431 - DEBUG - 开始推断坐标轴...
+2026-05-24 19:34:57,435 - DEBUG - 检测到坐标轴: X轴=[71, 516, 764, 516], Y轴=[75, 539, 75, 78]
+2026-05-24 19:34:57,435 - DEBUG - 开始检测刻度线...
+2026-05-24 19:34:57,437 - DEBUG - 检测到 X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:34:57,438 - DEBUG - 过滤后: X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:34:57,438 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-24 19:34:57,438 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,440 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,440 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,444 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,444 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,446 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,474 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,477 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,501 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:34:57,503 - DEBUG - 模型处理结果: X轴1个刻度, Y轴1个刻度, 1个颜色
+2026-05-24 19:34:57,503 - WARNING - 有效刻度数量不足: F:\program\test-demo\backend\data\upload\39fdb669-b52d-4086-a563-63b2ee4d9b23_image.png
+2026-05-24 19:34:57,503 - INFO - HTTP Request: POST http://testserver/api/process/?chart_id=39fdb669-b52d-4086-a563-63b2ee4d9b23 "HTTP/1.1 500 Internal Server Error"
+2026-05-24 19:36:36,970 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:36:37,854 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:36:37,855 - DEBUG - Calling on_header_field with data[36:55]
+2026-05-24 19:36:37,855 - DEBUG - Calling on_header_value with data[57:105]
+2026-05-24 19:36:37,856 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:37,856 - DEBUG - Calling on_header_field with data[107:119]
+2026-05-24 19:36:37,856 - DEBUG - Calling on_header_value with data[121:130]
+2026-05-24 19:36:37,856 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:37,856 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:36:37,856 - DEBUG - Calling on_part_data with data[134:11169]
+2026-05-24 19:36:37,857 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:36:37,857 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:36:37,857 - DEBUG - Calling on_header_field with data[11207:11226]
+2026-05-24 19:36:37,857 - DEBUG - Calling on_header_value with data[11228:11282]
+2026-05-24 19:36:37,857 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:37,857 - DEBUG - Calling on_header_field with data[11284:11296]
+2026-05-24 19:36:37,858 - DEBUG - Calling on_header_value with data[11298:11314]
+2026-05-24 19:36:37,858 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:37,858 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:36:37,859 - DEBUG - Calling on_part_data with data[11318:12178]
+2026-05-24 19:36:37,859 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:36:37,859 - DEBUG - Calling on_end with no data
+2026-05-24 19:36:37,876 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,882 - INFO - HTTP Request: POST http://testserver/api/upload/ "HTTP/1.1 200 OK"
+2026-05-24 19:36:37,883 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:36:37,886 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,886 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar
+2026-05-24 19:36:37,886 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,886 - DEBUG - 图像文件大小: 11035 字节
+2026-05-24 19:36:37,886 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,888 - INFO - 成功加载图像，形状: (600, 800, 3)
+2026-05-24 19:36:37,888 - DEBUG - 图像尺寸: 800x600
+2026-05-24 19:36:37,889 - DEBUG - 开始检测直线...
+2026-05-24 19:36:37,893 - DEBUG - 检测到 71 条原始直线
+2026-05-24 19:36:37,908 - DEBUG - 合并后得到 22 条直线
+2026-05-24 19:36:37,908 - DEBUG - 开始推断坐标轴...
+2026-05-24 19:36:37,911 - DEBUG - 检测到坐标轴: X轴=[71, 516, 764, 516], Y轴=[75, 539, 75, 78]
+2026-05-24 19:36:37,911 - DEBUG - 开始检测刻度线...
+2026-05-24 19:36:37,914 - DEBUG - 检测到 X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:37,915 - DEBUG - 过滤后: X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:37,915 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-24 19:36:37,915 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,916 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,917 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,918 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,919 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,942 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,948 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,949 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,950 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:37,950 - DEBUG - 模型处理结果: X轴1个刻度, Y轴1个刻度, 1个颜色
+2026-05-24 19:36:37,951 - WARNING - LLM X tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:37,951 - WARNING - LLM Y tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:37,951 - DEBUG - 最终有效刻度: X轴=7个, Y轴=3个
+2026-05-24 19:36:37,951 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-24 19:36:37,951 - DEBUG - 生成加密刻度: X轴=13个, Y轴=5个
+2026-05-24 19:36:37,951 - DEBUG - 生成加密像素位置: X轴=13个, Y轴=5个
+2026-05-24 19:36:37,956 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_grid.png
+2026-05-24 19:36:37,956 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=13, 加密刻度数量=13
+2026-05-24 19:36:37,956 - DEBUG - Y轴像素点数量=5, 加密刻度数量=5
+2026-05-24 19:36:37,956 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-24 19:36:37,956 - DEBUG - X轴最大小数位数: 1
+2026-05-24 19:36:37,956 - DEBUG - Y轴最大小数位数: 1
+2026-05-24 19:36:37,956 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:37,956 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:37,956 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:37,959 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:37,959 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:37,959 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:37,960 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-24 19:36:37,960 - DEBUG - 误差消除后: 2.5
+2026-05-24 19:36:37,960 - DEBUG - 格式化后: 2.5
+2026-05-24 19:36:37,961 - DEBUG - 格式化前原始值: 3.5, 目标小数位数: 1
+2026-05-24 19:36:37,961 - DEBUG - 误差消除后: 3.5
+2026-05-24 19:36:37,961 - DEBUG - 格式化后: 3.5
+2026-05-24 19:36:37,961 - DEBUG - 格式化前原始值: 4.5, 目标小数位数: 1
+2026-05-24 19:36:37,961 - DEBUG - 误差消除后: 4.5
+2026-05-24 19:36:37,961 - DEBUG - 格式化后: 4.5
+2026-05-24 19:36:37,963 - DEBUG - 格式化前原始值: 5.5, 目标小数位数: 1
+2026-05-24 19:36:37,963 - DEBUG - 误差消除后: 5.5
+2026-05-24 19:36:37,963 - DEBUG - 格式化后: 5.5
+2026-05-24 19:36:37,964 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:37,964 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:37,964 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:37,964 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:37,964 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:37,964 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:37,964 - DEBUG - 成功绘制加密刻度文本: X轴6个, Y轴2个
+2026-05-24 19:36:37,967 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_with_grid.png
+2026-05-24 19:36:37,967 - DEBUG - 加密网格文件大小: 66236 字节
+2026-05-24 19:36:37,968 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\v_bar\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_ticks.json
+2026-05-24 19:36:37,968 - INFO - 处理完成: 5edc18d9-c524-4ece-bd00-f6788074ae7c_image
+2026-05-24 19:36:37,968 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,968 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-24 19:36:37,968 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,968 - DEBUG - 图像文件大小: 11035 字节
+2026-05-24 19:36:37,969 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\5edc18d9-c524-4ece-bd00-f6788074ae7c_image.png
+2026-05-24 19:36:37,971 - INFO - 成功加载图像，形状: (600, 800, 3)
+2026-05-24 19:36:37,971 - DEBUG - 图像尺寸: 800x600
+2026-05-24 19:36:37,971 - DEBUG - 开始检测直线...
+2026-05-24 19:36:37,974 - DEBUG - 检测到 71 条原始直线
+2026-05-24 19:36:37,988 - DEBUG - 合并后得到 22 条直线
+2026-05-24 19:36:37,988 - DEBUG - 开始推断坐标轴...
+2026-05-24 19:36:37,993 - DEBUG - 检测到坐标轴: X轴=[71, 516, 764, 516], Y轴=[75, 539, 75, 78]
+2026-05-24 19:36:37,993 - DEBUG - 开始检测刻度线...
+2026-05-24 19:36:37,994 - DEBUG - 检测到 X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:37,995 - DEBUG - 过滤后: X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:37,995 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-24 19:36:37,996 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,018 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,019 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,020 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,021 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,021 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,038 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,039 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,040 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:38,064 - DEBUG - 模型处理结果: X轴1个刻度, Y轴1个刻度, 1个颜色
+2026-05-24 19:36:38,064 - WARNING - LLM X tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:38,064 - WARNING - LLM Y tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:38,064 - DEBUG - 最终有效刻度: X轴=7个, Y轴=3个
+2026-05-24 19:36:38,064 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-24 19:36:38,064 - DEBUG - 生成加密刻度: X轴=13个, Y轴=5个
+2026-05-24 19:36:38,064 - DEBUG - 生成加密像素位置: X轴=13个, Y轴=5个
+2026-05-24 19:36:38,066 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_grid.png
+2026-05-24 19:36:38,066 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=13, 加密刻度数量=13
+2026-05-24 19:36:38,066 - DEBUG - Y轴像素点数量=5, 加密刻度数量=5
+2026-05-24 19:36:38,066 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-24 19:36:38,068 - DEBUG - X轴最大小数位数: 1
+2026-05-24 19:36:38,068 - DEBUG - Y轴最大小数位数: 1
+2026-05-24 19:36:38,068 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:38,068 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:38,068 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:38,068 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:38,068 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:38,068 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:38,068 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-24 19:36:38,068 - DEBUG - 误差消除后: 2.5
+2026-05-24 19:36:38,068 - DEBUG - 格式化后: 2.5
+2026-05-24 19:36:38,070 - DEBUG - 格式化前原始值: 3.5, 目标小数位数: 1
+2026-05-24 19:36:38,070 - DEBUG - 误差消除后: 3.5
+2026-05-24 19:36:38,070 - DEBUG - 格式化后: 3.5
+2026-05-24 19:36:38,070 - DEBUG - 格式化前原始值: 4.5, 目标小数位数: 1
+2026-05-24 19:36:38,071 - DEBUG - 误差消除后: 4.5
+2026-05-24 19:36:38,071 - DEBUG - 格式化后: 4.5
+2026-05-24 19:36:38,071 - DEBUG - 格式化前原始值: 5.5, 目标小数位数: 1
+2026-05-24 19:36:38,071 - DEBUG - 误差消除后: 5.5
+2026-05-24 19:36:38,071 - DEBUG - 格式化后: 5.5
+2026-05-24 19:36:38,072 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:38,072 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:38,072 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:38,073 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:38,073 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:38,073 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:38,073 - DEBUG - 成功绘制加密刻度文本: X轴6个, Y轴2个
+2026-05-24 19:36:38,075 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_with_grid.png
+2026-05-24 19:36:38,076 - DEBUG - 加密网格文件大小: 66236 字节
+2026-05-24 19:36:38,076 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\5edc18d9-c524-4ece-bd00-f6788074ae7c_image_ticks.json
+2026-05-24 19:36:38,076 - INFO - 处理完成: 5edc18d9-c524-4ece-bd00-f6788074ae7c_image
+2026-05-24 19:36:38,080 - INFO - HTTP Request: POST http://testserver/api/process/?chart_id=5edc18d9-c524-4ece-bd00-f6788074ae7c "HTTP/1.1 200 OK"
+2026-05-24 19:36:50,225 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:36:50,227 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_field with data[36:55]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_value with data[57:105]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_field with data[107:119]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_value with data[121:130]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_part_data with data[134:11169]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_part_begin with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_field with data[11207:11226]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_value with data[11228:11282]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_field with data[11284:11296]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_value with data[11298:11314]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_header_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_headers_finished with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_part_data with data[11318:12178]
+2026-05-24 19:36:50,228 - DEBUG - Calling on_part_end with no data
+2026-05-24 19:36:50,228 - DEBUG - Calling on_end with no data
+2026-05-24 19:36:50,241 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,246 - INFO - HTTP Request: POST http://testserver/api/upload/ "HTTP/1.1 200 OK"
+2026-05-24 19:36:50,246 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:36:50,248 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,248 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar
+2026-05-24 19:36:50,248 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,248 - DEBUG - 图像文件大小: 11035 字节
+2026-05-24 19:36:50,248 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,250 - INFO - 成功加载图像，形状: (600, 800, 3)
+2026-05-24 19:36:50,251 - DEBUG - 图像尺寸: 800x600
+2026-05-24 19:36:50,251 - DEBUG - 开始检测直线...
+2026-05-24 19:36:50,255 - DEBUG - 检测到 71 条原始直线
+2026-05-24 19:36:50,269 - DEBUG - 合并后得到 22 条直线
+2026-05-24 19:36:50,270 - DEBUG - 开始推断坐标轴...
+2026-05-24 19:36:50,272 - DEBUG - 检测到坐标轴: X轴=[71, 516, 764, 516], Y轴=[75, 539, 75, 78]
+2026-05-24 19:36:50,272 - DEBUG - 开始检测刻度线...
+2026-05-24 19:36:50,274 - DEBUG - 检测到 X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:50,275 - DEBUG - 过滤后: X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:50,275 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-24 19:36:50,276 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,277 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,278 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,280 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,281 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,281 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,286 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,288 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,289 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,289 - DEBUG - 模型处理结果: X轴1个刻度, Y轴1个刻度, 1个颜色
+2026-05-24 19:36:50,290 - WARNING - LLM X tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:50,290 - WARNING - LLM Y tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:50,290 - DEBUG - 最终有效刻度: X轴=7个, Y轴=3个
+2026-05-24 19:36:50,290 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-24 19:36:50,290 - DEBUG - 生成加密刻度: X轴=13个, Y轴=5个
+2026-05-24 19:36:50,290 - DEBUG - 生成加密像素位置: X轴=13个, Y轴=5个
+2026-05-24 19:36:50,292 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_grid.png
+2026-05-24 19:36:50,293 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=13, 加密刻度数量=13
+2026-05-24 19:36:50,293 - DEBUG - Y轴像素点数量=5, 加密刻度数量=5
+2026-05-24 19:36:50,293 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-24 19:36:50,293 - DEBUG - X轴最大小数位数: 1
+2026-05-24 19:36:50,293 - DEBUG - Y轴最大小数位数: 1
+2026-05-24 19:36:50,293 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:50,293 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:50,293 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:50,294 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:50,294 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:50,294 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:50,295 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-24 19:36:50,295 - DEBUG - 误差消除后: 2.5
+2026-05-24 19:36:50,295 - DEBUG - 格式化后: 2.5
+2026-05-24 19:36:50,296 - DEBUG - 格式化前原始值: 3.5, 目标小数位数: 1
+2026-05-24 19:36:50,296 - DEBUG - 误差消除后: 3.5
+2026-05-24 19:36:50,296 - DEBUG - 格式化后: 3.5
+2026-05-24 19:36:50,296 - DEBUG - 格式化前原始值: 4.5, 目标小数位数: 1
+2026-05-24 19:36:50,296 - DEBUG - 误差消除后: 4.5
+2026-05-24 19:36:50,296 - DEBUG - 格式化后: 4.5
+2026-05-24 19:36:50,297 - DEBUG - 格式化前原始值: 5.5, 目标小数位数: 1
+2026-05-24 19:36:50,297 - DEBUG - 误差消除后: 5.5
+2026-05-24 19:36:50,297 - DEBUG - 格式化后: 5.5
+2026-05-24 19:36:50,297 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:50,298 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:50,298 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:50,298 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:50,298 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:50,298 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:50,299 - DEBUG - 成功绘制加密刻度文本: X轴6个, Y轴2个
+2026-05-24 19:36:50,302 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_with_grid.png
+2026-05-24 19:36:50,302 - DEBUG - 加密网格文件大小: 66236 字节
+2026-05-24 19:36:50,302 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_ticks.json
+2026-05-24 19:36:50,302 - INFO - 处理完成: 06fb0638-041a-43f4-9fdb-10f6ae8d9893_image
+2026-05-24 19:36:50,302 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,302 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-24 19:36:50,303 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,303 - DEBUG - 图像文件大小: 11035 字节
+2026-05-24 19:36:50,303 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.png
+2026-05-24 19:36:50,305 - INFO - 成功加载图像，形状: (600, 800, 3)
+2026-05-24 19:36:50,305 - DEBUG - 图像尺寸: 800x600
+2026-05-24 19:36:50,305 - DEBUG - 开始检测直线...
+2026-05-24 19:36:50,309 - DEBUG - 检测到 71 条原始直线
+2026-05-24 19:36:50,322 - DEBUG - 合并后得到 22 条直线
+2026-05-24 19:36:50,322 - DEBUG - 开始推断坐标轴...
+2026-05-24 19:36:50,327 - DEBUG - 检测到坐标轴: X轴=[71, 516, 764, 516], Y轴=[75, 539, 75, 78]
+2026-05-24 19:36:50,327 - DEBUG - 开始检测刻度线...
+2026-05-24 19:36:50,329 - DEBUG - 检测到 X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:50,330 - DEBUG - 过滤后: X轴刻度 7 个, Y轴刻度 3 个
+2026-05-24 19:36:50,330 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-24 19:36:50,330 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,333 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,333 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,334 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,359 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,359 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,365 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,365 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,367 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-24 19:36:50,367 - DEBUG - 模型处理结果: X轴1个刻度, Y轴1个刻度, 1个颜色
+2026-05-24 19:36:50,368 - WARNING - LLM X tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:50,368 - WARNING - LLM Y tick labels unavailable; using positional fallback ticks.
+2026-05-24 19:36:50,368 - DEBUG - 最终有效刻度: X轴=7个, Y轴=3个
+2026-05-24 19:36:50,368 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-24 19:36:50,368 - DEBUG - 生成加密刻度: X轴=13个, Y轴=5个
+2026-05-24 19:36:50,368 - DEBUG - 生成加密像素位置: X轴=13个, Y轴=5个
+2026-05-24 19:36:50,370 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_grid.png
+2026-05-24 19:36:50,371 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=13, 加密刻度数量=13
+2026-05-24 19:36:50,371 - DEBUG - Y轴像素点数量=5, 加密刻度数量=5
+2026-05-24 19:36:50,371 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-24 19:36:50,371 - DEBUG - X轴最大小数位数: 1
+2026-05-24 19:36:50,371 - DEBUG - Y轴最大小数位数: 1
+2026-05-24 19:36:50,371 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:50,371 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:50,371 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:50,372 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:50,372 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:50,372 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:50,373 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-24 19:36:50,373 - DEBUG - 误差消除后: 2.5
+2026-05-24 19:36:50,373 - DEBUG - 格式化后: 2.5
+2026-05-24 19:36:50,374 - DEBUG - 格式化前原始值: 3.5, 目标小数位数: 1
+2026-05-24 19:36:50,374 - DEBUG - 误差消除后: 3.5
+2026-05-24 19:36:50,374 - DEBUG - 格式化后: 3.5
+2026-05-24 19:36:50,374 - DEBUG - 格式化前原始值: 4.5, 目标小数位数: 1
+2026-05-24 19:36:50,374 - DEBUG - 误差消除后: 4.5
+2026-05-24 19:36:50,374 - DEBUG - 格式化后: 4.5
+2026-05-24 19:36:50,375 - DEBUG - 格式化前原始值: 5.5, 目标小数位数: 1
+2026-05-24 19:36:50,375 - DEBUG - 误差消除后: 5.5
+2026-05-24 19:36:50,375 - DEBUG - 格式化后: 5.5
+2026-05-24 19:36:50,375 - DEBUG - 格式化前原始值: 0.5, 目标小数位数: 1
+2026-05-24 19:36:50,375 - DEBUG - 误差消除后: 0.5
+2026-05-24 19:36:50,375 - DEBUG - 格式化后: 0.5
+2026-05-24 19:36:50,377 - DEBUG - 格式化前原始值: 1.5, 目标小数位数: 1
+2026-05-24 19:36:50,377 - DEBUG - 误差消除后: 1.5
+2026-05-24 19:36:50,377 - DEBUG - 格式化后: 1.5
+2026-05-24 19:36:50,377 - DEBUG - 成功绘制加密刻度文本: X轴6个, Y轴2个
+2026-05-24 19:36:50,379 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_with_grid.png
+2026-05-24 19:36:50,379 - DEBUG - 加密网格文件大小: 66236 字节
+2026-05-24 19:36:50,380 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image_ticks.json
+2026-05-24 19:36:50,380 - INFO - 处理完成: 06fb0638-041a-43f4-9fdb-10f6ae8d9893_image
+2026-05-24 19:36:50,381 - INFO - HTTP Request: POST http://testserver/api/process/?chart_id=06fb0638-041a-43f4-9fdb-10f6ae8d9893 "HTTP/1.1 200 OK"
+2026-05-24 19:36:50,382 - DEBUG - Using proactor: IocpProactor
+2026-05-24 19:36:50,384 - INFO - 处理图像: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.json
+2026-05-24 19:36:50,384 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar\temp_eval
+2026-05-24 19:36:50,384 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.json
+2026-05-24 19:36:50,384 - DEBUG - 图像文件大小: 485 字节
+2026-05-24 19:36:50,384 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\output\v_bar\06fb0638-041a-43f4-9fdb-10f6ae8d9893_image.json
+2026-05-24 19:36:50,390 - ERROR - cv2.imdecode失败，但文件存在且可读
+2026-05-24 19:36:50,390 - ERROR - 使用numpy和cv2.imdecode加载图像时出错: 'numpy.ndarray' object has no attribute 'hex'
+2026-05-24 19:36:50,392 - INFO - HTTP Request: POST http://testserver/api/evaluate/?chart_id=06fb0638-041a-43f4-9fdb-10f6ae8d9893 "HTTP/1.1 200 OK"
+2026-05-24 20:02:34,927 - DEBUG - Using proactor: IocpProactor
+2026-05-24 20:11:00,385 - DEBUG - Using proactor: IocpProactor
+2026-05-25 01:31:43,917 - DEBUG - Using proactor: IocpProactor
+2026-05-25 01:32:51,039 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:32:51,076 - DEBUG - Calling on_header_field with data[42:61]
+2026-05-25 01:32:51,117 - DEBUG - Calling on_header_value with data[63:112]
+2026-05-25 01:32:51,158 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:32:51,196 - DEBUG - Calling on_header_field with data[114:126]
+2026-05-25 01:32:51,237 - DEBUG - Calling on_header_value with data[128:137]
+2026-05-25 01:32:51,273 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:32:51,313 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:32:51,317 - DEBUG - Calling on_part_data with data[141:16384]
+2026-05-25 01:32:51,317 - DEBUG - Calling on_part_data with data[0:12336]
+2026-05-25 01:32:51,317 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:32:51,318 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_field with data[12380:12399]
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_value with data[12401:12456]
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_field with data[12458:12470]
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_value with data[12472:12488]
+2026-05-25 01:32:51,319 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:32:51,320 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:32:51,320 - DEBUG - Calling on_part_data with data[12492:13983]
+2026-05-25 01:32:51,320 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:32:51,321 - DEBUG - Calling on_end with no data
+2026-05-25 01:32:51,349 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:32:57,026 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 272
+2026-05-25 01:32:59,542 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:32:59,542 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\bubble
+2026-05-25 01:32:59,543 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:32:59,543 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:32:59,544 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:32:59,549 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:32:59,550 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:32:59,551 - DEBUG - 开始检测直线...
+2026-05-25 01:32:59,560 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:32:59,614 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:32:59,615 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:32:59,617 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:32:59,617 - DEBUG - 开始检测刻度线...
+2026-05-25 01:32:59,619 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:32:59,619 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:32:59,620 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:32:59,621 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:05,361 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 344
+2026-05-25 01:33:05,362 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:11,797 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 345
+2026-05-25 01:33:11,807 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:24,377 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 446
+2026-05-25 01:33:24,379 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:33:24,379 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:33:24,379 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:33:24,379 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:33:24,380 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:33:24,387 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_grid.png
+2026-05-25 01:33:24,388 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:33:24,390 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:33:24,390 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:33:24,390 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:33:24,391 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:33:24,391 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:33:24,392 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:33:24,392 - DEBUG - 格式化后: 7000
+2026-05-25 01:33:24,395 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:33:24,395 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:33:24,395 - DEBUG - 格式化后: 13000
+2026-05-25 01:33:24,396 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:33:24,397 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:33:24,397 - DEBUG - 格式化后: 19000
+2026-05-25 01:33:24,397 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:33:24,398 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:33:24,398 - DEBUG - 格式化后: 25000
+2026-05-25 01:33:24,399 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:33:24,399 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:33:24,400 - DEBUG - 格式化后: 64
+2026-05-25 01:33:24,401 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:33:24,401 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:33:24,401 - DEBUG - 格式化后: 68
+2026-05-25 01:33:24,403 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:33:24,403 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:33:24,403 - DEBUG - 格式化后: 72
+2026-05-25 01:33:24,405 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:33:24,405 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:33:24,405 - DEBUG - 格式化后: 76
+2026-05-25 01:33:24,406 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:33:24,409 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_with_grid.png
+2026-05-25 01:33:24,410 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:33:24,425 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\bubble\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_ticks.json
+2026-05-25 01:33:24,437 - INFO - 处理完成: 23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image
+2026-05-25 01:33:24,438 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:33:24,439 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-25 01:33:24,439 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:33:24,440 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:33:24,440 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image.png
+2026-05-25 01:33:24,443 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:33:24,444 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:33:24,444 - DEBUG - 开始检测直线...
+2026-05-25 01:33:24,448 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:33:24,540 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:33:24,540 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:33:24,542 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:33:24,542 - DEBUG - 开始检测刻度线...
+2026-05-25 01:33:24,548 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:33:24,550 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:33:24,550 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:33:24,552 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:34,502 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 343
+2026-05-25 01:33:34,530 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:42,385 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 349
+2026-05-25 01:33:42,390 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:33:58,754 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 449
+2026-05-25 01:33:58,755 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:33:58,755 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:33:58,756 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:33:58,756 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:33:58,757 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:33:58,760 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_grid.png
+2026-05-25 01:33:58,761 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:33:58,761 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:33:58,761 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:33:58,761 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:33:58,762 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:33:58,762 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:33:58,762 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:33:58,762 - DEBUG - 格式化后: 7000
+2026-05-25 01:33:58,763 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:33:58,763 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:33:58,763 - DEBUG - 格式化后: 13000
+2026-05-25 01:33:58,764 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:33:58,764 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:33:58,764 - DEBUG - 格式化后: 19000
+2026-05-25 01:33:58,765 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:33:58,766 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:33:58,766 - DEBUG - 格式化后: 25000
+2026-05-25 01:33:58,767 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:33:58,767 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:33:58,767 - DEBUG - 格式化后: 64
+2026-05-25 01:33:58,768 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:33:58,768 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:33:58,768 - DEBUG - 格式化后: 68
+2026-05-25 01:33:58,769 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:33:58,769 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:33:58,769 - DEBUG - 格式化后: 72
+2026-05-25 01:33:58,770 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:33:58,770 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:33:58,770 - DEBUG - 格式化后: 76
+2026-05-25 01:33:58,771 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:33:58,773 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_with_grid.png
+2026-05-25 01:33:58,774 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:33:58,781 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image_ticks.json
+2026-05-25 01:33:58,782 - INFO - 处理完成: 23d45f9d-5178-4bba-8f5b-3fbf9a08d08a_image
+2026-05-25 01:33:58,784 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:33:58,785 - DEBUG - Calling on_header_field with data[42:61]
+2026-05-25 01:33:58,785 - DEBUG - Calling on_header_value with data[63:112]
+2026-05-25 01:33:58,785 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:33:58,785 - DEBUG - Calling on_header_field with data[114:126]
+2026-05-25 01:33:58,786 - DEBUG - Calling on_header_value with data[128:137]
+2026-05-25 01:33:58,786 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:33:58,786 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:33:58,787 - DEBUG - Calling on_part_data with data[141:28720]
+2026-05-25 01:33:58,787 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:33:58,787 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:33:58,787 - DEBUG - Calling on_header_field with data[28764:28783]
+2026-05-25 01:33:58,788 - DEBUG - Calling on_header_value with data[28785:28840]
+2026-05-25 01:33:58,788 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:33:58,788 - DEBUG - Calling on_header_field with data[28842:28854]
+2026-05-25 01:33:58,789 - DEBUG - Calling on_header_value with data[28856:28872]
+2026-05-25 01:33:58,789 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:33:58,789 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:33:58,789 - DEBUG - Calling on_part_data with data[28876:30367]
+2026-05-25 01:33:58,790 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:33:58,790 - DEBUG - Calling on_end with no data
+2026-05-25 01:33:58,799 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:09,031 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 592
+2026-05-25 01:34:09,033 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:34:09,034 - DEBUG - Calling on_header_field with data[42:61]
+2026-05-25 01:34:09,034 - DEBUG - Calling on_header_value with data[63:112]
+2026-05-25 01:34:09,035 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:34:09,035 - DEBUG - Calling on_header_field with data[114:126]
+2026-05-25 01:34:09,035 - DEBUG - Calling on_header_value with data[128:137]
+2026-05-25 01:34:09,036 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:34:09,036 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:34:09,036 - DEBUG - Calling on_part_data with data[141:28720]
+2026-05-25 01:34:09,037 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:34:09,037 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:34:09,037 - DEBUG - Calling on_header_field with data[28764:28783]
+2026-05-25 01:34:09,037 - DEBUG - Calling on_header_value with data[28785:28840]
+2026-05-25 01:34:09,037 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:34:09,038 - DEBUG - Calling on_header_field with data[28842:28854]
+2026-05-25 01:34:09,038 - DEBUG - Calling on_header_value with data[28856:28872]
+2026-05-25 01:34:09,038 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:34:09,038 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:34:09,039 - DEBUG - Calling on_part_data with data[28876:30367]
+2026-05-25 01:34:09,040 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:34:09,041 - DEBUG - Calling on_end with no data
+2026-05-25 01:34:09,052 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:14,251 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 273
+2026-05-25 01:34:17,820 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:17,820 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\bubble
+2026-05-25 01:34:17,821 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:17,821 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:34:17,821 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:17,823 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:34:17,824 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:34:17,824 - DEBUG - 开始检测直线...
+2026-05-25 01:34:17,827 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:34:17,882 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:34:17,882 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:34:17,884 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:34:17,884 - DEBUG - 开始检测刻度线...
+2026-05-25 01:34:17,886 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:34:17,887 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:34:17,887 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:34:17,889 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:22,928 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 344
+2026-05-25 01:34:22,930 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:30,453 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 349
+2026-05-25 01:34:30,461 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:43,294 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 446
+2026-05-25 01:34:43,295 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:34:43,295 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:34:43,296 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:34:43,296 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:34:43,296 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:34:43,299 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_grid.png
+2026-05-25 01:34:43,300 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:34:43,300 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:34:43,301 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:34:43,301 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:34:43,301 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:34:43,302 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:34:43,302 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:34:43,303 - DEBUG - 格式化后: 7000
+2026-05-25 01:34:43,304 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:34:43,304 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:34:43,304 - DEBUG - 格式化后: 13000
+2026-05-25 01:34:43,305 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:34:43,306 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:34:43,306 - DEBUG - 格式化后: 19000
+2026-05-25 01:34:43,307 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:34:43,307 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:34:43,307 - DEBUG - 格式化后: 25000
+2026-05-25 01:34:43,308 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:34:43,308 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:34:43,309 - DEBUG - 格式化后: 64
+2026-05-25 01:34:43,309 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:34:43,310 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:34:43,310 - DEBUG - 格式化后: 68
+2026-05-25 01:34:43,311 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:34:43,311 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:34:43,311 - DEBUG - 格式化后: 72
+2026-05-25 01:34:43,313 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:34:43,313 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:34:43,313 - DEBUG - 格式化后: 76
+2026-05-25 01:34:43,314 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:34:43,317 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_with_grid.png
+2026-05-25 01:34:43,317 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:34:43,326 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_ticks.json
+2026-05-25 01:34:43,326 - INFO - 处理完成: 37dc247f-2d9e-43ba-9dac-e6c5a0941633_image
+2026-05-25 01:34:43,327 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:43,327 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-25 01:34:43,328 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:43,328 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:34:43,328 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.png
+2026-05-25 01:34:43,331 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:34:43,331 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:34:43,332 - DEBUG - 开始检测直线...
+2026-05-25 01:34:43,335 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:34:43,423 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:34:43,423 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:34:43,425 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:34:43,426 - DEBUG - 开始检测刻度线...
+2026-05-25 01:34:43,429 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:34:43,431 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:34:43,431 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:34:43,432 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:50,892 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 343
+2026-05-25 01:34:50,894 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:34:57,279 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 349
+2026-05-25 01:34:57,284 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:35:11,899 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 449
+2026-05-25 01:35:11,901 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:35:11,901 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:35:11,901 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:35:11,902 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:35:11,902 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:35:11,907 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_grid.png
+2026-05-25 01:35:11,907 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:35:11,907 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:35:11,908 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:35:11,908 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:35:11,909 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:35:11,909 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:35:11,909 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:35:11,910 - DEBUG - 格式化后: 7000
+2026-05-25 01:35:11,911 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:35:11,911 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:35:11,911 - DEBUG - 格式化后: 13000
+2026-05-25 01:35:11,912 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:35:11,913 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:35:11,913 - DEBUG - 格式化后: 19000
+2026-05-25 01:35:11,914 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:35:11,914 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:35:11,915 - DEBUG - 格式化后: 25000
+2026-05-25 01:35:11,916 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:35:11,916 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:35:11,917 - DEBUG - 格式化后: 64
+2026-05-25 01:35:11,918 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:35:11,919 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:35:11,919 - DEBUG - 格式化后: 68
+2026-05-25 01:35:11,920 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:35:11,920 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:35:11,921 - DEBUG - 格式化后: 72
+2026-05-25 01:35:11,922 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:35:11,922 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:35:11,922 - DEBUG - 格式化后: 76
+2026-05-25 01:35:11,923 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:35:11,926 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_with_grid.png
+2026-05-25 01:35:11,927 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:35:11,927 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image_ticks.json
+2026-05-25 01:35:11,927 - INFO - 处理完成: 37dc247f-2d9e-43ba-9dac-e6c5a0941633_image
+2026-05-25 01:35:15,224 - INFO - 处理图像: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.json
+2026-05-25 01:35:15,247 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\bubble\temp_eval
+2026-05-25 01:35:15,248 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.json
+2026-05-25 01:35:15,329 - DEBUG - 图像文件大小: 785 字节
+2026-05-25 01:35:15,329 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\output\bubble\37dc247f-2d9e-43ba-9dac-e6c5a0941633_image.json
+2026-05-25 01:35:15,335 - ERROR - cv2.imdecode失败，但文件存在且可读
+2026-05-25 01:35:15,335 - ERROR - 使用numpy和cv2.imdecode加载图像时出错: 'numpy.ndarray' object has no attribute 'hex'
+2026-05-25 01:35:36,609 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:35:36,611 - DEBUG - Calling on_header_field with data[50:69]
+2026-05-25 01:35:36,629 - DEBUG - Calling on_header_value with data[71:119]
+2026-05-25 01:35:36,630 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:35:36,630 - DEBUG - Calling on_header_field with data[121:133]
+2026-05-25 01:35:36,631 - DEBUG - Calling on_header_value with data[135:144]
+2026-05-25 01:35:36,631 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:35:36,632 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:35:36,632 - DEBUG - Calling on_part_data with data[148:25453]
+2026-05-25 01:35:36,634 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:35:36,634 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:35:36,635 - DEBUG - Calling on_header_field with data[25505:25524]
+2026-05-25 01:35:36,635 - DEBUG - Calling on_header_value with data[25526:25580]
+2026-05-25 01:35:36,636 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:35:36,636 - DEBUG - Calling on_header_field with data[25582:25594]
+2026-05-25 01:35:36,636 - DEBUG - Calling on_header_value with data[25596:25620]
+2026-05-25 01:35:36,637 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:35:36,637 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:35:36,638 - DEBUG - Calling on_part_data with data[25624:26790]
+2026-05-25 01:35:36,638 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:35:36,638 - DEBUG - Calling on_end with no data
+2026-05-25 01:35:36,661 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:35:43,827 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 511
+2026-05-25 01:35:53,744 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:35:53,745 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar
+2026-05-25 01:35:53,745 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:35:53,746 - DEBUG - 图像文件大小: 25305 字节
+2026-05-25 01:35:53,747 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:35:53,758 - INFO - 成功加载图像，形状: (1200, 1600, 3)
+2026-05-25 01:35:53,759 - DEBUG - 图像尺寸: 1600x1200
+2026-05-25 01:35:53,759 - DEBUG - 开始检测直线...
+2026-05-25 01:35:53,771 - DEBUG - 检测到 247 条原始直线
+2026-05-25 01:35:53,907 - DEBUG - 合并后得到 78 条直线
+2026-05-25 01:35:53,907 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:35:53,915 - DEBUG - 检测到坐标轴: X轴=[225, 960, 1524, 960], Y轴=[240, 138, 240, 962]
+2026-05-25 01:35:53,916 - DEBUG - 开始检测刻度线...
+2026-05-25 01:35:53,921 - DEBUG - 检测到 X轴刻度 16 个, Y轴刻度 18 个
+2026-05-25 01:35:53,928 - DEBUG - 过滤后: X轴刻度 8 个, Y轴刻度 9 个
+2026-05-25 01:35:53,929 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:35:53,930 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:36:02,167 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 349
+2026-05-25 01:36:02,168 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:36:09,550 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 343
+2026-05-25 01:36:09,567 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:36:49,391 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 364
+2026-05-25 01:36:49,392 - DEBUG - 模型处理结果: X轴8个刻度, Y轴9个刻度, 1个颜色
+2026-05-25 01:36:49,392 - DEBUG - 最终有效刻度: X轴=8个, Y轴=9个
+2026-05-25 01:36:49,393 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:36:49,393 - DEBUG - 生成加密刻度: X轴=8个, Y轴=17个
+2026-05-25 01:36:49,393 - DEBUG - 生成加密像素位置: X轴=8个, Y轴=17个
+2026-05-25 01:36:49,403 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_grid.png
+2026-05-25 01:36:49,405 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=8, 加密刻度数量=8
+2026-05-25 01:36:49,405 - DEBUG - Y轴像素点数量=17, 加密刻度数量=17
+2026-05-25 01:36:49,405 - DEBUG - X轴类型: 文字轴, Y轴类型: 数值轴
+2026-05-25 01:36:49,405 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:36:49,406 - DEBUG - Y轴最大小数位数: 1
+2026-05-25 01:36:49,406 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-25 01:36:49,406 - DEBUG - 误差消除后: 2.5
+2026-05-25 01:36:49,406 - DEBUG - 格式化后: 2.5
+2026-05-25 01:36:49,408 - DEBUG - 格式化前原始值: 7.5, 目标小数位数: 1
+2026-05-25 01:36:49,409 - DEBUG - 误差消除后: 7.5
+2026-05-25 01:36:49,409 - DEBUG - 格式化后: 7.5
+2026-05-25 01:36:49,411 - DEBUG - 格式化前原始值: 12.5, 目标小数位数: 1
+2026-05-25 01:36:49,411 - DEBUG - 误差消除后: 12.5
+2026-05-25 01:36:49,412 - DEBUG - 格式化后: 12.5
+2026-05-25 01:36:49,414 - DEBUG - 格式化前原始值: 17.5, 目标小数位数: 1
+2026-05-25 01:36:49,414 - DEBUG - 误差消除后: 17.5
+2026-05-25 01:36:49,414 - DEBUG - 格式化后: 17.5
+2026-05-25 01:36:49,416 - DEBUG - 格式化前原始值: 22.5, 目标小数位数: 1
+2026-05-25 01:36:49,417 - DEBUG - 误差消除后: 22.5
+2026-05-25 01:36:49,417 - DEBUG - 格式化后: 22.5
+2026-05-25 01:36:49,419 - DEBUG - 格式化前原始值: 27.5, 目标小数位数: 1
+2026-05-25 01:36:49,419 - DEBUG - 误差消除后: 27.5
+2026-05-25 01:36:49,419 - DEBUG - 格式化后: 27.5
+2026-05-25 01:36:49,421 - DEBUG - 格式化前原始值: 32.5, 目标小数位数: 1
+2026-05-25 01:36:49,422 - DEBUG - 误差消除后: 32.5
+2026-05-25 01:36:49,422 - DEBUG - 格式化后: 32.5
+2026-05-25 01:36:49,424 - DEBUG - 格式化前原始值: 37.5, 目标小数位数: 1
+2026-05-25 01:36:49,425 - DEBUG - 误差消除后: 37.5
+2026-05-25 01:36:49,425 - DEBUG - 格式化后: 37.5
+2026-05-25 01:36:49,427 - DEBUG - 成功绘制加密刻度文本: X轴0个, Y轴8个
+2026-05-25 01:36:49,434 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_with_grid.png
+2026-05-25 01:36:49,435 - DEBUG - 加密网格文件大小: 129233 字节
+2026-05-25 01:36:49,435 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\v_bar\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_ticks.json
+2026-05-25 01:36:49,436 - INFO - 处理完成: 76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image
+2026-05-25 01:36:49,437 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:36:49,437 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-25 01:36:49,438 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:36:49,438 - DEBUG - 图像文件大小: 25305 字节
+2026-05-25 01:36:49,438 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image.png
+2026-05-25 01:36:49,446 - INFO - 成功加载图像，形状: (1200, 1600, 3)
+2026-05-25 01:36:49,446 - DEBUG - 图像尺寸: 1600x1200
+2026-05-25 01:36:49,447 - DEBUG - 开始检测直线...
+2026-05-25 01:36:49,457 - DEBUG - 检测到 247 条原始直线
+2026-05-25 01:36:49,535 - DEBUG - 合并后得到 78 条直线
+2026-05-25 01:36:49,536 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:36:49,545 - DEBUG - 检测到坐标轴: X轴=[225, 960, 1524, 960], Y轴=[240, 138, 240, 962]
+2026-05-25 01:36:49,546 - DEBUG - 开始检测刻度线...
+2026-05-25 01:36:49,554 - DEBUG - 检测到 X轴刻度 16 个, Y轴刻度 18 个
+2026-05-25 01:36:49,558 - DEBUG - 过滤后: X轴刻度 8 个, Y轴刻度 9 个
+2026-05-25 01:36:49,569 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:36:49,570 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:37:35,964 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 365
+2026-05-25 01:37:35,966 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:37:41,572 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 343
+2026-05-25 01:37:41,604 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:37:51,641 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 363
+2026-05-25 01:37:51,650 - DEBUG - 模型处理结果: X轴8个刻度, Y轴9个刻度, 1个颜色
+2026-05-25 01:37:51,650 - DEBUG - 最终有效刻度: X轴=8个, Y轴=9个
+2026-05-25 01:37:51,650 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:37:51,650 - DEBUG - 生成加密刻度: X轴=8个, Y轴=17个
+2026-05-25 01:37:51,651 - DEBUG - 生成加密像素位置: X轴=8个, Y轴=17个
+2026-05-25 01:37:51,661 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_grid.png
+2026-05-25 01:37:51,671 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=8, 加密刻度数量=8
+2026-05-25 01:37:51,671 - DEBUG - Y轴像素点数量=17, 加密刻度数量=17
+2026-05-25 01:37:51,671 - DEBUG - X轴类型: 文字轴, Y轴类型: 数值轴
+2026-05-25 01:37:51,672 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:37:51,672 - DEBUG - Y轴最大小数位数: 1
+2026-05-25 01:37:51,672 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-25 01:37:51,672 - DEBUG - 误差消除后: 2.5
+2026-05-25 01:37:51,673 - DEBUG - 格式化后: 2.5
+2026-05-25 01:37:51,675 - DEBUG - 格式化前原始值: 7.5, 目标小数位数: 1
+2026-05-25 01:37:51,675 - DEBUG - 误差消除后: 7.5
+2026-05-25 01:37:51,675 - DEBUG - 格式化后: 7.5
+2026-05-25 01:37:51,677 - DEBUG - 格式化前原始值: 12.5, 目标小数位数: 1
+2026-05-25 01:37:51,677 - DEBUG - 误差消除后: 12.5
+2026-05-25 01:37:51,677 - DEBUG - 格式化后: 12.5
+2026-05-25 01:37:51,680 - DEBUG - 格式化前原始值: 17.5, 目标小数位数: 1
+2026-05-25 01:37:51,680 - DEBUG - 误差消除后: 17.5
+2026-05-25 01:37:51,681 - DEBUG - 格式化后: 17.5
+2026-05-25 01:37:51,683 - DEBUG - 格式化前原始值: 22.5, 目标小数位数: 1
+2026-05-25 01:37:51,683 - DEBUG - 误差消除后: 22.5
+2026-05-25 01:37:51,683 - DEBUG - 格式化后: 22.5
+2026-05-25 01:37:51,685 - DEBUG - 格式化前原始值: 27.5, 目标小数位数: 1
+2026-05-25 01:37:51,686 - DEBUG - 误差消除后: 27.5
+2026-05-25 01:37:51,686 - DEBUG - 格式化后: 27.5
+2026-05-25 01:37:51,688 - DEBUG - 格式化前原始值: 32.5, 目标小数位数: 1
+2026-05-25 01:37:51,688 - DEBUG - 误差消除后: 32.5
+2026-05-25 01:37:51,688 - DEBUG - 格式化后: 32.5
+2026-05-25 01:37:51,690 - DEBUG - 格式化前原始值: 37.5, 目标小数位数: 1
+2026-05-25 01:37:51,691 - DEBUG - 误差消除后: 37.5
+2026-05-25 01:37:51,691 - DEBUG - 格式化后: 37.5
+2026-05-25 01:37:51,693 - DEBUG - 成功绘制加密刻度文本: X轴0个, Y轴8个
+2026-05-25 01:37:51,719 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_with_grid.png
+2026-05-25 01:37:51,719 - DEBUG - 加密网格文件大小: 129233 字节
+2026-05-25 01:37:51,720 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image_ticks.json
+2026-05-25 01:37:51,720 - INFO - 处理完成: 76f6199e-4cc8-4d08-bb97-6f6d70ce7403_image
+2026-05-25 01:46:21,121 - DEBUG - Using proactor: IocpProactor
+2026-05-25 01:46:45,108 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:46:45,136 - DEBUG - Calling on_header_field with data[50:69]
+2026-05-25 01:46:45,163 - DEBUG - Calling on_header_value with data[71:119]
+2026-05-25 01:46:45,191 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:46:45,219 - DEBUG - Calling on_header_field with data[121:133]
+2026-05-25 01:46:45,247 - DEBUG - Calling on_header_value with data[135:144]
+2026-05-25 01:46:45,275 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:46:45,303 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:46:45,304 - DEBUG - Calling on_part_data with data[148:25453]
+2026-05-25 01:46:45,305 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:46:45,305 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:46:45,305 - DEBUG - Calling on_header_field with data[25505:25524]
+2026-05-25 01:46:45,306 - DEBUG - Calling on_header_value with data[25526:25580]
+2026-05-25 01:46:45,306 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:46:45,307 - DEBUG - Calling on_header_field with data[25582:25594]
+2026-05-25 01:46:45,307 - DEBUG - Calling on_header_value with data[25596:25620]
+2026-05-25 01:46:45,307 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:46:45,308 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:46:45,308 - DEBUG - Calling on_part_data with data[25624:26790]
+2026-05-25 01:46:45,308 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:46:45,308 - DEBUG - Calling on_end with no data
+2026-05-25 01:46:45,330 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:46:51,096 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 524
+2026-05-25 01:46:59,437 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:46:59,438 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\v_bar
+2026-05-25 01:46:59,438 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:46:59,439 - DEBUG - 图像文件大小: 25305 字节
+2026-05-25 01:46:59,439 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:46:59,450 - INFO - 成功加载图像，形状: (1200, 1600, 3)
+2026-05-25 01:46:59,451 - DEBUG - 图像尺寸: 1600x1200
+2026-05-25 01:46:59,452 - DEBUG - 开始检测直线...
+2026-05-25 01:46:59,467 - DEBUG - 检测到 247 条原始直线
+2026-05-25 01:46:59,631 - DEBUG - 合并后得到 78 条直线
+2026-05-25 01:46:59,632 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:46:59,641 - DEBUG - 检测到坐标轴: X轴=[225, 960, 1524, 960], Y轴=[240, 138, 240, 962]
+2026-05-25 01:46:59,641 - DEBUG - 开始检测刻度线...
+2026-05-25 01:46:59,649 - DEBUG - 检测到 X轴刻度 16 个, Y轴刻度 18 个
+2026-05-25 01:46:59,656 - DEBUG - 过滤后: X轴刻度 8 个, Y轴刻度 9 个
+2026-05-25 01:46:59,658 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:46:59,659 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:08,117 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 367
+2026-05-25 01:47:08,119 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:13,917 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 343
+2026-05-25 01:47:13,944 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:22,529 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 363
+2026-05-25 01:47:22,530 - DEBUG - 模型处理结果: X轴8个刻度, Y轴9个刻度, 1个颜色
+2026-05-25 01:47:22,531 - DEBUG - 最终有效刻度: X轴=8个, Y轴=9个
+2026-05-25 01:47:22,531 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:47:22,531 - DEBUG - 生成加密刻度: X轴=8个, Y轴=17个
+2026-05-25 01:47:22,532 - DEBUG - 生成加密像素位置: X轴=8个, Y轴=17个
+2026-05-25 01:47:22,545 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\1632b055-0b24-4948-b7de-5877652c5dd3_image_grid.png
+2026-05-25 01:47:22,547 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=8, 加密刻度数量=8
+2026-05-25 01:47:22,548 - DEBUG - Y轴像素点数量=17, 加密刻度数量=17
+2026-05-25 01:47:22,549 - DEBUG - X轴类型: 文字轴, Y轴类型: 数值轴
+2026-05-25 01:47:22,549 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:47:22,549 - DEBUG - Y轴最大小数位数: 1
+2026-05-25 01:47:22,550 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-25 01:47:22,550 - DEBUG - 误差消除后: 2.5
+2026-05-25 01:47:22,551 - DEBUG - 格式化后: 2.5
+2026-05-25 01:47:22,555 - DEBUG - 格式化前原始值: 7.5, 目标小数位数: 1
+2026-05-25 01:47:22,555 - DEBUG - 误差消除后: 7.5
+2026-05-25 01:47:22,555 - DEBUG - 格式化后: 7.5
+2026-05-25 01:47:22,558 - DEBUG - 格式化前原始值: 12.5, 目标小数位数: 1
+2026-05-25 01:47:22,558 - DEBUG - 误差消除后: 12.5
+2026-05-25 01:47:22,558 - DEBUG - 格式化后: 12.5
+2026-05-25 01:47:22,563 - DEBUG - 格式化前原始值: 17.5, 目标小数位数: 1
+2026-05-25 01:47:22,564 - DEBUG - 误差消除后: 17.5
+2026-05-25 01:47:22,564 - DEBUG - 格式化后: 17.5
+2026-05-25 01:47:22,567 - DEBUG - 格式化前原始值: 22.5, 目标小数位数: 1
+2026-05-25 01:47:22,567 - DEBUG - 误差消除后: 22.5
+2026-05-25 01:47:22,568 - DEBUG - 格式化后: 22.5
+2026-05-25 01:47:22,570 - DEBUG - 格式化前原始值: 27.5, 目标小数位数: 1
+2026-05-25 01:47:22,571 - DEBUG - 误差消除后: 27.5
+2026-05-25 01:47:22,571 - DEBUG - 格式化后: 27.5
+2026-05-25 01:47:22,573 - DEBUG - 格式化前原始值: 32.5, 目标小数位数: 1
+2026-05-25 01:47:22,574 - DEBUG - 误差消除后: 32.5
+2026-05-25 01:47:22,574 - DEBUG - 格式化后: 32.5
+2026-05-25 01:47:22,576 - DEBUG - 格式化前原始值: 37.5, 目标小数位数: 1
+2026-05-25 01:47:22,577 - DEBUG - 误差消除后: 37.5
+2026-05-25 01:47:22,577 - DEBUG - 格式化后: 37.5
+2026-05-25 01:47:22,581 - DEBUG - 成功绘制加密刻度文本: X轴0个, Y轴8个
+2026-05-25 01:47:22,592 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\v_bar\1632b055-0b24-4948-b7de-5877652c5dd3_image_with_grid.png
+2026-05-25 01:47:22,592 - DEBUG - 加密网格文件大小: 129233 字节
+2026-05-25 01:47:22,593 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\v_bar\1632b055-0b24-4948-b7de-5877652c5dd3_image_ticks.json
+2026-05-25 01:47:22,594 - INFO - 处理完成: 1632b055-0b24-4948-b7de-5877652c5dd3_image
+2026-05-25 01:47:22,595 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:47:22,596 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-25 01:47:22,596 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:47:22,597 - DEBUG - 图像文件大小: 25305 字节
+2026-05-25 01:47:22,597 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\1632b055-0b24-4948-b7de-5877652c5dd3_image.png
+2026-05-25 01:47:22,609 - INFO - 成功加载图像，形状: (1200, 1600, 3)
+2026-05-25 01:47:22,625 - DEBUG - 图像尺寸: 1600x1200
+2026-05-25 01:47:22,626 - DEBUG - 开始检测直线...
+2026-05-25 01:47:22,636 - DEBUG - 检测到 247 条原始直线
+2026-05-25 01:47:22,789 - DEBUG - 合并后得到 78 条直线
+2026-05-25 01:47:22,790 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:47:22,802 - DEBUG - 检测到坐标轴: X轴=[225, 960, 1524, 960], Y轴=[240, 138, 240, 962]
+2026-05-25 01:47:22,825 - DEBUG - 开始检测刻度线...
+2026-05-25 01:47:22,834 - DEBUG - 检测到 X轴刻度 16 个, Y轴刻度 18 个
+2026-05-25 01:47:22,845 - DEBUG - 过滤后: X轴刻度 8 个, Y轴刻度 9 个
+2026-05-25 01:47:22,847 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:47:22,849 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:30,892 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 351
+2026-05-25 01:47:30,897 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:39,683 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 344
+2026-05-25 01:47:39,708 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:47:49,193 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 364
+2026-05-25 01:47:49,195 - DEBUG - 模型处理结果: X轴8个刻度, Y轴9个刻度, 1个颜色
+2026-05-25 01:47:49,195 - DEBUG - 最终有效刻度: X轴=8个, Y轴=9个
+2026-05-25 01:47:49,196 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:47:49,196 - DEBUG - 生成加密刻度: X轴=8个, Y轴=17个
+2026-05-25 01:47:49,197 - DEBUG - 生成加密像素位置: X轴=8个, Y轴=17个
+2026-05-25 01:47:49,208 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\1632b055-0b24-4948-b7de-5877652c5dd3_image_grid.png
+2026-05-25 01:47:49,237 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=8, 加密刻度数量=8
+2026-05-25 01:47:49,238 - DEBUG - Y轴像素点数量=17, 加密刻度数量=17
+2026-05-25 01:47:49,238 - DEBUG - X轴类型: 文字轴, Y轴类型: 数值轴
+2026-05-25 01:47:49,239 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:47:49,239 - DEBUG - Y轴最大小数位数: 1
+2026-05-25 01:47:49,239 - DEBUG - 格式化前原始值: 2.5, 目标小数位数: 1
+2026-05-25 01:47:49,240 - DEBUG - 误差消除后: 2.5
+2026-05-25 01:47:49,240 - DEBUG - 格式化后: 2.5
+2026-05-25 01:47:49,244 - DEBUG - 格式化前原始值: 7.5, 目标小数位数: 1
+2026-05-25 01:47:49,244 - DEBUG - 误差消除后: 7.5
+2026-05-25 01:47:49,244 - DEBUG - 格式化后: 7.5
+2026-05-25 01:47:49,246 - DEBUG - 格式化前原始值: 12.5, 目标小数位数: 1
+2026-05-25 01:47:49,247 - DEBUG - 误差消除后: 12.5
+2026-05-25 01:47:49,247 - DEBUG - 格式化后: 12.5
+2026-05-25 01:47:49,249 - DEBUG - 格式化前原始值: 17.5, 目标小数位数: 1
+2026-05-25 01:47:49,249 - DEBUG - 误差消除后: 17.5
+2026-05-25 01:47:49,250 - DEBUG - 格式化后: 17.5
+2026-05-25 01:47:49,252 - DEBUG - 格式化前原始值: 22.5, 目标小数位数: 1
+2026-05-25 01:47:49,252 - DEBUG - 误差消除后: 22.5
+2026-05-25 01:47:49,252 - DEBUG - 格式化后: 22.5
+2026-05-25 01:47:49,255 - DEBUG - 格式化前原始值: 27.5, 目标小数位数: 1
+2026-05-25 01:47:49,255 - DEBUG - 误差消除后: 27.5
+2026-05-25 01:47:49,255 - DEBUG - 格式化后: 27.5
+2026-05-25 01:47:49,259 - DEBUG - 格式化前原始值: 32.5, 目标小数位数: 1
+2026-05-25 01:47:49,259 - DEBUG - 误差消除后: 32.5
+2026-05-25 01:47:49,260 - DEBUG - 格式化后: 32.5
+2026-05-25 01:47:49,264 - DEBUG - 格式化前原始值: 37.5, 目标小数位数: 1
+2026-05-25 01:47:49,264 - DEBUG - 误差消除后: 37.5
+2026-05-25 01:47:49,265 - DEBUG - 格式化后: 37.5
+2026-05-25 01:47:49,268 - DEBUG - 成功绘制加密刻度文本: X轴0个, Y轴8个
+2026-05-25 01:47:49,276 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\1632b055-0b24-4948-b7de-5877652c5dd3_image_with_grid.png
+2026-05-25 01:47:49,276 - DEBUG - 加密网格文件大小: 129233 字节
+2026-05-25 01:47:49,277 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\1632b055-0b24-4948-b7de-5877652c5dd3_image_ticks.json
+2026-05-25 01:47:49,279 - INFO - 处理完成: 1632b055-0b24-4948-b7de-5877652c5dd3_image
+2026-05-25 01:51:18,942 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:51:19,143 - DEBUG - Calling on_header_field with data[42:61]
+2026-05-25 01:51:19,144 - DEBUG - Calling on_header_value with data[63:112]
+2026-05-25 01:51:19,227 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:51:19,227 - DEBUG - Calling on_header_field with data[114:126]
+2026-05-25 01:51:19,227 - DEBUG - Calling on_header_value with data[128:137]
+2026-05-25 01:51:19,227 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:51:19,227 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:51:19,229 - DEBUG - Calling on_part_data with data[141:16384]
+2026-05-25 01:51:19,229 - DEBUG - Calling on_part_data with data[0:12336]
+2026-05-25 01:51:19,229 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:51:19,230 - DEBUG - Calling on_part_begin with no data
+2026-05-25 01:51:19,230 - DEBUG - Calling on_header_field with data[12380:12399]
+2026-05-25 01:51:19,230 - DEBUG - Calling on_header_value with data[12401:12456]
+2026-05-25 01:51:19,230 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:51:19,230 - DEBUG - Calling on_header_field with data[12458:12470]
+2026-05-25 01:51:19,231 - DEBUG - Calling on_header_value with data[12472:12488]
+2026-05-25 01:51:19,231 - DEBUG - Calling on_header_end with no data
+2026-05-25 01:51:19,232 - DEBUG - Calling on_headers_finished with no data
+2026-05-25 01:51:19,232 - DEBUG - Calling on_part_data with data[12492:13983]
+2026-05-25 01:51:19,232 - DEBUG - Calling on_part_end with no data
+2026-05-25 01:51:19,233 - DEBUG - Calling on_end with no data
+2026-05-25 01:51:19,247 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:51:23,618 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 274
+2026-05-25 01:51:25,025 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:51:25,026 - DEBUG - 输出目录: F:\program\test-demo\backend\data\output\bubble
+2026-05-25 01:51:25,026 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:51:25,026 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:51:25,026 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:51:25,029 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:51:25,029 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:51:25,029 - DEBUG - 开始检测直线...
+2026-05-25 01:51:25,033 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:51:25,085 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:51:25,086 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:51:25,087 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:51:25,087 - DEBUG - 开始检测刻度线...
+2026-05-25 01:51:25,090 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:51:25,091 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:51:25,091 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:51:25,092 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:51:31,576 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 348
+2026-05-25 01:51:31,578 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:51:39,196 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 346
+2026-05-25 01:51:39,202 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:52:01,636 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 453
+2026-05-25 01:52:01,638 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:52:01,638 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:52:01,638 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:52:01,639 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:52:01,639 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:52:01,642 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\62fc939c-21b7-4164-88c2-98d28d695d3e_image_grid.png
+2026-05-25 01:52:01,642 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:52:01,643 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:52:01,643 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:52:01,643 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:52:01,644 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:52:01,644 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:52:01,644 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:52:01,645 - DEBUG - 格式化后: 7000
+2026-05-25 01:52:01,646 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:52:01,646 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:52:01,646 - DEBUG - 格式化后: 13000
+2026-05-25 01:52:01,647 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:52:01,647 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:52:01,647 - DEBUG - 格式化后: 19000
+2026-05-25 01:52:01,649 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:52:01,650 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:52:01,650 - DEBUG - 格式化后: 25000
+2026-05-25 01:52:01,650 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:52:01,651 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:52:01,651 - DEBUG - 格式化后: 64
+2026-05-25 01:52:01,652 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:52:01,652 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:52:01,652 - DEBUG - 格式化后: 68
+2026-05-25 01:52:01,653 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:52:01,653 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:52:01,654 - DEBUG - 格式化后: 72
+2026-05-25 01:52:01,654 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:52:01,655 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:52:01,655 - DEBUG - 格式化后: 76
+2026-05-25 01:52:01,656 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:52:01,660 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\output\bubble\62fc939c-21b7-4164-88c2-98d28d695d3e_image_with_grid.png
+2026-05-25 01:52:01,660 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:52:01,661 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\output\bubble\62fc939c-21b7-4164-88c2-98d28d695d3e_image_ticks.json
+2026-05-25 01:52:01,661 - INFO - 处理完成: 62fc939c-21b7-4164-88c2-98d28d695d3e_image
+2026-05-25 01:52:01,662 - INFO - 处理图像: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:52:01,662 - DEBUG - 输出目录: F:\program\test-demo\backend\data\upload\temp_output
+2026-05-25 01:52:01,663 - DEBUG - 规范化后的绝对图像路径: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:52:01,664 - DEBUG - 图像文件大小: 28579 字节
+2026-05-25 01:52:01,664 - DEBUG - Windows格式路径: F:\program\test-demo\backend\data\upload\62fc939c-21b7-4164-88c2-98d28d695d3e_image.png
+2026-05-25 01:52:01,669 - INFO - 成功加载图像，形状: (600, 600, 3)
+2026-05-25 01:52:01,669 - DEBUG - 图像尺寸: 600x600
+2026-05-25 01:52:01,669 - DEBUG - 开始检测直线...
+2026-05-25 01:52:01,673 - DEBUG - 检测到 230 条原始直线
+2026-05-25 01:52:01,744 - DEBUG - 合并后得到 104 条直线
+2026-05-25 01:52:01,745 - DEBUG - 开始推断坐标轴...
+2026-05-25 01:52:01,748 - DEBUG - 检测到坐标轴: X轴=[81, 540, 544, 540], Y轴=[90, 55, 90, 549]
+2026-05-25 01:52:01,748 - DEBUG - 开始检测刻度线...
+2026-05-25 01:52:01,750 - DEBUG - 检测到 X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:52:01,750 - DEBUG - 过滤后: X轴刻度 5 个, Y轴刻度 5 个
+2026-05-25 01:52:01,751 - DEBUG - 开始使用模型提取刻度标签和颜色...
+2026-05-25 01:52:01,752 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:52:08,032 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 345
+2026-05-25 01:52:08,034 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:52:15,832 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 348
+2026-05-25 01:52:15,838 - DEBUG - Starting new HTTPS connection (1): api.vveai.com:443
+2026-05-25 01:52:28,490 - DEBUG - https://api.vveai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 447
+2026-05-25 01:52:28,491 - DEBUG - 模型处理结果: X轴5个刻度, Y轴5个刻度, 8个颜色
+2026-05-25 01:52:28,492 - DEBUG - 最终有效刻度: X轴=5个, Y轴=5个
+2026-05-25 01:52:28,492 - DEBUG - 生成加密刻度和对应的加密像素位置...
+2026-05-25 01:52:28,492 - DEBUG - 生成加密刻度: X轴=9个, Y轴=9个
+2026-05-25 01:52:28,493 - DEBUG - 生成加密像素位置: X轴=9个, Y轴=9个
+2026-05-25 01:52:28,497 - DEBUG - 基础网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\62fc939c-21b7-4164-88c2-98d28d695d3e_image_grid.png
+2026-05-25 01:52:28,497 - DEBUG - 准备绘制加密刻度文本: X轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:52:28,499 - DEBUG - Y轴像素点数量=9, 加密刻度数量=9
+2026-05-25 01:52:28,499 - DEBUG - X轴类型: 数值轴, Y轴类型: 数值轴
+2026-05-25 01:52:28,499 - DEBUG - X轴最大小数位数: 0
+2026-05-25 01:52:28,500 - DEBUG - Y轴最大小数位数: 0
+2026-05-25 01:52:28,500 - DEBUG - 格式化前原始值: 7000.0, 目标小数位数: 0
+2026-05-25 01:52:28,500 - DEBUG - 误差消除后: 7000.0
+2026-05-25 01:52:28,501 - DEBUG - 格式化后: 7000
+2026-05-25 01:52:28,502 - DEBUG - 格式化前原始值: 13000.0, 目标小数位数: 0
+2026-05-25 01:52:28,502 - DEBUG - 误差消除后: 13000.0
+2026-05-25 01:52:28,503 - DEBUG - 格式化后: 13000
+2026-05-25 01:52:28,504 - DEBUG - 格式化前原始值: 19000.0, 目标小数位数: 0
+2026-05-25 01:52:28,504 - DEBUG - 误差消除后: 19000.0
+2026-05-25 01:52:28,504 - DEBUG - 格式化后: 19000
+2026-05-25 01:52:28,505 - DEBUG - 格式化前原始值: 25000.0, 目标小数位数: 0
+2026-05-25 01:52:28,506 - DEBUG - 误差消除后: 25000.0
+2026-05-25 01:52:28,506 - DEBUG - 格式化后: 25000
+2026-05-25 01:52:28,507 - DEBUG - 格式化前原始值: 64.0, 目标小数位数: 0
+2026-05-25 01:52:28,507 - DEBUG - 误差消除后: 64.0
+2026-05-25 01:52:28,508 - DEBUG - 格式化后: 64
+2026-05-25 01:52:28,509 - DEBUG - 格式化前原始值: 68.0, 目标小数位数: 0
+2026-05-25 01:52:28,509 - DEBUG - 误差消除后: 68.0
+2026-05-25 01:52:28,509 - DEBUG - 格式化后: 68
+2026-05-25 01:52:28,510 - DEBUG - 格式化前原始值: 72.0, 目标小数位数: 0
+2026-05-25 01:52:28,510 - DEBUG - 误差消除后: 72.0
+2026-05-25 01:52:28,511 - DEBUG - 格式化后: 72
+2026-05-25 01:52:28,512 - DEBUG - 格式化前原始值: 76.0, 目标小数位数: 0
+2026-05-25 01:52:28,513 - DEBUG - 误差消除后: 76.0
+2026-05-25 01:52:28,513 - DEBUG - 格式化后: 76
+2026-05-25 01:52:28,514 - DEBUG - 成功绘制加密刻度文本: X轴4个, Y轴4个
+2026-05-25 01:52:28,516 - DEBUG - 加密网格图像已保存到: F:\program\test-demo\backend\data\upload\temp_output\62fc939c-21b7-4164-88c2-98d28d695d3e_image_with_grid.png
+2026-05-25 01:52:28,517 - DEBUG - 加密网格文件大小: 73706 字节
+2026-05-25 01:52:28,517 - DEBUG - 刻度信息已保存到: F:\program\test-demo\backend\data\upload\temp_output\62fc939c-21b7-4164-88c2-98d28d695d3e_image_ticks.json
+2026-05-25 01:52:28,518 - INFO - 处理完成: 62fc939c-21b7-4164-88c2-98d28d695d3e_image

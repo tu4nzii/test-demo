@@ -11,7 +11,7 @@ from glob import glob
 
 # 配置日志系统
 # 使用原始字符串避免路径问题
-log_path = r"D:\home work\Agent.paper\test demo\backend\Grid_generation\grid_generation.log"
+log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grid_generation.log")
 try:
     # 确保日志目录存在
     log_dir = os.path.dirname(log_path)
@@ -634,6 +634,19 @@ def process_chart(image_path, output_dir):
     # 计算检测到的刻度线的中心位置
     x_pixel_positions = sorted([(t[0] + t[2]) // 2 for t in x_filtered_ticks])
     y_pixel_positions = sorted([(t[1] + t[3]) // 2 for t in y_filtered_ticks], reverse=True)
+
+    # Local fallback for offline/dev runs: when the LLM cannot return usable
+    # tick labels, keep the image-processing pipeline alive by assigning
+    # positional numeric ticks to every detected tick mark.
+    if len(x_ticks_values) < 2 and len(x_pixel_positions) >= 2:
+        logger.warning("LLM X tick labels unavailable; using positional fallback ticks.")
+        x_ticks_values = list(range(len(x_pixel_positions)))
+        x_axis_type = "数值轴"
+
+    if len(y_ticks_values) < 2 and len(y_pixel_positions) >= 2:
+        logger.warning("LLM Y tick labels unavailable; using positional fallback ticks.")
+        y_ticks_values = list(range(len(y_pixel_positions)))
+        y_axis_type = "数值轴"
     
     # 匹配X轴刻度
     if x_ticks_values and x_pixel_positions:
