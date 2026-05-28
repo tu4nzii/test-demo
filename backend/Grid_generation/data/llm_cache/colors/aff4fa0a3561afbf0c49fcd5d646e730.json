@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_021.png",
+  "colors": [
+    {
+      "name": "Obama",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Merkel",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 16:40:07"
+}

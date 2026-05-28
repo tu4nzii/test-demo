@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_033.png",
+  "colors": [
+    {
+      "name": "T6",
+      "color": "#f9f8d1"
+    },
+    {
+      "name": "T3",
+      "color": "#b2dfdb"
+    },
+    {
+      "name": "T1",
+      "color": "#d6b5b5"
+    },
+    {
+      "name": "T4",
+      "color": "#c8e6c9"
+    },
+    {
+      "name": "T5",
+      "color": "#b4f0b4"
+    },
+    {
+      "name": "T2",
+      "color": "#fbb4e5"
+    },
+    {
+      "name": "T7",
+      "color": "#a7d2f9"
+    },
+    {
+      "name": "T8",
+      "color": "#f4a9a9"
+    }
+  ],
+  "cached_at": "2026-05-26 18:28:25"
+}

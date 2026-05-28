@@ -1,0 +1,62 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_029.png",
+  "colors": [
+    {
+      "name": "NGA",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "ESP",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "VNM",
+      "color": "#20a893"
+    },
+    {
+      "name": "ITA",
+      "color": "#d62728"
+    },
+    {
+      "name": "GBR",
+      "color": "#c4c12b"
+    },
+    {
+      "name": "POL",
+      "color": "#00b0f0"
+    },
+    {
+      "name": "DEU",
+      "color": "#9467bd"
+    },
+    {
+      "name": "RUS",
+      "color": "#9fa0cb"
+    },
+    {
+      "name": "TUR",
+      "color": "#8c564b"
+    },
+    {
+      "name": "ZAF",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "AUS",
+      "color": "#87cefa"
+    },
+    {
+      "name": "MEX",
+      "color": "#8c564b"
+    },
+    {
+      "name": "ARG",
+      "color": "#e377c2"
+    },
+    {
+      "name": "PAK",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 17:26:40"
+}

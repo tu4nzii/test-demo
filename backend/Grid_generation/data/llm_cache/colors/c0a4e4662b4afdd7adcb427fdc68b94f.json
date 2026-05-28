@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_152.png",
+  "colors": [
+    {
+      "name": "Private sector",
+      "color": "#87ceeb"
+    },
+    {
+      "name": "Public sector",
+      "color": "#4682b4"
+    }
+  ],
+  "cached_at": "2026-05-26 20:05:45"
+}

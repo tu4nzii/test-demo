@@ -1,0 +1,42 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_039.png",
+  "colors": [
+    {
+      "name": "USA",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "DEU",
+      "color": "#add8e6"
+    },
+    {
+      "name": "ZAF",
+      "color": "#bcbd22"
+    },
+    {
+      "name": "BRA",
+      "color": "#6a0035"
+    },
+    {
+      "name": "TUR",
+      "color": "#d62728"
+    },
+    {
+      "name": "AUS",
+      "color": "#8c96c6"
+    },
+    {
+      "name": "SAU",
+      "color": "#7f7f7f"
+    },
+    {
+      "name": "MEX",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "ESP",
+      "color": "#ff9896"
+    }
+  ],
+  "cached_at": "2026-05-26 17:33:30"
+}

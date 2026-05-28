@@ -26,7 +26,9 @@ def filter_ticks(tick_lines, direction='x', gap_tolerance=2):
     # 统计出现频率最高的间距
     rounded = np.round(diffs / 5) * 5  # 取整以避免偏移影响
     values, counts = np.unique(rounded, return_counts=True)
-    main_gap = values[np.argmax(counts)]
+    main_gap_bucket = values[np.argmax(counts)]
+    main_gap_diffs = diffs[rounded == main_gap_bucket]
+    main_gap = float(np.median(main_gap_diffs)) if len(main_gap_diffs) else float(main_gap_bucket)
 
     print(f"[Info] 推断主要刻度间距为：{main_gap}")
 

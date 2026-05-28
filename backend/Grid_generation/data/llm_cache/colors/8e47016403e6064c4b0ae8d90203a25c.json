@@ -1,0 +1,42 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_051.png",
+  "colors": [
+    {
+      "name": "FRA",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "CHN",
+      "color": "#17becf"
+    },
+    {
+      "name": "ZAF",
+      "color": "#d87db8"
+    },
+    {
+      "name": "RUS",
+      "color": "#b5c4d6"
+    },
+    {
+      "name": "KOR",
+      "color": "#bcbd22"
+    },
+    {
+      "name": "IRN",
+      "color": "#e79acb"
+    },
+    {
+      "name": "BRA",
+      "color": "#b0d5df"
+    },
+    {
+      "name": "VNM",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "PHL",
+      "color": "#ff7f0e"
+    }
+  ],
+  "cached_at": "2026-05-26 17:39:53"
+}

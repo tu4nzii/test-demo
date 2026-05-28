@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_031.png",
+  "colors": [
+    {
+      "name": "ARG",
+      "color": "#c6b5d5"
+    },
+    {
+      "name": "DEU",
+      "color": "#f5a2a1"
+    },
+    {
+      "name": "VNM",
+      "color": "#97cb7e"
+    },
+    {
+      "name": "KOR",
+      "color": "#4d2a86"
+    },
+    {
+      "name": "FRA",
+      "color": "#f9e1e7"
+    },
+    {
+      "name": "JPN",
+      "color": "#ff0000"
+    },
+    {
+      "name": "ZAF",
+      "color": "#fdb974"
+    },
+    {
+      "name": "TUR",
+      "color": "#ff8c00"
+    }
+  ],
+  "cached_at": "2026-05-26 17:27:51"
+}

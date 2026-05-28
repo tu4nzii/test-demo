@@ -1,0 +1,42 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_009.png",
+  "colors": [
+    {
+      "name": "CAN",
+      "color": "#7fcdbb"
+    },
+    {
+      "name": "SAU",
+      "color": "#b3b3d9"
+    },
+    {
+      "name": "ARG",
+      "color": "#ff9900"
+    },
+    {
+      "name": "ZAF",
+      "color": "#f2d9dc"
+    },
+    {
+      "name": "ESP",
+      "color": "#ffb3e6"
+    },
+    {
+      "name": "ITA",
+      "color": "#6b449b"
+    },
+    {
+      "name": "BRA",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "FRA",
+      "color": "#a65628"
+    },
+    {
+      "name": "IDN",
+      "color": "#ffcc80"
+    }
+  ],
+  "cached_at": "2026-05-26 17:15:32"
+}

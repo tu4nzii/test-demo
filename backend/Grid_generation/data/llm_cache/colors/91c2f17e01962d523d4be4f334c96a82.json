@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\h_bar\\h_bar_054.png",
+  "colors": [
+    {
+      "name": "a lot",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Some",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "Only little a non",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 20:26:57"
+}

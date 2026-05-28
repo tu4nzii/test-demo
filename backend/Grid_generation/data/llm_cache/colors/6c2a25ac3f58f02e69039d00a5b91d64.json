@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_047.png",
+  "colors": [
+    {
+      "name": "Remain the same",
+      "color": "#e489c4"
+    },
+    {
+      "name": "Improve",
+      "color": "#808080"
+    },
+    {
+      "name": "Worsen",
+      "color": "#b3b33b"
+    }
+  ],
+  "cached_at": "2026-05-26 16:47:09"
+}

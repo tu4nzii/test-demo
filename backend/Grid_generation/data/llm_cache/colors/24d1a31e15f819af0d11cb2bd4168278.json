@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_040.png",
+  "colors": [
+    {
+      "name": "Ettakatol",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Congress Party",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "Ennahda",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 16:44:48"
+}

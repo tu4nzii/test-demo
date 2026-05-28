@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_088.png",
+  "colors": [
+    {
+      "name": "ZAF",
+      "color": "#e495c9"
+    },
+    {
+      "name": "JPN",
+      "color": "#55a868"
+    },
+    {
+      "name": "GBR",
+      "color": "#f18d2d"
+    },
+    {
+      "name": "IDN",
+      "color": "#4cbde5"
+    },
+    {
+      "name": "DEU",
+      "color": "#b2b2b2"
+    },
+    {
+      "name": "MEX",
+      "color": "#b39cd0"
+    },
+    {
+      "name": "TUR",
+      "color": "#e46a6a"
+    },
+    {
+      "name": "EGY",
+      "color": "#619cce"
+    }
+  ],
+  "cached_at": "2026-05-26 19:11:26"
+}

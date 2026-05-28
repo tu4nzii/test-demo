@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_093.png",
+  "colors": [
+    {
+      "name": "U1",
+      "color": "#f2a689"
+    },
+    {
+      "name": "U2",
+      "color": "#f6c88f"
+    },
+    {
+      "name": "U3",
+      "color": "#d1e5ef"
+    },
+    {
+      "name": "U4",
+      "color": "#c5d8a9"
+    },
+    {
+      "name": "U5",
+      "color": "#77b577"
+    },
+    {
+      "name": "U6",
+      "color": "#b5c4db"
+    },
+    {
+      "name": "U7",
+      "color": "#e46c6b"
+    },
+    {
+      "name": "U8",
+      "color": "#e5a9d4"
+    }
+  ],
+  "cached_at": "2026-05-26 19:15:36"
+}

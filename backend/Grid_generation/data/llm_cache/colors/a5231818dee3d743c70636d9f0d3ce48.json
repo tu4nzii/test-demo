@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_018.png",
+  "colors": [
+    {
+      "name": "China",
+      "color": "#e377c2"
+    },
+    {
+      "name": "U.S.",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 16:39:16"
+}

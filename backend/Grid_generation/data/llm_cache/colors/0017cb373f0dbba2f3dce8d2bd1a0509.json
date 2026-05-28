@@ -1,0 +1,62 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_028.png",
+  "colors": [
+    {
+      "name": "FRA",
+      "color": "#e377c2"
+    },
+    {
+      "name": "NGA",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "UKR",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "COL",
+      "color": "#d62728"
+    },
+    {
+      "name": "AUS",
+      "color": "#8c564b"
+    },
+    {
+      "name": "KOR",
+      "color": "#bde0e5"
+    },
+    {
+      "name": "USA",
+      "color": "#94a3be"
+    },
+    {
+      "name": "THA",
+      "color": "#17becf"
+    },
+    {
+      "name": "JPN",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "TUR",
+      "color": "#49b5a9"
+    },
+    {
+      "name": "CAN",
+      "color": "#ff9e80"
+    },
+    {
+      "name": "ARG",
+      "color": "#e377c2"
+    },
+    {
+      "name": "ZAF",
+      "color": "#9467bd"
+    },
+    {
+      "name": "SAU",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 17:26:01"
+}

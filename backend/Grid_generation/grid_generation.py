@@ -9,9 +9,21 @@ import aiohttp
 import base64
 from glob import glob
 
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+BACKEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RUNTIME_LOG_DIR = os.path.join(BACKEND_DIR, "data", "logs")
+LLM_CACHE_DIR = os.path.join(BACKEND_DIR, "data", "llm_cache")
+TICK_LABEL_CACHE_DIR = os.path.join(LLM_CACHE_DIR, "tick_labels")
+COLOR_CACHE_DIR = os.path.join(LLM_CACHE_DIR, "colors")
+
 # 配置日志系统
-# 使用原始字符串避免路径问题
-log_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "grid_generation.log")
+log_path = os.path.join(RUNTIME_LOG_DIR, "grid_generation.log")
 try:
     # 确保日志目录存在
     log_dir = os.path.dirname(log_path)
@@ -289,14 +301,56 @@ def format_tick_value(value, decimal_places):
         # 文字轴或其他类型，直接返回
         return str(value)
 
-def draw_encrypted_grid(img, x_pixels, y_pixels, x_ticks_encrypted, y_ticks_encrypted, x_axis, y_axis, x_axis_type="数值轴", y_axis_type="数值轴"):
+def draw_encrypted_grid(
+    img,
+    x_pixels,
+    y_pixels,
+    x_ticks_encrypted,
+    y_ticks_encrypted,
+    x_axis,
+    y_axis,
+    x_axis_type="数值轴",
+    y_axis_type="数值轴",
+    base_x_pixels=None,
+    base_y_pixels=None,
+):
     """
-    绘制加密网格 - 在基础网格上添加加密刻度和文本
-    只对加密生成的部分添加文本框和文本，不覆盖原有刻度
-    文字轴不加密，不需要生成文本框和文本
+    绘制加密网格 - 在基础网格上添加加密刻度线、文本框和文本
+    只对数值轴加密生成的部分添加网格线、文本框和文本
+    文字轴不加密
     """
-    # 先绘制基础网格
-    canvas = draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis)
+    canvas = draw_basic_grid(
+        img,
+        base_x_pixels if base_x_pixels is not None else x_pixels,
+        base_y_pixels if base_y_pixels is not None else y_pixels,
+        x_axis,
+        y_axis,
+    )
+
+    # Draw encrypted grid lines only at inserted midpoint positions. Original
+    # grid lines are already rendered by draw_basic_grid above.
+    grid_overlay = canvas.copy()
+    encrypted_grid_color = (0, 0, 255)
+    encrypted_grid_alpha = 0.35
+    x_min, x_max = min(x_axis[0], x_axis[2]), max(x_axis[0], x_axis[2])
+    y_min, y_max = min(y_axis[1], y_axis[3]), max(y_axis[1], y_axis[3])
+
+    drawn_x_grid_lines = 0
+    if x_axis_type == "数值轴":
+        for i, x_pix in enumerate(x_pixels):
+            if i % 2 == 1:
+                cv2.line(grid_overlay, (int(x_pix), y_min), (int(x_pix), y_max), encrypted_grid_color, 1, cv2.LINE_AA)
+                drawn_x_grid_lines += 1
+
+    drawn_y_grid_lines = 0
+    if y_axis_type == "数值轴":
+        for i, y_pix in enumerate(y_pixels):
+            if i % 2 == 1:
+                cv2.line(grid_overlay, (x_min, int(y_pix)), (x_max, int(y_pix)), encrypted_grid_color, 1, cv2.LINE_AA)
+                drawn_y_grid_lines += 1
+
+    cv2.addWeighted(grid_overlay, encrypted_grid_alpha, canvas, 1 - encrypted_grid_alpha, 0, canvas)
+    logger.debug(f"成功绘制加密网格线: X轴{drawn_x_grid_lines}条, Y轴{drawn_y_grid_lines}条")
     
     # 绘制加密刻度文本标签，优化显示效果
     try:
@@ -473,7 +527,7 @@ def count_decimal_places(value):
     except:
         return 0
 
-def process_chart(image_path, output_dir):
+def process_chart(image_path, output_dir, chart_type_override=None, chart_id_override=None):
     """
     处理单个图表，生成两种网格图像和刻度信息
     1. _grid: 基础网格 - 短横线延伸形成网格图
@@ -481,6 +535,7 @@ def process_chart(image_path, output_dir):
     """
     logger.info(f"处理图像: {image_path}")
     logger.debug(f"输出目录: {output_dir}")
+    chart_id = chart_id_override or os.path.splitext(os.path.basename(image_path))[0]
     
     # 确保输出目录存在
     os.makedirs(output_dir, exist_ok=True)
@@ -584,7 +639,7 @@ def process_chart(image_path, output_dir):
         y_raw_ticks = scan_pixels_for_ticks(img, y_axis, direction='y', scan_range=20)
         logger.debug(f"检测到 X轴刻度 {len(x_raw_ticks)} 个, Y轴刻度 {len(y_raw_ticks)} 个")
         
-        if not x_raw_ticks or not y_raw_ticks:
+        if len(x_raw_ticks) < 2 or len(y_raw_ticks) < 2:
             logger.warning(f"未检测到足够的刻度线: {image_path}")
             return None
         
@@ -597,7 +652,7 @@ def process_chart(image_path, output_dir):
         
         logger.debug(f"过滤后: X轴刻度 {len(x_filtered_ticks)} 个, Y轴刻度 {len(y_filtered_ticks)} 个")
         
-        if not x_filtered_ticks or not y_filtered_ticks:
+        if len(x_filtered_ticks) < 2 or len(y_filtered_ticks) < 2:
             logger.warning(f"未检测到有效的刻度线: {image_path}")
             return None
     
@@ -609,7 +664,14 @@ def process_chart(image_path, output_dir):
     logger.debug("开始使用模型提取刻度标签和颜色...")
     
     # 处理刻度标签
-    ticks_result = extract_tick_labels_with_llm(image_path, cache_dir=None)
+    ticks_result = extract_tick_labels_with_llm(image_path, cache_dir=TICK_LABEL_CACHE_DIR)
+    if ticks_result.get("api_failed"):
+        logger.warning(
+            "LLM tick labels unavailable after retries; skip chart instead of using positional fallback: %s",
+            ticks_result.get("failure_reason", "unknown"),
+        )
+        return None
+
     x_ticks_values = ticks_result.get("x_ticks", [])
     y_ticks_values = ticks_result.get("y_ticks", [])
     x_axis_type = ticks_result.get("x_axis_type", "数值轴")
@@ -625,7 +687,6 @@ def process_chart(image_path, output_dir):
     logger.debug(f"模型处理结果: X轴{len(x_ticks_values)}个刻度, Y轴{len(y_ticks_values)}个刻度, {len(colors_data)}个颜色")
     
     # 初始化刻度数据列表
-    chart_id = os.path.splitext(os.path.basename(image_path))[0]  # 定义chart_id变量
     x_ticks_data = []  # 数值轴存储为float，文字轴存储为字符串
     x_pixels_data = []
     y_ticks_data = []  # 数值轴存储为float，文字轴存储为字符串
@@ -798,7 +859,9 @@ def process_chart(image_path, output_dir):
             x_axis, 
             y_axis,
             x_axis_type=x_axis_type,
-            y_axis_type=y_axis_type
+            y_axis_type=y_axis_type,
+            base_x_pixels=x_pixels_data,
+            base_y_pixels=y_pixels_data,
         )
         # 保存加密网格图像
         try:

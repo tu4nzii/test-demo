@@ -1,0 +1,46 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_003.png",
+  "colors": [
+    {
+      "name": "PHL",
+      "color": "#c5cae9"
+    },
+    {
+      "name": "UKR",
+      "color": "#5e35b1"
+    },
+    {
+      "name": "VNM",
+      "color": "#ce93d8"
+    },
+    {
+      "name": "ARG",
+      "color": "#c5e1a5"
+    },
+    {
+      "name": "NGA",
+      "color": "#e53935"
+    },
+    {
+      "name": "ITA",
+      "color": "#b2ebf2"
+    },
+    {
+      "name": "ZAF",
+      "color": "#43a047"
+    },
+    {
+      "name": "JPN",
+      "color": "#ffee58"
+    },
+    {
+      "name": "BRA",
+      "color": "#fb8c00"
+    },
+    {
+      "name": "AUS",
+      "color": "#a1887f"
+    }
+  ],
+  "cached_at": "2026-05-26 17:12:40"
+}

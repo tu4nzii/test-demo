@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_112.png",
+  "colors": [
+    {
+      "name": "Percent who followed very closely",
+      "color": "#c43232"
+    },
+    {
+      "name": "Percent of coverage",
+      "color": "#9467bd"
+    }
+  ],
+  "cached_at": "2026-05-26 17:10:24"
+}

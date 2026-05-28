@@ -7,7 +7,7 @@
 import os
 import sys
 import json
-from backend.function_call.chart_type import detect_chart
+from backend.type_detection.chart_type import detect_chart
 
 # 添加项目根目录到系统路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_072.png",
+  "colors": [
+    {
+      "name": "NGA",
+      "color": "#fbfb83"
+    },
+    {
+      "name": "CHN",
+      "color": "#f89921"
+    },
+    {
+      "name": "EGY",
+      "color": "#f984e5"
+    },
+    {
+      "name": "MEX",
+      "color": "#449944"
+    },
+    {
+      "name": "ESP",
+      "color": "#a56534"
+    },
+    {
+      "name": "UKR",
+      "color": "#d69a9a"
+    },
+    {
+      "name": "ZAF",
+      "color": "#b59bcd"
+    },
+    {
+      "name": "IND",
+      "color": "#7a52aa"
+    }
+  ],
+  "cached_at": "2026-05-26 17:53:08"
+}

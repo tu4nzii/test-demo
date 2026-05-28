@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\h_bar\\h_bar_097.png",
+  "colors": [
+    {
+      "name": "Leave",
+      "color": "#87ceeb"
+    },
+    {
+      "name": "Remain",
+      "color": "#4682b4"
+    }
+  ],
+  "cached_at": "2026-05-26 20:31:27"
+}

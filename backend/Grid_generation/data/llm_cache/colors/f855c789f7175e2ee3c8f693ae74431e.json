@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_068.png",
+  "colors": [
+    {
+      "name": "Dem",
+      "color": "#c43333"
+    },
+    {
+      "name": "Rep",
+      "color": "#9467bd"
+    },
+    {
+      "name": "Ind",
+      "color": "#8c564b"
+    }
+  ],
+  "cached_at": "2026-05-26 16:54:06"
+}

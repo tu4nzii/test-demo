@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_012.png",
+  "colors": [
+    {
+      "name": "Confidence Obama in",
+      "color": "#d62728"
+    },
+    {
+      "name": "U.S. respects personal freedoms",
+      "color": "#9467bd"
+    },
+    {
+      "name": "Favorable U.S. view of",
+      "color": "#8c564b"
+    }
+  ],
+  "cached_at": "2026-05-26 16:37:51"
+}

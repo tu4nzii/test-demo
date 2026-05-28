@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_012.png",
+  "colors": [
+    {
+      "name": "NGA",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "PAK",
+      "color": "#2ca02c"
+    },
+    {
+      "name": "ZAF",
+      "color": "#d6cddd"
+    },
+    {
+      "name": "POL",
+      "color": "#c5e0b4"
+    },
+    {
+      "name": "GBR",
+      "color": "#f0a1a1"
+    },
+    {
+      "name": "DEU",
+      "color": "#d1d4f2"
+    },
+    {
+      "name": "THA",
+      "color": "#ff0000"
+    },
+    {
+      "name": "ITA",
+      "color": "#f5c1e5"
+    }
+  ],
+  "cached_at": "2026-05-26 17:17:02"
+}

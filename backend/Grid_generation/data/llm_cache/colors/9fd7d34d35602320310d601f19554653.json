@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_100.png",
+  "colors": [
+    {
+      "name": "Online-only retail sales",
+      "color": "#89cff0"
+    },
+    {
+      "name": "Store-only retail sales",
+      "color": "#4682b4"
+    },
+    {
+      "name": "All retail sales excluding fuel",
+      "color": "#f08080"
+    }
+  ],
+  "cached_at": "2026-05-26 19:51:33"
+}

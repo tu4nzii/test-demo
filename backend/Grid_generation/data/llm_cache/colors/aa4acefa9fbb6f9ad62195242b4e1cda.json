@@ -1,0 +1,26 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_074.png",
+  "colors": [
+    {
+      "name": "2017",
+      "color": "#66c2a5"
+    },
+    {
+      "name": "2018",
+      "color": "#fc8d62"
+    },
+    {
+      "name": "2019",
+      "color": "#8da0cb"
+    },
+    {
+      "name": "2020",
+      "color": "#e78ac3"
+    },
+    {
+      "name": "2021*",
+      "color": "#66c2a5"
+    }
+  ],
+  "cached_at": "2026-05-26 15:18:05"
+}

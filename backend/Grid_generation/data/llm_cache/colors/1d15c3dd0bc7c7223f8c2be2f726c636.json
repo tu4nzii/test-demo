@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_071.png",
+  "colors": [
+    {
+      "name": "Disagree/No opinion",
+      "color": "#d62728"
+    },
+    {
+      "name": "Agree",
+      "color": "#9467bd"
+    }
+  ],
+  "cached_at": "2026-05-26 16:55:04"
+}

@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_094.png",
+  "colors": [
+    {
+      "name": "Rep Rep/Lean",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Dem Lean Dem",
+      "color": "#7f7f7f"
+    },
+    {
+      "name": "Total",
+      "color": "#bcbd22"
+    }
+  ],
+  "cached_at": "2026-05-26 17:05:11"
+}

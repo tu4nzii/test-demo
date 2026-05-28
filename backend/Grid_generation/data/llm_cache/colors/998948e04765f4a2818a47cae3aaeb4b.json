@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_045.png",
+  "colors": [
+    {
+      "name": "Z1",
+      "color": "#f1c3bf"
+    },
+    {
+      "name": "Z2",
+      "color": "#b3d7f0"
+    },
+    {
+      "name": "Z3",
+      "color": "#f7cee8"
+    },
+    {
+      "name": "Z4",
+      "color": "#f8ddb8"
+    },
+    {
+      "name": "Z5",
+      "color": "#d4f4d3"
+    },
+    {
+      "name": "Z6",
+      "color": "#f7f4c8"
+    },
+    {
+      "name": "Z7",
+      "color": "#ddecdc"
+    },
+    {
+      "name": "Z8",
+      "color": "#d7daf1"
+    }
+  ],
+  "cached_at": "2026-05-26 18:40:11"
+}

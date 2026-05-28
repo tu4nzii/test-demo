@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_091.png",
+  "colors": [
+    {
+      "name": "Excellent/Good",
+      "color": "#d62728"
+    },
+    {
+      "name": "Only fair/Poor",
+      "color": "#9467bd"
+    }
+  ],
+  "cached_at": "2026-05-26 17:03:46"
+}

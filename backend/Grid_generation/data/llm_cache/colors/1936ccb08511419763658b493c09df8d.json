@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_036.png",
+  "colors": [
+    {
+      "name": "Doesn't matter what kind of gov't we have",
+      "color": "#c83232"
+    },
+    {
+      "name": "Democracy is preferable to other kindsof",
+      "color": "#9467bd"
+    },
+    {
+      "name": "Sometimes non-democratic gov't can be",
+      "color": "#8c564b"
+    }
+  ],
+  "cached_at": "2026-05-26 16:43:38"
+}

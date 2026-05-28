@@ -1,0 +1,22 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_003.png",
+  "colors": [
+    {
+      "name": "Total metals",
+      "color": "#87ceeb"
+    },
+    {
+      "name": "Nonferrous (excluding aluminum)",
+      "color": "#4682b4"
+    },
+    {
+      "name": "Ferrous",
+      "color": "#f08080"
+    },
+    {
+      "name": "Aluminum",
+      "color": "#ffd700"
+    }
+  ],
+  "cached_at": "2026-05-26 19:21:07"
+}

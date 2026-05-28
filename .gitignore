@@ -20,4 +20,5 @@ backend/data/upload/
 backend/data/processed/
 backend/data/results/
 backend/data/output/
+backend/evaluation/recheck_outputs/
 backend/**/__pycache__/

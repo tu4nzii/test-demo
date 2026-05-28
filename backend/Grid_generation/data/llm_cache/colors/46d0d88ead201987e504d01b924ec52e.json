@@ -1,0 +1,42 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\scatter\\scatter_089.png",
+  "colors": [
+    {
+      "name": "SAU",
+      "color": "#98fb98"
+    },
+    {
+      "name": "PHL",
+      "color": "#ffc0cb"
+    },
+    {
+      "name": "FRA",
+      "color": "#ffffe0"
+    },
+    {
+      "name": "KOR",
+      "color": "#ffa500"
+    },
+    {
+      "name": "UKR",
+      "color": "#ff0000"
+    },
+    {
+      "name": "ITA",
+      "color": "#228b22"
+    },
+    {
+      "name": "AUS",
+      "color": "#d2b48c"
+    },
+    {
+      "name": "IRN",
+      "color": "#b0e0e6"
+    },
+    {
+      "name": "COL",
+      "color": "#f08080"
+    }
+  ],
+  "cached_at": "2026-05-26 15:07:21"
+}

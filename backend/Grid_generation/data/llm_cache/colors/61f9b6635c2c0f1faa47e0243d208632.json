@@ -1,0 +1,42 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_085.png",
+  "colors": [
+    {
+      "name": "POL",
+      "color": "#9e4924"
+    },
+    {
+      "name": "ITA",
+      "color": "#fdb863"
+    },
+    {
+      "name": "NGA",
+      "color": "#d8d4e7"
+    },
+    {
+      "name": "AUS",
+      "color": "#5e4fa2"
+    },
+    {
+      "name": "CAN",
+      "color": "#d3d3ef"
+    },
+    {
+      "name": "BRA",
+      "color": "#f1e2e1"
+    },
+    {
+      "name": "DEU",
+      "color": "#b8e19c"
+    },
+    {
+      "name": "ESP",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "COL",
+      "color": "#f5b3d9"
+    }
+  ],
+  "cached_at": "2026-05-26 17:59:17"
+}

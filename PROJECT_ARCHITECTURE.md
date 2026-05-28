@@ -1,4 +1,4 @@
-# Project Architecture Notes
+﻿# Project Architecture Notes
 
 This repository is a chart analysis demo with a FastAPI backend and a Vue/Vite frontend. It uploads a chart image plus matching JSON, generates a processed/grid-enhanced image, and returns evaluation JSON.
 
@@ -30,20 +30,23 @@ On Windows PowerShell, prefer `npm.cmd` if execution policy blocks `npm.ps1`.
 
 1. `frontend/chart-demo-ui/src/App.vue` accepts an image file and a JSON file.
 2. `POST /api/upload/` in `backend/main.py` saves both files under `backend/data/upload/`.
-3. `backend/function_call/chart_type.py` tries to classify the chart with an external LLM API. If that fails, it falls back to a default chart type so the app can continue.
-4. `POST /api/process/` uses `ChartProcessorFactory` from `backend/function_call/chart_processor.py`.
-5. Rose charts route to `backend/demo_rose/`; radar charts route to `backend/demo_radar/`; cartesian-like charts route to `backend/Grid_generation/`.
-6. Generated images and intermediate JSON are written under `backend/data/output/`.
-7. `POST /api/evaluate/` writes result JSON under `backend/data/results/`.
-8. `GET /api/images/{filename}` and `GET /api/results/{filename}` serve outputs to the frontend.
+3. `backend/type_detection/chart_type.py` tries to classify the chart with an external LLM API. If that fails, it falls back to a default chart type so the app can continue.
+4. `backend/type_detection/chart_registry.py` is the shared registry for supported chart types, coordinate-system categories, and capabilities.
+5. `POST /api/process/` uses `ChartProcessorFactory` from `backend/type_detection/chart_processor.py`.
+6. Polar charts route to `backend/demo_rose/` or `backend/demo_radar/`; cartesian charts route to `backend/Grid_generation/`.
+7. Generated images and intermediate JSON are written under `backend/data/output/`.
+8. `POST /api/evaluate/` uses `backend/evaluation/` to normalize chart data and compute MAE, relative error, coverage, and structural readiness.
+9. `GET /api/images/{filename}` and `GET /api/results/{filename}` serve outputs to the frontend.
 
 ## Files Worth Reading First
 
 | Path | Why it matters |
 | --- | --- |
 | `backend/main.py` | FastAPI app, route definitions, upload/process/evaluate orchestration helpers, runtime directories, in-memory `charts_db`. |
-| `backend/function_call/chart_processor.py` | Processor protocol, shared polar processor base, cartesian processor, and chart type factory. |
-| `backend/function_call/chart_type.py` | Chart type detection and fallback behavior; contains external API configuration. |
+| `backend/type_detection/chart_registry.py` | Shared chart type registry: type names, coordinate-system categories, supported capabilities, and fallback type. |
+| `backend/type_detection/chart_processor.py` | Processor protocol, shared polar processor base, cartesian processor, and chart type factory. |
+| `backend/type_detection/chart_type.py` | Chart type detection and fallback behavior; contains external API configuration. |
+| `backend/evaluation/` | Unified evaluation package extracted from the old `Final_scatterplot_0717` experiment scripts: data normalization, metric calculation, and API-ready summaries. |
 | `backend/Grid_generation/grid_generation.py` | Main cartesian chart processing pipeline. |
 | `backend/Grid_generation/function_calling/` | Axis, tick, label, color, and grid helper modules. |
 | `backend/demo_rose/` | Rose chart encode, axis detection, and evaluation helpers. |
@@ -58,6 +61,7 @@ On Windows PowerShell, prefer `npm.cmd` if execution policy blocks `npm.ps1`.
 | `backend/data/` | Runtime upload/output/result/cache directories; safe to regenerate. |
 | `frontend/chart-demo-ui/node_modules/` | Dependency install output. |
 | `frontend/chart-demo-ui/dist/` | Vite build output. |
+| `Final_scatterplot_0717/` | Legacy experiment workspace. Core metric ideas were migrated into `backend/evaluation/`; old batch scripts, venvs, temporary crops, and result images are not needed by the app. |
 | `VishintPrompt_evaluatation/` | Pruned source/reference copy from the old grid/evaluation workspace. Generated charts, output, logs, venv, and nested `.git` were removed. |
 | `test_output/` | Generated/test output. |
 
@@ -65,7 +69,7 @@ On Windows PowerShell, prefer `npm.cmd` if execution policy blocks `npm.ps1`.
 
 ```powershell
 python -m py_compile backend/main.py
-python -m compileall -q backend/function_call backend/Grid_generation backend/demo_rose backend/demo_radar
+python -m compileall -q backend/type_detection backend/Grid_generation backend/demo_rose backend/demo_radar
 cd frontend/chart-demo-ui
 npm.cmd run build
 ```
@@ -84,9 +88,9 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:5173/
 - `charts_db` is in-memory, so uploaded `chart_id` values disappear when the backend restarts.
 - Upload and process endpoints intentionally keep the same response fields used by the frontend: `chart_id`, `chart_type`, `confidence`, and `encrypted_image_url`.
 - The repository currently has many pre-existing modified/deleted dataset files. Treat them as user work unless explicitly told to restore or remove them.
-- `backend/old/` looks archival, but it is source code and should not be deleted without a deliberate cleanup decision.
 - `VishintPrompt_evaluatation/function_calling/` and `VishintPrompt_evaluatation/utils/` are mostly mirrored by `backend/Grid_generation/`. The old folder still has reference-only files that are not fully wired into the app yet: `model_processor.py`, `grid_detection_generator.py`, `label_validator.py`, `axis_accuracy_annotator.py`, `conclusion.py`, and docs.
 
 ## Cleanup Policy
 
 Safe generated paths are ignored in `.gitignore`: Python caches, frontend `dist`, frontend `node_modules`, backend runtime `data` output/cache/log directories, and `*.log`. Prefer cleaning those before reviewing diffs. Do not delete sample datasets or old source directories just because they are large.
+

@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_034.png",
+  "colors": [
+    {
+      "name": "K8",
+      "color": "#adadad"
+    },
+    {
+      "name": "K4",
+      "color": "#de7873"
+    },
+    {
+      "name": "K5",
+      "color": "#baa1d7"
+    },
+    {
+      "name": "K3",
+      "color": "#6ca5cd"
+    },
+    {
+      "name": "K7",
+      "color": "#d8d477"
+    },
+    {
+      "name": "K1",
+      "color": "#f4b3d8"
+    },
+    {
+      "name": "K2",
+      "color": "#6cd7d6"
+    },
+    {
+      "name": "K6",
+      "color": "#7fc183"
+    }
+  ],
+  "cached_at": "2026-05-26 18:32:01"
+}

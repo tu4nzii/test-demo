@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\bubble\\bubble_085.png",
+  "colors": [
+    {
+      "name": "ZAF",
+      "color": "#fbb4ae"
+    },
+    {
+      "name": "GBR",
+      "color": "#ccebc5"
+    },
+    {
+      "name": "NGA",
+      "color": "#e41a1c"
+    },
+    {
+      "name": "RUS",
+      "color": "#4daf4a"
+    },
+    {
+      "name": "MEX",
+      "color": "#b3cde3"
+    },
+    {
+      "name": "JPN",
+      "color": "#fdc086"
+    },
+    {
+      "name": "EGY",
+      "color": "#ffff99"
+    },
+    {
+      "name": "TUR",
+      "color": "#fccde5"
+    }
+  ],
+  "cached_at": "2026-05-26 19:08:32"
+}

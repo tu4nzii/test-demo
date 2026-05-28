@@ -1,0 +1,18 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\line\\line_002.png",
+  "colors": [
+    {
+      "name": "Making progress",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Losing ground",
+      "color": "#7f7f7f"
+    },
+    {
+      "name": "Same",
+      "color": "#bcbd22"
+    }
+  ],
+  "cached_at": "2026-05-26 14:45:52"
+}

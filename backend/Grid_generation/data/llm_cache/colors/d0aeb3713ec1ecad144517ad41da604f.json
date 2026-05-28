@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\h_bar\\h_bar_100.png",
+  "colors": [
+    {
+      "name": "2010",
+      "color": "#87ceeb"
+    },
+    {
+      "name": "2011",
+      "color": "#4682b4"
+    }
+  ],
+  "cached_at": "2026-05-26 20:32:06"
+}

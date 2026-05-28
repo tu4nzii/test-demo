@@ -27,8 +27,9 @@ configure_windows_encoding()
 BACKEND_DIR = Path(__file__).parent
 sys.path.insert(0, str(BACKEND_DIR))
 
-from function_call.chart_processor import ChartProcessorFactory  # noqa: E402
-from function_call.chart_type import ChartTypeDetector  # noqa: E402
+from type_detection.chart_processor import ChartProcessorFactory  # noqa: E402
+from type_detection.chart_registry import DEFAULT_CHART_TYPE, get_coordinate_system, normalize_chart_type  # noqa: E402
+from type_detection.chart_type import ChartTypeDetector  # noqa: E402
 
 
 app = FastAPI(title="Chart Analysis API")
@@ -60,7 +61,7 @@ def safe_error_message(error: Exception) -> str:
 
 
 def load_json(path: Path) -> Dict[str, Any]:
-    with path.open("r", encoding="utf-8") as file:
+    with path.open("r", encoding="utf-8-sig") as file:
         data = json.load(file)
     return data if isinstance(data, dict) else {"data": data}
 
@@ -82,28 +83,31 @@ def detect_chart_type(image_path: Path) -> Dict[str, Any]:
         return ChartTypeDetector().detect_chart_type(str(image_path))
     except Exception as error:
         print(f"Chart type detection failed, using fallback: {safe_error_message(error)}")
-        return {"type": "v_bar", "confidence": 0.5, "error": safe_error_message(error)}
+        return {"type": DEFAULT_CHART_TYPE, "confidence": 0.5, "error": safe_error_message(error)}
 
 
-def register_chart(image_file: UploadFile, json_file: UploadFile) -> Dict[str, Any]:
+def register_chart(image_file: UploadFile, json_file: Optional[UploadFile] = None) -> Dict[str, Any]:
     chart_id = str(uuid.uuid4())
     image_suffix = Path(image_file.filename or "").suffix or ".png"
     image_path = UPLOAD_DIR / f"{chart_id}_image{image_suffix}"
-    json_path = UPLOAD_DIR / f"{chart_id}_data.json"
+    json_path = UPLOAD_DIR / f"{chart_id}_data.json" if json_file else None
 
     save_upload_file(image_file, image_path)
-    save_upload_file(json_file, json_path)
+    if json_file and json_path:
+        save_upload_file(json_file, json_path)
 
     detection = detect_chart_type(image_path)
-    chart_type = detection.get("type", "v_bar")
+    chart_type = normalize_chart_type(detection.get("type", DEFAULT_CHART_TYPE))
     confidence = detection.get("confidence", 0.5)
+    coordinate_system = get_coordinate_system(chart_type).value
 
     chart_info = {
         "chart_id": chart_id,
         "chart_type": chart_type,
+        "coordinate_system": coordinate_system,
         "confidence": confidence,
         "image_path": str(image_path),
-        "json_path": str(json_path),
+        "json_path": str(json_path) if json_path else None,
         "processed": False,
         "evaluated": False,
     }
@@ -132,16 +136,6 @@ def result_response_url(path: Union[str, Path]) -> str:
     return f"/api/results/{Path(path).name}"
 
 
-def ensure_companion_json(chart_info: Dict[str, Any]) -> Path:
-    image_path = Path(chart_info["image_path"])
-    expected_json_path = image_path.with_suffix(".json")
-
-    if not expected_json_path.exists():
-        write_json(expected_json_path, load_json(Path(chart_info["json_path"])))
-
-    return expected_json_path
-
-
 def extract_original_data(original_json: Dict[str, Any]) -> Any:
     if "data_points" in original_json:
         return original_json["data_points"]
@@ -161,13 +155,18 @@ def enrich_generated_json(
 ) -> Path:
     json_path = generated_json_path(chart_info, output_dir)
     generated_data = load_json(json_path) if json_path.exists() else {}
-    original_json = load_json(Path(chart_info["json_path"]))
-    original_data = extract_original_data(original_json)
+    source_json_path = chart_info.get("json_path")
+    original_data = None
+    if source_json_path:
+        source_path = Path(source_json_path)
+        if source_path.exists():
+            original_data = extract_original_data(load_json(source_path))
 
     generated_data.update(
         {
             "chart_id": chart_info["chart_id"],
             "chart_type": chart_info["chart_type"],
+            "coordinate_system": chart_info["coordinate_system"],
             "image_paths": {
                 "no_grid": str(Path(chart_info["image_path"]).absolute()),
                 "with_grid": str(Path(encrypted_image_path).absolute()),
@@ -196,8 +195,6 @@ def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
 def process_chart_image(chart_info: Dict[str, Any]) -> str:
     if chart_info.get("processed") and chart_info.get("encrypted_image_path"):
         return chart_info["encrypted_image_path"]
-
-    ensure_companion_json(chart_info)
 
     output_dir = get_chart_output_dir(chart_info["chart_type"])
     processor = ChartProcessorFactory.create_processor(chart_info["chart_type"])
@@ -236,7 +233,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
     processed_data = processor.process_data(
         chart_info["chart_id"],
         chart_info["image_path"],
-        chart_info["json_path"],
+        chart_info.get("json_path"),
         str(output_dir),
     )
 
@@ -285,13 +282,14 @@ async def root():
 @app.post("/api/upload/")
 async def upload_files(
     file: UploadFile = File(..., description="Chart image file"),
-    json_data: UploadFile = File(..., description="Chart JSON data file"),
+    json_data: Optional[UploadFile] = File(None, description="Optional chart JSON data file"),
 ):
     try:
         chart_info = register_chart(file, json_data)
         return {
             "chart_id": chart_info["chart_id"],
             "chart_type": chart_info["chart_type"],
+            "coordinate_system": chart_info["coordinate_system"],
             "confidence": chart_info["confidence"],
         }
     except HTTPException:
@@ -345,4 +343,5 @@ async def get_results(filename: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    port = int(os.environ.get("BACKEND_PORT", "8000"))
+    uvicorn.run(app, host="127.0.0.1", port=port)

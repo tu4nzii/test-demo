@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_007.png",
+  "colors": [
+    {
+      "name": "Russia favora bility in Germany",
+      "color": "#2b7bba"
+    },
+    {
+      "name": "Germany favorability in Russia",
+      "color": "#ee822f"
+    }
+  ],
+  "cached_at": "2026-05-26 16:36:36"
+}

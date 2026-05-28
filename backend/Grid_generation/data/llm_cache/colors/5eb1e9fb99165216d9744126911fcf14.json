@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_086.png",
+  "colors": [
+    {
+      "name": "Democratic Party",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Republican Party",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 17:02:30"
+}

@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_074.png",
+  "colors": [
+    {
+      "name": "Warming mostly because of human activity",
+      "color": "#d884be"
+    },
+    {
+      "name": "Yes, solid evidence the earth is warming",
+      "color": "#7f7f7f"
+    },
+    {
+      "name": "Yes, solid evidence the earth warming IS",
+      "color": "#b2952d"
+    }
+  ],
+  "cached_at": "2026-05-26 16:56:50"
+}

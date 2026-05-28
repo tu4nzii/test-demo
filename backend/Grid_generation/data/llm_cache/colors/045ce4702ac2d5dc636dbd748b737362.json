@@ -1,0 +1,14 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\2fe052c3-c802-475a-8235-b2743cfe5515_image.png",
+  "colors": [
+    {
+      "name": "Good",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Bad",
+      "color": "#ff7f0e"
+    }
+  ],
+  "cached_at": "2026-05-26 14:43:07"
+}

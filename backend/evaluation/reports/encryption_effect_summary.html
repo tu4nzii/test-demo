@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>加密效果评估结果</title>
+  <style>
+    body {
+      margin: 28px;
+      background: #f6f7f9;
+      color: #1f2933;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 20px;
+    }
+    .meta
+    .note {
+      color: #52606d;
+    }
+    .panel {
+      margin: 16px 0;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid #d9dee7;
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th,
+    td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e5e9f0;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef2f6;
+      color: #263445;
+      white-space: nowrap;
+    }
+    code {
+      padding: 1px 4px;
+      background: #eef2f6;
+      border-radius: 4px;
+    }
+    .ok {
+      color: #16794f;
+      font-weight: 700;
+    }
+    .warn {
+      color: #a15c00;
+      font-weight: 700;
+    }
+    .formula {
+      margin: 8px 0;
+      padding: 10px 12px;
+      background: #f1f5f9;
+      border-left: 4px solid #607d9b;
+      font-family: Consolas, "Courier New", monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>加密效果评估结果</h1>
+  <div class="meta">
+    评估对象：line、v_bar、h_bar、scatter、bubble<br>
+    数据来源：<code>backend/evaluation/reports/current_json_metric_report.json</code>
+  </div>
+
+  <div class="panel">
+    <h2>指标计算方式</h2>
+    <p><strong>轴线角度误差</strong>：用当前 CV 轴线检测结果，分别和理论水平 X 轴、垂直 Y 轴比较，单位是度。</p>
+    <p><strong>tick 位置归一化 MAE</strong>：对真值 JSON 和当前识别 JSON 中同名 tick 做匹配，计算像素误差，再除以该轴真值像素跨度。</p>
+    <div class="formula">abs(pred_pixel - gt_pixel) / (max(gt_pixels) - min(gt_pixels))</div>
+    <p><strong>tick 覆盖率</strong>：当前识别 JSON 中能和真值 tick 匹配上的比例。</p>
+    <div class="formula">matched_tick_count / gt_tick_count</div>
+    <p><strong>坐标变换 Norm MSE</strong>：基于 tick-value 到 pixel 的映射，把数据点分别用真值 JSON 和当前识别 JSON 映射到像素坐标，再计算归一化平方误差均值。</p>
+    <p><strong>坐标变换 Pixel RMSE</strong>：同上，但直接在像素空间计算 RMSE。</p>
+    <p class="note">表格中含斜杠的单元格格式为 <code>mean / median</code>。`v_bar` 和 `h_bar` 的均值会被少数异常样本显著拉高，因此 median 更能反映大多数样本的实际水平。</p>
+  </div>
+
+  <div class="panel">
+    <h2>按类型汇总</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>类型</th>
+          <th>已评估</th>
+          <th>轴角误差<br>mean / median</th>
+          <th>X tick MAE<br>mean / median</th>
+          <th>Y tick MAE<br>mean / median</th>
+          <th>X/Y 覆盖率 mean</th>
+          <th>Norm MSE<br>mean / median</th>
+          <th>Pixel RMSE<br>mean / median</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>line</strong></td>
+          <td><span class="ok">100/100</span></td>
+          <td>0 / 0</td>
+          <td>0 / 0</td>
+          <td>0.000428 / 0.000415</td>
+          <td>0.993 / 1.000</td>
+          <td>4.44e-7 / 2.25e-7</td>
+          <td>0.141 / 0.127</td>
+        </tr>
+        <tr>
+          <td><strong>v_bar</strong></td>
+          <td><span class="warn">150/151</span></td>
+          <td>0 / 0</td>
+          <td>0.007021 / 0</td>
+          <td>0.000194 / 0.000171</td>
+          <td>0.993 / 0.994</td>
+          <td>4.21e9 / 2.53e-8</td>
+          <td>1.81e6 / 0.072</td>
+        </tr>
+        <tr>
+          <td><strong>h_bar</strong></td>
+          <td><span class="warn">88/92</span></td>
+          <td>0.0349 / 0</td>
+          <td>0.004033 / 0.000094</td>
+          <td>0.001173 / 0</td>
+          <td>0.986 / 0.993</td>
+          <td>3.07e9 / 1.69e-8</td>
+          <td>3.33e6 / 0.098</td>
+        </tr>
+        <tr>
+          <td><strong>scatter</strong></td>
+          <td><span class="ok">99/99</span></td>
+          <td>0 / 0</td>
+          <td>0.025337 / 0</td>
+          <td>0.000370 / 0.000258</td>
+          <td>0.908 / 0.942</td>
+          <td>0.022094 / 2.23e-7</td>
+          <td>32.07 / 0.180</td>
+        </tr>
+        <tr>
+          <td><strong>bubble</strong></td>
+          <td><span class="ok">100/100</span></td>
+          <td>0 / 0</td>
+          <td>0.005656 / 0.000176</td>
+          <td>0 / 0</td>
+          <td>0.993 / 1.000</td>
+          <td>0.004750 / 5.09e-8</td>
+          <td>5.719 / 0.125</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

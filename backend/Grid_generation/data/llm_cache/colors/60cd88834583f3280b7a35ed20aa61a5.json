@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_092.png",
+  "colors": [
+    {
+      "name": "Mostly bad news",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Mostly good news",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "Mix of good and bad news",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 17:04:31"
+}

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // --- Reactive State ---
 // Backend API URL
-const API_URL = 'http://127.0.0.1:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 // File holders
 const imageFile = ref(null);
@@ -29,23 +29,32 @@ const statusMessage = ref('');
 const errorMessage = ref('');
 
 // --- Computed Properties for Disabling Buttons ---
-const isUploadDisabled = computed(() => !imageFile.value || !jsonFile.value || isLoadingUpload.value);
+const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
 const isProcessDisabled = computed(() => !chartId.value || isLoadingProcess.value);
 const isEvaluateDisabled = computed(() => !processedImageUrl.value || isLoadingEvaluate.value);
 const evaluationSummary = computed(() => {
   if (!evaluationResults.value) return [];
+  const result = evaluationResults.value;
+  const summary = result.summary || {};
+  const quality = result.quality || {};
 
   return [
-    ['success', evaluationResults.value.success],
-    ['chart_id', evaluationResults.value.chart_id],
-    ['chart_type', evaluationResults.value.chart_type],
-    ['x_ticks_count', evaluationResults.value.x_ticks_count],
-    ['y_ticks_count', evaluationResults.value.y_ticks_count],
-    ['x_encrypted_ticks_count', evaluationResults.value.x_encrypted_ticks_count],
-    ['y_encrypted_ticks_count', evaluationResults.value.y_encrypted_ticks_count],
-    ['colors_count', evaluationResults.value.colors_count],
-    ['has_basic_grid', evaluationResults.value.has_basic_grid],
-    ['has_encrypted_grid', evaluationResults.value.has_encrypted_grid],
+    ['success', result.success],
+    ['mode', result.mode],
+    ['chart_id', result.chart_id],
+    ['chart_type', result.chart_type],
+    ['total_items', summary.total_items],
+    ['matched_items', summary.matched_items],
+    ['coverage', summary.coverage],
+    ['avg_mae', summary.avg_mae],
+    ['avg_relative_error', summary.avg_relative_error],
+    ['x_ticks_count', quality.x_ticks_count],
+    ['y_ticks_count', quality.y_ticks_count],
+    ['r_ticks_count', quality.r_ticks_count],
+    ['theta_ticks_count', quality.theta_ticks_count],
+    ['colors_count', quality.colors_count],
+    ['has_basic_grid', quality.has_basic_grid],
+    ['has_encrypted_grid', quality.has_encrypted_grid],
   ].filter(([, value]) => value !== undefined && value !== null);
 });
 const evaluationJson = computed(() => {
@@ -89,7 +98,9 @@ async function uploadFiles() {
   
   const formData = new FormData();
   formData.append('file', imageFile.value);
-  formData.append('json_data', jsonFile.value);
+  if (jsonFile.value) {
+    formData.append('json_data', jsonFile.value);
+  }
 
   try {
     const response = await axios.post(`${API_URL}/api/upload/`, formData, {
@@ -191,7 +202,7 @@ async function evaluateChart() {
             <input id="image-upload" type="file" @change="handleImageUpload" accept="image/png, image/jpeg" />
           </div>
           <div class="input-group">
-            <label for="json-upload">选择JSON数据:</label>
+            <label for="json-upload">选择JSON数据（可选）:</label>
             <input id="json-upload" type="file" @change="handleJsonUpload" accept="application/json" />
           </div>
           

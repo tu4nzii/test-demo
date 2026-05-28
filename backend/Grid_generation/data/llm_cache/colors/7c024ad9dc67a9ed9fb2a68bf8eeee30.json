@@ -1,0 +1,14 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\h_bar\\h_bar_166.png",
+  "colors": [
+    {
+      "name": "Bad",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Good",
+      "color": "#ff7f0e"
+    }
+  ],
+  "cached_at": "2026-05-26 15:48:56"
+}

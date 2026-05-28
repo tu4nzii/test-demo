@@ -1,0 +1,14 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\line\\line_065.png",
+  "colors": [
+    {
+      "name": "Rep/Lean Rep",
+      "color": "#d62728"
+    },
+    {
+      "name": "Dem/Lean Dem",
+      "color": "#9467bd"
+    }
+  ],
+  "cached_at": "2026-05-26 14:53:34"
+}

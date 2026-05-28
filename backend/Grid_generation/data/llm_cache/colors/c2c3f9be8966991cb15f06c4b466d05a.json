@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_076.png",
+  "colors": [
+    {
+      "name": "Republican candidate",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Democratic candidate",
+      "color": "#7f7f7f"
+    }
+  ],
+  "cached_at": "2026-05-26 16:57:19"
+}

@@ -1,0 +1,38 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\scatter\\scatter_050.png",
+  "colors": [
+    {
+      "name": "KOR",
+      "color": "#a56842"
+    },
+    {
+      "name": "TUR",
+      "color": "#b8d499"
+    },
+    {
+      "name": "CHN",
+      "color": "#f0a1a1"
+    },
+    {
+      "name": "THA",
+      "color": "#fffacd"
+    },
+    {
+      "name": "FRA",
+      "color": "#228b22"
+    },
+    {
+      "name": "BRA",
+      "color": "#ff8c00"
+    },
+    {
+      "name": "VNM",
+      "color": "#f5c7c7"
+    },
+    {
+      "name": "IDN",
+      "color": "#ffc885"
+    }
+  ],
+  "cached_at": "2026-05-26 17:39:29"
+}

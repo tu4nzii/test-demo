@@ -1,0 +1,22 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_055.png",
+  "colors": [
+    {
+      "name": "Very interested",
+      "color": "#66c2a5"
+    },
+    {
+      "name": "Somewhat interested",
+      "color": "#fc8d62"
+    },
+    {
+      "name": "Not too interested",
+      "color": "#8da0cb"
+    },
+    {
+      "name": "Not interested at all",
+      "color": "#e78ac3"
+    }
+  ],
+  "cached_at": "2026-05-26 19:38:57"
+}

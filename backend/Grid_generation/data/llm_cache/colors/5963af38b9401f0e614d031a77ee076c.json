@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_075.png",
+  "colors": [
+    {
+      "name": "Independents",
+      "color": "#e377c2"
+    },
+    {
+      "name": "Democrats",
+      "color": "#7f7f7f"
+    },
+    {
+      "name": "Republicans",
+      "color": "#bcbd22"
+    }
+  ],
+  "cached_at": "2026-05-26 16:56:59"
+}

@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_015.png",
+  "colors": [
+    {
+      "name": "Confidence",
+      "color": "#e083c4"
+    },
+    {
+      "name": "No confidence",
+      "color": "#808080"
+    }
+  ],
+  "cached_at": "2026-05-26 16:38:40"
+}

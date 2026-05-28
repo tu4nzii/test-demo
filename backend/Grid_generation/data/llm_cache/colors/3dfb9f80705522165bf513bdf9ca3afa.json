@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_109.png",
+  "colors": [
+    {
+      "name": "Q1",
+      "color": "#87ceeb"
+    },
+    {
+      "name": "Q3",
+      "color": "#f08080"
+    },
+    {
+      "name": "Q4",
+      "color": "#ffd700"
+    }
+  ],
+  "cached_at": "2026-05-26 19:54:27"
+}

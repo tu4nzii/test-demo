@@ -1,0 +1,14 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\line\\line_000.png",
+  "colors": [
+    {
+      "name": "Favorable",
+      "color": "#d670b3"
+    },
+    {
+      "name": "Unfavorable",
+      "color": "#696969"
+    }
+  ],
+  "cached_at": "2026-05-26 14:45:09"
+}

@@ -1,0 +1,14 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\v_bar\\v_bar_110.png",
+  "colors": [
+    {
+      "name": "Male",
+      "color": "#66c2a5"
+    },
+    {
+      "name": "Female",
+      "color": "#fc8d62"
+    }
+  ],
+  "cached_at": "2026-05-26 19:54:57"
+}

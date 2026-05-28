@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\h_bar\\h_bar_169.png",
+  "colors": [
+    {
+      "name": "Unfavorable",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "Favorable",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "Don't know",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 20:39:08"
+}

@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_019.png",
+  "colors": [
+    {
+      "name": "Earth is warming, mostly because of natural patterns in earth's environment",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "No evidence earth is warming",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "Earth is warming, mostly because of human activity such as burning fossil fuels",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 16:39:35"
+}

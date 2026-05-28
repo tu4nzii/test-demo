@@ -1,0 +1,18 @@
+{
+  "image_path": "F:\\program\\test-demo\\backend\\charts\\line\\line_043.png",
+  "colors": [
+    {
+      "name": "Less important powerful and role than 10 years ago",
+      "color": "#1f77b4"
+    },
+    {
+      "name": "More important and powerful role than 10 years ago",
+      "color": "#ff7f0e"
+    },
+    {
+      "name": "As important and powerful role as 10 years ago",
+      "color": "#2ca02c"
+    }
+  ],
+  "cached_at": "2026-05-26 14:52:32"
+}

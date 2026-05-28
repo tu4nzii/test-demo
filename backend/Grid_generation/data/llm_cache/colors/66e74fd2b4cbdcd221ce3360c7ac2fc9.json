@@ -1,0 +1,18 @@
+{
+  "image_path": "f:\\program\\test-demo\\backend\\charts\\line\\line_030.png",
+  "colors": [
+    {
+      "name": "Emerging markets",
+      "color": "#cc332f"
+    },
+    {
+      "name": "Developing economies",
+      "color": "#9467bd"
+    },
+    {
+      "name": "Advanced economies",
+      "color": "#8c564b"
+    }
+  ],
+  "cached_at": "2026-05-26 16:42:43"
+}

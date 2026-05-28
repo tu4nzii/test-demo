@@ -7,17 +7,50 @@ import os
 import base64
 import re
 import requests
+import time
+
+def _build_chat_completions_url(raw_url: str) -> str:
+    url = (raw_url or "").strip().rstrip("/")
+    if not url:
+        return "https://api.vveai.com/v1/chat/completions"
+    if url.endswith("/chat/completions"):
+        return url
+    return f"{url}/chat/completions"
+
+
+def _split_env_keys(raw_keys: str) -> list:
+    return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
+
 
 # API配置
-API_URL = "https://api.vveai.com/v1/chat/completions"
-API_KEYS = [
+API_URL = _build_chat_completions_url(
+    os.getenv("COLOR_LLM_API_URL")
+    or os.getenv("COLOR_LLM_BASE_URL")
+    or os.getenv("MLLM_API_URL")
+    or os.getenv("MLLM_BASE_URL")
+    or "https://api.vveai.com/v1"
+)
+ENV_API_KEYS = _split_env_keys(
+    os.getenv("COLOR_LLM_API_KEYS")
+    or os.getenv("COLOR_LLM_API_KEY")
+    or os.getenv("MLLM_API_KEYS")
+    or os.getenv("MLLM_API_KEY")
+    or ""
+)
+DEFAULT_API_KEYS = [
     "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
     "sk-2nzrUYD0JWLFzopWF477111f78E746AbAcA9Ed8534C3A481",
     "sk-CiD5WVUNIkBeXDgYB46b90C06aD24636BcEaBaFa993970C4",
     "sk-WvF4fU10VeOkfFMq579610Fc01E8496d827d0d3e04C44d0a",
     "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
 ]
+API_KEYS = ENV_API_KEYS or DEFAULT_API_KEYS
 key_index = 0
+LLM_MODEL = os.getenv("COLOR_LLM_MODEL") or os.getenv("MLLM_MODEL") or "gemini-2.5-pro"
+LLM_TEMPERATURE = float(os.getenv("COLOR_LLM_TEMPERATURE", "0.7"))
+LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("COLOR_LLM_TIMEOUT_SECONDS", "180"))
+LLM_MAX_ATTEMPTS = int(os.getenv("COLOR_LLM_MAX_ATTEMPTS", "8"))
+LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("COLOR_LLM_RETRY_BACKOFF_SECONDS", "2"))
 
 def rotate_key():
     """切换到下一个 key"""
@@ -28,9 +61,9 @@ def rotate_key():
 def chat_with_gemini(messages: list) -> str:
     """与Gemini进行对话（同步版本）"""
     payload = {
-        "model": "gemini-2.5-pro",
+        "model": LLM_MODEL,
         "messages": messages,
-        "temperature": 0.7
+        "temperature": LLM_TEMPERATURE
     }
 
     headers = {
@@ -38,18 +71,24 @@ def chat_with_gemini(messages: list) -> str:
         "Authorization": f"Bearer {API_KEYS[key_index]}"
     }
 
-    for attempt in range(1, 4):
-        try:
-            response = requests.post(API_URL, headers=headers, json=payload, timeout=180)
+    retryable_status = {429, 500, 502, 503, 504}
 
-            if response.status_code == 429:
-                print(f"🚫 请求频率超限，切换 Key 重试...")
+    for attempt in range(1, LLM_MAX_ATTEMPTS + 1):
+        try:
+            response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
+
+            if response.status_code in retryable_status:
+                print(f"⚠️ HTTP {response.status_code}: {response.text[:200]}")
                 rotate_key()
+                if attempt < LLM_MAX_ATTEMPTS:
+                    wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
+                    print(f"⏳ 等待 {wait_seconds:.1f}s 后重试 [{attempt}/{LLM_MAX_ATTEMPTS}]...")
+                    time.sleep(wait_seconds)
                 continue
 
             if response.status_code != 200:
                 print(f"⚠️ HTTP {response.status_code}: {response.text[:200]}")
-                continue
+                return "抱歉，我暂时无法回应您的请求。"
 
             result = response.json()
             if "choices" in result and len(result["choices"]) > 0:
@@ -57,9 +96,13 @@ def chat_with_gemini(messages: list) -> str:
                 return content
             else:
                 print(f"⚠️ 响应格式错误: {result}")
+                if attempt < LLM_MAX_ATTEMPTS:
+                    time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
 
         except Exception as e:
             print(f"❌ 第 {attempt} 次尝试失败: {e}")
+            if attempt < LLM_MAX_ATTEMPTS:
+                time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
             continue
 
     print("❌ 所有尝试均失败")
