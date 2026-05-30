@@ -1,0 +1,85 @@
+{
+  "chart_id": "bubble_emu_008",
+  "title": "模拟图表 9",
+  "dpi": 100,
+  "fig_size": [
+    8,
+    8
+  ],
+  "font_size": 12,
+  "palette": [
+    "#66c2a5",
+    "#fc8d62",
+    "#8da0cb",
+    "#e78ac3",
+    "#a6cee3",
+    "#b2df8a",
+    "#33a02c",
+    "#fb9a99",
+    "#e31a1c",
+    "#fdbf6f"
+  ],
+  "marker": "o",
+  "sample_size": 5,
+  "point_size_range": [
+    30,
+    100
+  ],
+  "x_ticks": [
+    -2.0,
+    8.5,
+    19.0,
+    29.5,
+    40.0
+  ],
+  "y_ticks": [
+    2.0,
+    26.0,
+    50.0,
+    74.0,
+    98.0
+  ],
+  "x_ticks_encrypted": [
+    -2.0,
+    3.25,
+    8.5,
+    13.75,
+    19.0,
+    24.25,
+    29.5,
+    34.75,
+    40.0
+  ],
+  "y_ticks_encrypted": [
+    2.0,
+    14.0,
+    26.0,
+    38.0,
+    50.0,
+    62.0,
+    74.0,
+    86.0,
+    98.0
+  ],
+  "series_color": {
+    "C3": [
+      "#e31a1c",
+      "#66c2a5"
+    ],
+    "C2": [
+      "#b2df8a",
+      "#e78ac3",
+      "#8da0cb"
+    ]
+  },
+  "label_position": "outside",
+  "random_seed": 42,
+  "bubble_sizes": {
+    "D01": 31.54,
+    "B02": 36.57,
+    "E03": 38.79,
+    "E04": 26.1,
+    "E05": 47.61
+  },
+  "scale_factor": 15.0
+}

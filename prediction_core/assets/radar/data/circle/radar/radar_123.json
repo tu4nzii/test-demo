@@ -1,0 +1,85 @@
+{
+  "chart_id": "radar_123",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "XKA": {
+      "C": 20.25,
+      "B": 17.5,
+      "E": 15.0,
+      "D": 9.0,
+      "A": 12.5
+    },
+    "YPFW": {
+      "D": 4.0,
+      "B": 14.25,
+      "C": 14.0,
+      "A": 8.75,
+      "E": 11.75
+    },
+    "VALUM": {
+      "A": 6.75,
+      "C": 16.5,
+      "E": 21.25,
+      "B": 10.5,
+      "D": 23.5
+    },
+    "RBO": {
+      "A": 19.25,
+      "D": 19.5,
+      "B": 6.25,
+      "C": 10.25,
+      "E": 22.75
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_123.png"
+  },
+  "series_color": {
+    "XKA": "#98df8a",
+    "YPFW": "#ff7f0e",
+    "VALUM": "#f7b6d2",
+    "RBO": "#bcbd22"
+  },
+  "num_entities": 4,
+  "fill_enabled": true,
+  "num_vars": 5
+}

@@ -1,0 +1,106 @@
+{
+  "chart_id": "radar_147",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "POCGDB": {
+      "A": 5.5,
+      "B": 9.0,
+      "D": 7.5,
+      "C": 19.5
+    },
+    "OJOR": {
+      "C": 10.25,
+      "A": 9.0,
+      "B": 4.0,
+      "D": 15.75
+    },
+    "DKRAW": {
+      "B": 16.25,
+      "D": 24.75,
+      "A": 6.0,
+      "C": 15.75
+    },
+    "NHU": {
+      "B": 17.0,
+      "D": 13.75,
+      "A": 5.0,
+      "C": 9.0
+    },
+    "JSUAIE": {
+      "A": 13.0,
+      "D": 9.25,
+      "C": 5.75,
+      "B": 23.75
+    },
+    "FHWA": {
+      "D": 12.5,
+      "B": 11.5,
+      "A": 5.0,
+      "C": 20.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    2.5,
+    5,
+    7.5,
+    10,
+    12.5,
+    15,
+    17.5,
+    20,
+    22.5,
+    25.0
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_147.png"
+  },
+  "series_color": {
+    "POCGDB": "#ffbb78",
+    "OJOR": "#c5b0d5",
+    "DKRAW": "#17becf",
+    "NHU": "#e377c2",
+    "JSUAIE": "#d62728",
+    "FHWA": "#98df8a"
+  },
+  "num_entities": 6,
+  "fill_enabled": false,
+  "num_vars": 4,
+  "err_center": 3.605551275463989,
+  "pred_coords": [
+    490,
+    361
+  ],
+  "argument": {
+    "a": 11.6,
+    "b": -8.0
+  }
+}

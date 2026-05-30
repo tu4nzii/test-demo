@@ -1,0 +1,89 @@
+{
+  "chart_id": "h_bar_076",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_076.png",
+    "with_grid": "charts/h_bar/h_bar_076_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_076_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of homicide offences": {
+      "London": 130.0,
+      "North West": 114.0,
+      "East": 100.0,
+      "South East": 85.0,
+      "West Midlands": 83.0,
+      "Scotland": 64.0,
+      "Yorkshire and The Humber": 61.0,
+      "East Midlands": 51.0,
+      "South West": 38.0,
+      "Wales": 33.0,
+      "North East": 27.0,
+      "Northern Ireland": 20.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0
+  ],
+  "y_ticks": [
+    "London",
+    "North West",
+    "East",
+    "South East",
+    "West Midlands",
+    "Scotland",
+    "Yorkshire and The Humber",
+    "East Midlands",
+    "South West",
+    "Wales",
+    "North East",
+    "Northern Ireland"
+  ],
+  "x_pixels": [
+    123,
+    169,
+    214,
+    260,
+    305,
+    351,
+    396,
+    442,
+    487,
+    533,
+    578,
+    624,
+    669,
+    715,
+    760
+  ],
+  "y_pixels": [
+    483,
+    450,
+    416,
+    383,
+    350,
+    317,
+    283,
+    250,
+    217,
+    184,
+    150,
+    117
+  ],
+  "series_color": {
+    "Number of homicide offences": "#87ceeb"
+  }
+}

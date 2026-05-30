@@ -1,0 +1,51 @@
+{
+  "chart_id": "GroupedBarChart7",
+  "chart_type": "bar",
+  "image_paths": {
+    "no_grid": "charts/bar/GroupedBarChart7.png"
+  },
+  "source_csv": "charts/bar/GroupedBarChart7.csv",
+  "data_points": {
+    "Value": {
+      "banana": 12,
+      "banana_2": 1,
+      "banana_3": 13,
+      "poacee": 6,
+      "poacee_2": 6,
+      "poacee_3": 33,
+      "sorgho": 11,
+      "sorgho_2": 28,
+      "sorgho_3": 12,
+      "triticum": 19,
+      "triticum_2": 6,
+      "triticum_3": 1
+    }
+  },
+  "x_ticks": [
+    "banana",
+    "banana_2",
+    "banana_3",
+    "poacee",
+    "poacee_2",
+    "poacee_3",
+    "sorgho",
+    "sorgho_2",
+    "sorgho_3",
+    "triticum",
+    "triticum_2",
+    "triticum_3"
+  ],
+  "y_ticks": [
+    1,
+    6,
+    11,
+    12,
+    13,
+    19,
+    28,
+    33
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

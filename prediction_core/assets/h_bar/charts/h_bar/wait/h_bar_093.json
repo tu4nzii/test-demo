@@ -1,0 +1,88 @@
+{
+  "chart_id": "h_bar_093",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_093.png",
+    "with_grid": "charts/h_bar/h_bar_093_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_093_grid_with_grid.png"
+  },
+  "data_points": {
+    "Unit sales in millions": {
+      "Private label": 17.3,
+      "Neutrogena": 14.3,
+      "St. Ives": 6.4,
+      "Biore": 3.9,
+      "Neutrogena Rapid Clear": 3.4,
+      "Clearasil": 2.5,
+      "Clearasil Ultra Rapid Action": 2.3,
+      "Neutrogena Acne Stress Control": 2.0,
+      "Differin": 1.8
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0,
+    17.0,
+    18.0
+  ],
+  "y_ticks": [
+    "Private label",
+    "Neutrogena",
+    "St. Ives",
+    "Biore",
+    "Neutrogena Rapid Clear",
+    "Clearasil",
+    "Clearasil Ultra Rapid Action",
+    "Neutrogena Acne Stress Control",
+    "Differin"
+  ],
+  "x_pixels": [
+    125,
+    160,
+    195,
+    230,
+    265,
+    300,
+    335,
+    370,
+    405,
+    440,
+    475,
+    510,
+    544,
+    579,
+    614,
+    649,
+    684,
+    719,
+    754
+  ],
+  "y_pixels": [
+    479,
+    434,
+    389,
+    345,
+    300,
+    255,
+    211,
+    166,
+    121
+  ],
+  "series_color": {
+    "Unit sales in millions": "#87ceeb"
+  }
+}

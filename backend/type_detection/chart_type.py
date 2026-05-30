@@ -1,10 +1,10 @@
-import cv2
 import base64
-import numpy as np
 import json
-import requests
 import re
-import os
+
+import cv2
+import numpy as np
+import requests
 
 from type_detection.chart_registry import (
     DEFAULT_CHART_TYPE,
@@ -16,108 +16,124 @@ from type_detection.chart_registry import (
 
 
 class ChartTypeDetector:
-    """图表类型检测器类
-    使用大模型来判断图表类型（玫瑰图、雷达图等）
-    """
-    
+    """Detect chart type and optional missing-axis repair hints with an MLLM."""
+
     def __init__(self):
-        """初始化图表类型检测器
-        配置API参数和支持的图表类型列表
-        """
-        # 配置参数 - 复用项目中的大模型API配置
         self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
         self.url = "https://api.vveai.com/v1/chat/completions"
         self.headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "Authorization": f"Bearer {self.api_key}",
         }
-        
-        # 支持的图表类型列表由统一注册表维护
         self.supported_types = SUPPORTED_CHART_TYPES
-    
+
     def extract_json_response(self, content: str):
-        """从LLM响应中提取JSON内容
-        
-        Args:
-            content: LLM返回的原始内容
-            
-        Returns:
-            dict: 解析后的JSON对象，失败则返回None
-        """
         try:
-            match = re.search(r'(\{[\s\S]*\})', content)
+            match = re.search(r"(\{[\s\S]*\})", content or "")
             if not match:
                 return None
-            json_str = match.group(1)
-            return json.loads(json_str)
-        except Exception as e:
-            print(f"[错误] JSON解析失败: {e}")
+            return json.loads(match.group(1))
+        except Exception as error:
+            print(f"[Error] JSON parse failed: {error}")
             return None
-    
+
     def image_to_base64(self, image_path):
-        """将图像转换为base64编码
-        
-        Args:
-            image_path: 图像文件路径
-            
-        Returns:
-            str: base64编码的图像数据
-        """
-        # 读取图像并转换格式
         image = cv2.imread(image_path)
         if image is None:
-            raise FileNotFoundError(f"无法读取图像文件: {image_path}")
-        
-        # 转换为RGB格式
+            raise FileNotFoundError(f"Cannot read image file: {image_path}")
+
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        
-        # 确保数据类型正确
         if image_rgb.dtype != np.uint8:
             image_rgb = image_rgb.astype(np.uint8)
-        
-        # 编码为JPEG并转换为base64
-        success, encoded_image = cv2.imencode('.jpg', image_rgb)
+
+        success, encoded_image = cv2.imencode(".jpg", image_rgb)
         if not success:
-            raise ValueError("图像编码失败")
-        
-        # 转换为base64字符串
+            raise ValueError("Image encoding failed")
+
         image_data = np.ascontiguousarray(encoded_image)
-        return base64.b64encode(image_data).decode('utf-8')
-    
-    def detect_chart_type(self, image_path):
-        """检测图表类型
-        
-        Args:
-            image_path: 图像文件路径
-            
-        Returns:
-            dict: 包含检测结果的字典，格式为 {"type": "chart_type", "confidence": float}
+        return base64.b64encode(image_data).decode("utf-8")
+
+    def normalize_axis_repair(self, result):
+        """Normalize optional MLLM axis-missing hints.
+
+        The repair path is deliberately opt-in. If the model omits this object
+        or is unsure, all flags remain false so normal charts keep the existing
+        encryption behavior.
         """
+        repair = result.get("axis_repair") if isinstance(result, dict) else None
+        if not isinstance(repair, dict):
+            repair = {}
+
+        missing_axes = result.get("missing_axes") if isinstance(result, dict) else None
+        if isinstance(missing_axes, dict):
+            repair = {**missing_axes, **repair}
+
+        def as_bool(value):
+            if isinstance(value, bool):
+                return value
+            if isinstance(value, (int, float)):
+                return value != 0
+            if isinstance(value, str):
+                return value.strip().lower() in {"true", "1", "yes", "y", "missing"}
+            return False
+
         try:
-            # 将图像转换为base64
+            confidence = float(repair.get("confidence", result.get("axis_repair_confidence", 0)))
+        except (TypeError, ValueError):
+            confidence = 0.0
+
+        return {
+            "x_axis_missing": as_bool(repair.get("x_axis_missing", repair.get("x", False))),
+            "y_axis_missing": as_bool(repair.get("y_axis_missing", repair.get("y", False))),
+            "x_ticks_missing": as_bool(repair.get("x_ticks_missing", False)),
+            "y_ticks_missing": as_bool(repair.get("y_ticks_missing", False)),
+            "confidence": max(0.0, min(1.0, confidence)),
+            "reason": str(repair.get("reason", "") or ""),
+        }
+
+    def default_axis_repair(self, reason=""):
+        return {
+            "x_axis_missing": False,
+            "y_axis_missing": False,
+            "x_ticks_missing": False,
+            "y_ticks_missing": False,
+            "confidence": 0.0,
+            "reason": reason,
+        }
+
+    def detect_chart_type(self, image_path):
+        try:
             base64_image = self.image_to_base64(image_path)
-            
-            # 构建提示和请求体
+
             prompt = f"""
-            请你分析这个图表图像，并判断它属于哪种图表类型。
+Analyze this chart image.
 
-            可能的图表类型包括：
-            {format_chart_options()}
+Supported chart types:
+{format_chart_options()}
 
-            请严格按照以下JSON格式返回结果：
-            ```json
-            {{
-                "type": "<chart_type>",
-                "confidence": <confidence_score>
-            }}
-            ```
+Return strict JSON only:
+{{
+  "type": "<chart_type>",
+  "confidence": <number between 0 and 1>,
+  "axis_repair": {{
+    "x_axis_missing": <true_or_false>,
+    "y_axis_missing": <true_or_false>,
+    "x_ticks_missing": <true_or_false>,
+    "y_ticks_missing": <true_or_false>,
+    "confidence": <number between 0 and 1>,
+    "reason": "<short reason>"
+  }}
+}}
 
-            其中：
-            - <chart_type> 必须是 {format_supported_types()} 中的一个
-            - <confidence_score> 是一个0到1之间的浮点数，表示你对判断结果的置信度
-            """
-            
-            # 构建请求体
+Rules:
+- "type" must be one of {format_supported_types()}.
+- Mark an axis or tick marks as missing only when the visible chart clearly
+  lacks that axis line or the short tick marks.
+- Be conservative: for normal charts with visible axes/ticks, set every
+  axis_repair flag to false.
+- Missing tick labels alone are not a repair signal here.
+"""
+
             payload = {
                 "model": "gpt-4.1",
                 "messages": [
@@ -125,76 +141,60 @@ class ChartTypeDetector:
                         "role": "user",
                         "content": [
                             {"type": "text", "text": prompt},
-                            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}}
-                        ]
+                            {
+                                "type": "image_url",
+                                "image_url": {"url": f"data:image/png;base64,{base64_image}"},
+                            },
+                        ],
                     }
                 ],
-                "max_tokens": 500
+                "max_tokens": 700,
             }
-            
-            # 发送请求到LLM API
+
             response = requests.post(self.url, headers=self.headers, data=json.dumps(payload))
-            
-            # 检查响应状态
             if response.status_code != 200:
-                raise Exception(f"API请求失败: {response.status_code}, {response.text}")
-            
-            # 解析响应内容
+                raise Exception(f"API request failed: {response.status_code}, {response.text}")
+
             response_data = response.json()
             if "choices" not in response_data or len(response_data["choices"]) == 0:
-                raise Exception("无效的API响应格式")
-            
-            # 提取LLM生成的内容
+                raise Exception("Invalid API response format")
+
             content = response_data["choices"][0]["message"]["content"]
-            
-            # 提取JSON响应
             result = self.extract_json_response(content)
-            
-            # 验证结果格式
             if result is None or "type" not in result or "confidence" not in result:
-                raise ValueError("LLM返回的结果格式不符合要求")
-            
-            # 验证图表类型是否在支持列表中
+                raise ValueError("LLM result does not match required format")
+
             chart_type = normalize_chart_type(result["type"])
             if chart_type not in self.supported_types:
-                raise ValueError(f"不支持的图表类型: {chart_type}")
-            
-            # 验证置信度是否在有效范围内
+                raise ValueError(f"Unsupported chart type: {chart_type}")
+
             confidence = result["confidence"]
             if not isinstance(confidence, (int, float)) or confidence < 0 or confidence > 1:
-                raise ValueError(f"无效的置信度值: {confidence}")
-            
-            print(f"[成功] 图表类型检测成功: {chart_type}, 置信度: {confidence}")
+                raise ValueError(f"Invalid confidence value: {confidence}")
+
+            print(f"[Success] Chart type detected: {chart_type}, confidence={confidence}")
             return {
                 "type": chart_type,
-                "confidence": float(confidence)
+                "confidence": float(confidence),
+                "axis_repair": self.normalize_axis_repair(result),
             }
-            
-        except Exception as e:
-            print(f"[错误] 图表类型检测失败: {e}")
-            # 返回默认值，以便系统可以继续工作
+
+        except Exception as error:
+            print(f"[Error] Chart type detection failed: {error}")
             return {
-                "type": DEFAULT_CHART_TYPE,  # 默认类型为垂直条形图
+                "type": DEFAULT_CHART_TYPE,
                 "confidence": 0.5,
-                "error": str(e)
+                "axis_repair": self.default_axis_repair("type detection fallback"),
+                "error": str(error),
             }
 
 
-# 辅助函数：快速检测图表类型
 def detect_chart(image_path):
-    """检测图表类型的便捷函数
-    
-    Args:
-        image_path: 图像文件路径
-        
-    Returns:
-        dict: 检测结果
-    """
     detector = ChartTypeDetector()
     return detector.detect_chart_type(image_path)
 
+
 if __name__ == "__main__":
-    # 测试图表类型检测
     test_image = "./data/upload/radar_000.png"
     result = detect_chart(test_image)
     print(result)

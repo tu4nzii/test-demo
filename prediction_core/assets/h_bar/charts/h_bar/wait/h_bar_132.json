@@ -1,0 +1,87 @@
+{
+  "chart_id": "h_bar_132",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_132.png",
+    "with_grid": "charts/h_bar/h_bar_132_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_132_grid_with_grid.png"
+  },
+  "data_points": {
+    "Points scored": {
+      "Karl Malone": 36374.0,
+      "John Stockton": 19711.0,
+      "Adrian Dantley": 13635.0,
+      "Darrell Griffith": 12391.0,
+      "Thurl Bailey": 9897.0,
+      "Andrei Kirilenko": 8411.0,
+      "Pete Maravich": 8324.0,
+      "Gordon Hayward": 8077.0,
+      "Deron Williams": 7576.0,
+      "Mehmet Okur": 7255.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2500.0,
+    5000.0,
+    7500.0,
+    10000.0,
+    12500.0,
+    15000.0,
+    17500.0,
+    20000.0,
+    22500.0,
+    25000.0,
+    27500.0,
+    30000.0,
+    32500.0,
+    35000.0,
+    37500.0,
+    40000.0
+  ],
+  "y_ticks": [
+    "Karl Malone",
+    "John Stockton",
+    "Adrian Dantley",
+    "Darrell Griffith",
+    "Thurl Bailey",
+    "Andrei Kirilenko",
+    "Pete Maravich",
+    "Gordon Hayward",
+    "Deron Williams",
+    "Mehmet Okur"
+  ],
+  "x_pixels": [
+    160,
+    192,
+    223,
+    255,
+    287,
+    318,
+    350,
+    381,
+    413,
+    444,
+    476,
+    507,
+    539,
+    570,
+    602,
+    633,
+    665
+  ],
+  "y_pixels": [
+    400,
+    367,
+    333,
+    300,
+    267,
+    233,
+    200,
+    167,
+    133,
+    100
+  ],
+  "series_color": {
+    "Points scored": "#1f77b4"
+  }
+}

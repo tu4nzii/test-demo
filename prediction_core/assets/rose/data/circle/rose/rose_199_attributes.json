@@ -1,0 +1,27 @@
+{
+  "chart_id": "rose_199",
+  "chart_type": "rose",
+  "fig_size": [
+    6,
+    6
+  ],
+  "dpi": 100,
+  "font_size": 10,
+  "color_palette": [
+    "#fbb4ae",
+    "#e5d8bd",
+    "#fed9a6",
+    "#f2f2f2",
+    "#ffffcc",
+    "#f2f2f2",
+    "#b3cde3",
+    "#ccebc5",
+    "#e5d8bd",
+    "#decbe4"
+  ],
+  "scale_factor": 0.2,
+  "sparse_layout": false,
+  "num_segments": 10,
+  "num_labels": 10,
+  "random_seed": null
+}

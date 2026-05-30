@@ -1,0 +1,96 @@
+{
+  "chart_id": "h_bar_055",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_055.png",
+    "with_grid": "charts/h_bar/h_bar_055_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_055_grid_with_grid.png"
+  },
+  "data_points": {
+    "Salary": {
+      "LeBron James (Cleveland Cavaliers)": 31.4,
+      "Stephen Curry (Golden State Warriors)": 34.4,
+      "Kevin Durant (Golden State Warriors)": 31.2,
+      "Russell Westbrook (Oklahoma City Thunder)": 33.0,
+      "James Harden (Houston Rockets)": 33.0,
+      "Giannis Antetokounmpo (Milwaukee Bucks)": 22.0,
+      "Klay Thompson (Golden State Warriors)": 28.3,
+      "Kyrie Irving (Brooklyn Nets)": 26.0,
+      "Chris Paul (Los Angeles Clippers)": 33.1,
+      "Damian Lillard (Portland Trail Blazers)": 25.0
+    },
+    "Endorsements": {
+      "LeBron James (Cleveland Cavaliers)": 64.0,
+      "Stephen Curry (Golden State Warriors)": 40.0,
+      "Kevin Durant (Golden State Warriors)": 34.0,
+      "Russell Westbrook (Oklahoma City Thunder)": 25.0,
+      "James Harden (Houston Rockets)": 17.0,
+      "Giannis Antetokounmpo (Milwaukee Bucks)": 27.0,
+      "Klay Thompson (Golden State Warriors)": 15.0,
+      "Kyrie Irving (Brooklyn Nets)": 17.0,
+      "Chris Paul (Los Angeles Clippers)": 7.0,
+      "Damian Lillard (Portland Trail Blazers)": 14.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "y_ticks": [
+    "LeBron James (Cleveland Cavaliers)",
+    "Stephen Curry (Golden State Warriors)",
+    "Kevin Durant (Golden State Warriors)",
+    "Russell Westbrook (Oklahoma City Thunder)",
+    "James Harden (Houston Rockets)",
+    "Giannis Antetokounmpo (Milwaukee Bucks)",
+    "Klay Thompson (Golden State Warriors)",
+    "Kyrie Irving (Brooklyn Nets)",
+    "Chris Paul (Los Angeles Clippers)",
+    "Damian Lillard (Portland Trail Blazers)"
+  ],
+  "x_pixels": [
+    144,
+    188,
+    232,
+    276,
+    320,
+    364,
+    408,
+    452,
+    496,
+    540,
+    584,
+    628,
+    672,
+    716,
+    760
+  ],
+  "y_pixels": [
+    420,
+    386,
+    352,
+    318,
+    284,
+    250,
+    216,
+    182,
+    148,
+    114
+  ],
+  "series_color": {
+    "Salary": "#1f77b4",
+    "Endorsements": "#ff7f0e"
+  }
+}

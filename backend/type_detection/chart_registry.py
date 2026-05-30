@@ -87,14 +87,14 @@ CHART_DEFINITIONS: Tuple[ChartDefinition, ...] = (
         "donut",
         "环形图",
         "中心有空洞的环形占比图",
-        CoordinateSystem.CARTESIAN,
+        CoordinateSystem.POLAR,
         _COMMON_CAPABILITIES,
     ),
     ChartDefinition(
         "pie",
         "饼图",
         "圆形被分割成多个扇区，表示各部分占比",
-        CoordinateSystem.CARTESIAN,
+        CoordinateSystem.POLAR,
         _COMMON_CAPABILITIES,
     ),
 )

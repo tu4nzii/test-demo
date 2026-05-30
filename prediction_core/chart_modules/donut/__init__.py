@@ -1,0 +1,1 @@
+"""Donut chart prediction module."""

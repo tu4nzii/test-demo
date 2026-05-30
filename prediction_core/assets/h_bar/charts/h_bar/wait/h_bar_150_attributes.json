@@ -1,0 +1,31 @@
+{
+  "fig_size": [
+    8,
+    6
+  ],
+  "dpi": 100,
+  "font_size": 12,
+  "palette": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728"
+  ],
+  "total_bar_height": 0.8,
+  "bar_height": 0.8,
+  "num_series": 1,
+  "max_val": 78.0,
+  "encrypted_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "orientation": "horizontal",
+  "title": ""
+}

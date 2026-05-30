@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_195",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_195.png",
+    "with_grid": "charts/h_bar/h_bar_195_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_195_grid_with_grid.png"
+  },
+  "data_points": {
+    "Sales value in billion U.S. dollars": {
+      "Food industry output": 143.0,
+      "Food retail": 52.2,
+      "Food exports": 9.8,
+      "Food service": 6.8,
+      "Food imports": 6.7
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0
+  ],
+  "y_ticks": [
+    "Food industry output",
+    "Food retail",
+    "Food exports",
+    "Food service",
+    "Food imports"
+  ],
+  "x_pixels": [
+    274,
+    340,
+    406,
+    472,
+    538,
+    604,
+    670,
+    736,
+    802,
+    868,
+    934,
+    1000,
+    1066,
+    1132,
+    1198,
+    1264,
+    1330
+  ],
+  "y_pixels": [
+    773,
+    636,
+    500,
+    364,
+    227
+  ],
+  "series_color": {
+    "Sales value in billion U.S. dollars": "#87ceeb"
+  }
+}

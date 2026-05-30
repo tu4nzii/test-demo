@@ -1,0 +1,97 @@
+{
+  "chart_id": "radar_232",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C"
+  ],
+  "data_points": {
+    "PPYYJV": {
+      "B": 17.5,
+      "A": 43.5,
+      "C": 39.0
+    },
+    "AIUAH": {
+      "B": 28.5,
+      "C": 40.0,
+      "A": 37.0
+    },
+    "NLPBV": {
+      "A": 33.0,
+      "B": 29.5,
+      "C": 48.5
+    },
+    "SDUC": {
+      "A": 11.0,
+      "B": 18.5,
+      "C": 44.5
+    },
+    "AFK": {
+      "B": 41.5,
+      "C": 31.0,
+      "A": 41.5
+    },
+    "URM": {
+      "A": 44.5,
+      "C": 43.5,
+      "B": 23.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C"
+  ],
+  "theta_angles": [
+    0.0,
+    120.0,
+    240.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50.0
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_232.png"
+  },
+  "series_color": {
+    "PPYYJV": "#ff7f0e",
+    "AIUAH": "#c49c94",
+    "NLPBV": "#2ca02c",
+    "SDUC": "#c7c7c7",
+    "AFK": "#ffbb78",
+    "URM": "#dbdb8d"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 3,
+  "err_center": 3.0,
+  "pred_coords": [
+    489,
+    364
+  ],
+  "argument": {
+    "a": 5.45,
+    "b": 2.5
+  }
+}

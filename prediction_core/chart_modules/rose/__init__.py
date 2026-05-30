@@ -1,0 +1,1 @@
+"""Rose chart prediction module."""

@@ -1,0 +1,63 @@
+{
+  "chart_id": "h_bar_007",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_007.png",
+    "with_grid": "charts/h_bar/h_bar_007_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_007_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average career length in years": {
+      "Kickers": 4.87,
+      "Quarterbacks": 4.44,
+      "League average": 3.3,
+      "Cornerbacks": 2.94,
+      "Wide receivers": 2.81,
+      "Running backs": 2.57
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0
+  ],
+  "y_ticks": [
+    "Kickers",
+    "Quarterbacks",
+    "League average",
+    "Cornerbacks",
+    "Wide receivers",
+    "Running backs"
+  ],
+  "x_pixels": [
+    155,
+    205,
+    255,
+    305,
+    354,
+    404,
+    454,
+    504,
+    554,
+    604,
+    654
+  ],
+  "y_pixels": [
+    391,
+    335,
+    278,
+    222,
+    165,
+    109
+  ],
+  "series_color": {
+    "Average career length in years": "#87ceeb"
+  }
+}

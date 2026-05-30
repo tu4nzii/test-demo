@@ -1,0 +1,36 @@
+{
+  "fig_size": [
+    7,
+    5
+  ],
+  "dpi": 100,
+  "font_size": 12,
+  "palette": [
+    "skyblue",
+    "steelblue",
+    "salmon",
+    "gold"
+  ],
+  "total_bar_width": 0.8,
+  "bar_width": 0.8,
+  "num_series": 1,
+  "max_val": 12268.0,
+  "encrypted_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0,
+    13000.0,
+    14000.0
+  ],
+  "orientation": "vertical"
+}

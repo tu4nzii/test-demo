@@ -1,0 +1,90 @@
+{
+  "chart_id": "h_bar_178",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_178.png",
+    "with_grid": "charts/h_bar/h_bar_178_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_178_grid_with_grid.png"
+  },
+  "data_points": {
+    "Box office gross in million U.S. dollars": {
+      "Avengers: Infinity War": 2048.4,
+      "Black Panther": 1346.9,
+      "Jurassic World: Fallen Kingdom": 1309.5,
+      "Incredibles 2": 1242.8,
+      "Aquaman": 1147.8,
+      "Bohemian Rhapsody": 903.7,
+      "Venom": 855.0,
+      "Mission: Impossible - Fallout": 791.0,
+      "Deadpool 2": 778.9,
+      "Fantastic Beasts: The Crimes of Grindelwald": 653.7,
+      "Ant-Man and the Wasp": 622.7,
+      "Ready Player One": 582.9,
+      "Operation Red Sea": 579.2,
+      "Detective Chinatown 2": 544.1,
+      "The Meg": 530.2
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0,
+    2250.0,
+    2500.0
+  ],
+  "y_ticks": [
+    "Avengers: Infinity War",
+    "Black Panther",
+    "Jurassic World: Fallen Kingdom",
+    "Incredibles 2",
+    "Aquaman",
+    "Bohemian Rhapsody",
+    "Venom",
+    "Mission: Impossible - Fallout",
+    "Deadpool 2",
+    "Fantastic Beasts: The Crimes of Grindelwald",
+    "Ant-Man and the Wasp",
+    "Ready Player One",
+    "Operation Red Sea",
+    "Detective Chinatown 2",
+    "The Meg"
+  ],
+  "x_pixels": [
+    212,
+    267,
+    322,
+    377,
+    431,
+    486,
+    541,
+    596,
+    650,
+    705,
+    760
+  ],
+  "y_pixels": [
+    486,
+    459,
+    433,
+    406,
+    380,
+    353,
+    327,
+    300,
+    273,
+    247,
+    220,
+    194,
+    167,
+    141,
+    114
+  ],
+  "series_color": {
+    "Box office gross in million U.S. dollars": "#66c2a5"
+  }
+}

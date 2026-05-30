@@ -1,0 +1,97 @@
+{
+  "chart_id": "radar_158",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "data_points": {
+    "PBB": {
+      "F": 23.0,
+      "C": 6.0,
+      "B": 29.0,
+      "A": 33.0,
+      "E": 48.5,
+      "D": 30.5
+    },
+    "BKC": {
+      "E": 6.0,
+      "A": 11.0,
+      "B": 6.0,
+      "D": 41.0,
+      "C": 12.0,
+      "F": 36.5
+    },
+    "BMNKMM": {
+      "F": 28.5,
+      "D": 35.0,
+      "C": 38.5,
+      "B": 9.5,
+      "A": 22.0,
+      "E": 10.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50.0
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_158.png"
+  },
+  "series_color": {
+    "PBB": "#f7b6d2",
+    "BKC": "#9467bd",
+    "BMNKMM": "#ff9896"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 6,
+  "err_center": 2.23606797749979,
+  "pred_coords": [
+    460,
+    604
+  ],
+  "argument": {
+    "a": 6.9,
+    "b": 2.0
+  }
+}

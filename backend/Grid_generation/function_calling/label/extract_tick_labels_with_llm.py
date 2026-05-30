@@ -232,13 +232,13 @@ def encode_image_to_base64(image_path: str) -> str:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
-def encode_axis_crop_to_base64(image_path: str, direction: str) -> str:
+def encode_axis_crop_to_base64(image_path: str, direction: str, chart_type: str = "") -> str:
     image_path = os.path.normpath(image_path)
     image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
     if image is None:
         return encode_image_to_base64(image_path)
     h, w = image.shape[:2]
-    chart_type = os.path.basename(os.path.dirname(image_path)).lower()
+    chart_type = (chart_type or os.path.basename(os.path.dirname(image_path))).lower()
     if direction.lower() == "x":
         crop = image[int(h * 0.52):h, 0:w]
     elif chart_type == "h_bar":
@@ -384,9 +384,9 @@ def build_tick_prompt_signature(chart_type: str = "") -> str:
     return stable_json_hash(payload)
 
 
-def build_cache_metadata(image_path: str, dataset_id: str = "default") -> Dict:
+def build_cache_metadata(image_path: str, dataset_id: str = "default", chart_type_override: str = "") -> Dict:
     abs_path = os.path.abspath(image_path)
-    chart_type = os.path.basename(os.path.dirname(abs_path)).lower()
+    chart_type = (chart_type_override or os.path.basename(os.path.dirname(abs_path))).lower()
     try:
         image_hash = sha256_file(abs_path)
     except OSError:
@@ -484,9 +484,15 @@ def _replace_nonfinite_ticks(values):
     return cleaned, changed
 
 
-def get_cache_file_path(image_path: str, cache_dir: str, dataset_id: str = "default", prompt_signature: str = None) -> str:
+def get_cache_file_path(
+    image_path: str,
+    cache_dir: str,
+    dataset_id: str = "default",
+    prompt_signature: str = None,
+    chart_type_override: str = "",
+) -> str:
     abs_path = os.path.abspath(image_path)
-    chart_type = os.path.basename(os.path.dirname(abs_path)).lower()
+    chart_type = (chart_type_override or os.path.basename(os.path.dirname(abs_path))).lower()
     try:
         image_hash = sha256_file(abs_path)
     except OSError:
@@ -555,7 +561,7 @@ def save_llm_cache(
         print(f"[Warning] 保存LLM缓存失败: {e}")
 
 
-def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x') -> Dict:
+def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_type_override: str = "") -> Dict:
     """
     使用LLM识别指定轴的刻度值和类型（同步版本）
     
@@ -568,9 +574,10 @@ def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x') -> Dict:
     """
     try:
         # 读取图像并编码为base64
-        image_base64 = encode_axis_crop_to_base64(image_path, direction)
+        chart_type = (chart_type_override or os.path.basename(os.path.dirname(image_path))).lower()
+        image_base64 = encode_axis_crop_to_base64(image_path, direction, chart_type=chart_type)
+        prompt = build_tick_extraction_prompt(direction, chart_type)
         
-        chart_type = os.path.basename(os.path.dirname(image_path)).lower()
         # 构建提示词
         prompt = build_tick_extraction_prompt(direction, chart_type)
         
@@ -878,22 +885,24 @@ def extract_tick_labels_with_llm(
     cache_dir: Optional[str] = None,
     allow_api: bool = True,
     dataset_id: str = "default",
+    chart_type_override: str = "",
 ) -> Dict:
     """Extract X/Y tick labels with a prompt- and dataset-aware MLLM cache."""
     cache_file = None
     metadata = None
+    chart_type = (chart_type_override or os.path.basename(os.path.dirname(image_path))).lower()
     if cache_dir:
-        metadata = build_cache_metadata(image_path, dataset_id=dataset_id)
+        metadata = build_cache_metadata(image_path, dataset_id=dataset_id, chart_type_override=chart_type)
         cache_file = get_cache_file_path(
             image_path,
             cache_dir,
             dataset_id=dataset_id,
             prompt_signature=metadata["prompt_signature"],
+            chart_type_override=chart_type,
         )
         cached_result = load_llm_cache(cache_file, expected_metadata=metadata)
         if cached_result:
             print(f"[Info] 从缓存加载LLM识别结果: {cache_file}")
-            chart_type = os.path.basename(os.path.dirname(image_path)).lower()
             x_ticks, x_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("x_ticks", []))
             y_ticks, y_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("y_ticks", []))
             if chart_type == "h_bar":
@@ -925,8 +934,8 @@ def extract_tick_labels_with_llm(
         }
 
     print(f"[Info] 开始使用LLM识别刻度标签: {image_path}")
-    x_result = extract_axis_ticks_with_llm(image_path, direction="x")
-    y_result = extract_axis_ticks_with_llm(image_path, direction="y")
+    x_result = extract_axis_ticks_with_llm(image_path, direction="x", chart_type_override=chart_type)
+    y_result = extract_axis_ticks_with_llm(image_path, direction="y", chart_type_override=chart_type)
 
     result = {
         "x_ticks": x_result.get("ticks", []),

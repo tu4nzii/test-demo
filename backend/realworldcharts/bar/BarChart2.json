@@ -1,0 +1,49 @@
+{
+  "chart_id": "BarChart2",
+  "chart_type": "bar",
+  "image_paths": {
+    "no_grid": "charts/bar/BarChart2.png"
+  },
+  "source_csv": "charts/bar/BarChart2.csv",
+  "data_points": {
+    "series-0": {
+      "South Korea": 400,
+      "Canada": 430,
+      "United Kingdom": 448,
+      "Netherlands": 470,
+      "Italy": 540,
+      "France": 580,
+      "Japan": 690,
+      "United States": 1100,
+      "China": 1200,
+      "Germany": 1380
+    }
+  },
+  "x_ticks": [
+    "South Korea",
+    "Canada",
+    "United Kingdom",
+    "Netherlands",
+    "Italy",
+    "France",
+    "Japan",
+    "United States",
+    "China",
+    "Germany"
+  ],
+  "y_ticks": [
+    400,
+    430,
+    448,
+    470,
+    540,
+    580,
+    690,
+    1100,
+    1200,
+    1380
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

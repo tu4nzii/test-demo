@@ -1,0 +1,21 @@
+{
+  "chart_id": "DonutChart11",
+  "chart_type": "donut",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart11.png"
+  },
+  "source_csv": "charts/donut/DonutChart11.csv",
+  "data_points": {
+    "Bear": 12,
+    "Wolf": 20,
+    "Fox": 30,
+    "Rabbit": 55,
+    "Mouse": 80
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

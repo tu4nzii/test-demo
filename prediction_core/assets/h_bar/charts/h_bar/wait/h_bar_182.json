@@ -1,0 +1,76 @@
+{
+  "chart_id": "h_bar_182",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_182.png",
+    "with_grid": "charts/h_bar/h_bar_182_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_182_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of views in millions": {
+      "Realfarmacy.com": 253.62,
+      "globalresearch.ca": 235.64,
+      "collective-evolution.com": 170.56,
+      "jedanews.com": 166.15,
+      "ripostelaique.com": 140.18,
+      "mercola.com": 133.54,
+      "lesmoutonsrebelles.com": 111.48,
+      "sonsoflibertymedia.com": 99.19,
+      "wakingtimes.com": 93.34
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0,
+    275.0,
+    300.0
+  ],
+  "y_ticks": [
+    "Realfarmacy.com",
+    "globalresearch.ca",
+    "collective-evolution.com",
+    "jedanews.com",
+    "ripostelaique.com",
+    "mercola.com",
+    "lesmoutonsrebelles.com",
+    "sonsoflibertymedia.com",
+    "wakingtimes.com"
+  ],
+  "x_pixels": [
+    455,
+    544,
+    633,
+    721,
+    810,
+    899,
+    988,
+    1076,
+    1165,
+    1254,
+    1343,
+    1431,
+    1520
+  ],
+  "y_pixels": [
+    957,
+    868,
+    779,
+    689,
+    600,
+    511,
+    421,
+    332,
+    243
+  ],
+  "series_color": {
+    "Number of views in millions": "#87ceeb"
+  }
+}

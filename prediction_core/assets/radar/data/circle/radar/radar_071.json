@@ -1,0 +1,85 @@
+{
+  "chart_id": "radar_071",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "DHE": {
+      "D": 17.0,
+      "E": 23.5,
+      "A": 24.25,
+      "B": 22.5,
+      "C": 19.0
+    },
+    "NYWV": {
+      "A": 7.0,
+      "D": 17.75,
+      "C": 15.5,
+      "B": 17.75,
+      "E": 10.5
+    },
+    "BJH": {
+      "C": 12.75,
+      "B": 18.0,
+      "A": 8.5,
+      "D": 10.5,
+      "E": 8.5
+    },
+    "JKQ": {
+      "D": 21.25,
+      "A": 10.75,
+      "C": 23.0,
+      "B": 16.75,
+      "E": 11.75
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_071.png"
+  },
+  "series_color": {
+    "DHE": "#ff9896",
+    "NYWV": "#c5b0d5",
+    "BJH": "#9edae5",
+    "JKQ": "#c7c7c7"
+  },
+  "num_entities": 4,
+  "fill_enabled": true,
+  "num_vars": 5
+}

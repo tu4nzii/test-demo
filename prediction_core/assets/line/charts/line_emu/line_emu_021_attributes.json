@@ -1,0 +1,67 @@
+{
+  "chart_id": "line_emu_021",
+  "title": "模拟折线图 22",
+  "dpi": 120,
+  "fig_size": [
+    6,
+    4
+  ],
+  "font_size": 10,
+  "palette": [
+    "#e377c2",
+    "#7f7f7f",
+    "#bcbd22",
+    "#17becf"
+  ],
+  "sample_size": 9,
+  "series_color": {
+    "L01": "#e377c2",
+    "L02": "#7f7f7f"
+  },
+  "x_ticks": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05",
+    "T06",
+    "T07",
+    "T08",
+    "T09"
+  ],
+  "y_ticks": [
+    0.0,
+    20.0,
+    40.0,
+    60.0,
+    80.0
+  ],
+  "y_ticks_encrypted": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "random_seed": 42,
+  "marker_types": [
+    "o",
+    "s",
+    "D",
+    "^",
+    "v",
+    "p",
+    "*"
+  ],
+  "line_styles": [
+    "-",
+    "--",
+    "-.",
+    ":"
+  ],
+  "show_markers": true
+}

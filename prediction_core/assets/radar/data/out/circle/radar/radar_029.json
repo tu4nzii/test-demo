@@ -1,0 +1,88 @@
+{
+  "chart_id": "radar_029",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "data_points": {
+    "USWDZ": {
+      "C": 86.0,
+      "A": 80.0,
+      "F": 73.0,
+      "B": 75.0,
+      "E": 49.0,
+      "D": 28.0
+    },
+    "BQN": {
+      "F": 15.0,
+      "B": 83.0,
+      "D": 48.0,
+      "C": 37.0,
+      "A": 84.0,
+      "E": 29.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100.0
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_029.png"
+  },
+  "series_color": {
+    "USWDZ": "#ff7f0e",
+    "BQN": "#aec7e8"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 6,
+  "err_center": 3.0,
+  "pred_coords": [
+    489,
+    364
+  ],
+  "argument": {
+    "a": 2.725,
+    "b": 2.5
+  }
+}

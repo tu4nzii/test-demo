@@ -1,0 +1,59 @@
+{
+  "chart_id": "h_bar_129",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_129.png",
+    "with_grid": "charts/h_bar/h_bar_129_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_129_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average number of books published": {
+      "100kers": 33.28,
+      "Emerging authors": 7.38
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0,
+    32.5,
+    35.0
+  ],
+  "y_ticks": [
+    "100kers",
+    "Emerging authors"
+  ],
+  "x_pixels": [
+    247,
+    338,
+    429,
+    520,
+    611,
+    702,
+    793,
+    884,
+    974,
+    1065,
+    1156,
+    1247,
+    1338,
+    1429,
+    1520
+  ],
+  "y_pixels": [
+    818,
+    382
+  ],
+  "series_color": {
+    "Average number of books published": "#1f77b4"
+  }
+}

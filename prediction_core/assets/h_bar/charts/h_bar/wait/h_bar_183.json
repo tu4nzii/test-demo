@@ -1,0 +1,84 @@
+{
+  "chart_id": "h_bar_183",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_183.png",
+    "with_grid": "charts/h_bar/h_bar_183_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_183_grid_with_grid.png"
+  },
+  "data_points": {
+    "Deal value in million euros": {
+      "SIG Combibloc Group bought by Onex Corporation (Switzerland, Manufacturing)": 3750.0,
+      "Nordic Aviation Capital/ NAC bought by EQT Partners AB, Kirkbi Invest A/S (Denmark, Aerospace)": 3000.0,
+      "Verallia bought by Apollo Global Management LLC, BPI France SA (France, Manufacturing)": 2945.0,
+      "Douglas Holding bought by CVC Capital Partners Limited (Germany, Retail and consumer products)": 2800.0,
+      "New Look bought by Brait Private Equity (UK, Retail and consumer products)": 2613.0,
+      "Securitas Direct Verisure Group bought by Hellman & Friedman LLC (Sweden, Industrial products and services)": 2500.0,
+      "Orange Communicatons bought by NJJ Capital (Switzerland, Telecommunications)": 2327.0,
+      "Constantia Packaging bought by Wendel SA (Austria, Manufacturing)": 2300.0,
+      "ICBPI bought by Bain Capital, Advent International, Clessidra SGR SpA (Italy, Financial services)": 2150.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0,
+    2250.0,
+    2500.0,
+    2750.0,
+    3000.0,
+    3250.0,
+    3500.0,
+    3750.0,
+    4000.0
+  ],
+  "y_ticks": [
+    "SIG Combibloc Group bought by Onex Corporation (Switzerland, Manufacturing)",
+    "Nordic Aviation Capital/ NAC bought by EQT Partners AB, Kirkbi Invest A/S (Denmark, Aerospace)",
+    "Verallia bought by Apollo Global Management LLC, BPI France SA (France, Manufacturing)",
+    "Douglas Holding bought by CVC Capital Partners Limited (Germany, Retail and consumer products)",
+    "New Look bought by Brait Private Equity (UK, Retail and consumer products)",
+    "Securitas Direct Verisure Group bought by Hellman & Friedman LLC (Sweden, Industrial products and services)",
+    "Orange Communicatons bought by NJJ Capital (Switzerland, Telecommunications)",
+    "Constantia Packaging bought by Wendel SA (Austria, Manufacturing)",
+    "ICBPI bought by Bain Capital, Advent International, Clessidra SGR SpA (Italy, Financial services)"
+  ],
+  "x_pixels": [
+    379,
+    438,
+    498,
+    557,
+    617,
+    676,
+    736,
+    795,
+    854,
+    914,
+    973,
+    1033,
+    1092,
+    1152,
+    1211,
+    1271,
+    1330
+  ],
+  "y_pixels": [
+    798,
+    723,
+    649,
+    574,
+    500,
+    426,
+    351,
+    277,
+    202
+  ],
+  "series_color": {
+    "Deal value in million euros": "#87ceeb"
+  }
+}

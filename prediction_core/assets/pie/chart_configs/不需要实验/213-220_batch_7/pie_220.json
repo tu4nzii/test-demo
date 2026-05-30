@@ -1,0 +1,35 @@
+{
+  "chart_id": "220",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_220_no_grid.png",
+    "with_grid": "charts/pie/pie_220_with_grid.png"
+  },
+  "data_points": {
+    "Unauthorized immigrants . million ()": 56.93,
+    "Naturalized citizens .  million ()": 112.23,
+    "Lawful immigrants . million ()": 190.84
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Unauthorized immigrants . million ()": "#fed9a6",
+    "Naturalized citizens .  million ()": "#ccebc5",
+    "Lawful immigrants . million ()": "#386cb0"
+  }
+}

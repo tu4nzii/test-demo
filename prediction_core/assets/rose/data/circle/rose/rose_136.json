@@ -1,0 +1,58 @@
+{
+  "chart_id": "rose_136",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_136.png"
+  },
+  "center": {
+    "x": 717,
+    "y": 707
+  },
+  "data_points": {
+    "YGPH": 18.0,
+    "TR": 10.0,
+    "QLD": 15.4,
+    "YR": 11.4,
+    "ERI": 13.8,
+    "XHDY": 13.8,
+    "NYC": 11.8,
+    "KDJ": 10.8
+  },
+  "series_color": {
+    "YGPH": "#bcbd22",
+    "TR": "#9467bd",
+    "QLD": "#2ca02c",
+    "YR": "#17becf",
+    "ERI": "#ff7f0e",
+    "XHDY": "#8c564b",
+    "NYC": "#7f7f7f",
+    "KDJ": "#1f77b4"
+  },
+  "r_ticks": [
+    "10",
+    "20"
+  ],
+  "r_pixels": [
+    234,
+    468
+  ],
+  "theta_ticks": [
+    "YGPH",
+    "TR",
+    "QLD",
+    "YR",
+    "ERI",
+    "XHDY",
+    "NYC",
+    "KDJ"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ]
+}

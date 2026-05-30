@@ -1,0 +1,84 @@
+{
+  "chart_id": "h_bar_073",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_073.png",
+    "with_grid": "charts/h_bar/h_bar_073_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_073_grid_with_grid.png"
+  },
+  "data_points": {
+    "Box office gross in million U.S dollars": {
+      "Furious 7": 147.19,
+      "The Fate of the Furious": 98.79,
+      "Fast & Furious 6": 97.38,
+      "Fast Five": 86.2,
+      "Fast & Furious": 70.95,
+      "Fast & Furious Presents: Hobbs & Shaw*": 60.04,
+      "2 Fast 2 Furious": 50.47,
+      "The Fast and the Furious": 40.09,
+      "The Fast and the Furious: Tokyo Drift": 23.97
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0
+  ],
+  "y_ticks": [
+    "Furious 7",
+    "The Fate of the Furious",
+    "Fast & Furious 6",
+    "Fast Five",
+    "Fast & Furious",
+    "Fast & Furious Presents: Hobbs & Shaw*",
+    "2 Fast 2 Furious",
+    "The Fast and the Furious",
+    "The Fast and the Furious: Tokyo Drift"
+  ],
+  "x_pixels": [
+    256,
+    323,
+    390,
+    457,
+    524,
+    591,
+    659,
+    726,
+    793,
+    860,
+    927,
+    994,
+    1061,
+    1129,
+    1196,
+    1263,
+    1330
+  ],
+  "y_pixels": [
+    798,
+    723,
+    649,
+    574,
+    500,
+    426,
+    351,
+    277,
+    202
+  ],
+  "series_color": {
+    "Box office gross in million U.S dollars": "#1f77b4"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "chart_id": "h_bar_143",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_143.png",
+    "with_grid": "charts/h_bar/h_bar_143_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_143_grid_with_grid.png"
+  },
+  "data_points": {
+    "Revenue in billion U.S. dollars": {
+      "BlackRock": 14.54,
+      "Charles Schwab": 11.79,
+      "Jones Financial (Edward Jones)": 9.53,
+      "KKR": 9.12,
+      "Raymond James Financial": 8.02,
+      "Intercontinental Exchange": 6.55,
+      "TD Ameritrade Holding": 6.02,
+      "Franklin Resources": 5.77,
+      "LPL Financial Holdings": 5.62,
+      "T.Rowe Price": 5.37
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0
+  ],
+  "y_ticks": [
+    "BlackRock",
+    "Charles Schwab",
+    "Jones Financial (Edward Jones)",
+    "KKR",
+    "Raymond James Financial",
+    "Intercontinental Exchange",
+    "TD Ameritrade Holding",
+    "Franklin Resources",
+    "LPL Financial Holdings",
+    "T.Rowe Price"
+  ],
+  "x_pixels": [
+    302,
+    366,
+    430,
+    495,
+    559,
+    623,
+    687,
+    752,
+    816,
+    880,
+    944,
+    1009,
+    1073,
+    1137,
+    1201,
+    1266,
+    1330
+  ],
+  "y_pixels": [
+    801,
+    734,
+    667,
+    600,
+    533,
+    467,
+    400,
+    333,
+    266,
+    199
+  ],
+  "series_color": {
+    "Revenue in billion U.S. dollars": "#87ceeb"
+  }
+}

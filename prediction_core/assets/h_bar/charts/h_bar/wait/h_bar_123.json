@@ -1,0 +1,86 @@
+{
+  "chart_id": "h_bar_123",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_123.png",
+    "with_grid": "charts/h_bar/h_bar_123_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_123_grid_with_grid.png"
+  },
+  "data_points": {
+    "Turnover in million NOK": {
+      "Finn No AS": 1960.03,
+      "Visolit Norway AS": 1293.5,
+      "Tidal Music AS": 931.82,
+      "Cegal Group AS": 809.95,
+      "Aller Media AS": 760.24,
+      "Ambita AS": 440.19,
+      "Visma It & Communications AS": 406.48,
+      "Google Norway AS": 351.4,
+      "Braathe AS": 278.89,
+      "Refinitiv Norge AS": 260.06,
+      "Norsk Telegrambyrå AS": 251.11,
+      "Buypass AS": 238.61,
+      "Sony Music Entertainment Norway AS": 232.12,
+      "Ikomm AS": 204.91,
+      "Gule Sider AS": 186.37
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0
+  ],
+  "y_ticks": [
+    "Finn No AS",
+    "Visolit Norway AS",
+    "Tidal Music AS",
+    "Cegal Group AS",
+    "Aller Media AS",
+    "Ambita AS",
+    "Visma It & Communications AS",
+    "Google Norway AS",
+    "Braathe AS",
+    "Refinitiv Norge AS",
+    "Norsk Telegrambyrå AS",
+    "Buypass AS",
+    "Sony Music Entertainment Norway AS",
+    "Ikomm AS",
+    "Gule Sider AS"
+  ],
+  "x_pixels": [
+    209,
+    265,
+    320,
+    375,
+    431,
+    486,
+    541,
+    597,
+    652
+  ],
+  "y_pixels": [
+    405,
+    383,
+    361,
+    338,
+    316,
+    294,
+    272,
+    250,
+    228,
+    206,
+    184,
+    162,
+    139,
+    117,
+    95
+  ],
+  "series_color": {
+    "Turnover in million NOK": "#1f77b4"
+  }
+}

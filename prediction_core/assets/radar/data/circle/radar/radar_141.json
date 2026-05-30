@@ -1,0 +1,79 @@
+{
+  "chart_id": "radar_141",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "data_points": {
+    "JNK": {
+      "G": 86.0,
+      "C": 78.0,
+      "F": 36.0,
+      "D": 172.0,
+      "B": 180.0,
+      "A": 174.0,
+      "E": 42.0
+    },
+    "ZPC": {
+      "F": 26.0,
+      "A": 42.0,
+      "D": 56.0,
+      "C": 164.0,
+      "E": 124.0,
+      "G": 78.0,
+      "B": 84.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "theta_angles": [
+    0.0,
+    51.43,
+    102.86,
+    154.29,
+    205.71,
+    257.14,
+    308.57
+  ],
+  "r_ticks": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_141.png"
+  },
+  "series_color": {
+    "JNK": "#c49c94",
+    "ZPC": "#ff9896"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 7
+}

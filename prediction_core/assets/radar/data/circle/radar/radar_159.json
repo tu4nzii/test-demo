@@ -1,0 +1,85 @@
+{
+  "chart_id": "radar_159",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "GXN": {
+      "B": 47.5,
+      "C": 22.5,
+      "D": 20.5,
+      "A": 47.5
+    },
+    "KICIH": {
+      "A": 16.5,
+      "B": 33.0,
+      "C": 20.0,
+      "D": 23.0
+    },
+    "XZZH": {
+      "D": 33.5,
+      "B": 47.5,
+      "C": 26.5,
+      "A": 18.5
+    },
+    "GTEXQQ": {
+      "D": 22.0,
+      "A": 47.5,
+      "B": 47.5,
+      "C": 19.0
+    },
+    "KIZOUS": {
+      "C": 16.5,
+      "A": 47.0,
+      "B": 37.0,
+      "D": 45.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_159.png"
+  },
+  "series_color": {
+    "GXN": "#aec7e8",
+    "KICIH": "#8c564b",
+    "XZZH": "#c49c94",
+    "GTEXQQ": "#8c564b",
+    "KIZOUS": "#bcbd22"
+  },
+  "num_entities": 5,
+  "fill_enabled": false,
+  "num_vars": 4
+}

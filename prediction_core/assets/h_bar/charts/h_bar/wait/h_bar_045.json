@@ -1,0 +1,70 @@
+{
+  "chart_id": "h_bar_045",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_045.png",
+    "with_grid": "charts/h_bar/h_bar_045_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_045_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average player salary in million U.S. dollars": {
+      "Mumbai Indians": 5.47,
+      "Royal Challengers Bangalore": 5.43,
+      "Kings XI Punjab": 5.34,
+      "Chennai Super Kings": 5.23,
+      "Sunrisers Hyderabad": 5.21,
+      "Rajasthan Royals": 5.2,
+      "Delhi Capitals": 5.11
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0
+  ],
+  "y_ticks": [
+    "Mumbai Indians",
+    "Royal Challengers Bangalore",
+    "Kings XI Punjab",
+    "Chennai Super Kings",
+    "Sunrisers Hyderabad",
+    "Rajasthan Royals",
+    "Delhi Capitals"
+  ],
+  "x_pixels": [
+    398,
+    491,
+    585,
+    678,
+    772,
+    865,
+    959,
+    1052,
+    1146,
+    1239,
+    1333,
+    1426,
+    1520
+  ],
+  "y_pixels": [
+    947,
+    831,
+    716,
+    600,
+    484,
+    369,
+    253
+  ],
+  "series_color": {
+    "Average player salary in million U.S. dollars": "#87ceeb"
+  }
+}

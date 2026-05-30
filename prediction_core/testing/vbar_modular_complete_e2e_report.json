@@ -1,0 +1,10 @@
+[
+  {
+    "chart_type": "v_bar",
+    "chart_id": "v_bar_002",
+    "object_name": "Spending in billion Mexican pesos / 2020*",
+    "exit_code": 0,
+    "elapsed_seconds": 34.97,
+    "ok": true
+  }
+]

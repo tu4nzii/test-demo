@@ -1,0 +1,57 @@
+{
+  "chart_id": "h_bar_170",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_170.png",
+    "with_grid": "charts/h_bar/h_bar_170_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_170_grid_with_grid.png"
+  },
+  "data_points": {
+    "Global Hidden Hunger Index in pre-school children": {
+      "India": 48.3,
+      "Bangladesh": 29.3,
+      "Botswana": 24.7,
+      "Brazil": 16.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "y_ticks": [
+    "India",
+    "Bangladesh",
+    "Botswana",
+    "Brazil"
+  ],
+  "x_pixels": [
+    121,
+    184,
+    247,
+    310,
+    373,
+    436,
+    499,
+    562,
+    625,
+    688,
+    751
+  ],
+  "y_pixels": [
+    455,
+    352,
+    248,
+    145
+  ],
+  "series_color": {
+    "Global Hidden Hunger Index in pre-school children": "#66c2a5"
+  }
+}

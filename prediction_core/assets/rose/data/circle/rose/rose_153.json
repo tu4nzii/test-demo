@@ -1,0 +1,66 @@
+{
+  "chart_id": "rose_153",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_153.png"
+  },
+  "center": {
+    "x": 461,
+    "y": 606
+  },
+  "data_points": {
+    "ECMT": 18.2,
+    "FGSZ": 14.0,
+    "EZWY": 13.200000000000001,
+    "IHXX": 20.0,
+    "ITMT": 13.600000000000001,
+    "EZQZ": 18.0,
+    "XMB": 18.8,
+    "LSX": 18.2,
+    "LAO": 11.600000000000001,
+    "DI": 10.600000000000001
+  },
+  "series_color": {
+    "ECMT": "#e377c2",
+    "FGSZ": "#8c564b",
+    "EZWY": "#7f7f7f",
+    "IHXX": "#1f77b4",
+    "ITMT": "#ff7f0e",
+    "EZQZ": "#d62728",
+    "XMB": "#2ca02c",
+    "LSX": "#bcbd22",
+    "LAO": "#9467bd",
+    "DI": "#17becf"
+  },
+  "r_ticks": [
+    "10",
+    "20"
+  ],
+  "r_pixels": [
+    151,
+    302
+  ],
+  "theta_ticks": [
+    "ECMT",
+    "FGSZ",
+    "EZWY",
+    "IHXX",
+    "ITMT",
+    "EZQZ",
+    "XMB",
+    "LSX",
+    "LAO",
+    "DI"
+  ],
+  "theta_angles": [
+    0.0,
+    36.0,
+    72.0,
+    108.0,
+    144.0,
+    180.0,
+    216.0,
+    252.0,
+    288.0,
+    324.0
+  ]
+}

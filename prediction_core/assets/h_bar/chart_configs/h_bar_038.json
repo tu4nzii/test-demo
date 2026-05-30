@@ -1,0 +1,108 @@
+{
+  "chart_id": "h_bar_038",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_038.png",
+    "with_grid": "charts/h_bar/h_bar_038_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_038_grid_with_grid.png"
+  },
+  "data_points": {
+    "Revenue from financial services": {
+      "IBM": 23.7,
+      "Microsoft": 9.25,
+      "Dell": 8.26,
+      "Accenture": 7.83,
+      "Cisco Systems": 5.95,
+      "Hewlett Packard Enterprise": 5.7,
+      "EMC": 5.21,
+      "Lenovo": 5.06,
+      "Oracle": 5.04,
+      "Fujitsu Limited": 5.0,
+      "Intel": 4.98,
+      "Deloitte": 3.2,
+      "Capgemini": 3.17,
+      "SAP": 2.58,
+      "CSC": 2.13
+    },
+    "Total revenue": {
+      "IBM": 81.74,
+      "Microsoft": 88.1,
+      "Dell": 59.0,
+      "Accenture": 31.32,
+      "Cisco Systems": 49.59,
+      "Hewlett Packard Enterprise": 51.78,
+      "EMC": 24.8,
+      "Lenovo": 46.02,
+      "Oracle": 37.37,
+      "Fujitsu Limited": 38.46,
+      "Intel": 55.36,
+      "Deloitte": 35.2,
+      "Capgemini": 13.22,
+      "SAP": 23.43,
+      "CSC": 10.13
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "IBM",
+    "Microsoft",
+    "Dell",
+    "Accenture",
+    "Cisco Systems",
+    "Hewlett Packard Enterprise",
+    "EMC",
+    "Lenovo",
+    "Oracle",
+    "Fujitsu Limited",
+    "Intel",
+    "Deloitte",
+    "Capgemini",
+    "SAP",
+    "CSC"
+  ],
+  "x_pixels": [
+    318,
+    438,
+    558,
+    679,
+    799,
+    919,
+    1039,
+    1159,
+    1280,
+    1400,
+    1520
+  ],
+  "y_pixels": [
+    849,
+    804,
+    759,
+    714,
+    669,
+    624,
+    579,
+    534,
+    489,
+    444,
+    399,
+    354,
+    309,
+    264,
+    219
+  ],
+  "series_color": {
+    "Revenue from financial services": "#87ceeb",
+    "Total revenue": "#4682b4"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "chart_id": "PieChart11",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart11.png"
+  },
+  "source_csv": "charts/pie/PieChart11.csv",
+  "data_points": {
+    "Samsung": 1538,
+    "LG": 1222,
+    "Panasonic": 131,
+    "Nokia": 57,
+    "Oppo": 160,
+    "MI": 1351,
+    "Apple": 3700
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

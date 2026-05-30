@@ -1,0 +1,98 @@
+{
+  "chart_id": "h_bar_011",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_011.png",
+    "with_grid": "charts/h_bar/h_bar_011_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_011_grid_with_grid.png"
+  },
+  "data_points": {
+    "Growth Index score": {
+      "Games - Mid-core": 18.53,
+      "Ride-Hail & Taxi": 17.63,
+      "Games - Sports": 15.07,
+      "Video & Streaming": 12.34,
+      "Dating": 11.28,
+      "Games - Casual": 10.5,
+      "Shopping": 10.1,
+      "Games - Casino": 7.72,
+      "Communication": 7.64,
+      "Food Delivery": 6.13,
+      "Travel Booking": 4.76,
+      "Marketplace & Classifieds": 4.52,
+      "Weather": 4.11,
+      "Health": 3.99,
+      "Comics": 3.82,
+      "Music": 3.81,
+      "Banking": 3.8,
+      "Social Network": 2.29,
+      "News": 2.11
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0
+  ],
+  "y_ticks": [
+    "Games - Mid-core",
+    "Ride-Hail & Taxi",
+    "Games - Sports",
+    "Video & Streaming",
+    "Dating",
+    "Games - Casual",
+    "Shopping",
+    "Games - Casino",
+    "Communication",
+    "Food Delivery",
+    "Travel Booking",
+    "Marketplace & Classifieds",
+    "Weather",
+    "Health",
+    "Comics",
+    "Music",
+    "Banking",
+    "Social Network",
+    "News"
+  ],
+  "x_pixels": [
+    126,
+    193,
+    261,
+    328,
+    395,
+    463,
+    530,
+    598,
+    665
+  ],
+  "y_pixels": [
+    407,
+    389,
+    372,
+    354,
+    337,
+    320,
+    302,
+    285,
+    267,
+    250,
+    233,
+    215,
+    198,
+    180,
+    163,
+    146,
+    128,
+    111,
+    93
+  ],
+  "series_color": {
+    "Growth Index score": "#87ceeb"
+  }
+}

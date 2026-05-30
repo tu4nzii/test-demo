@@ -1,0 +1,68 @@
+{
+  "chart_id": "h_bar_127",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_127.png",
+    "with_grid": "charts/h_bar/h_bar_127_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_127_grid_with_grid.png"
+  },
+  "data_points": {
+    "Likability index": {
+      "Hyundai: First Date": 6.91,
+      "Heinz: Wiener Stampede": 6.64,
+      "Doritos: Ultrasound": 6.61,
+      "Doritos: Doritos Dogs": 6.49,
+      "Hyundai: Ryanville": 6.27
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0
+  ],
+  "y_ticks": [
+    "Hyundai: First Date",
+    "Heinz: Wiener Stampede",
+    "Doritos: Ultrasound",
+    "Doritos: Doritos Dogs",
+    "Hyundai: Ryanville"
+  ],
+  "x_pixels": [
+    265,
+    351,
+    438,
+    524,
+    611,
+    697,
+    784,
+    870,
+    957,
+    1043,
+    1130,
+    1216,
+    1303,
+    1389,
+    1476
+  ],
+  "y_pixels": [
+    927,
+    764,
+    600,
+    436,
+    273
+  ],
+  "series_color": {
+    "Likability index": "#66c2a5"
+  }
+}

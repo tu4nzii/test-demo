@@ -1,0 +1,94 @@
+{
+  "chart_id": "h_bar_138",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_138.png",
+    "with_grid": "charts/h_bar/h_bar_138_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_138_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of commited crimes": {
+      "Burglary and robbery": 507752.0,
+      "Fraud and counterfeiting": 220695.0,
+      "Property damage incl. arson": 196285.0,
+      "Threat and freedom violation crimes": 183103.0,
+      "Alcohol and drug-related crimes": 121890.0,
+      "Violent crimes": 113489.0,
+      "Vehicle crime": 101961.0,
+      "Traffic crimes": 79460.0,
+      "Economical crimes": 32984.0,
+      "Sex crimes": 21074.0,
+      "Gun crimes": 15475.0,
+      "Environmental crimes (animals and nature)": 9960.0,
+      "Criminally negligent manslaughter and negligent homicide": 7629.0,
+      "Smuggling and customs crimes": 5522.0,
+      "Other": 48391.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50000.0,
+    100000.0,
+    150000.0,
+    200000.0,
+    250000.0,
+    300000.0,
+    350000.0,
+    400000.0,
+    450000.0,
+    500000.0,
+    550000.0,
+    600000.0
+  ],
+  "y_ticks": [
+    "Burglary and robbery",
+    "Fraud and counterfeiting",
+    "Property damage incl. arson",
+    "Threat and freedom violation crimes",
+    "Alcohol and drug-related crimes",
+    "Violent crimes",
+    "Vehicle crime",
+    "Traffic crimes",
+    "Economical crimes",
+    "Sex crimes",
+    "Gun crimes",
+    "Environmental crimes (animals and nature)",
+    "Criminally negligent manslaughter and negligent homicide",
+    "Smuggling and customs crimes",
+    "Other"
+  ],
+  "x_pixels": [
+    206,
+    252,
+    298,
+    344,
+    391,
+    437,
+    483,
+    529,
+    575,
+    621,
+    668,
+    714,
+    760
+  ],
+  "y_pixels": [
+    486,
+    459,
+    433,
+    406,
+    380,
+    353,
+    327,
+    300,
+    273,
+    247,
+    220,
+    194,
+    167,
+    141,
+    114
+  ],
+  "series_color": {
+    "Number of commited crimes": "#66c2a5"
+  }
+}

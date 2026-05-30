@@ -1,0 +1,33 @@
+{
+  "chart_id": "019",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_019_no_grid.png",
+    "with_grid": "charts/pie/pie_019_with_grid.png"
+  },
+  "data_points": {
+    "Not sate": 35.22,
+    "Safe": 324.78
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Not sate": "#ff9896",
+    "Safe": "#fb8072"
+  }
+}

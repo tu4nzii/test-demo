@@ -1,0 +1,54 @@
+{
+  "chart_id": "rose_187",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_187.png"
+  },
+  "center": {
+    "x": 307,
+    "y": 303
+  },
+  "data_points": {
+    "BW": 0.76,
+    "SGO": 0.62,
+    "ZXAA": 0.79,
+    "WRAM": 0.53,
+    "BD": 0.87,
+    "CX": 0.9,
+    "CJ": 0.78
+  },
+  "series_color": {
+    "BW": "#20908c",
+    "SGO": "#30678d",
+    "ZXAA": "#90d643",
+    "WRAM": "#440154",
+    "BD": "#fde724",
+    "CX": "#35b778",
+    "CJ": "#443982"
+  },
+  "r_ticks": [
+    "0.5",
+    "1.0"
+  ],
+  "r_pixels": [
+    101,
+    201
+  ],
+  "theta_ticks": [
+    "BW",
+    "SGO",
+    "ZXAA",
+    "WRAM",
+    "BD",
+    "CX",
+    "CJ"
+  ],
+  "theta_angles": [
+    0.0,
+    51.43,
+    102.86,
+    154.29,
+    205.71,
+    257.14,
+    308.57
+  ]
+}

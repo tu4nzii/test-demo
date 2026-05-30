@@ -1,0 +1,78 @@
+{
+  "chart_id": "h_bar_077",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_077.png",
+    "with_grid": "charts/h_bar/h_bar_077_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_077_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of people": {
+      "Malaysia": 952261.0,
+      "China": 380145.0,
+      "Indonesia": 138338.0,
+      "India": 127189.0,
+      "Pakistan": 109537.0,
+      "Bangladesh": 68430.0,
+      "China, Hong Kong Special Administrative Region": 52516.0,
+      "China, Macao Special Administrative Region": 18820.0,
+      "Thailand": 16329.0,
+      "Philippines": 13044.0,
+      "Sri Lanka": 9093.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    100000.0,
+    200000.0,
+    300000.0,
+    400000.0,
+    500000.0,
+    600000.0,
+    700000.0,
+    800000.0,
+    900000.0,
+    1000000.0
+  ],
+  "y_ticks": [
+    "Malaysia",
+    "China",
+    "Indonesia",
+    "India",
+    "Pakistan",
+    "Bangladesh",
+    "China, Hong Kong Special Administrative Region",
+    "China, Macao Special Administrative Region",
+    "Thailand",
+    "Philippines",
+    "Sri Lanka"
+  ],
+  "x_pixels": [
+    143,
+    205,
+    266,
+    328,
+    390,
+    451,
+    513,
+    575,
+    637,
+    698,
+    760
+  ],
+  "y_pixels": [
+    482,
+    445,
+    409,
+    373,
+    336,
+    300,
+    264,
+    227,
+    191,
+    155,
+    118
+  ],
+  "series_color": {
+    "Number of people": "#1f77b4"
+  }
+}

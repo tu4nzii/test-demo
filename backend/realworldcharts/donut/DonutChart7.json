@@ -1,0 +1,20 @@
+{
+  "chart_id": "DonutChart7",
+  "chart_type": "donut",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart7.png"
+  },
+  "source_csv": "charts/donut/DonutChart7.csv",
+  "data_points": {
+    "Poultry": 48.9954,
+    "Beef": 25.9887,
+    "Pig": 22.9373,
+    "Sheep": 0.4869
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

@@ -1,0 +1,71 @@
+{
+  "chart_id": "h_bar_053",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_053.png",
+    "with_grid": "charts/h_bar/h_bar_053_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_053_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of items": {
+      "Pregabalin": 7844005.0,
+      "Gabapentin": 7392270.0,
+      "Lamotrigine": 3173023.0,
+      "Levetiracetam": 2580041.0,
+      "Sodium valproate": 2459301.0,
+      "Carbamazepine": 2244469.0,
+      "Topiramate": 1029870.0,
+      "Clonazepam": 1025767.0,
+      "Phenytoin sodium": 636384.0,
+      "Clobazam": 340754.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1000000.0,
+    2000000.0,
+    3000000.0,
+    4000000.0,
+    5000000.0,
+    6000000.0,
+    7000000.0,
+    8000000.0
+  ],
+  "y_ticks": [
+    "Pregabalin",
+    "Gabapentin",
+    "Lamotrigine",
+    "Levetiracetam",
+    "Sodium valproate",
+    "Carbamazepine",
+    "Topiramate",
+    "Clonazepam",
+    "Phenytoin sodium",
+    "Clobazam"
+  ],
+  "x_pixels": [
+    341,
+    461,
+    581,
+    701,
+    821,
+    941,
+    1062,
+    1182,
+    1302
+  ],
+  "y_pixels": [
+    801,
+    734,
+    667,
+    600,
+    533,
+    467,
+    400,
+    333,
+    266,
+    199
+  ],
+  "series_color": {
+    "Number of items": "#66c2a5"
+  }
+}

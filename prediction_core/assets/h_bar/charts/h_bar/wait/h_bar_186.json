@@ -1,0 +1,79 @@
+{
+  "chart_id": "h_bar_186",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_186.png",
+    "with_grid": "charts/h_bar/h_bar_186_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_186_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of persons in thousands": {
+      "Men with a migration background (s. str.)": 10855.0,
+      "Among these: men with own migration experience": 2438.0,
+      "Among these: men without own migration experience": 3073.0,
+      "Among these: foreign men with own migration experience": 4490.0,
+      "Among these: foreign men without own migration experience": 854.0,
+      "Women with a migration background (s. str.)": 10391.0,
+      "Among these: women with own migration experience": 2687.0,
+      "Among these: women without own migration experience": 2927.0,
+      "Among these: foreign women with own migration experience": 4066.0,
+      "Among these: foreign women without own migration experience": 711.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0
+  ],
+  "y_ticks": [
+    "Men with a migration background (s. str.)",
+    "Among these: men with own migration experience",
+    "Among these: men without own migration experience",
+    "Among these: foreign men with own migration experience",
+    "Among these: foreign men without own migration experience",
+    "Women with a migration background (s. str.)",
+    "Among these: women with own migration experience",
+    "Among these: women without own migration experience",
+    "Among these: foreign women with own migration experience",
+    "Among these: foreign women without own migration experience"
+  ],
+  "x_pixels": [
+    355,
+    452,
+    549,
+    646,
+    743,
+    840,
+    938,
+    1035,
+    1132,
+    1229,
+    1326,
+    1423,
+    1520
+  ],
+  "y_pixels": [
+    961,
+    881,
+    800,
+    720,
+    640,
+    560,
+    480,
+    400,
+    319,
+    239
+  ],
+  "series_color": {
+    "Number of persons in thousands": "#87ceeb"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "fig_size": [
+    7,
+    5
+  ],
+  "dpi": 100,
+  "font_size": 10,
+  "palette": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728"
+  ],
+  "total_bar_height": 0.8,
+  "bar_height": 0.26666666666666666,
+  "num_series": 3,
+  "max_val": 72.0,
+  "encrypted_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "orientation": "horizontal",
+  "title": "Pakistanis critical of extremist groups, although many offer no opinion Views of Islamic extremist groups"
+}

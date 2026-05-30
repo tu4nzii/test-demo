@@ -1,0 +1,20 @@
+{
+  "chart_id": "PieChart12",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart12.png"
+  },
+  "source_csv": "charts/pie/PieChart12.csv",
+  "data_points": {
+    "GHG Emissions": 0.4,
+    "Renewable Energy": 0.2,
+    "Energy Use": 0.2,
+    "Climate Policy": 0.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

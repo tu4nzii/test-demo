@@ -1,0 +1,5 @@
+prompt_type,image_type,avg_mae,avg_re
+amplifier,no_grid,,
+amplifier_pct,with_grid,0.014166666666666666,10.53
+baseline,no_grid,0.0033333333333333335,1.2366666666666666
+grid,with_grid,0.011333333333333334,8.471666666666666

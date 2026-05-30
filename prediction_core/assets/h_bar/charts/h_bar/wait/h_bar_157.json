@@ -1,0 +1,90 @@
+{
+  "chart_id": "h_bar_157",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_157.png",
+    "with_grid": "charts/h_bar/h_bar_157_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_157_grid_with_grid.png"
+  },
+  "data_points": {
+    "Economic damage in million U.S. dollars": {
+      "Tropical cyclone": 403561.81,
+      "Convective storm": 168072.77,
+      "General flood": 47886.43,
+      "Riverine flood": 47682.0,
+      "Ground movement": 41740.77,
+      "Drought": 39135.0,
+      "Forest fire": 12630.5,
+      "Extra-tropical storm": 11000.0,
+      "Heat wave": 9025.0,
+      "Cold wave": 7060.0,
+      "Land fire (Brush, Bush, Pastur)": 5014.1,
+      "Flash flood": 3526.83,
+      "Ash fall": 860.0,
+      "Landslide": 20.0,
+      "Tsunami": 0.9
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50000.0,
+    100000.0,
+    150000.0,
+    200000.0,
+    250000.0,
+    300000.0,
+    350000.0,
+    400000.0,
+    450000.0,
+    500000.0
+  ],
+  "y_ticks": [
+    "Tropical cyclone",
+    "Convective storm",
+    "General flood",
+    "Riverine flood",
+    "Ground movement",
+    "Drought",
+    "Forest fire",
+    "Extra-tropical storm",
+    "Heat wave",
+    "Cold wave",
+    "Land fire (Brush, Bush, Pastur)",
+    "Flash flood",
+    "Ash fall",
+    "Landslide",
+    "Tsunami"
+  ],
+  "x_pixels": [
+    380,
+    494,
+    608,
+    722,
+    836,
+    950,
+    1064,
+    1178,
+    1292,
+    1406,
+    1520
+  ],
+  "y_pixels": [
+    971,
+    918,
+    865,
+    812,
+    759,
+    706,
+    653,
+    600,
+    547,
+    494,
+    441,
+    388,
+    335,
+    282,
+    229
+  ],
+  "series_color": {
+    "Economic damage in million U.S. dollars": "#87ceeb"
+  }
+}

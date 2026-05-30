@@ -1,0 +1,59 @@
+{
+  "chart_id": "h_bar_150",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_150.png",
+    "with_grid": "charts/h_bar/h_bar_150_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_150_grid_with_grid.png"
+  },
+  "data_points": {
+    "Brand Strength Index Score*": {
+      "Thailand": 78.0,
+      "Malaysia": 77.0,
+      "New Zealand": 73.0,
+      "Austria": 72.0,
+      "Australia": 71.0,
+      "United Kingdom": 70.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "y_ticks": [
+    "Thailand",
+    "Malaysia",
+    "New Zealand",
+    "Austria",
+    "Australia",
+    "United Kingdom"
+  ],
+  "x_pixels": [
+    157,
+    231,
+    304,
+    378,
+    452,
+    525,
+    599,
+    672,
+    746
+  ],
+  "y_pixels": [
+    469,
+    402,
+    334,
+    266,
+    198,
+    131
+  ],
+  "series_color": {
+    "Brand Strength Index Score*": "#1f77b4"
+  }
+}

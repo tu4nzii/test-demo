@@ -1,0 +1,54 @@
+{
+  "chart_id": "h_bar_086",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_086.png",
+    "with_grid": "charts/h_bar/h_bar_086_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_086_grid_with_grid.png"
+  },
+  "data_points": {
+    "Living Planet Index, World, 2002": {
+      "Upper CI": 0.5,
+      "Living Planet Index": 0.44,
+      "Lower CI": 0.38
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "y_ticks": [
+    "Upper CI",
+    "Living Planet Index",
+    "Lower CI"
+  ],
+  "x_pixels": [
+    130,
+    190,
+    250,
+    310,
+    370,
+    430,
+    490,
+    550,
+    610,
+    670,
+    730
+  ],
+  "y_pixels": [
+    440,
+    300,
+    160
+  ],
+  "series_color": {
+    "Living Planet Index, World, 2002": "#1f77b4"
+  }
+}

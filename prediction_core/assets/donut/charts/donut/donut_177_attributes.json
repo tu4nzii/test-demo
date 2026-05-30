@@ -1,0 +1,37 @@
+{
+  "fig_size": [
+    5,
+    4
+  ],
+  "dpi": 200,
+  "font_size": 12,
+  "width": 75,
+  "alpha": 0.86459999045705,
+  "shadow": false,
+  "overall_position": "inside",
+  "num_segments": 6,
+  "values": [
+    31,
+    54,
+    58,
+    60,
+    86,
+    71
+  ],
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "object_color_mapping": {
+    "A": "#1f77b4",
+    "B": "#ff7f0e",
+    "C": "#2ca02c",
+    "D": "#d62728",
+    "E": "#9467bd",
+    "F": "#8c564b"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "chart_id": "radar_233",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C"
+  ],
+  "data_points": {
+    "UIGA": {
+      "A": 21.5,
+      "C": 32.0,
+      "B": 13.0
+    },
+    "PPFCFB": {
+      "B": 33.5,
+      "A": 21.0,
+      "C": 36.5
+    },
+    "XZMBE": {
+      "C": 34.0,
+      "A": 29.5,
+      "B": 10.0
+    },
+    "BSZ": {
+      "B": 43.0,
+      "A": 5.0,
+      "C": 6.5
+    },
+    "BJM": {
+      "B": 43.0,
+      "C": 47.0,
+      "A": 22.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C"
+  ],
+  "theta_angles": [
+    0.0,
+    120.0,
+    240.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50.0
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_233.png"
+  },
+  "series_color": {
+    "UIGA": "#c7c7c7",
+    "PPFCFB": "#1f77b4",
+    "XZMBE": "#d62728",
+    "BSZ": "#98df8a",
+    "BJM": "#ff7f0e"
+  },
+  "num_entities": 5,
+  "fill_enabled": true,
+  "num_vars": 3,
+  "err_center": 3.0,
+  "pred_coords": [
+    489,
+    364
+  ],
+  "argument": {
+    "a": 5.45,
+    "b": 2.5
+  }
+}

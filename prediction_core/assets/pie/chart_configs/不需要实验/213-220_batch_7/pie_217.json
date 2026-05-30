@@ -1,0 +1,39 @@
+{
+  "chart_id": "217",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_217_no_grid.png",
+    "with_grid": "charts/pie/pie_217_with_grid.png"
+  },
+  "data_points": {
+    "Heard a little": 140.4,
+    "Heard nothing DK": 176.4,
+    "Heard a lot": 43.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Heard a little": "#ff9896",
+    "Heard nothing DK": "#666666",
+    "Heard a lot": "#7570b3"
+  }
+}

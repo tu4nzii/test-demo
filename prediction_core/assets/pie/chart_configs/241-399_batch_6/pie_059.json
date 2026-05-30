@@ -1,0 +1,35 @@
+{
+  "chart_id": "059",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_059_no_grid.png",
+    "with_grid": "charts/pie/pie_059_with_grid.png"
+  },
+  "data_points": {
+    "Google $.": 72.1,
+    "Facebook $.": 76.44,
+    "Other $.": 211.47
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Google $.": "#a6761d",
+    "Facebook $.": "#ff7f0e",
+    "Other $.": "#386cb0"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "chart_id": "v_bar_emu_195",
+  "image_paths": {
+    "no_grid": "charts/v_bar_emu/v_bar_emu_195.png",
+    "with_grid": "charts/v_bar_emu/v_bar_emu_195_grid.png",
+    "grid_with_grid": "charts/v_bar_emu/v_bar_emu_195_grid_with_grid.png"
+  },
+  "data_points": {
+    "Group 1": {
+      "A": 39.26,
+      "B": 14.76,
+      "C": 97.58
+    },
+    "Group 2": {
+      "A": 40.9,
+      "B": 53.6,
+      "C": 63.24
+    },
+    "Group 3": {
+      "A": 54.44,
+      "B": 81.44,
+      "C": 17.66
+    },
+    "Group 4": {
+      "A": 20.36,
+      "B": 10.45,
+      "C": 43.61
+    }
+  },
+  "x_ticks": [
+    "A",
+    "B",
+    "C"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    232,
+    440,
+    648
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    361,
+    321,
+    281,
+    241,
+    201,
+    161,
+    122,
+    82
+  ],
+  "series_color": {
+    "Group 1": "#87ceeb",
+    "Group 2": "#4682b4",
+    "Group 3": "#fa8072",
+    "Group 4": "#ffd700"
+  }
+}

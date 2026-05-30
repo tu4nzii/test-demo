@@ -1,0 +1,84 @@
+{
+  "chart_id": "radar_077",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "data_points": {
+    "VIIYQ": {
+      "G": 17.0,
+      "H": 76.0,
+      "D": 78.0,
+      "F": 88.0,
+      "E": 33.0,
+      "B": 88.0,
+      "A": 35.0,
+      "C": 51.0
+    },
+    "BCIIC": {
+      "A": 55.0,
+      "G": 26.0,
+      "C": 56.0,
+      "B": 65.0,
+      "E": 91.0,
+      "D": 48.0,
+      "H": 59.0,
+      "F": 97.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    107,
+    215,
+    322,
+    430,
+    537
+  ],
+  "center": [
+    717,
+    706
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_077.png"
+  },
+  "series_color": {
+    "VIIYQ": "#f7b6d2",
+    "BCIIC": "#d62728"
+  },
+  "num_entities": 2,
+  "fill_enabled": true,
+  "num_vars": 8
+}

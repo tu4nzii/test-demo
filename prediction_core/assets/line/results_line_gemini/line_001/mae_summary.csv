@@ -1,0 +1,5 @@
+prompt_type,image_type,avg_y_mae,avg_y_re,valid_y_count
+amplifier,grid_with_grid,0.86,0.022583333333333334,10
+baseline,no_grid,0.01,0.005383333333333334,10
+feedback,grid_with_grid,0.01,0.005383333333333334,10
+grid,grid_with_grid,0.01,0.005383333333333334,10

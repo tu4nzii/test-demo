@@ -1,0 +1,22 @@
+{
+  "chart_id": "PieChart6",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart6.png"
+  },
+  "source_csv": "charts/pie/PieChart6.csv",
+  "data_points": {
+    "a": 4,
+    "b": 6,
+    "c": 10,
+    "d": 3,
+    "e": 7,
+    "f": 8
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

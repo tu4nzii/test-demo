@@ -1,0 +1,21 @@
+{
+  "chart_id": "DonutChart5",
+  "chart_type": "donut",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart5.png"
+  },
+  "source_csv": "charts/donut/DonutChart5.csv",
+  "data_points": {
+    "series-1": 44,
+    "series-2": 55,
+    "series-3": 41,
+    "series-4": 17,
+    "series-5": 15
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

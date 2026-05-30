@@ -1,0 +1,94 @@
+{
+  "chart_id": "h_bar_136",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_136.png",
+    "with_grid": "charts/h_bar/h_bar_136_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_136_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of female babies": {
+      "Sofia": 5851.0,
+      "Aurora": 5467.0,
+      "Giulia": 5356.0,
+      "Ginevra": 3721.0,
+      "Alice": 3658.0,
+      "Emma": 3245.0,
+      "Giorgia": 3056.0,
+      "Beatrice": 3046.0,
+      "Greta": 2725.0,
+      "Vittoria": 2713.0,
+      "Anna": 2674.0,
+      "Martina": 2591.0,
+      "Chiara": 2547.0,
+      "Matilde": 2495.0,
+      "Ludovica": 2492.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0
+  ],
+  "y_ticks": [
+    "Sofia",
+    "Aurora",
+    "Giulia",
+    "Ginevra",
+    "Alice",
+    "Emma",
+    "Giorgia",
+    "Beatrice",
+    "Greta",
+    "Vittoria",
+    "Anna",
+    "Martina",
+    "Chiara",
+    "Matilde",
+    "Ludovica"
+  ],
+  "x_pixels": [
+    86,
+    141,
+    196,
+    251,
+    305,
+    360,
+    415,
+    470,
+    525,
+    580,
+    635,
+    689,
+    744
+  ],
+  "y_pixels": [
+    486,
+    459,
+    433,
+    406,
+    380,
+    353,
+    327,
+    300,
+    273,
+    247,
+    220,
+    194,
+    167,
+    141,
+    114
+  ],
+  "series_color": {
+    "Number of female babies": "#87ceeb"
+  }
+}

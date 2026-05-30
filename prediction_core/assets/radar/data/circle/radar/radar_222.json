@@ -1,0 +1,71 @@
+{
+  "chart_id": "radar_222",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "NYX": {
+      "A": 9.5,
+      "C": 10.75,
+      "D": 4.25,
+      "B": 12.0
+    },
+    "QGGGT": {
+      "A": 18.0,
+      "D": 9.0,
+      "C": 24.75,
+      "B": 7.25
+    },
+    "JYIN": {
+      "A": 13.75,
+      "D": 7.75,
+      "C": 10.75,
+      "B": 4.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_222.png"
+  },
+  "series_color": {
+    "NYX": "#bcbd22",
+    "QGGGT": "#c49c94",
+    "JYIN": "#2ca02c"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 4
+}

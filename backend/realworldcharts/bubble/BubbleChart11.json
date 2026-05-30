@@ -1,0 +1,87 @@
+{
+  "chart_id": "BubbleChart11",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "charts/bubble/BubbleChart11.png"
+  },
+  "source_csv": "charts/bubble/BubbleChart11.csv",
+  "data_points": {
+    "North America": [
+      80.66,
+      1.67,
+      33739900
+    ],
+    "Europe": [
+      79.84,
+      1.36,
+      81902307
+    ],
+    "Europe_2": [
+      78.6,
+      1.84,
+      5523095
+    ],
+    "Middle East": [
+      72.73,
+      2.78,
+      79716203
+    ],
+    "Europe_3": [
+      80.05,
+      2,
+      61801570
+    ],
+    "Middle East_2": [
+      72.49,
+      1.7,
+      73137148
+    ],
+    "Middle East_3": [
+      68.09,
+      4.77,
+      31090763
+    ],
+    "Middle East_4": [
+      81.55,
+      2.96,
+      7485600
+    ],
+    "Europe_4": [
+      68.6,
+      1.54,
+      141850000
+    ],
+    "North America_2": [
+      78.09,
+      2.05,
+      307007000
+    ]
+  },
+  "x_ticks": [
+    68.09,
+    68.6,
+    72.49,
+    72.73,
+    78.09,
+    78.6,
+    79.84,
+    80.05,
+    80.66,
+    81.55
+  ],
+  "y_ticks": [
+    1.36,
+    1.54,
+    1.67,
+    1.7,
+    1.84,
+    2,
+    2.05,
+    2.78,
+    2.96,
+    4.77
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

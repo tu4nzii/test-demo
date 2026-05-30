@@ -1,0 +1,5 @@
+prompt_type,image_type,avg_mae
+baseline,no_grid,55.768750000000004
+feedback,grid_with_grid,100.81625
+feedback_crop_adaptive,grid_with_grid,195.72125
+grid,grid_with_grid,91.91

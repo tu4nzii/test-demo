@@ -1,0 +1,83 @@
+{
+  "chart_id": "radar_110",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "data_points": {
+    "BTEGOJ": {
+      "D": 45.5,
+      "C": 37.5,
+      "A": 24.5,
+      "F": 47.5,
+      "E": 33.0,
+      "B": 24.5
+    },
+    "QGB": {
+      "B": 11.5,
+      "C": 44.0,
+      "E": 30.0,
+      "F": 32.0,
+      "A": 38.5,
+      "D": 13.0
+    },
+    "SIRD": {
+      "F": 41.5,
+      "D": 46.0,
+      "A": 24.5,
+      "B": 40.0,
+      "C": 13.0,
+      "E": 22.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_110.png"
+  },
+  "series_color": {
+    "BTEGOJ": "#ff9896",
+    "QGB": "#d62728",
+    "SIRD": "#ff7f0e"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 6
+}

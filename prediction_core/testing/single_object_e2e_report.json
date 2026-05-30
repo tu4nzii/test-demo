@@ -1,0 +1,74 @@
+[
+  {
+    "chart_type": "bubble",
+    "chart_id": "bubble_023",
+    "object_name": "S1",
+    "exit_code": 0,
+    "elapsed_seconds": 71.08,
+    "ok": true
+  },
+  {
+    "chart_type": "donut",
+    "chart_id": "donut_135",
+    "object_name": "A",
+    "exit_code": 0,
+    "elapsed_seconds": 72.48,
+    "ok": true
+  },
+  {
+    "chart_type": "h_bar",
+    "chart_id": "h_bar_001",
+    "object_name": "Cocoa bean yields, 1961 / Vanuatu",
+    "exit_code": 0,
+    "elapsed_seconds": 42.33,
+    "ok": true
+  },
+  {
+    "chart_type": "line",
+    "chart_id": "line_001",
+    "object_name": "Favorable / 2011",
+    "exit_code": 0,
+    "elapsed_seconds": 26.74,
+    "ok": true
+  },
+  {
+    "chart_type": "pie",
+    "chart_id": "001",
+    "object_name": "Refused  to use",
+    "exit_code": 0,
+    "elapsed_seconds": 123.2,
+    "ok": true
+  },
+  {
+    "chart_type": "radar",
+    "chart_id": "radar_009",
+    "object_name": "UKOLQP,C",
+    "exit_code": 0,
+    "elapsed_seconds": 200.59,
+    "ok": true
+  },
+  {
+    "chart_type": "rose",
+    "chart_id": "rose_004",
+    "object_name": "OJ",
+    "exit_code": 0,
+    "elapsed_seconds": 145.52,
+    "ok": true
+  },
+  {
+    "chart_type": "scatter",
+    "chart_id": "scatter_001",
+    "object_name": "ITA",
+    "exit_code": 0,
+    "elapsed_seconds": 75.25,
+    "ok": true
+  },
+  {
+    "chart_type": "v_bar",
+    "chart_id": "v_bar_002",
+    "object_name": "Spending in billion Mexican pesos / 2020*",
+    "exit_code": 0,
+    "elapsed_seconds": 37.16,
+    "ok": true
+  }
+]

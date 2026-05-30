@@ -1,0 +1,92 @@
+{
+  "chart_id": "radar_092",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "FQENI": {
+      "D": 196.0,
+      "B": 82.0,
+      "A": 42.0,
+      "C": 96.0
+    },
+    "YLMQD": {
+      "C": 190.0,
+      "B": 118.0,
+      "A": 50.0,
+      "D": 130.0
+    },
+    "WJVE": {
+      "D": 88.0,
+      "A": 126.0,
+      "B": 88.0,
+      "C": 30.0
+    },
+    "YSZMC": {
+      "B": 58.0,
+      "C": 90.0,
+      "D": 42.0,
+      "A": 60.0
+    },
+    "SCUXL": {
+      "A": 90.0,
+      "D": 34.0,
+      "B": 64.0,
+      "C": 64.0
+    },
+    "RIW": {
+      "A": 154.0,
+      "D": 148.0,
+      "B": 98.0,
+      "C": 114.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "r_pixels": [
+    107,
+    215,
+    322,
+    430,
+    537
+  ],
+  "center": [
+    717,
+    706
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_092.png"
+  },
+  "series_color": {
+    "FQENI": "#8c564b",
+    "YLMQD": "#d62728",
+    "WJVE": "#ff7f0e",
+    "YSZMC": "#8c564b",
+    "SCUXL": "#e377c2",
+    "RIW": "#c7c7c7"
+  },
+  "num_entities": 6,
+  "fill_enabled": false,
+  "num_vars": 4
+}

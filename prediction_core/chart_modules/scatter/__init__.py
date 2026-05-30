@@ -1,0 +1,1 @@
+"""Scatter chart prediction module."""

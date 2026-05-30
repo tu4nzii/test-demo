@@ -1,0 +1,74 @@
+{
+  "chart_id": "h_bar_079",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_079.png",
+    "with_grid": "charts/h_bar/h_bar_079_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_079_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of Grammy Awards nominations": {
+      "Quincy Jones, Jay-Z**": 80.0,
+      "Paul McCartney*, Beyoncé***": 79.0,
+      "Georg Solti, Stevie Wonder": 74.0,
+      "Henry Mancini, John Williams": 72.0,
+      "Kanye West": 70.0,
+      "Pierre Boulez, Chick Corea": 67.0,
+      "Leonard Bernstein": 63.0,
+      "Jay David Saks": 53.0,
+      "Willie Nelson": 52.0,
+      "Dolly Parton, Thomas Z. Shepard, Bruce Springsteen": 50.0,
+      "Babyface, James Mallinson": 49.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "y_ticks": [
+    "Quincy Jones, Jay-Z**",
+    "Paul McCartney*, Beyoncé***",
+    "Georg Solti, Stevie Wonder",
+    "Henry Mancini, John Williams",
+    "Kanye West",
+    "Pierre Boulez, Chick Corea",
+    "Leonard Bernstein",
+    "Jay David Saks",
+    "Willie Nelson",
+    "Dolly Parton, Thomas Z. Shepard, Bruce Springsteen",
+    "Babyface, James Mallinson"
+  ],
+  "x_pixels": [
+    198,
+    254,
+    310,
+    365,
+    421,
+    476,
+    532,
+    587,
+    643
+  ],
+  "y_pixels": [
+    402,
+    371,
+    341,
+    311,
+    280,
+    250,
+    220,
+    189,
+    159,
+    129,
+    98
+  ],
+  "series_color": {
+    "Number of Grammy Awards nominations": "#87ceeb"
+  }
+}

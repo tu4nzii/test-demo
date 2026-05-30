@@ -1,0 +1,13 @@
+chart_id,point,prompt_type,image_type,run,image_path,gt_x,gt_y,pred_x,pred_y,mae,pixel_rel_x,pixel_rel_y,x_re,y_re,round_index
+h_bar_001,"Cocoa bean yields, 1961, Vanuatu",baseline,no_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001.png,0.51,Vanuatu,0.51,Vanuatu,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Vanuatu",grid,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.51,Vanuatu,0.51,Vanuatu,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Vanuatu",feedback,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.51,Vanuatu,0.51,Vanuatu,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Vanuatu",amplifier,grid_with_grid,1,"F:\program\test-demo\prediction_core\assets\h_bar\results_Pixtral\h_bar_001\tempy\amplifier_crop_Cocoa bean yields, 1961, Vanuatu_round1.png",0.51,Vanuatu,0.505,Vanuatu,0.005,-1,-1,0.0098,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Sri Lanka",baseline,no_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001.png,0.24,Sri Lanka,0.24,Sri Lanka,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Sri Lanka",grid,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.24,Sri Lanka,0.24,Sri Lanka,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Sri Lanka",feedback,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.24,Sri Lanka,0.24,Sri Lanka,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Sri Lanka",amplifier,grid_with_grid,1,"F:\program\test-demo\prediction_core\assets\h_bar\results_Pixtral\h_bar_001\tempy\amplifier_crop_Cocoa bean yields, 1961, Sri Lanka_round1.png",0.24,Sri Lanka,0.239,Sri Lanka,0.001,-1,-1,0.0042,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Timor",baseline,no_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001.png,0.13,Timor,0.13,Timor,0.0,-1,-1,0.0,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Timor",grid,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.13,Timor,0.12,Timor,0.01,-1,-1,0.0769,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Timor",feedback,grid_with_grid,1,F:\program\test-demo\prediction_core\assets\h_bar\charts\h_bar\h_bar_001_grid_with_grid.png,0.13,Timor,0.12,Timor,0.01,-1,-1,0.0769,-1,0
+h_bar_001,"Cocoa bean yields, 1961, Timor",amplifier,grid_with_grid,1,"F:\program\test-demo\prediction_core\assets\h_bar\results_Pixtral\h_bar_001\tempy\amplifier_crop_Cocoa bean yields, 1961, Timor_round1.png",0.13,Timor,0.13,Timor,0.0,-1,-1,0.0,-1,0

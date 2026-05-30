@@ -1,0 +1,102 @@
+{
+  "chart_id": "h_bar_117",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_117.png",
+    "with_grid": "charts/h_bar/h_bar_117_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_117_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of companies": {
+      "Beijing": 412.0,
+      "San Francisco": 289.0,
+      "London": 275.0,
+      "Shanghai": 211.0,
+      "New York": 188.0,
+      "Shenzhen": 122.0,
+      "Boston": 117.0,
+      "Toronto": 109.0,
+      "Palo Alto": 106.0,
+      "Paris": 84.0,
+      "Tel Aviv": 64.0,
+      "Hangzhou": 63.0,
+      "Montreal": 58.0,
+      "Vancouver": 56.0,
+      "Mountain View": 53.0,
+      "Berlin": 48.0,
+      "Sunnyvale": 46.0,
+      "Austin": 45.0,
+      "Seattle": 38.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Beijing",
+    "San Francisco",
+    "London",
+    "Shanghai",
+    "New York",
+    "Shenzhen",
+    "Boston",
+    "Toronto",
+    "Palo Alto",
+    "Paris",
+    "Tel Aviv",
+    "Hangzhou",
+    "Montreal",
+    "Vancouver",
+    "Mountain View",
+    "Berlin",
+    "Sunnyvale",
+    "Austin",
+    "Seattle"
+  ],
+  "x_pixels": [
+    103,
+    159,
+    216,
+    272,
+    328,
+    384,
+    440,
+    496,
+    553,
+    609,
+    665
+  ],
+  "y_pixels": [
+    407,
+    389,
+    372,
+    354,
+    337,
+    320,
+    302,
+    285,
+    267,
+    250,
+    233,
+    215,
+    198,
+    180,
+    163,
+    146,
+    128,
+    111,
+    93
+  ],
+  "series_color": {
+    "Number of companies": "#66c2a5"
+  }
+}

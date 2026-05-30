@@ -1,0 +1,420 @@
+{
+  "chart_id": "Scatterplot17",
+  "chart_type": "scatter",
+  "image_paths": {
+    "no_grid": "charts/scatter/Scatterplot17.png"
+  },
+  "source_csv": "charts/scatter/Scatterplot17.csv",
+  "data_points": {
+    "girls low": [
+      0,
+      2
+    ],
+    "girls low_2": [
+      1,
+      2.1
+    ],
+    "girls low_3": [
+      2,
+      2.3
+    ],
+    "girls low_4": [
+      3,
+      2.5
+    ],
+    "girls low_5": [
+      4,
+      2.7
+    ],
+    "girls low_6": [
+      5,
+      2.9
+    ],
+    "girls low_7": [
+      6,
+      3
+    ],
+    "girls low_8": [
+      7,
+      3.2
+    ],
+    "girls low_9": [
+      8,
+      3.3
+    ],
+    "girls low_10": [
+      9,
+      3.5
+    ],
+    "girls low_11": [
+      10,
+      3.6
+    ],
+    "girls low_12": [
+      11,
+      3.8
+    ],
+    "girls low_13": [
+      12,
+      3.9
+    ],
+    "girls low_14": [
+      13,
+      4
+    ],
+    "girls med": [
+      0,
+      3.2
+    ],
+    "girls med_2": [
+      1,
+      3.3
+    ],
+    "girls med_3": [
+      2,
+      3.6
+    ],
+    "girls med_4": [
+      3,
+      3.8
+    ],
+    "girls med_5": [
+      4,
+      4.1
+    ],
+    "girls med_6": [
+      5,
+      4.3
+    ],
+    "girls med_7": [
+      6,
+      4.6
+    ],
+    "girls med_8": [
+      7,
+      4.8
+    ],
+    "girls med_9": [
+      8,
+      5
+    ],
+    "girls med_10": [
+      9,
+      5.2
+    ],
+    "girls med_11": [
+      10,
+      5.4
+    ],
+    "girls med_12": [
+      11,
+      5.5
+    ],
+    "girls med_13": [
+      12,
+      5.7
+    ],
+    "girls med_14": [
+      13,
+      5.8
+    ],
+    "girls high": [
+      0,
+      4.8
+    ],
+    "girls high_2": [
+      1,
+      5.1
+    ],
+    "girls high_3": [
+      2,
+      5.4
+    ],
+    "girls high_4": [
+      3,
+      5.7
+    ],
+    "girls high_5": [
+      4,
+      6.1
+    ],
+    "girls high_6": [
+      5,
+      6.5
+    ],
+    "girls high_7": [
+      6,
+      6.8
+    ],
+    "girls high_8": [
+      7,
+      7.1
+    ],
+    "girls high_9": [
+      8,
+      7.3
+    ],
+    "girls high_10": [
+      9,
+      7.6
+    ],
+    "girls high_11": [
+      10,
+      7.8
+    ],
+    "girls high_12": [
+      11,
+      8.1
+    ],
+    "girls high_13": [
+      12,
+      8.3
+    ],
+    "girls high_14": [
+      13,
+      8.5
+    ],
+    "boys low": [
+      0,
+      2.5
+    ],
+    "boys low_2": [
+      1,
+      2.6
+    ],
+    "boys low_3": [
+      2,
+      2.8
+    ],
+    "boys low_4": [
+      3,
+      3.1
+    ],
+    "boys low_5": [
+      4,
+      3.3
+    ],
+    "boys low_6": [
+      5,
+      3.5
+    ],
+    "boys low_7": [
+      6,
+      3.8
+    ],
+    "boys low_8": [
+      7,
+      4
+    ],
+    "boys low_9": [
+      8,
+      4.2
+    ],
+    "boys low_10": [
+      9,
+      4.4
+    ],
+    "boys low_11": [
+      10,
+      4.5
+    ],
+    "boys low_12": [
+      11,
+      4.7
+    ],
+    "boys low_13": [
+      12,
+      4.9
+    ],
+    "boys low_14": [
+      13,
+      5
+    ],
+    "boys med": [
+      0,
+      3.3
+    ],
+    "boys med_2": [
+      1,
+      3.5
+    ],
+    "boys med_3": [
+      2,
+      3.8
+    ],
+    "boys med_4": [
+      3,
+      4.1
+    ],
+    "boys med_5": [
+      4,
+      4.4
+    ],
+    "boys med_6": [
+      5,
+      4.7
+    ],
+    "boys med_7": [
+      6,
+      4.9
+    ],
+    "boys med_8": [
+      7,
+      5.2
+    ],
+    "boys med_9": [
+      8,
+      5.4
+    ],
+    "boys med_10": [
+      9,
+      5.6
+    ],
+    "boys med_11": [
+      10,
+      5.8
+    ],
+    "boys med_12": [
+      11,
+      6
+    ],
+    "boys med_13": [
+      12,
+      6.2
+    ],
+    "boys med_14": [
+      13,
+      6.4
+    ],
+    "boys high": [
+      0,
+      5
+    ],
+    "boys high_2": [
+      1,
+      5.3
+    ],
+    "boys high_3": [
+      2,
+      5.6
+    ],
+    "boys high_4": [
+      3,
+      6
+    ],
+    "boys high_5": [
+      4,
+      6.4
+    ],
+    "boys high_6": [
+      5,
+      6.8
+    ],
+    "boys high_7": [
+      6,
+      7.2
+    ],
+    "boys high_8": [
+      7,
+      7.5
+    ],
+    "boys high_9": [
+      8,
+      7.8
+    ],
+    "boys high_10": [
+      9,
+      8
+    ],
+    "boys high_11": [
+      10,
+      8.3
+    ],
+    "boys high_12": [
+      11,
+      8.5
+    ],
+    "boys high_13": [
+      12,
+      8.8
+    ],
+    "boys high_14": [
+      13,
+      9
+    ]
+  },
+  "x_ticks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "y_ticks": [
+    2,
+    2.1,
+    2.3,
+    2.5,
+    2.6,
+    2.7,
+    2.8,
+    2.9,
+    3,
+    3.1,
+    3.2,
+    3.3,
+    3.5,
+    3.6,
+    3.8,
+    3.9,
+    4,
+    4.1,
+    4.2,
+    4.3,
+    4.4,
+    4.5,
+    4.6,
+    4.7,
+    4.8,
+    4.9,
+    5,
+    5.1,
+    5.2,
+    5.3,
+    5.4,
+    5.5,
+    5.6,
+    5.7,
+    5.8,
+    6,
+    6.1,
+    6.2,
+    6.4,
+    6.5,
+    6.8,
+    7.1,
+    7.2,
+    7.3,
+    7.5,
+    7.6,
+    7.8,
+    8,
+    8.1,
+    8.3,
+    8.5,
+    8.8,
+    9
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

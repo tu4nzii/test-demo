@@ -1,0 +1,99 @@
+{
+  "chart_id": "h_bar_044",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_044.png",
+    "with_grid": "charts/h_bar/h_bar_044_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_044_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of people": {
+      "15 to 19 years": 2098005.0,
+      "20 to 24 years": 2382580.0,
+      "25 to 29 years": 2061843.0,
+      "30 to 34 years": 1390824.0,
+      "35 to 39 years": 989357.0,
+      "40 to 44 years": 724955.0,
+      "45 to 49 years": 589892.0,
+      "50 to 54 years": 522808.0,
+      "55 to 59 years": 456853.0,
+      "60 to 64 years": 307219.0,
+      "65 to 69 years": 181438.0,
+      "70 to 74 years": 108844.0,
+      "75 to 79 years": 61054.0,
+      "80 to 84 years": 36799.0,
+      "85 to 89 years": 22770.0,
+      "90 to 94 years": 11166.0,
+      "95 to 99 years": 3588.0,
+      "100 years and over": 756.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250000.0,
+    500000.0,
+    750000.0,
+    1000000.0,
+    1250000.0,
+    1500000.0,
+    1750000.0,
+    2000000.0,
+    2250000.0,
+    2500000.0
+  ],
+  "y_ticks": [
+    "15 to 19 years",
+    "20 to 24 years",
+    "25 to 29 years",
+    "30 to 34 years",
+    "35 to 39 years",
+    "40 to 44 years",
+    "45 to 49 years",
+    "50 to 54 years",
+    "55 to 59 years",
+    "60 to 64 years",
+    "65 to 69 years",
+    "70 to 74 years",
+    "75 to 79 years",
+    "80 to 84 years",
+    "85 to 89 years",
+    "90 to 94 years",
+    "95 to 99 years",
+    "100 years and over"
+  ],
+  "x_pixels": [
+    373,
+    487,
+    602,
+    717,
+    831,
+    946,
+    1061,
+    1175,
+    1290,
+    1405,
+    1519
+  ],
+  "y_pixels": [
+    975,
+    931,
+    887,
+    843,
+    799,
+    754,
+    710,
+    666,
+    622,
+    578,
+    534,
+    490,
+    446,
+    401,
+    357,
+    313,
+    269,
+    225
+  ],
+  "series_color": {
+    "Number of people": "#1f77b4"
+  }
+}

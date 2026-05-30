@@ -1,0 +1,89 @@
+{
+  "chart_id": "h_bar_006",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_006.png",
+    "with_grid": "charts/h_bar/h_bar_006_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_006_grid_with_grid.png"
+  },
+  "data_points": {
+    "Oil reserves in billion barrels": {
+      "Venezuela": 303.81,
+      "Brazil": 12.71,
+      "Ecuador": 8.27,
+      "Mexico": 5.79,
+      "Argentina": 2.48,
+      "Colombia": 2.04,
+      "Peru": 0.86,
+      "Bolivia": 0.24,
+      "Chile": 0.15,
+      "Cuba": 0.12,
+      "Suriname": 0.09,
+      "Belize": 0.01
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0,
+    275.0,
+    300.0,
+    325.0,
+    350.0
+  ],
+  "y_ticks": [
+    "Venezuela",
+    "Brazil",
+    "Ecuador",
+    "Mexico",
+    "Argentina",
+    "Colombia",
+    "Peru",
+    "Bolivia",
+    "Chile",
+    "Cuba",
+    "Suriname",
+    "Belize"
+  ],
+  "x_pixels": [
+    162,
+    259,
+    356,
+    453,
+    550,
+    647,
+    744,
+    841,
+    938,
+    1035,
+    1132,
+    1229,
+    1326,
+    1423,
+    1520
+  ],
+  "y_pixels": [
+    966,
+    900,
+    833,
+    766,
+    700,
+    633,
+    567,
+    500,
+    434,
+    367,
+    300,
+    234
+  ],
+  "series_color": {
+    "Oil reserves in billion barrels": "#87ceeb"
+  }
+}

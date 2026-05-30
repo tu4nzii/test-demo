@@ -1,0 +1,23 @@
+{
+  "chart_id": "PieChart7",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart7.png"
+  },
+  "source_csv": "charts/pie/PieChart7.csv",
+  "data_points": {
+    "Monopoly": 11,
+    "Candyland": 12,
+    "Jenga": 6,
+    "Chess": 8,
+    "Twister": 10,
+    "Poker": 4,
+    "Uno": 2
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

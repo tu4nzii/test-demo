@@ -1,0 +1,80 @@
+{
+  "chart_id": "h_bar_096",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_096.png",
+    "with_grid": "charts/h_bar/h_bar_096_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_096_grid_with_grid.png"
+  },
+  "data_points": {
+    "North America": {
+      "Transformers: Revenge of the Fallen (2009)": 402.11,
+      "Transformers: Dark of the Moon (2011)": 352.39,
+      "Transformers (2007)": 319.25,
+      "Transformers: Age of Extinction (2014)": 245.44,
+      "Transformers: The Last Knight (2017)": 130.17,
+      "Bumblebee (2018)": 100.95,
+      "Transformers: The Movie (1986)": 5.85
+    },
+    "Worldwide": {
+      "Transformers: Revenge of the Fallen (2009)": 836.3,
+      "Transformers: Dark of the Moon (2011)": 1123.8,
+      "Transformers (2007)": 709.7,
+      "Transformers: Age of Extinction (2014)": 1104.1,
+      "Transformers: The Last Knight (2017)": 605.4,
+      "Bumblebee (2018)": 308.77,
+      "Transformers: The Movie (1986)": 5.8
+    }
+  },
+  "x_ticks": [
+    0.0,
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0,
+    700.0,
+    800.0,
+    900.0,
+    1000.0,
+    1100.0,
+    1200.0
+  ],
+  "y_ticks": [
+    "Transformers: Revenge of the Fallen (2009)",
+    "Transformers: Dark of the Moon (2011)",
+    "Transformers (2007)",
+    "Transformers: Age of Extinction (2014)",
+    "Transformers: The Last Knight (2017)",
+    "Bumblebee (2018)",
+    "Transformers: The Movie (1986)"
+  ],
+  "x_pixels": [
+    336,
+    435,
+    534,
+    632,
+    731,
+    830,
+    928,
+    1027,
+    1126,
+    1224,
+    1323,
+    1421,
+    1520
+  ],
+  "y_pixels": [
+    828,
+    730,
+    632,
+    534,
+    436,
+    338,
+    240
+  ],
+  "series_color": {
+    "North America": "#1f77b4",
+    "Worldwide": "#ff7f0e"
+  }
+}

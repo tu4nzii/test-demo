@@ -1,0 +1,100 @@
+{
+  "chart_id": "radar_211",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "CPC": {
+      "D": 36.0,
+      "B": 42.5,
+      "E": 30.0,
+      "C": 40.5,
+      "A": 18.5
+    },
+    "AHU": {
+      "C": 9.0,
+      "D": 23.0,
+      "B": 18.5,
+      "A": 15.5,
+      "E": 16.5
+    },
+    "ZSCDX": {
+      "C": 10.5,
+      "D": 13.5,
+      "E": 42.0,
+      "A": 18.0,
+      "B": 14.0
+    },
+    "LEBRA": {
+      "D": 24.5,
+      "C": 36.0,
+      "B": 35.5,
+      "E": 47.5,
+      "A": 19.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50.0
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_211.png"
+  },
+  "series_color": {
+    "CPC": "#bcbd22",
+    "AHU": "#8c564b",
+    "ZSCDX": "#ff7f0e",
+    "LEBRA": "#dbdb8d"
+  },
+  "num_entities": 4,
+  "fill_enabled": false,
+  "num_vars": 5,
+  "err_center": 3.0,
+  "pred_coords": [
+    304,
+    303
+  ],
+  "argument": {
+    "a": 4.45,
+    "b": 5.5
+  }
+}

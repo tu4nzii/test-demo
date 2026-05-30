@@ -1,0 +1,71 @@
+{
+  "chart_id": "h_bar_147",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_147.png",
+    "with_grid": "charts/h_bar/h_bar_147_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_147_grid_with_grid.png"
+  },
+  "data_points": {
+    "Spending in million U.S. dollars": {
+      "Total": 6346.0,
+      "DuPont": 1956.0,
+      "Dow Chemical": 1646.0,
+      "Monsanto": 1386.0,
+      "PPG Industries": 430.0,
+      "Eastman Chemical": 158.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0,
+    6500.0,
+    7000.0
+  ],
+  "y_ticks": [
+    "Total",
+    "DuPont",
+    "Dow Chemical",
+    "Monsanto",
+    "PPG Industries",
+    "Eastman Chemical"
+  ],
+  "x_pixels": [
+    179,
+    220,
+    262,
+    303,
+    345,
+    386,
+    428,
+    469,
+    511,
+    552,
+    594,
+    635,
+    677,
+    718,
+    760
+  ],
+  "y_pixels": [
+    469,
+    402,
+    334,
+    266,
+    198,
+    131
+  ],
+  "series_color": {
+    "Spending in million U.S. dollars": "#1f77b4"
+  }
+}

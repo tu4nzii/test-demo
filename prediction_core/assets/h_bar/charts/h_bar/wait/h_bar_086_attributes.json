@@ -1,0 +1,33 @@
+{
+  "fig_size": [
+    8,
+    6
+  ],
+  "dpi": 100,
+  "font_size": 8,
+  "palette": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c",
+    "#d62728"
+  ],
+  "total_bar_height": 0.8,
+  "bar_height": 0.8,
+  "num_series": 1,
+  "max_val": 0.5,
+  "encrypted_ticks": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "orientation": "horizontal",
+  "title": "Living Planet Index, World, 2002"
+}

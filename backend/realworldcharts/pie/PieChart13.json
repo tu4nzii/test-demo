@@ -1,0 +1,20 @@
+{
+  "chart_id": "PieChart13",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart13.png"
+  },
+  "source_csv": "charts/pie/PieChart13.csv",
+  "data_points": {
+    "largest sector": 53.5,
+    "2nd sector": 16,
+    "3th": 12.5,
+    "4th": 5
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

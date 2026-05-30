@@ -1,0 +1,83 @@
+{
+  "chart_id": "h_bar_080",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_080.png",
+    "with_grid": "charts/h_bar/h_bar_080_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_080_grid_with_grid.png"
+  },
+  "data_points": {
+    "Daily price in U.S. dollars": {
+      "Zurich, Switzerland": 126.53,
+      "Venice, Italy": 113.78,
+      "Amsterdam, Netherlands": 109.4,
+      "London, England": 99.09,
+      "Rejkjavik, Iceland": 96.85,
+      "Interlaken, Switerland": 94.39,
+      "Copenhagen, Denmark": 92.26,
+      "Bergen, Norway": 89.19,
+      "Stockholm, Sweden": 87.8,
+      "Oslo, Norway": 86.06
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0
+  ],
+  "y_ticks": [
+    "Zurich, Switzerland",
+    "Venice, Italy",
+    "Amsterdam, Netherlands",
+    "London, England",
+    "Rejkjavik, Iceland",
+    "Interlaken, Switerland",
+    "Copenhagen, Denmark",
+    "Bergen, Norway",
+    "Stockholm, Sweden",
+    "Oslo, Norway"
+  ],
+  "x_pixels": [
+    428,
+    492,
+    557,
+    621,
+    685,
+    750,
+    814,
+    879,
+    943,
+    1008,
+    1072,
+    1137,
+    1201,
+    1266,
+    1330
+  ],
+  "y_pixels": [
+    801,
+    734,
+    667,
+    600,
+    533,
+    467,
+    400,
+    333,
+    266,
+    199
+  ],
+  "series_color": {
+    "Daily price in U.S. dollars": "#87ceeb"
+  }
+}

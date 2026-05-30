@@ -1,0 +1,73 @@
+{
+  "chart_id": "h_bar_187",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_187.png",
+    "with_grid": "charts/h_bar/h_bar_187_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_187_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of companies": {
+      "Canada": 27.0,
+      "Japan": 16.0,
+      "Switzerland": 14.0,
+      "Cayman Islands": 10.0,
+      "France": 8.0,
+      "Germany": 5.0,
+      "Netherlands": 4.0,
+      "Panama": 1.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0
+  ],
+  "y_ticks": [
+    "Canada",
+    "Japan",
+    "Switzerland",
+    "Cayman Islands",
+    "France",
+    "Germany",
+    "Netherlands",
+    "Panama"
+  ],
+  "x_pixels": [
+    131,
+    176,
+    220,
+    265,
+    309,
+    354,
+    398,
+    443,
+    487,
+    532,
+    576,
+    621,
+    665
+  ],
+  "y_pixels": [
+    397,
+    355,
+    313,
+    271,
+    229,
+    187,
+    145,
+    103
+  ],
+  "series_color": {
+    "Number of companies": "#66c2a5"
+  }
+}

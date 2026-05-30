@@ -1,0 +1,22 @@
+{
+  "chart_id": "PieChart9",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart9.png"
+  },
+  "source_csv": "charts/pie/PieChart9.csv",
+  "data_points": {
+    "Monday": 25,
+    "Tuesday": 15,
+    "Wednesday": 44,
+    "Thursday": 55,
+    "Friday": 41,
+    "Saturday": 17
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

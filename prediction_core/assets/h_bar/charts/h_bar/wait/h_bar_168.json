@@ -1,0 +1,88 @@
+{
+  "chart_id": "h_bar_168",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_168.png",
+    "with_grid": "charts/h_bar/h_bar_168_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_168_grid_with_grid.png"
+  },
+  "data_points": {
+    "Disapprove": {
+      "Netherlands": 58.0,
+      "United Kingdom": 66.0,
+      "Germany": 66.0,
+      "Poland": 67.0,
+      "Spain": 71.0,
+      "France": 74.0,
+      "Italy": 78.0,
+      "Hungary": 80.0,
+      "Sweden": 84.0,
+      "Greece": 92.0
+    },
+    "Approve": {
+      "Netherlands": 37.0,
+      "United Kingdom": 23.0,
+      "Germany": 27.0,
+      "Poland": 23.0,
+      "Spain": 26.0,
+      "France": 22.0,
+      "Italy": 16.0,
+      "Hungary": 15.0,
+      "Sweden": 13.0,
+      "Greece": NaN
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "Netherlands",
+    "United Kingdom",
+    "Germany",
+    "Poland",
+    "Spain",
+    "France",
+    "Italy",
+    "Hungary",
+    "Sweden",
+    "Greece"
+  ],
+  "x_pixels": [
+    157,
+    218,
+    278,
+    338,
+    398,
+    459,
+    519,
+    579,
+    639,
+    700,
+    760
+  ],
+  "y_pixels": [
+    420,
+    386,
+    352,
+    318,
+    283,
+    249,
+    215,
+    181,
+    146,
+    112
+  ],
+  "series_color": {
+    "Disapprove": "#66c2a5",
+    "Approve": "#fc8d62"
+  }
+}

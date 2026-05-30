@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_005",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_005.png",
+    "with_grid": "charts/h_bar/h_bar_005_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_005_grid_with_grid.png"
+  },
+  "data_points": {
+    "Almost all of the time": {
+      "Black": 26.0,
+      "Hispanic": 19.0,
+      "White": 10.0
+    },
+    "Most of the time": {
+      "Black": 27.0,
+      "Hispanic": 27.0,
+      "White": 32.0
+    },
+    "Sometimes": {
+      "Black": 38.0,
+      "Hispanic": 39.0,
+      "White": 48.0
+    },
+    "Hardly ever/ Never": {
+      "Black": 9.0,
+      "Hispanic": 15.0,
+      "White": 10.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "y_ticks": [
+    "Black",
+    "Hispanic",
+    "White"
+  ],
+  "x_pixels": [
+    92,
+    149,
+    205,
+    262,
+    319,
+    376,
+    433,
+    490,
+    547,
+    604,
+    660
+  ],
+  "y_pixels": [
+    324,
+    230,
+    136
+  ],
+  "series_color": {
+    "Almost all of the time": "#66c2a5",
+    "Most of the time": "#fc8d62",
+    "Sometimes": "#8da0cb",
+    "Hardly ever/ Never": "#e78ac3"
+  }
+}

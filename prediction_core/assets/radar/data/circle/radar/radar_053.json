@@ -1,0 +1,78 @@
+{
+  "chart_id": "radar_053",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "NKAG": {
+      "A": 61.0,
+      "D": 11.0,
+      "B": 33.0,
+      "C": 68.0
+    },
+    "PLNLOG": {
+      "C": 86.0,
+      "D": 68.0,
+      "B": 35.0,
+      "A": 33.0
+    },
+    "KOPZZ": {
+      "A": 17.0,
+      "D": 94.0,
+      "B": 28.0,
+      "C": 47.0
+    },
+    "THOXP": {
+      "B": 88.0,
+      "C": 73.0,
+      "D": 73.0,
+      "A": 42.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_053.png"
+  },
+  "series_color": {
+    "NKAG": "#8c564b",
+    "PLNLOG": "#ff7f0e",
+    "KOPZZ": "#bcbd22",
+    "THOXP": "#c7c7c7"
+  },
+  "num_entities": 4,
+  "fill_enabled": false,
+  "num_vars": 4
+}

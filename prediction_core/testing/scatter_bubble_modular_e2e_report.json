@@ -1,0 +1,18 @@
+[
+  {
+    "chart_type": "scatter",
+    "chart_id": "scatter_001",
+    "object_name": "ITA",
+    "exit_code": 0,
+    "elapsed_seconds": 59.83,
+    "ok": true
+  },
+  {
+    "chart_type": "bubble",
+    "chart_id": "bubble_023",
+    "object_name": "S1",
+    "exit_code": 0,
+    "elapsed_seconds": 94.47,
+    "ok": true
+  }
+]

@@ -1,0 +1,84 @@
+{
+  "chart_id": "h_bar_109",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_109.png",
+    "with_grid": "charts/h_bar/h_bar_109_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_109_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of churches and religious complexes": {
+      "Tuscany": 43.0,
+      "Emilia-Romagna": 19.0,
+      "Piedmont": 17.0,
+      "Lazio": 16.0,
+      "Umbria": 14.0,
+      "Sardinia": 11.0,
+      "Sicily": 10.0,
+      "Lombardy": 9.0,
+      "Veneto": 6.0,
+      "Liguria": 5.0,
+      "Friuli-Venezia Giulia": 4.0,
+      "Basilicata": 2.0,
+      "Aosta Valley": 1.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "y_ticks": [
+    "Tuscany",
+    "Emilia-Romagna",
+    "Piedmont",
+    "Lazio",
+    "Umbria",
+    "Sardinia",
+    "Sicily",
+    "Lombardy",
+    "Veneto",
+    "Liguria",
+    "Friuli-Venezia Giulia",
+    "Basilicata",
+    "Aosta Valley"
+  ],
+  "x_pixels": [
+    268,
+    374,
+    481,
+    587,
+    693,
+    799,
+    905,
+    1011,
+    1118,
+    1224,
+    1330
+  ],
+  "y_pixels": [
+    807,
+    756,
+    705,
+    653,
+    602,
+    551,
+    500,
+    449,
+    398,
+    347,
+    295,
+    244,
+    193
+  ],
+  "series_color": {
+    "Number of churches and religious complexes": "#66c2a5"
+  }
+}

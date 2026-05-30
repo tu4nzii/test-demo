@@ -1,0 +1,60 @@
+{
+  "chart_id": "v_bar_002",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_002.png",
+    "with_grid": "charts/v_bar/v_bar_002_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_002_grid_with_grid.png"
+  },
+  "data_points": {
+    "Spending in billion Mexican pesos": {
+      "2020*": 78.1,
+      "2019": 84.62,
+      "2018": 83.05,
+      "2017": 79.3,
+      "2016": 77.02
+    }
+  },
+  "x_ticks": [
+    "2020*",
+    "2019",
+    "2018",
+    "2017",
+    "2016"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "x_pixels": [
+    346,
+    558,
+    770,
+    982,
+    1194
+  ],
+  "y_pixels": [
+    800,
+    732,
+    664,
+    596,
+    528,
+    460,
+    392,
+    324,
+    256,
+    188,
+    120
+  ],
+  "series_color": {
+    "Spending in billion Mexican pesos": "#1f77b4"
+  }
+}

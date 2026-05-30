@@ -1,0 +1,37 @@
+{
+  "chart_id": "055",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_055_no_grid.png",
+    "with_grid": "charts/pie/pie_055_with_grid.png"
+  },
+  "data_points": {
+    "Catholic": 39.84,
+    "Orthodox": 320.16
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Catholic": "#fdb462",
+    "Orthodox": "#17becf"
+  }
+}

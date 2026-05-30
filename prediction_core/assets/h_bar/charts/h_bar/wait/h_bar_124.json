@@ -1,0 +1,116 @@
+{
+  "chart_id": "h_bar_124",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_124.png",
+    "with_grid": "charts/h_bar/h_bar_124_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_124_grid_with_grid.png"
+  },
+  "data_points": {
+    "Very good": {
+      "MEDIAN": 37.0,
+      "Spa in": NaN,
+      "Poland": 20.0,
+      "Hungary": 26.0,
+      "Greece": 31.0,
+      "Italy": 29.0,
+      "France": 23.0,
+      "Netherla nds": NaN,
+      "U.S": 48.0,
+      "Canada": 43.0,
+      "Germany": 46.0,
+      "Sweden": 54.0,
+      "Fore ign policy experts": 72.0
+    },
+    "Somewhat good": {
+      "MEDIAN": 83.0,
+      "Spa in": 74.0,
+      "Poland": NaN,
+      "Hungary": 78.0,
+      "Greece": 78.0,
+      "Italy": 79.0,
+      "France": 81.0,
+      "Netherla nds": 84.0,
+      "U.S": 86.0,
+      "Canada": 87.0,
+      "Germany": 90.0,
+      "Sweden": 92.0,
+      "Fore ign policy experts": 95.0
+    },
+    "Total": {
+      "MEDIAN": 0.0,
+      "Spa in": 0.0,
+      "Poland": 0.0,
+      "Hungary": 0.0,
+      "Greece": 0.0,
+      "Italy": 0.0,
+      "France": 0.0,
+      "Netherla nds": 0.0,
+      "U.S": 0.0,
+      "Canada": 0.0,
+      "Germany": 0.0,
+      "Sweden": 0.0,
+      "Fore ign policy experts": 0.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "MEDIAN",
+    "Spa in",
+    "Poland",
+    "Hungary",
+    "Greece",
+    "Italy",
+    "France",
+    "Netherla nds",
+    "U.S",
+    "Canada",
+    "Germany",
+    "Sweden",
+    "Fore ign policy experts"
+  ],
+  "x_pixels": [
+    142,
+    194,
+    246,
+    299,
+    351,
+    403,
+    456,
+    508,
+    560,
+    613,
+    665
+  ],
+  "y_pixels": [
+    354,
+    333,
+    312,
+    292,
+    271,
+    251,
+    230,
+    209,
+    189,
+    168,
+    148,
+    127,
+    106
+  ],
+  "series_color": {
+    "Very good": "#66c2a5",
+    "Somewhat good": "#fc8d62",
+    "Total": "#8da0cb"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "chart_id": "PieChart1",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart1.png"
+  },
+  "source_csv": "charts/pie/PieChart1.csv",
+  "data_points": {
+    "Rent": 49,
+    "Utilities": 23,
+    "Food": 20,
+    "Leisure": 8
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

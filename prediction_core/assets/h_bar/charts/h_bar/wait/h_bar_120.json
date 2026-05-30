@@ -1,0 +1,54 @@
+{
+  "chart_id": "h_bar_120",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_120.png",
+    "with_grid": "charts/h_bar/h_bar_120_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_120_grid_with_grid.png"
+  },
+  "data_points": {
+    "Sunflower seed production, 1990": {
+      "China": 1.34,
+      "Western Asia": 948650.0,
+      "Myanmar": 89253.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    100000.0,
+    200000.0,
+    300000.0,
+    400000.0,
+    500000.0,
+    600000.0,
+    700000.0,
+    800000.0,
+    900000.0,
+    1000000.0
+  ],
+  "y_ticks": [
+    "China",
+    "Western Asia",
+    "Myanmar"
+  ],
+  "x_pixels": [
+    130,
+    183,
+    237,
+    290,
+    344,
+    397,
+    451,
+    504,
+    558,
+    611,
+    665
+  ],
+  "y_pixels": [
+    367,
+    250,
+    133
+  ],
+  "series_color": {
+    "Sunflower seed production, 1990": "#87ceeb"
+  }
+}

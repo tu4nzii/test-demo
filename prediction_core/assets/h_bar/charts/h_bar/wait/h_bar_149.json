@@ -1,0 +1,60 @@
+{
+  "chart_id": "h_bar_149",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_149.png",
+    "with_grid": "charts/h_bar/h_bar_149_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_149_grid_with_grid.png"
+  },
+  "data_points": {
+    "Incentives in billion Indonesian rupiah": {
+      "Discounts for domestic tourists who visit any of the ten tourist destinations promoted by the government": 443.0,
+      "Discounts on jet fuel by PT Pertamina": 265.0,
+      "Tourism marketing and promotions": 103.0,
+      "Incentives for airlines and travel agencies": 98.5,
+      "Promotions of tourist spots through social media influencers": 72.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Discounts for domestic tourists who visit any of the ten tourist destinations promoted by the government",
+    "Discounts on jet fuel by PT Pertamina",
+    "Tourism marketing and promotions",
+    "Incentives for airlines and travel agencies",
+    "Promotions of tourist spots through social media influencers"
+  ],
+  "x_pixels": [
+    283,
+    406,
+    530,
+    654,
+    778,
+    901,
+    1025,
+    1149,
+    1273,
+    1396,
+    1520
+  ],
+  "y_pixels": [
+    927,
+    764,
+    600,
+    436,
+    273
+  ],
+  "series_color": {
+    "Incentives in billion Indonesian rupiah": "#1f77b4"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "chart_id": "radar_197",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "ZUHXPM": {
+      "B": 5.5,
+      "D": 6.0,
+      "C": 5.75,
+      "A": 9.0
+    },
+    "MDD": {
+      "A": 14.0,
+      "C": 7.75,
+      "B": 10.5,
+      "D": 7.75
+    },
+    "YOWHH": {
+      "D": 14.5,
+      "B": 5.75,
+      "C": 9.75,
+      "A": 20.5
+    },
+    "TWHDK": {
+      "D": 21.25,
+      "B": 15.75,
+      "A": 5.25,
+      "C": 7.0
+    },
+    "KWSJ": {
+      "A": 4.5,
+      "C": 19.5,
+      "B": 2.75,
+      "D": 2.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    0,
+    2.5,
+    5,
+    7.5,
+    10,
+    12.5,
+    15,
+    17.5,
+    20,
+    22.5,
+    25.0
+  ],
+  "r_pixels": [
+    107,
+    215,
+    322,
+    430,
+    537
+  ],
+  "center": [
+    717,
+    706
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_197.png"
+  },
+  "series_color": {
+    "ZUHXPM": "#aec7e8",
+    "MDD": "#2ca02c",
+    "YOWHH": "#9edae5",
+    "TWHDK": "#f7b6d2",
+    "KWSJ": "#d62728"
+  },
+  "num_entities": 5,
+  "fill_enabled": true,
+  "num_vars": 4,
+  "err_center": 2.23606797749979,
+  "pred_coords": [
+    715,
+    707
+  ],
+  "argument": {
+    "a": 10.85,
+    "b": 268.75
+  }
+}

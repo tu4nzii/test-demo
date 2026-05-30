@@ -8,6 +8,7 @@ from demo_radar.demo_radar_circle_find import RadarChartEncoder
 from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
 from demo_rose.demo_rose_circle_find import RoseChartEncoder
 from evaluation import evaluate_chart_data
+from Grid_generation.circular_angle_grid import process_circular_angle_chart
 from Grid_generation.grid_generation import process_chart
 from type_detection.chart_registry import (
     CARTESIAN_CHART_TYPES,
@@ -19,10 +20,10 @@ from type_detection.chart_registry import (
 
 
 class ChartProcessor(Protocol):
-    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
+    def encode_image(self, image_path: str, output_dir: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Optional[str]:
         ...
 
-    def find_axis(self, image_path: str) -> Dict[str, Any]:
+    def find_axis(self, image_path: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         ...
 
     def process_data(self, chart_id: str, image_path: str, json_path: Optional[str], output_dir: str) -> Optional[Dict[str, Any]]:
@@ -76,10 +77,10 @@ class PolarChartProcessor(BaseChartProcessor):
     encoder_cls: Type[Any]
     axis_finder_cls: Type[Any]
 
-    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
+    def encode_image(self, image_path: str, output_dir: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Optional[str]:
         return self.encoder_cls().process_single_image(image_path, output_dir)
 
-    def find_axis(self, image_path: str) -> Dict[str, Any]:
+    def find_axis(self, image_path: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         return self.axis_finder_cls().process_single_image(image_path)
 
     def process_data(self, chart_id: str, image_path: str, json_path: Optional[str], output_dir: str) -> Optional[Dict[str, Any]]:
@@ -108,22 +109,83 @@ class RadarChartProcessor(PolarChartProcessor):
     axis_finder_cls = RadarChartAxisFinder
 
 
+class CircularAngleChartProcessor(BaseChartProcessor):
+    coordinate_system = CoordinateSystem.POLAR.value
+
+    def __init__(self, chart_type: Optional[str] = None):
+        super().__init__(chart_type)
+        self.coordinate_system = CoordinateSystem.POLAR.value
+
+    def encode_image(self, image_path: str, output_dir: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Optional[str]:
+        result = process_circular_angle_chart(image_path, output_dir, self.chart_type)
+        return result.get("encrypted_grid_path")
+
+    def find_axis(self, image_path: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        temp_output = os.path.join(os.path.dirname(image_path), "temp_output")
+        os.makedirs(temp_output, exist_ok=True)
+        try:
+            result = process_circular_angle_chart(image_path, temp_output, self.chart_type)
+            return {
+                "center": result.get("center", []),
+                "r_pixels": result.get("r_pixels"),
+                "theta_ticks": result.get("theta_ticks", []),
+                "theta_angles": result.get("theta_angles", []),
+                "r_ticks": result.get("r_ticks", []),
+            }
+        finally:
+            if os.path.exists(temp_output):
+                shutil.rmtree(temp_output)
+
+    def process_data(self, chart_id: str, image_path: str, json_path: Optional[str], output_dir: str) -> Optional[Dict[str, Any]]:
+        image_stem = os.path.splitext(os.path.basename(image_path))[0]
+        target_json_path = os.path.join(output_dir, f"{image_stem}.json")
+        if os.path.exists(target_json_path):
+            chart_data = load_json(target_json_path)
+        else:
+            chart_data = process_circular_angle_chart(image_path, output_dir, self.chart_type)
+
+        chart_data["chart_id"] = chart_id
+        chart_data["chart_type"] = self.chart_type
+        chart_data["coordinate_system"] = self.coordinate_system
+        if json_path and os.path.exists(json_path):
+            chart_data["data"] = extract_data_points(load_json(json_path))
+        return chart_data
+
+
+class PieChartProcessor(CircularAngleChartProcessor):
+    chart_type = "pie"
+
+
+class DonutChartProcessor(CircularAngleChartProcessor):
+    chart_type = "donut"
+
+
 class CartesianChartProcessor(BaseChartProcessor):
     chart_type = CoordinateSystem.CARTESIAN.value
     coordinate_system = CoordinateSystem.CARTESIAN.value
 
-    def encode_image(self, image_path: str, output_dir: str) -> Optional[str]:
-        result = process_chart(image_path, output_dir)
+    def encode_image(self, image_path: str, output_dir: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Optional[str]:
+        result = process_chart(
+            image_path,
+            output_dir,
+            chart_type_override=self.chart_type,
+            axis_repair_hint=axis_repair_hint,
+        )
         if result:
             return result.get("encrypted_grid_path")
         return None
 
-    def find_axis(self, image_path: str) -> Dict[str, Any]:
+    def find_axis(self, image_path: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         temp_output = os.path.join(os.path.dirname(image_path), "temp_output")
         os.makedirs(temp_output, exist_ok=True)
 
         try:
-            result = process_chart(image_path, temp_output)
+            result = process_chart(
+                image_path,
+                temp_output,
+                chart_type_override=self.chart_type,
+                axis_repair_hint=axis_repair_hint,
+            )
             if not result:
                 return {}
 
@@ -138,7 +200,11 @@ class CartesianChartProcessor(BaseChartProcessor):
                 shutil.rmtree(temp_output)
 
     def process_data(self, chart_id: str, image_path: str, json_path: Optional[str], output_dir: str) -> Optional[Dict[str, Any]]:
-        result = process_chart(image_path, output_dir)
+        result = process_chart(
+            image_path,
+            output_dir,
+            chart_type_override=self.chart_type,
+        )
         if not result:
             return None
 
@@ -166,13 +232,18 @@ class ChartProcessorFactory:
     _processors = {
         "rose": RoseChartProcessor,
         "radar": RadarChartProcessor,
+        "pie": PieChartProcessor,
+        "donut": DonutChartProcessor,
     }
 
     @classmethod
     def create_processor(cls, chart_type: str) -> ChartProcessor:
         normalized_type = normalize_chart_type(chart_type)
+        processor_cls = cls._processors.get(normalized_type)
+        if processor_cls is not None:
+            return processor_cls(normalized_type)
+
         if normalized_type in CARTESIAN_CHART_TYPES:
             return CartesianChartProcessor(normalized_type)
 
-        processor_cls = cls._processors.get(normalized_type, CartesianChartProcessor)
-        return processor_cls(normalized_type)
+        return CartesianChartProcessor(normalized_type)

@@ -1,0 +1,43 @@
+{
+  "fig_size": [
+    5,
+    4
+  ],
+  "dpi": 100,
+  "font_size": 10,
+  "width": 50,
+  "alpha": 0.9590908430528062,
+  "shadow": false,
+  "overall_position": "inside",
+  "num_segments": 8,
+  "values": [
+    9,
+    38,
+    49,
+    19,
+    58,
+    48,
+    61,
+    78
+  ],
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "object_color_mapping": {
+    "A": "#1f77b4",
+    "B": "#ff7f0e",
+    "C": "#2ca02c",
+    "D": "#d62728",
+    "E": "#9467bd",
+    "F": "#8c564b",
+    "G": "#e377c2",
+    "H": "#7f7f7f"
+  }
+}

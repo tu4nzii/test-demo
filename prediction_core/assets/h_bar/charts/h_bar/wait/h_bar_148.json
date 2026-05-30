@@ -1,0 +1,87 @@
+{
+  "chart_id": "h_bar_148",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_148.png",
+    "with_grid": "charts/h_bar/h_bar_148_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_148_grid_with_grid.png"
+  },
+  "data_points": {
+    "Five year survival rates by cancer type, Slovenia, 1999": {
+      "Breast": 71.3,
+      "Cervix": 62.9,
+      "Prostate": 61.1,
+      "Colon": 45.1,
+      "Leukaemia": 44.3,
+      "Rectum": 40.5,
+      "Ovary": 33.4,
+      "Stomach": 20.1,
+      "Lung": 8.5,
+      "Liver": 3.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "y_ticks": [
+    "Breast",
+    "Cervix",
+    "Prostate",
+    "Colon",
+    "Leukaemia",
+    "Rectum",
+    "Ovary",
+    "Stomach",
+    "Lung",
+    "Liver"
+  ],
+  "x_pixels": [
+    82,
+    118,
+    155,
+    191,
+    228,
+    264,
+    301,
+    337,
+    373,
+    410,
+    446,
+    483,
+    519,
+    556,
+    592,
+    629,
+    665
+  ],
+  "y_pixels": [
+    400,
+    367,
+    333,
+    300,
+    267,
+    233,
+    200,
+    167,
+    133,
+    100
+  ],
+  "series_color": {
+    "Five year survival rates by cancer type, Slovenia, 1999": "#87ceeb"
+  }
+}

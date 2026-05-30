@@ -1,0 +1,90 @@
+{
+  "chart_id": "h_bar_184",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_184.png",
+    "with_grid": "charts/h_bar/h_bar_184_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_184_grid_with_grid.png"
+  },
+  "data_points": {
+    "Daily price in U.S. dollars": {
+      "Istanbul, Turkey": 27.89,
+      "Bucharest, Romania": 28.18,
+      "Belgrade, Serbia": 29.29,
+      "Budapest, Hungary": 32.09,
+      "Kiev, Ukraine": 32.61,
+      "Sofia, Bulgaria": 32.99,
+      "Krakow, Poland": 33.2,
+      "Warsaw, Poland": 37.16,
+      "Riga, Latvia": 37.26,
+      "Sarajevo, Bosnia and Herzegovina": 38.93,
+      "Vilnius, Lithuania": 39.05,
+      "Český Krumlov, Czech Republic": 41.74,
+      "Zagreb, Croatia": 42.66,
+      "Bratislava, Slovakia": 43.0,
+      "Split, Croatia": 47.16
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "y_ticks": [
+    "Istanbul, Turkey",
+    "Bucharest, Romania",
+    "Belgrade, Serbia",
+    "Budapest, Hungary",
+    "Kiev, Ukraine",
+    "Sofia, Bulgaria",
+    "Krakow, Poland",
+    "Warsaw, Poland",
+    "Riga, Latvia",
+    "Sarajevo, Bosnia and Herzegovina",
+    "Vilnius, Lithuania",
+    "Český Krumlov, Czech Republic",
+    "Zagreb, Croatia",
+    "Bratislava, Slovakia",
+    "Split, Croatia"
+  ],
+  "x_pixels": [
+    206,
+    252,
+    298,
+    343,
+    389,
+    435,
+    481,
+    527,
+    573,
+    619,
+    665
+  ],
+  "y_pixels": [
+    405,
+    383,
+    361,
+    338,
+    316,
+    294,
+    272,
+    250,
+    228,
+    206,
+    184,
+    162,
+    139,
+    117,
+    95
+  ],
+  "series_color": {
+    "Daily price in U.S. dollars": "#87ceeb"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "chart_id": "radar_057",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "GGXOBH": {
+      "C": 29.0,
+      "D": 29.5,
+      "A": 44.0,
+      "B": 21.0
+    },
+    "YGQVZL": {
+      "C": 7.5,
+      "B": 28.0,
+      "D": 24.5,
+      "A": 31.0
+    },
+    "JTNTOG": {
+      "A": 45.0,
+      "C": 43.0,
+      "B": 8.5,
+      "D": 29.0
+    },
+    "HIAKPG": {
+      "B": 41.0,
+      "C": 6.5,
+      "A": 29.0,
+      "D": 22.5
+    },
+    "OQLND": {
+      "A": 36.0,
+      "D": 21.5,
+      "B": 10.5,
+      "C": 39.0
+    },
+    "NBYFUS": {
+      "A": 38.0,
+      "B": 46.5,
+      "C": 27.0,
+      "D": 11.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_057.png"
+  },
+  "series_color": {
+    "GGXOBH": "#c49c94",
+    "YGQVZL": "#9467bd",
+    "JTNTOG": "#ff7f0e",
+    "HIAKPG": "#d62728",
+    "OQLND": "#bcbd22",
+    "NBYFUS": "#98df8a"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 4
+}

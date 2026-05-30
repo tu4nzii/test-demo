@@ -1,0 +1,71 @@
+{
+  "chart_id": "h_bar_081",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_081.png",
+    "with_grid": "charts/h_bar/h_bar_081_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_081_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of followers in million followers": {
+      "Cristiano Ronaldo": 180.48,
+      "Paulo Dybala": 36.13,
+      "Gianluigi Buffon": 8.65,
+      "Juan Cuadrado": 7.74,
+      "Douglas Costa": 6.05,
+      "Sami Khedira": 5.47,
+      "Blaise Matuidi": 5.36,
+      "Miralem Pjanic": 4.77,
+      "Matthijs De Ligt": 4.44,
+      "Leonardo Bonucci": 4.17
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0
+  ],
+  "y_ticks": [
+    "Cristiano Ronaldo",
+    "Paulo Dybala",
+    "Gianluigi Buffon",
+    "Juan Cuadrado",
+    "Douglas Costa",
+    "Sami Khedira",
+    "Blaise Matuidi",
+    "Miralem Pjanic",
+    "Matthijs De Ligt",
+    "Leonardo Bonucci"
+  ],
+  "x_pixels": [
+    148,
+    224,
+    301,
+    377,
+    454,
+    530,
+    607,
+    683,
+    760
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    360,
+    320,
+    280,
+    240,
+    200,
+    160,
+    120
+  ],
+  "series_color": {
+    "Number of followers in million followers": "#66c2a5"
+  }
+}

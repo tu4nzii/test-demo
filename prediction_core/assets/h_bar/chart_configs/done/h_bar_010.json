@@ -1,0 +1,88 @@
+{
+  "chart_id": "h_bar_010",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_010.png",
+    "with_grid": "charts/h_bar/h_bar_010_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_010_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of registrered vehicles": {
+      "Total": 5685785.0,
+      "Passenger cars": 2810475.0,
+      "Trailers": 1517557.0,
+      "Vans": 495965.0,
+      "Tractors*": 298989.0,
+      "Heavy motor cycles": 177450.0,
+      "Mopeds": 156347.0,
+      "Snow scooters": 93368.0,
+      "Trucks**": 70670.0,
+      "Light motor cycles": 30163.0,
+      "Buses": 15429.0,
+      "Combined vehicles": 13068.0,
+      "Special purpose vehicles": 6304.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500000.0,
+    1000000.0,
+    1500000.0,
+    2000000.0,
+    2500000.0,
+    3000000.0,
+    3500000.0,
+    4000000.0,
+    4500000.0,
+    5000000.0,
+    5500000.0,
+    6000000.0
+  ],
+  "y_ticks": [
+    "Total",
+    "Passenger cars",
+    "Trailers",
+    "Vans",
+    "Tractors*",
+    "Heavy motor cycles",
+    "Mopeds",
+    "Snow scooters",
+    "Trucks**",
+    "Light motor cycles",
+    "Buses",
+    "Combined vehicles",
+    "Special purpose vehicles"
+  ],
+  "x_pixels": [
+    268,
+    373,
+    477,
+    581,
+    686,
+    790,
+    894,
+    998,
+    1103,
+    1207,
+    1311,
+    1416,
+    1520
+  ],
+  "y_pixels": [
+    968,
+    907,
+    845,
+    784,
+    723,
+    661,
+    600,
+    539,
+    477,
+    416,
+    355,
+    293,
+    232
+  ],
+  "series_color": {
+    "Number of registrered vehicles": "#1f77b4"
+  }
+}

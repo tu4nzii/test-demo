@@ -1,0 +1,100 @@
+{
+  "chart_id": "h_bar_176",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_176.png",
+    "with_grid": "charts/h_bar/h_bar_176_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_176_grid_with_grid.png"
+  },
+  "data_points": {
+    "Very strong": {
+      "College grads & non-college grads": 10.0,
+      "People in cities & people in rural areas": 13.0,
+      "Young & folder people": 13.0,
+      "Immigrants & U.S-born": 24.0,
+      "Blacks & whites": 26.0,
+      "Rich & poor": 30.0,
+      "Democrats & Republicans": 56.0
+    },
+    "Strong": {
+      "College grads & non-college grads": 26.0,
+      "People in cities & people in rural areas": 27.0,
+      "Young & folder people": 27.0,
+      "Immigrants & U.S-born": 35.0,
+      "Blacks & whites": 40.0,
+      "Rich & poor": 33.0,
+      "Democrats & Republicans": 29.0
+    },
+    "Not very strong": {
+      "College grads & non-college grads": 33.0,
+      "People in cities & people in rural areas": 29.0,
+      "Young & folder people": 40.0,
+      "Immigrants & U.S-born": 28.0,
+      "Blacks & whites": 24.0,
+      "Rich & poor": 25.0,
+      "Democrats & Republicans": NaN
+    },
+    "No conflicts": {
+      "College grads & non-college grads": 24.0,
+      "People in cities & people in rural areas": 23.0,
+      "Young & folder people": NaN,
+      "Immigrants & U.S-born": NaN,
+      "Blacks & whites": NaN,
+      "Rich & poor": NaN,
+      "Democrats & Republicans": NaN
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "College grads & non-college grads",
+    "People in cities & people in rural areas",
+    "Young & folder people",
+    "Immigrants & U.S-born",
+    "Blacks & whites",
+    "Rich & poor",
+    "Democrats & Republicans"
+  ],
+  "x_pixels": [
+    399,
+    493,
+    586,
+    679,
+    773,
+    866,
+    960,
+    1053,
+    1146,
+    1240,
+    1333,
+    1427,
+    1520
+  ],
+  "y_pixels": [
+    826,
+    724,
+    622,
+    520,
+    417,
+    315,
+    213
+  ],
+  "series_color": {
+    "Very strong": "#87ceeb",
+    "Strong": "#4682b4",
+    "Not very strong": "#fa8072",
+    "No conflicts": "#ffd700"
+  }
+}

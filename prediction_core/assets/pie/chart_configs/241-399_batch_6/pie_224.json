@@ -1,0 +1,37 @@
+{
+  "chart_id": "224",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_224_no_grid.png",
+    "with_grid": "charts/pie/pie_224_with_grid.png"
+  },
+  "data_points": {
+    "Consistently supported Clinton": 213.06,
+    "Consistently supported Sanders": 146.94
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Consistently supported Clinton": "#8dd3c7",
+    "Consistently supported Sanders": "#80b1d3"
+  }
+}

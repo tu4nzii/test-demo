@@ -1,0 +1,35 @@
+{
+  "chart_id": "058",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_058_no_grid.png",
+    "with_grid": "charts/pie/pie_058_with_grid.png"
+  },
+  "data_points": {
+    "Don't know": 28.8,
+    "Will be eliminated": 154.8,
+    "Here to stay": 176.4
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Don't know": "#e7298a",
+    "Will be eliminated": "#dbdb8d",
+    "Here to stay": "#8c564b"
+  }
+}

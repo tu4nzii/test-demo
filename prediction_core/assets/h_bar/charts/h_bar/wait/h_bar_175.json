@@ -1,0 +1,90 @@
+{
+  "chart_id": "h_bar_175",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_175.png",
+    "with_grid": "charts/h_bar/h_bar_175_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_175_grid_with_grid.png"
+  },
+  "data_points": {
+    "World Risk Index score": {
+      "Qatar": 0.31,
+      "Malta": 0.66,
+      "Saint Vincent and the Grenadines": 0.81,
+      "Grenada": 0.97,
+      "Saudi Arabia": 1.04,
+      "Barbados": 1.39,
+      "Iceland": 1.69,
+      "Egypt": 1.78,
+      "Finland": 1.96,
+      "Estonia": 2.03,
+      "Maldives": 2.12,
+      "Switzerland": 2.15,
+      "Sweden": 2.2,
+      "Lithuania": 2.26,
+      "France": 2.47
+    }
+  },
+  "x_ticks": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5
+  ],
+  "y_ticks": [
+    "Qatar",
+    "Malta",
+    "Saint Vincent and the Grenadines",
+    "Grenada",
+    "Saudi Arabia",
+    "Barbados",
+    "Iceland",
+    "Egypt",
+    "Finland",
+    "Estonia",
+    "Maldives",
+    "Switzerland",
+    "Sweden",
+    "Lithuania",
+    "France"
+  ],
+  "x_pixels": [
+    120,
+    172,
+    225,
+    278,
+    330,
+    383,
+    435,
+    488,
+    540,
+    593,
+    645
+  ],
+  "y_pixels": [
+    405,
+    383,
+    361,
+    338,
+    316,
+    294,
+    272,
+    250,
+    228,
+    206,
+    184,
+    162,
+    139,
+    117,
+    95
+  ],
+  "series_color": {
+    "World Risk Index score": "#1f77b4"
+  }
+}

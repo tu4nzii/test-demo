@@ -1,0 +1,92 @@
+{
+  "chart_id": "radar_246",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "YFC": {
+      "C": 5.5,
+      "B": 19.0,
+      "D": 13.75,
+      "A": 16.0
+    },
+    "BSJDWT": {
+      "B": 2.75,
+      "D": 13.5,
+      "C": 21.75,
+      "A": 16.25
+    },
+    "YEID": {
+      "D": 19.75,
+      "C": 12.75,
+      "A": 7.25,
+      "B": 5.75
+    },
+    "JSR": {
+      "C": 9.5,
+      "B": 9.5,
+      "D": 10.5,
+      "A": 7.0
+    },
+    "CYAUOS": {
+      "B": 12.5,
+      "C": 13.5,
+      "D": 21.5,
+      "A": 21.0
+    },
+    "QQQXPH": {
+      "A": 11.25,
+      "B": 7.5,
+      "C": 10.0,
+      "D": 9.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_246.png"
+  },
+  "series_color": {
+    "YFC": "#ff9896",
+    "BSJDWT": "#d62728",
+    "YEID": "#1f77b4",
+    "JSR": "#2ca02c",
+    "CYAUOS": "#d62728",
+    "QQQXPH": "#c5b0d5"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 4
+}

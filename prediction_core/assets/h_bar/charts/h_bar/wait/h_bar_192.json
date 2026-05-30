@@ -1,0 +1,77 @@
+{
+  "chart_id": "h_bar_192",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_192.png",
+    "with_grid": "charts/h_bar/h_bar_192_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_192_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of gas stations": {
+      "Total": 121.0,
+      "Shell": 69.0,
+      "Avia": 72.0,
+      "BP": 59.0,
+      "Eni": 46.0,
+      "Carrefour": 10.0,
+      "Leclerc": 12.0,
+      "Dyneff": 8.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0
+  ],
+  "y_ticks": [
+    "Total",
+    "Shell",
+    "Avia",
+    "BP",
+    "Eni",
+    "Carrefour",
+    "Leclerc",
+    "Dyneff"
+  ],
+  "x_pixels": [
+    205,
+    299,
+    393,
+    487,
+    581,
+    675,
+    769,
+    863,
+    957,
+    1050,
+    1144,
+    1238,
+    1332,
+    1426,
+    1520
+  ],
+  "y_pixels": [
+    952,
+    852,
+    751,
+    650,
+    550,
+    449,
+    348,
+    248
+  ],
+  "series_color": {
+    "Number of gas stations": "#66c2a5"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_074",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_074.png",
+    "with_grid": "charts/h_bar/h_bar_074_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_074_grid_with_grid.png"
+  },
+  "data_points": {
+    "Value in million GBP": {
+      "Choc Snacks": 237.7,
+      "Premium Ice-Cream": 171.5,
+      "Luxury Ice Cream": 134.9,
+      "Filled Cones": 98.5,
+      "Childrens": 87.6,
+      "Standard Ice-Cream": 75.4,
+      "Adult Refresh": 34.9,
+      "Family Ice Cream Desserts": 21.9,
+      "Individual Ice-Cream": 15.8
+    }
+  },
+  "x_ticks": [
+    0.0,
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    125.0,
+    150.0,
+    175.0,
+    200.0,
+    225.0,
+    250.0
+  ],
+  "y_ticks": [
+    "Choc Snacks",
+    "Premium Ice-Cream",
+    "Luxury Ice Cream",
+    "Filled Cones",
+    "Childrens",
+    "Standard Ice-Cream",
+    "Adult Refresh",
+    "Family Ice Cream Desserts",
+    "Individual Ice-Cream"
+  ],
+  "x_pixels": [
+    136,
+    189,
+    242,
+    295,
+    348,
+    401,
+    453,
+    506,
+    559,
+    612,
+    665
+  ],
+  "y_pixels": [
+    399,
+    362,
+    324,
+    287,
+    250,
+    213,
+    176,
+    138,
+    101
+  ],
+  "series_color": {
+    "Value in million GBP": "#1f77b4"
+  }
+}

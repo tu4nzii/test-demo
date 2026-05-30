@@ -1,0 +1,46 @@
+{
+  "chart_id": "line_008",
+  "title": "",
+  "dpi": 100,
+  "fig_size": [
+    6,
+    4
+  ],
+  "font_size": 12,
+  "palette": [
+    "#1f77b4",
+    "#ff7f0e",
+    "#2ca02c"
+  ],
+  "sample_size": 5,
+  "series_color": {
+    "Russia favorability in China": "#1f77b4",
+    "China favorability in Russia": "#ff7f0e"
+  },
+  "x_ticks": [
+    "2007",
+    "2009",
+    "2011",
+    "2013",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    20.0,
+    40.0,
+    60.0,
+    80.0
+  ],
+  "y_ticks_encrypted": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "random_seed": 42
+}

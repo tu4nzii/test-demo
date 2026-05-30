@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_017",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_017.png",
+    "with_grid": "charts/h_bar/h_bar_017_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_017_grid_with_grid.png"
+  },
+  "data_points": {
+    "Unfavorable": {
+      "MEDIAN": 59.0,
+      "Jordan 93": 93.0,
+      "Israel 92": 92.0,
+      "Turkey": 59.0,
+      "Tunisia": NaN,
+      "Lebanon": 52.0
+    },
+    "Favorable": {
+      "MEDIAN": 12.0,
+      "Jordan 93": NaN,
+      "Israel 92": NaN,
+      "Turkey": NaN,
+      "Tunisia": NaN,
+      "Lebanon": 45.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "MEDIAN",
+    "Jordan 93",
+    "Israel 92",
+    "Turkey",
+    "Tunisia",
+    "Lebanon"
+  ],
+  "x_pixels": [
+    181,
+    315,
+    449,
+    583,
+    716,
+    850,
+    984,
+    1118,
+    1252,
+    1386,
+    1520
+  ],
+  "y_pixels": [
+    822,
+    709,
+    596,
+    484,
+    371,
+    258
+  ],
+  "series_color": {
+    "Unfavorable": "#66c2a5",
+    "Favorable": "#fc8d62"
+  }
+}

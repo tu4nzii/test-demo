@@ -1,0 +1,46 @@
+{
+  "chart_id": "line_007",
+  "title": "",
+  "dpi": 120,
+  "fig_size": [
+    10,
+    6
+  ],
+  "font_size": 12,
+  "palette": [
+    "#d62728",
+    "#9467bd",
+    "#8c564b"
+  ],
+  "sample_size": 5,
+  "series_color": {
+    "Russia favora bility in Germany": "#d62728",
+    "Germany favorability in Russia": "#9467bd"
+  },
+  "x_ticks": [
+    "2007",
+    "2009",
+    "2011",
+    "2013",
+    "2015"
+  ],
+  "y_ticks": [
+    0.0,
+    20.0,
+    40.0,
+    60.0,
+    80.0
+  ],
+  "y_ticks_encrypted": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "random_seed": 42
+}

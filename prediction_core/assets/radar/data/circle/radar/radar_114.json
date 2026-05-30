@@ -1,0 +1,84 @@
+{
+  "chart_id": "radar_114",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "data_points": {
+    "VYFAC": {
+      "D": 184.0,
+      "B": 46.0,
+      "E": 172.0,
+      "G": 196.0,
+      "H": 118.0,
+      "A": 170.0,
+      "C": 34.0,
+      "F": 38.0
+    },
+    "XZAK": {
+      "A": 102.0,
+      "C": 140.0,
+      "F": 28.0,
+      "H": 134.0,
+      "B": 160.0,
+      "G": 76.0,
+      "E": 78.0,
+      "D": 126.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ],
+  "r_ticks": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_114.png"
+  },
+  "series_color": {
+    "VYFAC": "#7f7f7f",
+    "XZAK": "#c5b0d5"
+  },
+  "num_entities": 2,
+  "fill_enabled": true,
+  "num_vars": 8
+}

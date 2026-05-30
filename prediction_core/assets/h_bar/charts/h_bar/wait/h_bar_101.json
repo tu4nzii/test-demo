@@ -1,0 +1,101 @@
+{
+  "chart_id": "h_bar_101",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_101.png",
+    "with_grid": "charts/h_bar/h_bar_101_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_101_grid_with_grid.png"
+  },
+  "data_points": {
+    "Rushing yards": {
+      "Ottis Anderson": 7999.0,
+      "Stump Mitchell": 4649.0,
+      "Jim Otis": 3863.0,
+      "Johnny Roland": 3608.0,
+      "Charley Trippi": 3506.0,
+      "John David Crow": 3489.0,
+      "Terry Metcalf": 3438.0,
+      "Wayne Morris": 3375.0,
+      "Ollie Matson": 3331.0,
+      "David Johnson": 3128.0,
+      "Earl Ferrell": 2950.0,
+      "Elmer Angsman": 2908.0,
+      "Edgerrin James": 2895.0,
+      "Beanie Wells": 2471.0,
+      "Pat Harder": 2371.0,
+      "Johnny Johnson": 2326.0,
+      "Prentice Gautt": 2307.0,
+      "Willis Crenshaw": 2228.0,
+      "Joe Childress": 2210.0,
+      "Marcel Shipp": 2197.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0
+  ],
+  "y_ticks": [
+    "Ottis Anderson",
+    "Stump Mitchell",
+    "Jim Otis",
+    "Johnny Roland",
+    "Charley Trippi",
+    "John David Crow",
+    "Terry Metcalf",
+    "Wayne Morris",
+    "Ollie Matson",
+    "David Johnson",
+    "Earl Ferrell",
+    "Elmer Angsman",
+    "Edgerrin James",
+    "Beanie Wells",
+    "Pat Harder",
+    "Johnny Johnson",
+    "Prentice Gautt",
+    "Willis Crenshaw",
+    "Joe Childress",
+    "Marcel Shipp"
+  ],
+  "x_pixels": [
+    160,
+    232,
+    303,
+    374,
+    446,
+    517,
+    589,
+    660,
+    732
+  ],
+  "y_pixels": [
+    488,
+    469,
+    449,
+    429,
+    409,
+    389,
+    369,
+    350,
+    330,
+    310,
+    290,
+    270,
+    250,
+    231,
+    211,
+    191,
+    171,
+    151,
+    131,
+    112
+  ],
+  "series_color": {
+    "Rushing yards": "#87ceeb"
+  }
+}

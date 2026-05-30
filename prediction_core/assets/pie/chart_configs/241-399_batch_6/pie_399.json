@@ -1,0 +1,37 @@
+{
+  "chart_id": "399",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_399_no_grid.png",
+    "with_grid": "charts/pie/pie_399_with_grid.png"
+  },
+  "data_points": {
+    "Telecoms & IT": 70.31,
+    "Real Estate & Construction": 65.45,
+    "Manufacturing": 49.83,
+    "Other": 174.4
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Telecoms & IT": "#bcbd22",
+    "Real Estate & Construction": "#9467bd",
+    "Manufacturing": "#dbdb8d",
+    "Other": "#c49c94"
+  }
+}

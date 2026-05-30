@@ -1,0 +1,67 @@
+{
+  "chart_id": "h_bar_139",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_139.png",
+    "with_grid": "charts/h_bar/h_bar_139_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_139_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average cost in U.S. dollars": {
+      "United States*": 5220.0,
+      "Switzerland": 4781.0,
+      "New Zealand": 2142.0,
+      "Australia": 765.0,
+      "South Africa": 631.0,
+      "Spain": 424.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0
+  ],
+  "y_ticks": [
+    "United States*",
+    "Switzerland",
+    "New Zealand",
+    "Australia",
+    "South Africa",
+    "Spain"
+  ],
+  "x_pixels": [
+    210,
+    319,
+    428,
+    538,
+    647,
+    756,
+    865,
+    974,
+    1083,
+    1192,
+    1302,
+    1411,
+    1520
+  ],
+  "y_pixels": [
+    939,
+    803,
+    668,
+    532,
+    397,
+    261
+  ],
+  "series_color": {
+    "Average cost in U.S. dollars": "#1f77b4"
+  }
+}

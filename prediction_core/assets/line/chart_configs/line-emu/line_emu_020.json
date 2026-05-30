@@ -1,0 +1,68 @@
+{
+  "chart_id": "line_emu_020",
+  "image_paths": {
+    "no_grid": "charts/line_emu/line_emu_020.png",
+    "with_grid": "charts/line_emu/line_emu_020_grid.png",
+    "grid_with_grid": "charts/line_emu/line_emu_020_grid_with_grid.png"
+  },
+  "data_points": {
+    "L01": {
+      "T01": 43.85,
+      "T02": 39.09,
+      "T03": 36.32,
+      "T04": 33.72,
+      "T05": 23.53
+    },
+    "L02": {
+      "T01": 40.51,
+      "T02": 33.33,
+      "T03": 22.64,
+      "T04": 24.83,
+      "T05": 21.86
+    }
+  },
+  "x_ticks": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05"
+  ],
+  "y_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0
+  ],
+  "x_pixels": [
+    134,
+    265,
+    396,
+    527,
+    658
+  ],
+  "y_pixels": [
+    312,
+    287,
+    261,
+    236,
+    210,
+    185,
+    159,
+    134,
+    108,
+    83,
+    58
+  ],
+  "series_color": {
+    "L01": "#1f77b4",
+    "L02": "#ff7f0e"
+  }
+}

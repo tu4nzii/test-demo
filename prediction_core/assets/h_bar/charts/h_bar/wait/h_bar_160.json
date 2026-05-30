@@ -1,0 +1,75 @@
+{
+  "chart_id": "h_bar_160",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_160.png",
+    "with_grid": "charts/h_bar/h_bar_160_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_160_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of interactions in millions": {
+      "BTS / @btw_twt (K-Pop group)": 407.0,
+      "Donald Trump": 104.1,
+      "Ariana Grande": 101.8,
+      "BTS / @bts_bighit (BTS official account)": 56.8,
+      "Bleacher Report": 49.7,
+      "Alexandria Ocasio-Cortez": 36.9,
+      "Got7": 27.8,
+      "Miley Cyrus": 24.5,
+      "Charlie Kirk": 24.4,
+      "Shane Dawson": 23.2
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "BTS / @btw_twt (K-Pop group)",
+    "Donald Trump",
+    "Ariana Grande",
+    "BTS / @bts_bighit (BTS official account)",
+    "Bleacher Report",
+    "Alexandria Ocasio-Cortez",
+    "Got7",
+    "Miley Cyrus",
+    "Charlie Kirk",
+    "Shane Dawson"
+  ],
+  "x_pixels": [
+    154,
+    215,
+    276,
+    336,
+    397,
+    457,
+    518,
+    578,
+    639,
+    699,
+    760
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    360,
+    320,
+    280,
+    240,
+    200,
+    160,
+    120
+  ],
+  "series_color": {
+    "Number of interactions in millions": "#87ceeb"
+  }
+}

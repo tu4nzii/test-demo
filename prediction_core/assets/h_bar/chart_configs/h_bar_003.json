@@ -1,0 +1,83 @@
+{
+  "chart_id": "h_bar_003",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_003.png",
+    "with_grid": "charts/h_bar/h_bar_003_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_003_grid_with_grid.png"
+  },
+  "data_points": {
+    "Revenue (in million U.S. dollars)": {
+      "BASF (1)": 12988.0,
+      "LyondellBasell (-)": 10530.0,
+      "Agrium (3)*": 7146.0,
+      "Total (4)": 4515.0,
+      "AkzoNobel (6)": 4412.0,
+      "Bayer (5)": 4271.0,
+      "Air Liquide (8)": 3169.0,
+      "Shin-Etsu Chemical (12)**": 3048.0,
+      "Evonik Industries (9)": 2644.0,
+      "Syngenta (11)": 2567.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0,
+    13000.0,
+    14000.0
+  ],
+  "y_ticks": [
+    "BASF (1)",
+    "LyondellBasell (-)",
+    "Agrium (3)*",
+    "Total (4)",
+    "AkzoNobel (6)",
+    "Bayer (5)",
+    "Air Liquide (8)",
+    "Shin-Etsu Chemical (12)**",
+    "Evonik Industries (9)",
+    "Syngenta (11)"
+  ],
+  "x_pixels": [
+    258,
+    334,
+    411,
+    487,
+    564,
+    641,
+    717,
+    794,
+    870,
+    947,
+    1024,
+    1100,
+    1177,
+    1253,
+    1330
+  ],
+  "y_pixels": [
+    801,
+    734,
+    667,
+    600,
+    533,
+    467,
+    400,
+    333,
+    266,
+    199
+  ],
+  "series_color": {
+    "Revenue (in million U.S. dollars)": "#87ceeb"
+  }
+}

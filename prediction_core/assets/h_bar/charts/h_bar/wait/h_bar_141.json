@@ -1,0 +1,71 @@
+{
+  "chart_id": "h_bar_141",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_141.png",
+    "with_grid": "charts/h_bar/h_bar_141_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_141_grid_with_grid.png"
+  },
+  "data_points": {
+    "Steals": {
+      "Maurice Cheeks": 1942.0,
+      "Allen Iverson": 1644.0,
+      "Julius Erving": 1508.0,
+      "Andre Iguodala": 1076.0,
+      "Charles Barkley": 1007.0,
+      "Steve Mix": 851.0,
+      "Bobby Jones": 727.0,
+      "Hersey Hawkins": 722.0,
+      "Thaddeus Young": 708.0,
+      "Eric Snow": 702.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0
+  ],
+  "y_ticks": [
+    "Maurice Cheeks",
+    "Allen Iverson",
+    "Julius Erving",
+    "Andre Iguodala",
+    "Charles Barkley",
+    "Steve Mix",
+    "Bobby Jones",
+    "Hersey Hawkins",
+    "Thaddeus Young",
+    "Eric Snow"
+  ],
+  "x_pixels": [
+    116,
+    195,
+    274,
+    353,
+    432,
+    511,
+    590,
+    669,
+    748
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    360,
+    320,
+    280,
+    240,
+    200,
+    160,
+    120
+  ],
+  "series_color": {
+    "Steals": "#1f77b4"
+  }
+}

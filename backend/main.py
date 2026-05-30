@@ -83,7 +83,19 @@ def detect_chart_type(image_path: Path) -> Dict[str, Any]:
         return ChartTypeDetector().detect_chart_type(str(image_path))
     except Exception as error:
         print(f"Chart type detection failed, using fallback: {safe_error_message(error)}")
-        return {"type": DEFAULT_CHART_TYPE, "confidence": 0.5, "error": safe_error_message(error)}
+        return {
+            "type": DEFAULT_CHART_TYPE,
+            "confidence": 0.5,
+            "axis_repair": {
+                "x_axis_missing": False,
+                "y_axis_missing": False,
+                "x_ticks_missing": False,
+                "y_ticks_missing": False,
+                "confidence": 0.0,
+                "reason": "type detection fallback",
+            },
+            "error": safe_error_message(error),
+        }
 
 
 def register_chart(image_file: UploadFile, json_file: Optional[UploadFile] = None) -> Dict[str, Any]:
@@ -99,6 +111,7 @@ def register_chart(image_file: UploadFile, json_file: Optional[UploadFile] = Non
     detection = detect_chart_type(image_path)
     chart_type = normalize_chart_type(detection.get("type", DEFAULT_CHART_TYPE))
     confidence = detection.get("confidence", 0.5)
+    axis_repair = detection.get("axis_repair") or {}
     coordinate_system = get_coordinate_system(chart_type).value
 
     chart_info = {
@@ -106,6 +119,7 @@ def register_chart(image_file: UploadFile, json_file: Optional[UploadFile] = Non
         "chart_type": chart_type,
         "coordinate_system": coordinate_system,
         "confidence": confidence,
+        "axis_repair": axis_repair,
         "image_path": str(image_path),
         "json_path": str(json_path) if json_path else None,
         "processed": False,
@@ -183,7 +197,7 @@ def enrich_generated_json(
 def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
     processor = ChartProcessorFactory.create_processor(chart_info["chart_type"])
     try:
-        axis_data = processor.find_axis(chart_info["image_path"])
+        axis_data = processor.find_axis(chart_info["image_path"], axis_repair_hint=chart_info.get("axis_repair"))
     except Exception as error:
         print(f"Axis detection failed: {safe_error_message(error)}")
         return
@@ -198,7 +212,11 @@ def process_chart_image(chart_info: Dict[str, Any]) -> str:
 
     output_dir = get_chart_output_dir(chart_info["chart_type"])
     processor = ChartProcessorFactory.create_processor(chart_info["chart_type"])
-    encrypted_image_path = processor.encode_image(chart_info["image_path"], str(output_dir))
+    encrypted_image_path = processor.encode_image(
+        chart_info["image_path"],
+        str(output_dir),
+        axis_repair_hint=chart_info.get("axis_repair"),
+    )
 
     if not encrypted_image_path:
         raise HTTPException(status_code=500, detail="Chart processing failed")
@@ -291,6 +309,7 @@ async def upload_files(
             "chart_type": chart_info["chart_type"],
             "coordinate_system": chart_info["coordinate_system"],
             "confidence": chart_info["confidence"],
+            "axis_repair": chart_info.get("axis_repair", {}),
         }
     except HTTPException:
         raise

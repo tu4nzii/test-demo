@@ -1,0 +1,17 @@
+chart_id,point,prompt_type,image_type,gt,pred_pct,mae,rel_err,pred,round_index,round
+001,Refused  to use,baseline,no_grid,0.6666666666666666,0.67,0.003,0.67,,,
+001,Don't know,baseline,no_grid,0.3333333333333333,0.33,0.003,0.33,,,
+001,Refused  to use,grid,with_grid,0.6666666666666666,,0.0,0.66,0.6666666666666666,,
+001,Don't know,grid,with_grid,0.3333333333333333,,0.0,0.33,0.3333333333333333,,
+001,Refused  to use,grid,with_grid,0.6666666666666666,0.6666666666666666,,,,1,
+001,Don't know,grid,with_grid,0.3333333333333333,0.3333333333333333,,,,1,
+001,Refused  to use,grid,with_grid,0.6666666666666666,0.6666666666666666,,,,1,
+001,Refused  to use,amplifier,no_grid,0.6666666666666666,,,,"{'start_angle': 120.0, 'end_angle': 360.0}",amp1,
+001,Refused  to use,amplifier,no_grid,0.6666666666666666,,,,"{'start_angle': 120.0, 'end_angle': 360.0}",amp2,
+001,Refused  to use,amplifier,no_grid,0.6666666666666666,,,,"{'start_angle': 114.0, 'end_angle': 360.0}",amp3,
+001,Refused  to use,amplifier_pct,with_grid,0.6666666666666666,,0.017,0.68,0.6833333333333333,,final
+001,Don't know,grid,with_grid,0.3333333333333333,0.3333333333333333,,,,1,
+001,Don't know,amplifier,no_grid,0.3333333333333333,,,,"{'start_angle': 0.0, 'end_angle': 117.0}",amp1,
+001,Don't know,amplifier,no_grid,0.3333333333333333,,,,"{'start_angle': 0.0, 'end_angle': 117.0}",amp2,
+001,Don't know,amplifier,no_grid,0.3333333333333333,,,,"{'start_angle': 0.0, 'end_angle': 117.0}",amp3,
+001,Don't know,amplifier_pct,with_grid,0.3333333333333333,,0.008,0.32,0.325,,final

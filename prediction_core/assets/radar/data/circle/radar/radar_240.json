@@ -1,0 +1,92 @@
+{
+  "chart_id": "radar_240",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "BVKLW": {
+      "B": 40.0,
+      "A": 106.0,
+      "C": 96.0,
+      "D": 50.0
+    },
+    "JIO": {
+      "A": 148.0,
+      "C": 138.0,
+      "B": 142.0,
+      "D": 106.0
+    },
+    "CCHYVN": {
+      "C": 50.0,
+      "B": 52.0,
+      "A": 52.0,
+      "D": 76.0
+    },
+    "DMP": {
+      "A": 94.0,
+      "C": 68.0,
+      "D": 138.0,
+      "B": 90.0
+    },
+    "LUL": {
+      "C": 80.0,
+      "B": 86.0,
+      "A": 140.0,
+      "D": 172.0
+    },
+    "LCDZ": {
+      "A": 162.0,
+      "C": 166.0,
+      "D": 106.0,
+      "B": 176.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_240.png"
+  },
+  "series_color": {
+    "BVKLW": "#ff9896",
+    "JIO": "#bcbd22",
+    "CCHYVN": "#ffbb78",
+    "DMP": "#2ca02c",
+    "LUL": "#aec7e8",
+    "LCDZ": "#9467bd"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 4
+}

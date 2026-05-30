@@ -1,0 +1,28 @@
+{
+  "chart_id": "PieChart4",
+  "chart_type": "pie",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart4.png"
+  },
+  "source_csv": "charts/pie/PieChart4.csv",
+  "data_points": {
+    "Care for household members": 31,
+    "Housework": 100,
+    "Shopping": 22,
+    "Other unpaid work & volunteering": 65,
+    "Sleep": 528,
+    "Eating and drinking": 63,
+    "Personal care": 57,
+    "Sports": 18,
+    "Attending events": 8,
+    "Seeing friends": 44,
+    "TV and Radio": 148,
+    "Other leisure activities": 73
+  },
+  "r_ticks": [],
+  "theta_ticks": [],
+  "r_pixels": [],
+  "center": [],
+  "theta_angles": [],
+  "series_color": {}
+}

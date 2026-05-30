@@ -1,0 +1,133 @@
+{
+    "radar_009": {
+        "chart_type": "radar",
+        "data": {
+            "UKOLQP,C": {
+                "origin": 28.5,
+                "no_grid": 29,
+                "with_grid": 24.0,
+                "feedback": [
+                    24.0,
+                    22.0,
+                    24.0,
+                    23.0
+                ],
+                "amplifier_feedback_ticks": [
+                    27.2,
+                    28.87,
+                    27.08
+                ],
+                "amplifier_grid_ticks": [
+                    27.8,
+                    27.5,
+                    27.5
+                ]
+            },
+            "UKOLQP,B": {
+                "origin": 30.0,
+                "no_grid": 30,
+                "with_grid": 28.0,
+                "feedback": [
+                    28.0,
+                    26.0,
+                    28.0,
+                    25.0
+                ],
+                "amplifier_feedback_ticks": [
+                    30.2,
+                    30.1,
+                    30.1
+                ],
+                "amplifier_grid_ticks": [
+                    30.0,
+                    30.0,
+                    30.0
+                ]
+            },
+            "UKOLQP,A": {
+                "origin": 29.0,
+                "no_grid": 30,
+                "with_grid": 30.0,
+                "feedback": [
+                    30.0,
+                    29.0,
+                    30.0,
+                    29.0
+                ],
+                "amplifier_feedback_ticks": [
+                    28.8,
+                    30.53,
+                    30.9
+                ],
+                "amplifier_grid_ticks": [
+                    27.503032,
+                    28.3,
+                    30.9
+                ]
+            },
+            "LIVQR,A": {
+                "origin": 39.5,
+                "no_grid": 40,
+                "with_grid": 40.0,
+                "feedback": [
+                    40.0,
+                    35.0,
+                    37.0,
+                    40.0
+                ],
+                "amplifier_feedback_ticks": [
+                    37.5,
+                    42.5,
+                    41.9
+                ],
+                "amplifier_grid_ticks": [
+                    40.4,
+                    40.9,
+                    42.5
+                ]
+            },
+            "LIVQR,B": {
+                "origin": 38.0,
+                "no_grid": 35,
+                "with_grid": 34.0,
+                "feedback": [
+                    34.0,
+                    35.0,
+                    34.0,
+                    33.0
+                ],
+                "amplifier_feedback_ticks": [
+                    37.5,
+                    38.0,
+                    37.8
+                ],
+                "amplifier_grid_ticks": [
+                    37.9,
+                    38.1,
+                    39.95
+                ]
+            },
+            "LIVQR,C": {
+                "origin": 9.5,
+                "no_grid": 10,
+                "with_grid": 7.0,
+                "feedback": [
+                    7.0,
+                    6.0,
+                    7.0,
+                    5.0
+                ],
+                "amplifier_feedback_ticks": [
+                    7.77,
+                    8.1,
+                    7.0
+                ],
+                "amplifier_grid_ticks": [
+                    7.95,
+                    7.8,
+                    7.9
+                ]
+            }
+        }
+    }
+}

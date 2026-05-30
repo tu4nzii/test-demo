@@ -1,0 +1,39 @@
+{
+  "chart_id": "241",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_241_no_grid.png",
+    "with_grid": "charts/pie/pie_241_with_grid.png"
+  },
+  "data_points": {
+    "NOT subject to additional scrutiny": 219.6,
+    "Subject to more scrutiny than people of other religions": 115.2,
+    "DKY Ref": 25.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "NOT subject to additional scrutiny": "#e377c2",
+    "Subject to more scrutiny than people of other religions": "#17becf",
+    "DKY Ref": "#dbdb8d"
+  }
+}

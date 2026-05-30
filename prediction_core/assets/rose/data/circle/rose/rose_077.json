@@ -1,0 +1,50 @@
+{
+  "chart_id": "rose_077",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_077.png"
+  },
+  "center": {
+    "x": 461,
+    "y": 606
+  },
+  "data_points": {
+    "LYKM": 0.78,
+    "KT": 0.65,
+    "FZA": 0.71,
+    "CUPZ": 0.72,
+    "MLYE": 0.72,
+    "JUM": 0.9
+  },
+  "series_color": {
+    "LYKM": "#17becf",
+    "KT": "#1f77b4",
+    "FZA": "#9467bd",
+    "CUPZ": "#2ca02c",
+    "MLYE": "#bcbd22",
+    "JUM": "#e377c2"
+  },
+  "r_ticks": [
+    "0.5",
+    "1.0"
+  ],
+  "r_pixels": [
+    151,
+    302
+  ],
+  "theta_ticks": [
+    "LYKM",
+    "KT",
+    "FZA",
+    "CUPZ",
+    "MLYE",
+    "JUM"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ]
+}

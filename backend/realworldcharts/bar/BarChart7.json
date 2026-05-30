@@ -1,0 +1,49 @@
+{
+  "chart_id": "BarChart7",
+  "chart_type": "bar",
+  "image_paths": {
+    "no_grid": "charts/bar/BarChart7.png"
+  },
+  "source_csv": "charts/bar/BarChart7.csv",
+  "data_points": {
+    "value": {
+      "Berg": 25.8,
+      "Bora": 23,
+      "Chinook": 22,
+      "Etesian": 21,
+      "Foehn": 20.4,
+      "Haboob": -19.8,
+      "Harmattan": -18,
+      "Khamsin": -17.1,
+      "Levant": -13.3,
+      "Leveche": -6.3
+    }
+  },
+  "x_ticks": [
+    "Berg",
+    "Bora",
+    "Chinook",
+    "Etesian",
+    "Foehn",
+    "Haboob",
+    "Harmattan",
+    "Khamsin",
+    "Levant",
+    "Leveche"
+  ],
+  "y_ticks": [
+    -19.8,
+    -18,
+    -17.1,
+    -13.3,
+    -6.3,
+    20.4,
+    21,
+    22,
+    23,
+    25.8
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

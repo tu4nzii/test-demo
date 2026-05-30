@@ -1,0 +1,75 @@
+{
+  "chart_id": "h_bar_188",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_188.png",
+    "with_grid": "charts/h_bar/h_bar_188_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_188_grid_with_grid.png"
+  },
+  "data_points": {
+    "Monthly minimum wage in U.S. dollars*": {
+      "Chile": 441.0,
+      "Uruguay": 423.0,
+      "Ecuador": 400.0,
+      "Bolivia": 309.0,
+      "Colombia": 261.0,
+      "Peru": 257.0,
+      "Argentina": 243.0,
+      "Mexico": 215.0,
+      "Brazil": 207.0,
+      "Venezuela": 1.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0
+  ],
+  "y_ticks": [
+    "Chile",
+    "Uruguay",
+    "Ecuador",
+    "Bolivia",
+    "Colombia",
+    "Peru",
+    "Argentina",
+    "Mexico",
+    "Brazil",
+    "Venezuela"
+  ],
+  "x_pixels": [
+    78,
+    137,
+    196,
+    254,
+    313,
+    372,
+    430,
+    489,
+    548,
+    606,
+    665
+  ],
+  "y_pixels": [
+    400,
+    367,
+    333,
+    300,
+    267,
+    233,
+    200,
+    167,
+    133,
+    100
+  ],
+  "series_color": {
+    "Monthly minimum wage in U.S. dollars*": "#66c2a5"
+  }
+}

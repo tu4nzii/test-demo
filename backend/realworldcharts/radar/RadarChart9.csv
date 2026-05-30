@@ -1,0 +1,22 @@
+name,attribute,value
+Pikachu,attack,55
+Pikachu,defense,40
+Pikachu,speed,90
+Pikachu,hp,35
+Pikachu,special attack,50
+Pikachu,attack,55
+Bulbasaur,attack,49
+Bulbasaur,defense,49
+Bulbasaur,special attack,65
+Bulbasaur,speed,45
+Bulbasaur,hp,45
+Squirtle,attack,48
+Squirtle,defense,65
+Squirtle,special attack,50
+Squirtle,speed,43
+Squirtle,hp,44
+Charmander,attack,52
+Charmander,defense,43
+Charmander,special attack,60
+Charmander,speed,65
+Charmander,hp,39

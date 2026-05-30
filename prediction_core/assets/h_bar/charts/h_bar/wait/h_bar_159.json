@@ -1,0 +1,44 @@
+{
+  "chart_id": "h_bar_159",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_159.png",
+    "with_grid": "charts/h_bar/h_bar_159_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_159_grid_with_grid.png"
+  },
+  "data_points": {
+    "Accomplishments outweigh failures": {
+      "Independent": NaN,
+      "Democrat 66": 66.0,
+      "Republican": 33.0,
+      "All": 48.0
+    },
+    "Failures outweigh accomplishments": {
+      "Independent": 45.0,
+      "Democrat 66": 19.0,
+      "Republican": 59.0,
+      "All": 36.0
+    }
+  },
+  "x_ticks": [
+    0.0
+  ],
+  "y_ticks": [
+    "Independent",
+    "Democrat 66",
+    "Republican",
+    "All"
+  ],
+  "x_pixels": [
+    223
+  ],
+  "y_pixels": [
+    723,
+    562,
+    402,
+    241
+  ],
+  "series_color": {
+    "Accomplishments outweigh failures": "#1f77b4",
+    "Failures outweigh accomplishments": "#ff7f0e"
+  }
+}

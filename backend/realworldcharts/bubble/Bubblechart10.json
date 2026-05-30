@@ -1,0 +1,4026 @@
+{
+  "chart_id": "Bubblechart10",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "charts/bubble/Bubblechart10.png"
+  },
+  "source_csv": "charts/bubble/Bubblechart10.csv",
+  "data_points": {
+    "All natural disasters": [
+      1900,
+      1267360
+    ],
+    "All natural disasters_2": [
+      1901,
+      200018
+    ],
+    "All natural disasters_3": [
+      1902,
+      46037
+    ],
+    "All natural disasters_4": [
+      1903,
+      6506
+    ],
+    "All natural disasters_5": [
+      1905,
+      22758
+    ],
+    "All natural disasters_6": [
+      1906,
+      42970
+    ],
+    "All natural disasters_7": [
+      1907,
+      1325641
+    ],
+    "All natural disasters_8": [
+      1908,
+      75033
+    ],
+    "All natural disasters_9": [
+      1909,
+      1511524
+    ],
+    "All natural disasters_10": [
+      1910,
+      148233
+    ],
+    "All natural disasters_11": [
+      1911,
+      102408
+    ],
+    "All natural disasters_12": [
+      1912,
+      52093
+    ],
+    "All natural disasters_13": [
+      1913,
+      882
+    ],
+    "All natural disasters_14": [
+      1914,
+      289
+    ],
+    "All natural disasters_15": [
+      1915,
+      32167
+    ],
+    "All natural disasters_16": [
+      1916,
+      300
+    ],
+    "All natural disasters_17": [
+      1917,
+      2523507
+    ],
+    "All natural disasters_18": [
+      1918,
+      461113
+    ],
+    "All natural disasters_19": [
+      1919,
+      5500
+    ],
+    "All natural disasters_20": [
+      1920,
+      3204224
+    ],
+    "All natural disasters_21": [
+      1921,
+      1200000
+    ],
+    "All natural disasters_22": [
+      1922,
+      101243
+    ],
+    "All natural disasters_23": [
+      1923,
+      255701
+    ],
+    "All natural disasters_24": [
+      1924,
+      303009
+    ],
+    "All natural disasters_25": [
+      1925,
+      5832
+    ],
+    "All natural disasters_26": [
+      1926,
+      427852
+    ],
+    "All natural disasters_27": [
+      1927,
+      215160
+    ],
+    "All natural disasters_28": [
+      1928,
+      3004895
+    ],
+    "All natural disasters_29": [
+      1929,
+      8377
+    ],
+    "All natural disasters_30": [
+      1930,
+      10572
+    ],
+    "All natural disasters_31": [
+      1931,
+      3706227
+    ],
+    "All natural disasters_32": [
+      1932,
+      73296
+    ],
+    "All natural disasters_33": [
+      1933,
+      34296
+    ],
+    "All natural disasters_34": [
+      1934,
+      21087
+    ],
+    "All natural disasters_35": [
+      1935,
+      272817
+    ],
+    "All natural disasters_36": [
+      1936,
+      5301
+    ],
+    "All natural disasters_37": [
+      1937,
+      12025
+    ],
+    "All natural disasters_38": [
+      1938,
+      2225
+    ],
+    "All natural disasters_39": [
+      1939,
+      563178
+    ],
+    "All natural disasters_40": [
+      1940,
+      23023
+    ],
+    "All natural disasters_41": [
+      1941,
+      10195
+    ],
+    "All natural disasters_42": [
+      1942,
+      1608235
+    ],
+    "All natural disasters_43": [
+      1943,
+      1910322
+    ],
+    "All natural disasters_44": [
+      1944,
+      15906
+    ],
+    "All natural disasters_45": [
+      1945,
+      10376
+    ],
+    "All natural disasters_46": [
+      1946,
+      35490
+    ],
+    "All natural disasters_47": [
+      1947,
+      17647
+    ],
+    "All natural disasters_48": [
+      1948,
+      120131
+    ],
+    "All natural disasters_49": [
+      1949,
+      120370
+    ],
+    "All natural disasters_50": [
+      1950,
+      6728
+    ],
+    "All natural disasters_51": [
+      1951,
+      15042
+    ],
+    "All natural disasters_52": [
+      1952,
+      8965
+    ],
+    "All natural disasters_53": [
+      1953,
+      12956
+    ],
+    "All natural disasters_54": [
+      1954,
+      41872
+    ],
+    "All natural disasters_55": [
+      1955,
+      6026
+    ],
+    "All natural disasters_56": [
+      1956,
+      7737
+    ],
+    "All natural disasters_57": [
+      1957,
+      10603
+    ],
+    "All natural disasters_58": [
+      1958,
+      3950
+    ],
+    "All natural disasters_59": [
+      1959,
+      2013242
+    ],
+    "All natural disasters_60": [
+      1960,
+      39188
+    ],
+    "All natural disasters_61": [
+      1961,
+      17341
+    ],
+    "All natural disasters_62": [
+      1962,
+      17370
+    ],
+    "All natural disasters_63": [
+      1963,
+      37746
+    ],
+    "All natural disasters_64": [
+      1964,
+      12892
+    ],
+    "All natural disasters_65": [
+      1965,
+      1565517
+    ],
+    "All natural disasters_66": [
+      1966,
+      17181
+    ],
+    "All natural disasters_67": [
+      1967,
+      10103
+    ],
+    "All natural disasters_68": [
+      1968,
+      21461
+    ],
+    "All natural disasters_69": [
+      1969,
+      11687
+    ],
+    "All natural disasters_70": [
+      1970,
+      387507
+    ],
+    "All natural disasters_71": [
+      1971,
+      18086
+    ],
+    "All natural disasters_72": [
+      1972,
+      20045
+    ],
+    "All natural disasters_73": [
+      1973,
+      110555
+    ],
+    "All natural disasters_74": [
+      1974,
+      87504
+    ],
+    "All natural disasters_75": [
+      1975,
+      14858
+    ],
+    "All natural disasters_76": [
+      1976,
+      280469
+    ],
+    "All natural disasters_77": [
+      1977,
+      22406
+    ],
+    "All natural disasters_78": [
+      1978,
+      38096
+    ],
+    "All natural disasters_79": [
+      1979,
+      7341
+    ],
+    "All natural disasters_80": [
+      1980,
+      23089
+    ],
+    "All natural disasters_81": [
+      1981,
+      119697
+    ],
+    "All natural disasters_82": [
+      1982,
+      13973
+    ],
+    "All natural disasters_83": [
+      1983,
+      461561
+    ],
+    "All natural disasters_84": [
+      1984,
+      16273
+    ],
+    "All natural disasters_85": [
+      1985,
+      60232
+    ],
+    "All natural disasters_86": [
+      1986,
+      10349
+    ],
+    "All natural disasters_87": [
+      1987,
+      21533
+    ],
+    "All natural disasters_88": [
+      1988,
+      57464
+    ],
+    "All natural disasters_89": [
+      1989,
+      12611
+    ],
+    "All natural disasters_90": [
+      1990,
+      53141
+    ],
+    "All natural disasters_91": [
+      1991,
+      189707
+    ],
+    "All natural disasters_92": [
+      1992,
+      18911
+    ],
+    "All natural disasters_93": [
+      1993,
+      21821
+    ],
+    "All natural disasters_94": [
+      1994,
+      15590
+    ],
+    "All natural disasters_95": [
+      1995,
+      27166
+    ],
+    "All natural disasters_96": [
+      1996,
+      31595
+    ],
+    "All natural disasters_97": [
+      1997,
+      30124
+    ],
+    "All natural disasters_98": [
+      1998,
+      62672
+    ],
+    "All natural disasters_99": [
+      1999,
+      76886
+    ],
+    "All natural disasters_100": [
+      2000,
+      16667
+    ],
+    "All natural disasters_101": [
+      2001,
+      39493
+    ],
+    "All natural disasters_102": [
+      2002,
+      21342
+    ],
+    "All natural disasters_103": [
+      2003,
+      113558
+    ],
+    "All natural disasters_104": [
+      2004,
+      244772
+    ],
+    "All natural disasters_105": [
+      2005,
+      93566
+    ],
+    "All natural disasters_106": [
+      2006,
+      29893
+    ],
+    "All natural disasters_107": [
+      2007,
+      22422
+    ],
+    "All natural disasters_108": [
+      2008,
+      242236
+    ],
+    "All natural disasters_109": [
+      2009,
+      16037
+    ],
+    "All natural disasters_110": [
+      2010,
+      329900
+    ],
+    "All natural disasters_111": [
+      2011,
+      34143
+    ],
+    "All natural disasters_112": [
+      2012,
+      11619
+    ],
+    "All natural disasters_113": [
+      2013,
+      22225
+    ],
+    "All natural disasters_114": [
+      2014,
+      20882
+    ],
+    "All natural disasters_115": [
+      2015,
+      23893
+    ],
+    "All natural disasters_116": [
+      2016,
+      10201
+    ],
+    "All natural disasters_117": [
+      2017,
+      2087
+    ],
+    "Drought": [
+      1900,
+      1261000
+    ],
+    "Drought_2": [
+      1910,
+      85000
+    ],
+    "Drought_3": [
+      1920,
+      524000
+    ],
+    "Drought_4": [
+      1921,
+      1200000
+    ],
+    "Drought_5": [
+      1928,
+      3000000
+    ],
+    "Drought_6": [
+      1940,
+      20000
+    ],
+    "Drought_7": [
+      1942,
+      1500000
+    ],
+    "Drought_8": [
+      1943,
+      1900000
+    ],
+    "Drought_9": [
+      1946,
+      30000
+    ],
+    "Drought_10": [
+      1964,
+      50
+    ],
+    "Drought_11": [
+      1965,
+      1502000
+    ],
+    "Drought_12": [
+      1966,
+      8000
+    ],
+    "Drought_13": [
+      1967,
+      600
+    ],
+    "Drought_14": [
+      1973,
+      100000
+    ],
+    "Drought_15": [
+      1974,
+      19000
+    ],
+    "Drought_16": [
+      1978,
+      63
+    ],
+    "Drought_17": [
+      1979,
+      18
+    ],
+    "Drought_18": [
+      1981,
+      103000
+    ],
+    "Drought_19": [
+      1982,
+      280
+    ],
+    "Drought_20": [
+      1983,
+      450520
+    ],
+    "Drought_21": [
+      1984,
+      230
+    ],
+    "Drought_22": [
+      1986,
+      84
+    ],
+    "Drought_23": [
+      1987,
+      1317
+    ],
+    "Drought_24": [
+      1988,
+      1600
+    ],
+    "Drought_25": [
+      1989,
+      237
+    ],
+    "Drought_26": [
+      1991,
+      2000
+    ],
+    "Drought_27": [
+      1997,
+      732
+    ],
+    "Drought_28": [
+      1998,
+      20
+    ],
+    "Drought_29": [
+      1999,
+      361
+    ],
+    "Drought_30": [
+      2000,
+      80
+    ],
+    "Drought_31": [
+      2001,
+      99
+    ],
+    "Drought_32": [
+      2002,
+      588
+    ],
+    "Drought_33": [
+      2003,
+      9
+    ],
+    "Drought_34": [
+      2004,
+      80
+    ],
+    "Drought_35": [
+      2005,
+      149
+    ],
+    "Drought_36": [
+      2006,
+      134
+    ],
+    "Drought_37": [
+      2008,
+      8
+    ],
+    "Drought_38": [
+      2010,
+      20000
+    ],
+    "Drought_39": [
+      2015,
+      35
+    ],
+    "Earthquake": [
+      1901,
+      18
+    ],
+    "Earthquake_2": [
+      1902,
+      6747
+    ],
+    "Earthquake_3": [
+      1903,
+      6000
+    ],
+    "Earthquake_4": [
+      1905,
+      22500
+    ],
+    "Earthquake_5": [
+      1906,
+      31966
+    ],
+    "Earthquake_6": [
+      1907,
+      25641
+    ],
+    "Earthquake_7": [
+      1908,
+      75000
+    ],
+    "Earthquake_8": [
+      1909,
+      5146
+    ],
+    "Earthquake_9": [
+      1910,
+      1762
+    ],
+    "Earthquake_10": [
+      1912,
+      923
+    ],
+    "Earthquake_11": [
+      1913,
+      150
+    ],
+    "Earthquake_12": [
+      1914,
+      149
+    ],
+    "Earthquake_13": [
+      1915,
+      29986
+    ],
+    "Earthquake_14": [
+      1917,
+      19450
+    ],
+    "Earthquake_15": [
+      1918,
+      10379
+    ],
+    "Earthquake_16": [
+      1920,
+      180000
+    ],
+    "Earthquake_17": [
+      1922,
+      1100
+    ],
+    "Earthquake_18": [
+      1923,
+      152362
+    ],
+    "Earthquake_19": [
+      1924,
+      767
+    ],
+    "Earthquake_20": [
+      1925,
+      5013
+    ],
+    "Earthquake_21": [
+      1926,
+      12
+    ],
+    "Earthquake_22": [
+      1927,
+      206142
+    ],
+    "Earthquake_23": [
+      1928,
+      635
+    ],
+    "Earthquake_24": [
+      1929,
+      3317
+    ],
+    "Earthquake_25": [
+      1930,
+      5081
+    ],
+    "Earthquake_26": [
+      1931,
+      1537
+    ],
+    "Earthquake_27": [
+      1932,
+      70006
+    ],
+    "Earthquake_28": [
+      1933,
+      16180
+    ],
+    "Earthquake_29": [
+      1934,
+      15496
+    ],
+    "Earthquake_30": [
+      1935,
+      66110
+    ],
+    "Earthquake_31": [
+      1936,
+      26
+    ],
+    "Earthquake_32": [
+      1938,
+      166
+    ],
+    "Earthquake_33": [
+      1939,
+      63094
+    ],
+    "Earthquake_34": [
+      1940,
+      1275
+    ],
+    "Earthquake_35": [
+      1941,
+      189
+    ],
+    "Earthquake_36": [
+      1942,
+      7235
+    ],
+    "Earthquake_37": [
+      1943,
+      4332
+    ],
+    "Earthquake_38": [
+      1944,
+      14984
+    ],
+    "Earthquake_39": [
+      1945,
+      5961
+    ],
+    "Earthquake_40": [
+      1946,
+      5153
+    ],
+    "Earthquake_41": [
+      1947,
+      633
+    ],
+    "Earthquake_42": [
+      1948,
+      115618
+    ],
+    "Earthquake_43": [
+      1949,
+      6486
+    ],
+    "Earthquake_44": [
+      1950,
+      1833
+    ],
+    "Earthquake_45": [
+      1951,
+      1554
+    ],
+    "Earthquake_46": [
+      1952,
+      2432
+    ],
+    "Earthquake_47": [
+      1953,
+      2717
+    ],
+    "Earthquake_48": [
+      1954,
+      3344
+    ],
+    "Earthquake_49": [
+      1955,
+      959
+    ],
+    "Earthquake_50": [
+      1956,
+      763
+    ],
+    "Earthquake_51": [
+      1957,
+      6993
+    ],
+    "Earthquake_52": [
+      1958,
+      227
+    ],
+    "Earthquake_53": [
+      1959,
+      103
+    ],
+    "Earthquake_54": [
+      1960,
+      19395
+    ],
+    "Earthquake_55": [
+      1961,
+      60
+    ],
+    "Earthquake_56": [
+      1962,
+      12209
+    ],
+    "Earthquake_57": [
+      1963,
+      1700
+    ],
+    "Earthquake_58": [
+      1964,
+      335
+    ],
+    "Earthquake_59": [
+      1965,
+      683
+    ],
+    "Earthquake_60": [
+      1966,
+      2752
+    ],
+    "Earthquake_61": [
+      1967,
+      1013
+    ],
+    "Earthquake_62": [
+      1968,
+      10858
+    ],
+    "Earthquake_63": [
+      1969,
+      3353
+    ],
+    "Earthquake_64": [
+      1970,
+      78599
+    ],
+    "Earthquake_65": [
+      1971,
+      1107
+    ],
+    "Earthquake_66": [
+      1972,
+      15170
+    ],
+    "Earthquake_67": [
+      1973,
+      552
+    ],
+    "Earthquake_68": [
+      1974,
+      24808
+    ],
+    "Earthquake_69": [
+      1975,
+      12632
+    ],
+    "Earthquake_70": [
+      1976,
+      276994
+    ],
+    "Earthquake_71": [
+      1977,
+      3098
+    ],
+    "Earthquake_72": [
+      1978,
+      25162
+    ],
+    "Earthquake_73": [
+      1979,
+      2100
+    ],
+    "Earthquake_74": [
+      1980,
+      7730
+    ],
+    "Earthquake_75": [
+      1981,
+      4206
+    ],
+    "Earthquake_76": [
+      1982,
+      2120
+    ],
+    "Earthquake_77": [
+      1983,
+      2148
+    ],
+    "Earthquake_78": [
+      1984,
+      57
+    ],
+    "Earthquake_79": [
+      1985,
+      9853
+    ],
+    "Earthquake_80": [
+      1986,
+      1181
+    ],
+    "Earthquake_81": [
+      1987,
+      5160
+    ],
+    "Earthquake_82": [
+      1988,
+      27049
+    ],
+    "Earthquake_83": [
+      1989,
+      650
+    ],
+    "Earthquake_84": [
+      1990,
+      42853
+    ],
+    "Earthquake_85": [
+      1991,
+      2454
+    ],
+    "Earthquake_86": [
+      1992,
+      4033
+    ],
+    "Earthquake_87": [
+      1993,
+      10088
+    ],
+    "Earthquake_88": [
+      1994,
+      1242
+    ],
+    "Earthquake_89": [
+      1995,
+      7739
+    ],
+    "Earthquake_90": [
+      1996,
+      576
+    ],
+    "Earthquake_91": [
+      1997,
+      3159
+    ],
+    "Earthquake_92": [
+      1998,
+      9573
+    ],
+    "Earthquake_93": [
+      1999,
+      21869
+    ],
+    "Earthquake_94": [
+      2000,
+      217
+    ],
+    "Earthquake_95": [
+      2001,
+      21348
+    ],
+    "Earthquake_96": [
+      2002,
+      1639
+    ],
+    "Earthquake_97": [
+      2003,
+      29617
+    ],
+    "Earthquake_98": [
+      2004,
+      227290
+    ],
+    "Earthquake_99": [
+      2005,
+      76241
+    ],
+    "Earthquake_100": [
+      2006,
+      6692
+    ],
+    "Earthquake_101": [
+      2007,
+      780
+    ],
+    "Earthquake_102": [
+      2008,
+      87918
+    ],
+    "Earthquake_103": [
+      2009,
+      1893
+    ],
+    "Earthquake_104": [
+      2010,
+      226733
+    ],
+    "Earthquake_105": [
+      2011,
+      20946
+    ],
+    "Earthquake_106": [
+      2012,
+      711
+    ],
+    "Earthquake_107": [
+      2013,
+      1120
+    ],
+    "Earthquake_108": [
+      2014,
+      774
+    ],
+    "Earthquake_109": [
+      2015,
+      9550
+    ],
+    "Earthquake_110": [
+      2016,
+      1311
+    ],
+    "Earthquake_111": [
+      2017,
+      49
+    ],
+    "Epidemic": [
+      1900,
+      30
+    ],
+    "Epidemic_2": [
+      1901,
+      200000
+    ],
+    "Epidemic_3": [
+      1907,
+      1300000
+    ],
+    "Epidemic_4": [
+      1909,
+      1500040
+    ],
+    "Epidemic_5": [
+      1910,
+      60000
+    ],
+    "Epidemic_6": [
+      1917,
+      2500000
+    ],
+    "Epidemic_7": [
+      1918,
+      449700
+    ],
+    "Epidemic_8": [
+      1920,
+      2500000
+    ],
+    "Epidemic_9": [
+      1923,
+      100000
+    ],
+    "Epidemic_10": [
+      1924,
+      300000
+    ],
+    "Epidemic_11": [
+      1926,
+      423000
+    ],
+    "Epidemic_12": [
+      1932,
+      16
+    ],
+    "Epidemic_13": [
+      1935,
+      2000
+    ],
+    "Epidemic_14": [
+      1940,
+      1500
+    ],
+    "Epidemic_15": [
+      1947,
+      10276
+    ],
+    "Epidemic_16": [
+      1953,
+      481
+    ],
+    "Epidemic_17": [
+      1963,
+      1000
+    ],
+    "Epidemic_18": [
+      1964,
+      617
+    ],
+    "Epidemic_19": [
+      1965,
+      816
+    ],
+    "Epidemic_20": [
+      1966,
+      200
+    ],
+    "Epidemic_21": [
+      1967,
+      3137
+    ],
+    "Epidemic_22": [
+      1968,
+      177
+    ],
+    "Epidemic_23": [
+      1969,
+      3520
+    ],
+    "Epidemic_24": [
+      1970,
+      939
+    ],
+    "Epidemic_25": [
+      1971,
+      2313
+    ],
+    "Epidemic_26": [
+      1972,
+      35
+    ],
+    "Epidemic_27": [
+      1974,
+      1500
+    ],
+    "Epidemic_28": [
+      1976,
+      396
+    ],
+    "Epidemic_29": [
+      1977,
+      1184
+    ],
+    "Epidemic_30": [
+      1978,
+      3060
+    ],
+    "Epidemic_31": [
+      1979,
+      486
+    ],
+    "Epidemic_32": [
+      1980,
+      1685
+    ],
+    "Epidemic_33": [
+      1981,
+      2497
+    ],
+    "Epidemic_34": [
+      1982,
+      2912
+    ],
+    "Epidemic_35": [
+      1983,
+      1219
+    ],
+    "Epidemic_36": [
+      1984,
+      7016
+    ],
+    "Epidemic_37": [
+      1985,
+      5854
+    ],
+    "Epidemic_38": [
+      1986,
+      3046
+    ],
+    "Epidemic_39": [
+      1987,
+      2592
+    ],
+    "Epidemic_40": [
+      1988,
+      15216
+    ],
+    "Epidemic_41": [
+      1989,
+      1870
+    ],
+    "Epidemic_42": [
+      1990,
+      2207
+    ],
+    "Epidemic_43": [
+      1991,
+      30682
+    ],
+    "Epidemic_44": [
+      1992,
+      6675
+    ],
+    "Epidemic_45": [
+      1993,
+      651
+    ],
+    "Epidemic_46": [
+      1994,
+      2505
+    ],
+    "Epidemic_47": [
+      1995,
+      4428
+    ],
+    "Epidemic_48": [
+      1996,
+      16887
+    ],
+    "Epidemic_49": [
+      1997,
+      10674
+    ],
+    "Epidemic_50": [
+      1998,
+      12931
+    ],
+    "Epidemic_51": [
+      1999,
+      6293
+    ],
+    "Epidemic_52": [
+      2000,
+      6980
+    ],
+    "Epidemic_53": [
+      2001,
+      8515
+    ],
+    "Epidemic_54": [
+      2002,
+      8762
+    ],
+    "Epidemic_55": [
+      2003,
+      3522
+    ],
+    "Epidemic_56": [
+      2004,
+      3245
+    ],
+    "Epidemic_57": [
+      2005,
+      3909
+    ],
+    "Epidemic_58": [
+      2006,
+      6402
+    ],
+    "Epidemic_59": [
+      2007,
+      5484
+    ],
+    "Epidemic_60": [
+      2008,
+      6904
+    ],
+    "Epidemic_61": [
+      2009,
+      4895
+    ],
+    "Epidemic_62": [
+      2010,
+      12143
+    ],
+    "Epidemic_63": [
+      2011,
+      3174
+    ],
+    "Epidemic_64": [
+      2012,
+      1887
+    ],
+    "Epidemic_65": [
+      2013,
+      529
+    ],
+    "Epidemic_66": [
+      2014,
+      12911
+    ],
+    "Epidemic_67": [
+      2015,
+      1032
+    ],
+    "Epidemic_68": [
+      2016,
+      1520
+    ],
+    "Epidemic_69": [
+      2017,
+      386
+    ],
+    "Extreme temperature": [
+      1936,
+      1693
+    ],
+    "Extreme temperature_2": [
+      1951,
+      69
+    ],
+    "Extreme temperature_3": [
+      1953,
+      669
+    ],
+    "Extreme temperature_4": [
+      1955,
+      107
+    ],
+    "Extreme temperature_5": [
+      1958,
+      651
+    ],
+    "Extreme temperature_6": [
+      1961,
+      400
+    ],
+    "Extreme temperature_7": [
+      1962,
+      50
+    ],
+    "Extreme temperature_8": [
+      1963,
+      162
+    ],
+    "Extreme temperature_9": [
+      1965,
+      100
+    ],
+    "Extreme temperature_10": [
+      1966,
+      262
+    ],
+    "Extreme temperature_11": [
+      1968,
+      153
+    ],
+    "Extreme temperature_12": [
+      1971,
+      400
+    ],
+    "Extreme temperature_13": [
+      1972,
+      110
+    ],
+    "Extreme temperature_14": [
+      1973,
+      283
+    ],
+    "Extreme temperature_15": [
+      1975,
+      140
+    ],
+    "Extreme temperature_16": [
+      1978,
+      150
+    ],
+    "Extreme temperature_17": [
+      1979,
+      470
+    ],
+    "Extreme temperature_18": [
+      1980,
+      1389
+    ],
+    "Extreme temperature_19": [
+      1981,
+      300
+    ],
+    "Extreme temperature_20": [
+      1982,
+      400
+    ],
+    "Extreme temperature_21": [
+      1983,
+      205
+    ],
+    "Extreme temperature_22": [
+      1984,
+      290
+    ],
+    "Extreme temperature_23": [
+      1985,
+      456
+    ],
+    "Extreme temperature_24": [
+      1986,
+      50
+    ],
+    "Extreme temperature_25": [
+      1987,
+      1220
+    ],
+    "Extreme temperature_26": [
+      1988,
+      644
+    ],
+    "Extreme temperature_27": [
+      1989,
+      381
+    ],
+    "Extreme temperature_28": [
+      1990,
+      979
+    ],
+    "Extreme temperature_29": [
+      1991,
+      835
+    ],
+    "Extreme temperature_30": [
+      1992,
+      388
+    ],
+    "Extreme temperature_31": [
+      1993,
+      106
+    ],
+    "Extreme temperature_32": [
+      1994,
+      341
+    ],
+    "Extreme temperature_33": [
+      1995,
+      1730
+    ],
+    "Extreme temperature_34": [
+      1996,
+      300
+    ],
+    "Extreme temperature_35": [
+      1997,
+      604
+    ],
+    "Extreme temperature_36": [
+      1998,
+      3269
+    ],
+    "Extreme temperature_37": [
+      1999,
+      771
+    ],
+    "Extreme temperature_38": [
+      2000,
+      941
+    ],
+    "Extreme temperature_39": [
+      2001,
+      1787
+    ],
+    "Extreme temperature_40": [
+      2002,
+      3369
+    ],
+    "Extreme temperature_41": [
+      2003,
+      74698
+    ],
+    "Extreme temperature_42": [
+      2004,
+      255
+    ],
+    "Extreme temperature_43": [
+      2005,
+      1550
+    ],
+    "Extreme temperature_44": [
+      2006,
+      4826
+    ],
+    "Extreme temperature_45": [
+      2007,
+      1086
+    ],
+    "Extreme temperature_46": [
+      2008,
+      1688
+    ],
+    "Extreme temperature_47": [
+      2009,
+      1386
+    ],
+    "Extreme temperature_48": [
+      2010,
+      57188
+    ],
+    "Extreme temperature_49": [
+      2011,
+      435
+    ],
+    "Extreme temperature_50": [
+      2012,
+      1834
+    ],
+    "Extreme temperature_51": [
+      2013,
+      1821
+    ],
+    "Extreme temperature_52": [
+      2014,
+      1168
+    ],
+    "Extreme temperature_53": [
+      2015,
+      7425
+    ],
+    "Extreme temperature_54": [
+      2016,
+      490
+    ],
+    "Extreme temperature_55": [
+      2017,
+      130
+    ],
+    "Extreme weather": [
+      1900,
+      6000
+    ],
+    "Extreme weather_2": [
+      1902,
+      600
+    ],
+    "Extreme weather_3": [
+      1903,
+      163
+    ],
+    "Extreme weather_4": [
+      1905,
+      240
+    ],
+    "Extreme weather_5": [
+      1906,
+      10298
+    ],
+    "Extreme weather_6": [
+      1909,
+      713
+    ],
+    "Extreme weather_7": [
+      1910,
+      30
+    ],
+    "Extreme weather_8": [
+      1911,
+      1000
+    ],
+    "Extreme weather_9": [
+      1912,
+      51170
+    ],
+    "Extreme weather_10": [
+      1913,
+      732
+    ],
+    "Extreme weather_11": [
+      1915,
+      2125
+    ],
+    "Extreme weather_12": [
+      1916,
+      300
+    ],
+    "Extreme weather_13": [
+      1917,
+      4057
+    ],
+    "Extreme weather_14": [
+      1918,
+      34
+    ],
+    "Extreme weather_15": [
+      1919,
+      500
+    ],
+    "Extreme weather_16": [
+      1920,
+      224
+    ],
+    "Extreme weather_17": [
+      1922,
+      100000
+    ],
+    "Extreme weather_18": [
+      1923,
+      3139
+    ],
+    "Extreme weather_19": [
+      1924,
+      2242
+    ],
+    "Extreme weather_20": [
+      1925,
+      819
+    ],
+    "Extreme weather_21": [
+      1926,
+      3568
+    ],
+    "Extreme weather_22": [
+      1927,
+      5772
+    ],
+    "Extreme weather_23": [
+      1928,
+      4224
+    ],
+    "Extreme weather_24": [
+      1930,
+      4082
+    ],
+    "Extreme weather_25": [
+      1931,
+      3200
+    ],
+    "Extreme weather_26": [
+      1932,
+      3244
+    ],
+    "Extreme weather_27": [
+      1933,
+      63
+    ],
+    "Extreme weather_28": [
+      1934,
+      5091
+    ],
+    "Extreme weather_29": [
+      1935,
+      62707
+    ],
+    "Extreme weather_30": [
+      1936,
+      3309
+    ],
+    "Extreme weather_31": [
+      1937,
+      11231
+    ],
+    "Extreme weather_32": [
+      1938,
+      905
+    ],
+    "Extreme weather_33": [
+      1939,
+      3
+    ],
+    "Extreme weather_34": [
+      1940,
+      123
+    ],
+    "Extreme weather_35": [
+      1941,
+      5006
+    ],
+    "Extreme weather_36": [
+      1942,
+      101000
+    ],
+    "Extreme weather_37": [
+      1943,
+      5000
+    ],
+    "Extreme weather_38": [
+      1944,
+      726
+    ],
+    "Extreme weather_39": [
+      1945,
+      4415
+    ],
+    "Extreme weather_40": [
+      1946,
+      337
+    ],
+    "Extreme weather_41": [
+      1947,
+      4738
+    ],
+    "Extreme weather_42": [
+      1948,
+      2971
+    ],
+    "Extreme weather_43": [
+      1949,
+      2804
+    ],
+    "Extreme weather_44": [
+      1950,
+      873
+    ],
+    "Extreme weather_45": [
+      1951,
+      2861
+    ],
+    "Extreme weather_46": [
+      1952,
+      6277
+    ],
+    "Extreme weather_47": [
+      1953,
+      1814
+    ],
+    "Extreme weather_48": [
+      1954,
+      2969
+    ],
+    "Extreme weather_49": [
+      1955,
+      3895
+    ],
+    "Extreme weather_50": [
+      1956,
+      3114
+    ],
+    "Extreme weather_51": [
+      1957,
+      1139
+    ],
+    "Extreme weather_52": [
+      1958,
+      2620
+    ],
+    "Extreme weather_53": [
+      1959,
+      9695
+    ],
+    "Extreme weather_54": [
+      1960,
+      9164
+    ],
+    "Extreme weather_55": [
+      1961,
+      12852
+    ],
+    "Extreme weather_56": [
+      1962,
+      1860
+    ],
+    "Extreme weather_57": [
+      1963,
+      29965
+    ],
+    "Extreme weather_58": [
+      1964,
+      10655
+    ],
+    "Extreme weather_59": [
+      1965,
+      59932
+    ],
+    "Extreme weather_60": [
+      1966,
+      2327
+    ],
+    "Extreme weather_61": [
+      1967,
+      2255
+    ],
+    "Extreme weather_62": [
+      1968,
+      1669
+    ],
+    "Extreme weather_63": [
+      1969,
+      3252
+    ],
+    "Extreme weather_64": [
+      1970,
+      304495
+    ],
+    "Extreme weather_65": [
+      1971,
+      10811
+    ],
+    "Extreme weather_66": [
+      1972,
+      1427
+    ],
+    "Extreme weather_67": [
+      1973,
+      4344
+    ],
+    "Extreme weather_68": [
+      1974,
+      11861
+    ],
+    "Extreme weather_69": [
+      1975,
+      1041
+    ],
+    "Extreme weather_70": [
+      1976,
+      1763
+    ],
+    "Extreme weather_71": [
+      1977,
+      15298
+    ],
+    "Extreme weather_72": [
+      1978,
+      3676
+    ],
+    "Extreme weather_73": [
+      1979,
+      2623
+    ],
+    "Extreme weather_74": [
+      1980,
+      1379
+    ],
+    "Extreme weather_75": [
+      1981,
+      3790
+    ],
+    "Extreme weather_76": [
+      1982,
+      2782
+    ],
+    "Extreme weather_77": [
+      1983,
+      3656
+    ],
+    "Extreme weather_78": [
+      1984,
+      5468
+    ],
+    "Extreme weather_79": [
+      1985,
+      17165
+    ],
+    "Extreme weather_80": [
+      1986,
+      1939
+    ],
+    "Extreme weather_81": [
+      1987,
+      2900
+    ],
+    "Extreme weather_82": [
+      1988,
+      3335
+    ],
+    "Extreme weather_83": [
+      1989,
+      4256
+    ],
+    "Extreme weather_84": [
+      1990,
+      4604
+    ],
+    "Extreme weather_85": [
+      1991,
+      146297
+    ],
+    "Extreme weather_86": [
+      1992,
+      1342
+    ],
+    "Extreme weather_87": [
+      1993,
+      2965
+    ],
+    "Extreme weather_88": [
+      1994,
+      4239
+    ],
+    "Extreme weather_89": [
+      1995,
+      3763
+    ],
+    "Extreme weather_90": [
+      1996,
+      4581
+    ],
+    "Extreme weather_91": [
+      1997,
+      6150
+    ],
+    "Extreme weather_92": [
+      1998,
+      24935
+    ],
+    "Extreme weather_93": [
+      1999,
+      12270
+    ],
+    "Extreme weather_94": [
+      2000,
+      1354
+    ],
+    "Extreme weather_95": [
+      2001,
+      1911
+    ],
+    "Extreme weather_96": [
+      2002,
+      1382
+    ],
+    "Extreme weather_97": [
+      2003,
+      1049
+    ],
+    "Extreme weather_98": [
+      2004,
+      6547
+    ],
+    "Extreme weather_99": [
+      2005,
+      5251
+    ],
+    "Extreme weather_100": [
+      2006,
+      4329
+    ],
+    "Extreme weather_101": [
+      2007,
+      6035
+    ],
+    "Extreme weather_102": [
+      2008,
+      140985
+    ],
+    "Extreme weather_103": [
+      2009,
+      3287
+    ],
+    "Extreme weather_104": [
+      2010,
+      1564
+    ],
+    "Extreme weather_105": [
+      2011,
+      3103
+    ],
+    "Extreme weather_106": [
+      2012,
+      3105
+    ],
+    "Extreme weather_107": [
+      2013,
+      8603
+    ],
+    "Extreme weather_108": [
+      2014,
+      1424
+    ],
+    "Extreme weather_109": [
+      2015,
+      1270
+    ],
+    "Extreme weather_110": [
+      2016,
+      1760
+    ],
+    "Extreme weather_111": [
+      2017,
+      394
+    ],
+    "Flood": [
+      1900,
+      300
+    ],
+    "Flood_2": [
+      1903,
+      250
+    ],
+    "Flood_3": [
+      1906,
+      6
+    ],
+    "Flood_4": [
+      1909,
+      72
+    ],
+    "Flood_5": [
+      1910,
+      1379
+    ],
+    "Flood_6": [
+      1911,
+      100000
+    ],
+    "Flood_7": [
+      1926,
+      1000
+    ],
+    "Flood_8": [
+      1927,
+      3246
+    ],
+    "Flood_9": [
+      1928,
+      36
+    ],
+    "Flood_10": [
+      1931,
+      3700000
+    ],
+    "Flood_11": [
+      1933,
+      18053
+    ],
+    "Flood_12": [
+      1935,
+      142000
+    ],
+    "Flood_13": [
+      1936,
+      200
+    ],
+    "Flood_14": [
+      1937,
+      248
+    ],
+    "Flood_15": [
+      1938,
+      954
+    ],
+    "Flood_16": [
+      1939,
+      500010
+    ],
+    "Flood_17": [
+      1940,
+      125
+    ],
+    "Flood_18": [
+      1943,
+      990
+    ],
+    "Flood_19": [
+      1947,
+      2000
+    ],
+    "Flood_20": [
+      1948,
+      917
+    ],
+    "Flood_21": [
+      1949,
+      97000
+    ],
+    "Flood_22": [
+      1950,
+      3808
+    ],
+    "Flood_23": [
+      1951,
+      5666
+    ],
+    "Flood_24": [
+      1952,
+      199
+    ],
+    "Flood_25": [
+      1953,
+      7125
+    ],
+    "Flood_26": [
+      1954,
+      34436
+    ],
+    "Flood_27": [
+      1955,
+      584
+    ],
+    "Flood_28": [
+      1956,
+      3613
+    ],
+    "Flood_29": [
+      1957,
+      2471
+    ],
+    "Flood_30": [
+      1958,
+      400
+    ],
+    "Flood_31": [
+      1959,
+      2003396
+    ],
+    "Flood_32": [
+      1960,
+      10577
+    ],
+    "Flood_33": [
+      1961,
+      3863
+    ],
+    "Flood_34": [
+      1962,
+      1180
+    ],
+    "Flood_35": [
+      1963,
+      1031
+    ],
+    "Flood_36": [
+      1964,
+      1123
+    ],
+    "Flood_37": [
+      1965,
+      1401
+    ],
+    "Flood_38": [
+      1966,
+      1923
+    ],
+    "Flood_39": [
+      1967,
+      2446
+    ],
+    "Flood_40": [
+      1968,
+      7306
+    ],
+    "Flood_41": [
+      1969,
+      1544
+    ],
+    "Flood_42": [
+      1970,
+      3246
+    ],
+    "Flood_43": [
+      1971,
+      2404
+    ],
+    "Flood_44": [
+      1972,
+      2548
+    ],
+    "Flood_45": [
+      1973,
+      1835
+    ],
+    "Flood_46": [
+      1974,
+      29431
+    ],
+    "Flood_47": [
+      1975,
+      848
+    ],
+    "Flood_48": [
+      1976,
+      960
+    ],
+    "Flood_49": [
+      1977,
+      2568
+    ],
+    "Flood_50": [
+      1978,
+      5897
+    ],
+    "Flood_51": [
+      1979,
+      1038
+    ],
+    "Flood_52": [
+      1980,
+      10466
+    ],
+    "Flood_53": [
+      1981,
+      5283
+    ],
+    "Flood_54": [
+      1982,
+      4648
+    ],
+    "Flood_55": [
+      1983,
+      2082
+    ],
+    "Flood_56": [
+      1984,
+      2930
+    ],
+    "Flood_57": [
+      1985,
+      4376
+    ],
+    "Flood_58": [
+      1986,
+      1782
+    ],
+    "Flood_59": [
+      1987,
+      6766
+    ],
+    "Flood_60": [
+      1988,
+      8504
+    ],
+    "Flood_61": [
+      1989,
+      4716
+    ],
+    "Flood_62": [
+      1990,
+      2251
+    ],
+    "Flood_63": [
+      1991,
+      5852
+    ],
+    "Flood_64": [
+      1992,
+      5315
+    ],
+    "Flood_65": [
+      1993,
+      6150
+    ],
+    "Flood_66": [
+      1994,
+      6771
+    ],
+    "Flood_67": [
+      1995,
+      7956
+    ],
+    "Flood_68": [
+      1996,
+      8047
+    ],
+    "Flood_69": [
+      1997,
+      7685
+    ],
+    "Flood_70": [
+      1998,
+      10653
+    ],
+    "Flood_71": [
+      1999,
+      34807
+    ],
+    "Flood_72": [
+      2000,
+      6025
+    ],
+    "Flood_73": [
+      2001,
+      5014
+    ],
+    "Flood_74": [
+      2002,
+      4236
+    ],
+    "Flood_75": [
+      2003,
+      3910
+    ],
+    "Flood_76": [
+      2004,
+      6982
+    ],
+    "Flood_77": [
+      2005,
+      5754
+    ],
+    "Flood_78": [
+      2006,
+      5843
+    ],
+    "Flood_79": [
+      2007,
+      8607
+    ],
+    "Flood_80": [
+      2008,
+      4007
+    ],
+    "Flood_81": [
+      2009,
+      3627
+    ],
+    "Flood_82": [
+      2010,
+      8356
+    ],
+    "Flood_83": [
+      2011,
+      6163
+    ],
+    "Flood_84": [
+      2012,
+      3544
+    ],
+    "Flood_85": [
+      2013,
+      9836
+    ],
+    "Flood_86": [
+      2014,
+      3532
+    ],
+    "Flood_87": [
+      2015,
+      3495
+    ],
+    "Flood_88": [
+      2016,
+      4720
+    ],
+    "Flood_89": [
+      2017,
+      648
+    ],
+    "Landslide": [
+      1909,
+      53
+    ],
+    "Landslide_2": [
+      1922,
+      100
+    ],
+    "Landslide_3": [
+      1923,
+      200
+    ],
+    "Landslide_4": [
+      1926,
+      128
+    ],
+    "Landslide_5": [
+      1930,
+      40
+    ],
+    "Landslide_6": [
+      1931,
+      190
+    ],
+    "Landslide_7": [
+      1932,
+      30
+    ],
+    "Landslide_8": [
+      1934,
+      500
+    ],
+    "Landslide_9": [
+      1936,
+      73
+    ],
+    "Landslide_10": [
+      1938,
+      200
+    ],
+    "Landslide_11": [
+      1941,
+      5000
+    ],
+    "Landslide_12": [
+      1948,
+      525
+    ],
+    "Landslide_13": [
+      1949,
+      12000
+    ],
+    "Landslide_14": [
+      1950,
+      130
+    ],
+    "Landslide_15": [
+      1951,
+      92
+    ],
+    "Landslide_16": [
+      1952,
+      28
+    ],
+    "Landslide_17": [
+      1954,
+      1086
+    ],
+    "Landslide_18": [
+      1955,
+      478
+    ],
+    "Landslide_19": [
+      1956,
+      236
+    ],
+    "Landslide_20": [
+      1958,
+      52
+    ],
+    "Landslide_21": [
+      1959,
+      48
+    ],
+    "Landslide_22": [
+      1960,
+      52
+    ],
+    "Landslide_23": [
+      1961,
+      166
+    ],
+    "Landslide_24": [
+      1962,
+      71
+    ],
+    "Landslide_25": [
+      1963,
+      2033
+    ],
+    "Landslide_26": [
+      1964,
+      108
+    ],
+    "Landslide_27": [
+      1965,
+      204
+    ],
+    "Landslide_28": [
+      1966,
+      604
+    ],
+    "Landslide_29": [
+      1967,
+      590
+    ],
+    "Landslide_30": [
+      1968,
+      1196
+    ],
+    "Landslide_31": [
+      1969,
+      18
+    ],
+    "Landslide_32": [
+      1970,
+      186
+    ],
+    "Landslide_33": [
+      1971,
+      1020
+    ],
+    "Landslide_34": [
+      1972,
+      755
+    ],
+    "Landslide_35": [
+      1973,
+      3541
+    ],
+    "Landslide_36": [
+      1974,
+      904
+    ],
+    "Landslide_37": [
+      1975,
+      195
+    ],
+    "Landslide_38": [
+      1976,
+      315
+    ],
+    "Landslide_39": [
+      1977,
+      40
+    ],
+    "Landslide_40": [
+      1978,
+      86
+    ],
+    "Landslide_41": [
+      1979,
+      338
+    ],
+    "Landslide_42": [
+      1980,
+      300
+    ],
+    "Landslide_43": [
+      1981,
+      421
+    ],
+    "Landslide_44": [
+      1982,
+      640
+    ],
+    "Landslide_45": [
+      1983,
+      1159
+    ],
+    "Landslide_46": [
+      1984,
+      228
+    ],
+    "Landslide_47": [
+      1985,
+      377
+    ],
+    "Landslide_48": [
+      1986,
+      501
+    ],
+    "Landslide_49": [
+      1987,
+      1204
+    ],
+    "Landslide_50": [
+      1988,
+      952
+    ],
+    "Landslide_51": [
+      1989,
+      445
+    ],
+    "Landslide_52": [
+      1990,
+      98
+    ],
+    "Landslide_53": [
+      1991,
+      728
+    ],
+    "Landslide_54": [
+      1992,
+      712
+    ],
+    "Landslide_55": [
+      1993,
+      1418
+    ],
+    "Landslide_56": [
+      1994,
+      307
+    ],
+    "Landslide_57": [
+      1995,
+      1521
+    ],
+    "Landslide_58": [
+      1996,
+      1155
+    ],
+    "Landslide_59": [
+      1997,
+      801
+    ],
+    "Landslide_60": [
+      1998,
+      1141
+    ],
+    "Landslide_61": [
+      1999,
+      445
+    ],
+    "Landslide_62": [
+      2000,
+      1012
+    ],
+    "Landslide_63": [
+      2001,
+      786
+    ],
+    "Landslide_64": [
+      2002,
+      1100
+    ],
+    "Landslide_65": [
+      2003,
+      706
+    ],
+    "Landslide_66": [
+      2004,
+      313
+    ],
+    "Landslide_67": [
+      2005,
+      664
+    ],
+    "Landslide_68": [
+      2006,
+      1638
+    ],
+    "Landslide_69": [
+      2007,
+      271
+    ],
+    "Landslide_70": [
+      2008,
+      504
+    ],
+    "Landslide_71": [
+      2009,
+      723
+    ],
+    "Landslide_72": [
+      2010,
+      3427
+    ],
+    "Landslide_73": [
+      2011,
+      309
+    ],
+    "Landslide_74": [
+      2012,
+      501
+    ],
+    "Landslide_75": [
+      2013,
+      235
+    ],
+    "Landslide_76": [
+      2014,
+      943
+    ],
+    "Landslide_77": [
+      2015,
+      1006
+    ],
+    "Landslide_78": [
+      2016,
+      361
+    ],
+    "Landslide_79": [
+      2017,
+      405
+    ],
+    "Mass movement (dry)": [
+      1903,
+      76
+    ],
+    "Mass movement (dry)_2": [
+      1905,
+      18
+    ],
+    "Mass movement (dry)_3": [
+      1908,
+      33
+    ],
+    "Mass movement (dry)_4": [
+      1910,
+      62
+    ],
+    "Mass movement (dry)_5": [
+      1915,
+      56
+    ],
+    "Mass movement (dry)_6": [
+      1937,
+      40
+    ],
+    "Mass movement (dry)_7": [
+      1955,
+      3
+    ],
+    "Mass movement (dry)_8": [
+      1962,
+      2000
+    ],
+    "Mass movement (dry)_9": [
+      1963,
+      150
+    ],
+    "Mass movement (dry)_10": [
+      1965,
+      26
+    ],
+    "Mass movement (dry)_11": [
+      1970,
+      42
+    ],
+    "Mass movement (dry)_12": [
+      1971,
+      31
+    ],
+    "Mass movement (dry)_13": [
+      1980,
+      50
+    ],
+    "Mass movement (dry)_14": [
+      1982,
+      59
+    ],
+    "Mass movement (dry)_15": [
+      1983,
+      466
+    ],
+    "Mass movement (dry)_16": [
+      1985,
+      300
+    ],
+    "Mass movement (dry)_17": [
+      1987,
+      183
+    ],
+    "Mass movement (dry)_18": [
+      1988,
+      157
+    ],
+    "Mass movement (dry)_19": [
+      1989,
+      55
+    ],
+    "Mass movement (dry)_20": [
+      1990,
+      116
+    ],
+    "Mass movement (dry)_21": [
+      1991,
+      86
+    ],
+    "Mass movement (dry)_22": [
+      1992,
+      323
+    ],
+    "Mass movement (dry)_23": [
+      1993,
+      341
+    ],
+    "Mass movement (dry)_24": [
+      2000,
+      11
+    ],
+    "Mass movement (dry)_25": [
+      2002,
+      60
+    ],
+    "Mass movement (dry)_26": [
+      2004,
+      44
+    ],
+    "Mass movement (dry)_27": [
+      2006,
+      11
+    ],
+    "Mass movement (dry)_28": [
+      2008,
+      120
+    ],
+    "Mass movement (dry)_29": [
+      2009,
+      36
+    ],
+    "Mass movement (dry)_30": [
+      2012,
+      16
+    ],
+    "Mass movement (dry)_31": [
+      2013,
+      46
+    ],
+    "Mass movement (dry)_32": [
+      2015,
+      13
+    ],
+    "Volcanic activity": [
+      1900,
+      30
+    ],
+    "Volcanic activity_2": [
+      1902,
+      38690
+    ],
+    "Volcanic activity_3": [
+      1903,
+      17
+    ],
+    "Volcanic activity_4": [
+      1906,
+      700
+    ],
+    "Volcanic activity_5": [
+      1909,
+      5500
+    ],
+    "Volcanic activity_6": [
+      1911,
+      1335
+    ],
+    "Volcanic activity_7": [
+      1914,
+      140
+    ],
+    "Volcanic activity_8": [
+      1919,
+      5000
+    ],
+    "Volcanic activity_9": [
+      1926,
+      144
+    ],
+    "Volcanic activity_10": [
+      1929,
+      5000
+    ],
+    "Volcanic activity_11": [
+      1930,
+      1369
+    ],
+    "Volcanic activity_12": [
+      1931,
+      1300
+    ],
+    "Volcanic activity_13": [
+      1937,
+      506
+    ],
+    "Volcanic activity_14": [
+      1944,
+      26
+    ],
+    "Volcanic activity_15": [
+      1948,
+      100
+    ],
+    "Volcanic activity_16": [
+      1949,
+      2000
+    ],
+    "Volcanic activity_17": [
+      1950,
+      84
+    ],
+    "Volcanic activity_18": [
+      1951,
+      4800
+    ],
+    "Volcanic activity_19": [
+      1952,
+      29
+    ],
+    "Volcanic activity_20": [
+      1953,
+      150
+    ],
+    "Volcanic activity_21": [
+      1954,
+      37
+    ],
+    "Volcanic activity_22": [
+      1963,
+      1705
+    ],
+    "Volcanic activity_23": [
+      1964,
+      4
+    ],
+    "Volcanic activity_24": [
+      1965,
+      355
+    ],
+    "Volcanic activity_25": [
+      1966,
+      1088
+    ],
+    "Volcanic activity_26": [
+      1968,
+      90
+    ],
+    "Volcanic activity_27": [
+      1975,
+      2
+    ],
+    "Volcanic activity_28": [
+      1976,
+      41
+    ],
+    "Volcanic activity_29": [
+      1977,
+      215
+    ],
+    "Volcanic activity_30": [
+      1979,
+      268
+    ],
+    "Volcanic activity_31": [
+      1980,
+      90
+    ],
+    "Volcanic activity_32": [
+      1981,
+      192
+    ],
+    "Volcanic activity_33": [
+      1982,
+      130
+    ],
+    "Volcanic activity_34": [
+      1984,
+      37
+    ],
+    "Volcanic activity_35": [
+      1985,
+      21800
+    ],
+    "Volcanic activity_36": [
+      1986,
+      1746
+    ],
+    "Volcanic activity_37": [
+      1988,
+      7
+    ],
+    "Volcanic activity_38": [
+      1990,
+      33
+    ],
+    "Volcanic activity_39": [
+      1991,
+      683
+    ],
+    "Volcanic activity_40": [
+      1992,
+      1
+    ],
+    "Volcanic activity_41": [
+      1993,
+      99
+    ],
+    "Volcanic activity_42": [
+      1994,
+      101
+    ],
+    "Volcanic activity_43": [
+      1996,
+      4
+    ],
+    "Volcanic activity_44": [
+      1997,
+      53
+    ],
+    "Volcanic activity_45": [
+      2002,
+      200
+    ],
+    "Volcanic activity_46": [
+      2004,
+      2
+    ],
+    "Volcanic activity_47": [
+      2005,
+      3
+    ],
+    "Volcanic activity_48": [
+      2006,
+      5
+    ],
+    "Volcanic activity_49": [
+      2007,
+      11
+    ],
+    "Volcanic activity_50": [
+      2008,
+      16
+    ],
+    "Volcanic activity_51": [
+      2010,
+      323
+    ],
+    "Volcanic activity_52": [
+      2011,
+      3
+    ],
+    "Volcanic activity_53": [
+      2014,
+      102
+    ],
+    "Wildfire": [
+      1911,
+      73
+    ],
+    "Wildfire_2": [
+      1918,
+      1000
+    ],
+    "Wildfire_3": [
+      1922,
+      43
+    ],
+    "Wildfire_4": [
+      1929,
+      60
+    ],
+    "Wildfire_5": [
+      1939,
+      71
+    ],
+    "Wildfire_6": [
+      1944,
+      170
+    ],
+    "Wildfire_7": [
+      1949,
+      80
+    ],
+    "Wildfire_8": [
+      1956,
+      11
+    ],
+    "Wildfire_9": [
+      1966,
+      25
+    ],
+    "Wildfire_10": [
+      1967,
+      62
+    ],
+    "Wildfire_11": [
+      1968,
+      12
+    ],
+    "Wildfire_12": [
+      1977,
+      3
+    ],
+    "Wildfire_13": [
+      1978,
+      2
+    ],
+    "Wildfire_14": [
+      1981,
+      8
+    ],
+    "Wildfire_15": [
+      1982,
+      2
+    ],
+    "Wildfire_16": [
+      1983,
+      106
+    ],
+    "Wildfire_17": [
+      1984,
+      17
+    ],
+    "Wildfire_18": [
+      1985,
+      51
+    ],
+    "Wildfire_19": [
+      1986,
+      20
+    ],
+    "Wildfire_20": [
+      1987,
+      191
+    ],
+    "Wildfire_21": [
+      1989,
+      1
+    ],
+    "Wildfire_22": [
+      1991,
+      90
+    ],
+    "Wildfire_23": [
+      1992,
+      122
+    ],
+    "Wildfire_24": [
+      1993,
+      3
+    ],
+    "Wildfire_25": [
+      1994,
+      84
+    ],
+    "Wildfire_26": [
+      1995,
+      29
+    ],
+    "Wildfire_27": [
+      1996,
+      45
+    ],
+    "Wildfire_28": [
+      1997,
+      266
+    ],
+    "Wildfire_29": [
+      1998,
+      150
+    ],
+    "Wildfire_30": [
+      1999,
+      70
+    ],
+    "Wildfire_31": [
+      2000,
+      47
+    ],
+    "Wildfire_32": [
+      2001,
+      33
+    ],
+    "Wildfire_33": [
+      2002,
+      6
+    ],
+    "Wildfire_34": [
+      2003,
+      47
+    ],
+    "Wildfire_35": [
+      2004,
+      14
+    ],
+    "Wildfire_36": [
+      2005,
+      45
+    ],
+    "Wildfire_37": [
+      2006,
+      13
+    ],
+    "Wildfire_38": [
+      2007,
+      148
+    ],
+    "Wildfire_39": [
+      2008,
+      86
+    ],
+    "Wildfire_40": [
+      2009,
+      190
+    ],
+    "Wildfire_41": [
+      2010,
+      166
+    ],
+    "Wildfire_42": [
+      2011,
+      10
+    ],
+    "Wildfire_43": [
+      2012,
+      21
+    ],
+    "Wildfire_44": [
+      2013,
+      35
+    ],
+    "Wildfire_45": [
+      2014,
+      16
+    ],
+    "Wildfire_46": [
+      2015,
+      67
+    ],
+    "Wildfire_47": [
+      2016,
+      39
+    ],
+    "Wildfire_48": [
+      2017,
+      75
+    ]
+  },
+  "x_ticks": [
+    1900,
+    1901,
+    1902,
+    1903,
+    1905,
+    1906,
+    1907,
+    1908,
+    1909,
+    1910,
+    1911,
+    1912,
+    1913,
+    1914,
+    1915,
+    1916,
+    1917,
+    1918,
+    1919,
+    1920,
+    1921,
+    1922,
+    1923,
+    1924,
+    1925,
+    1926,
+    1927,
+    1928,
+    1929,
+    1930,
+    1931,
+    1932,
+    1933,
+    1934,
+    1935,
+    1936,
+    1937,
+    1938,
+    1939,
+    1940,
+    1941,
+    1942,
+    1943,
+    1944,
+    1945,
+    1946,
+    1947,
+    1948,
+    1949,
+    1950,
+    1951,
+    1952,
+    1953,
+    1954,
+    1955,
+    1956,
+    1957,
+    1958,
+    1959,
+    1960,
+    1961,
+    1962,
+    1963,
+    1964,
+    1965,
+    1966,
+    1967,
+    1968,
+    1969,
+    1970,
+    1971,
+    1972,
+    1973,
+    1974,
+    1975,
+    1976,
+    1977,
+    1978,
+    1979,
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "y_ticks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18,
+    20,
+    21,
+    25,
+    26,
+    28,
+    29,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    55,
+    56,
+    57,
+    59,
+    60,
+    62,
+    63,
+    67,
+    69,
+    70,
+    71,
+    72,
+    73,
+    75,
+    76,
+    80,
+    84,
+    86,
+    90,
+    92,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    106,
+    107,
+    108,
+    110,
+    116,
+    120,
+    122,
+    123,
+    125,
+    128,
+    130,
+    134,
+    140,
+    144,
+    148,
+    149,
+    150,
+    153,
+    157,
+    162,
+    163,
+    166,
+    170,
+    177,
+    183,
+    186,
+    189,
+    190,
+    191,
+    192,
+    195,
+    199,
+    200,
+    204,
+    205,
+    215,
+    217,
+    224,
+    227,
+    228,
+    230,
+    235,
+    236,
+    237,
+    240,
+    248,
+    250,
+    255,
+    262,
+    266,
+    268,
+    271,
+    280,
+    283,
+    289,
+    290,
+    300,
+    307,
+    309,
+    313,
+    315,
+    323,
+    335,
+    337,
+    338,
+    341,
+    355,
+    361,
+    377,
+    381,
+    386,
+    388,
+    394,
+    396,
+    400,
+    405,
+    421,
+    435,
+    445,
+    456,
+    466,
+    470,
+    478,
+    481,
+    486,
+    490,
+    500,
+    501,
+    504,
+    506,
+    525,
+    529,
+    552,
+    576,
+    584,
+    588,
+    590,
+    600,
+    604,
+    617,
+    633,
+    635,
+    640,
+    644,
+    648,
+    650,
+    651,
+    664,
+    669,
+    683,
+    700,
+    706,
+    711,
+    712,
+    713,
+    723,
+    726,
+    728,
+    732,
+    755,
+    763,
+    767,
+    771,
+    774,
+    780,
+    786,
+    801,
+    816,
+    819,
+    835,
+    848,
+    873,
+    882,
+    904,
+    905,
+    917,
+    923,
+    939,
+    941,
+    943,
+    952,
+    954,
+    959,
+    960,
+    979,
+    990,
+    1000,
+    1006,
+    1012,
+    1013,
+    1020,
+    1031,
+    1032,
+    1038,
+    1041,
+    1049,
+    1086,
+    1088,
+    1100,
+    1107,
+    1120,
+    1123,
+    1139,
+    1141,
+    1155,
+    1159,
+    1168,
+    1180,
+    1181,
+    1184,
+    1196,
+    1204,
+    1219,
+    1220,
+    1242,
+    1270,
+    1275,
+    1300,
+    1311,
+    1317,
+    1335,
+    1342,
+    1354,
+    1369,
+    1379,
+    1382,
+    1386,
+    1389,
+    1401,
+    1418,
+    1424,
+    1427,
+    1500,
+    1520,
+    1521,
+    1537,
+    1544,
+    1550,
+    1554,
+    1564,
+    1600,
+    1638,
+    1639,
+    1669,
+    1685,
+    1688,
+    1693,
+    1700,
+    1705,
+    1730,
+    1746,
+    1760,
+    1762,
+    1763,
+    1782,
+    1787,
+    1814,
+    1821,
+    1833,
+    1834,
+    1835,
+    1860,
+    1870,
+    1887,
+    1893,
+    1911,
+    1923,
+    1939,
+    2000,
+    2033,
+    2082,
+    2087,
+    2100,
+    2120,
+    2125,
+    2148,
+    2207,
+    2225,
+    2242,
+    2251,
+    2255,
+    2313,
+    2327,
+    2404,
+    2432,
+    2446,
+    2454,
+    2471,
+    2497,
+    2505,
+    2548,
+    2568,
+    2592,
+    2620,
+    2623,
+    2717,
+    2752,
+    2782,
+    2804,
+    2861,
+    2900,
+    2912,
+    2930,
+    2965,
+    2969,
+    2971,
+    3046,
+    3060,
+    3098,
+    3103,
+    3105,
+    3114,
+    3137,
+    3139,
+    3159,
+    3174,
+    3200,
+    3244,
+    3245,
+    3246,
+    3252,
+    3269,
+    3287,
+    3309,
+    3317,
+    3335,
+    3344,
+    3353,
+    3369,
+    3427,
+    3495,
+    3520,
+    3522,
+    3532,
+    3541,
+    3544,
+    3568,
+    3613,
+    3627,
+    3656,
+    3676,
+    3763,
+    3790,
+    3808,
+    3863,
+    3895,
+    3909,
+    3910,
+    3950,
+    4007,
+    4033,
+    4057,
+    4082,
+    4206,
+    4224,
+    4236,
+    4239,
+    4256,
+    4329,
+    4332,
+    4344,
+    4376,
+    4415,
+    4428,
+    4581,
+    4604,
+    4648,
+    4716,
+    4720,
+    4738,
+    4800,
+    4826,
+    4895,
+    5000,
+    5006,
+    5013,
+    5014,
+    5081,
+    5091,
+    5146,
+    5153,
+    5160,
+    5251,
+    5283,
+    5301,
+    5315,
+    5468,
+    5484,
+    5500,
+    5666,
+    5754,
+    5772,
+    5832,
+    5843,
+    5852,
+    5854,
+    5897,
+    5961,
+    6000,
+    6025,
+    6026,
+    6035,
+    6150,
+    6163,
+    6277,
+    6293,
+    6402,
+    6486,
+    6506,
+    6547,
+    6675,
+    6692,
+    6728,
+    6747,
+    6766,
+    6771,
+    6904,
+    6980,
+    6982,
+    6993,
+    7016,
+    7125,
+    7235,
+    7306,
+    7341,
+    7425,
+    7685,
+    7730,
+    7737,
+    7739,
+    7956,
+    8000,
+    8047,
+    8356,
+    8377,
+    8504,
+    8515,
+    8603,
+    8607,
+    8762,
+    8965,
+    9164,
+    9550,
+    9573,
+    9695,
+    9836,
+    9853,
+    10088,
+    10103,
+    10195,
+    10201,
+    10276,
+    10298,
+    10349,
+    10376,
+    10379,
+    10466,
+    10572,
+    10577,
+    10603,
+    10653,
+    10655,
+    10674,
+    10811,
+    10858,
+    11231,
+    11619,
+    11687,
+    11861,
+    12000,
+    12025,
+    12143,
+    12209,
+    12270,
+    12611,
+    12632,
+    12852,
+    12892,
+    12911,
+    12931,
+    12956,
+    13973,
+    14858,
+    14984,
+    15042,
+    15170,
+    15216,
+    15298,
+    15496,
+    15590,
+    15906,
+    16037,
+    16180,
+    16273,
+    16667,
+    16887,
+    17165,
+    17181,
+    17341,
+    17370,
+    17647,
+    18053,
+    18086,
+    18911,
+    19000,
+    19395,
+    19450,
+    20000,
+    20045,
+    20882,
+    20946,
+    21087,
+    21342,
+    21348,
+    21461,
+    21533,
+    21800,
+    21821,
+    21869,
+    22225,
+    22406,
+    22422,
+    22500,
+    22758,
+    23023,
+    23089,
+    23893,
+    24808,
+    24935,
+    25162,
+    25641,
+    27049,
+    27166,
+    29431,
+    29617,
+    29893,
+    29965,
+    29986,
+    30000,
+    30124,
+    30682,
+    31595,
+    31966,
+    32167,
+    34143,
+    34296,
+    34436,
+    34807,
+    35490,
+    37746,
+    38096,
+    38690,
+    39188,
+    39493,
+    41872,
+    42853,
+    42970,
+    46037,
+    51170,
+    52093,
+    53141,
+    57188,
+    57464,
+    59932,
+    60000,
+    60232,
+    62672,
+    62707,
+    63094,
+    66110,
+    70006,
+    73296,
+    74698,
+    75000,
+    75033,
+    76241,
+    76886,
+    78599,
+    85000,
+    87504,
+    87918,
+    93566,
+    97000,
+    100000,
+    101000,
+    101243,
+    102408,
+    103000,
+    110555,
+    113558,
+    115618,
+    119697,
+    120131,
+    120370,
+    140985,
+    142000,
+    146297,
+    148233,
+    152362,
+    180000,
+    189707,
+    200000,
+    200018,
+    206142,
+    215160,
+    226733,
+    227290,
+    242236,
+    244772,
+    255701,
+    272817,
+    276994,
+    280469,
+    300000,
+    303009,
+    304495,
+    329900,
+    387507,
+    423000,
+    427852,
+    449700,
+    450520,
+    461113,
+    461561,
+    500010,
+    524000,
+    563178,
+    1200000,
+    1261000,
+    1267360,
+    1300000,
+    1325641,
+    1500000,
+    1500040,
+    1502000,
+    1511524,
+    1565517,
+    1608235,
+    1900000,
+    1910322,
+    2003396,
+    2013242,
+    2500000,
+    2523507,
+    3000000,
+    3004895,
+    3204224,
+    3700000,
+    3706227
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

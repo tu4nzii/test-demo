@@ -1,0 +1,91 @@
+{
+  "chart_id": "h_bar_185",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_185.png",
+    "with_grid": "charts/h_bar/h_bar_185_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_185_grid_with_grid.png"
+  },
+  "data_points": {
+    "Real value added in billion chained (2012) U.S. dollars": {
+      "Manufacturing": 54.01,
+      "Finance, insurance, real estate, rental, and leasing": 32.34,
+      "Government and government enterprises": 24.2,
+      "Educational services, health care, and social assistance": 16.9,
+      "Professional and business services": 19.08,
+      "Mining, quarrying, and oil and gas extraction": 14.88,
+      "Retail trade": 15.56,
+      "Wholesale trade": 11.31,
+      "Construction": 9.02,
+      "Arts, entertainment, recreation, accommodation, and food services": 7.01,
+      "Transportation and warehousing": 6.58,
+      "Information": 5.35,
+      "Utilities": 4.92,
+      "Agriculture, forestry, fishing, and hunting": 2.4
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0
+  ],
+  "y_ticks": [
+    "Manufacturing",
+    "Finance, insurance, real estate, rental, and leasing",
+    "Government and government enterprises",
+    "Educational services, health care, and social assistance",
+    "Professional and business services",
+    "Mining, quarrying, and oil and gas extraction",
+    "Retail trade",
+    "Wholesale trade",
+    "Construction",
+    "Arts, entertainment, recreation, accommodation, and food services",
+    "Transportation and warehousing",
+    "Information",
+    "Utilities",
+    "Agriculture, forestry, fishing, and hunting"
+  ],
+  "x_pixels": [
+    142,
+    193,
+    245,
+    296,
+    348,
+    399,
+    451,
+    502,
+    554,
+    605,
+    657,
+    708,
+    760
+  ],
+  "y_pixels": [
+    485,
+    457,
+    428,
+    400,
+    371,
+    343,
+    314,
+    286,
+    257,
+    229,
+    200,
+    172,
+    143,
+    115
+  ],
+  "series_color": {
+    "Real value added in billion chained (2012) U.S. dollars": "#87ceeb"
+  }
+}

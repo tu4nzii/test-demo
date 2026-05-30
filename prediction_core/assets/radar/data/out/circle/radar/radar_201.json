@@ -1,0 +1,93 @@
+{
+  "chart_id": "radar_201",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "QNDP": {
+      "A": 89.0,
+      "D": 22.0,
+      "C": 32.0,
+      "B": 12.0
+    },
+    "GGIEF": {
+      "C": 20.0,
+      "D": 78.0,
+      "A": 96.0,
+      "B": 53.0
+    },
+    "ISTUJW": {
+      "D": 68.0,
+      "B": 94.0,
+      "C": 45.0,
+      "A": 70.0
+    },
+    "HXI": {
+      "D": 59.0,
+      "C": 26.0,
+      "B": 97.0,
+      "A": 72.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100.0
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_201.png"
+  },
+  "series_color": {
+    "QNDP": "#1f77b4",
+    "GGIEF": "#98df8a",
+    "ISTUJW": "#1f77b4",
+    "HXI": "#dbdb8d"
+  },
+  "num_entities": 4,
+  "fill_enabled": false,
+  "num_vars": 4,
+  "err_center": 3.0,
+  "pred_coords": [
+    304,
+    303
+  ],
+  "argument": {
+    "a": 2.225,
+    "b": 5.5
+  }
+}

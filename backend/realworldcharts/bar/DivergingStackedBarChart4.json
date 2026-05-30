@@ -1,0 +1,65 @@
+{
+  "chart_id": "DivergingStackedBarChart4",
+  "chart_type": "bar",
+  "image_paths": {
+    "no_grid": "charts/bar/DivergingStackedBarChart4.png"
+  },
+  "source_csv": "charts/bar/DivergingStackedBarChart4.csv",
+  "data_points": {
+    "Percentage": {
+      "Below 30": 21,
+      "Below 30_2": 30,
+      "Below 30_3": 40,
+      "Below 30_4": 9,
+      "30 - 50": 26,
+      "30 - 50_2": 35,
+      "30 - 50_3": 22,
+      "30 - 50_4": 17,
+      "50 - 70": 15,
+      "50 - 70_2": 28,
+      "50 - 70_3": 39,
+      "50 - 70_4": 18,
+      "Above 70": 17,
+      "Above 70_2": 36,
+      "Above 70_3": 28,
+      "Above 70_4": 19
+    }
+  },
+  "x_ticks": [
+    "Below 30",
+    "Below 30_2",
+    "Below 30_3",
+    "Below 30_4",
+    "30 - 50",
+    "30 - 50_2",
+    "30 - 50_3",
+    "30 - 50_4",
+    "50 - 70",
+    "50 - 70_2",
+    "50 - 70_3",
+    "50 - 70_4",
+    "Above 70",
+    "Above 70_2",
+    "Above 70_3",
+    "Above 70_4"
+  ],
+  "y_ticks": [
+    9,
+    15,
+    17,
+    18,
+    19,
+    21,
+    22,
+    26,
+    28,
+    30,
+    35,
+    36,
+    39,
+    40
+  ],
+  "x_pixels": [],
+  "y_pixels": [],
+  "series_color": {}
+}

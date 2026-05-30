@@ -1,0 +1,59 @@
+{
+  "chart_id": "line_129",
+  "title": "",
+  "dpi": 100,
+  "fig_size": [
+    10,
+    6
+  ],
+  "font_size": 10,
+  "palette": [
+    "#d62728",
+    "#9467bd",
+    "#8c564b"
+  ],
+  "sample_size": 6,
+  "series_color": {
+    "Support Rep candidate": "#d62728",
+    "Support Dem candidate": "#9467bd"
+  },
+  "x_ticks": [
+    "Oct '98",
+    "Oct '00",
+    "Oct Oct",
+    "Oct",
+    "Oct '14",
+    "Sept '18"
+  ],
+  "y_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0
+  ],
+  "y_ticks_encrypted": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0,
+    75.0,
+    80.0
+  ],
+  "random_seed": 42
+}

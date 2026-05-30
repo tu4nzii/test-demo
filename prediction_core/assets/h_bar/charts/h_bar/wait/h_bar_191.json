@@ -1,0 +1,81 @@
+{
+  "chart_id": "h_bar_191",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_191.png",
+    "with_grid": "charts/h_bar/h_bar_191_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_191_grid_with_grid.png"
+  },
+  "data_points": {
+    "Goals scored": {
+      "Miroslav Klose (Germany)": 16.0,
+      "Ronaldo (Brazil)": 15.0,
+      "Gerd Müller (Germany)": 14.0,
+      "Just Fontaine (France)": 13.0,
+      "Pelé (Brazil)": 12.0,
+      "Jürgen Klinsmann (Germany)": 11.0,
+      "Gabriel Batistuta (Argentina)": 10.0,
+      "Ademir (Brazil)": 9.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0,
+    11.0,
+    12.0,
+    13.0,
+    14.0,
+    15.0,
+    16.0
+  ],
+  "y_ticks": [
+    "Miroslav Klose (Germany)",
+    "Ronaldo (Brazil)",
+    "Gerd Müller (Germany)",
+    "Just Fontaine (France)",
+    "Pelé (Brazil)",
+    "Jürgen Klinsmann (Germany)",
+    "Gabriel Batistuta (Argentina)",
+    "Ademir (Brazil)"
+  ],
+  "x_pixels": [
+    291,
+    364,
+    438,
+    511,
+    584,
+    657,
+    730,
+    803,
+    876,
+    950,
+    1023,
+    1096,
+    1169,
+    1242,
+    1315,
+    1388,
+    1461
+  ],
+  "y_pixels": [
+    952,
+    852,
+    751,
+    650,
+    550,
+    449,
+    348,
+    248
+  ],
+  "series_color": {
+    "Goals scored": "#1f77b4"
+  }
+}

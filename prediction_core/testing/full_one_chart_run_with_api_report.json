@@ -1,0 +1,56 @@
+﻿[
+    {
+        "chart_type":  "v_bar",
+        "chart_id":  "v_bar_002",
+        "exit_code":  0,
+        "elapsed_seconds":  41.45
+    },
+    {
+        "chart_type":  "h_bar",
+        "chart_id":  "h_bar_001",
+        "exit_code":  0,
+        "elapsed_seconds":  40.94
+    },
+    {
+        "chart_type":  "scatter",
+        "chart_id":  "scatter_001",
+        "exit_code":  0,
+        "elapsed_seconds":  127.74
+    },
+    {
+        "chart_type":  "bubble",
+        "chart_id":  "bubble_023",
+        "exit_code":  0,
+        "elapsed_seconds":  60.14
+    },
+    {
+        "chart_type":  "line",
+        "chart_id":  "line_001",
+        "exit_code":  0,
+        "elapsed_seconds":  38.3
+    },
+    {
+        "chart_type":  "pie",
+        "chart_id":  "001",
+        "exit_code":  0,
+        "elapsed_seconds":  189.28
+    },
+    {
+        "chart_type":  "donut",
+        "chart_id":  "donut_135",
+        "exit_code":  0,
+        "elapsed_seconds":  430.25
+    },
+    {
+        "chart_type":  "rose",
+        "chart_id":  "rose_004",
+        "exit_code":  0,
+        "elapsed_seconds":  279.28
+    },
+    {
+        "chart_type":  "radar",
+        "chart_id":  "radar_009",
+        "exit_code":  0,
+        "elapsed_seconds":  195.19
+    }
+]

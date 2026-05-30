@@ -1,0 +1,79 @@
+{
+  "chart_id": "h_bar_113",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_113.png",
+    "with_grid": "charts/h_bar/h_bar_113_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_113_grid_with_grid.png"
+  },
+  "data_points": {
+    "Rebounds": {
+      "Michael Jordan": 5836.0,
+      "Tom Boerwinkle": 5745.0,
+      "Scottie Pippen": 5726.0,
+      "Joakim Noah": 5387.0,
+      "Jerry Sloan": 5385.0,
+      "Artis Gilmore": 5342.0,
+      "Horace Grant": 4721.0,
+      "David Greenwood": 4222.0,
+      "Luol Deng": 4078.0,
+      "Bob Love": 3998.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    500.0,
+    1000.0,
+    1500.0,
+    2000.0,
+    2500.0,
+    3000.0,
+    3500.0,
+    4000.0,
+    4500.0,
+    5000.0,
+    5500.0,
+    6000.0
+  ],
+  "y_ticks": [
+    "Michael Jordan",
+    "Tom Boerwinkle",
+    "Scottie Pippen",
+    "Joakim Noah",
+    "Jerry Sloan",
+    "Artis Gilmore",
+    "Horace Grant",
+    "David Greenwood",
+    "Luol Deng",
+    "Bob Love"
+  ],
+  "x_pixels": [
+    148,
+    198,
+    248,
+    298,
+    348,
+    398,
+    448,
+    498,
+    547,
+    597,
+    647,
+    697,
+    747
+  ],
+  "y_pixels": [
+    480,
+    440,
+    400,
+    360,
+    320,
+    280,
+    240,
+    200,
+    160,
+    120
+  ],
+  "series_color": {
+    "Rebounds": "#1f77b4"
+  }
+}

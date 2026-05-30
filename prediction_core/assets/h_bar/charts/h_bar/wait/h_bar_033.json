@@ -1,0 +1,65 @@
+{
+  "chart_id": "h_bar_033",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_033.png",
+    "with_grid": "charts/h_bar/h_bar_033_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_033_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of public holidays": {
+      "Colombia": 18.0,
+      "Argentina": 16.0,
+      "Brazil": 15.0,
+      "Venezuela": 14.0,
+      "Mexico": 13.0,
+      "Peru": 12.0,
+      "Ecuador": 11.0,
+      "Cuba": 10.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0
+  ],
+  "y_ticks": [
+    "Colombia",
+    "Argentina",
+    "Brazil",
+    "Venezuela",
+    "Mexico",
+    "Peru",
+    "Ecuador",
+    "Cuba"
+  ],
+  "x_pixels": [
+    95,
+    178,
+    261,
+    345,
+    428,
+    511,
+    594,
+    677,
+    760
+  ],
+  "y_pixels": [
+    476,
+    426,
+    376,
+    325,
+    275,
+    224,
+    174,
+    124
+  ],
+  "series_color": {
+    "Number of public holidays": "#87ceeb"
+  }
+}

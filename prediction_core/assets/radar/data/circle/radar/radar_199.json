@@ -1,0 +1,92 @@
+{
+  "chart_id": "radar_199",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "data_points": {
+    "BXURO": {
+      "F": 32.0,
+      "B": 50.0,
+      "C": 81.0,
+      "E": 77.0,
+      "A": 89.0,
+      "D": 12.0
+    },
+    "HHBIGE": {
+      "C": 45.0,
+      "D": 71.0,
+      "E": 11.0,
+      "A": 45.0,
+      "F": 38.0,
+      "B": 33.0
+    },
+    "OGJ": {
+      "B": 17.0,
+      "C": 84.0,
+      "E": 30.0,
+      "F": 21.0,
+      "D": 38.0,
+      "A": 93.0
+    },
+    "CPHI": {
+      "F": 42.0,
+      "E": 28.0,
+      "B": 54.0,
+      "C": 51.0,
+      "D": 97.0,
+      "A": 50.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    107,
+    215,
+    322,
+    430,
+    537
+  ],
+  "center": [
+    717,
+    706
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_199.png"
+  },
+  "series_color": {
+    "BXURO": "#9467bd",
+    "HHBIGE": "#ffbb78",
+    "OGJ": "#f7b6d2",
+    "CPHI": "#9edae5"
+  },
+  "num_entities": 4,
+  "fill_enabled": false,
+  "num_vars": 6
+}

@@ -1,0 +1,100 @@
+{
+  "chart_id": "h_bar_130",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_130.png",
+    "with_grid": "charts/h_bar/h_bar_130_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_130_grid_with_grid.png"
+  },
+  "data_points": {
+    "Average age in years": {
+      "AC Milan": 24.8,
+      "Hellas Verona FC": 25.6,
+      "Spezia Calcio": 26.0,
+      "Bologna FC": 26.1,
+      "Torino FC": 26.2,
+      "Cagliari Calcio": 26.3,
+      "ACF Fiorentina": 26.4,
+      "Parma Calcio 1913": 26.7,
+      "Udinese Calcio": 26.8,
+      "Sassuolo Calcio": 26.9,
+      "AS Roma": 27.1,
+      "Genoa CFC": 27.2,
+      "UC Sampdoria": 27.3,
+      "SSC Napoli": 27.5,
+      "FC Internazionale Milano": 28.2,
+      "SS Lazio": 28.3,
+      "Juventus FC": 28.4
+    }
+  },
+  "x_ticks": [
+    0.0,
+    2.5,
+    5.0,
+    7.5,
+    10.0,
+    12.5,
+    15.0,
+    17.5,
+    20.0,
+    22.5,
+    25.0,
+    27.5,
+    30.0
+  ],
+  "y_ticks": [
+    "AC Milan",
+    "Hellas Verona FC",
+    "Spezia Calcio",
+    "Bologna FC",
+    "Torino FC",
+    "Cagliari Calcio",
+    "ACF Fiorentina",
+    "Parma Calcio 1913",
+    "Udinese Calcio",
+    "Sassuolo Calcio",
+    "AS Roma",
+    "Genoa CFC",
+    "UC Sampdoria",
+    "SSC Napoli",
+    "FC Internazionale Milano",
+    "SS Lazio",
+    "Juventus FC"
+  ],
+  "x_pixels": [
+    180,
+    228,
+    276,
+    325,
+    373,
+    421,
+    470,
+    518,
+    566,
+    615,
+    663,
+    712,
+    760
+  ],
+  "y_pixels": [
+    487,
+    464,
+    440,
+    417,
+    394,
+    370,
+    347,
+    323,
+    300,
+    277,
+    253,
+    230,
+    206,
+    183,
+    160,
+    136,
+    113
+  ],
+  "series_color": {
+    "Average age in years": "#87ceeb"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "chart_id": "rose_034",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_034.png"
+  },
+  "center": {
+    "x": 492,
+    "y": 364
+  },
+  "data_points": {
+    "LBTT": 0.67,
+    "DWF": 1.0,
+    "QGOE": 0.81,
+    "RSJ": 0.9400000000000001,
+    "XPYL": 0.51,
+    "XPC": 0.92
+  },
+  "series_color": {
+    "LBTT": "#fde724",
+    "DWF": "#440154",
+    "QGOE": "#29788e",
+    "RSJ": "#79d151",
+    "XPYL": "#22a784",
+    "XPC": "#404387"
+  },
+  "r_ticks": [
+    "0.5",
+    "1.0"
+  ],
+  "r_pixels": [
+    120,
+    240
+  ],
+  "theta_ticks": [
+    "LBTT",
+    "DWF",
+    "QGOE",
+    "RSJ",
+    "XPYL",
+    "XPC"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ]
+}

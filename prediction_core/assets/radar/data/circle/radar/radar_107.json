@@ -1,0 +1,93 @@
+{
+  "chart_id": "radar_107",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "FKVW": {
+      "E": 25.0,
+      "A": 18.5,
+      "B": 7.0,
+      "C": 37.0,
+      "D": 12.0
+    },
+    "UPRV": {
+      "E": 7.5,
+      "D": 10.0,
+      "B": 47.0,
+      "A": 8.0,
+      "C": 24.0
+    },
+    "LCYFS": {
+      "A": 49.0,
+      "B": 6.0,
+      "E": 32.0,
+      "C": 17.5,
+      "D": 21.5
+    },
+    "LOPDER": {
+      "B": 8.0,
+      "E": 27.0,
+      "A": 25.5,
+      "D": 29.0,
+      "C": 38.5
+    },
+    "BQRI": {
+      "C": 19.5,
+      "E": 32.5,
+      "A": 46.0,
+      "D": 21.5,
+      "B": 21.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_107.png"
+  },
+  "series_color": {
+    "FKVW": "#c7c7c7",
+    "UPRV": "#ffbb78",
+    "LCYFS": "#ff7f0e",
+    "LOPDER": "#8c564b",
+    "BQRI": "#d62728"
+  },
+  "num_entities": 5,
+  "fill_enabled": true,
+  "num_vars": 5
+}

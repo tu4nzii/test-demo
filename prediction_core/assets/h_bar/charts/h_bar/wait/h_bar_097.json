@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_097",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_097.png",
+    "with_grid": "charts/h_bar/h_bar_097_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_097_grid_with_grid.png"
+  },
+  "data_points": {
+    "Leave": {
+      "Right": 48.0,
+      "Left Center": 35.0,
+      "Conservative": 60.0,
+      "Lib Dem": 12.0
+    },
+    "Remain": {
+      "Right": 35.0,
+      "Left Center": 10.0,
+      "Conservative": 29.0,
+      "Lib Dem": 70.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0,
+    35.0,
+    40.0,
+    45.0,
+    50.0,
+    55.0,
+    60.0,
+    65.0,
+    70.0
+  ],
+  "y_ticks": [
+    "Right",
+    "Left Center",
+    "Conservative",
+    "Lib Dem"
+  ],
+  "x_pixels": [
+    112,
+    150,
+    188,
+    225,
+    263,
+    300,
+    338,
+    376,
+    413,
+    451,
+    488,
+    526,
+    563,
+    601,
+    639
+  ],
+  "y_pixels": [
+    333,
+    263,
+    192,
+    122
+  ],
+  "series_color": {
+    "Leave": "#87ceeb",
+    "Remain": "#4682b4"
+  }
+}

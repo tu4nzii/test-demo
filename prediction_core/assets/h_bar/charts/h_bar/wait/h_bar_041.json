@@ -1,0 +1,99 @@
+{
+  "chart_id": "h_bar_041",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_041.png",
+    "with_grid": "charts/h_bar/h_bar_041_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_041_grid_with_grid.png"
+  },
+  "data_points": {
+    "Touchdowns scored": {
+      "Marshall Faulk": 85.0,
+      "Isaac Bruce": 84.0,
+      "Torry Holt": 74.0,
+      "Todd Gurley": 70.0,
+      "Steven Jackson": 64.0,
+      "Eric Dickerson": 58.0,
+      "Elroy Hirsch": 55.0,
+      "Henry Ellard": 52.0,
+      "Jim Benton": 45.0,
+      "Dan Towler": 44.0,
+      "Wendell Tyler": 43.0,
+      "Dick Bass": 42.0,
+      "Tom Fears": 39.0,
+      "Harold Jackson": 36.0,
+      "Lawrence McCutcheon": 35.0,
+      "Greg Bell": 34.0,
+      "Dick Hoerner": 32.0,
+      "Jon Arnett": 30.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "Marshall Faulk",
+    "Isaac Bruce",
+    "Torry Holt",
+    "Todd Gurley",
+    "Steven Jackson",
+    "Eric Dickerson",
+    "Elroy Hirsch",
+    "Henry Ellard",
+    "Jim Benton",
+    "Dan Towler",
+    "Wendell Tyler",
+    "Dick Bass",
+    "Tom Fears",
+    "Harold Jackson",
+    "Lawrence McCutcheon",
+    "Greg Bell",
+    "Dick Hoerner",
+    "Jon Arnett"
+  ],
+  "x_pixels": [
+    299,
+    421,
+    543,
+    665,
+    788,
+    910,
+    1032,
+    1154,
+    1276,
+    1398,
+    1520
+  ],
+  "y_pixels": [
+    975,
+    931,
+    887,
+    843,
+    799,
+    754,
+    710,
+    666,
+    622,
+    578,
+    534,
+    490,
+    446,
+    401,
+    357,
+    313,
+    269,
+    225
+  ],
+  "series_color": {
+    "Touchdowns scored": "#87ceeb"
+  }
+}

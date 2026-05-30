@@ -1,0 +1,39 @@
+{
+  "chart_id": "225",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_225_no_grid.png",
+    "with_grid": "charts/pie/pie_225_with_grid.png"
+  },
+  "data_points": {
+    "Are out worn by so much coverage": 214.55,
+    "Like seeing a lot of coverage": 141.82,
+    "No answer": 3.64
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Are out worn by so much coverage": "#a6761d",
+    "Like seeing a lot of coverage": "#aec7e8",
+    "No answer": "#c49c94"
+  }
+}

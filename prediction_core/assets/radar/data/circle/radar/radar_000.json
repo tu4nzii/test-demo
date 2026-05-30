@@ -1,0 +1,85 @@
+{
+  "chart_id": "radar_000",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "WDULR": {
+      "A": 53.0,
+      "C": 91.0,
+      "B": 91.0,
+      "D": 62.0
+    },
+    "ZTJUP": {
+      "D": 55.0,
+      "C": 85.0,
+      "B": 92.0,
+      "A": 76.0
+    },
+    "QCBOR": {
+      "C": 12.0,
+      "B": 57.0,
+      "D": 29.0,
+      "A": 79.0
+    },
+    "RFLDM": {
+      "D": 96.0,
+      "A": 99.0,
+      "B": 35.0,
+      "C": 64.0
+    },
+    "UCKIV": {
+      "D": 33.0,
+      "C": 76.0,
+      "A": 27.0,
+      "B": 68.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_000.png"
+  },
+  "series_color": {
+    "WDULR": "#ff7f0e",
+    "ZTJUP": "#8c564b",
+    "QCBOR": "#e377c2",
+    "RFLDM": "#17becf",
+    "UCKIV": "#2ca02c"
+  },
+  "num_entities": 5,
+  "fill_enabled": true,
+  "num_vars": 4
+}

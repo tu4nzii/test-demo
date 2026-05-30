@@ -1,0 +1,26 @@
+{
+  "chart_id": "396",
+  "chart_type": "pie",
+  "fig_size": [
+    10.0,
+    10.0
+  ],
+  "dpi": 100,
+  "num_entities": 4,
+  "color_palette": [
+    "#17becf",
+    "#ffff99",
+    "#fccde5",
+    "#66a61e"
+  ],
+  "random_seed": null,
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ]
+}

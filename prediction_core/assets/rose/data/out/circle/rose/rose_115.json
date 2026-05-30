@@ -1,0 +1,77 @@
+{
+  "chart_id": "rose_115",
+  "image_paths": {
+    "with_grid": "charts/rose/rose_115.png"
+  },
+  "center": {
+    "x": 307,
+    "y": 303
+  },
+  "data_points": {
+    "KZN": 83.0,
+    "EI": 73.0,
+    "WKHI": 61.0,
+    "TJ": 56.0,
+    "VJ": 69.0,
+    "TO": 65.0,
+    "TLOX": 92.0,
+    "MXED": 62.0,
+    "NR": 76.0
+  },
+  "series_color": {
+    "KZN": "#bcbd22",
+    "EI": "#8c564b",
+    "WKHI": "#e377c2",
+    "TJ": "#d62728",
+    "VJ": "#2ca02c",
+    "TO": "#ff7f0e",
+    "TLOX": "#7f7f7f",
+    "MXED": "#17becf",
+    "NR": "#1f77b4"
+  },
+  "r_ticks": [
+    12.5,
+    25,
+    37.5,
+    50,
+    62.5,
+    75,
+    87.5,
+    100.0
+  ],
+  "r_pixels": [
+    101,
+    201
+  ],
+  "theta_ticks": [
+    "KZN",
+    "EI",
+    "WKHI",
+    "TJ",
+    "VJ",
+    "TO",
+    "TLOX",
+    "MXED",
+    "NR"
+  ],
+  "theta_angles": [
+    0.0,
+    40.0,
+    80.0,
+    120.0,
+    160.0,
+    200.0,
+    240.0,
+    280.0,
+    320.0
+  ],
+  "err_center": 1.0,
+  "pred_coords": [
+    307,
+    302
+  ],
+  "argument": {
+    "a": 2.02,
+    "b": 0.0
+  }
+}

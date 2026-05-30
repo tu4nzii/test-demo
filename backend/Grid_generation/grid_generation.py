@@ -223,6 +223,302 @@ from function_calling.image.draw_grid_from_ticks import draw_grid_from_ticks
 from utils.image_io import load_image, save_image
 
 
+NUMERIC_AXIS_TYPE = "\u6570\u503c\u8f74"
+TEXT_AXIS_TYPE = "\u6587\u5b57\u8f74"
+
+
+def normalize_axis_repair_hint(axis_repair_hint):
+    hint = axis_repair_hint if isinstance(axis_repair_hint, dict) else {}
+
+    def as_bool(value):
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, (int, float)):
+            return value != 0
+        if isinstance(value, str):
+            return value.strip().lower() in {"true", "1", "yes", "y", "missing"}
+        return False
+
+    x_axis_missing = as_bool(hint.get("x_axis_missing", hint.get("x", False)))
+    y_axis_missing = as_bool(hint.get("y_axis_missing", hint.get("y", False)))
+    return {
+        "x_axis_missing": x_axis_missing,
+        "y_axis_missing": y_axis_missing,
+        "x_ticks_missing": as_bool(hint.get("x_ticks_missing", False)) or x_axis_missing,
+        "y_ticks_missing": as_bool(hint.get("y_ticks_missing", False)) or y_axis_missing,
+        "confidence": hint.get("confidence", 0),
+        "reason": str(hint.get("reason", "") or ""),
+    }
+
+
+def axis_repair_enabled(axis_repair_hint):
+    hint = normalize_axis_repair_hint(axis_repair_hint)
+    return any(
+        hint.get(key)
+        for key in ("x_axis_missing", "y_axis_missing", "x_ticks_missing", "y_ticks_missing")
+    )
+
+
+def _line_len(line):
+    return float(np.hypot(line[2] - line[0], line[3] - line[1]))
+
+
+def _horizontal_axis_from_lines(lines, w, h):
+    best = None
+    best_score = float("-inf")
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(v) for v in line]
+        if abs(y1 - y2) > 8:
+            continue
+        length = abs(x2 - x1)
+        if length < max(30, w * 0.25):
+            continue
+        y = int(round((y1 + y2) / 2))
+        score = length + y * 0.8
+        if score > best_score:
+            best_score = score
+            best = [min(x1, x2), y, max(x1, x2), y]
+    return best
+
+
+def _vertical_axis_from_lines(lines, w, h):
+    best = None
+    best_score = float("-inf")
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(v) for v in line]
+        if abs(x1 - x2) > 8:
+            continue
+        length = abs(y2 - y1)
+        if length < max(30, h * 0.25):
+            continue
+        x = int(round((x1 + x2) / 2))
+        score = length + (w - x) * 0.35
+        if score > best_score:
+            best_score = score
+            best = [x, max(y1, y2), x, min(y1, y2)]
+    return best
+
+
+def _bar_boxes(img, chart_type):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv, np.array([0, 35, 40]), np.array([179, 255, 255]))
+    kernel = np.ones((3, 3), np.uint8)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
+    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    h, w = img.shape[:2]
+    min_area = max(20, w * h * 0.0003)
+    boxes = []
+    for contour in contours:
+        x, y, bw, bh = cv2.boundingRect(contour)
+        area = bw * bh
+        if area < min_area:
+            continue
+        if chart_type == "h_bar":
+            if bw < 12 or bh < 4 or bw < bh * 2:
+                continue
+        elif chart_type == "v_bar":
+            if bh < 12 or bw < 4 or bh < bw * 2:
+                continue
+        else:
+            continue
+        boxes.append((int(x), int(y), int(bw), int(bh)))
+    if chart_type == "h_bar":
+        if len(boxes) >= 3:
+            median_height = float(np.median([box[3] for box in boxes]))
+            boxes = [box for box in boxes if box[3] >= max(4, median_height * 0.45)]
+        return sorted(boxes, key=lambda box: box[1])
+    if len(boxes) >= 3:
+        median_width = float(np.median([box[2] for box in boxes]))
+        boxes = [box for box in boxes if box[2] >= max(4, median_width * 0.45)]
+    return sorted(boxes, key=lambda box: box[0])
+
+
+def _axis_y(axis):
+    return int(round((axis[1] + axis[3]) / 2))
+
+
+def _axis_x(axis):
+    return int(round((axis[0] + axis[2]) / 2))
+
+
+def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repair_hint):
+    hint = normalize_axis_repair_hint(axis_repair_hint)
+    if not axis_repair_enabled(hint):
+        return x_axis, y_axis, []
+
+    chart_type = (chart_type or "").lower()
+    h, w = img.shape[:2]
+    boxes = _bar_boxes(img, chart_type)
+
+    if x_axis is None and not hint["x_axis_missing"]:
+        x_axis = _horizontal_axis_from_lines(merged_lines, w, h)
+    if y_axis is None and not hint["y_axis_missing"]:
+        y_axis = _vertical_axis_from_lines(merged_lines, w, h)
+
+    if not boxes:
+        return x_axis, y_axis, boxes
+
+    left = min(box[0] for box in boxes)
+    right = max(box[0] + box[2] for box in boxes)
+    top = min(box[1] for box in boxes)
+    bottom = max(box[1] + box[3] for box in boxes)
+
+    if chart_type == "h_bar":
+        if hint["y_axis_missing"]:
+            bottom_y = _axis_y(x_axis) if x_axis is not None else min(h - 1, bottom + max(8, int(np.median([b[3] for b in boxes]))))
+            top_y = max(0, top)
+            y_axis = [left, bottom_y, left, top_y]
+        if hint["x_axis_missing"]:
+            axis_x = _axis_x(y_axis) if y_axis is not None else left
+            axis_y = max(y_axis[1], y_axis[3]) if y_axis is not None else min(h - 1, bottom + 8)
+            x_axis = [axis_x, axis_y, right, axis_y]
+
+    elif chart_type == "v_bar":
+        if hint["x_axis_missing"]:
+            axis_y = max(box[1] + box[3] for box in boxes)
+            axis_x = _axis_x(y_axis) if y_axis is not None else left
+            x_axis = [axis_x, axis_y, right, axis_y]
+        if hint["y_axis_missing"]:
+            axis_y = _axis_y(x_axis) if x_axis is not None else bottom
+            axis_x = min(x_axis[0], x_axis[2]) if x_axis is not None else left
+            y_axis = [axis_x, axis_y, axis_x, top]
+
+    return x_axis, y_axis, boxes
+
+
+def _synthetic_bar_tick_pixels(chart_type, direction, boxes):
+    if not boxes:
+        return []
+    if chart_type == "h_bar" and direction == "y":
+        return sorted([int(round(y + h / 2)) for _, y, _, h in boxes], reverse=True)
+    if chart_type == "v_bar" and direction == "x":
+        return sorted([int(round(x + w / 2)) for x, _, w, _ in boxes])
+    return []
+
+
+def synthesize_tick_pixels_for_missing_axis(
+    chart_type,
+    direction,
+    axis,
+    boxes,
+    tick_values,
+    axis_repair_hint,
+):
+    hint = normalize_axis_repair_hint(axis_repair_hint)
+    if not (hint.get(f"{direction}_axis_missing") or hint.get(f"{direction}_ticks_missing")):
+        return []
+
+    chart_type = (chart_type or "").lower()
+    bar_pixels = _synthetic_bar_tick_pixels(chart_type, direction, boxes)
+    if bar_pixels:
+        return bar_pixels
+
+    if axis is None or len(tick_values or []) < 2:
+        return []
+
+    count = len(tick_values)
+    if direction == "x":
+        start, end = sorted([int(axis[0]), int(axis[2])])
+    else:
+        low, high = sorted([int(axis[1]), int(axis[3])])
+        start, end = high, low
+    return [int(round(value)) for value in np.linspace(start, end, count)]
+
+
+def ticks_from_pixels(pixels, axis, direction):
+    if axis is None:
+        return []
+    ticks = []
+    if direction == "x":
+        y = _axis_y(axis)
+        for x in pixels:
+            ticks.append([int(x), y + 1, int(x), y + 6])
+    else:
+        x = _axis_x(axis)
+        for y in pixels:
+            ticks.append([x - 6, int(y), x - 1, int(y)])
+    return ticks
+
+
+def apply_bar_geometry_repair_hint(
+    chart_type,
+    axis_repair_hint,
+    boxes,
+    x_tick_count=0,
+    y_tick_count=0,
+):
+    """Enable repair only for obvious bar/tick mismatches.
+
+    The MLLM hint stays the primary switch. This guard catches cases where the
+    model says axes are present but CV finds far fewer category ticks than bars.
+    """
+    hint = normalize_axis_repair_hint(axis_repair_hint)
+    chart_type = (chart_type or "").lower()
+    if chart_type not in {"h_bar", "v_bar"} or len(boxes or []) < 3:
+        return hint
+
+    min_expected_ticks = max(3, int(np.ceil(len(boxes) * 0.6)))
+    if chart_type == "h_bar" and y_tick_count < min_expected_ticks:
+        hint["y_axis_missing"] = True
+        hint["y_ticks_missing"] = True
+        hint["reason"] = (
+            hint.get("reason") or ""
+        ) + f" | geometry repair: {y_tick_count} y ticks for {len(boxes)} bars"
+    elif chart_type == "v_bar" and x_tick_count < min_expected_ticks:
+        hint["x_axis_missing"] = True
+        hint["x_ticks_missing"] = True
+        hint["reason"] = (
+            hint.get("reason") or ""
+        ) + f" | geometry repair: {x_tick_count} x ticks for {len(boxes)} bars"
+    return hint
+
+
+def _numeric_sequence(values):
+    numeric = []
+    for value in values or []:
+        try:
+            numeric.append(float(value))
+        except (TypeError, ValueError):
+            return None
+    return numeric
+
+
+def add_missing_numeric_axis_endpoints(direction, axis, pixel_positions, tick_values):
+    """Add missing numeric endpoint pixels when tick labels include them."""
+    if axis is None or len(pixel_positions) < 2 or len(tick_values or []) <= len(pixel_positions):
+        return pixel_positions
+
+    numeric = _numeric_sequence(tick_values)
+    if not numeric or len(numeric) < 2:
+        return pixel_positions
+
+    pixels = list(pixel_positions)
+    gaps = np.diff(sorted(pixels))
+    if len(gaps) == 0:
+        return pixels
+    median_gap = float(np.median(gaps))
+    tolerance = max(6.0, median_gap * 0.3)
+
+    if direction == "x":
+        start, end = sorted([int(axis[0]), int(axis[2])])
+        first_gap = pixels[0] - start
+        if len(numeric) > len(pixels) and first_gap > 0 and abs(first_gap - median_gap) <= tolerance:
+            pixels.insert(0, start)
+        last_gap = end - pixels[-1]
+        if len(numeric) > len(pixels) and last_gap > 0 and abs(last_gap - median_gap) <= tolerance:
+            pixels.append(end)
+    else:
+        low, high = sorted([int(axis[1]), int(axis[3])])
+        first_gap = high - pixels[0]
+        if len(numeric) > len(pixels) and first_gap > 0 and abs(first_gap - median_gap) <= tolerance:
+            pixels.insert(0, high)
+        last_gap = pixels[-1] - low
+        if len(numeric) > len(pixels) and last_gap > 0 and abs(last_gap - median_gap) <= tolerance:
+            pixels.append(low)
+
+    return pixels
+
+
 def draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis):
     """
     绘制基础网格 - 只延伸短横线形成网格图
@@ -527,7 +823,7 @@ def count_decimal_places(value):
     except:
         return 0
 
-def process_chart(image_path, output_dir, chart_type_override=None, chart_id_override=None):
+def process_chart(image_path, output_dir, chart_type_override=None, chart_id_override=None, axis_repair_hint=None):
     """
     处理单个图表，生成两种网格图像和刻度信息
     1. _grid: 基础网格 - 短横线延伸形成网格图
@@ -536,6 +832,15 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     logger.info(f"处理图像: {image_path}")
     logger.debug(f"输出目录: {output_dir}")
     chart_id = chart_id_override or os.path.splitext(os.path.basename(image_path))[0]
+    chart_type = (chart_type_override or os.path.basename(os.path.dirname(image_path))).lower()
+    axis_repair_hint = normalize_axis_repair_hint(axis_repair_hint)
+    repair_applied = {
+        "x_axis": False,
+        "y_axis": False,
+        "x_ticks": False,
+        "y_ticks": False,
+        "hint": axis_repair_hint,
+    }
     
     # 确保输出目录存在
     os.makedirs(output_dir, exist_ok=True)
@@ -627,6 +932,21 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                     if y_axis is None or (max(y2, y1) - min(y1, y2)) > (y_axis[3] - y_axis[1]):
                         y_axis = line
         
+        before_repair_x_axis, before_repair_y_axis = x_axis, y_axis
+        if axis_repair_enabled(axis_repair_hint):
+            x_axis, y_axis, repair_boxes = repair_missing_axes(
+                img,
+                merged_lines,
+                x_axis,
+                y_axis,
+                chart_type,
+                axis_repair_hint,
+            )
+            repair_applied["x_axis"] = axis_repair_hint.get("x_axis_missing") and x_axis is not None
+            repair_applied["y_axis"] = axis_repair_hint.get("y_axis_missing") and y_axis is not None
+        else:
+            repair_boxes = []
+
         if x_axis is None or y_axis is None:
             logger.warning(f"未检测到 X/Y 轴: {image_path}")
             return None
@@ -637,9 +957,57 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         logger.debug("开始检测刻度线...")
         x_raw_ticks = scan_pixels_for_ticks(img, x_axis, direction='x', scan_range=20)
         y_raw_ticks = scan_pixels_for_ticks(img, y_axis, direction='y', scan_range=20)
+        if chart_type in {"h_bar", "v_bar"} and not repair_boxes:
+            repair_boxes = _bar_boxes(img, chart_type)
+        geometry_hint = apply_bar_geometry_repair_hint(
+            chart_type,
+            axis_repair_hint,
+            repair_boxes,
+            x_tick_count=len(x_raw_ticks),
+            y_tick_count=len(y_raw_ticks),
+        )
+        if axis_repair_enabled(geometry_hint) and geometry_hint != axis_repair_hint:
+            axis_repair_hint = geometry_hint
+            repair_applied["hint"] = axis_repair_hint
+            x_axis, y_axis, repair_boxes = repair_missing_axes(
+                img,
+                merged_lines,
+                x_axis,
+                y_axis,
+                chart_type,
+                axis_repair_hint,
+            )
+            repair_applied["x_axis"] = axis_repair_hint.get("x_axis_missing") and x_axis is not None
+            repair_applied["y_axis"] = axis_repair_hint.get("y_axis_missing") and y_axis is not None
+            logger.debug(
+                "Bar geometry repair enabled: x_axis_missing=%s y_axis_missing=%s x_ticks_missing=%s y_ticks_missing=%s",
+                axis_repair_hint.get("x_axis_missing"),
+                axis_repair_hint.get("y_axis_missing"),
+                axis_repair_hint.get("x_ticks_missing"),
+                axis_repair_hint.get("y_ticks_missing"),
+            )
         logger.debug(f"检测到 X轴刻度 {len(x_raw_ticks)} 个, Y轴刻度 {len(y_raw_ticks)} 个")
         
-        if len(x_raw_ticks) < 2 or len(y_raw_ticks) < 2:
+        if axis_repair_enabled(axis_repair_hint):
+            if axis_repair_hint.get("x_ticks_missing"):
+                x_pixels = synthesize_tick_pixels_for_missing_axis(
+                    chart_type, "x", x_axis, repair_boxes, [], axis_repair_hint
+                )
+                if len(x_pixels) >= 2:
+                    x_raw_ticks = ticks_from_pixels(x_pixels, x_axis, "x")
+                    repair_applied["x_ticks"] = bool(x_raw_ticks)
+            if axis_repair_hint.get("y_ticks_missing"):
+                y_pixels = synthesize_tick_pixels_for_missing_axis(
+                    chart_type, "y", y_axis, repair_boxes, [], axis_repair_hint
+                )
+                if len(y_pixels) >= 2:
+                    y_raw_ticks = ticks_from_pixels(y_pixels, y_axis, "y")
+                    repair_applied["y_ticks"] = bool(y_raw_ticks)
+
+        if (
+            (len(x_raw_ticks) < 2 and not axis_repair_hint.get("x_ticks_missing"))
+            or (len(y_raw_ticks) < 2 and not axis_repair_hint.get("y_ticks_missing"))
+        ):
             logger.warning(f"未检测到足够的刻度线: {image_path}")
             return None
         
@@ -652,7 +1020,10 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         
         logger.debug(f"过滤后: X轴刻度 {len(x_filtered_ticks)} 个, Y轴刻度 {len(y_filtered_ticks)} 个")
         
-        if len(x_filtered_ticks) < 2 or len(y_filtered_ticks) < 2:
+        if (
+            (len(x_filtered_ticks) < 2 and not axis_repair_hint.get("x_ticks_missing"))
+            or (len(y_filtered_ticks) < 2 and not axis_repair_hint.get("y_ticks_missing"))
+        ):
             logger.warning(f"未检测到有效的刻度线: {image_path}")
             return None
     
@@ -664,7 +1035,11 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     logger.debug("开始使用模型提取刻度标签和颜色...")
     
     # 处理刻度标签
-    ticks_result = extract_tick_labels_with_llm(image_path, cache_dir=TICK_LABEL_CACHE_DIR)
+    ticks_result = extract_tick_labels_with_llm(
+        image_path,
+        cache_dir=TICK_LABEL_CACHE_DIR,
+        chart_type_override=chart_type,
+    )
     if ticks_result.get("api_failed"):
         logger.warning(
             "LLM tick labels unavailable after retries; skip chart instead of using positional fallback: %s",
@@ -695,6 +1070,48 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     # 计算检测到的刻度线的中心位置
     x_pixel_positions = sorted([(t[0] + t[2]) // 2 for t in x_filtered_ticks])
     y_pixel_positions = sorted([(t[1] + t[3]) // 2 for t in y_filtered_ticks], reverse=True)
+
+    if chart_type in {"h_bar", "v_bar"} and axis_repair_enabled(axis_repair_hint):
+        if x_axis_type == NUMERIC_AXIS_TYPE:
+            x_pixel_positions = add_missing_numeric_axis_endpoints(
+                "x", x_axis, x_pixel_positions, x_ticks_values
+            )
+        if y_axis_type == NUMERIC_AXIS_TYPE:
+            y_pixel_positions = add_missing_numeric_axis_endpoints(
+                "y", y_axis, y_pixel_positions, y_ticks_values
+            )
+
+    if axis_repair_enabled(axis_repair_hint):
+        if axis_repair_hint.get("x_ticks_missing"):
+            repaired_x_pixels = synthesize_tick_pixels_for_missing_axis(
+                chart_type, "x", x_axis, repair_boxes, x_ticks_values, axis_repair_hint
+            )
+            if len(repaired_x_pixels) >= 2:
+                x_pixel_positions = repaired_x_pixels
+                repair_applied["x_ticks"] = True
+        if axis_repair_hint.get("y_ticks_missing"):
+            repaired_y_pixels = synthesize_tick_pixels_for_missing_axis(
+                chart_type, "y", y_axis, repair_boxes, y_ticks_values, axis_repair_hint
+            )
+            if len(repaired_y_pixels) >= 2:
+                y_pixel_positions = repaired_y_pixels
+                repair_applied["y_ticks"] = True
+
+    if (
+        axis_repair_hint.get("x_ticks_missing")
+        and x_axis_type != NUMERIC_AXIS_TYPE
+        and len(x_ticks_values) < len(x_pixel_positions)
+    ):
+        missing_count = len(x_pixel_positions) - len(x_ticks_values)
+        x_ticks_values = list(x_ticks_values) + [f"category_{i + 1}" for i in range(missing_count)]
+
+    if (
+        axis_repair_hint.get("y_ticks_missing")
+        and y_axis_type != NUMERIC_AXIS_TYPE
+        and len(y_ticks_values) < len(y_pixel_positions)
+    ):
+        missing_count = len(y_pixel_positions) - len(y_ticks_values)
+        y_ticks_values = [f"category_{i + 1}" for i in range(missing_count)] + list(y_ticks_values)
 
     # Local fallback for offline/dev runs: when the LLM cannot return usable
     # tick labels, keep the image-processing pipeline alive by assigning
@@ -899,7 +1316,8 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         "image_path": image_path,
         "basic_grid_path": basic_grid_path,
         "encrypted_grid_path": encrypted_grid_path,
-        "colors": colors_data
+        "colors": colors_data,
+        "axis_repair": repair_applied,
     }
     
     output_json_path = os.path.join(output_dir, f"{chart_id}_ticks.json")

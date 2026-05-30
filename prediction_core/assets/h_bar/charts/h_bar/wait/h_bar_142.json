@@ -1,0 +1,73 @@
+{
+  "chart_id": "h_bar_142",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_142.png",
+    "with_grid": "charts/h_bar/h_bar_142_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_142_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of passengers": {
+      "Jamaica": 539.0,
+      "Bermuda": 139.0,
+      "England": 119.0,
+      "Trinidad": 73.0,
+      "Mexico": 66.0,
+      "British Guiana": 44.0,
+      "Other caribbean": 7.0,
+      "Other non-Caribbean": 40.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0,
+    350.0,
+    400.0,
+    450.0,
+    500.0,
+    550.0,
+    600.0
+  ],
+  "y_ticks": [
+    "Jamaica",
+    "Bermuda",
+    "England",
+    "Trinidad",
+    "Mexico",
+    "British Guiana",
+    "Other caribbean",
+    "Other non-Caribbean"
+  ],
+  "x_pixels": [
+    283,
+    386,
+    489,
+    592,
+    695,
+    798,
+    901,
+    1004,
+    1108,
+    1211,
+    1314,
+    1417,
+    1520
+  ],
+  "y_pixels": [
+    952,
+    852,
+    751,
+    650,
+    550,
+    449,
+    348,
+    248
+  ],
+  "series_color": {
+    "Number of passengers": "#66c2a5"
+  }
+}

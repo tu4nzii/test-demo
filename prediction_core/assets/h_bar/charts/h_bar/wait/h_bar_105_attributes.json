@@ -1,0 +1,23 @@
+{
+  "fig_size": [
+    8,
+    6
+  ],
+  "dpi": 100,
+  "font_size": 10,
+  "palette": [
+    "#66c2a5",
+    "#fc8d62",
+    "#8da0cb",
+    "#e78ac3"
+  ],
+  "total_bar_height": 0.8,
+  "bar_height": 0.4,
+  "num_series": 2,
+  "max_val": NaN,
+  "encrypted_ticks": [
+    0.0
+  ],
+  "orientation": "horizontal",
+  "title": "Broad Support for Workers in Various Sectors Being Able to Unionize Should each be able to unionize? (%)"
+}

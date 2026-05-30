@@ -1,0 +1,91 @@
+{
+  "chart_id": "h_bar_135",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_135.png",
+    "with_grid": "charts/h_bar/h_bar_135_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_135_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of channel views in millions": {
+      "Chanel*": 168.81,
+      "Dove": 145.69,
+      "Victoria's Secret*": 134.49,
+      "Dior*": 99.29,
+      "Calvin Klein*": 76.4,
+      "CoverGirl": 73.07,
+      "Dolce & Gabbana*": 62.31,
+      "Burberry*": 57.85,
+      "Dermablend Pro": 52.64,
+      "Giorgio Armani Beauty": 38.86
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0,
+    130.0,
+    140.0,
+    150.0,
+    160.0,
+    170.0,
+    180.0
+  ],
+  "y_ticks": [
+    "Chanel*",
+    "Dove",
+    "Victoria's Secret*",
+    "Dior*",
+    "Calvin Klein*",
+    "CoverGirl",
+    "Dolce & Gabbana*",
+    "Burberry*",
+    "Dermablend Pro",
+    "Giorgio Armani Beauty"
+  ],
+  "x_pixels": [
+    305,
+    372,
+    440,
+    507,
+    575,
+    642,
+    710,
+    777,
+    845,
+    912,
+    980,
+    1047,
+    1115,
+    1182,
+    1250,
+    1317,
+    1385,
+    1452,
+    1520
+  ],
+  "y_pixels": [
+    961,
+    881,
+    800,
+    720,
+    640,
+    560,
+    480,
+    400,
+    319,
+    239
+  ],
+  "series_color": {
+    "Number of channel views in millions": "#1f77b4"
+  }
+}

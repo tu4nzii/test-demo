@@ -1,0 +1,85 @@
+{
+  "chart_id": "radar_172",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "LQT": {
+      "C": 4.0,
+      "A": 7.75,
+      "B": 22.75,
+      "E": 21.25,
+      "D": 4.5
+    },
+    "DOYTAM": {
+      "B": 19.0,
+      "A": 16.25,
+      "C": 3.5,
+      "D": 21.0,
+      "E": 21.5
+    },
+    "AKPJ": {
+      "D": 18.75,
+      "A": 11.5,
+      "B": 8.0,
+      "E": 24.5,
+      "C": 18.25
+    },
+    "FIHKB": {
+      "D": 11.25,
+      "C": 2.5,
+      "A": 4.75,
+      "B": 11.75,
+      "E": 6.25
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    69,
+    139,
+    209,
+    279,
+    348
+  ],
+  "center": [
+    461,
+    606
+  ],
+  "image_paths": {
+    "no_grid": "charts/radar/radar_172.png"
+  },
+  "series_color": {
+    "LQT": "#dbdb8d",
+    "DOYTAM": "#1f77b4",
+    "AKPJ": "#c5b0d5",
+    "FIHKB": "#17becf"
+  },
+  "num_entities": 4,
+  "fill_enabled": true,
+  "num_vars": 5
+}

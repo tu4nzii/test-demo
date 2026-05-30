@@ -1,0 +1,58 @@
+{
+  "chart_id": "h_bar_163",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_163.png",
+    "with_grid": "charts/h_bar/h_bar_163_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_163_grid_with_grid.png"
+  },
+  "data_points": {
+    "Capital intensity, 1974": {
+      "Norway": 110.0,
+      "France": 83.0,
+      "Argentina": 41.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0
+  ],
+  "y_ticks": [
+    "Norway",
+    "France",
+    "Argentina"
+  ],
+  "x_pixels": [
+    211,
+    320,
+    429,
+    538,
+    647,
+    756,
+    865,
+    974,
+    1084,
+    1193,
+    1302,
+    1411,
+    1520
+  ],
+  "y_pixels": [
+    881,
+    600,
+    319
+  ],
+  "series_color": {
+    "Capital intensity, 1974": "#87ceeb"
+  }
+}
