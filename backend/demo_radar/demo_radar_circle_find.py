@@ -51,7 +51,7 @@ class RadarChartEncoder:
             json_str = match.group(1)
             return json.loads(json_str)
         except Exception as e:
-            print(f"❌ JSON解析失败: {e}")
+            print(f"JSON解析失败: {e}")
             return None
 
     def visualize_ring_mask(self, image_path, ring_width=5):
@@ -310,7 +310,7 @@ class RadarChartEncoder:
             current_px_distance = abs(radius - 0)
             
             if radius <= 0:
-                print(f"⚠️ 跳过无效半径: tick={tick}, 计算半径={radius}")
+                print(f"跳过无效半径: tick={tick}, 计算半径={radius}")
                 continue
                 
             if current_px_distance <= 3:
@@ -440,7 +440,7 @@ class RadarChartEncoder:
             current_px_distance = abs(radius - 0)
             
             if radius <= 0:
-                print(f"⚠️ 跳过无效半径: tick={tick}, 计算半径={radius}")
+                print(f"跳过无效半径: tick={tick}, 计算半径={radius}")
                 continue
                 
             if current_px_distance <= 3:
@@ -528,6 +528,49 @@ class RadarChartEncoder:
         self.r_ticks = r_ticks
         return result, r_ticks, self.argument
 
+    def _as_positive_number(self, value):
+        try:
+            number = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(number) or number <= 0:
+            return None
+        return number
+
+    def _normalize_scale_info(self, response_data):
+        if not isinstance(response_data, dict):
+            return None
+
+        max_tick_value = self._as_positive_number(response_data.get("max_tick_value"))
+        tick_interval = self._as_positive_number(response_data.get("tick_interval"))
+        min_tick_raw = response_data.get("min_tick_value")
+        try:
+            min_tick_value = float(min_tick_raw)
+        except (TypeError, ValueError):
+            min_tick_value = 0
+        if not math.isfinite(min_tick_value) or min_tick_value < 0:
+            min_tick_value = 0
+
+        if max_tick_value is None:
+            return None
+        if tick_interval is None or tick_interval >= max_tick_value:
+            tick_interval = max_tick_value / 5
+        if tick_interval <= 0:
+            return None
+
+        return max_tick_value, min_tick_value, tick_interval
+
+    def _outer_radius(self):
+        radii = []
+        for radius in [self.first_r, self.second_r]:
+            try:
+                radius = float(radius)
+            except (TypeError, ValueError):
+                continue
+            if math.isfinite(radius) and radius > 0:
+                radii.append(radius)
+        return max(radii) if radii else None
+
     def process_single_image(self, image_path, output_dir=None):
         """处理单张雷达图，执行完整的加密流程"""
         try:
@@ -561,45 +604,25 @@ class RadarChartEncoder:
             cv2.imwrite(temp_output_path, image)
             print(f"临时标记图像已保存至: {temp_output_path}")
             
-            # 识别刻度
-            result_1 = self.find_tick(self.first_r, temp_output_path)
-            tick1 = result_1.get("tick")
-            reason1 = result_1.get("res")
-            
-            result_2 = self.find_tick(self.second_r, temp_output_path)
-            tick2 = result_2.get("tick")
-            reason2 = result_2.get("res")
-            
-            print(f"第一个圆刻度识别: {reason1}")
-            print(f"第一个圆刻度值: {tick1}")
-            print(f"第二个圆刻度识别: {reason2}")
-            print(f"第二个圆刻度值: {tick2}")
-            
             # 调用LLM获取刻度信息
             response_data = self.call_llm_response(temp_output_path)
-            max_tick_value = response_data.get("max_tick_value")
-            min_tick_value = response_data.get("min_tick_value")
-            tick_interval = response_data.get("tick_interval")
-            res = response_data.get("res")
+            scale_info = self._normalize_scale_info(response_data)
+            if scale_info is None:
+                print(f"无法获取有效的雷达图刻度信息: {response_data}")
+                return None
+            max_tick_value, min_tick_value, tick_interval = scale_info
+            outer_radius = self._outer_radius()
+            if outer_radius is None:
+                print("未检测到有效的雷达图外圈半径")
+                return None
+            res = f"outer_radius={outer_radius}"
             
-            print(f"LLM分析结果: {tick1}, {tick2}, {max_tick_value}, {res}")
+            print(f"LLM分析结果: max={max_tick_value}, min={min_tick_value}, interval={tick_interval}, {res}")
             
             # 加密处理
-            if tick1 and tick2:
-                result, r_ticks, argument = self.encrypt_rose_chart_with_tick(
-                    image_path, tick_interval, tick1, tick2, max_tick_value, min_tick_value
-                )
-            elif tick1 and tick2 is None:
-                result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
-                    image_path, tick_interval, tick1, self.first_r, max_tick_value, min_tick_value
-                )
-            elif tick1 is None and tick2:
-                result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
-                    image_path, tick_interval, tick2, self.second_r, max_tick_value, min_tick_value
-                )
-            else:
-                print("未识别出正确的刻度")
-                return None
+            result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
+                image_path, tick_interval, max_tick_value, outer_radius, max_tick_value, min_tick_value
+            )
             
             # 保存最终结果
             output_path = os.path.join(output_dir, f"{file_name}_encode{file_ext}")
@@ -608,46 +631,20 @@ class RadarChartEncoder:
             
             # 处理JSON数据（如果存在）
             json_fname = f"{file_name}.json"
-            json_path = os.path.join(os.path.dirname(image_path), json_fname)
-            
-            if os.path.exists(json_path):
-                with open(json_path, 'r') as f:
-                    json_data = json.load(f)
-                    
-                # 添加r_ticks字段
-                r_ticks = r_ticks[::-1]
-                r_ticks.append(r_ticks[-1] + (tick_interval / self.tick_density))
-                json_data['r_ticks'] = r_ticks
-                
-                # 添加预测圆心
-                pred_coords = [int(self.coords[0]), int(self.coords[1])]
-                
-                # 尝试获取真实圆心
-                try:
-                    if 'center' in json_data:
-                        if isinstance(json_data['center'], dict):
-                            real_coords = [json_data['center']['x'], json_data['center']['y']]
-                        else:
-                            real_coords = json_data['center']
-                        
-                        # 计算圆心误差
-                        err_center = np.linalg.norm(np.array(pred_coords) - np.array(real_coords))
-                        json_data['err_center'] = err_center
-                except Exception as e:
-                    print(f"计算圆心误差时出错: {e}")
-                    
-                json_data['pred_coords'] = pred_coords
-                json_data['argument'] = argument
-                
-                # 保存更新后的JSON
-                output_json_path = os.path.join(output_dir, json_fname)
-                with open(output_json_path, 'w') as f:
-                    json.dump(json_data, f, indent=2)
-                    
-                print(f"更新后的JSON已保存至: {output_json_path}")
-            else:
-                print(f"JSON文件未找到: {json_path}")
-                
+            output_json_path = os.path.join(output_dir, json_fname)
+            generated_r_ticks = r_ticks[::-1]
+            if generated_r_ticks:
+                generated_r_ticks.append(generated_r_ticks[-1] + (tick_interval / self.tick_density))
+            json_data = {
+                "image_path": image_path,
+                "r_ticks": generated_r_ticks,
+                "pred_coords": [int(self.coords[0]), int(self.coords[1])],
+                "argument": argument,
+            }
+            with open(output_json_path, "w", encoding="utf-8") as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=2)
+            print(f"雷达图检测JSON已保存至: {output_json_path}")
+
             # 可选：删除临时文件
             # os.remove(temp_output_path)
             
