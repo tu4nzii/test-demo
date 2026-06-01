@@ -1,0 +1,1378 @@
+{
+  "thresholds": [
+    "axis invalid",
+    "tick wrong >=4 or tick accuracy <90%",
+    "numeric MAE sum >0.001",
+    "color wrong >=4 or color accuracy <80%",
+    "scatter/bubble label wrong >0",
+    "text axis wrong >=2"
+  ],
+  "total": 88,
+  "by_type": {
+    "v_bar": 1,
+    "h_bar": 1,
+    "line": 0,
+    "scatter": 32,
+    "bubble": 54
+  },
+  "negatives": [
+    {
+      "chart": "v_bar/v_bar_109",
+      "chart_type": "v_bar",
+      "reasons": [
+        "color_wrong=1"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 1,
+      "color_accuracy": 0.75,
+      "label_wrong": null,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "h_bar/h_bar_018",
+      "chart_type": "h_bar",
+      "reasons": [
+        "tick_wrong=14",
+        "text_axis_wrong=14"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 14,
+      "tick_accuracy": 0.65,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 0,
+      "color_accuracy": 1.0,
+      "label_wrong": null,
+      "text_axis_wrong": 14
+    },
+    {
+      "chart": "scatter/scatter_001",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000003126,
+      "color_wrong": 1,
+      "color_accuracy": 0.9,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_007",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000000462,
+      "color_wrong": 1,
+      "color_accuracy": 0.8888888888888888,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_009",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.8888888888888888,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_013",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.9,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_014",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=6"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000000462,
+      "color_wrong": 6,
+      "color_accuracy": 0.45454545454545453,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_016",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 2,
+      "color_accuracy": 0.8181818181818182,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_017",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 3,
+      "color_accuracy": 0.8,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_019",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.9166666666666666,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_026",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 5,
+      "color_accuracy": 0.6153846153846154,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_027",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000000462,
+      "color_wrong": 0,
+      "color_accuracy": 1.0,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_029",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 5,
+      "color_accuracy": 0.6428571428571429,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_034",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=8",
+        "numeric_mae_sum=0.04",
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 8,
+      "tick_accuracy": 0.5555555555555556,
+      "numeric_mae_sum": 0.04000000000000359,
+      "color_wrong": 3,
+      "color_accuracy": 0.6666666666666666,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_035",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=4",
+        "label_wrong=1"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.7142857142857143,
+      "label_wrong": 1,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_036",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 0,
+      "color_accuracy": 1.0,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_039",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=2"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 2,
+      "color_accuracy": 0.7777777777777778,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_043",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=3",
+        "label_wrong=1"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.6666666666666666,
+      "label_wrong": 1,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_046",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 3,
+      "color_accuracy": 0.7,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_048",
+      "chart_type": "scatter",
+      "reasons": [
+        "label_wrong=1"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 1,
+      "color_accuracy": 0.875,
+      "label_wrong": 1,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_049",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.8888888888888888,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_052",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=2",
+        "label_wrong=1"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 2,
+      "color_accuracy": 0.7777777777777778,
+      "label_wrong": 1,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_054",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=3",
+        "label_wrong=2"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000003126,
+      "color_wrong": 3,
+      "color_accuracy": 0.7,
+      "label_wrong": 2,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_056",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.5833333333333334,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_059",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=2"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 2,
+      "tick_accuracy": 0.8888888888888888,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 1,
+      "color_accuracy": 0.9090909090909091,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_064",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.02000000000000135,
+      "color_wrong": 3,
+      "color_accuracy": 0.75,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_067",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.7333333333333333,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_069",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.8888888888888888,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_076",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.6923076923076923,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_084",
+      "chart_type": "scatter",
+      "reasons": [
+        "color_wrong=8"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 8,
+      "color_accuracy": 0.42857142857142855,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_086",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02",
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 3,
+      "color_accuracy": 0.7857142857142857,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_087",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.020000000000000462,
+      "color_wrong": 1,
+      "color_accuracy": 0.9166666666666666,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_093",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 1,
+      "color_accuracy": 0.8888888888888888,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "scatter/scatter_099",
+      "chart_type": "scatter",
+      "reasons": [
+        "tick_wrong=4",
+        "numeric_mae_sum=0.02"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 4,
+      "tick_accuracy": 0.7777777777777778,
+      "numeric_mae_sum": 0.019999999999999574,
+      "color_wrong": 2,
+      "color_accuracy": 0.8,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_000",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_003",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_005",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_007",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_008",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_011",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=7"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 7,
+      "color_accuracy": 0.125,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_015",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_017",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_018",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_021",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_022",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_023",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_024",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_026",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_028",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_030",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_031",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_032",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_037",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_038",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_040",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=6"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 6,
+      "color_accuracy": 0.25,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_041",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_047",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_048",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_049",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_051",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_053",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_054",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=6"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 6,
+      "color_accuracy": 0.25,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_055",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_056",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_057",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_058",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_060",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_065",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_067",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_069",
+      "chart_type": "bubble",
+      "reasons": [
+        "tick_wrong=2",
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 2,
+      "tick_accuracy": 0.8888888888888888,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_070",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_072",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_073",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_074",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_076",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_079",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_080",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_081",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_082",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_083",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_084",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_085",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_086",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_087",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=3"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 3,
+      "color_accuracy": 0.625,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_090",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_092",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=5"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 5,
+      "color_accuracy": 0.375,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_093",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=4"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 4,
+      "color_accuracy": 0.5,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    },
+    {
+      "chart": "bubble/bubble_096",
+      "chart_type": "bubble",
+      "reasons": [
+        "color_wrong=6"
+      ],
+      "axis_valid": true,
+      "tick_wrong": 0,
+      "tick_accuracy": 1.0,
+      "numeric_mae_sum": 0.0,
+      "color_wrong": 6,
+      "color_accuracy": 0.25,
+      "label_wrong": 0,
+      "text_axis_wrong": 0
+    }
+  ]
+}

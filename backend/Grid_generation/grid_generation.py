@@ -218,7 +218,7 @@ from function_calling.ticks.detect_ticks import scan_pixels_for_ticks
 from function_calling.ticks.filter_ticks import filter_ticks
 from function_calling.label.recognize_tick_labels import recognize_tick_labels
 from function_calling.label.extract_tick_labels_with_llm import extract_tick_labels_with_llm
-from function_calling.color.extract_chart_colors import extract_chart_series_color
+from function_calling.color.extract_chart_colors import extract_chart_series_color, extract_point_chart_items
 from function_calling.image.draw_grid_from_ticks import draw_grid_from_ticks
 from utils.image_io import load_image, save_image
 
@@ -341,6 +341,73 @@ def _axis_x(axis):
     return int(round((axis[0] + axis[2]) / 2))
 
 
+def _dedupe_pixels(pixels, tolerance=4):
+    values = sorted(int(round(pixel)) for pixel in pixels)
+    groups = []
+    for value in values:
+        if not groups or abs(value - groups[-1][-1]) > tolerance:
+            groups.append([value])
+        else:
+            groups[-1].append(value)
+    return [int(round(float(np.median(group)))) for group in groups]
+
+
+def _tick_group_count(ticks, direction):
+    if not ticks:
+        return 0
+    if direction == "x":
+        pixels = [(tick[0] + tick[2]) / 2 for tick in ticks]
+    else:
+        pixels = [(tick[1] + tick[3]) / 2 for tick in ticks]
+    return len(_dedupe_pixels(pixels))
+
+
+def _is_bar_category_axis(chart_type, direction):
+    chart_type = (chart_type or "").lower()
+    direction = (direction or "").lower()
+    return (chart_type == "h_bar" and direction == "y") or (
+        chart_type == "v_bar" and direction == "x"
+    )
+
+
+def _required_tick_count(chart_type, direction):
+    return 1 if _is_bar_category_axis(chart_type, direction) else 2
+
+
+def _horizontal_gridline_plot_span(lines, x_axis, image_shape):
+    if x_axis is None:
+        return None
+
+    h, w = image_shape[:2]
+    axis_y = _axis_y(x_axis)
+    axis_left, axis_right = sorted([int(x_axis[0]), int(x_axis[2])])
+    candidates = []
+    min_length = max(40, (axis_right - axis_left) * 0.45, w * 0.2)
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(value) for value in line]
+        if abs(y1 - y2) > 4:
+            continue
+        left, right = sorted([x1, x2])
+        length = right - left
+        if length < min_length:
+            continue
+        y = int(round((y1 + y2) / 2))
+        if y < h * 0.05 or y > axis_y + max(8, h * 0.01):
+            continue
+        candidates.append((left, right, y))
+
+    if not candidates:
+        return None
+
+    left = int(round(float(np.median([item[0] for item in candidates]))))
+    right = int(np.percentile([item[1] for item in candidates], 90))
+    y_pixels = _dedupe_pixels([item[2] for item in candidates])
+    if axis_y not in y_pixels:
+        y_pixels.append(axis_y)
+    y_pixels = sorted(_dedupe_pixels(y_pixels), reverse=True)
+    return left, right, y_pixels
+
+
 def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repair_hint):
     hint = normalize_axis_repair_hint(axis_repair_hint)
     if not axis_repair_enabled(hint):
@@ -379,9 +446,18 @@ def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repa
             axis_x = _axis_x(y_axis) if y_axis is not None else left
             x_axis = [axis_x, axis_y, right, axis_y]
         if hint["y_axis_missing"]:
+            grid_span = _horizontal_gridline_plot_span(merged_lines, x_axis, img.shape)
             axis_y = _axis_y(x_axis) if x_axis is not None else bottom
-            axis_x = min(x_axis[0], x_axis[2]) if x_axis is not None else left
-            y_axis = [axis_x, axis_y, axis_x, top]
+            if grid_span:
+                grid_left, grid_right, grid_y_pixels = grid_span
+                axis_x = grid_left
+                top_y = min(grid_y_pixels)
+                if x_axis is not None:
+                    x_axis = [axis_x, axis_y, max(grid_right, x_axis[2], x_axis[0]), axis_y]
+            else:
+                axis_x = min(x_axis[0], x_axis[2]) if x_axis is not None else left
+                top_y = top
+            y_axis = [axis_x, axis_y, axis_x, top_y]
 
     return x_axis, y_axis, boxes
 
@@ -440,6 +516,56 @@ def ticks_from_pixels(pixels, axis, direction):
     return ticks
 
 
+def infer_tick_pixels_from_gridlines(lines, x_axis, y_axis, direction, image_shape):
+    """Infer tick positions from full plot gridlines when short tick marks are absent."""
+    if x_axis is None or y_axis is None:
+        return []
+
+    h, w = image_shape[:2]
+    axis_y = _axis_y(x_axis)
+    axis_x = _axis_x(y_axis)
+    plot_left = max(0, min(axis_x, min(x_axis[0], x_axis[2])))
+    plot_right = min(w - 1, max(x_axis[0], x_axis[2]))
+    plot_top = max(0, min(y_axis[1], y_axis[3]))
+    plot_bottom = min(h - 1, max(axis_y, y_axis[1], y_axis[3]))
+    plot_width = max(1, plot_right - plot_left)
+    plot_height = max(1, plot_bottom - plot_top)
+    border_margin_x = max(6, int(round(plot_width * 0.015)))
+    border_margin_y = max(6, int(round(plot_height * 0.03)))
+
+    pixels = []
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(v) for v in line]
+        if direction == "y":
+            if abs(y1 - y2) > 4:
+                continue
+            y = int(round((y1 + y2) / 2))
+            if y <= plot_top + border_margin_y or y >= plot_bottom - border_margin_y:
+                continue
+            left, right = sorted([x1, x2])
+            overlap = max(0, min(right, plot_right) - max(left, plot_left))
+            if overlap >= plot_width * 0.35:
+                pixels.append(y)
+        else:
+            if abs(x1 - x2) > 4:
+                continue
+            x = int(round((x1 + x2) / 2))
+            if x <= plot_left + border_margin_x or x >= plot_right - border_margin_x:
+                continue
+            top, bottom = sorted([y1, y2])
+            overlap = max(0, min(bottom, plot_bottom) - max(top, plot_top))
+            if overlap >= plot_height * 0.35:
+                pixels.append(x)
+
+    if not pixels:
+        return []
+
+    pixels = sorted(set(int(p) for p in pixels))
+    if direction == "y":
+        pixels = sorted(pixels, reverse=True)
+    return pixels
+
+
 def apply_bar_geometry_repair_hint(
     chart_type,
     axis_repair_hint,
@@ -454,22 +580,34 @@ def apply_bar_geometry_repair_hint(
     """
     hint = normalize_axis_repair_hint(axis_repair_hint)
     chart_type = (chart_type or "").lower()
-    if chart_type not in {"h_bar", "v_bar"} or len(boxes or []) < 3:
+    if chart_type not in {"h_bar", "v_bar"} or len(boxes or []) < 1:
         return hint
 
-    min_expected_ticks = max(3, int(np.ceil(len(boxes) * 0.6)))
-    if chart_type == "h_bar" and y_tick_count < min_expected_ticks:
-        hint["y_axis_missing"] = True
-        hint["y_ticks_missing"] = True
-        hint["reason"] = (
-            hint.get("reason") or ""
-        ) + f" | geometry repair: {y_tick_count} y ticks for {len(boxes)} bars"
-    elif chart_type == "v_bar" and x_tick_count < min_expected_ticks:
-        hint["x_axis_missing"] = True
-        hint["x_ticks_missing"] = True
-        hint["reason"] = (
-            hint.get("reason") or ""
-        ) + f" | geometry repair: {x_tick_count} x ticks for {len(boxes)} bars"
+    min_expected_ticks = max(1, int(np.ceil(len(boxes) * 0.6)))
+    if chart_type == "h_bar":
+        if y_tick_count < min_expected_ticks:
+            hint["y_ticks_missing"] = True
+            hint["reason"] = (
+                hint.get("reason") or ""
+            ) + f" | geometry repair: {y_tick_count} y ticks for {len(boxes)} bars"
+        if x_tick_count < 2:
+            hint["x_axis_missing"] = True
+            hint["x_ticks_missing"] = True
+            hint["reason"] = (
+                hint.get("reason") or ""
+            ) + f" | geometry repair: {x_tick_count} numeric x ticks"
+    elif chart_type == "v_bar":
+        if x_tick_count < min_expected_ticks:
+            hint["x_ticks_missing"] = True
+            hint["reason"] = (
+                hint.get("reason") or ""
+            ) + f" | geometry repair: {x_tick_count} x ticks for {len(boxes)} bars"
+        if y_tick_count < 2:
+            hint["y_axis_missing"] = True
+            hint["y_ticks_missing"] = True
+            hint["reason"] = (
+                hint.get("reason") or ""
+            ) + f" | geometry repair: {y_tick_count} numeric y ticks"
     return hint
 
 
@@ -481,6 +619,40 @@ def _numeric_sequence(values):
         except (TypeError, ValueError):
             return None
     return numeric
+
+
+def _numeric_ticks_from_unit_labels(values):
+    numeric = []
+    for value in values or []:
+        if isinstance(value, (int, float)):
+            numeric.append(float(value))
+            continue
+        text = str(value).replace(",", "").strip()
+        match = __import__("re").search(r"[-+]?\d+(?:\.\d+)?", text)
+        if not match:
+            return None
+        try:
+            numeric.append(float(match.group(0)))
+        except ValueError:
+            return None
+    return numeric if len(numeric) == len(values or []) else None
+
+
+def coerce_chart_axis_numeric_ticks(chart_type, axis, tick_values, axis_type):
+    """Value axes often show numeric ticks with units, e.g. '$25' or '65 gr'."""
+    chart_type = (chart_type or "").lower()
+    axis = (axis or "").lower()
+    value_axis = (
+        chart_type in {"scatter", "bubble"}
+        or (chart_type in {"v_bar", "line"} and axis == "y")
+        or (chart_type == "h_bar" and axis == "x")
+    )
+    if not value_axis:
+        return tick_values, axis_type
+    numeric = _numeric_ticks_from_unit_labels(tick_values)
+    if numeric is None or len(numeric) < 2:
+        return tick_values, axis_type
+    return numeric, NUMERIC_AXIS_TYPE
 
 
 def add_missing_numeric_axis_endpoints(direction, axis, pixel_positions, tick_values):
@@ -957,14 +1129,37 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         logger.debug("开始检测刻度线...")
         x_raw_ticks = scan_pixels_for_ticks(img, x_axis, direction='x', scan_range=20)
         y_raw_ticks = scan_pixels_for_ticks(img, y_axis, direction='y', scan_range=20)
+        if chart_type in {"scatter", "bubble"}:
+            if len(x_raw_ticks) < 2:
+                x_grid_pixels = infer_tick_pixels_from_gridlines(
+                    merged_lines, x_axis, y_axis, "x", img.shape
+                )
+                if len(x_grid_pixels) >= 2:
+                    x_raw_ticks = ticks_from_pixels(x_grid_pixels, x_axis, "x")
+                    logger.debug(
+                        "Inferred %s X tick positions from plot gridlines for %s chart.",
+                        len(x_grid_pixels),
+                        chart_type,
+                    )
+            if len(y_raw_ticks) < 2:
+                y_grid_pixels = infer_tick_pixels_from_gridlines(
+                    merged_lines, x_axis, y_axis, "y", img.shape
+                )
+                if len(y_grid_pixels) >= 2:
+                    y_raw_ticks = ticks_from_pixels(y_grid_pixels, y_axis, "y")
+                    logger.debug(
+                        "Inferred %s Y tick positions from plot gridlines for %s chart.",
+                        len(y_grid_pixels),
+                        chart_type,
+                    )
         if chart_type in {"h_bar", "v_bar"} and not repair_boxes:
             repair_boxes = _bar_boxes(img, chart_type)
         geometry_hint = apply_bar_geometry_repair_hint(
             chart_type,
             axis_repair_hint,
             repair_boxes,
-            x_tick_count=len(x_raw_ticks),
-            y_tick_count=len(y_raw_ticks),
+            x_tick_count=_tick_group_count(x_raw_ticks, "x"),
+            y_tick_count=_tick_group_count(y_raw_ticks, "y"),
         )
         if axis_repair_enabled(geometry_hint) and geometry_hint != axis_repair_hint:
             axis_repair_hint = geometry_hint
@@ -993,20 +1188,20 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 x_pixels = synthesize_tick_pixels_for_missing_axis(
                     chart_type, "x", x_axis, repair_boxes, [], axis_repair_hint
                 )
-                if len(x_pixels) >= 2:
+                if len(x_pixels) >= _required_tick_count(chart_type, "x"):
                     x_raw_ticks = ticks_from_pixels(x_pixels, x_axis, "x")
                     repair_applied["x_ticks"] = bool(x_raw_ticks)
             if axis_repair_hint.get("y_ticks_missing"):
                 y_pixels = synthesize_tick_pixels_for_missing_axis(
                     chart_type, "y", y_axis, repair_boxes, [], axis_repair_hint
                 )
-                if len(y_pixels) >= 2:
+                if len(y_pixels) >= _required_tick_count(chart_type, "y"):
                     y_raw_ticks = ticks_from_pixels(y_pixels, y_axis, "y")
                     repair_applied["y_ticks"] = bool(y_raw_ticks)
 
         if (
-            (len(x_raw_ticks) < 2 and not axis_repair_hint.get("x_ticks_missing"))
-            or (len(y_raw_ticks) < 2 and not axis_repair_hint.get("y_ticks_missing"))
+            (len(x_raw_ticks) < _required_tick_count(chart_type, "x") and not axis_repair_hint.get("x_ticks_missing"))
+            or (len(y_raw_ticks) < _required_tick_count(chart_type, "y") and not axis_repair_hint.get("y_ticks_missing"))
         ):
             logger.warning(f"未检测到足够的刻度线: {image_path}")
             return None
@@ -1017,12 +1212,23 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         
         x_filtered_ticks = filter_ticks(x_merged_ticks, direction='x')
         y_filtered_ticks = filter_ticks(y_merged_ticks, direction='y')
+
+        if (
+            _is_bar_category_axis(chart_type, "x")
+            and _tick_group_count(x_filtered_ticks, "x") < _tick_group_count(x_merged_ticks, "x")
+        ):
+            x_filtered_ticks = x_merged_ticks
+        if (
+            _is_bar_category_axis(chart_type, "y")
+            and _tick_group_count(y_filtered_ticks, "y") < _tick_group_count(y_merged_ticks, "y")
+        ):
+            y_filtered_ticks = y_merged_ticks
         
         logger.debug(f"过滤后: X轴刻度 {len(x_filtered_ticks)} 个, Y轴刻度 {len(y_filtered_ticks)} 个")
         
         if (
-            (len(x_filtered_ticks) < 2 and not axis_repair_hint.get("x_ticks_missing"))
-            or (len(y_filtered_ticks) < 2 and not axis_repair_hint.get("y_ticks_missing"))
+            (len(x_filtered_ticks) < _required_tick_count(chart_type, "x") and not axis_repair_hint.get("x_ticks_missing"))
+            or (len(y_filtered_ticks) < _required_tick_count(chart_type, "y") and not axis_repair_hint.get("y_ticks_missing"))
         ):
             logger.warning(f"未检测到有效的刻度线: {image_path}")
             return None
@@ -1051,9 +1257,18 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     y_ticks_values = ticks_result.get("y_ticks", [])
     x_axis_type = ticks_result.get("x_axis_type", "数值轴")
     y_axis_type = ticks_result.get("y_axis_type", "数值轴")
+    x_ticks_values, x_axis_type = coerce_chart_axis_numeric_ticks(
+        chart_type, "x", x_ticks_values, x_axis_type
+    )
+    y_ticks_values, y_axis_type = coerce_chart_axis_numeric_ticks(
+        chart_type, "y", y_ticks_values, y_axis_type
+    )
     
     # 处理图例颜色
-    colors_result = extract_chart_series_color(image_path)
+    if chart_type in {"scatter", "bubble"}:
+        colors_result = extract_point_chart_items(image_path)
+    else:
+        colors_result = extract_chart_series_color(image_path)
     if isinstance(colors_result, list):
         colors_data = colors_result
     else:
@@ -1086,14 +1301,14 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
             repaired_x_pixels = synthesize_tick_pixels_for_missing_axis(
                 chart_type, "x", x_axis, repair_boxes, x_ticks_values, axis_repair_hint
             )
-            if len(repaired_x_pixels) >= 2:
+            if len(repaired_x_pixels) >= _required_tick_count(chart_type, "x"):
                 x_pixel_positions = repaired_x_pixels
                 repair_applied["x_ticks"] = True
         if axis_repair_hint.get("y_ticks_missing"):
             repaired_y_pixels = synthesize_tick_pixels_for_missing_axis(
                 chart_type, "y", y_axis, repair_boxes, y_ticks_values, axis_repair_hint
             )
-            if len(repaired_y_pixels) >= 2:
+            if len(repaired_y_pixels) >= _required_tick_count(chart_type, "y"):
                 y_pixel_positions = repaired_y_pixels
                 repair_applied["y_ticks"] = True
 
@@ -1194,7 +1409,10 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 y_ticks_data.append(str(tick_value))
             y_pixels_data.append(pixel_pos)
     
-    if len(x_ticks_data) < 2 or len(y_ticks_data) < 2:
+    if (
+        len(x_ticks_data) < _required_tick_count(chart_type, "x")
+        or len(y_ticks_data) < _required_tick_count(chart_type, "y")
+    ):
         logger.warning(f"有效刻度数量不足: {image_path}")
         return None
     

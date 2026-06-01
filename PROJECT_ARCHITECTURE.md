@@ -62,7 +62,6 @@ On Windows PowerShell, prefer `npm.cmd` if execution policy blocks `npm.ps1`.
 | `frontend/chart-demo-ui/node_modules/` | Dependency install output. |
 | `frontend/chart-demo-ui/dist/` | Vite build output. |
 | `Final_scatterplot_0717/` | Legacy experiment workspace. Core metric ideas were migrated into `backend/evaluation/`; old batch scripts, venvs, temporary crops, and result images are not needed by the app. |
-| `VishintPrompt_evaluatation/` | Pruned source/reference copy from the old grid/evaluation workspace. Generated charts, output, logs, venv, and nested `.git` were removed. |
 | `test_output/` | Generated/test output. |
 
 ## Verification Commands
@@ -88,7 +87,6 @@ Invoke-WebRequest -UseBasicParsing http://127.0.0.1:5173/
 - `charts_db` is in-memory, so uploaded `chart_id` values disappear when the backend restarts.
 - Upload and process endpoints intentionally keep the same response fields used by the frontend: `chart_id`, `chart_type`, `confidence`, and `encrypted_image_url`.
 - The repository currently has many pre-existing modified/deleted dataset files. Treat them as user work unless explicitly told to restore or remove them.
-- `VishintPrompt_evaluatation/function_calling/` and `VishintPrompt_evaluatation/utils/` are mostly mirrored by `backend/Grid_generation/`. The old folder still has reference-only files that are not fully wired into the app yet: `model_processor.py`, `grid_detection_generator.py`, `label_validator.py`, `axis_accuracy_annotator.py`, `conclusion.py`, and docs.
 
 ## Cleanup Policy
 

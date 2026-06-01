@@ -4,6 +4,7 @@ import os
 import shutil
 import sys
 import uuid
+import csv
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional, Union
 
@@ -30,6 +31,7 @@ sys.path.insert(0, str(BACKEND_DIR))
 from type_detection.chart_processor import ChartProcessorFactory  # noqa: E402
 from type_detection.chart_registry import DEFAULT_CHART_TYPE, get_coordinate_system, normalize_chart_type  # noqa: E402
 from type_detection.chart_type import ChartTypeDetector  # noqa: E402
+from evaluation_prediction.service import SUPPORTED_PREDICTION_TYPES, run_prediction_async  # noqa: E402
 
 
 app = FastAPI(title="Chart Analysis API")
@@ -80,7 +82,18 @@ def save_upload_file(upload: UploadFile, target_path: Path) -> None:
 
 def detect_chart_type(image_path: Path) -> Dict[str, Any]:
     try:
-        return ChartTypeDetector().detect_chart_type(str(image_path))
+        detection = ChartTypeDetector().detect_chart_type(str(image_path))
+        detected_type = normalize_chart_type(detection.get("type", DEFAULT_CHART_TYPE))
+        if detected_type in {"h_bar", "v_bar"}:
+            geometry_type = infer_bar_orientation_from_image(image_path)
+            if geometry_type and geometry_type != detected_type:
+                detection["type"] = geometry_type
+                detection["geometry_type_override"] = {
+                    "from": detected_type,
+                    "to": geometry_type,
+                    "reason": "colored bar geometry orientation",
+                }
+        return detection
     except Exception as error:
         print(f"Chart type detection failed, using fallback: {safe_error_message(error)}")
         return {
@@ -96,6 +109,48 @@ def detect_chart_type(image_path: Path) -> Dict[str, Any]:
             },
             "error": safe_error_message(error),
         }
+
+
+def infer_bar_orientation_from_image(image_path: Path) -> Optional[str]:
+    """Infer bar orientation from colored data marks, without using GT."""
+    try:
+        import cv2
+        import numpy as np
+
+        image = cv2.imdecode(np.fromfile(str(image_path), dtype=np.uint8), cv2.IMREAD_COLOR)
+        if image is None:
+            return None
+        height, width = image.shape[:2]
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        mask = cv2.inRange(hsv, np.array([0, 35, 35]), np.array([179, 255, 255]))
+        kernel = np.ones((3, 3), np.uint8)
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
+        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        min_area = max(40, width * height * 0.00025)
+        vertical_score = 0.0
+        horizontal_score = 0.0
+        for contour in contours:
+            x, y, box_width, box_height = cv2.boundingRect(contour)
+            area = box_width * box_height
+            if area < min_area:
+                continue
+            if x > width * 0.82:
+                continue
+            if y < height * 0.08:
+                continue
+            if box_height >= max(10, box_width * 1.15):
+                vertical_score += area
+            if box_width >= max(10, box_height * 1.35):
+                horizontal_score += area
+
+        if vertical_score > horizontal_score * 1.6 and vertical_score > 0:
+            return "v_bar"
+        if horizontal_score > vertical_score * 1.6 and horizontal_score > 0:
+            return "h_bar"
+    except Exception as error:
+        print(f"Bar geometry orientation inference failed: {safe_error_message(error)}")
+    return None
 
 
 def register_chart(image_file: UploadFile, json_file: Optional[UploadFile] = None) -> Dict[str, Any]:
@@ -150,12 +205,25 @@ def result_response_url(path: Union[str, Path]) -> str:
     return f"/api/results/{Path(path).name}"
 
 
-def extract_original_data(original_json: Dict[str, Any]) -> Any:
-    if "data_points" in original_json:
-        return original_json["data_points"]
-    if "data" in original_json:
-        return original_json["data"]
-    return None
+PREFERRED_EXTRACTION_PROMPTS = ("amplifier", "feedback", "grid", "baseline")
+
+
+def strip_external_reference_data(data: Dict[str, Any]) -> None:
+    """Remove ground-truth/reference fields from user-upload processing data."""
+    data.pop("reference_config_path", None)
+    data.pop("reference_chart_id", None)
+
+    for key in ("data", "data_points", "ground_truth", "labels", "series_color"):
+        data.pop(key, None)
+
+
+def processed_json_payload(eval_json_path: Union[str, Path]) -> Dict[str, Any]:
+    path = Path(eval_json_path)
+    data = load_json(path)
+    if not path.stem.endswith("_ticks"):
+        merge_tick_sidecar(data, path.parent, path.stem)
+    strip_external_reference_data(data)
+    return data
 
 
 def generated_json_path(chart_info: Dict[str, Any], output_dir: Path) -> Path:
@@ -169,12 +237,8 @@ def enrich_generated_json(
 ) -> Path:
     json_path = generated_json_path(chart_info, output_dir)
     generated_data = load_json(json_path) if json_path.exists() else {}
-    source_json_path = chart_info.get("json_path")
-    original_data = None
-    if source_json_path:
-        source_path = Path(source_json_path)
-        if source_path.exists():
-            original_data = extract_original_data(load_json(source_path))
+    merge_tick_sidecar(generated_data, output_dir, Path(chart_info["image_path"]).stem)
+    strip_external_reference_data(generated_data)
 
     generated_data.update(
         {
@@ -187,11 +251,31 @@ def enrich_generated_json(
             },
         }
     )
-    if original_data is not None:
-        generated_data["data"] = original_data
 
     write_json(json_path, generated_data)
     return json_path
+
+
+def merge_tick_sidecar(data: Dict[str, Any], output_dir: Path, image_stem: str) -> None:
+    ticks_json_path = output_dir / f"{image_stem}_ticks.json"
+    if not ticks_json_path.exists():
+        return
+
+    ticks_data = load_json(ticks_json_path)
+    for key, value in ticks_data.items():
+        if key == "chart_id":
+            continue
+        data[key] = value
+
+    image_paths = data.setdefault("image_paths", {})
+    if isinstance(image_paths, dict):
+        encrypted_grid_path = ticks_data.get("encrypted_grid_path")
+        basic_grid_path = ticks_data.get("basic_grid_path")
+        if encrypted_grid_path:
+            image_paths["grid_with_grid"] = str(Path(encrypted_grid_path).absolute())
+            image_paths["with_grid"] = str(Path(encrypted_grid_path).absolute())
+        if basic_grid_path:
+            image_paths["basic_grid"] = str(Path(basic_grid_path).absolute())
 
 
 def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
@@ -217,6 +301,23 @@ def process_chart_image(chart_info: Dict[str, Any]) -> str:
         str(output_dir),
         axis_repair_hint=chart_info.get("axis_repair"),
     )
+
+    if not encrypted_image_path and chart_info["chart_type"] in {"h_bar", "v_bar"}:
+        alternate_type = "v_bar" if chart_info["chart_type"] == "h_bar" else "h_bar"
+        alternate_output_dir = get_chart_output_dir(alternate_type)
+        alternate_processor = ChartProcessorFactory.create_processor(alternate_type)
+        alternate_image_path = alternate_processor.encode_image(
+            chart_info["image_path"],
+            str(alternate_output_dir),
+            axis_repair_hint=chart_info.get("axis_repair"),
+        )
+        if alternate_image_path:
+            print(f"Bar processing fallback succeeded: {chart_info['chart_type']} -> {alternate_type}")
+            chart_info["chart_type"] = alternate_type
+            chart_info["coordinate_system"] = get_coordinate_system(alternate_type).value
+            output_dir = alternate_output_dir
+            processor = alternate_processor
+            encrypted_image_path = alternate_image_path
 
     if not encrypted_image_path:
         raise HTTPException(status_code=500, detail="Chart processing failed")
@@ -244,6 +345,11 @@ def candidate_eval_json_paths(chart_info: Dict[str, Any]) -> Iterable[Path]:
 def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
     for path in candidate_eval_json_paths(chart_info):
         if path.exists():
+            output_dir = Path(chart_info.get("output_dir", OUTPUT_DIR / chart_info["chart_type"]))
+            data = load_json(path)
+            merge_tick_sidecar(data, output_dir, Path(chart_info["image_path"]).stem)
+            strip_external_reference_data(data)
+            write_json(path, data)
             return path
 
     output_dir = Path(chart_info.get("output_dir", OUTPUT_DIR / chart_info["chart_type"]))
@@ -251,7 +357,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
     processed_data = processor.process_data(
         chart_info["chart_id"],
         chart_info["image_path"],
-        chart_info.get("json_path"),
+        None,
         str(output_dir),
     )
 
@@ -267,15 +373,199 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
     return fallback_path
 
 
-def evaluate_processed_chart(chart_info: Dict[str, Any]) -> Path:
+def build_extraction_placeholder(chart_info: Dict[str, Any], eval_json_path: Path) -> Dict[str, Any]:
+    data = processed_json_payload(eval_json_path)
+    x_ticks = data.get("x_ticks", [])
+    y_ticks = data.get("y_ticks", [])
+    r_ticks = data.get("r_ticks", [])
+    theta_ticks = data.get("theta_ticks", [])
+    predictions = data.get("predictions") if isinstance(data.get("predictions"), list) else []
+
+    return {
+        "success": True,
+        "mode": "prediction_extraction",
+        "chart_id": chart_info["chart_id"],
+        "chart_type": chart_info["chart_type"],
+        "source_json": str(eval_json_path),
+        "summary": {
+            "object_count": len(predictions),
+            "chart_runs": 0,
+        },
+        "predictions": predictions,
+        "processed_json": data,
+        "quality": {
+            "x_ticks_count": len(x_ticks) if isinstance(x_ticks, list) else 0,
+            "y_ticks_count": len(y_ticks) if isinstance(y_ticks, list) else 0,
+            "r_ticks_count": len(r_ticks) if isinstance(r_ticks, list) else 0,
+            "theta_ticks_count": len(theta_ticks) if isinstance(theta_ticks, list) else 0,
+            "colors_count": (
+                len(data.get("colors", []))
+                if isinstance(data.get("colors"), list)
+                else len(data.get("series_color", {})) if isinstance(data.get("series_color"), dict) else 0
+            ),
+            "has_basic_grid": bool(data.get("basic_grid_path")),
+            "has_encrypted_grid": bool(data.get("encrypted_grid_path") or data.get("image_paths", {}).get("with_grid")),
+        },
+        "note": "Value extraction runner is not wired for this chart type yet; no ground-truth error evaluation was run.",
+    }
+
+
+def normalize_result_payload(result: Dict[str, Any], result_path: Optional[Path] = None) -> Dict[str, Any]:
+    if result.get("mode") != "bar_prediction_evaluation":
+        source_json = result.get("source_json")
+        if (
+            "processed_json" not in result
+            and isinstance(source_json, str)
+            and Path(source_json).exists()
+        ):
+            result["processed_json"] = processed_json_payload(source_json)
+        return result
+
+    chart_type = str(result.get("chart_type", ""))
+    legacy_runs = result.get("prediction_results")
+    predictions = extract_predictions_from_legacy_runs(legacy_runs, chart_type)
+    normalized = {
+        "success": result.get("success", True),
+        "mode": "prediction_extraction",
+        "chart_id": result.get("chart_id"),
+        "chart_type": chart_type,
+        "source_json": result.get("source_json"),
+        "summary": {
+            "object_count": len(predictions),
+            "chart_runs": len(legacy_runs) if isinstance(legacy_runs, list) else 0,
+        },
+        "predictions": predictions,
+        "artifacts": legacy_runs if isinstance(legacy_runs, list) else [],
+        "legacy_mode": result.get("mode"),
+    }
+    source_json = result.get("source_json")
+    if isinstance(source_json, str) and Path(source_json).exists():
+        normalized["processed_json"] = processed_json_payload(source_json)
+    if result_path is not None:
+        normalized["result_path"] = str(result_path)
+    return normalized
+
+
+def extract_predictions_from_legacy_runs(legacy_runs: Any, chart_type: str) -> list[Dict[str, Any]]:
+    if not isinstance(legacy_runs, list):
+        return []
+
+    predictions: list[Dict[str, Any]] = []
+    for run in legacy_runs:
+        if not isinstance(run, dict):
+            continue
+        result_dir = run.get("result_dir")
+        if not isinstance(result_dir, str):
+            continue
+        predictions.extend(extract_predictions_from_result_dir(Path(result_dir), chart_type))
+    return predictions
+
+
+def extract_predictions_from_result_dir(result_dir: Path, chart_type: str) -> list[Dict[str, Any]]:
+    csv_path = preferred_legacy_csv(result_dir, chart_type)
+    if csv_path is None:
+        return []
+
+    by_point: Dict[str, list[Dict[str, str]]] = {}
+    try:
+        with csv_path.open("r", encoding="utf-8-sig", newline="") as file:
+            for row in csv.DictReader(file):
+                value = legacy_prediction_value(row, chart_type)
+                if value is None:
+                    continue
+                point = row.get("point") or row.get("point_name")
+                if point:
+                    by_point.setdefault(point, []).append(row)
+    except OSError:
+        return []
+
+    predictions: list[Dict[str, Any]] = []
+    for point, rows in by_point.items():
+        chosen = choose_prediction_row(rows)
+        value = legacy_prediction_value(chosen, chart_type)
+        if value is None:
+            continue
+        predictions.append(
+            {
+                "id": point,
+                "series_name": point.rsplit(",", 1)[0].strip() if "," in point else "",
+                "label": chosen.get("pred_y") if chart_type == "h_bar" else chosen.get("pred_x"),
+                "axis": "x" if chart_type == "h_bar" else "y",
+                "value": value,
+                "prompt_type": chosen.get("prompt_type"),
+                "image_type": chosen.get("image_type"),
+                "image_path": chosen.get("image_path"),
+            }
+        )
+    return predictions
+
+
+def preferred_legacy_csv(result_dir: Path, chart_type: str) -> Optional[Path]:
+    names = (
+        ["full_results_with_xre.csv", "experiment_results.csv"]
+        if chart_type == "h_bar"
+        else ["full_results_with_yre.csv", "experiment_results.csv"]
+    )
+    for name in names:
+        path = result_dir / name
+        if path.exists():
+            return path
+    return None
+
+
+def choose_prediction_row(rows: list[Dict[str, str]]) -> Dict[str, str]:
+    for prompt_type in PREFERRED_EXTRACTION_PROMPTS:
+        candidates = [row for row in rows if row.get("prompt_type") == prompt_type]
+        if candidates:
+            return candidates[-1]
+    return rows[-1]
+
+
+def legacy_prediction_value(row: Dict[str, str], chart_type: str) -> Optional[float]:
+    key = "pred_x" if chart_type == "h_bar" else "pred_y"
+    try:
+        return float(row.get(key, ""))
+    except (TypeError, ValueError):
+        return None
+
+
+async def evaluate_processed_chart(chart_info: Dict[str, Any]) -> Path:
     if not chart_info.get("processed"):
         raise HTTPException(status_code=400, detail="Please process the chart first")
 
-    if chart_info.get("evaluated") and chart_info.get("evaluation_results_path"):
+    if (
+        chart_info["chart_type"] not in SUPPORTED_PREDICTION_TYPES
+        and chart_info.get("evaluated")
+        and chart_info.get("evaluation_results_path")
+    ):
         return Path(chart_info["evaluation_results_path"])
 
     processor = ChartProcessorFactory.create_processor(chart_info["chart_type"])
-    evaluation_results = processor.evaluate(str(resolve_eval_json(chart_info)))
+    eval_json_path = resolve_eval_json(chart_info)
+
+    if chart_info["chart_type"] in SUPPORTED_PREDICTION_TYPES:
+        prediction_results = await run_prediction_async(chart_info["chart_type"], eval_json_path)
+        predictions = [
+            prediction
+            for chart_result in prediction_results
+            for prediction in chart_result.get("predictions", [])
+        ]
+        evaluation_results = {
+            "success": True,
+            "mode": "prediction_extraction",
+            "chart_id": chart_info["chart_id"],
+            "chart_type": chart_info["chart_type"],
+            "source_json": str(eval_json_path),
+            "summary": {
+                "object_count": len(predictions),
+                "chart_runs": len(prediction_results),
+            },
+            "predictions": predictions,
+            "artifacts": prediction_results,
+            "processed_json": processed_json_payload(eval_json_path),
+        }
+    else:
+        evaluation_results = build_extraction_placeholder(chart_info, eval_json_path)
 
     results_path = RESULTS_DIR / f"{chart_info['chart_id']}_evaluation.json"
     processor.save_evaluation_results(evaluation_results, str(results_path))
@@ -300,10 +590,9 @@ async def root():
 @app.post("/api/upload/")
 async def upload_files(
     file: UploadFile = File(..., description="Chart image file"),
-    json_data: Optional[UploadFile] = File(None, description="Optional chart JSON data file"),
 ):
     try:
-        chart_info = register_chart(file, json_data)
+        chart_info = register_chart(file)
         return {
             "chart_id": chart_info["chart_id"],
             "chart_type": chart_info["chart_type"],
@@ -331,7 +620,7 @@ async def process_chart(chart_id: str = Query(..., description="Chart ID")):
 @app.post("/api/evaluate/")
 async def evaluate_chart(chart_id: str = Query(..., description="Chart ID")):
     try:
-        results_path = evaluate_processed_chart(get_chart(chart_id))
+        results_path = await evaluate_processed_chart(get_chart(chart_id))
         return {"results_url": result_response_url(results_path)}
     except HTTPException:
         raise
@@ -358,7 +647,8 @@ async def get_results(filename: str):
     if not results_path.exists():
         raise HTTPException(status_code=404, detail="Result file not found")
 
-    return JSONResponse(content=load_json(results_path))
+    payload = normalize_result_payload(load_json(results_path), results_path)
+    return JSONResponse(content=payload)
 
 
 if __name__ == "__main__":

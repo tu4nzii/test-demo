@@ -3,7 +3,6 @@ __pycache__/
 *.py[cod]
 
 # Project specific
-VishintPrompt_evaluatation/
 test_output/
 *.log
 .venv/
@@ -21,4 +20,5 @@ backend/data/processed/
 backend/data/results/
 backend/data/output/
 backend/evaluation/recheck_outputs/
+backend/evaluation_prediction/results/
 backend/**/__pycache__/

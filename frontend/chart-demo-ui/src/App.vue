@@ -9,7 +9,6 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 // File holders
 const imageFile = ref(null);
-const jsonFile = ref(null);
 
 // URLs for displaying images
 const originalImageUrl = ref('');
@@ -27,6 +26,10 @@ const isLoadingProcess = ref(false);
 const isLoadingEvaluate = ref(false);
 const statusMessage = ref('');
 const errorMessage = ref('');
+const evaluationView = ref('visual');
+const isDetailsFullscreen = ref(false);
+const fileVersion = ref(0);
+const pointPredictionChartTypes = new Set(['scatter', 'bubble']);
 
 // --- Computed Properties for Disabling Buttons ---
 const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
@@ -43,6 +46,8 @@ const evaluationSummary = computed(() => {
     ['mode', result.mode],
     ['chart_id', result.chart_id],
     ['chart_type', result.chart_type],
+    ['object_count', summary.object_count],
+    ['chart_runs', summary.chart_runs],
     ['total_items', summary.total_items],
     ['matched_items', summary.matched_items],
     ['coverage', summary.coverage],
@@ -57,9 +62,78 @@ const evaluationSummary = computed(() => {
     ['has_encrypted_grid', quality.has_encrypted_grid],
   ].filter(([, value]) => value !== undefined && value !== null);
 });
+const extractedPredictions = computed(() => {
+  if (!evaluationResults.value || !Array.isArray(evaluationResults.value.predictions)) {
+    return [];
+  }
+  const predictions = evaluationResults.value.predictions;
+  const processedJson = evaluationResults.value.processed_json || evaluationResults.value.source_payload || {};
+  const chartTypeValue = getActiveChartType();
+  if (pointPredictionChartTypes.has(chartTypeValue)) return predictions;
+
+  const shouldUseXTicks = chartTypeValue === 'v_bar' || chartTypeValue === 'line';
+  const primaryTicks = shouldUseXTicks ? processedJson.x_ticks : processedJson.y_ticks;
+  const fallbackTicks = shouldUseXTicks ? processedJson.y_ticks : processedJson.x_ticks;
+  const tickValues = Array.isArray(primaryTicks) && primaryTicks.length
+    ? primaryTicks
+    : (Array.isArray(fallbackTicks) ? fallbackTicks : []);
+  if (!tickValues.length) return predictions;
+
+  const tickOrder = new Map(tickValues.map((tick, index) => [String(tick), index]));
+  return predictions
+    .map((item, index) => ({ item, index }))
+    .sort((left, right) => {
+      const leftOrder = predictionTickOrder(left.item, tickOrder);
+      const rightOrder = predictionTickOrder(right.item, tickOrder);
+      if (leftOrder !== rightOrder) return leftOrder - rightOrder;
+      return left.index - right.index;
+    })
+    .map(({ item }) => item);
+});
+const visibleSeriesNames = computed(() => {
+  const names = new Set(
+    extractedPredictions.value
+      .map((item) => String(item.series_name || '').trim())
+      .filter(Boolean)
+  );
+  return names.size > 1;
+});
+const maxPredictionAbsValue = computed(() => {
+  const values = extractedPredictions.value
+    .map((item) => predictionNumericValue(item))
+    .filter((value) => Number.isFinite(value));
+  return values.length ? Math.max(...values.map((value) => Math.abs(value)), 1) : 1;
+});
+const visualPredictions = computed(() => {
+  return extractedPredictions.value.map((item) => {
+    const value = predictionNumericValue(item);
+    const safeValue = Number.isFinite(value) ? value : 0;
+    return {
+      ...item,
+      numericValue: safeValue,
+      displayValue: predictionDisplayValue(item),
+      barWidth: `${Math.max(2, Math.min(100, (Math.abs(safeValue) / maxPredictionAbsValue.value) * 100))}%`,
+      showSeriesName: visibleSeriesNames.value,
+    };
+  });
+});
+const isPointPredictionChart = computed(() => pointPredictionChartTypes.has(getActiveChartType()));
+const pointVisualPredictions = computed(() => {
+  return extractedPredictions.value.map((item, index) => {
+    const xValue = item?.x ?? item?.value?.x;
+    const yValue = item?.y ?? item?.value?.y;
+    return {
+      id: item?.id ?? `${index}`,
+      name: item?.label || item?.id || item?.series_name || `Point ${index + 1}`,
+      x: formatPredictionCoordinate(xValue),
+      y: formatPredictionCoordinate(yValue),
+    };
+  });
+});
 const evaluationJson = computed(() => {
   if (!evaluationResults.value) return '';
-  return JSON.stringify(evaluationResults.value, null, 2);
+  const processedJson = evaluationResults.value.processed_json || evaluationResults.value.source_payload;
+  return JSON.stringify(processedJson || evaluationResults.value, null, 2);
 });
 
 
@@ -69,18 +143,70 @@ const evaluationJson = computed(() => {
 function handleImageUpload(event) {
   const file = event.target.files[0];
   if (file) {
+    fileVersion.value += 1;
     imageFile.value = file;
+    if (originalImageUrl.value) {
+      URL.revokeObjectURL(originalImageUrl.value);
+    }
     originalImageUrl.value = URL.createObjectURL(file);
+    resetProcessedResults(true);
     clearMessages();
   }
 }
 
-function handleJsonUpload(event) {
-  const file = event.target.files[0];
-  if (file) {
-    jsonFile.value = file;
-    clearMessages();
+function resetProcessedResults(clearChartInfo = false) {
+  processedImageUrl.value = '';
+  evaluationResults.value = null;
+  evaluationView.value = 'visual';
+  isDetailsFullscreen.value = false;
+  isLoadingProcess.value = false;
+  isLoadingEvaluate.value = false;
+  if (clearChartInfo) {
+    chartId.value = '';
+    chartType.value = '';
+    confidence.value = '';
   }
+}
+
+function getActiveChartType() {
+  return String(evaluationResults.value?.chart_type || chartType.value || '').toLowerCase();
+}
+
+function predictionTickOrder(item, tickOrder) {
+  const candidates = [
+    item?.label,
+    typeof item?.id === 'string' && item.id.includes(',') ? item.id.split(',').pop().trim() : item?.id,
+  ];
+  for (const candidate of candidates) {
+    const key = String(candidate ?? '');
+    if (tickOrder.has(key)) return tickOrder.get(key);
+  }
+  return Number.MAX_SAFE_INTEGER;
+}
+
+function formatPredictionCoordinate(value) {
+  if (value === undefined || value === null || value === '') return '-';
+  const numberValue = Number(value);
+  if (!Number.isFinite(numberValue)) return value;
+  return Number.isInteger(numberValue) ? String(numberValue) : Number(numberValue.toFixed(6)).toString();
+}
+
+function predictionNumericValue(item) {
+  if (item && Number.isFinite(Number(item.value))) return Number(item.value);
+  if (item && Number.isFinite(Number(item.y))) return Number(item.y);
+  if (item?.value && typeof item.value === 'object' && Number.isFinite(Number(item.value.y))) {
+    return Number(item.value.y);
+  }
+  return 0;
+}
+
+function predictionDisplayValue(item) {
+  const xValue = item?.x ?? item?.value?.x;
+  const yValue = item?.y ?? item?.value?.y;
+  if (xValue !== undefined && yValue !== undefined) {
+    return `x: ${xValue}, y: ${yValue}`;
+  }
+  return item?.value;
 }
 
 // Clear status/error messages
@@ -94,13 +220,12 @@ async function uploadFiles() {
   if (isUploadDisabled.value) return;
   
   clearMessages();
+  resetProcessedResults(true);
   isLoadingUpload.value = true;
+  const requestFileVersion = fileVersion.value;
   
   const formData = new FormData();
   formData.append('file', imageFile.value);
-  if (jsonFile.value) {
-    formData.append('json_data', jsonFile.value);
-  }
 
   try {
     const response = await axios.post(`${API_URL}/api/upload/`, formData, {
@@ -108,6 +233,7 @@ async function uploadFiles() {
         'Content-Type': 'multipart/form-data'
       }
     });
+    if (requestFileVersion !== fileVersion.value) return;
     chartId.value = response.data.chart_id;
     chartType.value = response.data.chart_type;
     confidence.value = response.data.confidence;
@@ -125,7 +251,12 @@ async function processImage() {
   if (isProcessDisabled.value) return;
   
   clearMessages();
+  processedImageUrl.value = '';
+  evaluationResults.value = null;
+  evaluationView.value = 'visual';
+  isDetailsFullscreen.value = false;
   isLoadingProcess.value = true;
+  const requestChartId = chartId.value;
   
   try {
     // 修正: 不再使用 FormData，而是将 chart_id 作为 URL 查询参数传递
@@ -139,6 +270,7 @@ async function processImage() {
     );
     
     // 构造完整的图片 URL
+    if (requestChartId !== chartId.value) return;
     processedImageUrl.value = `${API_URL}${response.data.encrypted_image_url}`;
     statusMessage.value = '加密处理成功！';
   } catch (error) {
@@ -156,6 +288,9 @@ async function evaluateChart() {
   clearMessages();
   isLoadingEvaluate.value = true;
   evaluationResults.value = null;
+  evaluationView.value = 'visual';
+  isDetailsFullscreen.value = false;
+  const requestChartId = chartId.value;
 
   try {
     // 修正: 同样，将 chart_id 作为 URL 查询参数传递
@@ -170,8 +305,10 @@ async function evaluateChart() {
     
     const resultsUrl = evalResponse.data.results_url;
     const resultsResponse = await axios.get(`${API_URL}${resultsUrl}`);
+    if (requestChartId !== chartId.value) return;
     
     evaluationResults.value = resultsResponse.data;
+    evaluationView.value = 'visual';
     statusMessage.value = '评估结果获取成功！';
   } catch (error) {
     console.error("Evaluation error:", error);
@@ -200,10 +337,6 @@ async function evaluateChart() {
           <div class="input-group">
             <label for="image-upload">选择图片文件:</label>
             <input id="image-upload" type="file" @change="handleImageUpload" accept="image/png, image/jpeg" />
-          </div>
-          <div class="input-group">
-            <label for="json-upload">选择JSON数据（可选）:</label>
-            <input id="json-upload" type="file" @change="handleJsonUpload" accept="application/json" />
           </div>
           
           <button @click="uploadFiles" :disabled="isUploadDisabled" class="action-button">
@@ -265,21 +398,104 @@ async function evaluateChart() {
           <div class="evaluation-preview">
             <h3>预测结果</h3>
             <div v-if="evaluationResults" class="table-container">
-              <table class="results-table academic">
-                <thead>
-                  <tr>
-                    <th>标签名</th>
-                    <th>Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="([key, value]) in evaluationSummary" :key="key">
-                    <td>{{ key }}</td>
-                    <td>{{ value }}</td>
-                  </tr>
-                </tbody>
-              </table>
-              <pre class="json-preview">{{ evaluationJson }}</pre>
+              <div class="view-toggle" role="group" aria-label="prediction result view">
+                <button
+                  type="button"
+                  :class="{ active: evaluationView === 'visual' }"
+                  @click="evaluationView = 'visual'"
+                >
+                  可视化展示
+                </button>
+                <button
+                  type="button"
+                  :class="{ active: evaluationView === 'details' }"
+                  @click="evaluationView = 'details'"
+                >
+                  具体信息
+                </button>
+              </div>
+
+              <div v-if="evaluationView === 'visual'" class="prediction-visual">
+                <table v-if="isPointPredictionChart && pointVisualPredictions.length" class="results-table academic point-prediction-table">
+                  <thead>
+                    <tr>
+                      <th>点名称</th>
+                      <th>X</th>
+                      <th>Y</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in pointVisualPredictions" :key="item.id">
+                      <td>{{ item.name }}</td>
+                      <td>{{ item.x }}</td>
+                      <td>{{ item.y }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div v-else-if="visualPredictions.length" class="visual-list">
+                  <div v-for="item in visualPredictions" :key="item.id" class="visual-row">
+                    <div class="visual-label">
+                      <span class="visual-object">{{ item.label || item.id }}</span>
+                      <span v-if="item.showSeriesName" class="visual-series">{{ item.series_name }}</span>
+                    </div>
+                    <div class="visual-bar-track">
+                      <div
+                        class="visual-bar"
+                        :class="{ negative: item.numericValue < 0 }"
+                        :style="{ width: item.barWidth }"
+                      ></div>
+                    </div>
+                    <div class="visual-value">{{ item.displayValue }}</div>
+                  </div>
+                </div>
+                <div v-else class="placeholder compact">
+                  <p>暂无可视化预测对象</p>
+                </div>
+              </div>
+
+              <div v-else class="detail-view">
+                <button
+                  type="button"
+                  class="fullscreen-button"
+                  @click="isDetailsFullscreen = true"
+                  aria-label="fullscreen details"
+                >
+                  全屏
+                </button>
+                <table class="results-table academic">
+                  <thead>
+                    <tr>
+                      <th>标签名</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="([key, value]) in evaluationSummary" :key="key">
+                      <td>{{ key }}</td>
+                      <td>{{ value }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table v-if="extractedPredictions.length" class="results-table academic prediction-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th>Label</th>
+                      <th>Value</th>
+                      <th>Axis</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in extractedPredictions" :key="item.id">
+                      <td>{{ item.id }}</td>
+                      <td>{{ item.label }}</td>
+                      <td>{{ predictionDisplayValue(item) }}</td>
+                      <td>{{ item.axis }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <pre class="json-preview">{{ evaluationJson }}</pre>
+              </div>
             </div>
             <div v-else class="placeholder">
               <p>预测结果将在此处显示</p>
@@ -288,6 +504,48 @@ async function evaluateChart() {
         </div>
       </div>
     </main>
+
+    <div v-if="isDetailsFullscreen" class="details-modal">
+      <div class="details-modal-header">
+        <h3>具体信息</h3>
+        <button type="button" class="fullscreen-button close" @click="isDetailsFullscreen = false">关闭</button>
+      </div>
+      <div class="details-modal-content">
+        <table class="results-table academic">
+          <thead>
+            <tr>
+              <th>标签名</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="([key, value]) in evaluationSummary" :key="key">
+              <td>{{ key }}</td>
+              <td>{{ value }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table v-if="extractedPredictions.length" class="results-table academic prediction-table">
+          <thead>
+            <tr>
+              <th>Object</th>
+              <th>Label</th>
+              <th>Value</th>
+              <th>Axis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in extractedPredictions" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.label }}</td>
+              <td>{{ predictionDisplayValue(item) }}</td>
+              <td>{{ item.axis }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <pre class="json-preview fullscreen-json">{{ evaluationJson }}</pre>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -486,6 +744,7 @@ input[type="file"]:focus {
   overflow-y: auto;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
+  min-height: 0;
 }
 
 /* 学术风格表格 */
@@ -527,6 +786,199 @@ input[type="file"]:focus {
 }
 
 /* 占位符样式 */
+
+.view-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0 0 1rem;
+  border: 1px solid #c8d2dc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.view-toggle button {
+  min-height: 40px;
+  border: 0;
+  background-color: #f5f7fa;
+  color: #243447;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.view-toggle button + button {
+  border-left: 1px solid #c8d2dc;
+}
+
+.view-toggle button.active {
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.prediction-visual,
+.detail-view {
+  padding: 1rem;
+}
+
+.detail-view {
+  position: relative;
+  max-height: 100%;
+  overflow: auto;
+  padding-top: 3.25rem;
+}
+
+.visual-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.visual-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) minmax(120px, 2fr) minmax(64px, auto);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.visual-label {
+  min-width: 0;
+}
+
+.visual-object,
+.visual-series {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.visual-object {
+  font-weight: 600;
+  color: #111827;
+}
+
+.visual-series {
+  color: #5d6b7a;
+  font-size: 0.8rem;
+}
+
+.visual-bar-track {
+  height: 18px;
+  background-color: #eef2f6;
+  border: 1px solid #d8e0e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.visual-bar {
+  height: 100%;
+  background-color: #2f80ed;
+}
+
+.visual-bar.negative {
+  background-color: #c2410c;
+}
+
+.visual-value {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  text-align: right;
+  color: #111827;
+}
+
+.prediction-table {
+  margin-top: 1rem;
+}
+
+.point-prediction-table {
+  margin: 0;
+}
+
+.point-prediction-table th,
+.point-prediction-table td {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.point-prediction-table td:first-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.point-prediction-table td:nth-child(2),
+.point-prediction-table td:nth-child(3) {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.placeholder.compact {
+  min-height: 180px;
+}
+
+.fullscreen-button {
+  border: 1px solid #0066cc;
+  background-color: #ffffff;
+  color: #0066cc;
+  border-radius: 4px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.detail-view > .fullscreen-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 20;
+}
+
+.fullscreen-button:hover {
+  background-color: #eef6ff;
+}
+
+.details-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.details-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 1rem;
+}
+
+.details-modal-header h3 {
+  margin: 0;
+}
+
+.details-modal-content {
+  flex: 1;
+  overflow: auto;
+  padding-top: 1rem;
+}
+
+.json-preview {
+  max-height: 260px;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background-color: #111827;
+  color: #f9fafb;
+  padding: 1rem;
+  margin: 1rem 0 0;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.fullscreen-json {
+  max-height: none;
+}
 .placeholder {
   flex: 1;
   display: flex;

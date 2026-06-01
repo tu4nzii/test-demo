@@ -1,0 +1,547 @@
+{
+  "selected": [
+    [
+      "bubble",
+      "bubble_000"
+    ],
+    [
+      "bubble",
+      "bubble_003"
+    ],
+    [
+      "bubble",
+      "bubble_005"
+    ],
+    [
+      "bubble",
+      "bubble_007"
+    ],
+    [
+      "bubble",
+      "bubble_008"
+    ],
+    [
+      "bubble",
+      "bubble_011"
+    ],
+    [
+      "bubble",
+      "bubble_015"
+    ],
+    [
+      "bubble",
+      "bubble_017"
+    ],
+    [
+      "bubble",
+      "bubble_018"
+    ],
+    [
+      "bubble",
+      "bubble_021"
+    ],
+    [
+      "bubble",
+      "bubble_022"
+    ],
+    [
+      "bubble",
+      "bubble_023"
+    ],
+    [
+      "bubble",
+      "bubble_024"
+    ],
+    [
+      "bubble",
+      "bubble_026"
+    ],
+    [
+      "bubble",
+      "bubble_028"
+    ],
+    [
+      "bubble",
+      "bubble_030"
+    ],
+    [
+      "bubble",
+      "bubble_031"
+    ],
+    [
+      "bubble",
+      "bubble_032"
+    ],
+    [
+      "bubble",
+      "bubble_037"
+    ],
+    [
+      "bubble",
+      "bubble_038"
+    ],
+    [
+      "bubble",
+      "bubble_040"
+    ],
+    [
+      "bubble",
+      "bubble_041"
+    ],
+    [
+      "bubble",
+      "bubble_047"
+    ],
+    [
+      "bubble",
+      "bubble_048"
+    ],
+    [
+      "bubble",
+      "bubble_049"
+    ],
+    [
+      "bubble",
+      "bubble_051"
+    ],
+    [
+      "bubble",
+      "bubble_053"
+    ],
+    [
+      "bubble",
+      "bubble_054"
+    ],
+    [
+      "bubble",
+      "bubble_055"
+    ],
+    [
+      "bubble",
+      "bubble_056"
+    ],
+    [
+      "bubble",
+      "bubble_057"
+    ],
+    [
+      "bubble",
+      "bubble_058"
+    ],
+    [
+      "bubble",
+      "bubble_060"
+    ],
+    [
+      "bubble",
+      "bubble_065"
+    ],
+    [
+      "bubble",
+      "bubble_067"
+    ],
+    [
+      "bubble",
+      "bubble_069"
+    ],
+    [
+      "bubble",
+      "bubble_070"
+    ],
+    [
+      "bubble",
+      "bubble_072"
+    ],
+    [
+      "bubble",
+      "bubble_073"
+    ],
+    [
+      "bubble",
+      "bubble_074"
+    ],
+    [
+      "bubble",
+      "bubble_076"
+    ],
+    [
+      "bubble",
+      "bubble_079"
+    ],
+    [
+      "bubble",
+      "bubble_080"
+    ],
+    [
+      "bubble",
+      "bubble_081"
+    ],
+    [
+      "bubble",
+      "bubble_082"
+    ],
+    [
+      "bubble",
+      "bubble_083"
+    ],
+    [
+      "bubble",
+      "bubble_084"
+    ],
+    [
+      "bubble",
+      "bubble_085"
+    ],
+    [
+      "bubble",
+      "bubble_086"
+    ],
+    [
+      "bubble",
+      "bubble_087"
+    ],
+    [
+      "bubble",
+      "bubble_090"
+    ],
+    [
+      "bubble",
+      "bubble_092"
+    ],
+    [
+      "bubble",
+      "bubble_093"
+    ],
+    [
+      "bubble",
+      "bubble_096"
+    ]
+  ],
+  "results": [
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_000",
+      "success": true,
+      "seconds": 30.14
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_003",
+      "success": true,
+      "seconds": 39.94
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_005",
+      "success": true,
+      "seconds": 33.46
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_007",
+      "success": true,
+      "seconds": 34.19
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_008",
+      "success": true,
+      "seconds": 30.56
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_011",
+      "success": true,
+      "seconds": 28.62
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_015",
+      "success": true,
+      "seconds": 28.97
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_017",
+      "success": true,
+      "seconds": 28.27
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_018",
+      "success": true,
+      "seconds": 27.34
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_021",
+      "success": true,
+      "seconds": 30.39
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_022",
+      "success": true,
+      "seconds": 32.78
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_023",
+      "success": true,
+      "seconds": 36.49
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_024",
+      "success": true,
+      "seconds": 35.26
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_026",
+      "success": true,
+      "seconds": 25.48
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_028",
+      "success": true,
+      "seconds": 28.7
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_030",
+      "success": true,
+      "seconds": 24.49
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_031",
+      "success": true,
+      "seconds": 35.65
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_032",
+      "success": true,
+      "seconds": 38.86
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_037",
+      "success": true,
+      "seconds": 29.85
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_038",
+      "success": true,
+      "seconds": 26.98
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_040",
+      "success": true,
+      "seconds": 30.93
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_041",
+      "success": true,
+      "seconds": 26.4
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_047",
+      "success": true,
+      "seconds": 42.05
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_048",
+      "success": true,
+      "seconds": 25.46
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_049",
+      "success": true,
+      "seconds": 25.07
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_051",
+      "success": true,
+      "seconds": 30.03
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_053",
+      "success": true,
+      "seconds": 32.82
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_054",
+      "success": true,
+      "seconds": 29.27
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_055",
+      "success": true,
+      "seconds": 29.23
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_056",
+      "success": true,
+      "seconds": 32.02
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_057",
+      "success": true,
+      "seconds": 32.25
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_058",
+      "success": true,
+      "seconds": 24.14
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_060",
+      "success": true,
+      "seconds": 27.13
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_065",
+      "success": true,
+      "seconds": 23.34
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_067",
+      "success": true,
+      "seconds": 30.96
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_069",
+      "success": true,
+      "seconds": 40.38
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_070",
+      "success": true,
+      "seconds": 26.79
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_072",
+      "success": true,
+      "seconds": 37.84
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_073",
+      "success": true,
+      "seconds": 35.63
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_074",
+      "success": true,
+      "seconds": 29.28
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_076",
+      "success": true,
+      "seconds": 34.41
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_079",
+      "success": true,
+      "seconds": 43.12
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_080",
+      "success": true,
+      "seconds": 29.22
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_081",
+      "success": true,
+      "seconds": 30.2
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_082",
+      "success": true,
+      "seconds": 28.12
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_083",
+      "success": true,
+      "seconds": 24.79
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_084",
+      "success": true,
+      "seconds": 25.68
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_085",
+      "success": true,
+      "seconds": 23.84
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_086",
+      "success": true,
+      "seconds": 28.88
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_087",
+      "success": true,
+      "seconds": 32.11
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_090",
+      "success": true,
+      "seconds": 36.44
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_092",
+      "success": true,
+      "seconds": 30.79
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_093",
+      "success": true,
+      "seconds": 36.44
+    },
+    {
+      "chart_type": "bubble",
+      "chart_id": "bubble_096",
+      "success": true,
+      "seconds": 26.66
+    }
+  ],
+  "seconds": 1668.14
+}

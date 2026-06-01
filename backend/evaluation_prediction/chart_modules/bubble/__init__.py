@@ -1,0 +1,1 @@
+"""Bubble chart prediction module."""

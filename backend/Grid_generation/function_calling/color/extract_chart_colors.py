@@ -182,6 +182,100 @@ def recognize_legend_items(image_path: str) -> list:
         print(f"❌ 无法识别图例项: {e}")
         return []
 
+def recognize_point_items(image_path: str) -> list:
+    """Recognize labels attached to scatter/bubble data points."""
+    try:
+        image_path = os.path.normpath(image_path)
+        image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
+        if image is None:
+            raise ValueError("Unable to read image file")
+        height, width = image.shape[:2]
+        if max(width, height) < 1400:
+            scale = min(3.0, 1400 / max(width, height))
+            image = cv2.resize(image, None, fx=scale, fy=scale, interpolation=cv2.INTER_CUBIC)
+
+        _, buffer = cv2.imencode('.png', image)
+        image_base64 = base64.b64encode(buffer).decode('utf-8')
+
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "You are a precise chart-reading assistant. Extract visible "
+                    "labels attached to scatter or bubble data points."
+                ),
+            },
+            {"role": "user", "content": [
+                {"type": "text", "text": """
+Identify every visible data-point label in this scatter/bubble chart.
+
+Return only JSON in this exact shape:
+{"point_items":[{"name":"US","color":"#8e8ef0"}]}
+
+Rules:
+1. Include labels printed inside or next to plotted bubbles/points, including tiny labels and labels in overlapping marker clusters.
+2. Preserve the label text exactly as shown.
+3. Exclude chart title, subtitle/source, axis titles, axis tick labels, grid labels, annotations, menu text, and watermark text.
+4. Do not infer labels that are not visibly printed on the chart.
+5. If the marker color is hard to determine, use null for color.
+6. Look carefully near overlapping bubbles before finalizing the list.
+7. Keep the visual left-to-right/top-to-bottom order as much as possible.
+"""},
+                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64}"}}
+            ]},
+        ]
+
+        response = chat_with_gemini(messages).strip()
+        if '{' in response and '}' in response:
+            json_start = response.find('{')
+            json_end = response.rfind('}') + 1
+            response = response[json_start:json_end]
+
+        result = json.loads(response)
+        items = result.get('point_items', [])
+        if not isinstance(items, list):
+            return []
+        return _clean_point_items(items)
+    except json.JSONDecodeError as e:
+        print(f"鉂?Point label JSON瑙ｆ瀽閿欒: {e}")
+        return []
+    except Exception as e:
+        print(f"鉂?鏃犳硶璇嗗埆鏁版嵁鐐规爣绛? {e}")
+        return []
+
+def _clean_point_items(items: list) -> list:
+    cleaned = []
+    seen = set()
+    excluded = {
+        "source",
+        "highcharts",
+        "safe fat intake",
+        "safe sugar intake",
+        "daily fat intake",
+        "daily sugar intake",
+    }
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name", "")).strip()
+        if not name:
+            continue
+        lowered = name.lower()
+        if any(token in lowered for token in excluded):
+            continue
+        if lowered in seen:
+            continue
+        color = item.get("color")
+        if isinstance(color, str):
+            color = color.strip()
+            if not re.fullmatch(r"#[0-9a-fA-F]{6}", color):
+                color = None
+        else:
+            color = None
+        cleaned.append({"name": name, "color": color})
+        seen.add(lowered)
+    return cleaned
+
 def extract_roi_for_histogram(image_path, legend_count):
     """根据图例数量提取用于统计颜色直方图的ROI"""
     try:
@@ -327,6 +421,19 @@ def extract_chart_series_color(image_path):
     except Exception as e:
         print(f"❌ 提取图表颜色失败: {e}")
         return [{'name': '系列1', 'color': '#1f77b4'}]
+
+def extract_point_chart_items(image_path):
+    """Extract prediction targets for scatter/bubble charts.
+
+    Point charts often label each marker directly and have no legend. In that
+    case, generic legend extraction can hallucinate names, so prefer visible
+    point labels and only fall back to legend/color extraction if none are found.
+    """
+    point_items = recognize_point_items(image_path)
+    if point_items:
+        print(f"鉁?鎴愬姛鎻愬彇{len(point_items)}涓暟鎹偣鏍囩")
+        return point_items
+    return extract_chart_series_color(image_path)
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
