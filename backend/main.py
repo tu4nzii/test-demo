@@ -208,21 +208,24 @@ def result_response_url(path: Union[str, Path]) -> str:
 PREFERRED_EXTRACTION_PROMPTS = ("amplifier", "feedback", "grid", "baseline")
 
 
-def strip_external_reference_data(data: Dict[str, Any]) -> None:
+def strip_external_reference_data(data: Dict[str, Any], *, preserve_data: bool = False) -> None:
     """Remove ground-truth/reference fields from user-upload processing data."""
     data.pop("reference_config_path", None)
     data.pop("reference_chart_id", None)
 
-    for key in ("data", "data_points", "ground_truth", "labels", "series_color"):
+    keys = ["data_points", "ground_truth", "labels", "series_color"]
+    if not preserve_data:
+        keys.append("data")
+    for key in keys:
         data.pop(key, None)
 
 
-def processed_json_payload(eval_json_path: Union[str, Path]) -> Dict[str, Any]:
+def processed_json_payload(eval_json_path: Union[str, Path], chart_type: Optional[str] = None) -> Dict[str, Any]:
     path = Path(eval_json_path)
     data = load_json(path)
     if not path.stem.endswith("_ticks"):
         merge_tick_sidecar(data, path.parent, path.stem)
-    strip_external_reference_data(data)
+    strip_external_reference_data(data, preserve_data=chart_type in {"pie", "donut"})
     return data
 
 
@@ -238,7 +241,7 @@ def enrich_generated_json(
     json_path = generated_json_path(chart_info, output_dir)
     generated_data = load_json(json_path) if json_path.exists() else {}
     merge_tick_sidecar(generated_data, output_dir, Path(chart_info["image_path"]).stem)
-    strip_external_reference_data(generated_data)
+    strip_external_reference_data(generated_data, preserve_data=chart_info["chart_type"] in {"pie", "donut"})
 
     generated_data.update(
         {
@@ -348,7 +351,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
             output_dir = Path(chart_info.get("output_dir", OUTPUT_DIR / chart_info["chart_type"]))
             data = load_json(path)
             merge_tick_sidecar(data, output_dir, Path(chart_info["image_path"]).stem)
-            strip_external_reference_data(data)
+            strip_external_reference_data(data, preserve_data=chart_info["chart_type"] in {"pie", "donut"})
             write_json(path, data)
             return path
 
@@ -374,7 +377,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
 
 
 def build_extraction_placeholder(chart_info: Dict[str, Any], eval_json_path: Path) -> Dict[str, Any]:
-    data = processed_json_payload(eval_json_path)
+    data = processed_json_payload(eval_json_path, chart_info["chart_type"])
     x_ticks = data.get("x_ticks", [])
     y_ticks = data.get("y_ticks", [])
     r_ticks = data.get("r_ticks", [])
@@ -418,7 +421,7 @@ def normalize_result_payload(result: Dict[str, Any], result_path: Optional[Path]
             and isinstance(source_json, str)
             and Path(source_json).exists()
         ):
-            result["processed_json"] = processed_json_payload(source_json)
+            result["processed_json"] = processed_json_payload(source_json, result.get("chart_type"))
         return result
 
     chart_type = str(result.get("chart_type", ""))
@@ -440,7 +443,7 @@ def normalize_result_payload(result: Dict[str, Any], result_path: Optional[Path]
     }
     source_json = result.get("source_json")
     if isinstance(source_json, str) and Path(source_json).exists():
-        normalized["processed_json"] = processed_json_payload(source_json)
+        normalized["processed_json"] = processed_json_payload(source_json, chart_type)
     if result_path is not None:
         normalized["result_path"] = str(result_path)
     return normalized
@@ -562,7 +565,7 @@ async def evaluate_processed_chart(chart_info: Dict[str, Any]) -> Path:
             },
             "predictions": predictions,
             "artifacts": prediction_results,
-            "processed_json": processed_json_payload(eval_json_path),
+            "processed_json": processed_json_payload(eval_json_path, chart_info["chart_type"]),
         }
     else:
         evaluation_results = build_extraction_placeholder(chart_info, eval_json_path)

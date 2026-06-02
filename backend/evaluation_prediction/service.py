@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-SUPPORTED_PREDICTION_TYPES = {"v_bar", "h_bar", "line", "scatter", "bubble"}
+SUPPORTED_PREDICTION_TYPES = {"v_bar", "h_bar", "line", "scatter", "bubble", "pie", "donut"}
 SUPPORTED_BAR_TYPES = {"v_bar", "h_bar"}
 
 
@@ -60,6 +60,10 @@ async def run_prediction_async(
             batch_size=batch_size,
             config_paths=[str(config_json_path)],
         )
+    elif chart_type == "pie":
+        from .chart_modules.pie.runner import run_experiment
+    elif chart_type == "donut":
+        from .chart_modules.donut.runner import run_experiment
     else:
         raise ValueError(f"Unsupported prediction chart type: {chart_type}")
 

@@ -30,6 +30,7 @@ const evaluationView = ref('visual');
 const isDetailsFullscreen = ref(false);
 const fileVersion = ref(0);
 const pointPredictionChartTypes = new Set(['scatter', 'bubble']);
+const circularPredictionChartTypes = new Set(['pie', 'donut']);
 
 // --- Computed Properties for Disabling Buttons ---
 const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
@@ -118,6 +119,7 @@ const visualPredictions = computed(() => {
   });
 });
 const isPointPredictionChart = computed(() => pointPredictionChartTypes.has(getActiveChartType()));
+const isCircularPredictionChart = computed(() => circularPredictionChartTypes.has(getActiveChartType()));
 const pointVisualPredictions = computed(() => {
   return extractedPredictions.value.map((item, index) => {
     const xValue = item?.x ?? item?.value?.x;
@@ -129,6 +131,15 @@ const pointVisualPredictions = computed(() => {
       y: formatPredictionCoordinate(yValue),
     };
   });
+});
+const circularVisualPredictions = computed(() => {
+  return extractedPredictions.value.map((item, index) => ({
+    id: item?.id ?? `${index}`,
+    label: item?.label || item?.id || `Segment ${index + 1}`,
+    percentage: formatPercentage(item?.percentage),
+    startAngle: formatPredictionCoordinate(item?.start_angle),
+    endAngle: formatPredictionCoordinate(item?.end_angle),
+  }));
 });
 const evaluationJson = computed(() => {
   if (!evaluationResults.value) return '';
@@ -191,6 +202,13 @@ function formatPredictionCoordinate(value) {
   return Number.isInteger(numberValue) ? String(numberValue) : Number(numberValue.toFixed(6)).toString();
 }
 
+function formatPercentage(value) {
+  if (value === undefined || value === null || value === '') return '-';
+  const numberValue = Number(value);
+  if (!Number.isFinite(numberValue)) return value;
+  return `${Number(numberValue.toFixed(4)).toString()}%`;
+}
+
 function predictionNumericValue(item) {
   if (item && Number.isFinite(Number(item.value))) return Number(item.value);
   if (item && Number.isFinite(Number(item.y))) return Number(item.y);
@@ -201,6 +219,10 @@ function predictionNumericValue(item) {
 }
 
 function predictionDisplayValue(item) {
+  if (item?.axis === 'theta' && item?.percentage !== undefined && item?.percentage !== null) {
+    const percentage = Number(item.percentage);
+    return Number.isFinite(percentage) ? `${Number(percentage.toFixed(4))}%` : item.percentage;
+  }
   const xValue = item?.x ?? item?.value?.x;
   const yValue = item?.y ?? item?.value?.y;
   if (xValue !== undefined && yValue !== undefined) {
@@ -429,6 +451,24 @@ async function evaluateChart() {
                       <td>{{ item.name }}</td>
                       <td>{{ item.x }}</td>
                       <td>{{ item.y }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table v-else-if="isCircularPredictionChart && circularVisualPredictions.length" class="results-table academic point-prediction-table">
+                  <thead>
+                    <tr>
+                      <th>标签名</th>
+                      <th>占比</th>
+                      <th>起始角度</th>
+                      <th>结束角度</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in circularVisualPredictions" :key="item.id">
+                      <td>{{ item.label }}</td>
+                      <td>{{ item.percentage }}</td>
+                      <td>{{ item.startAngle }}</td>
+                      <td>{{ item.endAngle }}</td>
                     </tr>
                   </tbody>
                 </table>

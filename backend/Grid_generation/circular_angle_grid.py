@@ -16,6 +16,14 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+try:
+    from function_calling.color.extract_chart_colors import extract_chart_series_color
+except Exception:  # pragma: no cover - keeps angle-grid generation usable in isolation.
+    try:
+        from Grid_generation.function_calling.color.extract_chart_colors import extract_chart_series_color
+    except Exception:
+        extract_chart_series_color = None
+
 
 ANGLE_STEP_DEGREES = 15
 ANGLE_TICKS = list(range(0, 360, ANGLE_STEP_DEGREES))
@@ -213,6 +221,12 @@ def process_circular_angle_chart(
         output_path=output_path,
         line_color=(0, 0, 0, 255),
     )
+    colors = []
+    if extract_chart_series_color is not None:
+        try:
+            colors = extract_chart_series_color(image_path)
+        except Exception:
+            colors = []
 
     result = {
         "chart_id": chart_id,
@@ -230,6 +244,7 @@ def process_circular_angle_chart(
             "no_grid": str(Path(image_path).absolute()),
             "with_grid": str(Path(encrypted_grid_path).absolute()),
         },
+        "colors": colors,
         "grid_generation": {
             "type": "angle_grid",
             "angle_step_degrees": ANGLE_STEP_DEGREES,
