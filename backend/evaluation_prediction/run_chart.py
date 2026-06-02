@@ -44,6 +44,10 @@ async def _run(
         from .chart_modules.pie.runner import run_experiment
     elif chart_type == "donut":
         from .chart_modules.donut.runner import run_experiment
+    elif chart_type == "radar":
+        from .chart_modules.radar.runner import run_experiment
+    elif chart_type == "rose":
+        from .chart_modules.rose.runner import run_experiment
     else:
         raise ValueError(f"Unsupported chart_type: {chart_type}")
 
@@ -52,7 +56,7 @@ async def _run(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run backend-local chart value prediction.")
-    parser.add_argument("chart_type", choices=["v_bar", "h_bar", "line", "scatter", "bubble", "pie", "donut"])
+    parser.add_argument("chart_type", choices=["v_bar", "h_bar", "line", "scatter", "bubble", "pie", "donut", "radar", "rose"])
     parser.add_argument("--batch-size", type=int, default=None)
     parser.add_argument("--chart-ids", nargs="+", default=None)
     parser.add_argument(

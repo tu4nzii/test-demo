@@ -208,12 +208,19 @@ def result_response_url(path: Union[str, Path]) -> str:
 PREFERRED_EXTRACTION_PROMPTS = ("amplifier", "feedback", "grid", "baseline")
 
 
-def strip_external_reference_data(data: Dict[str, Any], *, preserve_data: bool = False) -> None:
+def strip_external_reference_data(
+    data: Dict[str, Any],
+    *,
+    preserve_data: bool = False,
+    preserve_series_color: bool = False,
+) -> None:
     """Remove ground-truth/reference fields from user-upload processing data."""
     data.pop("reference_config_path", None)
     data.pop("reference_chart_id", None)
 
-    keys = ["data_points", "ground_truth", "labels", "series_color"]
+    keys = ["data_points", "ground_truth", "labels"]
+    if not preserve_series_color:
+        keys.append("series_color")
     if not preserve_data:
         keys.append("data")
     for key in keys:
@@ -225,7 +232,11 @@ def processed_json_payload(eval_json_path: Union[str, Path], chart_type: Optiona
     data = load_json(path)
     if not path.stem.endswith("_ticks"):
         merge_tick_sidecar(data, path.parent, path.stem)
-    strip_external_reference_data(data, preserve_data=chart_type in {"pie", "donut"})
+    strip_external_reference_data(
+        data,
+        preserve_data=chart_type in {"pie", "donut"},
+        preserve_series_color=chart_type in {"radar", "rose"},
+    )
     return data
 
 
@@ -241,7 +252,11 @@ def enrich_generated_json(
     json_path = generated_json_path(chart_info, output_dir)
     generated_data = load_json(json_path) if json_path.exists() else {}
     merge_tick_sidecar(generated_data, output_dir, Path(chart_info["image_path"]).stem)
-    strip_external_reference_data(generated_data, preserve_data=chart_info["chart_type"] in {"pie", "donut"})
+    strip_external_reference_data(
+        generated_data,
+        preserve_data=chart_info["chart_type"] in {"pie", "donut"},
+        preserve_series_color=chart_info["chart_type"] in {"radar", "rose"},
+    )
 
     generated_data.update(
         {
@@ -351,7 +366,11 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
             output_dir = Path(chart_info.get("output_dir", OUTPUT_DIR / chart_info["chart_type"]))
             data = load_json(path)
             merge_tick_sidecar(data, output_dir, Path(chart_info["image_path"]).stem)
-            strip_external_reference_data(data, preserve_data=chart_info["chart_type"] in {"pie", "donut"})
+            strip_external_reference_data(
+                data,
+                preserve_data=chart_info["chart_type"] in {"pie", "donut"},
+                preserve_series_color=chart_info["chart_type"] in {"radar", "rose"},
+            )
             write_json(path, data)
             return path
 

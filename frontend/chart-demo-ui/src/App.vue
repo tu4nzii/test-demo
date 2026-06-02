@@ -31,6 +31,7 @@ const isDetailsFullscreen = ref(false);
 const fileVersion = ref(0);
 const pointPredictionChartTypes = new Set(['scatter', 'bubble']);
 const circularPredictionChartTypes = new Set(['pie', 'donut']);
+const polarPredictionChartTypes = new Set(['radar', 'rose']);
 
 // --- Computed Properties for Disabling Buttons ---
 const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
@@ -120,6 +121,7 @@ const visualPredictions = computed(() => {
 });
 const isPointPredictionChart = computed(() => pointPredictionChartTypes.has(getActiveChartType()));
 const isCircularPredictionChart = computed(() => circularPredictionChartTypes.has(getActiveChartType()));
+const isPolarPredictionChart = computed(() => polarPredictionChartTypes.has(getActiveChartType()));
 const pointVisualPredictions = computed(() => {
   return extractedPredictions.value.map((item, index) => {
     const xValue = item?.x ?? item?.value?.x;
@@ -139,6 +141,16 @@ const circularVisualPredictions = computed(() => {
     percentage: formatPercentage(item?.percentage),
     startAngle: formatPredictionCoordinate(item?.start_angle),
     endAngle: formatPredictionCoordinate(item?.end_angle),
+  }));
+});
+const polarVisualPredictions = computed(() => {
+  return extractedPredictions.value.map((item, index) => ({
+    id: item?.id ?? `${index}`,
+    object: item?.id || item?.label || `Object ${index + 1}`,
+    series: item?.series_name || '',
+    axis: item?.theta_label || item?.label || item?.axis || '-',
+    r: formatPredictionCoordinate(item?.r ?? item?.value),
+    showSeriesName: visibleSeriesNames.value,
   }));
 });
 const evaluationJson = computed(() => {
@@ -469,6 +481,24 @@ async function evaluateChart() {
                       <td>{{ item.percentage }}</td>
                       <td>{{ item.startAngle }}</td>
                       <td>{{ item.endAngle }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table v-else-if="isPolarPredictionChart && polarVisualPredictions.length" class="results-table academic point-prediction-table">
+                  <thead>
+                    <tr>
+                      <th>Object</th>
+                      <th v-if="visibleSeriesNames">Series</th>
+                      <th>Axis</th>
+                      <th>R</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="item in polarVisualPredictions" :key="item.id">
+                      <td>{{ item.object }}</td>
+                      <td v-if="visibleSeriesNames">{{ item.series }}</td>
+                      <td>{{ item.axis }}</td>
+                      <td>{{ item.r }}</td>
                     </tr>
                   </tbody>
                 </table>

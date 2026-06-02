@@ -16,6 +16,7 @@ from ...common.chart_io import ensure_dir, image_to_data_url
 from ...common.paths import RESULTS_ROOT
 from ...common.runtime import get_repeat_times
 
+from ..circular_artifacts import save_circular_artifacts
 from ..circular_fallback import color_area_predictions, records_from_predictions
 from ..circular_model_config import get_chat_completion_url, get_headers, get_model_name
 from ..circular_predictions import complete_circular_predictions, system_label_order
@@ -304,7 +305,13 @@ async def run_experiment(
                 }
                 for item in predictions
             ]
-        _save_records(records, result_dir)
+        records = save_circular_artifacts(
+            dataset=dataset,
+            chart_type=CHART_TYPE,
+            result_dir=result_dir,
+            records=records,
+            predictions=predictions,
+        )
         summaries.append(
             {
                 "chart_id": dataset["chart_id"],
