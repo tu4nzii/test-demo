@@ -1,4 +1,4 @@
-import cv2
+﻿import cv2
 import numpy as np
 from collections import Counter
 import json
@@ -9,10 +9,17 @@ import re
 import requests
 import time
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, '../../../..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+from model_api_config import get_api_key, get_chat_completion_url, get_model_name
+
 def _build_chat_completions_url(raw_url: str) -> str:
     url = (raw_url or "").strip().rstrip("/")
     if not url:
-        return "https://api.vveai.com/v1/chat/completions"
+        return get_chat_completion_url()
     if url.endswith("/chat/completions"):
         return url
     return f"{url}/chat/completions"
@@ -22,13 +29,13 @@ def _split_env_keys(raw_keys: str) -> list:
     return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
 
 
-# API配置
+# API閰嶇疆
 API_URL = _build_chat_completions_url(
     os.getenv("COLOR_LLM_API_URL")
     or os.getenv("COLOR_LLM_BASE_URL")
     or os.getenv("MLLM_API_URL")
     or os.getenv("MLLM_BASE_URL")
-    or "https://api.vveai.com/v1"
+    or get_chat_completion_url()
 )
 ENV_API_KEYS = _split_env_keys(
     os.getenv("COLOR_LLM_API_KEYS")
@@ -38,28 +45,24 @@ ENV_API_KEYS = _split_env_keys(
     or ""
 )
 DEFAULT_API_KEYS = [
-    "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
-    "sk-2nzrUYD0JWLFzopWF477111f78E746AbAcA9Ed8534C3A481",
-    "sk-CiD5WVUNIkBeXDgYB46b90C06aD24636BcEaBaFa993970C4",
-    "sk-WvF4fU10VeOkfFMq579610Fc01E8496d827d0d3e04C44d0a",
-    "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
+    get_api_key()
 ]
 API_KEYS = ENV_API_KEYS or DEFAULT_API_KEYS
 key_index = 0
-LLM_MODEL = os.getenv("COLOR_LLM_MODEL") or os.getenv("MLLM_MODEL") or "gemini-2.5-pro"
+LLM_MODEL = os.getenv("COLOR_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name()
 LLM_TEMPERATURE = float(os.getenv("COLOR_LLM_TEMPERATURE", "0.7"))
 LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("COLOR_LLM_TIMEOUT_SECONDS", "180"))
 LLM_MAX_ATTEMPTS = int(os.getenv("COLOR_LLM_MAX_ATTEMPTS", "8"))
 LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("COLOR_LLM_RETRY_BACKOFF_SECONDS", "2"))
 
 def rotate_key():
-    """切换到下一个 key"""
+    """鍒囨崲鍒颁笅涓€涓?key"""
     global key_index
     key_index = (key_index + 1) % len(API_KEYS)
-    print(f"🔑 已切换至新的 API Key [{key_index + 1}/{len(API_KEYS)}]")
+    print(f"馃攽 宸插垏鎹㈣嚦鏂扮殑 API Key [{key_index + 1}/{len(API_KEYS)}]")
 
 def chat_with_gemini(messages: list) -> str:
-    """与Gemini进行对话（同步版本）"""
+    """涓嶨emini杩涜瀵硅瘽锛堝悓姝ョ増鏈級"""
     payload = {
         "model": LLM_MODEL,
         "messages": messages,
@@ -78,51 +81,51 @@ def chat_with_gemini(messages: list) -> str:
             response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
 
             if response.status_code in retryable_status:
-                print(f"⚠️ HTTP {response.status_code}: {response.text[:200]}")
+                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
                 rotate_key()
                 if attempt < LLM_MAX_ATTEMPTS:
                     wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
-                    print(f"⏳ 等待 {wait_seconds:.1f}s 后重试 [{attempt}/{LLM_MAX_ATTEMPTS}]...")
+                    print(f"鈴?绛夊緟 {wait_seconds:.1f}s 鍚庨噸璇?[{attempt}/{LLM_MAX_ATTEMPTS}]...")
                     time.sleep(wait_seconds)
                 continue
 
             if response.status_code != 200:
-                print(f"⚠️ HTTP {response.status_code}: {response.text[:200]}")
-                return "抱歉，我暂时无法回应您的请求。"
+                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
+                return "The model API request failed."
 
             result = response.json()
             if "choices" in result and len(result["choices"]) > 0:
                 content = result["choices"][0]["message"]["content"]
                 return content
             else:
-                print(f"⚠️ 响应格式错误: {result}")
+                print(f"鈿狅笍 鍝嶅簲鏍煎紡閿欒: {result}")
                 if attempt < LLM_MAX_ATTEMPTS:
                     time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
 
         except Exception as e:
-            print(f"❌ 第 {attempt} 次尝试失败: {e}")
+            print(f"鉂?绗?{attempt} 娆″皾璇曞け璐? {e}")
             if attempt < LLM_MAX_ATTEMPTS:
                 time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
             continue
 
-    print("❌ 所有尝试均失败")
-    return "抱歉，我暂时无法回应您的请求。"
+    print("鉂?鎵€鏈夊皾璇曞潎澶辫触")
+    return "The model API request failed."
 
 def count_legend_items(image_path: str) -> int:
-    """判断图表中的图例数量"""
+    """鍒ゆ柇鍥捐〃涓殑鍥句緥鏁伴噺"""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("无法读取图像文件")
+            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
 
         messages = [
-            {"role": "system", "content": "你是一个图表分析专家，请分析提供的图表图像。"},
+            {"role": "system", "content": "You are a chart analysis assistant."},
             {"role": "user", "content": [
-                {"type": "text", "text": "请分析这个图表中的图例数量。图表类型是直角坐标系的（柱状图、折线图、散点图等）。请只返回数字，不要添加任何额外文字。"},
+                {"type": "text", "text": "Count the legend items in this chart. Return only one integer, with no explanation."},
                 {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64}"}}
             ]}
         ]
@@ -131,36 +134,27 @@ def count_legend_items(image_path: str) -> int:
         legend_count = int(re.search(r'\d+', response).group())
         return legend_count
     except Exception as e:
-        print(f"❌ 无法识别图例数量: {e}")
+        print(f"鉂?鏃犳硶璇嗗埆鍥句緥鏁伴噺: {e}")
         return 1
 
 def recognize_legend_items(image_path: str) -> list:
-    """识别图表中的所有图例项及其颜色"""
+    """璇嗗埆鍥捐〃涓殑鎵€鏈夊浘渚嬮」鍙婂叾棰滆壊"""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("无法读取图像文件")
+            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
 
         messages = [
-            {"role": "system", "content": "你是一个图表分析专家，请分析提供的图表图像并识别图例颜色。"},
+            {"role": "system", "content": "You are a chart analysis assistant."},
             {"role": "user", "content": [
-                {"type": "text", "text": '''请分析这个图表，识别所有的图例项及其颜色。
-
-请返回一个JSON格式的响应，包含一个数组'legend_items'，每个元素是一个对象，包含：
-- name: 图例的名称（如果无法识别，使用"系列1"、"系列2"等默认名称）
-- color: 图例对应的颜色（必须是标准的十六进制颜色代码，如#1f77b4）
-
-重要要求：
-1. 只返回JSON格式，不要添加任何额外文字说明
-2. 颜色格式必须是标准的十六进制颜色代码（#RRGGBB格式）
-3. 如果图表只有一个系列，返回一个元素；如果有多个系列，返回多个元素
-
-示例格式：
-{"legend_items": [{"name": "系列1", "color": "#1f77b4"}, {"name": "系列2", "color": "#ff7f0e"}]}'''},
+                {"type": "text", "text": """Identify all legend items and their colors.
+Return strict JSON only:
+{"legend_items": [{"name": "Series 1", "color": "#1f77b4"}]}
+Use #RRGGBB colors. Preserve visible legend names when readable."""},
                 {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64}"}}
             ]}
         ]
@@ -176,10 +170,10 @@ def recognize_legend_items(image_path: str) -> list:
         result = json.loads(response)
         return result.get('legend_items', [])
     except json.JSONDecodeError as e:
-        print(f"❌ JSON解析错误: {e}")
+        print(f"鉂?JSON瑙ｆ瀽閿欒: {e}")
         return []
     except Exception as e:
-        print(f"❌ 无法识别图例项: {e}")
+        print(f"鉂?鏃犳硶璇嗗埆鍥句緥椤? {e}")
         return []
 
 def recognize_point_items(image_path: str) -> list:
@@ -237,10 +231,10 @@ Rules:
             return []
         return _clean_point_items(items)
     except json.JSONDecodeError as e:
-        print(f"鉂?Point label JSON瑙ｆ瀽閿欒: {e}")
+        print(f"閴?Point label JSON鐟欙絾鐎介柨娆掝嚖: {e}")
         return []
     except Exception as e:
-        print(f"鉂?鏃犳硶璇嗗埆鏁版嵁鐐规爣绛? {e}")
+        print(f"閴?閺冪姵纭剁拠鍡楀焼閺佺増宓侀悙瑙勭垼缁? {e}")
         return []
 
 def _clean_point_items(items: list) -> list:
@@ -277,12 +271,12 @@ def _clean_point_items(items: list) -> list:
     return cleaned
 
 def extract_roi_for_histogram(image_path, legend_count):
-    """根据图例数量提取用于统计颜色直方图的ROI"""
+    """鏍规嵁鍥句緥鏁伴噺鎻愬彇鐢ㄤ簬缁熻棰滆壊鐩存柟鍥剧殑ROI"""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("无法读取图像文件")
+            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
 
         h, w, _ = image.shape
 
@@ -293,17 +287,9 @@ def extract_roi_for_histogram(image_path, legend_count):
             image_base64 = base64.b64encode(buffer).decode('utf-8')
 
             messages = [
-                {"role": "system", "content": "你是一个图表分析专家，请分析提供的图表图像。"},
+                {"role": "system", "content": "You are a chart analysis assistant."},
                 {"role": "user", "content": [
-                    {"type": "text", "text": '''请分析这个图表，确定图表主体数据区域的边界坐标。
-
-请返回一个JSON格式的响应，包含以下字段：
-- x1: 区域左上角x坐标
-- y1: 区域左上角y坐标
-- x2: 区域右下角x坐标
-- y2: 区域右下角y坐标
-
-确保返回的坐标在图像范围内，且只包含图表的数据点/柱状图等主体元素。'''},
+                    {"type": "text", "text": "Return strict JSON for the main plot area bounds: {\"x1\":0,\"y1\":0,\"x2\":100,\"y2\":100}. Coordinates must be within the image and exclude legends when possible."},
                     {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64}"}}
                 ]}
             ]
@@ -326,7 +312,7 @@ def extract_roi_for_histogram(image_path, legend_count):
 
         return roi
     except Exception as e:
-        print(f"❌ 无法提取ROI区域: {e}")
+        print(f"鉂?鏃犳硶鎻愬彇ROI鍖哄煙: {e}")
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         h, w, _ = image.shape
@@ -335,12 +321,12 @@ def extract_roi_for_histogram(image_path, legend_count):
         return image[y1:y2, x1:x2]
 
 def select_chart_series_color(image_path: str, candidate_colors: list) -> str:
-    """让AI选择最适合的图表系列颜色"""
+    """Ask the model to select the best series color."""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("无法读取图像文件")
+            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
@@ -348,9 +334,9 @@ def select_chart_series_color(image_path: str, candidate_colors: list) -> str:
         hex_colors = [bgr_to_hex(color) for color in candidate_colors if bgr_to_hex(color) is not None]
 
         messages = [
-            {"role": "system", "content": "你是一个图表分析专家，请分析提供的图表图像并选择最适合的系列颜色。"},
+            {"role": "system", "content": "You are a chart analysis assistant."},
             {"role": "user", "content": [
-                {"type": "text", "text": f"请分析这个图表，并从提供的候选颜色中选择最适合作为本图系列颜色的颜色。\n\n图表类型是直角坐标系的（柱状图、折线图、散点图等）。\n\n候选颜色：{', '.join(hex_colors)}\n\n请只返回选中的颜色的16进制值，不要添加任何额外文字。"},
+                {"type": "text", "text": f"Choose the candidate color that best represents the plotted data series in this chart. Candidates: {', '.join(hex_colors)}. Return only one #RRGGBB value."},
                 {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{image_base64}"}}
             ]}
         ]
@@ -363,11 +349,11 @@ def select_chart_series_color(image_path: str, candidate_colors: list) -> str:
         else:
             return hex_colors[0]
     except Exception as e:
-        print(f"❌ 无法选择图表系列颜色: {e}")
+        print(f"鉂?鏃犳硶閫夋嫨鍥捐〃绯诲垪棰滆壊: {e}")
         return "#000000"
 
 def compute_color_histogram(image):
-    """计算图像的颜色直方图"""
+    """Calculate an image color histogram."""
     try:
         hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
         hist_h = cv2.calcHist([hsv_image], [0], None, [180], [0, 180])
@@ -375,11 +361,11 @@ def compute_color_histogram(image):
         hist_v = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
         return hist_h, hist_s, hist_v
     except Exception as e:
-        print(f"❌ 无法计算颜色直方图: {e}")
+        print(f"鉂?鏃犳硶璁＄畻棰滆壊鐩存柟鍥? {e}")
         return None, None, None
 
 def filter_colors_by_threshold(image, threshold=0.01):
-    """根据阈值过滤图像中的颜色"""
+    """Filter image colors by a frequency threshold."""
     try:
         if image is None:
             return []
@@ -389,38 +375,38 @@ def filter_colors_by_threshold(image, threshold=0.01):
         filtered_colors = [color for color, count in color_counts.items() if count / total_pixels > threshold]
         return filtered_colors
     except Exception as e:
-        print(f"❌ 无法过滤颜色: {e}")
+        print(f"鉂?鏃犳硶杩囨护棰滆壊: {e}")
         return []
 
 def bgr_to_hex(bgr_color):
-    """将BGR颜色转换为十六进制颜色代码"""
+    """Convert a BGR color to a hex color."""
     try:
         b, g, r = bgr_color
         return f"#{r:02x}{g:02x}{b:02x}"
     except Exception as e:
-        print(f"❌ 无法转换颜色格式: {e}")
+        print(f"鉂?鏃犳硶杞崲棰滆壊鏍煎紡: {e}")
         return None
 
 def extract_chart_series_color(image_path):
-    """提取图表中数据系列的主要颜色（同步版本）"""
+    """Extract the main data-series color from a chart."""
     try:
-        print(f"📊 处理图表: {image_path}")
+        print(f"馃搳 澶勭悊鍥捐〃: {image_path}")
 
-        print("🔍 AI识别图例项及颜色...")
+        print("馃攳 AI璇嗗埆鍥句緥椤瑰強棰滆壊...")
         legend_items = recognize_legend_items(image_path)
 
         if legend_items and len(legend_items) > 0:
-            print(f"✅ 成功提取{len(legend_items)}个图例项及颜色")
+            print(f"Extracted {len(legend_items)} legend items")
             for item in legend_items:
                 print(f"   {item.get('name', 'Unknown')}: {item.get('color', 'N/A')}")
             return legend_items
         else:
-            print("⚠️ AI识别失败，使用默认颜色")
-            return [{'name': '系列1', 'color': '#1f77b4'}]
+            print("Legend recognition failed; using a default color")
+            return [{'name': '绯诲垪1', 'color': '#1f77b4'}]
 
     except Exception as e:
-        print(f"❌ 提取图表颜色失败: {e}")
-        return [{'name': '系列1', 'color': '#1f77b4'}]
+        print(f"鉂?鎻愬彇鍥捐〃棰滆壊澶辫触: {e}")
+        return [{'name': '绯诲垪1', 'color': '#1f77b4'}]
 
 def extract_point_chart_items(image_path):
     """Extract prediction targets for scatter/bubble charts.
@@ -431,7 +417,7 @@ def extract_point_chart_items(image_path):
     """
     point_items = recognize_point_items(image_path)
     if point_items:
-        print(f"鉁?鎴愬姛鎻愬彇{len(point_items)}涓暟鎹偣鏍囩")
+        print(f"Detected {len(point_items)} point labels")
         return point_items
     return extract_chart_series_color(image_path)
 
@@ -439,18 +425,18 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         image_path = sys.argv[1]
     else:
-        image_path = input("请输入测试图表路径: ")
+        image_path = input("璇疯緭鍏ユ祴璇曞浘琛ㄨ矾寰? ")
 
     if not os.path.exists(image_path):
-        print(f"❌ 图表文件不存在: {image_path}")
+        print(f"鉂?鍥捐〃鏂囦欢涓嶅瓨鍦? {image_path}")
         sys.exit(1)
 
     series_colors = extract_chart_series_color(image_path)
 
     if series_colors:
-        print(f"\n📋 最终结果:")
+        print(f"\n馃搵 鏈€缁堢粨鏋?")
         if len(series_colors) == 1:
-            print(f"   图表系列颜色: {series_colors[0]['color']}")
+            print(f"   鍥捐〃绯诲垪棰滆壊: {series_colors[0]['color']}")
         else:
             for i, item in enumerate(series_colors, 1):
-                print(f"   系列{i}: {item['name']} - {item['color']}")
+                print(f"   绯诲垪{i}: {item['name']} - {item['color']}")

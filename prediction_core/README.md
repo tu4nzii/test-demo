@@ -38,20 +38,22 @@ The unified CLI accepts:
 
 ## Model Configuration
 
-Model configuration is centralized in `model_config.py`.
+Model/API configuration is centralized in `prediction_core/model_config.py` and
+shared by the backend through `model_api_config.py`.
 
-Current defaults:
+Use one profile to switch the whole system:
 
-- `CHART_BASE_URL`: `http://dsiclab-model.ic.h3i.buaa.edu.cn/v1`
-- `CHART_MODEL_NAME`: `gpt-5.3-codex`
-- `CHART_API_KEY`: if not set, `model_config.py` contains the current default
-  key requested for this project.
+```powershell
+$env:CHART_MODEL_PROFILE="dsiclab_gpt54"  # current default
+$env:CHART_MODEL_PROFILE="vveai_gpt41"    # original vveai gpt-4.1
+$env:CHART_MODEL_PROFILE="vveai_gemini"   # original vveai gemini-2.5-pro
+```
 
-Environment variables always take precedence:
+Environment variables always take precedence over a profile:
 
 ```powershell
 $env:CHART_BASE_URL="http://host/v1"
-$env:CHART_MODEL_NAME="gpt-5.3-codex"
+$env:CHART_MODEL_NAME="gpt-5.4"
 $env:CHART_API_KEY="<your key>"
 ```
 

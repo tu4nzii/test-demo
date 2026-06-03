@@ -1,4 +1,4 @@
-import base64
+﻿import base64
 import json
 import re
 
@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 import requests
 
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 from type_detection.chart_registry import (
     DEFAULT_CHART_TYPE,
     SUPPORTED_CHART_TYPES,
@@ -19,12 +20,9 @@ class ChartTypeDetector:
     """Detect chart type and optional missing-axis repair hints with an MLLM."""
 
     def __init__(self):
-        self.api_key = "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}",
-        }
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
         self.supported_types = SUPPORTED_CHART_TYPES
 
     def extract_json_response(self, content: str):
@@ -135,7 +133,7 @@ Rules:
 """
 
             payload = {
-                "model": "gpt-4.1",
+                "model": self.model_name,
                 "messages": [
                     {
                         "role": "user",

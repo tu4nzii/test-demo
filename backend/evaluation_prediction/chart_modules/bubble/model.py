@@ -15,6 +15,11 @@ from ...common.model_config import get_chat_completion_urls, get_headers, get_mo
 from .parser import extract_coords
 
 
+JSON_ONLY_SYSTEM_PROMPT = (
+    "You are a precise chart-reading assistant. Always return only valid JSON. "
+    "Do not include Markdown fences, explanations, or prose."
+)
+
 DEFAULT_LEGACY_URLS = [
     "http://localhost:8200/v1/chat/completions",
     "http://localhost:8201/v1/chat/completions",
@@ -75,6 +80,7 @@ class PointModelClient:
         return {
             "model": self.model_name,
             "messages": [
+                {"role": "system", "content": JSON_ONLY_SYSTEM_PROMPT},
                 {
                     "role": "user",
                     "content": [
@@ -84,6 +90,9 @@ class PointModelClient:
                 }
             ],
             "max_tokens": 512,
+            "max_completion_tokens": 512,
+            "temperature": 0,
+            "response_format": {"type": "json_object"},
         }
 
     async def call_text(self, prompt: str, image_path: Path, label: str) -> str | None:

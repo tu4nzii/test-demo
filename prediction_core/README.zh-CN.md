@@ -34,19 +34,21 @@ python -m prediction_core.run_chart scatter --chart-ids scatter_001 --batch-size
 
 ## 模型配置
 
-模型配置集中在 `model_config.py`。
+模型/API 配置集中在 `prediction_core/model_config.py`，后端通过 `model_api_config.py` 共享同一套配置。
 
-当前默认值：
+用一个 profile 即可切换全系统模型：
 
-- `CHART_BASE_URL`: `http://dsiclab-model.ic.h3i.buaa.edu.cn/v1`
-- `CHART_MODEL_NAME`: `gpt-5.3-codex`
-- `CHART_API_KEY`: 如果环境变量未设置，`model_config.py` 中包含本项目当前使用的默认 key。
+```powershell
+$env:CHART_MODEL_PROFILE="dsiclab_gpt54"  # 当前默认
+$env:CHART_MODEL_PROFILE="vveai_gpt41"    # 原 vveai gpt-4.1
+$env:CHART_MODEL_PROFILE="vveai_gemini"   # 原 vveai gemini-2.5-pro
+```
 
-环境变量始终优先：
+环境变量始终优先于 profile：
 
 ```powershell
 $env:CHART_BASE_URL="http://host/v1"
-$env:CHART_MODEL_NAME="gpt-5.3-codex"
+$env:CHART_MODEL_NAME="gpt-5.4"
 $env:CHART_API_KEY="<your key>"
 ```
 

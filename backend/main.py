@@ -32,6 +32,7 @@ from type_detection.chart_processor import ChartProcessorFactory  # noqa: E402
 from type_detection.chart_registry import DEFAULT_CHART_TYPE, get_coordinate_system, normalize_chart_type  # noqa: E402
 from type_detection.chart_type import ChartTypeDetector  # noqa: E402
 from evaluation_prediction.service import SUPPORTED_PREDICTION_TYPES, run_prediction_async  # noqa: E402
+from demo_radar.color import RadarColorMatcher  # noqa: E402
 
 
 app = FastAPI(title="Chart Analysis API")
@@ -244,6 +245,36 @@ def generated_json_path(chart_info: Dict[str, Any], output_dir: Path) -> Path:
     return output_dir / f"{Path(chart_info['image_path']).stem}.json"
 
 
+def ensure_radar_series_color(data: Dict[str, Any], chart_info: Dict[str, Any], output_dir: Path) -> None:
+    if chart_info.get("chart_type") != "radar":
+        return
+    current = data.get("series_color")
+    if isinstance(current, dict) and current:
+        return
+
+    try:
+        matcher = RadarColorMatcher()
+        matcher.output_dir = str(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        result = matcher.extract_legend_series_colors(chart_info["image_path"], use_auto_crop=True)
+    except Exception as error:
+        print(f"Radar series-color extraction skipped: {safe_error_message(error)}")
+        return
+
+    if not isinstance(result, dict):
+        return
+    series_color = result.get("series_color") or result.get("entity_colors")
+    if isinstance(series_color, dict) and series_color:
+        data["series_color"] = {str(name): str(color) for name, color in series_color.items() if name and color}
+        data["colors"] = [
+            {"name": str(name), "color": str(color)}
+            for name, color in data["series_color"].items()
+        ]
+        if result.get("legend_path"):
+            data["legend_path"] = str(Path(result["legend_path"]).absolute())
+        print(f"Radar series_color extracted from image: {data['series_color']}")
+
+
 def enrich_generated_json(
     chart_info: Dict[str, Any],
     output_dir: Path,
@@ -257,6 +288,7 @@ def enrich_generated_json(
         preserve_data=chart_info["chart_type"] in {"pie", "donut"},
         preserve_series_color=chart_info["chart_type"] in {"radar", "rose"},
     )
+    ensure_radar_series_color(generated_data, chart_info, output_dir)
 
     generated_data.update(
         {
@@ -371,6 +403,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
                 preserve_data=chart_info["chart_type"] in {"pie", "donut"},
                 preserve_series_color=chart_info["chart_type"] in {"radar", "rose"},
             )
+            ensure_radar_series_color(data, chart_info, output_dir)
             write_json(path, data)
             return path
 

@@ -33,6 +33,19 @@ def _valid_prediction(pred: tuple[Any, Any]) -> bool:
         return False
 
 
+def _fallback_numeric_center(ticks: list[Any]) -> float | None:
+    values: list[float] = []
+    for tick in ticks:
+        try:
+            values.append(float(tick))
+        except Exception:
+            continue
+    if not values:
+        return None
+    values.sort()
+    return (values[0] + values[-1]) / 2
+
+
 def _record(
     *,
     dataset: dict[str, Any],
@@ -134,19 +147,35 @@ async def _run_target(
                 )
 
             if prompt_type == "amplifier":
-                center_value = float(feedback_pred[1]) if feedback_pred and _valid_prediction(feedback_pred) else target.gt_y
-                used_image, visible_ticks, _ = crop_bar_window(
-                    chart_id=dataset["chart_id"],
-                    image_path=image_path(dataset, "grid_with_grid"),
-                    point_name=target.point_name,
-                    x_label=target.x_label,
-                    center_value=center_value,
-                    x_ticks=dataset["x_ticks"],
-                    x_pixels=dataset["x_pixels"],
-                    y_ticks=dataset["y_ticks"],
-                    y_pixels=dataset["y_pixels"],
-                    round_index=run_idx,
+                center_value = (
+                    float(feedback_pred[1])
+                    if feedback_pred and _valid_prediction(feedback_pred)
+                    else target.gt_y
                 )
+                if center_value is None:
+                    center_value = _fallback_numeric_center(dataset["y_ticks"])
+
+                if center_value is None:
+                    print("[v_bar runner] Skip amplifier crop: no numeric center is available.")
+                else:
+                    try:
+                        used_image, visible_ticks, _ = crop_bar_window(
+                            chart_id=dataset["chart_id"],
+                            image_path=image_path(dataset, "grid_with_grid"),
+                            point_name=target.point_name,
+                            x_label=target.x_label,
+                            center_value=center_value,
+                            x_ticks=dataset["x_ticks"],
+                            x_pixels=dataset["x_pixels"],
+                            y_ticks=dataset["y_ticks"],
+                            y_pixels=dataset["y_pixels"],
+                            round_index=run_idx,
+                        )
+                    except Exception as exc:
+                        used_image = image_path(dataset, "grid_with_grid")
+                        visible_ticks = None
+                        print(f"[v_bar runner] Amplifier crop failed, use full grid image: {exc}")
+
                 exists_prompt = build_color_prompt(target.point_name, dataset["series_color"])
                 exists = await client.check_exists(exists_prompt, used_image)
                 print(f"[v_bar runner] amplifier crop contains target={exists}")

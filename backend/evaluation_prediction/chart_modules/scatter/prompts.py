@@ -19,8 +19,11 @@ def build_point_exists_prompt(point_name: str, mark_name: str, visual_name: str 
     if visual_name and visual_name != point_name:
         target_text += f", shown in the legend as [{visual_name}]"
     return (
-        f"You are given a cropped chart image around the target {mark} {target_text}. "
-        f"Please check if the {mark} corresponding to {target_text} is visible in this cropped region. "
+        f"You are given a cropped scatter/bubble chart image. Determine whether the plotted {mark} "
+        f"corresponding specifically to {target_text} is visible in this crop. "
+        f"Return true only if the target label/legend identity {target_text} is visible, or the visible mark can be "
+        f"unambiguously matched to that identity. If the crop only shows other labels, partial unrelated marks, "
+        f"axis ticks, grid labels, titles, or annotations, return false. "
         "Only respond with a JSON object like: {\"exists\": true} or {\"exists\": false}."
     )
 
@@ -38,12 +41,21 @@ def generate_prompt(
     x_tick_str = _format_ticks(x_ticks)
     y_tick_str = _format_ticks(y_ticks)
     mark = _mark_phrase(mark_name)
+    json_contract = (
+        f'CRITICAL OUTPUT RULE: Return only valid JSON and nothing else. '
+        f'Do not write explanations, Markdown fences, or prose. '
+        f'The complete response must be exactly one JSON object like this: '
+        f'{{"datapoints": [{{"{item_name}": [x, y]}}]}}. '
+        f'Use numeric x and y values; if uncertain, make the best estimate.'
+    )
     visual_hint = ""
     if visual_name and visual_name != item_name:
         visual_hint = f"The target id [{item_name}] is shown in the chart legend/label as [{visual_name}]."
 
     if prompt_type == "baseline":
         base_prompt = f"""
+        {json_contract}
+
         You are given a chart image.
         Please extract the coordinates of the {mark} which represents [{item_name}].
         {visual_hint}
@@ -52,6 +64,8 @@ def generate_prompt(
         """
     elif prompt_type in {"grid", "feedback", "feedback_crop_adaptive"}:
         base_prompt = f"""
+        {json_contract}
+
         You are analyzing a chart that includes reference grid lines aligned with these axis ticks:
         - X-axis ticks: [{x_tick_str}]
         - Y-axis ticks: [{y_tick_str}]
@@ -59,6 +73,7 @@ def generate_prompt(
         Locate the visual center of the {mark} representing [{item_name}].
         {visual_hint}
         Estimate its (x, y) data coordinates by interpolating between adjacent grid lines.
+        Read the center of the plotted {mark}, not the text label attached to it.
         """
         if prompt_type == "feedback" and pred_feedback is not None:
             base_prompt += f"""
@@ -68,13 +83,13 @@ def generate_prompt(
             """
         if prompt_type == "feedback_crop_adaptive":
             base_prompt += """
-            This image is a cropped region around the target. Use the visible tick labels and grid lines in the crop.
+            This image is a cropped region around the target. Use only the visible tick labels and grid lines
+            inside this crop. The crop may include one or more nearby labels, so first identify the mark whose
+            visible label/legend identity is [{item_name}], then interpolate the center of that mark.
+            Return the original chart data coordinates indicated by the red tick labels and grid lines.
+            Do not return crop pixel coordinates, resized-image pixel coordinates, or relative positions inside the crop.
             """
     else:
         raise ValueError(f"Unknown prompt_type: {prompt_type}")
 
-    base_prompt += f"""
-    Only respond in this JSON format:
-    {{"datapoints": [{{"{item_name}": [x, y]}}]}}
-    """
     return base_prompt

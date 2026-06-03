@@ -228,7 +228,7 @@ def _use_circular_model_fallback() -> bool:
         return False
     if os.getenv("POLAR_CHART_MODEL_NAME") or os.getenv("CHART_MODEL_NAME") or use_legacy_pixtral():
         return False
-    return get_model_name().strip().lower() == "gpt-5.3-codex"
+    return get_model_name().strip().lower() == "gpt-5.4"
 
 
 def extract_radial_value(parsed: Any, point_name: str) -> float | None:
@@ -447,7 +447,13 @@ async def run_polar_experiment(
                     for result in await asyncio.gather(*tasks):
                         records.extend(result)
                 predictions = select_predictions(records)
-                if not predictions:
+                expected_points = {target.point_name for target in targets}
+                predicted_points = {str(item.get("id")) for item in predictions}
+                needs_fallback = (
+                    not predictions
+                    or bool(expected_points and not expected_points.issubset(predicted_points))
+                )
+                if needs_fallback:
                     fallback_records = await _run_whole_chart(client, dataset, chart_type, repeat_times)
                     records.extend(fallback_records)
                     predictions = select_predictions(records)

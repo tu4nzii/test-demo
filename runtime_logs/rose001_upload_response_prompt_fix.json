@@ -1,0 +1,1 @@
+﻿{"chart_id":"9468b646-d95f-487f-b177-20e8ca44468d","chart_type":"rose","coordinate_system":"polar","confidence":1.0,"axis_repair":{"x_axis_missing":true,"y_axis_missing":true,"x_ticks_missing":true,"y_ticks_missing":true,"confidence":1.0,"reason":"Rose chart (Nightingale rose) uses polar sectors, lacks traditional x/y axes and tick marks."},"has_gt_json":false}
