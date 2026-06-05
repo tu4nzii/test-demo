@@ -566,6 +566,222 @@ def infer_tick_pixels_from_gridlines(lines, x_axis, y_axis, direction, image_sha
     return pixels
 
 
+def _group_projection_peaks(scores, *, min_score=0.08, max_gap=3):
+    peak_indices = [index for index, score in enumerate(scores) if score >= min_score]
+    if not peak_indices:
+        return []
+
+    groups = []
+    for index in peak_indices:
+        if not groups or index - groups[-1][-1] > max_gap:
+            groups.append([index])
+        else:
+            groups[-1].append(index)
+
+    peaks = []
+    for group in groups:
+        weights = np.array([float(scores[index]) for index in group])
+        if float(weights.sum()) <= 0:
+            center = int(round(sum(group) / len(group)))
+        else:
+            center = int(round(float(np.average(group, weights=weights))))
+        peaks.append((center, float(max(weights)), len(group)))
+    return peaks
+
+
+def infer_point_chart_grid_pixels_by_projection(img, x_axis, y_axis, direction, expected_count=None):
+    """Detect faint dashed plot gridlines by projecting light gray pixels.
+
+    This is a fallback for point charts where Hough-based tick detection locks on
+    to bubble/text fragments instead of the real dashed grid. It deliberately
+    looks only inside the plot area and is used only after the ordinary tick
+    result is found to be suspicious.
+    """
+    if img is None or x_axis is None or y_axis is None:
+        return []
+
+    h, w = img.shape[:2]
+    axis_x = _axis_x(y_axis)
+    axis_y = _axis_y(x_axis)
+    plot_top = max(0, min(int(y_axis[1]), int(y_axis[3])))
+    plot_bottom = min(h - 1, max(axis_y, int(y_axis[1]), int(y_axis[3])))
+    if plot_bottom - plot_top < max(40, h * 0.15):
+        return []
+
+    b, g, r = cv2.split(img)
+    maxc = np.maximum.reduce([r, g, b])
+    minc = np.minimum.reduce([r, g, b])
+    gray_grid_mask = (maxc - minc <= 12) & (maxc >= 180) & (maxc <= 245)
+
+    direction = (direction or "").lower()
+    if direction == "x":
+        y1 = max(0, plot_top)
+        y2 = min(h, plot_bottom + 1)
+        x1 = max(0, axis_x - 12)
+        x2 = min(w, int(round(w * 0.88)))
+        if y2 <= y1 or x2 <= x1:
+            return []
+        scores = gray_grid_mask[y1:y2, x1:x2].mean(axis=0)
+        if len(scores) >= 3:
+            scores = np.convolve(scores, np.ones(3) / 3, mode="same")
+        peaks = _group_projection_peaks(scores, min_score=0.08, max_gap=3)
+        pixels = [x1 + center for center, score, width in peaks if width <= 10]
+        pixels = sorted(_dedupe_pixels(pixels))
+    elif direction == "y":
+        x_grid = infer_point_chart_grid_pixels_by_projection(
+            img, x_axis, y_axis, "x", expected_count=None
+        )
+        x1 = min(x_grid) if len(x_grid) >= 2 else max(0, axis_x - 4)
+        x2 = max(x_grid) if len(x_grid) >= 2 else min(w - 1, max(int(x_axis[0]), int(x_axis[2])))
+        x1 = max(0, x1)
+        x2 = min(w, x2 + 1)
+        y1 = max(0, plot_top)
+        y2 = min(h, plot_bottom - max(18, int(round((plot_bottom - plot_top) * 0.06))))
+        if y2 <= y1 or x2 <= x1:
+            return []
+        scores = gray_grid_mask[y1:y2, x1:x2].mean(axis=1)
+        if len(scores) >= 3:
+            scores = np.convolve(scores, np.ones(3) / 3, mode="same")
+        peaks = _group_projection_peaks(scores, min_score=0.08, max_gap=3)
+        pixels = [y1 + center for center, score, width in peaks if width <= 12]
+        pixels = sorted(_dedupe_pixels(pixels), reverse=True)
+    else:
+        return []
+
+    if expected_count and len(pixels) > expected_count:
+        if direction == "x":
+            pixels = pixels[:expected_count]
+        else:
+            pixels = pixels[:expected_count]
+    return pixels
+
+
+def point_chart_tick_pixels_are_suspicious(pixel_positions, axis, direction, expected_count):
+    if axis is None or expected_count is None or expected_count < 2:
+        return False
+    if len(pixel_positions or []) < 2:
+        return True
+
+    if direction == "x":
+        axis_span = abs(int(axis[2]) - int(axis[0]))
+        pixel_span = max(pixel_positions) - min(pixel_positions)
+    else:
+        axis_span = abs(int(axis[3]) - int(axis[1]))
+        pixel_span = max(pixel_positions) - min(pixel_positions)
+
+    if axis_span <= 0:
+        return False
+    if len(pixel_positions) != expected_count and pixel_span < axis_span * 0.85:
+        return True
+    return pixel_span < axis_span * 0.35
+
+
+def _regular_grid_pixels(values, *, min_count=4):
+    pixels = sorted(_dedupe_pixels(values))
+    if len(pixels) < min_count:
+        return []
+
+    gaps = [pixels[index + 1] - pixels[index] for index in range(len(pixels) - 1)]
+    usable_gaps = [gap for gap in gaps if gap >= 8]
+    if not usable_gaps:
+        return []
+    median_gap = float(np.median(usable_gaps))
+    if median_gap <= 0:
+        return []
+
+    groups = [[pixels[0]]]
+    for previous, current in zip(pixels, pixels[1:]):
+        gap = current - previous
+        if median_gap * 0.45 <= gap <= median_gap * 2.25:
+            groups[-1].append(current)
+        else:
+            groups.append([current])
+
+    groups = [group for group in groups if len(group) >= min_count]
+    if not groups:
+        return []
+    return max(groups, key=len)
+
+
+def refine_point_chart_axes_from_gridlines(lines, x_axis, y_axis, chart_type, image_shape):
+    """Recover scatter/bubble plot bounds when an internal gridline is mistaken for an axis.
+
+    Some real-world bubble charts render faint axes and stronger internal grid
+    lines. The generic axis scorer can then choose an internal vertical gridline
+    as the y-axis. This correction is intentionally conservative: it only runs
+    for point charts with a regular grid and only changes axes when the inferred
+    plot boundary is substantially different from the current axis.
+    """
+    chart_type = (chart_type or "").lower()
+    if chart_type not in {"scatter", "bubble"} or x_axis is None or y_axis is None:
+        return x_axis, y_axis, False
+
+    h, w = image_shape[:2]
+    verticals = []
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(value) for value in line]
+        if abs(x1 - x2) > 4:
+            continue
+        top, bottom = sorted([y1, y2])
+        length = bottom - top
+        if length < h * 0.45:
+            continue
+        if top > h * 0.35 or bottom < h * 0.55:
+            continue
+        x = int(round((x1 + x2) / 2))
+        verticals.append((x, top, bottom))
+
+    x_grid = _regular_grid_pixels([item[0] for item in verticals], min_count=4)
+    if len(x_grid) < 4:
+        return x_axis, y_axis, False
+
+    grid_left, grid_right = min(x_grid), max(x_grid)
+    grid_width = grid_right - grid_left
+    if grid_width < w * 0.25:
+        return x_axis, y_axis, False
+
+    relevant_verticals = [item for item in verticals if grid_left - 3 <= item[0] <= grid_right + 3]
+    vertical_top = int(np.percentile([item[1] for item in relevant_verticals], 25))
+    vertical_bottom = int(np.percentile([item[2] for item in relevant_verticals], 50))
+
+    horizontals = []
+    for line in lines or []:
+        x1, y1, x2, y2 = [int(value) for value in line]
+        if abs(y1 - y2) > 4:
+            continue
+        left, right = sorted([x1, x2])
+        y = int(round((y1 + y2) / 2))
+        if y < vertical_top - 8 or y > vertical_bottom + max(12, int(h * 0.05)):
+            continue
+        overlap = max(0, min(right, grid_right) - max(left, grid_left))
+        if overlap < grid_width * 0.55:
+            continue
+        horizontals.append((left, right, y))
+
+    y_grid = _regular_grid_pixels([item[2] for item in horizontals], min_count=4)
+    if len(y_grid) < 4:
+        return x_axis, y_axis, False
+
+    candidate_top = min(y_grid)
+    candidate_bottom = max(y_grid)
+    candidate_left = grid_left
+    candidate_right = int(np.median([item[1] for item in horizontals if item[2] in set(y_grid)]))
+
+    current_left = _axis_x(y_axis)
+    current_bottom = _axis_y(x_axis)
+    left_shift = abs(current_left - candidate_left)
+    bottom_shift = abs(current_bottom - candidate_bottom)
+    if left_shift < max(18, grid_width * 0.06) and bottom_shift < max(10, h * 0.025):
+        return x_axis, y_axis, False
+
+    if candidate_right <= candidate_left or candidate_bottom <= candidate_top:
+        return x_axis, y_axis, False
+
+    repaired_x_axis = [candidate_left, candidate_bottom, candidate_right, candidate_bottom]
+    repaired_y_axis = [candidate_left, candidate_bottom, candidate_left, candidate_top]
+    return repaired_x_axis, repaired_y_axis, True
+
+
 def apply_bar_geometry_repair_hint(
     chart_type,
     axis_repair_hint,
@@ -1127,6 +1343,17 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         
         # 4. 检测刻度线
         logger.debug("开始检测刻度线...")
+        x_axis, y_axis, point_axes_refined = refine_point_chart_axes_from_gridlines(
+            merged_lines, x_axis, y_axis, chart_type, img.shape
+        )
+        if point_axes_refined:
+            repair_applied["axis_refined_from_gridlines"] = True
+            logger.debug(
+                "Point-chart axes refined from gridlines: X轴=%s, Y轴=%s",
+                x_axis,
+                y_axis,
+            )
+
         x_raw_ticks = scan_pixels_for_ticks(img, x_axis, direction='x', scan_range=20)
         y_raw_ticks = scan_pixels_for_ticks(img, y_axis, direction='y', scan_range=20)
         if chart_type in {"scatter", "bubble"}:
@@ -1311,6 +1538,50 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
             if len(repaired_y_pixels) >= _required_tick_count(chart_type, "y"):
                 y_pixel_positions = repaired_y_pixels
                 repair_applied["y_ticks"] = True
+
+    if chart_type in {"scatter", "bubble"} and repair_applied.get("axis_refined_from_gridlines"):
+        if x_axis_type == NUMERIC_AXIS_TYPE and len(x_ticks_values or []) >= 2:
+            x_start, x_end = sorted([int(x_axis[0]), int(x_axis[2])])
+            x_pixel_positions = [int(round(value)) for value in np.linspace(x_start, x_end, len(x_ticks_values))]
+            repair_applied["x_ticks_refined_from_axis"] = True
+        if y_axis_type == NUMERIC_AXIS_TYPE and len(y_ticks_values or []) >= 2:
+            y_low, y_high = sorted([int(y_axis[1]), int(y_axis[3])])
+            y_pixel_positions = [int(round(value)) for value in np.linspace(y_high, y_low, len(y_ticks_values))]
+            repair_applied["y_ticks_refined_from_axis"] = True
+
+    if chart_type in {"scatter", "bubble"}:
+        if (
+            x_axis_type == NUMERIC_AXIS_TYPE
+            and point_chart_tick_pixels_are_suspicious(
+                x_pixel_positions, x_axis, "x", len(x_ticks_values or [])
+            )
+        ):
+            projected_x_pixels = infer_point_chart_grid_pixels_by_projection(
+                img, x_axis, y_axis, "x", expected_count=len(x_ticks_values or [])
+            )
+            if len(projected_x_pixels) >= max(2, min(len(x_ticks_values or []), 3)):
+                x_pixel_positions = projected_x_pixels
+                repair_applied["x_ticks_refined_from_projection_grid"] = True
+                logger.debug(
+                    "Point-chart X ticks refined from projection grid: %s",
+                    x_pixel_positions,
+                )
+        if (
+            y_axis_type == NUMERIC_AXIS_TYPE
+            and point_chart_tick_pixels_are_suspicious(
+                y_pixel_positions, y_axis, "y", len(y_ticks_values or [])
+            )
+        ):
+            projected_y_pixels = infer_point_chart_grid_pixels_by_projection(
+                img, x_axis, y_axis, "y", expected_count=len(y_ticks_values or [])
+            )
+            if len(projected_y_pixels) >= max(2, min(len(y_ticks_values or []), 3)):
+                y_pixel_positions = projected_y_pixels
+                repair_applied["y_ticks_refined_from_projection_grid"] = True
+                logger.debug(
+                    "Point-chart Y ticks refined from projection grid: %s",
+                    y_pixel_positions,
+                )
 
     if (
         axis_repair_hint.get("x_ticks_missing")

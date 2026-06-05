@@ -1322,5 +1322,11 @@
   ],
   "x_pixels": [],
   "y_pixels": [],
-  "series_color": {}
+  "series_color": {},
+  "source": {
+    "dataset": "ExChart",
+    "note": "Filtered from ExChart and organized under data/realworldcharts.",
+    "csv": "bubble/BubbleChart9.csv",
+    "image": "bubble/BubbleChart9.png"
+  }
 }

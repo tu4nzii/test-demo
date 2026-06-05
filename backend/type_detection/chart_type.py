@@ -80,6 +80,23 @@ class ChartTypeDetector:
         except (TypeError, ValueError):
             confidence = 0.0
 
+        radar_grid = result.get("radar_grid") if isinstance(result, dict) else None
+        if not isinstance(radar_grid, dict):
+            radar_grid = repair.get("radar_grid") if isinstance(repair, dict) else None
+        if not isinstance(radar_grid, dict):
+            radar_grid = {}
+        radar_grid_shape = str(
+            radar_grid.get("shape", repair.get("radar_grid_shape", "unknown"))
+        ).strip().lower()
+        if radar_grid_shape not in {"polygon", "circular", "unknown"}:
+            radar_grid_shape = "unknown"
+        try:
+            radar_grid_confidence = float(
+                radar_grid.get("confidence", repair.get("radar_grid_confidence", 0))
+            )
+        except (TypeError, ValueError):
+            radar_grid_confidence = 0.0
+
         return {
             "x_axis_missing": as_bool(repair.get("x_axis_missing", repair.get("x", False))),
             "y_axis_missing": as_bool(repair.get("y_axis_missing", repair.get("y", False))),
@@ -87,6 +104,8 @@ class ChartTypeDetector:
             "y_ticks_missing": as_bool(repair.get("y_ticks_missing", False)),
             "confidence": max(0.0, min(1.0, confidence)),
             "reason": str(repair.get("reason", "") or ""),
+            "radar_grid_shape": radar_grid_shape,
+            "radar_grid_confidence": max(0.0, min(1.0, radar_grid_confidence)),
         }
 
     def default_axis_repair(self, reason=""):
@@ -97,6 +116,8 @@ class ChartTypeDetector:
             "y_ticks_missing": False,
             "confidence": 0.0,
             "reason": reason,
+            "radar_grid_shape": "unknown",
+            "radar_grid_confidence": 0.0,
         }
 
     def detect_chart_type(self, image_path):
@@ -120,6 +141,11 @@ Return strict JSON only:
     "y_ticks_missing": <true_or_false>,
     "confidence": <number between 0 and 1>,
     "reason": "<short reason>"
+  }},
+  "radar_grid": {{
+    "shape": "polygon" | "circular" | "unknown",
+    "confidence": <number between 0 and 1>,
+    "reason": "<short reason>"
   }}
 }}
 
@@ -130,6 +156,9 @@ Rules:
 - Be conservative: for normal charts with visible axes/ticks, set every
   axis_repair flag to false.
 - Missing tick labels alone are not a repair signal here.
+- For radar charts only, set radar_grid.shape to "polygon" when the grid/rings
+  are straight-edged polygons, "circular" when the rings are circular, otherwise
+  "unknown". For non-radar charts, use "unknown".
 """
 
             payload = {
@@ -146,7 +175,7 @@ Rules:
                         ],
                     }
                 ],
-                "max_tokens": 700,
+                "max_tokens": 900,
             }
 
             response = requests.post(self.url, headers=self.headers, data=json.dumps(payload))

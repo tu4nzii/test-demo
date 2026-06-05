@@ -108,6 +108,13 @@ class RadarChartProcessor(PolarChartProcessor):
     encoder_cls = RadarChartEncoder
     axis_finder_cls = RadarChartAxisFinder
 
+    def encode_image(self, image_path: str, output_dir: str, axis_repair_hint: Optional[Dict[str, Any]] = None) -> Optional[str]:
+        return self.encoder_cls().process_single_image(
+            image_path,
+            output_dir,
+            radar_grid_hint=axis_repair_hint,
+        )
+
 
 class CircularAngleChartProcessor(BaseChartProcessor):
     coordinate_system = CoordinateSystem.POLAR.value
