@@ -7,6 +7,8 @@ import sys
 import asyncio
 import aiohttp
 import base64
+import itertools
+import math
 from glob import glob
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -654,6 +656,330 @@ def infer_point_chart_grid_pixels_by_projection(img, x_axis, y_axis, direction, 
         else:
             pixels = pixels[:expected_count]
     return pixels
+
+
+def infer_point_chart_grid_pixels_for_missing_axes(img, direction):
+    """Infer candidate plot gridlines without trusting detected axis lines.
+
+    Real-world point charts often omit both axis strokes while keeping a light
+    background grid. This projection is only used inside the missing-axis repair
+    path, so regular dataset charts with visible axes keep the established flow.
+    """
+    if img is None:
+        return []
+
+    h, w = img.shape[:2]
+    b, g, r = cv2.split(img)
+    maxc = np.maximum.reduce([r, g, b])
+    minc = np.minimum.reduce([r, g, b])
+    gray_grid_mask = (maxc - minc <= 12) & (maxc >= 180) & (maxc <= 245)
+
+    direction = (direction or "").lower()
+    if direction == "x":
+        x1 = max(0, int(round(w * 0.04)))
+        x2 = min(w, int(round(w * 0.88)))
+        y1 = max(0, int(round(h * 0.20)))
+        y2 = min(h, int(round(h * 0.80)))
+        if y2 <= y1 or x2 <= x1:
+            return []
+        scores = gray_grid_mask[y1:y2, x1:x2].mean(axis=0)
+        if len(scores) >= 3:
+            scores = np.convolve(scores, np.ones(3) / 3, mode="same")
+        peaks = _group_projection_peaks(scores, min_score=0.075, max_gap=3)
+        pixels = [x1 + center for center, score, width in peaks if width <= 12]
+        return sorted(_dedupe_pixels(pixels))
+
+    if direction == "y":
+        x_candidates = infer_point_chart_grid_pixels_for_missing_axes(img, "x")
+        if len(x_candidates) >= 2:
+            x1 = max(0, min(x_candidates) - 2)
+            x2 = min(w, max(x_candidates) + 3)
+        else:
+            x1 = max(0, int(round(w * 0.04)))
+            x2 = min(w, int(round(w * 0.88)))
+        y1 = max(0, int(round(h * 0.20)))
+        y2 = min(h, int(round(h * 0.82)))
+        if y2 <= y1 or x2 <= x1:
+            return []
+        scores = gray_grid_mask[y1:y2, x1:x2].mean(axis=1)
+        if len(scores) >= 3:
+            scores = np.convolve(scores, np.ones(3) / 3, mode="same")
+        peaks = _group_projection_peaks(scores, min_score=0.075, max_gap=3)
+        pixels = [y1 + center for center, score, width in peaks if width <= 14]
+        return sorted(_dedupe_pixels(pixels), reverse=True)
+
+    return []
+
+
+def _finite_numeric_sequence(values):
+    numeric = []
+    for value in values or []:
+        try:
+            number = float(value)
+        except (TypeError, ValueError):
+            return None
+        if not math.isfinite(number):
+            return None
+        numeric.append(number)
+    return numeric
+
+
+def _fit_tick_pixels(values, pixels, scale):
+    numeric = np.array(values, dtype=float)
+    candidate_pixels = np.array(pixels, dtype=float)
+    if len(numeric) != len(candidate_pixels) or len(numeric) < 2:
+        return float("inf")
+    if scale == "log":
+        if np.any(numeric <= 0):
+            return float("inf")
+        numeric = np.log10(numeric)
+    try:
+        coeff = np.polyfit(numeric, candidate_pixels, 1)
+        predicted = np.polyval(coeff, numeric)
+    except Exception:
+        return float("inf")
+    span = max(1.0, float(candidate_pixels.max() - candidate_pixels.min()))
+    return float(np.sqrt(np.mean((predicted - candidate_pixels) ** 2)) / span)
+
+
+def _values_prefer_log_scale(values):
+    numeric = _finite_numeric_sequence(values)
+    if not numeric or len(numeric) < 3 or any(value <= 0 for value in numeric):
+        return False
+    linear_gaps = np.diff(numeric)
+    log_gaps = np.diff(np.log10(numeric))
+    if np.any(linear_gaps == 0) or np.any(log_gaps == 0):
+        return False
+    linear_cv = float(np.std(np.abs(linear_gaps)) / max(1e-9, np.mean(np.abs(linear_gaps))))
+    log_cv = float(np.std(np.abs(log_gaps)) / max(1e-9, np.mean(np.abs(log_gaps))))
+    return linear_cv > 0.35 and log_cv < max(0.35, linear_cv * 0.55)
+
+
+def select_projected_tick_pixels_for_values(projected_pixels, tick_values, direction):
+    """Choose the gridline subset that best matches the visible tick labels."""
+    numeric = _finite_numeric_sequence(tick_values)
+    if not numeric or len(numeric) < 2:
+        return [], "linear"
+
+    direction = (direction or "").lower()
+    pixels = sorted(_dedupe_pixels(projected_pixels or []), reverse=(direction == "y"))
+    target_count = len(numeric)
+    if len(pixels) < target_count:
+        return [], "linear"
+    if len(pixels) == target_count:
+        scale = axis_scale_from_ticks_and_pixels(numeric, pixels)
+        return pixels, scale
+
+    scales = ["linear"]
+    if _values_prefer_log_scale(numeric):
+        scales.insert(0, "log")
+
+    best = None
+    total_combinations = math.comb(len(pixels), target_count)
+    if total_combinations > 20000:
+        # Keep the search bounded while preserving plot extremes and quantiles.
+        quantile_indices = {
+            int(round(value))
+            for value in np.linspace(0, len(pixels) - 1, min(len(pixels), target_count * 4))
+        }
+        pixels = [pixels[index] for index in sorted(quantile_indices)]
+
+    for combo in itertools.combinations(pixels, target_count):
+        for scale in scales:
+            score = _fit_tick_pixels(numeric, combo, scale)
+            if best is None or score < best[0]:
+                best = (score, scale, list(combo))
+
+    if best is None:
+        return [], "linear"
+    return best[2], best[1]
+
+
+def axis_scale_from_ticks_and_pixels(tick_values, pixel_positions):
+    numeric = _finite_numeric_sequence(tick_values)
+    if not numeric or len(numeric) < 3 or len(pixel_positions or []) != len(numeric):
+        return "linear"
+    if not _values_prefer_log_scale(numeric):
+        return "linear"
+    linear_score = _fit_tick_pixels(numeric, pixel_positions, "linear")
+    log_score = _fit_tick_pixels(numeric, pixel_positions, "log")
+    if log_score < linear_score * 0.65:
+        return "log"
+    return "linear"
+
+
+def _gray_grid_mask(img):
+    b, g, r = cv2.split(img)
+    maxc = np.maximum.reduce([r, g, b])
+    minc = np.minimum.reduce([r, g, b])
+    return (maxc - minc <= 12) & (maxc >= 180) & (maxc <= 245)
+
+
+def _mask_groups(values):
+    groups = []
+    for value in values:
+        value = int(value)
+        if not groups or value - groups[-1][-1] > 3:
+            groups.append([value])
+        else:
+            groups[-1].append(value)
+    return [(group[0], group[-1], len(group)) for group in groups if len(group) >= 2]
+
+
+def _regular_dash_span(groups):
+    if len(groups) < 6:
+        return None
+    centers = [int(round((left + right) / 2)) for left, right, _ in groups]
+    best = []
+    for start_index in range(len(groups)):
+        seq = [start_index]
+        last_center = centers[start_index]
+        for index in range(start_index + 1, len(groups)):
+            gap = centers[index] - last_center
+            if 5 <= gap <= 11:
+                seq.append(index)
+                last_center = centers[index]
+            elif gap > 16:
+                break
+        if len(seq) > len(best):
+            best = seq
+    if len(best) < 6:
+        return None
+    return groups[best[0]][0], groups[best[-1]][1]
+
+
+def _regular_dash_left_in_window(groups, min_left, max_left):
+    centers = [int(round((left + right) / 2)) for left, right, _ in groups]
+    for start_index, (left, _, _) in enumerate(groups):
+        if left < min_left or left > max_left:
+            continue
+        seq_len = 1
+        last_center = centers[start_index]
+        for index in range(start_index + 1, len(groups)):
+            gap = centers[index] - last_center
+            if 5 <= gap <= 11:
+                seq_len += 1
+                last_center = centers[index]
+            elif gap > 16:
+                break
+        if seq_len >= 6:
+            return int(left)
+    return None
+
+
+def infer_point_chart_plot_bounds_from_horizontal_grid(img, y_pixels, x_pixels):
+    """Estimate plot left/right from the dashed horizontal grid, not tick pixels."""
+    if img is None or len(y_pixels or []) < 2:
+        return None
+    h, w = img.shape[:2]
+    mask = _gray_grid_mask(img)
+    spans = []
+    left_edges = []
+    tick_min = min(x_pixels or [0])
+    tick_max = max(x_pixels or [w - 1])
+    min_left = max(0, int(round(w * 0.04)))
+    max_left = max(min_left, tick_min - max(35, int(round(w * 0.05))))
+    for y in y_pixels:
+        y = int(round(y))
+        band = mask[max(0, y - 2) : min(h, y + 3), :]
+        if band.size == 0:
+            continue
+        scores = band.mean(axis=0)
+        groups = _mask_groups(np.where(scores >= 0.2)[0])
+        left_edge = _regular_dash_left_in_window(groups, min_left, max_left)
+        if left_edge is not None:
+            left_edges.append(left_edge)
+        span = _regular_dash_span(groups)
+        if span is not None:
+            spans.append(span)
+    if not spans and not left_edges:
+        return None
+
+    left_candidates = [
+        left for left, right in spans
+        if left < tick_min - max(20, int(round(w * 0.03)))
+    ]
+    right_candidates = [
+        right for left, right in spans
+        if right > tick_max + max(10, int(round(w * 0.015)))
+    ]
+    plot_left = int(round(float(np.median(left_edges or left_candidates or [min(left for left, _ in spans)]))))
+    plot_right = int(round(float(np.median(right_candidates or [max(right for _, right in spans)]))))
+    if plot_right <= plot_left:
+        return None
+    return plot_left, plot_right
+
+
+def _vertical_grid_centers_near_x(mask, x_pixels, y_low, y_high):
+    h, w = mask.shape[:2]
+    centers = []
+    for x in x_pixels or []:
+        x = int(round(x))
+        band = mask[:, max(0, x - 2) : min(w, x + 3)]
+        if band.size == 0:
+            continue
+        scores = band.mean(axis=1)
+        groups = _mask_groups(np.where(scores >= 0.2)[0])
+        for top, bottom, width in groups:
+            center = int(round((top + bottom) / 2))
+            if y_low <= center <= y_high and width <= 10:
+                centers.append(center)
+    return centers
+
+
+def _supported_center_near_expected(centers, expected, tolerance=7):
+    if not centers:
+        return None
+    groups = []
+    for center in sorted(int(c) for c in centers):
+        if not groups or center - groups[-1][-1] > tolerance:
+            groups.append([center])
+        else:
+            groups[-1].append(center)
+    groups = [group for group in groups if len(group) >= 3]
+    if not groups:
+        return None
+    best = min(groups, key=lambda group: abs(float(np.median(group)) - expected))
+    return int(round(float(np.median(best))))
+
+
+def infer_point_chart_plot_vertical_bounds_from_grid(img, y_pixels, x_pixels):
+    """Estimate plot top/bottom from vertical grid extent around selected x ticks."""
+    if img is None or len(y_pixels or []) < 2 or len(x_pixels or []) < 2:
+        return None
+    sorted_y = sorted(int(round(value)) for value in y_pixels)
+    gaps = [sorted_y[index + 1] - sorted_y[index] for index in range(len(sorted_y) - 1)]
+    gaps = [gap for gap in gaps if gap > 4]
+    if not gaps:
+        return None
+    gap = float(np.median(gaps))
+    top_tick = min(sorted_y)
+    bottom_tick = max(sorted_y)
+    expected_top = top_tick - gap
+    expected_bottom = bottom_tick + gap
+    mask = _gray_grid_mask(img)
+
+    top_centers = _vertical_grid_centers_near_x(
+        mask,
+        x_pixels,
+        max(0, int(round(top_tick - gap * 1.35))),
+        int(round(top_tick - gap * 0.25)),
+    )
+    bottom_centers = _vertical_grid_centers_near_x(
+        mask,
+        x_pixels,
+        int(round(bottom_tick + gap * 0.25)),
+        min(mask.shape[0] - 1, int(round(bottom_tick + gap * 1.25))),
+    )
+    plot_top = _supported_center_near_expected(top_centers, expected_top)
+    plot_bottom = _supported_center_near_expected(bottom_centers, expected_bottom)
+    if plot_top is None and plot_bottom is None:
+        return None
+    plot_top = int(plot_top if plot_top is not None else top_tick)
+    plot_bottom = int(plot_bottom if plot_bottom is not None else bottom_tick)
+    if plot_bottom <= plot_top:
+        return None
+    return plot_top, plot_bottom
 
 
 def point_chart_tick_pixels_are_suspicious(pixel_positions, axis, direction, expected_count):
@@ -1512,6 +1838,80 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     # 计算检测到的刻度线的中心位置
     x_pixel_positions = sorted([(t[0] + t[2]) // 2 for t in x_filtered_ticks])
     y_pixel_positions = sorted([(t[1] + t[3]) // 2 for t in y_filtered_ticks], reverse=True)
+    x_axis_scale = "linear"
+    y_axis_scale = "linear"
+
+    if (
+        chart_type in {"scatter", "bubble"}
+        and axis_repair_enabled(axis_repair_hint)
+        and (
+            axis_repair_hint.get("x_axis_missing")
+            or axis_repair_hint.get("y_axis_missing")
+            or axis_repair_hint.get("x_ticks_missing")
+            or axis_repair_hint.get("y_ticks_missing")
+        )
+    ):
+        projected_x_pixels = infer_point_chart_grid_pixels_for_missing_axes(img, "x")
+        projected_y_pixels = infer_point_chart_grid_pixels_for_missing_axes(img, "y")
+        selected_x_pixels, selected_x_scale = select_projected_tick_pixels_for_values(
+            projected_x_pixels,
+            x_ticks_values,
+            "x",
+        )
+        selected_y_pixels, selected_y_scale = select_projected_tick_pixels_for_values(
+            projected_y_pixels,
+            y_ticks_values,
+            "y",
+        )
+        if len(selected_x_pixels) == len(x_ticks_values or []) and len(selected_x_pixels) >= 2:
+            x_pixel_positions = selected_x_pixels
+            x_axis_scale = selected_x_scale
+            repair_applied["x_ticks"] = True
+            repair_applied["x_ticks_refined_from_missing_axis_grid"] = True
+            logger.debug(
+                "Point-chart missing-axis X ticks selected from projection: %s scale=%s",
+                x_pixel_positions,
+                x_axis_scale,
+            )
+        if len(selected_y_pixels) == len(y_ticks_values or []) and len(selected_y_pixels) >= 2:
+            y_pixel_positions = selected_y_pixels
+            y_axis_scale = selected_y_scale
+            repair_applied["y_ticks"] = True
+            repair_applied["y_ticks_refined_from_missing_axis_grid"] = True
+            logger.debug(
+                "Point-chart missing-axis Y ticks selected from projection: %s scale=%s",
+                y_pixel_positions,
+                y_axis_scale,
+            )
+        if len(x_pixel_positions) >= 2 and len(y_pixel_positions) >= 2:
+            plot_bounds = infer_point_chart_plot_bounds_from_horizontal_grid(
+                img,
+                y_pixel_positions,
+                x_pixel_positions,
+            )
+            if plot_bounds:
+                plot_left, plot_right = plot_bounds
+                repair_applied["plot_bounds_refined_from_horizontal_grid"] = True
+            else:
+                plot_left = int(min(x_pixel_positions))
+                plot_right = int(max(x_pixel_positions))
+            vertical_bounds = infer_point_chart_plot_vertical_bounds_from_grid(
+                img,
+                y_pixel_positions,
+                x_pixel_positions,
+            )
+            if vertical_bounds:
+                plot_top, plot_bottom = vertical_bounds
+                repair_applied["plot_vertical_bounds_refined_from_grid"] = True
+            else:
+                plot_bottom = int(max(y_pixel_positions))
+                plot_top = int(min(y_pixel_positions))
+            if plot_right > plot_left and plot_bottom > plot_top:
+                x_axis = [plot_left, plot_bottom, plot_right, plot_bottom]
+                y_axis = [plot_left, plot_bottom, plot_left, plot_top]
+                repair_applied["x_axis"] = True
+                repair_applied["y_axis"] = True
+                repair_applied["axis_refined_from_missing_point_grid"] = True
 
     if chart_type in {"h_bar", "v_bar"} and axis_repair_enabled(axis_repair_hint):
         if x_axis_type == NUMERIC_AXIS_TYPE:
@@ -1523,7 +1923,7 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 "y", y_axis, y_pixel_positions, y_ticks_values
             )
 
-    if axis_repair_enabled(axis_repair_hint):
+    if axis_repair_enabled(axis_repair_hint) and not repair_applied.get("axis_refined_from_missing_point_grid"):
         if axis_repair_hint.get("x_ticks_missing"):
             repaired_x_pixels = synthesize_tick_pixels_for_missing_axis(
                 chart_type, "x", x_axis, repair_boxes, x_ticks_values, axis_repair_hint
@@ -1539,7 +1939,11 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 y_pixel_positions = repaired_y_pixels
                 repair_applied["y_ticks"] = True
 
-    if chart_type in {"scatter", "bubble"} and repair_applied.get("axis_refined_from_gridlines"):
+    if (
+        chart_type in {"scatter", "bubble"}
+        and repair_applied.get("axis_refined_from_gridlines")
+        and not repair_applied.get("axis_refined_from_missing_point_grid")
+    ):
         if x_axis_type == NUMERIC_AXIS_TYPE and len(x_ticks_values or []) >= 2:
             x_start, x_end = sorted([int(x_axis[0]), int(x_axis[2])])
             x_pixel_positions = [int(round(value)) for value in np.linspace(x_start, x_end, len(x_ticks_values))]
@@ -1695,10 +2099,26 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     # 判断是否为数值轴
     is_x_numeric = x_axis_type == "数值轴"
     is_y_numeric = y_axis_type == "数值轴"
+    if is_x_numeric:
+        x_axis_scale = axis_scale_from_ticks_and_pixels(x_ticks_data, x_pixels_data)
+    else:
+        x_axis_scale = "linear"
+    if is_y_numeric:
+        y_axis_scale = axis_scale_from_ticks_and_pixels(y_ticks_data, y_pixels_data)
+    else:
+        y_axis_scale = "linear"
     
     # 生成加密刻度（只对数字轴加密）
-    x_ticks_encrypted = generate_encrypted_ticks(x_ticks_data, is_numeric_axis=is_x_numeric)
-    y_ticks_encrypted = generate_encrypted_ticks(y_ticks_data, is_numeric_axis=is_y_numeric)
+    x_ticks_encrypted = generate_encrypted_ticks(
+        x_ticks_data,
+        is_numeric_axis=is_x_numeric,
+        axis_scale=x_axis_scale,
+    )
+    y_ticks_encrypted = generate_encrypted_ticks(
+        y_ticks_data,
+        is_numeric_axis=is_y_numeric,
+        axis_scale=y_axis_scale,
+    )
     
     # 生成对应的加密像素位置
     # 对于数字轴，需要插入中间像素位置；对于文字轴，不需要
@@ -1802,6 +2222,8 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         "y_pixels_encrypted": y_pixels_encrypted,
         "x_axis_type": x_axis_type,
         "y_axis_type": y_axis_type,
+        "x_axis_scale": x_axis_scale,
+        "y_axis_scale": y_axis_scale,
         "image_path": image_path,
         "basic_grid_path": basic_grid_path,
         "encrypted_grid_path": encrypted_grid_path,
@@ -1820,7 +2242,7 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     logger.info(f"处理完成: {chart_id}")
     return tick_data
 
-def generate_encrypted_ticks(original_ticks, is_numeric_axis=True):
+def generate_encrypted_ticks(original_ticks, is_numeric_axis=True, axis_scale="linear"):
     """
     根据原始刻度生成加密刻度（在原刻度之间插入中间值）
     对于数字轴，插入中间值；对于文字轴，不插入中间值
@@ -1838,7 +2260,14 @@ def generate_encrypted_ticks(original_ticks, is_numeric_axis=True):
             try:
                 val1 = float(original_ticks[i])
                 val2 = float(original_ticks[i + 1])
-                mid_value = (val1 + val2) / 2
+                if axis_scale == "log" and val1 > 0 and val2 > 0:
+                    mid_value = math.sqrt(val1 * val2)
+                    if max(abs(val1), abs(val2)) >= 100:
+                        mid_value = round(mid_value)
+                    elif max(abs(val1), abs(val2)) >= 1:
+                        mid_value = round(mid_value, 4)
+                else:
+                    mid_value = (val1 + val2) / 2
                 # 消除中间值的浮点数误差
                 mid_value = round(float(f"{mid_value:.12f}"), 10)
                 encrypted_ticks.append(mid_value)

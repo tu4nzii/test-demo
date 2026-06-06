@@ -168,3 +168,35 @@ ChartProcessorFactory.create_processor(chart_type)
 
 禁止把上传 JSON 的字段用于判断图表类型。类型识别的业务依据必须是原始图片。
 
+## 9. Radar 网格形态识别
+
+`radar` 类型在图表类型识别阶段会额外要求多模态模型判断雷达图网格形态，并把结果标准化写入 `axis_repair`：
+
+```json
+{
+  "radar_grid": {
+    "shape": "polygon | circular | unknown",
+    "confidence": 0.98,
+    "reason": "..."
+  }
+}
+```
+
+后端标准化后的字段为：
+
+```json
+{
+  "axis_repair": {
+    "radar_grid_shape": "polygon",
+    "radar_grid_confidence": 0.98
+  }
+}
+```
+
+使用原则：
+
+- `polygon`：只用于多边形雷达图的专用圆心/半径检测策略。
+- `circular`：只用于圆形雷达图的大白边异常修正策略。
+- `unknown`：不触发 radar 专用修正，保留原有处理路径。
+
+该字段是 opt-in hint。模型没有返回、置信度不足或返回 `unknown` 时，不改变原有 radar 加密逻辑。

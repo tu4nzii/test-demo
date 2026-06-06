@@ -311,3 +311,57 @@ RadarChartProcessor.encode_image()
 
 一句话：JSON 可以解释结果，但不能生成加密结果。
 
+## 13. Radar 图表的网格形态分支
+
+`RadarChartProcessor` 会把类型识别阶段得到的 `axis_repair` 作为 `radar_grid_hint` 传入 `RadarChartEncoder.process_single_image()`。当前只使用其中的 radar 网格形态字段：
+
+```json
+{
+  "radar_grid_shape": "polygon | circular | unknown",
+  "radar_grid_confidence": 0.0
+}
+```
+
+### 13.1 多边形 radar
+
+当 `radar_grid_shape=polygon` 且置信度足够时，系统启用多边形雷达图专用几何检测：
+
+- 暗色背景图：基于亮色/彩色主体和网格区域估计绘图区。
+- 浅色背景图：优先使用最大低饱和灰色网格轮廓，避免图例和标签把绘图区 bbox 拉偏。
+- 近似正方形且主轮廓稳定的图，可以用主网格轮廓质心做小范围中心修正。
+- 不使用数据集 GT 或上传 JSON 参与圆心、半径或刻度生成。
+
+如果图中没有可辨识的径向数字刻度，且当前确认为 polygon radar，则使用模拟径向映射保证流程继续：
+
+```text
+0 -> 圆心
+100 -> 外圈
+tick_interval = 20
+```
+
+结果 JSON 会标记：
+
+```json
+{
+  "scale_source": "simulated_polygon_default",
+  "scale_note": "No readable radial numeric tick labels were detected; a default 0-100 mapping was used for encryption."
+}
+```
+
+正常能够由 MLLM 读取刻度的图仍使用真实读数，并写入 `scale_source: "llm"`。
+
+### 13.2 圆形 radar 大白边修正
+
+当 `radar_grid_shape=circular` 且置信度足够时，系统仍以原 Hough 圆检测为主。只有满足以下保护条件时，才使用低饱和灰色圆形网格重新估计圆心和半径：
+
+- 当前 Hough 圆心明显偏离灰色网格圆心。
+- 当前 Hough 半径明显大于灰色网格半径。
+- 图像为短边超过 1000px 的大画布。
+- 图像不是近似正方形。
+- 灰色网格半径占短边比例较小。
+
+该分支用于处理真实世界图片中“图表主体位于左上角、画布存在大面积空白”的圆形 radar，例如 `RadarChart10`。对原数据集的圆形 radar，即使传入 `circular` hint，也应保持中心和第一半径不变。
+
+### 13.3 字体缩放
+
+大白边圆形 radar 的画布面积远大于实际绘图区。为避免加密刻度文字过大，标注字体会在绘图区半径占短边比例较小时按实际半径缩放；正常图表仍按原画布尺度计算字体。
