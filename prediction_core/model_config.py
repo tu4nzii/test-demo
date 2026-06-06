@@ -3,7 +3,7 @@
 Set CHART_MODEL_PROFILE to switch all project MLLM calls together:
 - gpt54 / dsiclab_gpt54: current default, using the BUAA endpoint and gpt-5.4.
 - vveai_gpt41: original vveai endpoint with gpt-4.1.
-- gemini / vveai_gemini: original vveai endpoint with gemini-2.5-pro.
+- gemini / vveai_gemini: vveai endpoint with Gemini-3.1-flash-lite.
 
 Any profile value can still be overridden by CHART_BASE_URL, CHART_MODEL_NAME,
 and CHART_API_KEY. Set CHART_USE_LEGACY_PIXTRAL=1 to keep using each script's
@@ -24,8 +24,8 @@ _GPT54_PROFILE = {
 
 _VVEAI_GEMINI_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
-    "model_name": "gemini-2.5-pro",
-    "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
+    "model_name": "Gemini-3.1-flash-lite",
+    "api_key": "sk-WvF4fU10VeOkfFMq579610Fc01E8496d827d0d3e04C44d0a",
 }
 
 MODEL_PROFILES = {
