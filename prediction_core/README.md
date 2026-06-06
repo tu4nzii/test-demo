@@ -44,9 +44,11 @@ shared by the backend through `model_api_config.py`.
 Use one profile to switch the whole system:
 
 ```powershell
-$env:CHART_MODEL_PROFILE="dsiclab_gpt54"  # current default
+$env:CHART_MODEL_PROFILE="gpt54"          # current gpt-5.4 profile
+$env:CHART_MODEL_PROFILE="dsiclab_gpt54"  # same as gpt54, current default
 $env:CHART_MODEL_PROFILE="vveai_gpt41"    # original vveai gpt-4.1
-$env:CHART_MODEL_PROFILE="vveai_gemini"   # original vveai gemini-2.5-pro
+$env:CHART_MODEL_PROFILE="gemini"         # vveai gemini-2.5-pro profile
+$env:CHART_MODEL_PROFILE="vveai_gemini"   # same as gemini
 ```
 
 Environment variables always take precedence over a profile:

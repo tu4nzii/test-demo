@@ -54,13 +54,16 @@ except Exception as e:
 # 添加项目根目录到系统路径
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# ========== 大模型API配置项 ==========
-api_key = "sk-f08TVXG8bJyobMmFvOgh09Bn93vFiuRX8j5iNuSSYQLmqgBd"
-url = "https://chat.intern-ai.org.cn/api/v1/chat/completions"
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": f"Bearer {api_key}"
-}
+# 添加backend目录到系统路径以导入统一配置
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# ========== 大模型API配置项（统一管理） ==========
+from model_api_config import get_api_key, get_chat_completion_url, get_headers, get_model_name
+
+api_key = get_api_key()
+url = get_chat_completion_url()
+headers = get_headers()
+model_name = get_model_name()
 
 async def call_llm_recognize_ticks(image_path, direction, tick_regions):
     """
@@ -76,7 +79,7 @@ async def call_llm_recognize_ticks(image_path, direction, tick_regions):
 
     # 构造请求体
     payload = {
-        "model": "internvl3-78b",
+        "model": model_name,
         "messages": [
             {
                 "role": "user",
@@ -982,6 +985,62 @@ def infer_point_chart_plot_vertical_bounds_from_grid(img, y_pixels, x_pixels):
     return plot_top, plot_bottom
 
 
+def refine_point_chart_axes_from_projected_ticks(
+    img,
+    x_axis,
+    y_axis,
+    x_pixel_positions,
+    y_pixel_positions,
+    y_axis_scale="linear",
+):
+    """Place repaired point-chart axes using selected gridline ticks.
+
+    For OWID-style bubble charts, the lowest visible y tick is often the plot
+    baseline. Extrapolating one more grid step below it places the synthetic
+    x-axis in the x-axis title/label band, so keep linear y axes on the lowest
+    selected y tick. Log-scaled y axes may include an unlabeled lower plot
+    boundary, so they still use the vertical-grid extent when available.
+    """
+    if img is None or len(x_pixel_positions or []) < 2 or len(y_pixel_positions or []) < 2:
+        return x_axis, y_axis, False
+
+    plot_bounds = infer_point_chart_plot_bounds_from_horizontal_grid(
+        img,
+        y_pixel_positions,
+        x_pixel_positions,
+    )
+    if plot_bounds:
+        plot_left, plot_right = plot_bounds
+        plot_right = max(int(plot_right), int(max(x_pixel_positions)))
+    else:
+        plot_left = int(min(x_pixel_positions))
+        plot_right = int(max(x_pixel_positions))
+
+    if str(y_axis_scale or "linear").lower() == "linear":
+        plot_top = int(min(y_pixel_positions))
+        plot_bottom = int(max(y_pixel_positions))
+    else:
+        vertical_bounds = infer_point_chart_plot_vertical_bounds_from_grid(
+            img,
+            y_pixel_positions,
+            x_pixel_positions,
+        )
+        if vertical_bounds:
+            plot_top, plot_bottom = vertical_bounds
+        else:
+            plot_top = int(min(y_pixel_positions))
+            plot_bottom = int(max(y_pixel_positions))
+
+    if plot_right <= plot_left or plot_bottom <= plot_top:
+        return x_axis, y_axis, False
+
+    return (
+        [plot_left, plot_bottom, plot_right, plot_bottom],
+        [plot_left, plot_bottom, plot_left, plot_top],
+        True,
+    )
+
+
 def point_chart_tick_pixels_are_suspicious(pixel_positions, axis, direction, expected_count):
     if axis is None or expected_count is None or expected_count < 2:
         return False
@@ -1884,34 +1943,22 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 y_axis_scale,
             )
         if len(x_pixel_positions) >= 2 and len(y_pixel_positions) >= 2:
-            plot_bounds = infer_point_chart_plot_bounds_from_horizontal_grid(
+            new_x_axis, new_y_axis, axes_refined = refine_point_chart_axes_from_projected_ticks(
                 img,
-                y_pixel_positions,
+                x_axis,
+                y_axis,
                 x_pixel_positions,
-            )
-            if plot_bounds:
-                plot_left, plot_right = plot_bounds
-                repair_applied["plot_bounds_refined_from_horizontal_grid"] = True
-            else:
-                plot_left = int(min(x_pixel_positions))
-                plot_right = int(max(x_pixel_positions))
-            vertical_bounds = infer_point_chart_plot_vertical_bounds_from_grid(
-                img,
                 y_pixel_positions,
-                x_pixel_positions,
+                y_axis_scale,
             )
-            if vertical_bounds:
-                plot_top, plot_bottom = vertical_bounds
-                repair_applied["plot_vertical_bounds_refined_from_grid"] = True
-            else:
-                plot_bottom = int(max(y_pixel_positions))
-                plot_top = int(min(y_pixel_positions))
-            if plot_right > plot_left and plot_bottom > plot_top:
-                x_axis = [plot_left, plot_bottom, plot_right, plot_bottom]
-                y_axis = [plot_left, plot_bottom, plot_left, plot_top]
+            if axes_refined:
+                x_axis, y_axis = new_x_axis, new_y_axis
                 repair_applied["x_axis"] = True
                 repair_applied["y_axis"] = True
                 repair_applied["axis_refined_from_missing_point_grid"] = True
+                repair_applied["plot_bounds_refined_from_horizontal_grid"] = True
+                if y_axis_scale != "linear":
+                    repair_applied["plot_vertical_bounds_refined_from_grid"] = True
 
     if chart_type in {"h_bar", "v_bar"} and axis_repair_enabled(axis_repair_hint):
         if x_axis_type == NUMERIC_AXIS_TYPE:
@@ -1944,11 +1991,60 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         and repair_applied.get("axis_refined_from_gridlines")
         and not repair_applied.get("axis_refined_from_missing_point_grid")
     ):
-        if x_axis_type == NUMERIC_AXIS_TYPE and len(x_ticks_values or []) >= 2:
+        projected_x_pixels = infer_point_chart_grid_pixels_for_missing_axes(img, "x")
+        projected_y_pixels = infer_point_chart_grid_pixels_for_missing_axes(img, "y")
+        selected_x_pixels, selected_x_scale = select_projected_tick_pixels_for_values(
+            projected_x_pixels,
+            x_ticks_values,
+            "x",
+        )
+        selected_y_pixels, selected_y_scale = select_projected_tick_pixels_for_values(
+            projected_y_pixels,
+            y_ticks_values,
+            "y",
+        )
+        if (
+            x_axis_type == NUMERIC_AXIS_TYPE
+            and y_axis_type == NUMERIC_AXIS_TYPE
+            and len(selected_x_pixels) == len(x_ticks_values or [])
+            and len(selected_y_pixels) == len(y_ticks_values or [])
+            and len(selected_x_pixels) >= 2
+            and len(selected_y_pixels) >= 2
+        ):
+            x_pixel_positions = selected_x_pixels
+            y_pixel_positions = selected_y_pixels
+            x_axis_scale = selected_x_scale
+            y_axis_scale = selected_y_scale
+            new_x_axis, new_y_axis, axes_refined = refine_point_chart_axes_from_projected_ticks(
+                img,
+                x_axis,
+                y_axis,
+                x_pixel_positions,
+                y_pixel_positions,
+                y_axis_scale,
+            )
+            if axes_refined:
+                x_axis, y_axis = new_x_axis, new_y_axis
+                repair_applied["axis_refined_from_projected_tick_grid"] = True
+                repair_applied["plot_bounds_refined_from_horizontal_grid"] = True
+            repair_applied["x_ticks_refined_from_projection_grid"] = True
+            repair_applied["y_ticks_refined_from_projection_grid"] = True
+            logger.debug(
+                "Point-chart gridline-refined axes bound to projected tick grids: x=%s y=%s x_scale=%s y_scale=%s",
+                x_pixel_positions,
+                y_pixel_positions,
+                x_axis_scale,
+                y_axis_scale,
+            )
+        elif x_axis_type == NUMERIC_AXIS_TYPE and len(x_ticks_values or []) >= 2:
             x_start, x_end = sorted([int(x_axis[0]), int(x_axis[2])])
             x_pixel_positions = [int(round(value)) for value in np.linspace(x_start, x_end, len(x_ticks_values))]
             repair_applied["x_ticks_refined_from_axis"] = True
-        if y_axis_type == NUMERIC_AXIS_TYPE and len(y_ticks_values or []) >= 2:
+        if (
+            not repair_applied.get("y_ticks_refined_from_projection_grid")
+            and y_axis_type == NUMERIC_AXIS_TYPE
+            and len(y_ticks_values or []) >= 2
+        ):
             y_low, y_high = sorted([int(y_axis[1]), int(y_axis[3])])
             y_pixel_positions = [int(round(value)) for value in np.linspace(y_high, y_low, len(y_ticks_values))]
             repair_applied["y_ticks_refined_from_axis"] = True
@@ -2107,6 +2203,42 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
         y_axis_scale = axis_scale_from_ticks_and_pixels(y_ticks_data, y_pixels_data)
     else:
         y_axis_scale = "linear"
+
+    if (
+        chart_type in {"scatter", "bubble"}
+        and is_x_numeric
+        and is_y_numeric
+        and (
+            repair_applied.get("x_ticks_refined_from_projection_grid")
+            or repair_applied.get("y_ticks_refined_from_projection_grid")
+            or repair_applied.get("x_ticks_refined_from_missing_axis_grid")
+            or repair_applied.get("y_ticks_refined_from_missing_axis_grid")
+        )
+        and not (
+            repair_applied.get("axis_refined_from_projected_tick_grid")
+            or repair_applied.get("axis_refined_from_missing_point_grid")
+        )
+    ):
+        refined_x_axis, refined_y_axis, axes_refined = refine_point_chart_axes_from_projected_ticks(
+            img,
+            x_axis,
+            y_axis,
+            x_pixels_data,
+            y_pixels_data,
+            y_axis_scale,
+        )
+        if axes_refined:
+            x_axis, y_axis = refined_x_axis, refined_y_axis
+            repair_applied["axis_refined_from_projected_tick_grid"] = True
+            repair_applied["plot_bounds_refined_from_horizontal_grid"] = True
+            if y_axis_scale != "linear":
+                repair_applied["plot_vertical_bounds_refined_from_grid"] = True
+            logger.debug(
+                "Point-chart axes refined after projection tick binding: X=%s Y=%s y_scale=%s",
+                x_axis,
+                y_axis,
+                y_axis_scale,
+            )
     
     # 生成加密刻度（只对数字轴加密）
     x_ticks_encrypted = generate_encrypted_ticks(

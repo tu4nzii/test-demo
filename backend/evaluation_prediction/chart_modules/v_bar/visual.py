@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 from ...common.chart_io import ensure_dir, safe_filename
 from ...common.paths import RESULTS_ROOT
@@ -59,6 +59,51 @@ def draw_prediction_overlay(
     return output
 
 
+def _font(size: int = 12) -> ImageFont.ImageFont:
+    try:
+        return ImageFont.truetype("C:/Windows/Fonts/arial.ttf", size)
+    except Exception:
+        return ImageFont.load_default()
+
+
+def _numeric_pairs(ticks: list[float], pixels: list[int]) -> list[tuple[float, float]]:
+    pairs: list[tuple[float, float]] = []
+    for tick, pixel in zip(ticks, pixels):
+        try:
+            pairs.append((float(tick), float(pixel)))
+        except Exception:
+            continue
+    return sorted(pairs, key=lambda item: item[0])
+
+
+def _dense_ticks_for_crop(
+    pairs: list[tuple[float, float]],
+    top_px: int,
+    bottom_px: int,
+) -> tuple[list[float], list[float]]:
+    lo, hi = sorted((top_px, bottom_px))
+    dense_ticks: list[float] = []
+    dense_pixels: list[float] = []
+    for divisor in (2, 3, 4, 5, 6, 8, 10):
+        dense_ticks.clear()
+        dense_pixels.clear()
+        for (v1, p1), (v2, p2) in zip(pairs, pairs[1:]):
+            for step in range(divisor + 1):
+                alpha = step / divisor
+                dense_ticks.append(round(v1 + (v2 - v1) * alpha, 4))
+                dense_pixels.append(p1 + (p2 - p1) * alpha)
+        if sum(lo <= pixel <= hi for pixel in dense_pixels) >= 6:
+            break
+    return dense_ticks, dense_pixels
+
+
+def _format_tick(value: float) -> str:
+    rounded = round(float(value), 4)
+    if abs(rounded - round(rounded)) < 1e-9:
+        return str(int(round(rounded)))
+    return f"{rounded:.4f}".rstrip("0").rstrip(".")
+
+
 def crop_bar_window(
     *,
     chart_id: str,
@@ -71,38 +116,95 @@ def crop_bar_window(
     y_ticks: list[float],
     y_pixels: list[int],
     round_index: int = 1,
+    attempt_index: int = 0,
     pad_x: int | None = None,
-    pad_y: int = 90,
+    pad_y: int | None = None,
 ) -> tuple[Path, list[float], tuple[float, float]]:
     img = Image.open(image_path).convert("RGB")
     width, height = img.size
     center_x = category_pixel(x_label, x_ticks, x_pixels)
-    center_y = numeric_pixel(center_value, y_ticks, y_pixels)
+    pairs = _numeric_pairs(y_ticks, y_pixels)
+    if len(pairs) < 2:
+        raise ValueError("At least two numeric y ticks are required for v_bar amplifier crop.")
+    min_value = min(value for value, _ in pairs)
+    max_value = max(value for value, _ in pairs)
+    clamped_value = min(max(float(center_value), min_value), max_value)
+    center_y = numeric_pixel(clamped_value, y_ticks, y_pixels)
     span_x = category_span(x_label, x_ticks, x_pixels, img.size)
-    half_x = max(24, (pad_x if pad_x is not None else span_x // 2 + 24))
+    half_x = max(18, (pad_x if pad_x is not None else span_x // 2 + 8))
+
+    pixel_gaps = [abs(right - left) for (_, left), (_, right) in zip(pairs, pairs[1:])]
+    base_span = sorted(pixel_gaps)[len(pixel_gaps) // 2] if pixel_gaps else 90
+    shrink = 2 ** max(0, round_index - 1)
+    half_y = int(max(18, (pad_y if pad_y is not None else base_span) / shrink))
 
     left = max(0, center_x - half_x)
     right = min(width, center_x + half_x)
-    top = max(0, center_y - pad_y)
-    bottom = min(height, center_y + pad_y)
+    top = max(0, int(center_y - half_y))
+    bottom = min(height, int(center_y + half_y))
+    if bottom <= top:
+        bottom = min(height, top + 12)
 
-    crop = img.crop((left, top, right, bottom))
-    draw = ImageDraw.Draw(crop)
+    raw_crop = img.crop((left, top, right, bottom))
+    crop_w, crop_h = raw_crop.size
+    if crop_w <= 0 or crop_h <= 0:
+        raise ValueError(f"Invalid crop area: {(left, top, right, bottom)}")
+
+    out_size = 260
+    label_pad = 76
+    scale = min(out_size / max(1, crop_w), out_size / max(1, crop_h))
+    new_w = max(1, int(round(crop_w * scale)))
+    new_h = max(1, int(round(crop_h * scale)))
+    resized = raw_crop.resize((new_w, new_h), Image.BICUBIC)
+
+    canvas = Image.new("RGB", (out_size + label_pad * 2, out_size), "white")
+    offset_x = label_pad + (out_size - new_w) // 2
+    offset_y = (out_size - new_h) // 2
+    canvas.paste(resized, (offset_x, offset_y))
+    draw = ImageDraw.Draw(canvas)
+    font = _font(12)
+
+    crop_left = offset_x
+    crop_right = offset_x + new_w
+    dense_ticks, dense_pixels = _dense_ticks_for_crop(pairs, top, bottom)
+    visible_ticks: list[float] = []
+    mapped_ticks: list[tuple[float, int]] = []
+    seen_ticks: set[tuple[float, int]] = set()
+    for tick, pixel in zip(dense_ticks, dense_pixels):
+        lo, hi = sorted((top, bottom))
+        if not (lo <= pixel <= hi):
+            continue
+        local_y = offset_y + int(round(((pixel - top) / crop_h) * new_h))
+        key = (round(float(tick), 6), local_y)
+        if offset_y <= local_y <= offset_y + new_h and key not in seen_ticks:
+            seen_ticks.add(key)
+            mapped_ticks.append((tick, local_y))
+            visible_ticks.append(tick)
+
+    dash_len = 8
+    dash_gap = 5
+    for tick, tick_y in mapped_ticks:
+        x = crop_left
+        while x < crop_right:
+            x_end = min(x + dash_len, crop_right)
+            draw.line((x, tick_y, x_end, tick_y), fill=(135, 135, 135), width=1)
+            x += dash_len + dash_gap
+        draw.line((crop_left - 12, tick_y, crop_left - 4, tick_y), fill="black", width=1)
+        draw.line((crop_right + 4, tick_y, crop_right + 12, tick_y), fill="black", width=1)
+        text = _format_tick(tick)
+        draw.text((max(0, crop_left - 66), max(0, tick_y - 6)), text, font=font, fill="black")
+        draw.text((min(canvas.width - 60, crop_right + 16), max(0, tick_y - 6)), text, font=font, fill="black")
+
+    local_x = offset_x + int(round(((center_x - left) / crop_w) * new_w))
+    draw.line((local_x, offset_y, local_x, offset_y + new_h), fill=(180, 180, 180), width=1)
+    draw.rectangle((crop_left, offset_y, crop_right, offset_y + new_h), outline=(0, 0, 0), width=2)
 
     min_val, max_val = value_range_from_pixels(top, bottom, y_ticks, y_pixels)
-    visible_ticks = visible_ticks_for_range(y_ticks, min_val, max_val)
-    for tick in visible_ticks:
-        try:
-            tick_y = numeric_pixel(float(tick), y_ticks, y_pixels) - top
-        except Exception:
-            continue
-        draw.line((0, tick_y, crop.width, tick_y), fill=(120, 120, 120), width=1)
-        draw.text((2, max(0, tick_y - 12)), str(round(float(tick), 2)), fill=(0, 0, 0))
+    if not visible_ticks:
+        visible_ticks = visible_ticks_for_range(y_ticks, min_val, max_val)
 
-    local_x = center_x - left
-    draw.line((local_x, 0, local_x, crop.height), fill=(180, 180, 180), width=1)
-    draw.rectangle((0, 0, crop.width - 1, crop.height - 1), outline=(0, 0, 0), width=1)
-
-    output = temp_dir(chart_id) / f"amplifier_crop_{safe_filename(point_name)}_round{round_index}.png"
-    crop.save(output)
+    output = temp_dir(chart_id) / (
+        f"amplifier_crop_{safe_filename(point_name)}_round{round_index}_attempt{attempt_index}.png"
+    )
+    canvas.save(output)
     return output, visible_ticks, (min_val, max_val)

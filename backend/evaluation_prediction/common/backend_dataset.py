@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any, Iterable
+import unicodedata
 
 from PIL import Image
 
@@ -103,10 +104,33 @@ def _series_color(dataset: dict[str, Any]) -> dict[str, str]:
         return {}
 
     result: dict[str, str] = {}
-    for item in colors:
+    for index, item in enumerate(colors):
         if isinstance(item, dict) and item.get("name") and item.get("color"):
-            result[str(item["name"])] = str(item["color"])
+            name = _normalize_series_name(item.get("name"), index)
+            result[name] = str(item["color"])
     return result
+
+
+def _normalize_series_name(name: Any, index: int) -> str:
+    text = str(name or "").strip()
+    lowered = text.lower()
+    if (
+        not text
+        or lowered in {"none", "null", "nan", "series-0"}
+        or _looks_like_mojibake(text)
+    ):
+        return f"Series {index + 1}"
+    return text
+
+
+def _looks_like_mojibake(text: str) -> bool:
+    if "\ufffd" in text:
+        return True
+    if any(unicodedata.category(char) == "Co" for char in text):
+        return True
+    non_ascii = sum(1 for char in text if ord(char) > 127)
+    question_marks = text.count("?")
+    return question_marks > 0 and non_ascii >= max(1, len(text) // 3)
 
 
 def _image_paths(dataset: dict[str, Any], base_dir: Path) -> dict[str, str]:

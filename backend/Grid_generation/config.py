@@ -88,9 +88,20 @@ DEBUG_OUTPUT_DIRS = {
 
 # ===== Gemini 大模型配置 =====
 # ✅ 推荐在部署或生产环境用环境变量覆盖
-GEMINI_API_KEY = "AIzaSyA7nqKYMNvwa38xinXDb9E3WIPhn_eeoVI"
-GEMINI_MODEL = "gemini-2.0-flash"
-GEMINI_ENDPOINT = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+BACKEND_ROOT = Path(__file__).resolve().parents[1]
+for _path in (PROJECT_ROOT, BACKEND_ROOT):
+    if str(_path) not in sys.path:
+        sys.path.insert(0, str(_path))
+
+from model_api_config import get_api_key, get_chat_completion_url, get_model_name  # noqa: E402
+
+GEMINI_API_KEY = get_api_key()
+GEMINI_MODEL = get_model_name()
+GEMINI_ENDPOINT = get_chat_completion_url()
 
 # ===== 输出是否自动清空 =====
 CLEAR_OUTPUT_BEFORE_RUN = {

@@ -340,20 +340,66 @@ def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
         write_json(output_dir / f"{chart_info['chart_id']}_axes.json", axis_data, indent=4)
 
 
+def load_generated_chart_metadata(chart_info: Dict[str, Any], output_dir: Path) -> Dict[str, Any]:
+    image_stem = Path(chart_info["image_path"]).stem
+    merged: Dict[str, Any] = {}
+    for path in (output_dir / f"{image_stem}.json", output_dir / f"{image_stem}_ticks.json"):
+        if not path.exists():
+            continue
+        try:
+            data = load_json(path)
+        except Exception as error:
+            print(f"Could not read generated bar metadata {path}: {safe_error_message(error)}")
+            continue
+        if isinstance(data, dict):
+            merged.update(data)
+    return merged
+
+
+def infer_bar_type_from_axis_metadata(data: Dict[str, Any]) -> Optional[str]:
+    axis_repair = data.get("axis_repair") if isinstance(data.get("axis_repair"), dict) else {}
+    hint = axis_repair.get("hint") if isinstance(axis_repair.get("hint"), dict) else {}
+    reason = str(hint.get("reason") or data.get("reason") or "").lower()
+    if "horizontal bar" in reason or "horizontal bars" in reason:
+        return "h_bar"
+    if "vertical bar" in reason or "vertical bars" in reason:
+        return "v_bar"
+
+    x_role = axis_role(data.get("x_axis_type"))
+    y_role = axis_role(data.get("y_axis_type"))
+    if x_role == "numeric" and y_role == "text":
+        return "h_bar"
+    if x_role == "text" and y_role == "numeric":
+        return "v_bar"
+    return None
+
+
+def axis_role(value: Any) -> Optional[str]:
+    text = str(value or "").strip().lower()
+    if not text:
+        return None
+    if any(marker in text for marker in ("numeric", "number", "value", "quant", "数值")):
+        return "numeric"
+    if any(marker in text for marker in ("text", "category", "categorical", "label", "文字", "类别", "离散")):
+        return "text"
+    return None
+
+
 def process_chart_image(chart_info: Dict[str, Any]) -> str:
     if chart_info.get("processed") and chart_info.get("encrypted_image_path"):
         return chart_info["encrypted_image_path"]
 
-    output_dir = get_chart_output_dir(chart_info["chart_type"])
-    processor = ChartProcessorFactory.create_processor(chart_info["chart_type"])
+    original_type = chart_info["chart_type"]
+    output_dir = get_chart_output_dir(original_type)
+    processor = ChartProcessorFactory.create_processor(original_type)
     encrypted_image_path = processor.encode_image(
         chart_info["image_path"],
         str(output_dir),
         axis_repair_hint=chart_info.get("axis_repair"),
     )
 
-    if not encrypted_image_path and chart_info["chart_type"] in {"h_bar", "v_bar"}:
-        alternate_type = "v_bar" if chart_info["chart_type"] == "h_bar" else "h_bar"
+    if not encrypted_image_path and original_type in {"h_bar", "v_bar"}:
+        alternate_type = "v_bar" if original_type == "h_bar" else "h_bar"
         alternate_output_dir = get_chart_output_dir(alternate_type)
         alternate_processor = ChartProcessorFactory.create_processor(alternate_type)
         alternate_image_path = alternate_processor.encode_image(
@@ -362,12 +408,20 @@ def process_chart_image(chart_info: Dict[str, Any]) -> str:
             axis_repair_hint=chart_info.get("axis_repair"),
         )
         if alternate_image_path:
-            print(f"Bar processing fallback succeeded: {chart_info['chart_type']} -> {alternate_type}")
-            chart_info["chart_type"] = alternate_type
-            chart_info["coordinate_system"] = get_coordinate_system(alternate_type).value
-            output_dir = alternate_output_dir
-            processor = alternate_processor
-            encrypted_image_path = alternate_image_path
+            alternate_metadata = load_generated_chart_metadata(chart_info, alternate_output_dir)
+            inferred_type = infer_bar_type_from_axis_metadata(alternate_metadata)
+            if inferred_type and inferred_type != alternate_type:
+                print(
+                    "Bar processing fallback rejected: "
+                    f"{original_type} -> {alternate_type}, axis metadata indicates {inferred_type}"
+                )
+            else:
+                print(f"Bar processing fallback succeeded: {original_type} -> {alternate_type}")
+                chart_info["chart_type"] = alternate_type
+                chart_info["coordinate_system"] = get_coordinate_system(alternate_type).value
+                output_dir = alternate_output_dir
+                processor = alternate_processor
+                encrypted_image_path = alternate_image_path
 
     if not encrypted_image_path:
         raise HTTPException(status_code=500, detail="Chart processing failed")

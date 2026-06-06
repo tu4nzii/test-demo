@@ -393,7 +393,7 @@ def llm_axis_result_is_valid(result: Dict) -> bool:
 
 def _clean_hbar_category_tick(value):
     text = str(value).strip()
-    return re.sub(r"\s+[-鈥撯€擼\s*$", "", text).strip()
+    return re.sub(r"\s+[-\u2010-\u2015]\s*$", "", text).strip()
 
 
 def _finite_numeric_values(values):

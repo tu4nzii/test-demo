@@ -46,6 +46,75 @@ def _fallback_numeric_center(ticks: list[Any]) -> float | None:
     return (values[0] + values[-1]) / 2
 
 
+def _fallback_numeric_step(ticks: list[Any]) -> float:
+    values: list[float] = []
+    for tick in ticks:
+        try:
+            values.append(float(tick))
+        except Exception:
+            continue
+    values = sorted(set(values))
+    gaps = [abs(right - left) for left, right in zip(values, values[1:]) if right != left]
+    if gaps:
+        return sorted(gaps)[len(gaps) // 2]
+    if len(values) >= 2:
+        return abs(values[-1] - values[0]) / 4
+    return 1.0
+
+
+def _scan_offsets(max_attempts: int) -> list[int]:
+    offsets = [0]
+    for index in range(1, max_attempts):
+        step = (index + 1) // 2
+        offsets.append(-step if index % 2 == 1 else step)
+    return offsets
+
+
+async def _crop_until_bar_detected(
+    *,
+    client: VBarModelClient,
+    dataset: dict[str, Any],
+    target: VBarTarget,
+    center_value: float,
+    round_index: int,
+    max_attempts: int = 8,
+) -> tuple[Path, list[float], tuple[float, float]] | None:
+    exists_prompt = build_color_prompt(target.point_name, dataset["series_color"])
+    value_span = _fallback_numeric_step(dataset["y_ticks"])
+
+    for attempt_index, offset_units in enumerate(_scan_offsets(max_attempts)):
+        shifted_center = center_value + offset_units * value_span
+        try:
+            crop_path, visible_ticks, visible_range = crop_bar_window(
+                chart_id=dataset["chart_id"],
+                image_path=image_path(dataset, "grid_with_grid"),
+                point_name=target.point_name,
+                x_label=target.x_label,
+                center_value=shifted_center,
+                x_ticks=dataset["x_ticks"],
+                x_pixels=dataset["x_pixels"],
+                y_ticks=dataset["y_ticks"],
+                y_pixels=dataset["y_pixels"],
+                round_index=round_index,
+                attempt_index=attempt_index,
+            )
+        except Exception as exc:
+            print(f"[v_bar runner] Amplifier crop attempt {attempt_index} failed: {exc}")
+            continue
+
+        span = abs(float(visible_range[1]) - float(visible_range[0]))
+        if span > 0:
+            value_span = span
+        exists = await client.check_exists(exists_prompt, crop_path)
+        print(
+            f"[v_bar runner] amplifier crop attempt={attempt_index} "
+            f"center={shifted_center:.4f} range={visible_range} contains target={exists}"
+        )
+        if exists:
+            return crop_path, visible_ticks, visible_range
+    return None
+
+
 def _record(
     *,
     dataset: dict[str, Any],
@@ -157,28 +226,19 @@ async def _run_target(
 
                 if center_value is None:
                     print("[v_bar runner] Skip amplifier crop: no numeric center is available.")
+                    continue
                 else:
-                    try:
-                        used_image, visible_ticks, _ = crop_bar_window(
-                            chart_id=dataset["chart_id"],
-                            image_path=image_path(dataset, "grid_with_grid"),
-                            point_name=target.point_name,
-                            x_label=target.x_label,
-                            center_value=center_value,
-                            x_ticks=dataset["x_ticks"],
-                            x_pixels=dataset["x_pixels"],
-                            y_ticks=dataset["y_ticks"],
-                            y_pixels=dataset["y_pixels"],
-                            round_index=run_idx,
-                        )
-                    except Exception as exc:
-                        used_image = image_path(dataset, "grid_with_grid")
-                        visible_ticks = None
-                        print(f"[v_bar runner] Amplifier crop failed, use full grid image: {exc}")
-
-                exists_prompt = build_color_prompt(target.point_name, dataset["series_color"])
-                exists = await client.check_exists(exists_prompt, used_image)
-                print(f"[v_bar runner] amplifier crop contains target={exists}")
+                    crop_result = await _crop_until_bar_detected(
+                        client=client,
+                        dataset=dataset,
+                        target=target,
+                        center_value=float(center_value),
+                        round_index=run_idx,
+                    )
+                    if crop_result is None:
+                        print("[v_bar runner] Skip amplifier prediction: no crop contains the target bar.")
+                        continue
+                    used_image, visible_ticks, _ = crop_result
 
             prompt = generate_prompt(
                 item_name=target.point_name,

@@ -1,9 +1,9 @@
 """Central OpenAI-compatible model configuration for this project.
 
 Set CHART_MODEL_PROFILE to switch all project MLLM calls together:
-- dsiclab_gpt54: current default, using the BUAA endpoint and gpt-5.4.
+- gpt54 / dsiclab_gpt54: current default, using the BUAA endpoint and gpt-5.4.
 - vveai_gpt41: original vveai endpoint with gpt-4.1.
-- vveai_gemini: original vveai endpoint with gemini-2.5-pro.
+- gemini / vveai_gemini: original vveai endpoint with gemini-2.5-pro.
 
 Any profile value can still be overridden by CHART_BASE_URL, CHART_MODEL_NAME,
 and CHART_API_KEY. Set CHART_USE_LEGACY_PIXTRAL=1 to keep using each script's
@@ -16,22 +16,28 @@ import os
 from typing import Iterable
 
 
+_GPT54_PROFILE = {
+    "base_url": "http://dsiclab-model.ic.h3i.buaa.edu.cn/v1",
+    "model_name": "gpt-5.4",
+    "api_key": "sk-CbLDZcUuoj5NphrQfMQqh1ltqNBTkg85n7nMSFrsyxex5SOb",
+}
+
+_VVEAI_GEMINI_PROFILE = {
+    "base_url": "https://api.vveai.com/v1",
+    "model_name": "gemini-2.5-pro",
+    "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
+}
+
 MODEL_PROFILES = {
-    "dsiclab_gpt54": {
-        "base_url": "http://dsiclab-model.ic.h3i.buaa.edu.cn/v1",
-        "model_name": "gpt-5.4",
-        "api_key": "sk-CbLDZcUuoj5NphrQfMQqh1ltqNBTkg85n7nMSFrsyxex5SOb",
-    },
+    "gpt54": _GPT54_PROFILE,
+    "dsiclab_gpt54": _GPT54_PROFILE,
     "vveai_gpt41": {
         "base_url": "https://api.vveai.com/v1",
         "model_name": "gpt-4.1",
         "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
     },
-    "vveai_gemini": {
-        "base_url": "https://api.vveai.com/v1",
-        "model_name": "gemini-2.5-pro",
-        "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
-    },
+    "vveai_gemini": _VVEAI_GEMINI_PROFILE,
+    "gemini": _VVEAI_GEMINI_PROFILE,
 }
 
 DEFAULT_PROFILE = "dsiclab_gpt54"

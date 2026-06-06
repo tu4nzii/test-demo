@@ -86,7 +86,7 @@ def _series_names(dataset: dict[str, Any]) -> list[str]:
         ]
         if names:
             return names
-    return ["series-0"]
+    return ["Series 1"]
 
 
 def image_path(dataset: dict[str, Any], image_type: str) -> Path:

@@ -402,11 +402,11 @@ def extract_chart_series_color(image_path):
             return legend_items
         else:
             print("Legend recognition failed; using a default color")
-            return [{'name': '绯诲垪1', 'color': '#1f77b4'}]
+            return [{'name': 'Series 1', 'color': '#1f77b4'}]
 
     except Exception as e:
         print(f"鉂?鎻愬彇鍥捐〃棰滆壊澶辫触: {e}")
-        return [{'name': '绯诲垪1', 'color': '#1f77b4'}]
+        return [{'name': 'Series 1', 'color': '#1f77b4'}]
 
 def extract_point_chart_items(image_path):
     """Extract prediction targets for scatter/bubble charts.
