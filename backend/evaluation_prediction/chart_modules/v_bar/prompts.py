@@ -32,7 +32,10 @@ def build_color_prompt(point_name: str, series_color: dict[str, str]) -> str:
     return (
         f"You are given a cropped vertical bar chart image for {point_name}.\n"
         f"**{color_desc}**.\n"
-        f"Please check if the bar for series \"{series_name}\" at x-axis category \"{x_label}\" is visible.\n"
+        f"Please check whether the cropped image contains the target vertical bar segment "
+        f"for series \"{series_name}\" at x-axis category \"{x_label}\", and whether its "
+        "top boundary/end edge is visible inside the crop. Do not return true if only the "
+        "middle of the bar is visible but the top boundary is outside the crop.\n"
         "Only respond with a JSON object like: {\"exists\": true} or {\"exists\": false}."
     )
 
@@ -64,7 +67,7 @@ def generate_prompt(
         visible_tick_str = _format_visible_ticks(visible_ticks)
         base_prompt = f"""
         You are given a cropped vertical bar chart image. Your task is to predict the y value for [{item_name}].
-        The target bar is centered around the x-axis category **"{x_label}"**.
+        The cropped image is centered around the x-axis category group **"{x_label}"**. In grouped or stacked bar charts, the target colored bar may appear left or right of the horizontal center within that category group; use the series color to select the correct bar.
         The left and right sides include a vertically drawn y-axis scale with tick values [{visible_tick_str}] and grid lines.
         Estimate the exact y value corresponding to the **top edge** of the colored bar.
         Use the color/legend alignment to verify the target series. {color_desc}

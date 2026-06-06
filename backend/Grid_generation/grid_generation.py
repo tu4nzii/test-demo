@@ -9,6 +9,7 @@ import aiohttp
 import base64
 import itertools
 import math
+import re
 from glob import glob
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -377,6 +378,46 @@ def _is_bar_category_axis(chart_type, direction):
 
 def _required_tick_count(chart_type, direction):
     return 1 if _is_bar_category_axis(chart_type, direction) else 2
+
+
+def _is_placeholder_category_tick(value):
+    return bool(re.fullmatch(r"category_\d+", str(value or "").strip().casefold()))
+
+
+def _drop_mixed_placeholder_category_ticks(tick_values, pixel_positions, chart_type, direction):
+    """Remove synthetic category_N ticks only when real category labels exist too.
+
+    Grouped bar charts can expose legend marker rows/columns as extra detected
+    category ticks. If the MLLM already returned real category labels, keeping
+    both creates fake prediction targets and draws grid lines in the legend.
+    """
+    if not _is_bar_category_axis(chart_type, direction):
+        return tick_values, pixel_positions, False
+    if not tick_values or not pixel_positions or len(tick_values) != len(pixel_positions):
+        return tick_values, pixel_positions, False
+
+    placeholders = [_is_placeholder_category_tick(value) for value in tick_values]
+    if not any(placeholders) or all(placeholders):
+        return tick_values, pixel_positions, False
+
+    filtered = [
+        (tick, pixel)
+        for tick, pixel, is_placeholder in zip(tick_values, pixel_positions, placeholders)
+        if not is_placeholder
+    ]
+    if len(filtered) < _required_tick_count(chart_type, direction):
+        return tick_values, pixel_positions, False
+
+    clean_ticks, clean_pixels = zip(*filtered)
+    logger.debug(
+        "Dropped %s mixed placeholder %s category ticks for %s: %s -> %s",
+        sum(placeholders),
+        direction,
+        chart_type,
+        tick_values,
+        list(clean_ticks),
+    )
+    return list(clean_ticks), list(clean_pixels), True
 
 
 def _horizontal_gridline_plot_span(lines, x_axis, image_shape):
@@ -1292,6 +1333,42 @@ def add_missing_numeric_axis_endpoints(direction, axis, pixel_positions, tick_va
     return pixels
 
 
+GRID_LINE_COLOR = (204, 204, 204)
+GRID_LINE_THICKNESS = 1
+GRID_DASH_LENGTH = 2
+GRID_DASH_GAP = 2
+
+
+def _draw_tick_grid_line(canvas, start, end):
+    x1, y1 = int(start[0]), int(start[1])
+    x2, y2 = int(end[0]), int(end[1])
+    dash_cycle = GRID_DASH_LENGTH + GRID_DASH_GAP
+
+    if x1 == x2:
+        step = 1 if y2 >= y1 else -1
+        for y in range(y1, y2 + step, step * dash_cycle):
+            y_end = y + step * (GRID_DASH_LENGTH - 1)
+            if step > 0:
+                y_end = min(y_end, y2)
+            else:
+                y_end = max(y_end, y2)
+            cv2.line(canvas, (x1, y), (x2, y_end), GRID_LINE_COLOR, GRID_LINE_THICKNESS, cv2.LINE_AA)
+        return
+
+    if y1 == y2:
+        step = 1 if x2 >= x1 else -1
+        for x in range(x1, x2 + step, step * dash_cycle):
+            x_end = x + step * (GRID_DASH_LENGTH - 1)
+            if step > 0:
+                x_end = min(x_end, x2)
+            else:
+                x_end = max(x_end, x2)
+            cv2.line(canvas, (x, y1), (x_end, y2), GRID_LINE_COLOR, GRID_LINE_THICKNESS, cv2.LINE_AA)
+        return
+
+    cv2.line(canvas, (x1, y1), (x2, y2), GRID_LINE_COLOR, GRID_LINE_THICKNESS, cv2.LINE_AA)
+
+
 def draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis):
     """
     绘制基础网格 - 只延伸短横线形成网格图
@@ -1307,11 +1384,11 @@ def draw_basic_grid(img, x_pixels, y_pixels, x_axis, y_axis):
     
     # 绘制垂直网格线
     for x_pix in x_pixels:
-        cv2.line(canvas, (x_pix, y_min), (x_pix, y_max), (180, 180, 180), 1, cv2.LINE_AA)
+        _draw_tick_grid_line(canvas, (x_pix, y_min), (x_pix, y_max))
     
     # 绘制水平网格线
     for y_pix in y_pixels:
-        cv2.line(canvas, (x_min, y_pix), (x_max, y_pix), (180, 180, 180), 1, cv2.LINE_AA)
+        _draw_tick_grid_line(canvas, (x_min, y_pix), (x_max, y_pix))
     
     return canvas
 
@@ -1398,9 +1475,6 @@ def draw_encrypted_grid(
 
     # Draw encrypted grid lines only at inserted midpoint positions. Original
     # grid lines are already rendered by draw_basic_grid above.
-    grid_overlay = canvas.copy()
-    encrypted_grid_color = (0, 0, 255)
-    encrypted_grid_alpha = 0.35
     x_min, x_max = min(x_axis[0], x_axis[2]), max(x_axis[0], x_axis[2])
     y_min, y_max = min(y_axis[1], y_axis[3]), max(y_axis[1], y_axis[3])
 
@@ -1408,17 +1482,16 @@ def draw_encrypted_grid(
     if x_axis_type == "数值轴":
         for i, x_pix in enumerate(x_pixels):
             if i % 2 == 1:
-                cv2.line(grid_overlay, (int(x_pix), y_min), (int(x_pix), y_max), encrypted_grid_color, 1, cv2.LINE_AA)
+                _draw_tick_grid_line(canvas, (int(x_pix), y_min), (int(x_pix), y_max))
                 drawn_x_grid_lines += 1
 
     drawn_y_grid_lines = 0
     if y_axis_type == "数值轴":
         for i, y_pix in enumerate(y_pixels):
             if i % 2 == 1:
-                cv2.line(grid_overlay, (x_min, int(y_pix)), (x_max, int(y_pix)), encrypted_grid_color, 1, cv2.LINE_AA)
+                _draw_tick_grid_line(canvas, (x_min, int(y_pix)), (x_max, int(y_pix)))
                 drawn_y_grid_lines += 1
 
-    cv2.addWeighted(grid_overlay, encrypted_grid_alpha, canvas, 1 - encrypted_grid_alpha, 0, canvas)
     logger.debug(f"成功绘制加密网格线: X轴{drawn_x_grid_lines}条, Y轴{drawn_y_grid_lines}条")
     
     # 绘制加密刻度文本标签，优化显示效果
@@ -2098,6 +2171,23 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
     ):
         missing_count = len(y_pixel_positions) - len(y_ticks_values)
         y_ticks_values = [f"category_{i + 1}" for i in range(missing_count)] + list(y_ticks_values)
+
+    x_ticks_values, x_pixel_positions, x_placeholders_removed = _drop_mixed_placeholder_category_ticks(
+        x_ticks_values,
+        x_pixel_positions,
+        chart_type,
+        "x",
+    )
+    y_ticks_values, y_pixel_positions, y_placeholders_removed = _drop_mixed_placeholder_category_ticks(
+        y_ticks_values,
+        y_pixel_positions,
+        chart_type,
+        "y",
+    )
+    if x_placeholders_removed:
+        repair_applied["x_category_placeholders_removed"] = True
+    if y_placeholders_removed:
+        repair_applied["y_category_placeholders_removed"] = True
 
     # Local fallback for offline/dev runs: when the LLM cannot return usable
     # tick labels, keep the image-processing pipeline alive by assigning

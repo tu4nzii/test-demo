@@ -6,7 +6,7 @@ import asyncio
 from pathlib import Path
 from typing import Any
 
-from ...common.runtime import get_repeat_times
+from ...common.runtime import get_bar_amplifier_rounds, get_repeat_times
 
 from .data import VBarTarget, image_path, iter_targets, load_datasets
 from .evaluation import compute_mae, compute_relative_error, save_results
@@ -192,12 +192,87 @@ async def _run_target(
     dataset: dict[str, Any],
     target: VBarTarget,
     repeat_times: int,
+    amplifier_rounds: int,
 ) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     history: list[tuple[Any, Any]] = []
     feedback_pred: tuple[Any, Any] | None = None
 
     for prompt_type, image_type in EXPERIMENT_TYPES:
+        if prompt_type == "amplifier":
+            center_value = (
+                float(feedback_pred[1])
+                if feedback_pred and _valid_prediction(feedback_pred)
+                else target.gt_y
+            )
+            if center_value is None:
+                center_value = _fallback_numeric_center(dataset["y_ticks"])
+
+            if center_value is None:
+                print("[v_bar runner] Skip amplifier crop: no numeric center is available.")
+                continue
+
+            for amp_round in range(1, amplifier_rounds + 1):
+                crop_result = await _crop_until_bar_detected(
+                    client=client,
+                    dataset=dataset,
+                    target=target,
+                    center_value=float(center_value),
+                    round_index=amp_round,
+                )
+                if crop_result is None:
+                    print(
+                        f"[v_bar runner] Stop amplifier refinement at round {amp_round}: "
+                        "no crop contains the target bar."
+                    )
+                    break
+
+                used_image, visible_ticks, _ = crop_result
+                prompt = generate_prompt(
+                    item_name=target.point_name,
+                    prompt_type=prompt_type,
+                    x_ticks=dataset["x_ticks"],
+                    y_ticks=dataset["y_ticks"],
+                    series_color=dataset["series_color"],
+                    visible_ticks=visible_ticks,
+                    pred_feedback=history[-2:] if history else None,
+                    feedback_round=2,
+                    current_round=amp_round,
+                )
+
+                print("\n==============================")
+                print(
+                    f"[v_bar] Amplifier Round {amp_round}/{amplifier_rounds} "
+                    f"| Point: {target.point_name} | Image: {used_image}"
+                )
+                print("==============================\n")
+
+                pred = await client.predict_coords(prompt, used_image, target.point_name)
+                if _valid_prediction(pred):
+                    pred = (target.x_label, pred[1])
+                records.append(
+                    _record(
+                        dataset=dataset,
+                        target=target,
+                        prompt_type=prompt_type,
+                        image_type=image_type,
+                        run=amp_round,
+                        used_image_path=used_image,
+                        pred=pred,
+                    )
+                )
+                if not _valid_prediction(pred):
+                    print(f"[v_bar] Invalid amplifier prediction round {amp_round} @ {target.point_name}: {pred}")
+                    break
+
+                history.append(pred)
+                center_value = float(pred[1])
+                print(
+                    f"[v_bar] Success amplifier {amp_round}/{amplifier_rounds} "
+                    f"@ {target.point_name}; next center={center_value:.4f}"
+                )
+            continue
+
         for run_idx in range(1, repeat_times + 1):
             used_image = image_path(dataset, image_type)
             visible_ticks = None
@@ -213,32 +288,10 @@ async def _run_target(
                     y_pixels=dataset["y_pixels"],
                     point_name=target.point_name,
                     draw_all_preds=False,
+                    prompt_type=prompt_type,
+                    image_type=image_type,
+                    run_index=run_idx,
                 )
-
-            if prompt_type == "amplifier":
-                center_value = (
-                    float(feedback_pred[1])
-                    if feedback_pred and _valid_prediction(feedback_pred)
-                    else target.gt_y
-                )
-                if center_value is None:
-                    center_value = _fallback_numeric_center(dataset["y_ticks"])
-
-                if center_value is None:
-                    print("[v_bar runner] Skip amplifier crop: no numeric center is available.")
-                    continue
-                else:
-                    crop_result = await _crop_until_bar_detected(
-                        client=client,
-                        dataset=dataset,
-                        target=target,
-                        center_value=float(center_value),
-                        round_index=run_idx,
-                    )
-                    if crop_result is None:
-                        print("[v_bar runner] Skip amplifier prediction: no crop contains the target bar.")
-                        continue
-                    used_image, visible_ticks, _ = crop_result
 
             prompt = generate_prompt(
                 item_name=target.point_name,
@@ -280,6 +333,24 @@ async def _run_target(
             else:
                 print(f"[v_bar] Invalid prediction [{prompt_type} - {image_type}] @ {target.point_name}: {pred}")
 
+        if prompt_type == "feedback" and feedback_pred and _valid_prediction(feedback_pred):
+            final_overlay_path = draw_prediction_overlay(
+                chart_id=dataset["chart_id"],
+                original_img_path=image_path(dataset, "grid_with_grid"),
+                pred_coords=history,
+                x_ticks=dataset["x_ticks"],
+                y_ticks=dataset["y_ticks"],
+                x_pixels=dataset["x_pixels"],
+                y_pixels=dataset["y_pixels"],
+                point_name=target.point_name,
+                draw_all_preds=True,
+                prompt_type=prompt_type,
+                image_type=image_type,
+                run_index=repeat_times,
+                final_overlay=True,
+            )
+            print(f"[v_bar] Final feedback overlay saved: {final_overlay_path}")
+
     return records
 
 
@@ -294,12 +365,19 @@ async def run_experiment(
         return []
 
     repeat_times = get_repeat_times()
+    amplifier_rounds = get_bar_amplifier_rounds()
     all_records: list[dict[str, Any]] = []
     async with VBarModelClient() as client:
         for start in range(0, len(datasets), batch_size or len(datasets)):
             batch = datasets[start : start + (batch_size or len(datasets))]
             tasks = [
-                _run_target(client=client, dataset=dataset, target=target, repeat_times=repeat_times)
+                _run_target(
+                    client=client,
+                    dataset=dataset,
+                    target=target,
+                    repeat_times=repeat_times,
+                    amplifier_rounds=amplifier_rounds,
+                )
                 for dataset in batch
                 for target in iter_targets(dataset)
             ]

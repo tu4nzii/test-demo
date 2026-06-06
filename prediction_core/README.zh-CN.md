@@ -41,7 +41,7 @@ python -m prediction_core.run_chart scatter --chart-ids scatter_001 --batch-size
 ```powershell
 $env:CHART_MODEL_PROFILE="dsiclab_gpt54"  # 当前默认
 $env:CHART_MODEL_PROFILE="vveai_gpt41"    # 原 vveai gpt-4.1
-$env:CHART_MODEL_PROFILE="vveai_gemini"   # vveai Gemini-3.1-flash-lite
+$env:CHART_MODEL_PROFILE="vveai_gemini"   # vveai gemini-3.1-flash-lite
 ```
 
 环境变量始终优先于 profile：

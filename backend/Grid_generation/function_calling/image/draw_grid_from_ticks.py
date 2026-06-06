@@ -10,7 +10,7 @@ from config import GRID_CONFIG, DEBUG_OUTPUT_DIRS
 
 
 def draw_grid_from_ticks(img, x_ticks, y_ticks, x_axis, y_axis,
-                         grid_color=(180, 180, 180), grid_thickness=1, grid_line_type=None,
+                         grid_color=(204, 204, 204), grid_thickness=1, grid_line_type=None,
                          show_result=True, save_path=None):
     if grid_line_type is None:
         grid_line_type = cv2.LINE_AA
@@ -28,14 +28,12 @@ def draw_grid_from_ticks(img, x_ticks, y_ticks, x_axis, y_axis,
     for x1, y1, x2, y2 in x_ticks:
         cx = (x1 + x2) // 2
         for y in range(y_axis_y1, y_axis_y2, 4):
-            if (y // 2) % 2 == 0:
-                cv2.line(dashed, (cx, y), (cx, y + 2), grid_color, grid_thickness, grid_line_type)
+            cv2.line(dashed, (cx, y), (cx, min(y + 1, y_axis_y2)), grid_color, grid_thickness, grid_line_type)
 
     for x1, y1, x2, y2 in y_ticks:
         cy = (y1 + y2) // 2
         for x in range(x_axis_x1, x_axis_x2, 4):
-            if (x // 2) % 2 == 0:
-                cv2.line(dashed, (x, cy), (x + 2, cy), grid_color, grid_thickness, grid_line_type)
+            cv2.line(dashed, (x, cy), (min(x + 1, x_axis_x2), cy), grid_color, grid_thickness, grid_line_type)
 
     canvas = dashed
 

@@ -124,7 +124,7 @@ CLEAR_OUTPUT_BEFORE_RUN = {
 
 # ===== 网格绘制参数 =====
 GRID_CONFIG = {
-    'grid_color': (180, 180, 180),
+    'grid_color': (204, 204, 204),
     'grid_thickness': 1,
     'grid_line_type': 16,  # cv2.LINE_AA
     'show_result': False

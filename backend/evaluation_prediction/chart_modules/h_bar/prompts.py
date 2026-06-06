@@ -35,13 +35,19 @@ def generate_series_color_description(series_color: dict[str, str]) -> str:
 
 
 def build_color_prompt(point_name: str, series_color: dict[str, str]) -> str:
-    main_label = point_name.split(",", 1)[0].strip()
+    try:
+        series_name, y_label = split_item_name(point_name)
+    except Exception:
+        series_name = point_name.split(",", 1)[0].strip()
+        y_label = point_name.rsplit(",", 1)[-1].strip()
     color_desc = generate_series_color_description(series_color)
     return (
         f"You are given a cropped bar chart image for {point_name}.\n"
         f"**{color_desc}**.\n"
-        f"Please check if there is the correct color bar segment for \"{main_label}\" visible "
-        "that corresponds to the color alignment.\n"
+        f"Please check whether the cropped image contains the target horizontal bar segment "
+        f"for series \"{series_name}\" at y-axis category \"{y_label}\", and whether its "
+        "right boundary/end edge is visible inside the crop. Do not return true if only the "
+        "middle of the bar is visible but the right boundary is outside the crop.\n"
         "Only respond with a JSON object like: {\"exists\": true} or {\"exists\": false}."
     )
 
@@ -96,10 +102,10 @@ def generate_prompt(
         visible_tick_str = _format_visible_ticks(visible_ticks)
         base_prompt = f"""
         You are given a chart image. Your task is to predict the x coordinate for the segment labeled [{item_name}].
-        The segment appears in the **center**, extracted from the full chart by locating the category label **"{y_label}"** on the y-axis.
+        The cropped image is centered on the y-axis category group **"{y_label}"**. In grouped or stacked bar charts, the target colored segment may appear above or below the vertical center within that category group; use the series color to select the correct segment.
         The top and bottom sides include a **horizontally drawn x-axis**, with tick values [{visible_tick_str}] and grid lines.
         Your task is to estimate the **x coordinate** corresponding to the **right boundary** of the colored segment.
-        The segment color indicates its category: use alignment between the legend and segment to verify the target. {color_desc}
+        The segment color indicates its series: use alignment between the legend and segment to verify the target. {color_desc}
         Instructions:
             - First, locate the x-axis tick interval in which the segment's right boundary falls.
             - Then, determine the relative position of the boundary within this interval. Use linear interpolation between the two tick values to estimate the precise x-axis value.

@@ -26,7 +26,7 @@ $FrontendQ = $Frontend.Replace("'", "''")
 $BackendLogQ = $BackendLog.Replace("'", "''")
 $FrontendLogQ = $FrontendLog.Replace("'", "''")
 
-$BackendCommand = "& { Set-Location -LiteralPath '$BackendQ'; `$env:BACKEND_PORT='8001'; `$env:CHART_MODEL_PROFILE='dsiclab_gpt54'; python main.py *> '$BackendLogQ' }"
+$BackendCommand = "& { Set-Location -LiteralPath '$BackendQ'; `$env:BACKEND_PORT='8001'; `$env:CHART_MODEL_PROFILE='gemini'; Remove-Item Env:\CHART_MODEL_NAME,Env:\CHART_BASE_URL,Env:\CHART_API_URLS,Env:\TICK_LLM_MODEL,Env:\COLOR_LLM_MODEL,Env:\CIRCLE_LLM_MODEL,Env:\EXPERIMENT_LLM_MODEL,Env:\MLLM_MODEL,Env:\POLAR_CHART_MODEL_NAME -ErrorAction SilentlyContinue; python main.py *> '$BackendLogQ' }"
 $FrontendCommand = "& { Set-Location -LiteralPath '$FrontendQ'; if (-not (Test-Path 'node_modules')) { npm install }; `$env:VITE_API_URL='http://127.0.0.1:8001'; npx vite --host 127.0.0.1 --port 5174 --strictPort *> '$FrontendLogQ' }"
 $BackendEncoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($BackendCommand))
 $FrontendEncoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($FrontendCommand))
