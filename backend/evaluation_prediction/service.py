@@ -7,8 +7,20 @@ from pathlib import Path
 from typing import Any
 
 
-SUPPORTED_PREDICTION_TYPES = {"v_bar", "h_bar", "line", "scatter", "bubble", "pie", "donut", "radar", "rose"}
-SUPPORTED_BAR_TYPES = {"v_bar", "h_bar"}
+SUPPORTED_PREDICTION_TYPES = {
+    "v_bar",
+    "h_bar",
+    "v_stacked_bar",
+    "h_stacked_bar",
+    "line",
+    "scatter",
+    "bubble",
+    "pie",
+    "donut",
+    "radar",
+    "rose",
+}
+SUPPORTED_BAR_TYPES = {"v_bar", "h_bar", "v_stacked_bar", "h_stacked_bar"}
 
 
 async def run_bar_prediction_async(
@@ -17,10 +29,22 @@ async def run_bar_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
-    if chart_type == "v_bar":
+    if chart_type in {"v_bar", "v_stacked_bar"}:
         from .chart_modules.v_bar.runner import run_experiment
-    elif chart_type == "h_bar":
+
+        return await run_experiment(
+            batch_size=batch_size,
+            config_paths=[str(config_json_path)],
+            chart_type=chart_type,
+        )
+    elif chart_type in {"h_bar", "h_stacked_bar"}:
         from .chart_modules.h_bar.runner import run_experiment
+
+        return await run_experiment(
+            batch_size=batch_size,
+            config_paths=[str(config_json_path)],
+            chart_type=chart_type,
+        )
     else:
         raise ValueError(f"Unsupported bar prediction chart type: {chart_type}")
 
@@ -36,9 +60,9 @@ async def run_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
-    if chart_type == "v_bar":
+    if chart_type in {"v_bar", "v_stacked_bar"}:
         from .chart_modules.v_bar.runner import run_experiment
-    elif chart_type == "h_bar":
+    elif chart_type in {"h_bar", "h_stacked_bar"}:
         from .chart_modules.h_bar.runner import run_experiment
     elif chart_type == "line":
         from .chart_modules.line.runner import run_experiment
@@ -74,6 +98,7 @@ async def run_prediction_async(
     return await run_experiment(
         batch_size=batch_size,
         config_paths=[str(config_json_path)],
+        chart_type=chart_type,
     )
 
 

@@ -26,9 +26,19 @@ def _format_visible_ticks(visible_ticks: list[Any] | None) -> str:
     return ", ".join(str(round(float(y), 2)) for y in sorted(set(visible_ticks)))
 
 
-def build_color_prompt(point_name: str, series_color: dict[str, str]) -> str:
+def build_color_prompt(point_name: str, series_color: dict[str, str], chart_type: str = "v_bar") -> str:
     series_name, x_label = split_item_name(point_name)
     color_desc = generate_series_color_description(series_color)
+    if str(chart_type or "").lower() == "v_stacked_bar":
+        return (
+            f"You are given a cropped vertical stacked bar chart image for {point_name}.\n"
+            f"**{color_desc}**.\n"
+            f"Please check whether the cropped image contains the target colored stack segment "
+            f"for series \"{series_name}\" at x-axis category \"{x_label}\", and whether both "
+            "its bottom and top boundaries are visible inside the crop. Do not return true if "
+            "only the middle of the segment is visible.\n"
+            "Only respond with a JSON object like: {\"exists\": true} or {\"exists\": false}."
+        )
     return (
         f"You are given a cropped vertical bar chart image for {point_name}.\n"
         f"**{color_desc}**.\n"
@@ -50,22 +60,42 @@ def generate_prompt(
     pred_feedback: list | None = None,
     feedback_round: int = 0,
     current_round: int = 1,
+    chart_type: str = "v_bar",
 ) -> str:
     series_name, x_label = split_item_name(item_name)
     x_tick_str = _format_ticks(x_ticks)
     y_tick_str = _format_ticks(y_ticks)
     color_desc = generate_series_color_description(series_color)
+    is_stacked = str(chart_type or "").lower() == "v_stacked_bar"
 
     if prompt_type == "baseline":
-        base_prompt = (
-            "You are given a vertical bar chart image. "
-            f"{color_desc}\n"
-            f"Your task is to predict the y value, or height, of the bar labeled [{item_name}].\n"
-            f"Locate the bar for series [{series_name}] at x-axis category [{x_label}], then estimate its top edge value."
-        )
+        if is_stacked:
+            base_prompt = (
+                "You are given a vertical stacked bar chart image. "
+                f"{color_desc}\n"
+                f"Your task is to predict the y-axis value represented by the colored stack segment labeled [{item_name}].\n"
+                f"Locate the segment for series [{series_name}] at x-axis category [{x_label}], estimate its bottom and top boundary values, then subtract bottom from top."
+            )
+        else:
+            base_prompt = (
+                "You are given a vertical bar chart image. "
+                f"{color_desc}\n"
+                f"Your task is to predict the y value, or height, of the bar labeled [{item_name}].\n"
+                f"Locate the bar for series [{series_name}] at x-axis category [{x_label}], then estimate its top edge value."
+            )
     elif prompt_type == "amplifier":
         visible_tick_str = _format_visible_ticks(visible_ticks)
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are given a cropped vertical stacked bar chart image. Your task is to predict the y-axis value represented by [{item_name}].
+        The cropped image is centered around the x-axis category group **"{x_label}"**; the target stacked segment may start above zero.
+        The left and right sides include a vertically drawn y-axis scale with tick values [{visible_tick_str}] and grid lines.
+        Use the color/legend alignment to verify the target series. {color_desc}
+        Estimate the target segment value as top boundary value minus bottom boundary value.
+        Do not return the cumulative top-edge value unless the segment starts at zero.
+        """
+        else:
+            base_prompt = f"""
         You are given a cropped vertical bar chart image. Your task is to predict the y value for [{item_name}].
         The cropped image is centered around the x-axis category group **"{x_label}"**. In grouped or stacked bar charts, the target colored bar may appear left or right of the horizontal center within that category group; use the series color to select the correct bar.
         The left and right sides include a vertically drawn y-axis scale with tick values [{visible_tick_str}] and grid lines.
@@ -74,7 +104,17 @@ def generate_prompt(
         Do not snap to the nearest tick; interpolate proportionally between adjacent grid lines.
         """
     else:
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are analyzing a vertical stacked bar chart that contains reference grid lines.
+        - X-axis ticks: [{x_tick_str}]
+        - Y-axis ticks: [{y_tick_str}]
+        {color_desc}
+        Locate the colored stack segment for series [{series_name}] at x-axis category [{x_label}].
+        Estimate its own value by subtracting the y-axis value at its bottom boundary from the y-axis value at its top boundary.
+        """
+        else:
+            base_prompt = f"""
         You are analyzing a vertical bar chart that contains reference grid lines.
         - X-axis ticks: [{x_tick_str}]
         - Y-axis ticks: [{y_tick_str}]
@@ -85,7 +125,18 @@ def generate_prompt(
 
     if prompt_type == "feedback" and pred_feedback and current_round >= feedback_round:
         pred = pred_feedback[-1]
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are analyzing a vertical stacked bar chart with reference grid lines.
+        - X-axis ticks: [{x_tick_str}]
+        - Y-axis ticks: [{y_tick_str}]
+        {color_desc}
+
+        The previous estimate for [{item_name}] was y = {pred[1]}. The red crosshair is only a scale reference for that estimate.
+        Re-locate the target colored stack segment, compare its bottom and top boundaries against the grid, and refine the segment value as top minus bottom.
+        """
+        else:
+            base_prompt = f"""
         You are analyzing a vertical bar chart with reference grid lines.
         - X-axis ticks: [{x_tick_str}]
         - Y-axis ticks: [{y_tick_str}]

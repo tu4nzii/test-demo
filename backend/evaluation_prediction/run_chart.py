@@ -12,10 +12,16 @@ async def _run(
     chart_ids: list[str] | None,
     config_paths: list[str] | None,
 ) -> None:
-    if chart_type == "v_bar":
+    if chart_type in {"v_bar", "v_stacked_bar"}:
         from .chart_modules.v_bar.runner import run_experiment
-    elif chart_type == "h_bar":
+
+        await run_experiment(batch_size=batch_size, chart_ids=chart_ids, config_paths=config_paths, chart_type=chart_type)
+        return
+    elif chart_type in {"h_bar", "h_stacked_bar"}:
         from .chart_modules.h_bar.runner import run_experiment
+
+        await run_experiment(batch_size=batch_size, chart_ids=chart_ids, config_paths=config_paths, chart_type=chart_type)
+        return
     elif chart_type == "line":
         from .chart_modules.line.runner import run_experiment
     elif chart_type == "scatter":
@@ -56,7 +62,22 @@ async def _run(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run backend-local chart value prediction.")
-    parser.add_argument("chart_type", choices=["v_bar", "h_bar", "line", "scatter", "bubble", "pie", "donut", "radar", "rose"])
+    parser.add_argument(
+        "chart_type",
+        choices=[
+            "v_bar",
+            "h_bar",
+            "v_stacked_bar",
+            "h_stacked_bar",
+            "line",
+            "scatter",
+            "bubble",
+            "pie",
+            "donut",
+            "radar",
+            "rose",
+        ],
+    )
     parser.add_argument("--batch-size", type=int, default=None)
     parser.add_argument("--chart-ids", nargs="+", default=None)
     parser.add_argument(

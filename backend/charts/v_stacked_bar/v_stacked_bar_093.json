@@ -1,0 +1,96 @@
+{
+  "chart_id": "v_stacked_bar_093",
+  "image_paths": {
+    "no_grid": "charts/v_stacked_bar/v_stacked_bar_093.png",
+    "with_grid": "charts/v_stacked_bar/v_stacked_bar_093_grid.png",
+    "grid_with_grid": "charts/v_stacked_bar/v_stacked_bar_093_grid_with_grid.png"
+  },
+  "data_points": {
+    "S1": {
+      "A": 22,
+      "B": 87,
+      "C": 67,
+      "D": 43,
+      "E": 64,
+      "F": 111,
+      "G": 57
+    },
+    "S2": {
+      "A": 25,
+      "B": 62,
+      "C": 108,
+      "D": 43,
+      "E": 90,
+      "F": 81,
+      "G": 55
+    },
+    "S3": {
+      "A": 98,
+      "B": 77,
+      "C": 95,
+      "D": 104,
+      "E": 73,
+      "F": 42,
+      "G": 21
+    },
+    "S4": {
+      "A": 104,
+      "B": 88,
+      "C": 111,
+      "D": 111,
+      "E": 41,
+      "F": 59,
+      "G": 45
+    }
+  },
+  "series_color": {
+    "S1": "skyblue",
+    "S2": "steelblue",
+    "S3": "salmon",
+    "S4": "gold"
+  },
+  "x_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "y_ticks": [
+    0,
+    40.0,
+    80,
+    120.0,
+    160,
+    200.0,
+    240,
+    280.0,
+    320,
+    360.0,
+    400
+  ],
+  "x_pixels": [
+    282,
+    427,
+    572,
+    718,
+    863,
+    1008,
+    1153
+  ],
+  "y_pixels": [
+    890,
+    813,
+    736,
+    659,
+    582,
+    505,
+    428,
+    351,
+    274,
+    197,
+    120
+  ]
+}

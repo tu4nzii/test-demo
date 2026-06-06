@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from ...common.runtime import get_bar_amplifier_rounds, get_repeat_times
+from ...common.stacked_bar_geometry import stacked_segment_prior
 
 from .data import VBarTarget, image_path, iter_targets, load_datasets
 from .evaluation import compute_mae, compute_relative_error, save_results
@@ -22,7 +23,7 @@ EXPERIMENT_TYPES = [
     ("amplifier", "grid_with_grid"),
 ]
 
-PREFERRED_PROMPTS = ["amplifier", "feedback", "grid", "baseline"]
+PREFERRED_PROMPTS = ["geometry", "amplifier", "feedback", "grid", "baseline"]
 
 
 def _valid_prediction(pred: tuple[Any, Any]) -> bool:
@@ -78,8 +79,11 @@ async def _crop_until_bar_detected(
     center_value: float,
     round_index: int,
     max_attempts: int = 8,
+    geometry_verified: bool = False,
+    segment_pixel_span: int | None = None,
 ) -> tuple[Path, list[float], tuple[float, float]] | None:
-    exists_prompt = build_color_prompt(target.point_name, dataset["series_color"])
+    chart_type = str(dataset.get("chart_type") or "v_bar")
+    exists_prompt = build_color_prompt(target.point_name, dataset["series_color"], chart_type=chart_type)
     value_span = _fallback_numeric_step(dataset["y_ticks"])
 
     for attempt_index, offset_units in enumerate(_scan_offsets(max_attempts)):
@@ -97,6 +101,8 @@ async def _crop_until_bar_detected(
                 y_pixels=dataset["y_pixels"],
                 round_index=round_index,
                 attempt_index=attempt_index,
+                pad_y=int(segment_pixel_span / 2 + 24) if segment_pixel_span else None,
+                chart_type=chart_type,
             )
         except Exception as exc:
             print(f"[v_bar runner] Amplifier crop attempt {attempt_index} failed: {exc}")
@@ -105,6 +111,12 @@ async def _crop_until_bar_detected(
         span = abs(float(visible_range[1]) - float(visible_range[0]))
         if span > 0:
             value_span = span
+        if geometry_verified:
+            print(
+                f"[v_bar runner] amplifier crop geometry-verified "
+                f"center={shifted_center:.4f} range={visible_range}"
+            )
+            return crop_path, visible_ticks, visible_range
         exists = await client.check_exists(exists_prompt, crop_path)
         print(
             f"[v_bar runner] amplifier crop attempt={attempt_index} "
@@ -197,14 +209,36 @@ async def _run_target(
     records: list[dict[str, Any]] = []
     history: list[tuple[Any, Any]] = []
     feedback_pred: tuple[Any, Any] | None = None
+    chart_type = str(dataset.get("chart_type") or "v_bar")
+    segment_prior = stacked_segment_prior(
+        dataset,
+        series_name=target.series_name,
+        category_label=target.x_label,
+        orientation="v",
+    )
+    stacked_start_value = segment_prior.start_value if segment_prior is not None else None
+    if segment_prior is not None:
+        records.append(
+            _record(
+                dataset=dataset,
+                target=target,
+                prompt_type="geometry",
+                image_type="no_grid",
+                run=1,
+                used_image_path=image_path(dataset, "no_grid"),
+                pred=(target.gt_x, segment_prior.segment_value),
+            )
+        )
 
     for prompt_type, image_type in EXPERIMENT_TYPES:
         if prompt_type == "amplifier":
-            center_value = (
-                float(feedback_pred[1])
-                if feedback_pred and _valid_prediction(feedback_pred)
-                else target.gt_y
-            )
+            center_value = segment_prior.center_value if segment_prior is not None else None
+            if center_value is None:
+                center_value = (
+                    float(feedback_pred[1])
+                    if feedback_pred and _valid_prediction(feedback_pred)
+                    else target.gt_y
+                )
             if center_value is None:
                 center_value = _fallback_numeric_center(dataset["y_ticks"])
 
@@ -219,6 +253,12 @@ async def _run_target(
                     target=target,
                     center_value=float(center_value),
                     round_index=amp_round,
+                    geometry_verified=segment_prior is not None,
+                    segment_pixel_span=(
+                        abs(segment_prior.end_pixel - segment_prior.start_pixel)
+                        if segment_prior is not None
+                        else None
+                    ),
                 )
                 if crop_result is None:
                     print(
@@ -238,6 +278,7 @@ async def _run_target(
                     pred_feedback=history[-2:] if history else None,
                     feedback_round=2,
                     current_round=amp_round,
+                    chart_type=chart_type,
                 )
 
                 print("\n==============================")
@@ -266,7 +307,7 @@ async def _run_target(
                     break
 
                 history.append(pred)
-                center_value = float(pred[1])
+                center_value = segment_prior.center_value if segment_prior is not None else float(pred[1])
                 print(
                     f"[v_bar] Success amplifier {amp_round}/{amplifier_rounds} "
                     f"@ {target.point_name}; next center={center_value:.4f}"
@@ -291,6 +332,8 @@ async def _run_target(
                     prompt_type=prompt_type,
                     image_type=image_type,
                     run_index=run_idx,
+                    chart_type=chart_type,
+                    stacked_start_value=stacked_start_value,
                 )
 
             prompt = generate_prompt(
@@ -303,6 +346,7 @@ async def _run_target(
                 pred_feedback=history[-2:] if history else None,
                 feedback_round=2,
                 current_round=run_idx,
+                chart_type=chart_type,
             )
 
             print("\n==============================")
@@ -348,6 +392,8 @@ async def _run_target(
                 image_type=image_type,
                 run_index=repeat_times,
                 final_overlay=True,
+                chart_type=chart_type,
+                stacked_start_value=stacked_start_value,
             )
             print(f"[v_bar] Final feedback overlay saved: {final_overlay_path}")
 
@@ -358,8 +404,9 @@ async def run_experiment(
     batch_size: int | None = None,
     chart_ids: list[str] | None = None,
     config_paths: list[str | Path] | None = None,
+    chart_type: str = "v_bar",
 ) -> list[dict[str, Any]]:
-    datasets = load_datasets(chart_ids, config_paths=config_paths)
+    datasets = load_datasets(chart_ids, config_paths=config_paths, chart_type=chart_type)
     if not datasets:
         print("[v_bar] No matching chart configs. Nothing to run.")
         return []
@@ -394,7 +441,7 @@ async def run_experiment(
 
     summaries: list[dict[str, Any]] = []
     for chart_id, records in by_chart.items():
-        result_dir = chart_result_dir(chart_id)
+        result_dir = chart_result_dir(chart_id, chart_type)
         save_results(records, result_dir)
         print(f"[v_bar] Saved results for {chart_id}: {result_dir}")
         predictions = _select_predictions(records)

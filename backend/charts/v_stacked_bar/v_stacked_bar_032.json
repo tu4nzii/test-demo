@@ -1,0 +1,76 @@
+{
+  "chart_id": "v_stacked_bar_032",
+  "image_paths": {
+    "no_grid": "charts/v_stacked_bar/v_stacked_bar_032.png",
+    "with_grid": "charts/v_stacked_bar/v_stacked_bar_032_grid.png",
+    "grid_with_grid": "charts/v_stacked_bar/v_stacked_bar_032_grid_with_grid.png"
+  },
+  "data_points": {
+    "S1": {
+      "A": 104,
+      "B": 117,
+      "C": 69,
+      "D": 22,
+      "E": 33,
+      "F": 82,
+      "G": 45
+    },
+    "S2": {
+      "A": 20,
+      "B": 113,
+      "C": 117,
+      "D": 94,
+      "E": 102,
+      "F": 93,
+      "G": 95
+    }
+  },
+  "series_color": {
+    "S1": "#66c2a5",
+    "S2": "#fc8d62"
+  },
+  "x_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "y_ticks": [
+    0,
+    25.0,
+    50,
+    75.0,
+    100,
+    125.0,
+    150,
+    175.0,
+    200,
+    225.0,
+    250
+  ],
+  "x_pixels": [
+    101,
+    153,
+    204,
+    256,
+    308,
+    360,
+    412
+  ],
+  "y_pixels": [
+    356,
+    325,
+    294,
+    264,
+    233,
+    202,
+    171,
+    140,
+    110,
+    79,
+    48
+  ]
+}

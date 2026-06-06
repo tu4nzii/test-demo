@@ -1,0 +1,76 @@
+﻿{
+    "chart_id":  "h_stacked_bar_026",
+    "image_paths":  {
+                        "no_grid":  "charts/h_stacked_bar/h_stacked_bar_026.png",
+                        "with_grid":  "charts/h_stacked_bar/h_stacked_bar_026_grid.png",
+                        "grid_with_grid":  "charts/h_stacked_bar/h_stacked_bar_026_grid_with_grid.png"
+                    },
+    "data_points":  {
+                        "S1":  {
+                                   "A":  23,
+                                   "B":  41,
+                                   "C":  78,
+                                   "D":  108,
+                                   "E":  90,
+                                   "F":  93,
+                                   "G":  22
+                               },
+                        "S2":  {
+                                   "A":  69,
+                                   "B":  106,
+                                   "C":  50,
+                                   "D":  93,
+                                   "E":  118,
+                                   "F":  102,
+                                   "G":  86
+                               }
+                    },
+    "x_ticks":  [
+                    0,
+                    25.0,
+                    50,
+                    75.0,
+                    100,
+                    125.0,
+                    150,
+                    175.0,
+                    200,
+                    225.0,
+                    250
+                ],
+    "y_ticks":  [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
+                ],
+    "x_pixels":  [
+                     175,
+                     284,
+                     392,
+                     500,
+                     609,
+                     718,
+                     826,
+                     934,
+                     1043,
+                     1152,
+                     1260
+                 ],
+    "y_pixels":  [
+                     814,
+                     711,
+                     608,
+                     505,
+                     402,
+                     299,
+                     196
+                 ],
+    "series_color":  {
+                         "S1":  "skyblue",
+                         "S2":  "steelblue"
+                     }
+}

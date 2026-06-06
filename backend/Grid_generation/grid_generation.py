@@ -305,7 +305,30 @@ def _vertical_axis_from_lines(lines, w, h):
     return best
 
 
+def _bar_orientation(chart_type):
+    chart_type = (chart_type or "").lower()
+    if chart_type in {"h_bar", "h_stacked_bar"}:
+        return "h"
+    if chart_type in {"v_bar", "v_stacked_bar"}:
+        return "v"
+    return ""
+
+
+def _is_bar_chart_type(chart_type):
+    return _bar_orientation(chart_type) in {"h", "v"}
+
+
+def _bar_base_type(chart_type):
+    orientation = _bar_orientation(chart_type)
+    if orientation == "h":
+        return "h_bar"
+    if orientation == "v":
+        return "v_bar"
+    return (chart_type or "").lower()
+
+
 def _bar_boxes(img, chart_type):
+    orientation = _bar_orientation(chart_type)
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, np.array([0, 35, 40]), np.array([179, 255, 255]))
     kernel = np.ones((3, 3), np.uint8)
@@ -319,16 +342,16 @@ def _bar_boxes(img, chart_type):
         area = bw * bh
         if area < min_area:
             continue
-        if chart_type == "h_bar":
+        if orientation == "h":
             if bw < 12 or bh < 4 or bw < bh * 2:
                 continue
-        elif chart_type == "v_bar":
+        elif orientation == "v":
             if bh < 12 or bw < 4 or bh < bw * 2:
                 continue
         else:
             continue
         boxes.append((int(x), int(y), int(bw), int(bh)))
-    if chart_type == "h_bar":
+    if orientation == "h":
         if len(boxes) >= 3:
             median_height = float(np.median([box[3] for box in boxes]))
             boxes = [box for box in boxes if box[3] >= max(4, median_height * 0.45)]
@@ -369,10 +392,10 @@ def _tick_group_count(ticks, direction):
 
 
 def _is_bar_category_axis(chart_type, direction):
-    chart_type = (chart_type or "").lower()
     direction = (direction or "").lower()
-    return (chart_type == "h_bar" and direction == "y") or (
-        chart_type == "v_bar" and direction == "x"
+    orientation = _bar_orientation(chart_type)
+    return (orientation == "h" and direction == "y") or (
+        orientation == "v" and direction == "x"
     )
 
 
@@ -476,7 +499,8 @@ def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repa
     top = min(box[1] for box in boxes)
     bottom = max(box[1] + box[3] for box in boxes)
 
-    if chart_type == "h_bar":
+    orientation = _bar_orientation(chart_type)
+    if orientation == "h":
         if hint["y_axis_missing"]:
             bottom_y = _axis_y(x_axis) if x_axis is not None else min(h - 1, bottom + max(8, int(np.median([b[3] for b in boxes]))))
             top_y = max(0, top)
@@ -486,7 +510,7 @@ def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repa
             axis_y = max(y_axis[1], y_axis[3]) if y_axis is not None else min(h - 1, bottom + 8)
             x_axis = [axis_x, axis_y, right, axis_y]
 
-    elif chart_type == "v_bar":
+    elif orientation == "v":
         if hint["x_axis_missing"]:
             axis_y = max(box[1] + box[3] for box in boxes)
             axis_x = _axis_x(y_axis) if y_axis is not None else left
@@ -511,9 +535,10 @@ def repair_missing_axes(img, merged_lines, x_axis, y_axis, chart_type, axis_repa
 def _synthetic_bar_tick_pixels(chart_type, direction, boxes):
     if not boxes:
         return []
-    if chart_type == "h_bar" and direction == "y":
+    orientation = _bar_orientation(chart_type)
+    if orientation == "h" and direction == "y":
         return sorted([int(round(y + h / 2)) for _, y, _, h in boxes], reverse=True)
-    if chart_type == "v_bar" and direction == "x":
+    if orientation == "v" and direction == "x":
         return sorted([int(round(x + w / 2)) for x, _, w, _ in boxes])
     return []
 
@@ -1222,11 +1247,12 @@ def apply_bar_geometry_repair_hint(
     """
     hint = normalize_axis_repair_hint(axis_repair_hint)
     chart_type = (chart_type or "").lower()
-    if chart_type not in {"h_bar", "v_bar"} or len(boxes or []) < 1:
+    orientation = _bar_orientation(chart_type)
+    if not orientation or len(boxes or []) < 1:
         return hint
 
     min_expected_ticks = max(1, int(np.ceil(len(boxes) * 0.6)))
-    if chart_type == "h_bar":
+    if orientation == "h":
         if y_tick_count < min_expected_ticks:
             hint["y_ticks_missing"] = True
             hint["reason"] = (
@@ -1238,7 +1264,7 @@ def apply_bar_geometry_repair_hint(
             hint["reason"] = (
                 hint.get("reason") or ""
             ) + f" | geometry repair: {x_tick_count} numeric x ticks"
-    elif chart_type == "v_bar":
+    elif orientation == "v":
         if x_tick_count < min_expected_ticks:
             hint["x_ticks_missing"] = True
             hint["reason"] = (
@@ -1286,8 +1312,8 @@ def coerce_chart_axis_numeric_ticks(chart_type, axis, tick_values, axis_type):
     axis = (axis or "").lower()
     value_axis = (
         chart_type in {"scatter", "bubble"}
-        or (chart_type in {"v_bar", "line"} and axis == "y")
-        or (chart_type == "h_bar" and axis == "x")
+        or ((chart_type in {"v_bar", "v_stacked_bar", "line"}) and axis == "y")
+        or (chart_type in {"h_bar", "h_stacked_bar"} and axis == "x")
     )
     if not value_axis:
         return tick_values, axis_type
@@ -1837,7 +1863,7 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                         len(y_grid_pixels),
                         chart_type,
                     )
-        if chart_type in {"h_bar", "v_bar"} and not repair_boxes:
+        if _is_bar_chart_type(chart_type) and not repair_boxes:
             repair_boxes = _bar_boxes(img, chart_type)
         geometry_hint = apply_bar_geometry_repair_hint(
             chart_type,
@@ -2033,7 +2059,7 @@ def process_chart(image_path, output_dir, chart_type_override=None, chart_id_ove
                 if y_axis_scale != "linear":
                     repair_applied["plot_vertical_bounds_refined_from_grid"] = True
 
-    if chart_type in {"h_bar", "v_bar"} and axis_repair_enabled(axis_repair_hint):
+    if _is_bar_chart_type(chart_type) and axis_repair_enabled(axis_repair_hint):
         if x_axis_type == NUMERIC_AXIS_TYPE:
             x_pixel_positions = add_missing_numeric_axis_endpoints(
                 "x", x_axis, x_pixel_positions, x_ticks_values

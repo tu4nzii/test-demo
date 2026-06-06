@@ -1,0 +1,96 @@
+﻿{
+    "chart_id":  "h_stacked_bar_052",
+    "image_paths":  {
+                        "no_grid":  "charts/h_stacked_bar/h_stacked_bar_052.png",
+                        "with_grid":  "charts/h_stacked_bar/h_stacked_bar_052_grid.png",
+                        "grid_with_grid":  "charts/h_stacked_bar/h_stacked_bar_052_grid_with_grid.png"
+                    },
+    "data_points":  {
+                        "S1":  {
+                                   "A":  101,
+                                   "B":  68,
+                                   "C":  108,
+                                   "D":  81,
+                                   "E":  42,
+                                   "F":  24,
+                                   "G":  55
+                               },
+                        "S2":  {
+                                   "A":  110,
+                                   "B":  45,
+                                   "C":  73,
+                                   "D":  115,
+                                   "E":  115,
+                                   "F":  91,
+                                   "G":  39
+                               },
+                        "S3":  {
+                                   "A":  71,
+                                   "B":  99,
+                                   "C":  49,
+                                   "D":  41,
+                                   "E":  107,
+                                   "F":  112,
+                                   "G":  54
+                               },
+                        "S4":  {
+                                   "A":  32,
+                                   "B":  37,
+                                   "C":  35,
+                                   "D":  75,
+                                   "E":  65,
+                                   "F":  86,
+                                   "G":  37
+                               }
+                    },
+    "x_ticks":  [
+                    0,
+                    35.0,
+                    70,
+                    105.0,
+                    140,
+                    175.0,
+                    210,
+                    245.0,
+                    280,
+                    315.0,
+                    350
+                ],
+    "y_ticks":  [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
+                ],
+    "x_pixels":  [
+                     62,
+                     101,
+                     140,
+                     179,
+                     218,
+                     256,
+                     295,
+                     334,
+                     372,
+                     411,
+                     450
+                 ],
+    "y_pixels":  [
+                     326,
+                     284,
+                     243,
+                     202,
+                     161,
+                     120,
+                     78
+                 ],
+    "series_color":  {
+                         "S1":  "skyblue",
+                         "S2":  "steelblue",
+                         "S3":  "salmon",
+                         "S4":  "gold"
+                     }
+}

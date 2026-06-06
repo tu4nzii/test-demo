@@ -13,15 +13,12 @@ from ...common.paths import RESULTS_ROOT
 from .geometry import category_pixel, category_span, numeric_pixel, value_range_from_pixels, visible_ticks_for_range
 
 
-RESULT_ROOT = RESULTS_ROOT / "v_bar"
+def chart_result_dir(chart_id: str, chart_type: str = "v_bar") -> Path:
+    return ensure_dir(RESULTS_ROOT / chart_type / chart_id)
 
 
-def chart_result_dir(chart_id: str) -> Path:
-    return ensure_dir(RESULT_ROOT / chart_id)
-
-
-def temp_dir(chart_id: str) -> Path:
-    return ensure_dir(chart_result_dir(chart_id) / "tempy")
+def temp_dir(chart_id: str, chart_type: str = "v_bar") -> Path:
+    return ensure_dir(chart_result_dir(chart_id, chart_type) / "tempy")
 
 
 def draw_prediction_overlay(
@@ -39,6 +36,8 @@ def draw_prediction_overlay(
     image_type: str = "grid_with_grid",
     run_index: int | None = None,
     final_overlay: bool = False,
+    chart_type: str = "v_bar",
+    stacked_start_value: float | None = None,
 ) -> Path:
     img = Image.open(original_img_path).convert("RGB")
     draw = ImageDraw.Draw(img)
@@ -48,25 +47,37 @@ def draw_prediction_overlay(
     for idx, coord in enumerate(coords_to_draw):
         try:
             x_pixel = category_pixel(coord[0], x_ticks, x_pixels)
-            y_pixel = numeric_pixel(float(coord[1]), y_ticks, y_pixels)
+            if str(chart_type or "").lower() == "v_stacked_bar" and stacked_start_value is not None:
+                start_y = numeric_pixel(float(stacked_start_value), y_ticks, y_pixels)
+                end_y = numeric_pixel(float(stacked_start_value) + float(coord[1]), y_ticks, y_pixels)
+                y_pixel = end_y
+            else:
+                start_y = None
+                end_y = None
+                y_pixel = numeric_pixel(float(coord[1]), y_ticks, y_pixels)
         except Exception as exc:
             print(f"[v_bar visual] Skip overlay coord {coord}: {exc}")
             continue
 
         half_span = category_span(coord[0], x_ticks, x_pixels, img.size) // 2
         color = colors[idx % len(colors)]
-        draw.line((x_pixel - half_span, y_pixel, x_pixel + half_span, y_pixel), fill=color, width=2)
-        draw.line((x_pixel, y_pixel - half_span, x_pixel, y_pixel + half_span), fill=color, width=2)
+        if start_y is not None and end_y is not None:
+            top_y, bottom_y = sorted((start_y, end_y))
+            draw.line((x_pixel, top_y, x_pixel, bottom_y), fill=color, width=3)
+            draw.line((x_pixel - half_span, top_y, x_pixel + half_span, top_y), fill=color, width=2)
+            draw.line((x_pixel - half_span, bottom_y, x_pixel + half_span, bottom_y), fill=color, width=2)
+        else:
+            draw.line((x_pixel - half_span, y_pixel, x_pixel + half_span, y_pixel), fill=color, width=2)
+            draw.line((x_pixel, y_pixel - half_span, x_pixel, y_pixel + half_span), fill=color, width=2)
 
-    safe_chart_id = safe_filename(chart_id)
     safe_point_name = safe_filename(point_name)
     if final_overlay:
         round_suffix = f"_run{run_index}" if run_index is not None else ""
-        filename = f"final_overlay_{safe_chart_id}_{safe_point_name}_{prompt_type}_{image_type}{round_suffix}.png"
+        filename = f"final_overlay_{safe_point_name}_{prompt_type}_{image_type}{round_suffix}.png"
     else:
         round_no = int(run_index) if run_index is not None else 1
-        filename = f"overlay_{safe_chart_id}_{safe_point_name}_{prompt_type}_{image_type}_run{round_no}.png"
-    output = temp_dir(chart_id) / filename
+        filename = f"overlay_{safe_point_name}_{prompt_type}_{image_type}_run{round_no}.png"
+    output = temp_dir(chart_id, chart_type) / filename
     img.save(output)
     return output
 
@@ -134,6 +145,7 @@ def crop_bar_window(
     attempt_index: int = 0,
     pad_x: int | None = None,
     pad_y: int | None = None,
+    chart_type: str = "v_bar",
 ) -> tuple[Path, list[float], tuple[float, float]]:
     img = Image.open(image_path).convert("RGB")
     width, height = img.size
@@ -227,7 +239,7 @@ def crop_bar_window(
     if not visible_ticks:
         visible_ticks = visible_ticks_for_range(y_ticks, min_val, max_val)
 
-    output = temp_dir(chart_id) / (
+    output = temp_dir(chart_id, chart_type) / (
         f"amplifier_crop_{safe_filename(point_name)}_round{round_index}_attempt{attempt_index}.png"
     )
     canvas.save(output)

@@ -10,7 +10,16 @@ import unicodedata
 from PIL import Image
 
 from .chart_io import read_json
-from .paths import ASSETS_ROOT
+from .paths import ASSETS_ROOT, BACKEND_ROOT, PROJECT_ROOT
+
+
+def bar_base_type(chart_type: str | None) -> str:
+    chart_type = (chart_type or "").lower()
+    if chart_type in {"h_bar", "h_stacked_bar"}:
+        return "h_bar"
+    if chart_type in {"v_bar", "v_stacked_bar"}:
+        return "v_bar"
+    return chart_type
 
 
 def load_backend_generated_dataset(config_path: str | Path, chart_type: str) -> dict[str, Any]:
@@ -35,7 +44,7 @@ def load_backend_generated_dataset(config_path: str | Path, chart_type: str) -> 
     # derived from the current system output: ticks plus extracted colors/labels.
     merged["data_points"] = {}
     merged["series_color"] = _series_color(merged, chart_type)
-    merged["image_paths"] = _image_paths(merged, path.parent)
+    merged["image_paths"] = _image_paths(merged, path.parent, path)
 
     _prefer_encrypted_numeric_axis(merged, chart_type)
     _prefer_data_categories(merged, chart_type)
@@ -96,16 +105,21 @@ def _data_points(dataset: dict[str, Any]) -> dict[str, Any]:
 def _strip_external_reference_data(dataset: dict[str, Any]) -> None:
     dataset.pop("reference_config_path", None)
     dataset.pop("reference_chart_id", None)
-    for key in ("data", "data_points", "ground_truth", "series_color", "labels"):
+    for key in ("data", "data_points", "ground_truth", "labels"):
         dataset.pop(key, None)
 
 
 def _series_color(dataset: dict[str, Any], chart_type: str | None = None) -> dict[str, str]:
+    existing = dataset.get("series_color")
+    if isinstance(existing, dict) and existing:
+        return {str(name): str(color) for name, color in existing.items() if color}
+
     colors = dataset.get("colors")
     if not isinstance(colors, list):
         return {}
 
-    if chart_type in {"h_bar", "v_bar"} and _colors_look_like_category_labels(colors, dataset, chart_type):
+    base_type = bar_base_type(chart_type)
+    if base_type in {"h_bar", "v_bar"} and _colors_look_like_category_labels(colors, dataset, base_type):
         color = _first_color(colors)
         return {"Series 1": color} if color else {}
 
@@ -159,7 +173,8 @@ def _is_placeholder_category_tick(value: Any) -> bool:
 
 
 def _drop_mixed_placeholder_category_axis(dataset: dict[str, Any], chart_type: str) -> None:
-    axis = "y" if chart_type == "h_bar" else "x" if chart_type == "v_bar" else ""
+    base_type = bar_base_type(chart_type)
+    axis = "y" if base_type == "h_bar" else "x" if base_type == "v_bar" else ""
     if not axis:
         return
 
@@ -242,17 +257,34 @@ def _looks_like_mojibake(text: str) -> bool:
     return question_marks > 0 and non_ascii >= max(1, len(text) // 3)
 
 
-def _image_paths(dataset: dict[str, Any], base_dir: Path) -> dict[str, str]:
+def _image_paths(dataset: dict[str, Any], base_dir: Path, config_path: Path) -> dict[str, str]:
     image_paths = dataset.get("image_paths") if isinstance(dataset.get("image_paths"), dict) else {}
+    chart_type = str(dataset.get("chart_type") or "").strip()
+    stem = config_path.stem.removesuffix("_ticks")
+    generated_dir = BACKEND_ROOT / "data" / "output" / chart_type if chart_type else None
+    generated_basic = generated_dir / f"{stem}_grid.png" if generated_dir else None
+    generated_encrypted = generated_dir / f"{stem}_with_grid.png" if generated_dir else None
 
-    no_grid = image_paths.get("no_grid") or dataset.get("image_path")
-    with_grid = (
-        image_paths.get("grid_with_grid")
-        or image_paths.get("with_grid")
-        or dataset.get("encrypted_grid_path")
-        or dataset.get("basic_grid_path")
+    no_grid = _first_path(
+        base_dir,
+        image_paths.get("no_grid"),
+        dataset.get("image_path"),
     )
-    basic_grid = image_paths.get("with_grid") or dataset.get("basic_grid_path") or with_grid
+    with_grid = _first_path(
+        base_dir,
+        dataset.get("encrypted_grid_path"),
+        str(generated_encrypted) if generated_encrypted is not None else None,
+        image_paths.get("grid_with_grid"),
+        image_paths.get("with_grid"),
+        dataset.get("basic_grid_path"),
+    )
+    basic_grid = _first_path(
+        base_dir,
+        dataset.get("basic_grid_path"),
+        str(generated_basic) if generated_basic is not None else None,
+        image_paths.get("with_grid"),
+        with_grid,
+    )
 
     paths = {
         "no_grid": no_grid,
@@ -260,22 +292,45 @@ def _image_paths(dataset: dict[str, Any], base_dir: Path) -> dict[str, str]:
         "grid_with_grid": with_grid,
     }
     return {
-        key: str(_resolve_path(value, base_dir))
+        key: str(value)
         for key, value in paths.items()
-        if isinstance(value, str) and value
+        if isinstance(value, Path)
     }
 
 
-def _resolve_path(value: str, base_dir: Path) -> Path:
+def _first_path(base_dir: Path, *values: Any) -> Path | None:
+    candidates = [
+        _resolve_path(value, base_dir)
+        for value in values
+        if isinstance(value, (str, Path)) and str(value)
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0] if candidates else None
+
+
+def _resolve_path(value: str | Path, base_dir: Path) -> Path:
     path = Path(value)
-    return path.resolve() if path.is_absolute() else (base_dir / path).resolve()
+    if path.is_absolute():
+        return path.resolve()
+    candidates = [
+        (base_dir / path).resolve(),
+        (BACKEND_ROOT / path).resolve(),
+        (PROJECT_ROOT / path).resolve(),
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
 
 
 def _prefer_encrypted_numeric_axis(dataset: dict[str, Any], chart_type: str) -> None:
-    if chart_type == "h_bar":
+    base_type = bar_base_type(chart_type)
+    if base_type == "h_bar":
         _copy_if_present(dataset, "x_ticks_encrypted", "x_ticks")
         _copy_if_present(dataset, "x_pixels_encrypted", "x_pixels")
-    elif chart_type in {"v_bar", "line"}:
+    elif base_type == "v_bar" or chart_type == "line":
         _copy_if_present(dataset, "y_ticks_encrypted", "y_ticks")
         _copy_if_present(dataset, "y_pixels_encrypted", "y_pixels")
     elif chart_type in {"scatter", "bubble"}:
@@ -292,19 +347,20 @@ def _copy_if_present(dataset: dict[str, Any], source: str, target: str) -> None:
 
 
 def _prefer_data_categories(dataset: dict[str, Any], chart_type: str) -> None:
+    base_type = bar_base_type(chart_type)
     labels = _category_labels(dataset)
     if not labels:
         return
-    if chart_type in {"v_bar", "line"} and _same_length(dataset.get("x_pixels"), labels):
+    if (base_type == "v_bar" or chart_type == "line") and _same_length(dataset.get("x_pixels"), labels):
         dataset["x_ticks"] = labels
-    elif chart_type == "h_bar" and _same_length(dataset.get("y_pixels"), labels):
+    elif base_type == "h_bar" and _same_length(dataset.get("y_pixels"), labels):
         dataset["y_ticks"] = labels
-    elif chart_type in {"v_bar", "line"}:
+    elif base_type == "v_bar" or chart_type == "line":
         inferred = _infer_category_pixels(dataset, "x", len(labels))
         if inferred:
             dataset["x_ticks"] = labels
             dataset["x_pixels"] = inferred
-    elif chart_type == "h_bar":
+    elif base_type == "h_bar":
         inferred = _infer_category_pixels(dataset, "y", len(labels))
         if inferred:
             dataset["y_ticks"] = labels

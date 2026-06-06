@@ -34,13 +34,23 @@ def generate_series_color_description(series_color: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
-def build_color_prompt(point_name: str, series_color: dict[str, str]) -> str:
+def build_color_prompt(point_name: str, series_color: dict[str, str], chart_type: str = "h_bar") -> str:
     try:
         series_name, y_label = split_item_name(point_name)
     except Exception:
         series_name = point_name.split(",", 1)[0].strip()
         y_label = point_name.rsplit(",", 1)[-1].strip()
     color_desc = generate_series_color_description(series_color)
+    if str(chart_type or "").lower() == "h_stacked_bar":
+        return (
+            f"You are given a cropped horizontal stacked bar chart image for {point_name}.\n"
+            f"**{color_desc}**.\n"
+            f"Please check whether the cropped image contains the target colored stack segment "
+            f"for series \"{series_name}\" at y-axis category \"{y_label}\", and whether both "
+            "its left and right boundaries are visible inside the crop. Do not return true if "
+            "only the middle of the segment is visible.\n"
+            "Only respond with a JSON object like: {\"exists\": true} or {\"exists\": false}."
+        )
     return (
         f"You are given a cropped bar chart image for {point_name}.\n"
         f"**{color_desc}**.\n"
@@ -84,23 +94,46 @@ def generate_prompt(
     pred_feedback: list | None = None,
     feedback_round: int = 0,
     current_round: int = 1,
+    chart_type: str = "h_bar",
 ) -> str:
     _, y_label = split_item_name(item_name)
     x_tick_str = _format_ticks(x_ticks)
     y_tick_str = _format_ticks(y_ticks)
     color_desc = generate_series_color_description(series_color)
+    is_stacked = str(chart_type or "").lower() == "h_stacked_bar"
 
     if prompt_type == "baseline":
-        base_prompt = (
-            "You are given a bar chart image. "
-            f"{color_desc}\n"
-            f"Your task is to predict the x coordinate for the segment labeled [{item_name}].\n"
-            f"To identify the x coordinate, first locate the tick interval in which the right boundary "
-            f"of the segment representing [{item_name}] falls."
-        )
+        if is_stacked:
+            base_prompt = (
+                "You are given a horizontal stacked bar chart image. "
+                f"{color_desc}\n"
+                f"Your task is to predict the x-axis value represented by the colored stack segment labeled [{item_name}].\n"
+                "Locate both the left and right boundaries of this colored segment, then subtract the left boundary value from the right boundary value."
+            )
+        else:
+            base_prompt = (
+                "You are given a bar chart image. "
+                f"{color_desc}\n"
+                f"Your task is to predict the x coordinate for the segment labeled [{item_name}].\n"
+                f"To identify the x coordinate, first locate the tick interval in which the right boundary "
+                f"of the segment representing [{item_name}] falls."
+            )
     elif prompt_type == "amplifier":
         visible_tick_str = _format_visible_ticks(visible_ticks)
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are given a cropped horizontal stacked bar chart image. Your task is to predict the x-axis value represented by the colored segment labeled [{item_name}].
+        The cropped image is centered on the y-axis category group **"{y_label}"**; the target stacked segment may start away from zero.
+        The top and bottom sides include a **horizontally drawn x-axis**, with tick values [{visible_tick_str}] and grid lines.
+        Use the series color to select the correct segment. {color_desc}
+        Instructions:
+            - Locate the target colored segment for [{item_name}].
+            - Estimate the x-axis value at the segment's left boundary and right boundary.
+            - Return the segment value: right boundary value minus left boundary value.
+            - Do not return the cumulative right-edge value unless the segment starts at zero.
+        """
+        else:
+            base_prompt = f"""
         You are given a chart image. Your task is to predict the x coordinate for the segment labeled [{item_name}].
         The cropped image is centered on the y-axis category group **"{y_label}"**. In grouped or stacked bar charts, the target colored segment may appear above or below the vertical center within that category group; use the series color to select the correct segment.
         The top and bottom sides include a **horizontally drawn x-axis**, with tick values [{visible_tick_str}] and grid lines.
@@ -113,7 +146,16 @@ def generate_prompt(
             - **Edge case:** If the segment cannot be visually detected even near the **minimum tick boundary**, output the **minimum tick value (e.g., 0)** as the coordinate.
         """
     else:
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are analyzing a horizontal stacked bar chart that contains reference grid lines.
+        - Y-axis ticks: [{y_tick_str}]
+        - X-axis ticks: [{x_tick_str}]
+        {color_desc}
+        After locating the correct colored stack segment for [{item_name}], estimate its own value by subtracting the x-axis value at its left boundary from the x-axis value at its right boundary.
+        """
+        else:
+            base_prompt = f"""
         You are analyzing a bar chart that contains **reference grid lines**, where horizontal lines correspond to y-axis ticks, and vertical lines align with x-axis ticks.
         - Y-axis ticks: [{y_tick_str}]
         - X-axis ticks: [{x_tick_str}]
@@ -126,7 +168,18 @@ def generate_prompt(
         pred = pred_feedback[-1]
         x = f"{pred[0]:.2f}" if isinstance(pred[0], (int, float)) else f'"{pred[0]}"'
         y = f"{pred[1]:.2f}" if isinstance(pred[1], (int, float)) else f'"{pred[1]}"'
-        base_prompt = f"""
+        if is_stacked:
+            base_prompt = f"""
+        You are analyzing a horizontal stacked bar chart with reference grid lines.
+        - Y-axis ticks: [{y_tick_str}]
+        - X-axis ticks: [{x_tick_str}]
+        {color_desc}
+
+        The previous estimate for the value of [{item_name}] was x = {x}. The red crosshair is only a scale reference for that estimate.
+        Re-locate the target colored stack segment, compare its left and right boundaries against the grid, and refine the segment value as right minus left.
+        """
+        else:
+            base_prompt = f"""
         You are analyzing a bar chart with reference grid lines.
         - Y-axis ticks: [{y_tick_str}]
         - X-axis ticks: [{x_tick_str}]

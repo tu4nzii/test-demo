@@ -1,0 +1,243 @@
+"""Runner for scatter chart prediction."""
+
+from __future__ import annotations
+
+import asyncio
+from pathlib import Path
+from typing import Any
+
+from PIL import Image
+
+from reference.prediction_core.runtime import get_repeat_times
+
+from .data import PointChartConfig, PointTarget, image_path, iter_targets, load_datasets
+from .evaluation import compute_mae, compute_relative_error, save_results
+from .geometry import compute_pixel_relative_error_xy, pixel_to_value
+from .model import PointModelClient
+from .prompts import build_point_exists_prompt, generate_prompt
+from .visual import chart_result_dir, crop_point_window, draw_prediction_overlay
+
+
+EXPERIMENT_TYPES = [
+    ("baseline", "no_grid"),
+    ("grid", "grid_with_grid"),
+    ("feedback", "grid_with_grid"),
+    ("feedback_crop_adaptive", "grid_with_grid"),
+]
+
+
+def _valid_prediction(pred: tuple[Any, Any]) -> bool:
+    try:
+        float(pred[0])
+        float(pred[1])
+        return pred != (-1, -1)
+    except Exception:
+        return False
+
+
+def _normalize_prediction(pred: tuple[Any, Any], dataset: dict[str, Any], used_image_path: Path) -> tuple[Any, Any]:
+    if not _valid_prediction(pred):
+        return pred
+    pred_x, pred_y = float(pred[0]), float(pred[1])
+    x_min, x_max = min(dataset["x_ticks"]), max(dataset["x_ticks"])
+    y_min, y_max = min(dataset["y_ticks"]), max(dataset["y_ticks"])
+    if x_min <= pred_x <= x_max and y_min <= pred_y <= y_max:
+        return pred_x, pred_y
+
+    try:
+        width, height = Image.open(used_image_path).size
+    except Exception:
+        return pred
+    looks_like_pixels = 0 <= pred_x <= width and 0 <= pred_y <= height
+    if not looks_like_pixels:
+        return pred
+
+    data_x = pixel_to_value(pred_x, dataset["x_ticks"], dataset["x_pixels"])
+    data_y = pixel_to_value(pred_y, dataset["y_ticks"], dataset["y_pixels"])
+    print(f"[scatter runner] normalized pixel prediction ({pred_x}, {pred_y}) -> data ({data_x:.4f}, {data_y:.4f})")
+    return round(data_x, 4), round(data_y, 4)
+
+
+def _record(
+    *,
+    config: PointChartConfig,
+    dataset: dict[str, Any],
+    target: PointTarget,
+    prompt_type: str,
+    image_type: str,
+    run: int,
+    used_image_path: Path,
+    pred: tuple[Any, Any],
+) -> dict[str, Any]:
+    gt = (target.gt_x, target.gt_y)
+    pred_x, pred_y = pred
+    x_re, y_re = compute_relative_error(pred, gt)
+    x_abs_err = abs(float(pred_x) - target.gt_x) if _valid_prediction(pred) else None
+    y_abs_err = abs(float(pred_y) - target.gt_y) if _valid_prediction(pred) else None
+    x_range = max(dataset["x_ticks"]) - min(dataset["x_ticks"])
+    y_range = max(dataset["y_ticks"]) - min(dataset["y_ticks"])
+    x_err_over_range = x_abs_err / x_range if x_abs_err is not None and x_range else None
+    y_err_over_range = y_abs_err / y_range if y_abs_err is not None and y_range else None
+    xy_err_over_range = (
+        (x_err_over_range + y_err_over_range) / 2
+        if x_err_over_range is not None and y_err_over_range is not None
+        else None
+    )
+
+    try:
+        image_size = Image.open(image_path(config, dataset, "grid_with_grid")).size
+        pixel_rel_x, pixel_rel_y = compute_pixel_relative_error_xy(
+            (float(pred_x), float(pred_y)),
+            gt,
+            x_ticks=dataset["x_ticks"],
+            y_ticks=dataset["y_ticks"],
+            x_pixels=dataset["x_pixels"],
+            y_pixels=dataset["y_pixels"],
+            image_size=image_size,
+        )
+    except Exception:
+        pixel_rel_x, pixel_rel_y = None, None
+
+    return {
+        "chart_id": dataset["chart_id"],
+        "point_name": target.point_name,
+        "prompt_type": prompt_type,
+        "image_type": image_type,
+        "run": run,
+        "image_path": str(used_image_path),
+        "gt_x": target.gt_x,
+        "gt_y": target.gt_y,
+        "pred_x": pred_x,
+        "pred_y": pred_y,
+        "pixel_rel_x": pixel_rel_x,
+        "pixel_rel_y": pixel_rel_y,
+        "mae": compute_mae(pred, gt),
+        "x_re": x_re,
+        "y_re": y_re,
+        "x_abs_err": x_abs_err,
+        "y_abs_err": y_abs_err,
+        "x_range": x_range,
+        "y_range": y_range,
+        "x_err_over_range": x_err_over_range,
+        "y_err_over_range": y_err_over_range,
+        "xy_err_over_range": xy_err_over_range,
+    }
+
+
+async def _run_target(
+    *,
+    config: PointChartConfig,
+    client: PointModelClient,
+    dataset: dict[str, Any],
+    target: PointTarget,
+    repeat_times: int,
+) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    history: list[tuple[Any, Any]] = []
+    feedback_pred: tuple[Any, Any] | None = None
+
+    for prompt_type, image_type in EXPERIMENT_TYPES:
+        for run_idx in range(1, repeat_times + 1):
+            used_image = image_path(config, dataset, image_type)
+            local_x_ticks = dataset["x_ticks"]
+            local_y_ticks = dataset["y_ticks"]
+            pred_feedback = history[-1] if history else None
+
+            if prompt_type == "feedback" and pred_feedback is not None:
+                used_image = draw_prediction_overlay(
+                    config=config,
+                    chart_id=dataset["chart_id"],
+                    original_img_path=image_path(config, dataset, "grid_with_grid"),
+                    pred_coords=[pred_feedback],
+                    x_ticks=dataset["x_ticks"],
+                    y_ticks=dataset["y_ticks"],
+                    x_pixels=dataset["x_pixels"],
+                    y_pixels=dataset["y_pixels"],
+                    point_name=target.point_name,
+                )
+
+            if prompt_type == "feedback_crop_adaptive":
+                center = feedback_pred if feedback_pred and _valid_prediction(feedback_pred) else (target.gt_x, target.gt_y)
+                used_image, local_x_ticks, local_y_ticks, _, _ = crop_point_window(
+                    config=config,
+                    chart_id=dataset["chart_id"],
+                    image_path=image_path(config, dataset, "no_grid"),
+                    point_name=target.point_name,
+                    center_coord=(float(center[0]), float(center[1])),
+                    x_ticks=dataset["x_ticks"],
+                    y_ticks=dataset["y_ticks"],
+                    x_pixels=dataset["x_pixels"],
+                    y_pixels=dataset["y_pixels"],
+                    round_index=run_idx,
+                )
+                exists_prompt = build_point_exists_prompt(target.point_name, config.mark_name, target.visual_name)
+                exists = await client.check_exists(exists_prompt, used_image)
+                print(f"[{config.chart_type} runner] adaptive crop contains target={exists}")
+
+            prompt = generate_prompt(
+                item_name=target.point_name,
+                prompt_type=prompt_type,
+                x_ticks=local_x_ticks,
+                y_ticks=local_y_ticks,
+                mark_name=config.mark_name,
+                visual_name=target.visual_name,
+                pred_feedback=pred_feedback,
+            )
+
+            print("\n==============================")
+            print(f"[{config.chart_type}] Round {run_idx} | Point: {target.point_name} | Type: {prompt_type} - {image_type}")
+            print(f"[{config.chart_type}] Image: {used_image}")
+            print("==============================\n")
+
+            pred = await client.predict_coords(prompt, used_image, target.point_name)
+            pred = _normalize_prediction(pred, dataset, used_image)
+            records.append(
+                _record(
+                    config=config,
+                    dataset=dataset,
+                    target=target,
+                    prompt_type=prompt_type,
+                    image_type=image_type,
+                    run=run_idx,
+                    used_image_path=used_image,
+                    pred=pred,
+                )
+            )
+            if _valid_prediction(pred):
+                history.append(pred)
+                if prompt_type == "feedback":
+                    feedback_pred = pred
+                print(f"[{config.chart_type}] Success {run_idx}/{repeat_times} [{prompt_type} - {image_type}] @ {target.point_name}")
+            else:
+                print(f"[{config.chart_type}] Invalid prediction [{prompt_type} - {image_type}] @ {target.point_name}: {pred}")
+
+    return records
+
+
+async def run_experiment(config: PointChartConfig, batch_size: int | None = None, chart_ids: list[str] | None = None) -> None:
+    datasets = load_datasets(config, chart_ids)
+    if not datasets:
+        print(f"[{config.chart_type}] No matching chart configs. Nothing to run.")
+        return
+
+    repeat_times = get_repeat_times()
+    all_records: list[dict[str, Any]] = []
+    async with PointModelClient() as client:
+        for start in range(0, len(datasets), batch_size or len(datasets)):
+            batch = datasets[start : start + (batch_size or len(datasets))]
+            tasks = [
+                _run_target(config=config, client=client, dataset=dataset, target=target, repeat_times=repeat_times)
+                for dataset in batch
+                for target in iter_targets(dataset)
+            ]
+            for result in await asyncio.gather(*tasks):
+                all_records.extend(result)
+
+    by_chart: dict[str, list[dict[str, Any]]] = {}
+    for record in all_records:
+        by_chart.setdefault(record["chart_id"], []).append(record)
+
+    for chart_id, records in by_chart.items():
+        result_dir = chart_result_dir(config, chart_id)
+        save_results(records, result_dir)
+        print(f"[{config.chart_type}] Saved results for {chart_id}: {result_dir}")

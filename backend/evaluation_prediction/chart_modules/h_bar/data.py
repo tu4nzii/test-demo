@@ -31,10 +31,12 @@ class HBarTarget:
 def load_datasets(
     chart_ids: Iterable[str] | None = None,
     config_paths: Iterable[str | Path] | None = None,
+    chart_type: str = "h_bar",
 ) -> list[dict[str, Any]]:
     if config_paths:
-        return load_backend_generated_datasets(config_paths, "h_bar", chart_ids)
-    configs = load_json_configs(CONFIG_DIR)
+        return load_backend_generated_datasets(config_paths, chart_type, chart_ids)
+    root = ASSETS_ROOT / chart_type
+    configs = load_json_configs(root / "chart_configs" if (root / "chart_configs").exists() else root)
     return filter_chart_configs(configs, chart_ids)
 
 
@@ -93,4 +95,5 @@ def image_path(dataset: dict[str, Any], image_type: str) -> Path:
     path = resolve_image_path(dataset, image_type)
     if path.exists() or Path(dataset["image_paths"][image_type]).is_absolute():
         return path
-    return H_BAR_ROOT / dataset["image_paths"][image_type]
+    chart_type = str(dataset.get("chart_type") or "h_bar")
+    return ASSETS_ROOT / chart_type / dataset["image_paths"][image_type]

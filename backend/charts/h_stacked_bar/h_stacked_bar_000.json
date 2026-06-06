@@ -1,0 +1,86 @@
+﻿{
+    "chart_id":  "h_stacked_bar_000",
+    "image_paths":  {
+                        "no_grid":  "charts/h_stacked_bar/h_stacked_bar_000.png",
+                        "with_grid":  "charts/h_stacked_bar/h_stacked_bar_000_grid.png",
+                        "grid_with_grid":  "charts/h_stacked_bar/h_stacked_bar_000_grid_with_grid.png"
+                    },
+    "data_points":  {
+                        "S1":  {
+                                   "A":  33,
+                                   "B":  59,
+                                   "C":  45,
+                                   "D":  63,
+                                   "E":  92,
+                                   "F":  65,
+                                   "G":  37
+                               },
+                        "S2":  {
+                                   "A":  97,
+                                   "B":  80,
+                                   "C":  81,
+                                   "D":  100,
+                                   "E":  72,
+                                   "F":  46,
+                                   "G":  27
+                               },
+                        "S3":  {
+                                   "A":  36,
+                                   "B":  84,
+                                   "C":  96,
+                                   "D":  27,
+                                   "E":  90,
+                                   "F":  117,
+                                   "G":  52
+                               }
+                    },
+    "x_ticks":  [
+                    0,
+                    30.0,
+                    60,
+                    90.0,
+                    120,
+                    150.0,
+                    180,
+                    210.0,
+                    240,
+                    270.0,
+                    300
+                ],
+    "y_ticks":  [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F",
+                    "G"
+                ],
+    "x_pixels":  [
+                     62,
+                     101,
+                     140,
+                     179,
+                     218,
+                     256,
+                     295,
+                     334,
+                     372,
+                     411,
+                     450
+                 ],
+    "y_pixels":  [
+                     326,
+                     284,
+                     243,
+                     202,
+                     161,
+                     120,
+                     78
+                 ],
+    "series_color":  {
+                         "S1":  "#66c2a5",
+                         "S2":  "#fc8d62",
+                         "S3":  "#8da0cb"
+                     }
+}

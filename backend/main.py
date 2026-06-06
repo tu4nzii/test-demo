@@ -85,15 +85,19 @@ def detect_chart_type(image_path: Path) -> Dict[str, Any]:
     try:
         detection = ChartTypeDetector().detect_chart_type(str(image_path))
         detected_type = normalize_chart_type(detection.get("type", DEFAULT_CHART_TYPE))
-        if detected_type in {"h_bar", "v_bar"}:
+        if is_bar_type(detected_type):
             geometry_type = infer_bar_orientation_from_image(image_path)
-            if geometry_type and geometry_type != detected_type:
+            if geometry_type and geometry_type != bar_base_type(detected_type):
+                target_type = geometry_type
+                if detected_type in {"h_stacked_bar", "v_stacked_bar"}:
+                    target_type = "h_stacked_bar" if geometry_type == "h_bar" else "v_stacked_bar"
                 detection["type"] = geometry_type
                 detection["geometry_type_override"] = {
                     "from": detected_type,
-                    "to": geometry_type,
+                    "to": target_type,
                     "reason": "colored bar geometry orientation",
                 }
+                detection["type"] = target_type
         return detection
     except Exception as error:
         print(f"Chart type detection failed, using fallback: {safe_error_message(error)}")
@@ -206,7 +210,20 @@ def result_response_url(path: Union[str, Path]) -> str:
     return f"/api/results/{Path(path).name}"
 
 
-PREFERRED_EXTRACTION_PROMPTS = ("amplifier", "feedback", "grid", "baseline")
+PREFERRED_EXTRACTION_PROMPTS = ("geometry", "amplifier", "feedback", "grid", "baseline")
+
+
+def bar_base_type(chart_type: Any) -> str:
+    text = str(chart_type or "").lower()
+    if text in {"h_bar", "h_stacked_bar"}:
+        return "h_bar"
+    if text in {"v_bar", "v_stacked_bar"}:
+        return "v_bar"
+    return text
+
+
+def is_bar_type(chart_type: Any) -> bool:
+    return bar_base_type(chart_type) in {"h_bar", "v_bar"}
 
 
 def strip_external_reference_data(
@@ -398,8 +415,13 @@ def process_chart_image(chart_info: Dict[str, Any]) -> str:
         axis_repair_hint=chart_info.get("axis_repair"),
     )
 
-    if not encrypted_image_path and original_type in {"h_bar", "v_bar"}:
-        alternate_type = "v_bar" if original_type == "h_bar" else "h_bar"
+    if not encrypted_image_path and is_bar_type(original_type):
+        if original_type == "h_stacked_bar":
+            alternate_type = "v_stacked_bar"
+        elif original_type == "v_stacked_bar":
+            alternate_type = "h_stacked_bar"
+        else:
+            alternate_type = "v_bar" if original_type == "h_bar" else "h_bar"
         alternate_output_dir = get_chart_output_dir(alternate_type)
         alternate_processor = ChartProcessorFactory.create_processor(alternate_type)
         alternate_image_path = alternate_processor.encode_image(
@@ -410,7 +432,7 @@ def process_chart_image(chart_info: Dict[str, Any]) -> str:
         if alternate_image_path:
             alternate_metadata = load_generated_chart_metadata(chart_info, alternate_output_dir)
             inferred_type = infer_bar_type_from_axis_metadata(alternate_metadata)
-            if inferred_type and inferred_type != alternate_type:
+            if inferred_type and inferred_type != bar_base_type(alternate_type):
                 print(
                     "Bar processing fallback rejected: "
                     f"{original_type} -> {alternate_type}, axis metadata indicates {inferred_type}"
@@ -598,8 +620,8 @@ def extract_predictions_from_result_dir(result_dir: Path, chart_type: str) -> li
             {
                 "id": point,
                 "series_name": point.rsplit(",", 1)[0].strip() if "," in point else "",
-                "label": chosen.get("pred_y") if chart_type == "h_bar" else chosen.get("pred_x"),
-                "axis": "x" if chart_type == "h_bar" else "y",
+                "label": chosen.get("pred_y") if bar_base_type(chart_type) == "h_bar" else chosen.get("pred_x"),
+                "axis": "x" if bar_base_type(chart_type) == "h_bar" else "y",
                 "value": value,
                 "prompt_type": chosen.get("prompt_type"),
                 "image_type": chosen.get("image_type"),
@@ -612,7 +634,7 @@ def extract_predictions_from_result_dir(result_dir: Path, chart_type: str) -> li
 def preferred_legacy_csv(result_dir: Path, chart_type: str) -> Optional[Path]:
     names = (
         ["full_results_with_xre.csv", "experiment_results.csv"]
-        if chart_type == "h_bar"
+        if bar_base_type(chart_type) == "h_bar"
         else ["full_results_with_yre.csv", "experiment_results.csv"]
     )
     for name in names:
@@ -631,7 +653,7 @@ def choose_prediction_row(rows: list[Dict[str, str]]) -> Dict[str, str]:
 
 
 def legacy_prediction_value(row: Dict[str, str], chart_type: str) -> Optional[float]:
-    key = "pred_x" if chart_type == "h_bar" else "pred_y"
+    key = "pred_x" if bar_base_type(chart_type) == "h_bar" else "pred_y"
     try:
         return float(row.get(key, ""))
     except (TypeError, ValueError):
