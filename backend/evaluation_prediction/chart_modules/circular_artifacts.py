@@ -155,6 +155,8 @@ def _save_amplifier_images(dataset: dict[str, Any], chart_type: str, result_dir:
             continue
         label = str(item.get("label") or item.get("id") or "segment")
         out_path = out_dir / f"{_safe_name(label)}_amp1.png"
+        if out_path.exists():
+            continue
         _crop_sector(source, out_path, center, inner_radius, radius, start, end)
 
 

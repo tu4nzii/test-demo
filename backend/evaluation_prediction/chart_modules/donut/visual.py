@@ -7,9 +7,21 @@ import json
 import math
 import os
 import re
+import sys
 from PIL import Image, ImageDraw, ImageFont
 
 from .model import call_llm_once
+
+AMPLIFIER_OUTPUT_ROOT: str | None = None
+
+
+def safe_print(*values) -> None:
+    text = " ".join(str(value) for value in values)
+    try:
+        sys.stdout.write(text + "\n")
+    except UnicodeEncodeError:
+        encoding = sys.stdout.encoding or "utf-8"
+        sys.stdout.write(text.encode(encoding, errors="replace").decode(encoding, errors="replace") + "\n")
 
 
 def draw_angle_feedback(
@@ -90,7 +102,7 @@ def draw_angle_feedback(
         bbox = [cx - r_mid, cy - r_mid, cx + r_mid, cy + r_mid]
         draw.arc(bbox, start=start_deg, end=end_deg, fill=line_color, width=line_width)
 
-        print(f"[✅] Cross at {angle:.2f}°(输入: 0°在上、顺时针) → draw_angle={draw_angle_deg:.2f}°")
+        safe_print(f"[OK] Cross at {angle:.2f} deg (0 deg at top, clockwise) -> draw_angle={draw_angle_deg:.2f} deg")
 
     # --- 两角度完整弧（顺时针从 start→end） ---
     if connect_arc and len(angle_list) == 2:
@@ -108,11 +120,13 @@ def draw_angle_feedback(
                  fill=line_color, width=line_width)
 
         arc_len = (end_angle - start_angle) % 360
-        print(f"[➕] Arc CW {start_angle:.2f}° → {end_angle:.2f}° "
-              f"(draw {start_draw:.2f}° → {end_draw:.2f}°, 弧长 {arc_len:.2f}°)")
+        safe_print(
+            f"[ARC] CW {start_angle:.2f} deg -> {end_angle:.2f} deg "
+            f"(draw {start_draw:.2f} deg -> {end_draw:.2f} deg, arc {arc_len:.2f} deg)"
+        )
 
     img.save(output_path)
-    print(f"[💾] Saved: {output_path}")
+    safe_print(f"[SAVE] {output_path}")
     return output_path
 
 def _sanitize_filename(filename: str) -> str:
@@ -748,7 +762,8 @@ def crop_sector_for_amplifier(
     # ----------------------------------------------------------------------
     # ⭐（11）保存
     # ----------------------------------------------------------------------
-    out_dir = os.path.join("results_Pixtral", chart_id, "amplifier_img")
+    output_root = AMPLIFIER_OUTPUT_ROOT or "results_Pixtral"
+    out_dir = os.path.join(output_root, chart_id, "amplifier_img")
     os.makedirs(out_dir, exist_ok=True)
 
     safe_name = re.sub(r"[^a-zA-Z0-9_\-]+", "_", point_name)
@@ -839,7 +854,7 @@ def crop_sector_for_amplifier(
                     return recrop_path, recrop_angles, hint
 
     except Exception as e:
-        print("[LLM] Validation skipped:", e)
+        safe_print("[LLM] Validation skipped:", e)
 
     return out_path, drawn_angles, hint
 
@@ -1112,7 +1127,7 @@ def crop_sector_for_amplifier(
         # 圆心跟随放大
         cx_new = int(cx_new * scale2)
         cy_new = int(cy_new * scale2)
-        print(f"[AMP AUTO-UPSCALE] enlarged ×{scale2:.2f} → size={zoomed.size}")
+        safe_print(f"[AMP AUTO-UPSCALE] enlarged x{scale2:.2f} -> size={zoomed.size}")
 
     # =====================================================
     # ⑥ 扫描真实半径（鲁棒版）
@@ -1147,7 +1162,7 @@ def crop_sector_for_amplifier(
     # 可选：略缩1~2%，保证不压到扇区
     r_edge_global = int(r_edge_global * 0.98)
 
-    print(f"[AMP] Using global radius = {r_edge_global}")
+    safe_print(f"[AMP] Using global radius = {r_edge_global}")
 
     # raw_samples = [scan_radius(a) for a in range(0, 360, 10)]
     # samples = [r for r in raw_samples if r > 0]
@@ -1229,7 +1244,7 @@ def crop_sector_for_amplifier(
     except:
         font = ImageFont.load_default()
 
-    print("[AMP TRUE FINAL FONT SIZE] =", font_size,
+    safe_print("[AMP TRUE FINAL FONT SIZE] =", font_size,
           "| short_side =", short_side,
           "| r_edge_global =", r_edge_global)
 
@@ -1351,7 +1366,7 @@ def crop_sector_for_amplifier(
 
     out_path = os.path.join(out_dir, filename)
     final_img.save(out_path)
-    print(f"[SAVE FIXED] {out_path}")
+    safe_print(f"[SAVE FIXED] {out_path}")
 
     arc_for_draw = (e_ext - s_ext) % 360.0
     is_full_circle = (arc >= 330.0) or (arc_for_draw >= 359.9) or (abs(arc_for_draw) <= 1e-6)
@@ -1442,6 +1457,6 @@ def crop_sector_for_amplifier(
                     return recrop_out_path, recrop_drawn_angles, angle_order_hint
 
     except Exception as _e:
-        print(f"[LLM] post-crop validation skipped due to error: {_e}")
+        safe_print(f"[LLM] post-crop validation skipped due to error: {_e}")
 
     return out_path, drawn_angles, angle_order_hint
