@@ -17,7 +17,7 @@ def _path_from_env(name: str, default: Path) -> Path:
 
 ASSETS_ROOT = _path_from_env(
     "EVALUATION_PREDICTION_ASSETS_ROOT",
-    PROJECT_ROOT / "prediction_core" / "assets",
+    BACKEND_ROOT / "evaluation_prediction" / "assets",
 )
 RESULTS_ROOT = _path_from_env(
     "EVALUATION_PREDICTION_RESULTS_ROOT",

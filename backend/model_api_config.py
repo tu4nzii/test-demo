@@ -10,7 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from prediction_core.model_config import (  # noqa: E402
+from backend.evaluation_prediction.common.model_config import (  # noqa: E402
     get_api_key,
     get_base_url,
     get_chat_completion_url,

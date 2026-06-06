@@ -1,7 +1,7 @@
 """Angle-grid generation for pie and donut charts in the backend.
 
-This module is adapted from prediction_core's pie/donut angle_grid helpers, but
-kept independent so the prediction_core evaluation flow remains unchanged.
+This module is adapted from the original pie/donut angle-grid helper and is
+kept independent for backend use.
 """
 
 from __future__ import annotations

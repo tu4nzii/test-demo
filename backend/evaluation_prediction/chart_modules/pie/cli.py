@@ -9,10 +9,9 @@ import sys
 from pathlib import Path
 
 
-for _parent in Path(__file__).resolve().parents:
-    if (_parent / "prediction_core").is_dir():
-        sys.path.insert(0, str(_parent))
-        break
+PROJECT_ROOT = Path(__file__).resolve().parents[4]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 ASSET_WORKDIR = Path(__file__).resolve().parents[2] / "assets" / "pie"
 

@@ -3,7 +3,7 @@
 Compatibility helper for older code that imports gemini_calls.py.
 
 The actual model endpoint, model name, and API key are managed by
-model_api_config.py / prediction_core.model_config.
+model_api_config.py.
 """
 
 from __future__ import annotations

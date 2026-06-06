@@ -35,16 +35,10 @@ donut_only_experiment.py — **专为 donut / pie / ring charts 设计**的最�
 """
 from __future__ import annotations
 import os, asyncio, argparse
-import sys
-from pathlib import Path
 from typing import Dict, List
 from PIL import Image
 import pandas as pd
-for _parent in Path(__file__).resolve().parents:
-    if (_parent / "prediction_core").is_dir():
-        sys.path.insert(0, str(_parent))
-        break
-from prediction_core.runtime import get_repeat_times
+from ...common.runtime import get_repeat_times
 from .angle_grid import draw_angle_grid_30deg
 from .evaluation import compute_mae, compute_relative_error, save_summary_and_plot
 from .data import load_chart_configs

@@ -40,13 +40,7 @@ from PIL import Image
 import pandas as pd
 
 # 导入JSON解析和Gemini修复功能
-import sys
-from pathlib import Path
-for _parent in Path(__file__).resolve().parents:
-    if (_parent / "prediction_core").is_dir():
-        sys.path.insert(0, str(_parent))
-        break
-from prediction_core.runtime import get_repeat_times
+from ...common.runtime import get_repeat_times
 from .angle_grid import draw_angle_grid_30deg
 from .data import load_chart_configs
 from .evaluation import compute_mae, compute_relative_error, save_summary_and_plot

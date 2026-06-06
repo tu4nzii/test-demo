@@ -1,6 +1,6 @@
 """Compatibility import for project-wide model API configuration."""
 
-from prediction_core.model_config import (
+from backend.evaluation_prediction.common.model_config import (
     get_api_key,
     get_base_url,
     get_chat_completion_url,

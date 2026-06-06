@@ -1,55 +1,88 @@
-"""Model configuration for backend-local chart value prediction.
+"""Project-wide OpenAI-compatible model API configuration.
 
-This module deliberately delegates to ``prediction_core.model_config`` so the
-backend prediction flow uses the same endpoint, model name, API key fallback,
-and legacy Pixtral switches as the standalone evaluation flow.
+This module is the backend-owned source of truth for model endpoint settings.
+Use ``CHART_MODEL_PROFILE`` to switch profiles, or override individual fields
+with ``CHART_BASE_URL``, ``CHART_MODEL_NAME``, and ``CHART_API_KEY``.
 """
 
 from __future__ import annotations
 
-import sys
+import os
 from typing import Iterable
 
-from .paths import PROJECT_ROOT
+
+_GPT54_PROFILE = {
+    "base_url": "http://dsiclab-model.ic.h3i.buaa.edu.cn/v1",
+    "model_name": "gpt-5.4",
+    "api_key": "sk-CbLDZcUuoj5NphrQfMQqh1ltqNBTkg85n7nMSFrsyxex5SOb",
+}
+
+_VVEAI_GEMINI_PROFILE = {
+    "base_url": "https://api.vveai.com/v1",
+    "model_name": "gemini-3.1-flash-lite",
+    "api_key": "sk-WvF4fU10VeOkfFMq579610Fc01E8496d827d0d3e04C44d0a",
+}
+
+MODEL_PROFILES = {
+    "gpt54": _GPT54_PROFILE,
+    "dsiclab_gpt54": _GPT54_PROFILE,
+    "vveai_gpt41": {
+        "base_url": "https://api.vveai.com/v1",
+        "model_name": "gpt-4.1",
+        "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
+    },
+    "vveai_gemini": _VVEAI_GEMINI_PROFILE,
+    "gemini": _VVEAI_GEMINI_PROFILE,
+}
+
+DEFAULT_PROFILE = "gemini"
 
 
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+def get_profile_name() -> str:
+    return os.getenv("CHART_MODEL_PROFILE", DEFAULT_PROFILE).strip() or DEFAULT_PROFILE
 
-from prediction_core.model_config import (  # noqa: E402
-    get_api_key as _core_get_api_key,
-    get_base_url as _core_get_base_url,
-    get_chat_completion_url as _core_get_chat_completion_url,
-    get_chat_completion_urls as _core_get_chat_completion_urls,
-    get_headers as _core_get_headers,
-    get_model_name as _core_get_model_name,
-    use_legacy_pixtral as _core_use_legacy_pixtral,
-)
+
+def get_profile() -> dict[str, str]:
+    return MODEL_PROFILES.get(get_profile_name(), MODEL_PROFILES[DEFAULT_PROFILE])
 
 
 def get_base_url() -> str:
-    return _core_get_base_url()
+    return os.getenv("CHART_BASE_URL", get_profile()["base_url"]).rstrip("/")
 
 
 def get_model_name() -> str:
-    return _core_get_model_name()
+    return os.getenv("CHART_MODEL_NAME", get_profile()["model_name"])
 
 
 def get_api_key() -> str:
-    return _core_get_api_key()
+    return os.getenv("CHART_API_KEY") or os.getenv("OPENAI_API_KEY") or get_profile()["api_key"]
 
 
 def get_chat_completion_url() -> str:
-    return _core_get_chat_completion_url()
+    return f"{get_base_url()}/chat/completions"
+
+
+def _split_urls(raw: str) -> list[str]:
+    return [item.strip() for item in raw.split(",") if item.strip()]
 
 
 def use_legacy_pixtral() -> bool:
-    return _core_use_legacy_pixtral()
+    return os.getenv("CHART_USE_LEGACY_PIXTRAL", "").lower() in {"1", "true", "yes", "on"}
 
 
 def get_chat_completion_urls(legacy_urls: Iterable[str] | None = None) -> list[str]:
-    return _core_get_chat_completion_urls(legacy_urls)
+    env_urls = os.getenv("CHART_API_URLS", "")
+    if env_urls:
+        return _split_urls(env_urls)
+    legacy = list(legacy_urls or [])
+    if use_legacy_pixtral() and legacy:
+        return legacy
+    return [get_chat_completion_url()]
 
 
 def get_headers() -> dict[str, str]:
-    return _core_get_headers()
+    headers = {"Content-Type": "application/json"}
+    api_key = get_api_key()
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+    return headers

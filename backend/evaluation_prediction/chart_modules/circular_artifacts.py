@@ -1,8 +1,8 @@
 """Artifacts for pie/donut prediction runs.
 
-The standalone prediction_core flow writes feedback/amplifier images plus CSV
-summaries. Backend prediction does not use GT, so MAE/relative-error fields are
-kept empty while prediction coverage and value summaries are still saved.
+The circular prediction flow writes feedback/amplifier images plus CSV summaries.
+Backend prediction does not use GT, so MAE/relative-error fields are kept empty
+while prediction coverage and value summaries are still saved.
 """
 
 from __future__ import annotations

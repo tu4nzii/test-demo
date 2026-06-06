@@ -1,7 +1,7 @@
 # Backend Evaluation Prediction
 
-This package contains backend-local value prediction flows ported from
-`prediction_core` for Cartesian chart variants:
+This package contains backend-local value prediction flows for Cartesian chart
+variants:
 
 - `v_bar`
 - `h_bar`

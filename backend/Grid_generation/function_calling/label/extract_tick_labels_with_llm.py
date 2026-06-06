@@ -230,13 +230,22 @@ def encode_image_to_base64(image_path: str) -> str:
         return base64.b64encode(f.read()).decode("utf-8")
 
 
+def _bar_base_type(chart_type: str = "") -> str:
+    chart_type = (chart_type or "").lower()
+    if chart_type in {"h_bar", "h_stacked_bar"}:
+        return "h_bar"
+    if chart_type in {"v_bar", "v_stacked_bar"}:
+        return "v_bar"
+    return chart_type
+
+
 def encode_axis_crop_to_base64(image_path: str, direction: str, chart_type: str = "") -> str:
     image_path = os.path.normpath(image_path)
     image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
     if image is None:
         return encode_image_to_base64(image_path)
     h, w = image.shape[:2]
-    chart_type = (chart_type or os.path.basename(os.path.dirname(image_path))).lower()
+    chart_type = _bar_base_type(chart_type or os.path.basename(os.path.dirname(image_path)))
     if direction.lower() == "x":
         crop = image[int(h * 0.52):h, 0:w]
     elif chart_type == "h_bar":
@@ -252,7 +261,7 @@ def encode_axis_crop_to_base64(image_path: str, direction: str, chart_type: str 
 def build_tick_extraction_prompt(direction: str = "x", chart_type: str = "") -> str:
     axis_name = "X axis" if direction.lower() == "x" else "Y axis"
     order = "left to right" if direction.lower() == "x" else "bottom to top"
-    if chart_type == "h_bar" and direction.lower() == "y":
+    if _bar_base_type(chart_type) == "h_bar" and direction.lower() == "y":
         return """
 Read only the Y-axis category tick labels in this horizontal bar chart.
 
@@ -544,7 +553,7 @@ def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_typ
 
         # 瑙ｆ瀽鍝嶅簲
         result = parse_llm_response(response, direction)
-        if chart_type == "h_bar" and direction.lower() == "y" and result.get("ticks"):
+        if _bar_base_type(chart_type) == "h_bar" and direction.lower() == "y" and result.get("ticks"):
             result["ticks"] = [_clean_hbar_category_tick(tick) for tick in reversed(result["ticks"])]
         else:
             numeric_ticks = _finite_numeric_values(result.get("ticks", []))
@@ -700,7 +709,7 @@ def extract_tick_labels_with_llm(
             print(f"[Info] 浠庣紦瀛樺姞杞絃LM璇嗗埆缁撴灉: {cache_file}")
             x_ticks, x_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("x_ticks", []))
             y_ticks, y_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("y_ticks", []))
-            if chart_type == "h_bar":
+            if _bar_base_type(chart_type) == "h_bar":
                 y_ticks = [_clean_hbar_category_tick(tick) for tick in y_ticks]
             else:
                 numeric_y = _finite_numeric_values(y_ticks)
