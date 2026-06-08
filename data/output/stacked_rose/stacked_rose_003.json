@@ -1,0 +1,120 @@
+{
+  "chart_id": "stacked_rose_003",
+  "image_paths": {
+    "with_grid": "charts/stacked_rose/stacked_rose_003.png"
+  },
+  "center": {
+    "x": 640,
+    "y": 512
+  },
+  "data_points": {
+    "Group1": {
+      "YZG": 49,
+      "TA": 26,
+      "YL": 26,
+      "FCP": 36,
+      "BOH": 37,
+      "TAT": 38,
+      "FWD": 23,
+      "KD": 24
+    },
+    "Group2": {
+      "YZG": 43,
+      "TA": 40,
+      "YL": 45,
+      "FCP": 33,
+      "BOH": 33,
+      "TAT": 27,
+      "FWD": 23,
+      "KD": 32
+    },
+    "Group3": {
+      "YZG": 44,
+      "TA": 49,
+      "YL": 42,
+      "FCP": 32,
+      "BOH": 20,
+      "TAT": 42,
+      "FWD": 43,
+      "KD": 30
+    },
+    "Group4": {
+      "YZG": 29,
+      "TA": 34,
+      "YL": 20,
+      "FCP": 27,
+      "BOH": 43,
+      "TAT": 34,
+      "FWD": 34,
+      "KD": 36
+    }
+  },
+  "series_color": {
+    "Group1": "#ad494a",
+    "Group2": "#393b79",
+    "Group3": "#de9ed6",
+    "Group4": "#b5cf6b"
+  },
+  "r_ticks": [
+    42.5,
+    85,
+    127.5,
+    170.0
+  ],
+  "r_pixels": [
+    192,
+    383
+  ],
+  "theta_ticks": [
+    "YZG",
+    "TA",
+    "YL",
+    "FCP",
+    "BOH",
+    "TAT",
+    "FWD",
+    "KD"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ],
+  "gap_enabled": false,
+  "gap_size": 0.1,
+  "err_center": 0.0,
+  "pred_coords": [
+    640,
+    512
+  ],
+  "argument": {
+    "a": 2.2411764705882353,
+    "b": 0.0
+  },
+  "axis_labels": {
+    "0": "YL",
+    "45": "TA",
+    "90": "YZG",
+    "135": "KD",
+    "180": "FWD",
+    "225": "TAT",
+    "270": "BOH",
+    "315": "FCP"
+  },
+  "axes_angles": [
+    0.0,
+    45.02,
+    90.05,
+    135.07,
+    180.09,
+    225.12,
+    270.14,
+    315.16
+  ],
+  "start_angle": 0
+}

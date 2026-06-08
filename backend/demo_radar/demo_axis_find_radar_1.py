@@ -7,18 +7,17 @@ import requests
 import base64
 import os
 
-class RoseChartAxisFinder:
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
+
+class RadarChartAxisFinder:
     def __init__(self):
         # 配置参数
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
         
         # 统一输出路径配置
-        self.output_dir = "./data/output/rose"  # 主输出目录
+        self.output_dir = "./data/output/radar"  # 主输出目录
         self.axes_output_dir = os.path.join(self.output_dir)  # 轴线检测结果目录
         
         # 确保输出目录存在
@@ -92,7 +91,7 @@ class RoseChartAxisFinder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -139,7 +138,7 @@ class RoseChartAxisFinder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -180,8 +179,8 @@ class RoseChartAxisFinder:
         else:
             return None
 
-    def find_rose_axes(self, image_path: str, center, start_angle: int, max_radius):
-        """识别玫瑰图的轴线角度"""
+    def find_radar_axes(self, image_path: str, center, start_angle: int, max_radius):
+        """识别雷达图的轴线角度"""
         img = cv2.imread(image_path)
         axes_angles = []
         
@@ -225,10 +224,10 @@ class RoseChartAxisFinder:
         # cv2.imwrite(output_path, output_img)
         # print(f"轴线检测结果已保存至: {output_path}")
         
-        self.axes_angles = axes_angles
+        self.radar_axes_angles = axes_angles
         return axes_angles
 
-    def recognize_axis_labels(self, image_path: str, center, radius, axes_angles):
+    def recognize_radar_axis_labels(self, image_path: str, center, radius, axes_angles):
         """识别每个轴的标签"""
         axis_labels = {}
         
@@ -294,13 +293,13 @@ class RoseChartAxisFinder:
             print(f"起始角度: {start_angle}")
             
             # 识别轴线
-            found_axes = self.find_rose_axes(image_path, center, start_angle, radius)
+            found_axes = self.find_radar_axes(image_path, center, start_angle, radius)
             if not found_axes:
                 print("未找到任何轴线")
                 return None
             
             # 识别轴标签
-            axis_labels = self.recognize_axis_labels(image_path, center, radius, found_axes)
+            axis_labels = self.recognize_radar_axis_labels(image_path, center, radius, found_axes)
             
             # 准备结果
             result = {
@@ -352,14 +351,14 @@ class RoseChartAxisFinder:
 
 if __name__ == "__main__":
     # 示例用法
-    finder = RoseChartAxisFinder()
+    finder = RadarChartAxisFinder()
     
     # 可以在此处修改输出路径（如果需要）
     # finder.output_dir = "custom_output"
     # finder.axes_output_dir = os.path.join(finder.output_dir, "custom_axes")
     
     # 指定要处理的图像路径
-    image_path = "./data/rose/rose_001.png"  # 根据需要修改
+    image_path = "./data/upload/radar_001.png"  # 根据需要修改
     
     # 可以手动指定圆心和半径，也可以让程序自动从JSON文件中读取
     # 手动指定示例:

@@ -6,19 +6,29 @@ import re
 import requests
 import base64
 import os
+import sys
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RoseChartAxisFinder:
     def __init__(self):
         # 配置参数
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
+        self.ocr_reader = None
+        self.ocr_scale = 2.0
+        try:
+            import easyocr
+            self.ocr_reader = easyocr.Reader(['en'], gpu=False)
+            print("OCR识别器初始化完成")
+        except Exception as e:
+            print(f"OCR识别器初始化失败: {e}")
         
         # 统一输出路径配置
-        self.output_dir = "./data/output/rose"  # 主输出目录
+        self.output_dir = "./data/output/stacked_rose"  # 主输出目录
         self.axes_output_dir = os.path.join(self.output_dir)  # 轴线检测结果目录
         
         # 确保输出目录存在
@@ -42,6 +52,154 @@ class RoseChartAxisFinder:
         except Exception as e:
             print(f"❌ JSON解析失败: {e}")
             return None
+
+    @staticmethod
+    def _angle_distance(angle1, angle2):
+        diff = abs(angle1 - angle2) % 360
+        return min(diff, 360 - diff)
+
+    @staticmethod
+    def _normalize_text(text):
+        return re.sub(r'\s+', '', text or '').strip()
+
+    def _ocr_text_candidates(self, image_path: str, center):
+        if self.ocr_reader is None:
+            print("OCR识别器不可用，跳过OCR轴检测")
+            return []
+
+        image = cv2.imread(image_path)
+        if image is None:
+            print(f"无法读取图像: {image_path}")
+            return []
+
+        scaled_image = cv2.resize(
+            image,
+            None,
+            fx=self.ocr_scale,
+            fy=self.ocr_scale,
+            interpolation=cv2.INTER_CUBIC,
+        )
+        scaled_center_x = float(center[0]) * self.ocr_scale
+        scaled_center_y = float(center[1]) * self.ocr_scale
+
+        results = self.ocr_reader.readtext(scaled_image)
+        if not results:
+            return []
+
+        candidates = []
+
+        for bbox, text, conf in results:
+            clean_text = self._normalize_text(text)
+            if conf < 0.35 or len(clean_text) < 2:
+                continue
+
+            alpha_count = sum(ch.isalpha() for ch in clean_text)
+            if alpha_count / max(len(clean_text), 1) < 0.6:
+                continue
+
+            pts = np.array(bbox, dtype=float)
+            bbox_center_x = float(np.mean(pts[:, 0]))
+            bbox_center_y = float(np.mean(pts[:, 1]))
+            distance = float(math.hypot(bbox_center_x - scaled_center_x, bbox_center_y - scaled_center_y))
+            # 使用向量 (dx, dy) = (bbox_x - center_x, bbox_y - center_y)
+            # 计算得到的角度基于数学惯例（从 +x 逆时针为正），但图像 y 轴向下。
+            # 我们需要：正上方 = 0°, 顺时针为正方向。
+            dx = bbox_center_x - scaled_center_x
+            dy = bbox_center_y - scaled_center_y
+            raw_deg = math.degrees(math.atan2(dy, dx))
+            # 将数学角（以 +x 逆时针为正）转换为“以正上方为 0 且顺时针为正”的角度：
+            # angle = (raw_deg + 90) mod 360
+            angle = float((raw_deg + 90.0) % 360.0)
+            width = float(np.max(pts[:, 0]) - np.min(pts[:, 0]))
+            height = float(np.max(pts[:, 1]) - np.min(pts[:, 1]))
+
+            candidates.append({
+                'text': clean_text,
+                'confidence': float(conf),
+                'bbox': pts.tolist(),
+                'center': [bbox_center_x, bbox_center_y],
+                'distance': distance,
+                'angle': angle,
+                'width': width,
+                'height': height,
+            })
+
+        return candidates
+
+    def _filter_axis_candidates(self, candidates):
+        if not candidates:
+            return []
+
+        distances = np.array([item['distance'] for item in candidates], dtype=float)
+        median_distance = float(np.median(distances))
+        mad = float(np.median(np.abs(distances - median_distance)))
+        tolerance = max(30.0, median_distance * 0.18, mad * 2.5)
+
+        filtered = [item for item in candidates if abs(item['distance'] - median_distance) <= tolerance]
+        if len(filtered) < 2:
+            filtered = sorted(candidates, key=lambda item: abs(item['distance'] - median_distance))
+
+        return filtered
+
+    def _merge_close_angles(self, candidates, angle_tolerance=8.0):
+        merged = []
+        for item in sorted(candidates, key=lambda entry: entry['angle']):
+            if not merged:
+                merged.append(item)
+                continue
+
+            if self._angle_distance(item['angle'], merged[-1]['angle']) <= angle_tolerance:
+                if item['confidence'] > merged[-1]['confidence']:
+                    merged[-1] = item
+            else:
+                merged.append(item)
+
+        return merged
+
+    def _estimate_step(self, angles):
+        if len(angles) < 2:
+            return 360.0
+
+        sorted_angles = sorted(angles)
+        gaps = []
+        for index in range(len(sorted_angles)):
+            next_index = (index + 1) % len(sorted_angles)
+            gaps.append((sorted_angles[next_index] - sorted_angles[index]) % 360)
+
+        median_gap = float(np.median(gaps))
+        if median_gap < 10 or median_gap > 180:
+            median_gap = 360.0 / max(len(sorted_angles), 1)
+        return median_gap
+
+    def detect_axes_by_ocr(self, image_path: str, center):
+        """使用OCR识别外圈轴名称位置，并由名称中心连线推导轴角度。"""
+        candidates = self._ocr_text_candidates(image_path, center)
+        print(f"OCR初筛候选数量: {len(candidates)}")
+        if not candidates:
+            return [], {}
+
+        filtered = self._filter_axis_candidates(candidates)
+        filtered = self._merge_close_angles(filtered)
+        print(f"距离筛选后候选数量: {len(filtered)}")
+
+        if not filtered:
+            return [], {}
+
+        # 按角度顺时针（从正上方 0° 开始）排序候选项
+        ordered_candidates = sorted(filtered, key=lambda item: item['angle'] % 360)
+        raw_angles = [item['angle'] for item in ordered_candidates]
+        step = self._estimate_step(raw_angles)
+        print(f"OCR识别角度间隔估计: {step}")
+
+        # 以正上方 0° 为起点，顺时针间隔为 step
+        axes_angles = [round((0 + index * step) % 360, 2) for index in range(len(ordered_candidates))]
+        axis_labels = {}
+        for axis_angle, candidate in zip(axes_angles, ordered_candidates):
+            axis_labels[int(round(axis_angle)) % 360] = candidate['text']
+
+        print(f"OCR推导的轴角度: {axes_angles}")
+        print(f"OCR推导的轴标签: {axis_labels}")
+        return axes_angles, axis_labels
 
     def crop_axis_label_region(self, image_path, center_x, center_y, angle_deg, radius, 
                               label_offset=100, label_width=150, label_height=150):
@@ -92,7 +250,7 @@ class RoseChartAxisFinder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -139,7 +297,7 @@ class RoseChartAxisFinder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -164,109 +322,58 @@ class RoseChartAxisFinder:
             return None
 
     def get_start_angle(self, image_path: str, center_x: int, center_y: int, radius: int):
-        """获取起始角度"""
-        pred_angle = [0, 90]
-        start_angle = []
-        
-        for angle in pred_angle:
-            image_area = self.crop_axis_label_region(image_path, center_x, center_y, angle, radius)
-            data = self.call_llm_letter(image_area)
-            if data and data["letter"] != 'None' and data["letter"] is not None:
-                start_angle.append(angle)
-                
-        print(f"找到标签的角度: {start_angle}")
-        if start_angle:
-            return start_angle[0]
-        else:
-            return None
+        """堆叠玫瑰图默认起始角度为90度"""
+        # 修改为：默认起始角度为 0°（正上方），顺时针为正方向
+        return 0
 
     def find_rose_axes(self, image_path: str, center, start_angle: int, max_radius):
-        """识别玫瑰图的轴线角度"""
-        img = cv2.imread(image_path)
-        axes_angles = []
-        
-        # 调用LLM识别轴的数量
-        axes = self.call_llm_nums(image_path)
-        print(f"LLM识别结果: {axes}")
-        
-        if not axes or 'nums' not in axes:
-            print("无法识别轴的数量")
-            return []
-            
-        axes_nums = axes['nums']
-        
-        # 计算每个轴的角度
-        for i in range(axes_nums):
-            best_interval = int(360 / axes_nums)
-            angle = round(start_angle + i * best_interval) % 360
-            axes_angles.append(angle)
-        
-        # 可视化结果（可选）
-        output_img = img.copy()
-        for angle in axes_angles:
-            current_angle_rad = math.radians(angle)
-            
-            # 沿着找到的角度画一条线
-            end_x = int(center[0] + max_radius * math.cos(current_angle_rad))
-            end_y = int(center[1] + max_radius * math.sin(current_angle_rad))
-            
-            # 在图像上绘制红线，用于可视化
-            cv2.line(output_img, center, (end_x, end_y), (0, 0, 255), 1)
-            
-            # 在终点处绘制一个圆点
-            cv2.circle(output_img, (end_x, end_y), 2, (0, 255, 0), -1)
-        
-        print(f"找到的轴线角度: {axes_angles}")
-        
-        # 保存可视化结果（使用统一的输出目录）
-        base_name = os.path.basename(image_path)
-        file_name, file_ext = os.path.splitext(base_name)
-        # output_path = os.path.join(self.axes_output_dir, f"axes_detected_{file_name}{file_ext}")
-        # cv2.imwrite(output_path, output_img)
-        # print(f"轴线检测结果已保存至: {output_path}")
-        
+        """识别堆叠玫瑰图的轴线角度"""
+        axes_angles, axis_labels = self.detect_axes_by_ocr(image_path, center)
         self.axes_angles = axes_angles
+        self.axis_labels = axis_labels
         return axes_angles
 
     def recognize_axis_labels(self, image_path: str, center, radius, axes_angles):
-        """识别每个轴的标签"""
-        axis_labels = {}
-        
-        for axis in axes_angles:
-            try:
-                crop_img = self.crop_axis_label_region(image_path, center[0], center[1], axis, radius)
-                axis_data = self.call_llm_letter(crop_img)
-                
-                # 提取识别结果
-                if isinstance(axis_data, dict) and 'letter' in axis_data and axis_data['letter'] is not None:
-                    letter = axis_data['letter']
-                    axis_labels[axis] = letter
-                    print(f"轴角度: {axis}, 识别结果: {letter}")
-                else:
-                    print(f"轴角度: {axis}, 识别结果无效: {axis_data}")
-            except Exception as e:
-                print(f"处理轴角度 {axis} 时发生错误: {str(e)}")
-                continue
-        
+        """返回OCR识别得到的标签映射"""
+        if self.axis_labels:
+            return self.axis_labels
+
+        _, axis_labels = self.detect_axes_by_ocr(image_path, center)
         self.axis_labels = axis_labels
         return axis_labels
 
     def process_single_image(self, image_path, center=None, radius=None, output_json_path=None):
         """处理单张玫瑰图，识别轴线和标签"""
+        print(f"正在处理图像: {image_path}")
         try:
+            input_json_path = None
             # 如果未指定圆心和半径，尝试从JSON文件中读取
             if center is None or radius is None:
-                # 使用统一的输出目录查找JSON文件
-                base_name = os.path.basename(image_path)
-                file_name, _ = os.path.splitext(base_name)
-                json_path = os.path.join(self.output_dir, f"{file_name}.json")
-                
-                if os.path.exists(json_path):
-                    with open(json_path, 'r', encoding='utf-8') as f:
+                # 优先读取显式传入的JSON文件，其次再回退到输出目录同名文件
+                if isinstance(output_json_path, str):
+                    if os.path.exists(output_json_path):
+                        input_json_path = output_json_path
+                        print(f"从指定的JSON文件路径读取: {input_json_path}")
+                    else:
+                        # 宽容解析：尝试在 self.output_dir 中查找同名文件
+                        candidate = os.path.join(self.output_dir, os.path.basename(output_json_path))
+                        if os.path.exists(candidate):
+                            input_json_path = candidate
+                            print(f"指定路径不存在，改为从输出目录读取: {input_json_path}")
+                        else:
+                            print(f"指定的JSON路径不存在: {output_json_path}")
+                else:
+                    base_name = os.path.basename(image_path)
+                    file_name, _ = os.path.splitext(base_name)
+                    print(f"未指定JSON文件路径，尝试从输出目录同名文件读取: {file_name}.json")
+                    input_json_path = os.path.join(self.output_dir, f"{file_name}.json")
+
+                if input_json_path and os.path.exists(input_json_path):
+                    with open(input_json_path, 'r', encoding='utf-8') as f:
                         json_data = json.load(f)
-                        
+                        # print(json_data)
                     if center is None and 'pred_coords' in json_data:
-                        center = json_data['pred_coords']
+                        center = json_data["pred_coords"]
                         print(f"从JSON文件中读取圆心: {center}")
                         
                     if radius is None and 'argument' in json_data and 'r_ticks' in json_data:
@@ -287,9 +394,6 @@ class RoseChartAxisFinder:
             
             # 获取起始角度
             start_angle = self.get_start_angle(image_path, center[0], center[1], radius)
-            if start_angle is None:
-                print("无法确定起始角度")
-                return None
             
             print(f"起始角度: {start_angle}")
             
@@ -316,7 +420,7 @@ class RoseChartAxisFinder:
             base_name = os.path.basename(image_path)
             file_name, _ = os.path.splitext(base_name)
             
-            if output_json_path is None:
+            if output_json_path is None or (isinstance(output_json_path, str) and os.path.exists(output_json_path) and output_json_path == input_json_path):
                 output_json_path = os.path.join(self.output_dir, f"{file_name}_axes.json")
                 
             with open(output_json_path, 'w', encoding='utf-8') as f:
@@ -359,8 +463,8 @@ if __name__ == "__main__":
     # finder.axes_output_dir = os.path.join(finder.output_dir, "custom_axes")
     
     # 指定要处理的图像路径
-    image_path = "./data/rose/rose_001.png"  # 根据需要修改
-    
+    image_path = r"backend\charts\stacked_rose\stacked_rose_003.png"  # 根据需要修改
+    json_path = r"data\output\stacked_rose\stacked_rose_003.json"  # 根据需要修改
     # 可以手动指定圆心和半径，也可以让程序自动从JSON文件中读取
     # 手动指定示例:
     # center = [300, 300]  # 根据实际情况修改
@@ -368,7 +472,7 @@ if __name__ == "__main__":
     # result = finder.process_single_image(image_path, center, radius)
     
     # 自动读取示例:
-    result = finder.process_single_image(image_path)
+    result = finder.process_single_image(image_path, output_json_path=json_path)
     
     if result:
         print(f"处理完成！轴线角度: {result['axes_angles']}")

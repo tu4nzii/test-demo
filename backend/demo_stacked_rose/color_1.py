@@ -5,30 +5,38 @@ import re
 import requests
 import base64
 import os
+import sys
+
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RadarColorMatcher:
-    """雷达图实体颜色匹配器"""
+    """堆叠玫瑰图实体颜色匹配器（_1 版本，使用 model_api_config）"""
     def __init__(self):
-        # API配置
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        # API 配置（通过 model_api_config 获取）
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
         
         # 输出配置
-        self.output_dir = "./data/output/radar"
+        self.output_dir = "./data/output/stacked_rose"
         os.makedirs(self.output_dir, exist_ok=True)
         
         # 结果存储
         self.entity_colors = {}
+
+        # 堆叠玫瑰图的图例通常在底部，且是横向长方形区域
+        self.legend_crop_height_ratio = 0.22
+        self.legend_crop_width_ratio = 0.72
         
         # 颜色识别参数
-        self.min_block_area = 30         # 最小颜色块面积
+        self.min_block_area = 10         # 最小颜色块面积
         self.max_block_area = 1000       # 最大颜色块面积
         self.color_diff_threshold = 30   # 颜色差异阈值
-        self.min_saturation = 30         # 最小饱和度
+        self.min_saturation = 10         # 最小饱和度
         self.min_value = 50              # 最小亮度
 
     def parse_json(self, content: str):
@@ -49,20 +57,32 @@ class RadarColorMatcher:
             raise FileNotFoundError(f"无法读取图片: {image_path}")
         return image
 
-    def crop_legend(self, image, ratio=0.3, scale=2):
-        """裁剪图像左上角的图例区域并放大
+    def crop_legend(self, image, height_ratio=None, width_ratio=None, scale=2):
+        """裁剪图像底部的图例区域并放大
         
         Args:
             image: OpenCV图像对象
-            ratio: 裁剪比例（左上角区域）
+            height_ratio: 图例区域高度占比
+            width_ratio: 图例区域宽度占比
             scale: 放大倍数
             
         Returns:
             裁剪并放大后的图像
         """
         height, width = image.shape[:2]
-        # 裁剪左上角区域
-        crop_region = image[:int(height*ratio), :int(width*ratio)]
+        height_ratio = self.legend_crop_height_ratio if height_ratio is None else height_ratio
+        width_ratio = self.legend_crop_width_ratio if width_ratio is None else width_ratio
+
+        crop_height = max(60, int(height * height_ratio))
+        crop_width = max(100, int(width * width_ratio))
+        x1 = max(0, (width - crop_width) // 2)
+        x2 = min(width, x1 + crop_width)
+        y2 = height
+        y1 = max(0, y2 - crop_height)
+
+        crop_region = image[y1:y2, x1:x2]
+        if crop_region.size == 0:
+            crop_region = image[max(0, height - crop_height):height, :]
         
         # 放大图像
         new_height = int(crop_region.shape[0] * scale)
@@ -97,9 +117,8 @@ class RadarColorMatcher:
             包含中心点坐标和范围的字典，失败则返回None
         """
         prompt = """
-        请分析这张雷达图，识别图例区域的位置和范围。
-        一定要包含整个图例区域，不能只包含部分。
-        图例区域通常包含雷达图中各个实体的名称及其对应的颜色标记。
+        请分析这张堆叠玫瑰图，识别底部图例区域的位置和范围。
+        图例通常位于图像下方，是一个横向长方形框，必须完整包含其中所有颜色块和文字。
         
         请以JSON格式返回：
         - position: 图例区域中心点的坐标[x, y]
@@ -112,11 +131,11 @@ class RadarColorMatcher:
         }
         ```
         
-        请确保返回合理的数值，无法识别时返回null。
+        请确保返回合理的数值，优先选择底部横向长方形区域，无法识别时返回null。
         """
         
         payload = {
-            "model": "gemini-2.0-flash",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -126,7 +145,7 @@ class RadarColorMatcher:
                     ]
                 }
             ],
-            "temperature": 0.5
+            "temperature": 0.1
         }
         
         try:
@@ -147,7 +166,7 @@ class RadarColorMatcher:
                 print(f"响应内容: {response.text}")
             return None
     
-    def auto_crop_legend(self, image, scale=2):
+    def auto_crop_legend(self, image, scale=1.5):
         """智能裁剪图例区域
         
         使用大模型检测图例位置，精确裁剪并放大
@@ -182,7 +201,7 @@ class RadarColorMatcher:
         region_width, region_height = legend_info["range"]
         
         # 添加边距并确保在图像范围内
-        margin = int(min(region_width, region_height) * 0.1)
+        margin = int(min(region_width, region_height) * 0.08)
         x1 = max(0, int(center_x - region_width / 2) - margin)
         y1 = max(0, int(center_y - region_height / 2) - margin)
         x2 = min(width, int(center_x + region_width / 2) + margin)
@@ -193,8 +212,9 @@ class RadarColorMatcher:
         # 裁剪图例区域
         crop_region = image[y1:y2, x1:x2]
         
-        # 检查裁剪区域是否过小
-        if crop_region.size == 0 or crop_region.shape[0] < 50 or crop_region.shape[1] < 50:
+        # 检查裁剪区域是否过小，或形态不符合底部横向图例
+        crop_h, crop_w = crop_region.shape[:2]
+        if crop_region.size == 0 or crop_h < 40 or crop_w < 120 or crop_w < crop_h * 2:
             print("警告：图例区域过小，使用默认裁剪")
             return self.crop_legend(image, scale=scale)
         
@@ -224,8 +244,11 @@ class RadarColorMatcher:
             if not isinstance(w, (int, float)) or not isinstance(h, (int, float)):
                 return False
             
-            # 检查合理性
+            # 检查合理性：堆叠玫瑰图图例通常位于底部，且是横向长方形
             if w <= 0 or h <= 0 or w > width or h > height:
+                return False
+
+            if w < h * 2.0:
                 return False
             
             if x < 0 or x > width or y < 0 or y > height:
@@ -235,7 +258,7 @@ class RadarColorMatcher:
         except:
             return False
     
-    def extract_colors(self, image):
+    def extract_colors(self, image, expected_colors=None):
         """从图例图像中提取唯一颜色及其位置信息
         
         Args:
@@ -324,16 +347,73 @@ class RadarColorMatcher:
             if is_unique:
                 unique_color_info.append(block)
         
-        # 按色调排序
+        # 堆叠玫瑰图图例一般按空间顺序从左到右排列，保留空间顺序更稳妥
         if unique_color_info:
-            hsv_color_info = []
-            for block in unique_color_info:
-                hsv = cv2.cvtColor(np.uint8([[block['color']]]), cv2.COLOR_BGR2HSV)[0][0]
-                hsv_color_info.append((hsv[0], block))
-            
-            hsv_color_info.sort(key=lambda x: x[0])
-            unique_color_info = [block for _, block in hsv_color_info]
+            unique_color_info.sort(
+                key=lambda block: (
+                    block['position']['center_y'],
+                    block['position']['center_x']
+                )
+            )
         
+        # 如果没有通过轮廓方法得到候选色块，使用颜色聚类作为后备
+        if not unique_color_info:
+            try:
+                h, w = image.shape[:2]
+                # 缩小用于聚类的图像，控制 k 值
+                sample_w = min(300, max(100, w))
+                sample_h = max(40, int(h * (sample_w / w)))
+                small = cv2.resize(image, (sample_w, sample_h), interpolation=cv2.INTER_AREA)
+                data = small.reshape((-1, 3)).astype(np.float32)
+
+                # 决定聚类数 k
+                if expected_colors and expected_colors >= 2:
+                    k = min(8, expected_colors)
+                else:
+                    k = min(8, max(2, w // 100))
+
+                # k-means 聚类
+                criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 20, 0.5)
+                _, labels, centers = cv2.kmeans(data, k, None, criteria, 5, cv2.KMEANS_PP_CENTERS)
+                centers = centers.astype(np.uint8)
+
+                # 对每个聚类，用颜色距离在原图上生成掩码并提取连通区域
+                for center in centers:
+                    center_bgr = center.tolist()
+                    # 颜色距离阈值（经验值）
+                    dist = np.linalg.norm(image.astype(np.int16) - np.array(center_bgr, dtype=np.int16), axis=2)
+                    mask = (dist < 40).astype('uint8') * 255
+                    kernel = np.ones((3, 3), np.uint8)
+                    mask = cv2.erode(mask, kernel, iterations=1)
+                    mask = cv2.dilate(mask, kernel, iterations=2)
+
+                    cnts, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                    if not cnts:
+                        continue
+                    c = max(cnts, key=cv2.contourArea)
+                    area = cv2.contourArea(c)
+                    if area < max(10, (h * w) * 0.001):
+                        continue
+                    x, y, ww, hh = cv2.boundingRect(c)
+                    center_x = x + ww // 2
+                    center_y = y + hh // 2
+                    mean_color = cv2.mean(image, mask=mask)[:3]
+                    unique_color_info.append({
+                        'color': np.uint8(mean_color),
+                        'position': {
+                            'x': int(x), 'y': int(y), 'width': int(ww), 'height': int(hh),
+                            'center_x': int(center_x), 'center_y': int(center_y)
+                        },
+                        'area': float(area),
+                        'aspect_ratio': float(ww) / hh if hh > 0 else 0
+                    })
+
+                # 按从左到右排序
+                if unique_color_info:
+                    unique_color_info.sort(key=lambda b: (b['position']['center_x'], b['position']['center_y']))
+            except Exception:
+                pass
+
         return unique_color_info
     
     def bgr_to_hex(self, bgr_color):
@@ -372,12 +452,13 @@ class RadarColorMatcher:
             )
         
         prompt = f"""
-        请分析这张雷达图图例，并将提供的实体名称与提取到的颜色进行一一对应。
+        请分析这张堆叠玫瑰图图例，并将提供的实体名称与提取到的颜色进行一一对应。
+        图例通常在底部，颜色块顺序一般对应从左到右的实体顺序，请优先利用这个顺序辅助判断。
         
         实体名称列表：
         {', '.join(entity_names)}
         
-        提取到的颜色列表（包含位置信息，用于辅助匹配）：
+        提取到的颜色列表（已按空间顺序排序，包含位置信息，用于辅助匹配）：
         {'; '.join(color_with_positions)}
         
         请以JSON格式返回实体和颜色的对应关系（仅包含实体名称和十六进制颜色值）：
@@ -390,11 +471,11 @@ class RadarColorMatcher:
         }}
         ```
         
-        请确保每个实体都有对应的颜色。
+        请确保每个实体都有对应的颜色，并尽量保持图例从左到右的顺序与实体顺序一致。
         """
         
         payload = {
-            "model": "gemini-2.5-flash",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -404,7 +485,7 @@ class RadarColorMatcher:
                     ]
                 }
             ],
-            "temperature": 0.3
+            "temperature": 0.1
         }
         
         try:
@@ -419,7 +500,7 @@ class RadarColorMatcher:
             if 'response' in locals():
                 print(f"响应内容: {response.text}")
             return None
-    
+
     def process_image(self, image_path, use_auto_crop=True, entity_names=None):
         """处理雷达图，识别实体和颜色
         
@@ -455,7 +536,8 @@ class RadarColorMatcher:
             
             # 提取颜色和位置信息
             print("正在提取颜色块...")
-            color_info_list = self.extract_colors(legend_image)
+            expected = len(entity_names) if entity_names is not None else None
+            color_info_list = self.extract_colors(legend_image, expected_colors=expected)
             hex_colors = [self.bgr_to_hex(info['color']) for info in color_info_list]
             print(f"成功提取到 {len(hex_colors)} 个颜色: {', '.join(hex_colors)}")
             
@@ -514,16 +596,16 @@ def main():
     """主函数"""
     # 创建匹配器实例
     matcher = RadarColorMatcher()
-    
+     
     # 配置参数
     # matcher.output_dir = "custom_output"  # 自定义输出目录
     
     # 图像路径
-    image_path = r"backend\charts\radar\radar_001.png"
+    image_path = r"backend\charts\stacked_rose\stacked_rose_000.png"
     
     # 实体名称
-    # entity_names = ["WDULR", "ZTJUP", "QCBOR", "RFLDM", "UCKIV"]
-    entity_names =["LMIEXG","KBGCVO","AZC","OAAKCP"]
+    entity_names = ["group1", "group2", "group3", "group4", "group5"]
+    # entity_names = ["group1", "group2", "group3", "group4"]
     # 处理图像
     result = matcher.process_image(image_path, entity_names=entity_names)
     

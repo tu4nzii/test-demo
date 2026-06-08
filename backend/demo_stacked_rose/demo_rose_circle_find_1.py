@@ -7,16 +7,18 @@ import os
 import math
 from PIL import Image, ImageDraw, ImageFont
 import re
+import sys
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RoseChartEncoder:
     def __init__(self):
         # 配置参数
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
         self.tick_density = 2
         
         # 处理结果存储
@@ -180,7 +182,7 @@ class RoseChartEncoder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -237,7 +239,7 @@ class RoseChartEncoder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -658,8 +660,8 @@ if __name__ == "__main__":
     encoder = RoseChartEncoder()
     
     # 指定要处理的图像路径和输出目录
-    image_path = "./data/rose/rose_001.png"  # 可以根据需要修改
-    output_dir = "./data/output/rose"      # 可以根据需要修改
+    image_path = "backend\\charts\\stacked_rose\\stacked_rose_003.png"  # 可以根据需要修改
+    output_dir = "./data/output/stacked_rose"      # 可以根据需要修改
     
     # 处理单张图像
     result_path = encoder.process_single_image(image_path, output_dir)

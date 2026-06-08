@@ -5,17 +5,21 @@ import re
 import requests
 import base64
 import os
+import sys
+
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RadarColorMatcher:
-    """雷达图实体颜色匹配器"""
+    """雷达图实体颜色匹配器（_1 版本，使用 model_api_config）"""
     def __init__(self):
-        # API配置
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        # API 配置（通过 model_api_config 获取）
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
         
         # 输出配置
         self.output_dir = "./data/output/radar"
@@ -116,7 +120,7 @@ class RadarColorMatcher:
         """
         
         payload = {
-            "model": "gemini-2.0-flash",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -126,7 +130,7 @@ class RadarColorMatcher:
                     ]
                 }
             ],
-            "temperature": 0.5
+            "temperature": 0.1
         }
         
         try:
@@ -182,7 +186,7 @@ class RadarColorMatcher:
         region_width, region_height = legend_info["range"]
         
         # 添加边距并确保在图像范围内
-        margin = int(min(region_width, region_height) * 0.1)
+        margin = int(min(region_width, region_height) * 0.2)
         x1 = max(0, int(center_x - region_width / 2) - margin)
         y1 = max(0, int(center_y - region_height / 2) - margin)
         x2 = min(width, int(center_x + region_width / 2) + margin)
@@ -335,7 +339,6 @@ class RadarColorMatcher:
             unique_color_info = [block for _, block in hsv_color_info]
         
         return unique_color_info
-    
     def bgr_to_hex(self, bgr_color):
         """将BGR颜色转换为十六进制格式
         
@@ -394,7 +397,7 @@ class RadarColorMatcher:
         """
         
         payload = {
-            "model": "gemini-2.5-flash",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -404,7 +407,7 @@ class RadarColorMatcher:
                     ]
                 }
             ],
-            "temperature": 0.3
+            "temperature": 0.1
         }
         
         try:
@@ -419,7 +422,7 @@ class RadarColorMatcher:
             if 'response' in locals():
                 print(f"响应内容: {response.text}")
             return None
-    
+
     def process_image(self, image_path, use_auto_crop=True, entity_names=None):
         """处理雷达图，识别实体和颜色
         
@@ -519,11 +522,11 @@ def main():
     # matcher.output_dir = "custom_output"  # 自定义输出目录
     
     # 图像路径
-    image_path = r"backend\charts\radar\radar_001.png"
+    image_path = r"backend\charts\radar\radar_000.png"
     
     # 实体名称
-    # entity_names = ["WDULR", "ZTJUP", "QCBOR", "RFLDM", "UCKIV"]
-    entity_names =["LMIEXG","KBGCVO","AZC","OAAKCP"]
+    entity_names = ["WDULR", "ZTJUP", "QCBOR", "RFLDM", "UCKIV"]
+    # entity_names =["LMIEXG","KBGCVO","AZC","OAAKCP"]
     # 处理图像
     result = matcher.process_image(image_path, entity_names=entity_names)
     

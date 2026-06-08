@@ -1,0 +1,17 @@
+{
+  "image_path": "backend\\charts\\radar\\radar_001.png",
+  "entity_colors": {
+    "LMIEXG": "#DF5A5B",
+    "KBGCVO": "#FF9E4A",
+    "AZC": "#DFDF9B",
+    "OAAKCP": "#B5CCEA"
+  },
+  "extracted_colors": [
+    "#DF5A5B",
+    "#FF9E4A",
+    "#DFDF9B",
+    "#B5CCEA"
+  ],
+  "legend_path": "./data/output/radar\\legend_radar_001.png",
+  "crop_method": "auto"
+}
