@@ -56,7 +56,7 @@ if __name__ == '__main__':
     os.makedirs(output_dir, exist_ok=True)
 
     for json_path in glob(os.path.join(input_dir, "*.json")):
-        with open(json_path, 'r') as f:
+        with open(json_path, 'r', encoding='utf-8') as f:
             tick_data = json.load(f)
 
         name = tick_data.get("image_name")

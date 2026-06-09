@@ -242,9 +242,7 @@ def _looks_like_generic_series_name(text: str) -> bool:
         return True
     if re.fullmatch(r"系列\d+", normalized):
         return True
-    # Common mojibake for "系列" produced by reading UTF-8 Chinese as legacy
-    # encodings. Keep this narrow so real non-English legend names survive.
-    return bool(re.fullmatch(r"(绯诲垪|ç³»åˆ—|ç³»列)\d+", normalized, flags=re.IGNORECASE))
+    return bool(re.fullmatch(r".*\d+", normalized) and _looks_like_mojibake(normalized))
 
 
 def _looks_like_mojibake(text: str) -> bool:

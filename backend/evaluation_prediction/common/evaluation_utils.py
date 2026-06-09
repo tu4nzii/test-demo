@@ -84,9 +84,9 @@ def save_axis_results(
 
     axis_key = axis.lower()
     axis_name = axis.upper()
-    df.to_csv(result_dir / "experiment_results.csv", index=False)
+    df.to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
     final_df = final_rounds(df, DEFAULT_ROUND_GROUPS)
-    final_df.to_csv(result_dir / final_csv, index=False)
+    final_df.to_csv(result_dir / final_csv, index=False, encoding="utf-8")
 
     summary = final_df.groupby(["prompt_type", "image_type"]).agg(
         **{
@@ -98,7 +98,7 @@ def save_axis_results(
             ),
         }
     ).reset_index()
-    summary.to_csv(result_dir / summary_csv, index=False)
+    summary.to_csv(result_dir / summary_csv, index=False, encoding="utf-8")
 
     if summary.empty:
         return
@@ -139,9 +139,9 @@ def save_xy_results(records: list[dict[str, Any]], result_dir: Path, *, chart_la
         print(f"[{chart_label} evaluation] No records generated.")
         return
 
-    df.to_csv(result_dir / "experiment_results.csv", index=False)
+    df.to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
     final_df = final_rounds(df, XY_ROUND_GROUPS)
-    final_df.to_csv(result_dir / "full_results_with_yre.csv", index=False)
+    final_df.to_csv(result_dir / "full_results_with_yre.csv", index=False, encoding="utf-8")
 
     summary = final_df.groupby(["prompt_type", "image_type"]).agg(
         avg_mae=("mae", "mean"),
@@ -154,8 +154,12 @@ def save_xy_results(records: list[dict[str, Any]], result_dir: Path, *, chart_la
         avg_xy_err_over_range=("xy_err_over_range", "mean"),
         valid_count=("pred_x", lambda values: pd.to_numeric(values, errors="coerce").notna().sum()),
     ).reset_index()
-    summary.to_csv(result_dir / "mae_summary.csv", index=False)
-    summary[["prompt_type", "image_type", "avg_mae"]].to_csv(result_dir / "prompt_comparison.csv", index=False)
+    summary.to_csv(result_dir / "mae_summary.csv", index=False, encoding="utf-8")
+    summary[["prompt_type", "image_type", "avg_mae"]].to_csv(
+        result_dir / "prompt_comparison.csv",
+        index=False,
+        encoding="utf-8",
+    )
 
     if summary.empty:
         return
@@ -222,7 +226,7 @@ def save_polar_summary_and_plot(df_single_chart: pd.DataFrame, out_dir: str, cha
     )
 
     os.makedirs(out_dir, exist_ok=True)
-    summary.to_csv(os.path.join(out_dir, "summary.csv"))
+    summary.to_csv(os.path.join(out_dir, "summary.csv"), encoding="utf-8")
 
     fig, ax1 = plt.subplots(figsize=(6, 4), dpi=150)
     ax2 = ax1.twinx()

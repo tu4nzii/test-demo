@@ -7,7 +7,7 @@ from typing import Any
 from .circular_fallback import color_area_predictions
 
 
-SERIES_PLACEHOLDERS = {"series 1", "绯诲垪1", "缁鍨?"}
+SERIES_PLACEHOLDERS = {"series 1", "系列1"}
 
 
 def complete_circular_predictions(

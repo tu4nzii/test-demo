@@ -126,4 +126,4 @@ def _label_map(dataset: dict[str, Any]) -> dict[str, None]:
 
 def _target_names(dataset: dict[str, Any]) -> list[str]:
     labels = _label_map(dataset)
-    return [name for name in labels if name and name.lower() not in {"series 1", "系列1", "绯诲垪1"}]
+    return [name for name in labels if name and name.lower() not in {"series 1", "系列1"}]

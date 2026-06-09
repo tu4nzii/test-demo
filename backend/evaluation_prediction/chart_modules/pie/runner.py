@@ -244,7 +244,7 @@ def _save_records(records: list[dict[str, Any]], result_dir: Path) -> None:
     ensure_dir(result_dir)
     if not records:
         return
-    pd.DataFrame(records).to_csv(result_dir / "experiment_results.csv", index=False)
+    pd.DataFrame(records).to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
 
 
 async def run_experiment(

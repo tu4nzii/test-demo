@@ -78,9 +78,9 @@ def main():
             print(f"[Skip] 找不到 Ground Truth: {gt_path}")
             continue
 
-        with open(pred_path, 'r') as f:
+        with open(pred_path, 'r', encoding='utf-8') as f:
             pred = json.load(f)
-        with open(gt_path, 'r') as f:
+        with open(gt_path, 'r', encoding='utf-8') as f:
             gt = json.load(f)
 
         x_match, x_errors, x_total, x_gt_total = match_ticks(pred['x_pixels'], gt['x_pixels'], TOLERANCE)

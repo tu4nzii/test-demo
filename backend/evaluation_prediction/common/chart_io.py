@@ -26,7 +26,7 @@ def ensure_dir(path: PathLike) -> Path:
 
 
 def read_json(path: PathLike) -> Any:
-    with Path(path).open("r", encoding="utf-8-sig") as f:
+    with Path(path).open("r", encoding="utf-8") as f:
         return json.load(f)
 
 

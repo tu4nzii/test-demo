@@ -434,7 +434,7 @@ async def run_experiment(batch_size: int | None = None, chart_ids: List[str] | N
     for cid, g in df.groupby("chart_id"):
         out_dir = os.path.join("results_Pixtral", cid)
         os.makedirs(out_dir, exist_ok=True)
-        g.to_csv(os.path.join(out_dir, "experiment_results.csv"), index=False)
+        g.to_csv(os.path.join(out_dir, "experiment_results.csv"), index=False, encoding="utf-8")
         save_summary_and_plot(g, out_dir, cid)
         print(f"✅  Saved results & plots for {cid}")
 

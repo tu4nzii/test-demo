@@ -1,4 +1,4 @@
-﻿import json
+import json
 import os
 from typing import List, Dict, Tuple, Optional
 import base64
@@ -13,16 +13,16 @@ from model_api_config import get_chat_completion_url, get_headers, get_model_nam
 
 class RadarChartEvaluator:
     def __init__(self):
-        # 鍒濆鍖朅PI鍙傛暟鍜岄厤缃?
+
         self.url = get_chat_completion_url()
         self.headers = get_headers()
         self.llm_model = get_model_name()
         
-        # 瀹氫箟涓存椂鏂囦欢鐩綍
+        # 瀹氫箟涓存椂鏂囦欢鐩綍
         self.feedback_image_dir = './data/feedback'
         self.amplifier_image_dir = './data/amplifier/radar'
         
-        # 鍒涘缓蹇呰鐨勭洰褰?
+
         self._create_directories()
         
         # 瀛樺偍缁撴灉
@@ -41,7 +41,7 @@ class RadarChartEvaluator:
             with open(json_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception as e:
-            print(f"鉂?鍔犺浇鏁版嵁闆嗗け璐? {e}")
+            print(f"Operation failed: {e}")
             return {}
     
     def extract_json_response(self, content: str) -> Optional[dict]:
@@ -53,7 +53,7 @@ class RadarChartEvaluator:
             json_str = match.group(1)
             return json.loads(json_str)
         except Exception as e:
-            print(f"鉂?JSON瑙ｆ瀽澶辫触: {e}")
+            print(f"JSON parse failed: {e}")
             return None
     
     def validate_coordinates(self, coords: Tuple) -> bool:
@@ -105,10 +105,10 @@ class RadarChartEvaluator:
             raise ValueError(f"鏃犳硶璇诲彇鍥惧儚: {image_path}")
         h, w = image.shape[:2]
         
-        # 缁樺埗鍔犲瘑缃戞牸绾?
+
         self.encode_image(image, center_x, center_y, arg_a, arg_b, r_ticks)
         
-        # 鍒涘缓鎺╃爜锛堥粦鑹茶儗鏅級
+        # 鍒涘缓鎺╃爜锛堥粦鑹茶儗鏅級
         mask = np.zeros((h, w), dtype=np.uint8)
         
         # 璁＄畻鎵囧舰瑙掑害鑼冨洿
@@ -123,23 +123,23 @@ class RadarChartEvaluator:
             font_color = (0, 0, 0)  # 榛戣壊
             thickness = 1
             
-            # 璁＄畻璧峰瑙掑害鏂囧瓧鐨勪綅缃?
+
             start_angle_rad = math.radians(start_angle + 4)
             text_radius = radius 
             
-            # 鑾峰彇鏂囧瓧灏哄浠ュ疄鐜颁腑蹇冨榻?
+
             text = str(int(tick) if tick % 1 == 0 else tick)
             text_size = cv2.getTextSize(text, font, font_scale, thickness)[0]
             
-            # 璁＄畻鏂囧瓧涓績鍧愭爣
+            # 璁＄畻鏂囧瓧涓績鍧愭爣
             start_x_center = int(center_x + text_radius * math.cos(start_angle_rad))
             start_y_center = int(center_y - text_radius * math.sin(start_angle_rad))
             
-            # 璋冩暣涓哄乏涓嬭鍧愭爣
+            # 璋冩暣涓哄乏涓嬭鍧愭爣
             start_x = start_x_center - text_size[0] // 2
             start_y = start_y_center + text_size[1] // 2
             
-            # 璁＄畻缁撴潫瑙掑害鏂囧瓧鐨勪綅缃?
+
             end_angle_rad = math.radians(end_angle - 4)
             end_x_center = int(center_x + text_radius * math.cos(end_angle_rad))
             end_y_center = int(center_y - text_radius * math.sin(end_angle_rad))
@@ -150,7 +150,7 @@ class RadarChartEvaluator:
             cv2.putText(image, text, (start_x, start_y), font, font_scale, font_color, thickness, lineType=cv2.LINE_AA)
             cv2.putText(image, text, (end_x, end_y), font, font_scale, font_color, thickness, lineType=cv2.LINE_AA)
         
-        # 杞崲涓篛penCV瑙掑害绯荤粺
+        # 杞崲涓篛penCV瑙掑害绯荤粺
         start_angle_cv = -end_angle
         end_angle_cv = -start_angle
         
@@ -164,7 +164,7 @@ class RadarChartEvaluator:
             startAngle=start_angle_cv,
             endAngle=end_angle_cv,
             color=255,
-            thickness=-1,  # 濉厖
+            thickness=-1,  # 濉厖
             lineType=cv2.LINE_AA
         )
         
@@ -185,7 +185,7 @@ class RadarChartEvaluator:
         
         # 搴旂敤鎺╃爜
         sector_img = cv2.bitwise_and(image, image, mask=mask)
-        # 灏嗚儗鏅粠榛戣壊鏀逛负鐧借壊
+        # 灏嗚儗鏅粠榛戣壊鏀逛负鐧借壊
         sector_img[mask == 0] = 255
         
         # 璁＄畻鎵囧舰杈圭晫妗嗗苟瑁佸壀
@@ -195,7 +195,7 @@ class RadarChartEvaluator:
         
         x, y, w_sector, h_sector = cv2.boundingRect(coords)
         
-        # 纭繚瑁佸壀鍖哄煙鍦ㄥ浘鍍忔湁鏁堣寖鍥村唴
+        # 纭繚瑁佸壀鍖哄煙鍦ㄥ浘鍍忔湁鏁堣寖鍥村唴
         img_height, img_width = sector_img.shape[:2]
         y_start = max(0, y - 20)
         y_end = min(img_height, y + h_sector + 20)
@@ -229,12 +229,12 @@ class RadarChartEvaluator:
         cv2.ellipse(image, (center_x, center_y), (radius, radius), 0, start_angle, end_angle, 
                    arc_color, arc_thickness, lineType=cv2.LINE_AA)
         
-        # 灏嗚搴﹁浆鎹负寮у害骞惰绠楃嚎娈电殑绔偣鍧愭爣
+        # 灏嗚搴﹁浆鎹负寮у害骞惰绠楃嚎娈电殑绔偣鍧愭爣
         angle_rad = math.radians(target_angle)
         outer_x = int(center_x + (radius + line_length_ratio * radius) * math.cos(angle_rad))
         outer_y = int(center_y - (radius + line_length_ratio * radius) * math.sin(angle_rad))
         
-        # 璁＄畻鎸囧悜鍦嗗績鐨勭嚎娈电殑鍐呯鐐瑰潗鏍?
+
         inner_radius = radius * (1 - line_length_ratio)
         inner_x = int(center_x + inner_radius * math.cos(angle_rad))
         inner_y = int(center_y - inner_radius * math.sin(angle_rad))
@@ -245,109 +245,60 @@ class RadarChartEvaluator:
         return image
     
     def generate_prompt(self, item_name: str, prompt_type: str, dataset: dict, tick: float = 0) -> str:
-        """Generate prompt text for the chart and prompt type."""
-        # 鑾峰彇鍥捐〃绫诲瀷
-        chart_type = dataset.get('chart_type', '')
-        #start_angle = dataset.get('start_angle', 0)
-        # print(f"褰撳墠澶勭悊: {item_name}, 缃戞牸绫诲瀷: {prompt_type}, 鍥捐〃绫诲瀷: {chart_type}")
-        # print(f"{dataset.get('axis_labels')[str(start_angle)]}瀵瑰簲鑼冨洿涓簕start_angle}-{dataset.get('axes_angles')[1]}")
-        if prompt_type == "with_grid":
-            if chart_type == 'radar':
-                return f'''
-You are analyzing a radar chart. It displays multivariate data on a 2D plane using axes that originate from a common point.
+        """Generate a JSON-only value-estimation prompt for polar chart evaluation."""
+        chart_type = dataset.get("chart_type", "")
+        r_ticks = dataset.get("r_ticks", [])
+        theta_ticks = dataset.get("theta_ticks", dataset.get("axis_labels", []))
+        theta_angles = dataset.get("theta_angles", dataset.get("axes_angles", []))
+        series_color = dataset.get("series_color", {})
 
-The chart contains virtual reference lines :
+        context = f"""
+You are analyzing a {chart_type or "polar"} chart.
+Use the visible chart content and any provided encrypted grid/reference lines to estimate the value for the target item.
 
-- Radial grid lines (concentric circles) represent data values, with corresponding tick values {dataset.get('r_ticks', [])}
-- There are {len(dataset.get('series_color', {}))} entities: {', '.join(dataset.get('series_color', {}).keys())}, corresponding to colors {', '.join(dataset.get('series_color', {}).values())} respectively
-- There are {len(dataset.get('theta_ticks', []))} positions, corresponding to {dataset.get('theta_ticks', [])}, distributed sequentially around the circle at {dataset.get('theta_angles', [])} angle positions
+Known radial tick values: {r_ticks}
+Known angular labels/positions: {theta_ticks}
+Known angular angles: {theta_angles}
+Known series colors: {series_color}
+Target item: {item_name}
+""".strip()
 
-Your task is to estimate the value of the data point labeled "{item_name}":
+        if prompt_type == "feedback":
+            context += f"""
 
-1.Locate the "{item_name}" data point on the radar chart.
-2.Estimate its radial position by interpolating between concentric circles.** Remember to always interpolate and make good use of the encrypted grid **
-
-鈿狅笍 Respond ONLY in the exact JSON format:
-{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
-
-Do not include any explanations or additional text.
-'''.strip()
-           
-        elif prompt_type == "no_grid":
-            if chart_type == 'radar':
-                return f'''
-Your task is to estimate the value of the data point labeled "{item_name}":
-
-鈿狅笍 Respond ONLY in the exact JSON format:
-{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
-
-Do not include any explanations or additional text.
-'''.strip()
-        elif prompt_type == "feedback":
-            if chart_type == 'radar':
-                return f'''
-You are analyzing a radar chart. It displays multivariate data on a 2D plane using axes that originate from a common point.
-
-The chart contains virtual reference lines :
-
-- Radial grid lines (concentric circles) represent data values, with corresponding tick values {dataset.get('r_ticks', [])}
-- There are {len(dataset.get('series_color', {}))} entities: {', '.join(dataset.get('series_color', {}).keys())}, corresponding to colors {', '.join(dataset.get('series_color', {}).values())} respectively
-- There are {len(dataset.get('theta_ticks', []))} positions, corresponding to {dataset.get('theta_ticks', [])}, distributed sequentially around the circle at {dataset.get('theta_angles', [])} positions
-
-Your task is to estimate the value of the data point labeled "{item_name}":
-
-**閲嶈鎻愮ず**锛氬浘琛ㄤ腑宸叉坊鍔犵孩鑹插渾鐜紝琛ㄧず涓婁竴杞"{item_name}"鐨勯娴嬪€肩害涓簕tick}銆?
-璇锋瘮杈冪孩鑹插渾鐜笌鐪熷疄鏁版嵁鐐圭殑浣嶇疆宸窛锛岄噸鏂颁紭鍖栨偍鐨勯娴嬶細
-1. 纭畾绾㈣壊鍦嗙幆涓庣湡瀹炴暟鎹偣涔嬮棿鐨勪綅缃叧绯伙紙鍋忓唴銆佸亸澶栵級
-2. 鏍规嵁杩欑鍏崇郴锛岃皟鏁存偍鐨勯娴嬪€?
-3. 纭繚鏂扮殑棰勬祴鍊间笌鐪熷疄鐐圭殑浣嶇疆瀵归綈 浠ュ疄鐜板敖鍙兘鍑嗙‘鐨勯娴?
-
-鈿狅笍 浠呬互浠ヤ笅纭垏鐨凧SON鏍煎紡鍝嶅簲锛?
-{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
-
-涓嶈鍖呭惈浠讳綍瑙ｉ噴鎴栭澶栨枃鏈€?
-'''.strip()
+A red feedback marker shows the previous estimate near value {tick}. Compare it with the true data mark and refine the estimate.
+"""
         elif prompt_type == "amplifier":
-            if chart_type == 'radar':
-                return f'''
-鎮ㄦ鍦ㄥ垎鏋愰浄杈惧浘鐨勪竴閮ㄥ垎銆傝鍥惧湪浜岀淮骞抽潰涓婁娇鐢ㄤ粠鍚屼竴鐐瑰嚭鍙戠殑鍧愭爣杞村睍绀哄鍙橀噺鏁版嵁銆?
+            context += """
 
-- 鍏辨湁{len(dataset.get('series_color', {}))}涓疄浣擄細{', '.join(dataset.get('series_color', {}).keys())}锛屽垎鍒搴旈鑹瞷', '.join(dataset.get('series_color', {}).values())}
-鐜板湪鐨勫眬閮ㄦ斁澶у浘涓簕item_name.split(',')[1].strip()}杞村搴旂殑灞€閮ㄦ斁澶?
-鎮ㄧ殑浠诲姟鏄及璁℃爣璁颁负"{item_name}"瀵瑰簲鐨勫€硷紝鍗硔item_name}瀵瑰簲瀹炰綋棰滆壊鐨勬暟鍊笺€?
-璇峰厛鎵惧埌{item_name.split(',')[0].strip()}瀵瑰簲瀹炰綋棰滆壊涓簕dataset.get('series_color', {}).get(item_name.split(',')[0].strip(), '鏈煡棰滆壊')}
-鐒跺悗鎵惧埌璇ラ鑹插搴旂殑鐐癸紝骞舵彃鍊煎嚭鏁板€?
+The image is a crop/amplified view of the target item. Use interpolation between the visible reference lines to estimate the value.
+"""
+        elif prompt_type == "no_grid":
+            context += """
 
-鈿狅笍 浠呬互浠ヤ笅纭垏鐨凧SON鏍煎紡鍝嶅簲锛?
-{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
-
-涓嶈鍖呭惈浠讳綍瑙ｉ噴鎴栭澶栨枃鏈€?
-'''.strip()
-            elif chart_type == 'rose':
-                return f'''
-                璇ュ浘鐗囦负鐜懓鍥句腑{item_name}鏁版嵁鐨勬斁澶э紝璇蜂綘鏍规嵁璇ュ浘鐗囷紝浼拌{item_name}瀵瑰簲鐨勬暟鍊笺€?
--**鎵惧埌鎵囧舰骞朵笖鎵惧埌鍏舵渶杩滅鐨勮竟鐣?*
--鐒跺悗鎵惧埌璇ヨ竟鐣屽浜庡摢涓や釜鍩哄噯绾夸箣闂?
--鏈€鍚庝緷鎹熀鍑嗙嚎鐨勬暟鍊硷紝鎻掑€煎嚭鏁板€?
-鈿狅笍 浠呬互浠ヤ笅纭垏鐨凧SON鏍煎紡鍝嶅簲锛?
-{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
-
-涓嶈鍖呭惈浠讳綍瑙ｉ噴鎴栭澶栨枃鏈€?
-'''.strip()
-        else:
+No encrypted grid may be visible. Estimate only from the chart marks and visible labels.
+"""
+        elif prompt_type != "with_grid":
             raise ValueError("Unknown prompt_type")
-    
+
+        return f"""
+{context}
+
+Return strict JSON only, with no explanation:
+{{"datapoints": [{{"{item_name}": [r_value, null]}}]}}
+""".strip()
+
     def call_llm_response(self, prompt: str, image_path: str, item_name: str, dataset: dict) -> Tuple[Optional[float], Optional[float]]:
         """Call the LLM API and return its response."""
         try:
             with open(image_path, "rb") as img_file:
                 base64_image = base64.b64encode(img_file.read()).decode("utf-8")
         except Exception as e:
-            print(f"鉂?璇诲彇鍥惧儚鏂囦欢澶辫触: {e}")
+            print(f"Operation failed: {e}")
             return (None, None)
         
         max_retries = 10
-        retry_delay = 0.5  # 绉?
+        retry_delay = 0.5
         retry_count = 0
         
         payload = {
@@ -367,7 +318,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
         while retry_count < max_retries:
             try:
                 response = requests.post(url=self.url, headers=self.headers, json=payload, timeout=10)
-                response.raise_for_status()  # 妫€鏌TTP閿欒鐘舵€佺爜
+                response.raise_for_status()  # 妫€鏌TTP閿欒鐘舵€佺爜
                 
                 result = response.json()
                 content = result["choices"][0]["message"]["content"]
@@ -380,64 +331,64 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                             if self.validate_coordinates(coords):
                                 return tuple(coords)
                 
-                # 濡傛灉鏈壘鍒版暟鎹絾璇锋眰鎴愬姛锛屼笉閲嶈瘯鐩存帴杩斿洖
+                # 濡傛灉鏈壘鍒版暟鎹絾璇锋眰鎴愬姛锛屼笉閲嶈瘯鐩存帴杩斿洖
                 return (None, None)
                 
             except requests.exceptions.RequestException as e:
                 retry_count += 1
-                print(f"鉂?璇锋眰寮傚父: {e}, 姝ｅ湪杩涜绗?{retry_count}/{max_retries} 娆￠噸璇?..")
+                print(f"Request failed: {e}; retrying {retry_count}/{max_retries}...")
                 if retry_count < max_retries:
                     time.sleep(retry_delay)
             except Exception as e:
                 retry_count += 1
-                print(f"鉂?瑙ｆ瀽寮傚父: {e}, 姝ｅ湪杩涜绗?{retry_count}/{max_retries} 娆￠噸璇?..")
+                print(f"Request failed: {e}; retrying {retry_count}/{max_retries}...")
                 if retry_count < max_retries:
                     time.sleep(retry_delay)
         
-        print(f"鈿狅笍 宸茶揪鍒版渶澶ч噸璇曟鏁?({max_retries}娆?")
+        print(f"Reached max retries ({max_retries})")
         return (None, None)
     
     def process_single_image(self, json_path: str) -> None:
         """Run evaluation logic for one image."""
-        # 鍔犺浇鏁版嵁闆?
+
         dataset = self.load_dataset(json_path)
         if not dataset:
-            print("鉂?鏁版嵁闆嗕负绌猴紝鏃犳硶杩涜璇勪及")
+            print("Operation status updated")
             return
         
-        # 纭繚鏄浄杈惧浘涓旀湁鏁版嵁
+        # 纭繚鏄浄杈惧浘涓旀湁鏁版嵁
         if dataset.get('chart_type') != 'radar' or not dataset.get('data'):
             print("Not a radar chart or no data; skipping")
             return
         
         chart_id = dataset.get('chart_id', 'unknown')
-        print(f"寮€濮嬪鐞嗗浘琛? {chart_id}")
+        print(f"Start processing chart: {chart_id}")
         
-        # 鍒濆鍖栫粨鏋滃瓧鍏?
+
         self.results_by_image[chart_id] = {
             'chart_type': dataset.get('chart_type', 'rose'),
             'data': {}
         }
         
-        # 閬嶅巻姣忎釜瀹炰綋鍙婂叾鏁版嵁鐐癸紙鍙屽眰閬嶅巻锛?
+
         for entity_name, entity_data in dataset.get('data', {}).items():
-            # 鍒濆鍖栧疄浣撶粨鏋滃瓧鍏?
+
             self.results_by_image[chart_id]['data'][entity_name] = {}
             
-            # 閬嶅巻璇ュ疄浣撶殑姣忎釜鏁版嵁鐐?
+
             for axis_label, value in entity_data.items():
-                # 鍒濆鍖栬鏁版嵁鐐圭殑缁撴灉瀛楀吀
+                # 鍒濆鍖栬鏁版嵁鐐圭殑缁撴灉瀛楀吀
                 self.results_by_image[chart_id]['data'][entity_name][axis_label] = {}
                 
-                # 澶勭悊甯︾綉鏍煎拰鏃犵綉鏍间袱绉嶆儏鍐?
+
                 for grid_type in ['with_grid', 'no_grid']:
-                    # 鑾峰彇瀵瑰簲鐨勫浘鍍忚矾寰?
+
                     image_path = dataset.get("image_paths", {}).get(grid_type)
                     if not image_path:
                         print(f"Missing image path for {grid_type}; skipping")
                         continue
                     
-                    # 鏇挎崲璺緞鍒嗛殧绗︿互纭繚鍏煎鎬?
+
                     image_path = image_path.replace('\\', '/')
                     
                     # 鐢熸垚鎻愮ず骞惰皟鐢↙LM
@@ -449,9 +400,9 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                         
                         # 鑾峰彇杞存爣绛惧拰瑙掑害鏄犲皠
                         axis_labels = dataset.get('axis_labels', {})
-                        label_to_angle = {v: int(k) for k, v in axis_labels.items()}  # 寤虹珛鏍囩鍒拌搴︾殑鍙嶅悜鏄犲皠
+                        label_to_angle = {v: int(k) for k, v in axis_labels.items()}  # 寤虹珛鏍囩鍒拌搴︾殑鍙嶅悜鏄犲皠
                         
-                        # 妫€鏌ヨ酱鏍囩鏄惁瀛樺湪
+                        # 妫€鏌ヨ酱鏍囩鏄惁瀛樺湪
                         if axis_label not in label_to_angle:
                             print(f"Missing angle for {axis_label}; skipping")
                             continue
@@ -459,7 +410,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                         angle_width = int(360 / len(axis_labels)) if axis_labels else 30
                         target_angle = label_to_angle[axis_label]
                         
-                        # 澶勭悊鍙嶉妯″紡
+                        # 澶勭悊鍙嶉妯″紡
                         if grid_type == 'with_grid' and coords[0] is not None:
                             feedback_counts = 0
                             feedback_tick = [coords[0]] if coords[0] is not None else [value]
@@ -469,7 +420,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                                 try:
                                     temp_image = cv2.imread(dataset["image_paths"][grid_type].replace('\\', '/'))
                                     if temp_image is None:
-                                        print(f"鉂?鏃犳硶璇诲彇鍥惧儚: {dataset['image_paths'][grid_type]}")
+                                        print(f"Unable to read image: {dataset['image_paths'][grid_type]}")
                                         break
                                     
                                     feedback_image = temp_image.copy()
@@ -482,29 +433,29 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                                     b = dataset["argument"]["b"]
                                     pre_r = int(a * feedback_tick[-1] + b)
                                     
-                                    # 缁樺埗瑙掑害鎸囩ず鍣?
+
                                     feedback_image = self.draw_angle_indicator(feedback_image, center_x, center_y, 
                                                                               target_angle, pre_r, line_thickness=2, 
                                                                               arc_angle_width=angle_width, 
                                                                               line_length_ratio=0.05)
                                     
-                                    # 淇濆瓨鍙嶉鍥惧儚
+                                    # 淇濆瓨鍙嶉鍥惧儚
                                     cv2.imwrite(feedback_image_path, feedback_image)
                                     
-                                    # 鐢熸垚鍙嶉鎻愮ず骞惰皟鐢↙LM
+                                    # 鐢熸垚鍙嶉鎻愮ず骞惰皟鐢↙LM
                                     feedback_prompt = self.generate_prompt(f"{entity_name}_{axis_label}", 'feedback', dataset, feedback_tick[-1])
                                     feedback_coords = self.call_llm_response(feedback_prompt, feedback_image_path, 
                                                                              f"{entity_name}_{axis_label}", dataset)
                                     
-                                    # 鏇存柊鍙嶉tick鍒楄〃
+                                    # 鏇存柊鍙嶉tick鍒楄〃
                                     if feedback_coords[0] is not None:
                                         feedback_tick.append(feedback_coords[0])
                                     else:
                                         feedback_tick.append(coords[0])
                                     
-                                    print(f"鍙嶉缁撴灉: {feedback_tick}")
+                                    print(f"鍙嶉缁撴灉: {feedback_tick}")
                                     
-                                    # 鍒犻櫎涓存椂鍙嶉鍥惧儚
+                                    # 鍒犻櫎涓存椂鍙嶉鍥惧儚
                                     if os.path.exists(feedback_image_path):
                                         os.remove(feedback_image_path)
                                     
@@ -512,10 +463,10 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                                     feedback_counts -= 1
                                     
                                 except Exception as e:
-                                    print(f"鉂?鍙嶉澶勭悊寮傚父: {e}")
+                                    print(f"Operation failed: {e}")
                                     break
                             
-                            # 淇濆瓨鍙嶉缁撴灉
+                            # 淇濆瓨鍙嶉缁撴灉
                             if feedback_tick:
                                 self.results_by_image[chart_id]['data'][entity_name][axis_label]['feedback'] = feedback_tick
                             
@@ -523,7 +474,7 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                             try:
                                 amplifier_path = dataset["image_paths"].get('no_grid', '').replace('\\', '/')
                                 if not amplifier_path or not os.path.exists(amplifier_path):
-                                    print(f"鈿狅笍 鏈壘鍒皀o_grid鍥惧儚璺緞鎴栨枃浠朵笉瀛樺湪: {amplifier_path}")
+                                    print(f"鈿狅笍 鏈壘鍒皀o_grid鍥惧儚璺緞鎴栨枃浠朵笉瀛樺湪: {amplifier_path}")
                                     continue
                                 
                                 center_x, center_y = dataset["pred_coords"]
@@ -532,18 +483,18 @@ Your task is to estimate the value of the data point labeled "{item_name}":
                                 radius = int(arg_a * coords[0] + arg_b) if coords[0] is not None else 0
                                 r_ticks = dataset["r_ticks"]
                                 
-                                # 纭畾鍐呭鍗婂緞
+                                # 纭畾鍐呭鍗婂緞
                                 if coords[0] is not None:
                                     inner_radius = 0
                                     outer_radius = radius + 150
-                                    # 纭繚涓嶈秴杩囨渶澶у崐寰?
+
                                     if outer_radius > dataset['r_ticks'][-1] * arg_a + arg_b:
                                         outer_radius = radius
                                 else:
                                     inner_radius = 0
                                     outer_radius = radius
                                 print(f"褰撳墠澶勭悊: {entity_name} - {axis_label}, 鍗婂緞鑼冨洿: {inner_radius}-{outer_radius}")
-                                # 瑁佸壀骞舵斁澶у浘鍍?
+
                                 scale_factor = 2
                                 amplifier_image_path = os.path.join(self.amplifier_image_dir, 
                                                                     f'{chart_id}_{grid_type}_{entity_name}_{axis_label}.png')
@@ -589,9 +540,9 @@ Your task is to estimate the value of the data point labeled "{item_name}":
             print("No results to save")
             return
         
-        # 濡傛灉鏈寚瀹氳緭鍑鸿矾寰勶紝鍒欎娇鐢ㄩ粯璁よ矾寰?
+
         if output_path is None:
-            # 鑾峰彇绗竴涓浘琛ㄧ殑绫诲瀷浣滀负鏂囦欢鍚嶇殑涓€閮ㄥ垎
+            # 鑾峰彇绗竴涓浘琛ㄧ殑绫诲瀷浣滀负鏂囦欢鍚嶇殑涓€閮ㄥ垎
             first_chart_id = next(iter(self.results_by_image.keys()), '')
             chart_type = self.results_by_image.get(first_chart_id, {}).get('chart_type', 'unknown')
             output_path = f'coordinates_by_image_{chart_type}_{self.llm_model}.json'
@@ -603,12 +554,12 @@ Your task is to estimate the value of the data point labeled "{item_name}":
         except Exception as e:
             print(f"Failed to save results: {e}")
 
-# 涓荤▼搴忓叆鍙?
+
 if __name__ == '__main__':
-    # 鍒涘缓璇勪及鍣ㄥ疄渚?
+
     evaluator = RadarChartEvaluator()
     
-    # 鎸囧畾瑕佸鐞嗙殑鍗曚釜JSON鏂囦欢璺緞
+    # 鎸囧畾瑕佸鐞嗙殑鍗曚釜JSON鏂囦欢璺緞
     json_file_path = './data/output/radar/result/radar_001_evalution_datasets.json'
     
     # 澶勭悊鍗曚釜鍥惧儚

@@ -1,8 +1,5 @@
-﻿# -*- coding: utf-8 -*-
-"""
-浣跨敤Gemini API鎻愬彇鍥捐〃鍒诲害鏍囩
-鏀寔杞寸被鍨嬪垽鏂拰鍒诲害鍊艰瘑鍒?
-"""
+# -*- coding: utf-8 -*-
+"""Extract chart tick labels with the configured MLLM."""
 
 import os
 import sys
@@ -16,15 +13,12 @@ import requests
 from datetime import datetime
 from typing import Dict, List, Optional
 
-# 娣诲姞椤圭洰璺緞
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 import cv2
 import numpy as np
 
-# 瀵煎叆gemini璋冪敤妯″潡锛坓emini_calls.py鍦ㄩ」鐩牴鐩綍锛?
 current_dir = os.path.dirname(os.path.abspath(__file__))
-# 浠?f:\program\test-demo\backend\Grid_generation\function_calling\label 鍚戜笂3绾у埌杈鹃」鐩牴鐩綍
 project_root = os.path.abspath(os.path.join(current_dir, '../../../..'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
@@ -44,7 +38,6 @@ def _split_env_keys(raw_keys: str) -> List[str]:
     return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
 
 
-# API閰嶇疆
 API_URL = _build_chat_completions_url(
     os.getenv("TICK_LLM_API_URL")
     or os.getenv("TICK_LLM_BASE_URL")
@@ -71,23 +64,19 @@ LLM_MAX_ATTEMPTS = int(os.getenv("TICK_LLM_MAX_ATTEMPTS", "8"))
 LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("TICK_LLM_RETRY_BACKOFF_SECONDS", "2"))
 TICK_CACHE_SCHEMA_VERSION = "tick-mllm-v11"
 TICK_SYSTEM_PROMPT = (
-    "娴ｇ姵妲告稉鈧稉顏冪瑩娑撴氨娈戦崶鎹愩€冮崚鍡樼€芥稉鎾愁啀閿涘本鎼梹鑳槕閸掝偄娴樼悰銊よ厬閻ㄥ嫬娼楅弽鍥叡閸滃苯鍩㈡惔锔界垼缁涗勘鈧?"
-)
-
-TICK_SYSTEM_PROMPT = (
     "You are a precise chart-reading assistant. Extract only visible axis tick labels, "
     "preserve their order, and do not infer data values or legend text as ticks."
 )
 
 
 def rotate_key():
-    """鍒囨崲鍒颁笅涓€涓?key"""
+    """Switch to the next API key."""
     global key_index
     key_index = (key_index + 1) % len(API_KEYS)
-    print(f"馃攽 宸插垏鎹㈣嚦鏂扮殑 API Key [{key_index + 1}/{len(API_KEYS)}]")
+    print(f"[Info] Switched to API key [{key_index + 1}/{len(API_KEYS)}]")
 
 def chat_with_gemini(messages: list) -> Optional[str]:
-    """涓嶨emini杩涜瀵硅瘽锛堝悓姝ョ増鏈級"""
+    """Call the configured chat-completions compatible MLLM."""
     payload = {
         "model": LLM_MODEL,
         "messages": messages,
@@ -106,16 +95,16 @@ def chat_with_gemini(messages: list) -> Optional[str]:
             response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
             
             if response.status_code in retryable_status:
-                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
+                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
                 rotate_key()
                 if attempt < LLM_MAX_ATTEMPTS:
                     wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
-                    print(f"鈴?绛夊緟 {wait_seconds:.1f}s 鍚庨噸璇?[{attempt}/{LLM_MAX_ATTEMPTS}]...")
+                    print(f"[Info] Retrying after {wait_seconds:.1f}s [{attempt}/{LLM_MAX_ATTEMPTS}]...")
                     time.sleep(wait_seconds)
                 continue
             
             if response.status_code != 200:
-                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
+                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
                 return None
             
             result = response.json()
@@ -123,32 +112,22 @@ def chat_with_gemini(messages: list) -> Optional[str]:
                 content = result["choices"][0]["message"]["content"]
                 return content
             else:
-                print(f"鈿狅笍 鍝嶅簲鏍煎紡閿欒: {result}")
+                print(f"[Warning] Unexpected response format: {result}")
                 if attempt < LLM_MAX_ATTEMPTS:
                     time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
                 
         except Exception as e:
-            print(f"鉂?绗?{attempt} 娆″皾璇曞け璐? {e}")
+            print(f"[Warning] Attempt {attempt} failed: {e}")
             if attempt < LLM_MAX_ATTEMPTS:
                 time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
             continue
     
-    print("鉂?鎵€鏈夊皾璇曞潎澶辫触")
+    print("[Error] All MLLM attempts failed.")
     return None
 
 
 def get_cache_file_path(image_path: str, cache_dir: str) -> str:
-    """
-    鏍规嵁鍥惧儚璺緞鐢熸垚缂撳瓨鏂囦欢璺緞
-    
-    Args:
-        image_path: 鍥惧儚鏂囦欢璺緞
-        cache_dir: 缂撳瓨鐩綍
-    
-    Returns:
-        缂撳瓨鏂囦欢璺緞
-    """
-    # 浣跨敤鍥惧儚璺緞鐨刪ash浣滀负鏂囦欢鍚?
+    """Build a cache file path from image identity and prompt metadata."""
     image_hash = hashlib.md5(image_path.encode('utf-8')).hexdigest()
     abs_path = os.path.abspath(image_path)
     try:
@@ -162,15 +141,7 @@ def get_cache_file_path(image_path: str, cache_dir: str) -> str:
 
 
 def load_llm_cache(cache_file: str) -> Optional[Dict]:
-    """
-    浠庣紦瀛樻枃浠跺姞杞絃LM璇嗗埆缁撴灉
-    
-    Args:
-        cache_file: 缂撳瓨鏂囦欢璺緞
-    
-    Returns:
-        璇嗗埆缁撴灉瀛楀吀锛屽鏋滄枃浠朵笉瀛樺湪鍒欒繑鍥濶one
-    """
+    """Load cached MLLM tick extraction result."""
     if not os.path.exists(cache_file):
         return None
     
@@ -179,21 +150,12 @@ def load_llm_cache(cache_file: str) -> Optional[Dict]:
             cache_data = json.load(f)
         return cache_data
     except Exception as e:
-        print(f"[Warning] 璇诲彇缂撳瓨鏂囦欢澶辫触: {e}")
+        print(f"[Warning] Failed to read cache file: {e}")
         return None
 
 
 def save_llm_cache(cache_file: str, result: Dict, image_path: str, x_response: str = "", y_response: str = "") -> None:
-    """
-    淇濆瓨LLM璇嗗埆缁撴灉鍒扮紦瀛樻枃浠?
-    
-    Args:
-        cache_file: 缂撳瓨鏂囦欢璺緞
-        result: 璇嗗埆缁撴灉瀛楀吀
-        image_path: 鍘熷鍥惧儚璺緞
-        x_response: X杞碙LM鍘熷鍝嶅簲锛堝彲閫夛級
-        y_response: Y杞碙LM鍘熷鍝嶅簲锛堝彲閫夛級
-    """
+    """Save LLM recognition result to cache."""
     try:
         os.makedirs(os.path.dirname(cache_file), exist_ok=True)
         
@@ -201,9 +163,9 @@ def save_llm_cache(cache_file: str, result: Dict, image_path: str, x_response: s
             "image_path": image_path,
             "x_ticks": result.get("x_ticks", []),
             "y_ticks": result.get("y_ticks", []),
-            "x_axis_type": result.get("x_axis_type", "鏈煡"),
-            "y_axis_type": result.get("y_axis_type", "鏈煡"),
-            "x_llm_response": x_response,  # 淇濆瓨鍘熷鍝嶅簲浠ヤ究璋冭瘯
+            "x_axis_type": result.get("x_axis_type", "unknown"),
+            "y_axis_type": result.get("y_axis_type", "unknown"),
+            "x_llm_response": x_response,
             "y_llm_response": y_response,
             "cached_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
@@ -211,21 +173,13 @@ def save_llm_cache(cache_file: str, result: Dict, image_path: str, x_response: s
         with open(cache_file, 'w', encoding='utf-8') as f:
             json.dump(cache_data, f, indent=2, ensure_ascii=False)
         
-        print(f"[Info] LLM璇嗗埆缁撴灉宸茬紦瀛? {cache_file}")
+        print(f"[Info] Cached LLM recognition result: {cache_file}")
     except Exception as e:
-        print(f"[Warning] 淇濆瓨缂撳瓨鏂囦欢澶辫触: {e}")
+        print(f"[Warning] Failed to save cache file: {e}")
 
 
 def encode_image_to_base64(image_path: str) -> str:
-    """
-    灏嗗浘鍍忕紪鐮佷负base64瀛楃涓?
-    
-    Args:
-        image_path: 鍥惧儚鏂囦欢璺緞
-    
-    Returns:
-        base64缂栫爜鐨勫瓧绗︿覆
-    """
+    """Encode an image file as a base64 string."""
     with open(image_path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
 
@@ -358,9 +312,8 @@ def _looks_like_api_failure(text: object) -> bool:
     if not value:
         return True
     failure_markers = [
-        "鏆傛椂鏃犳硶",
-        "鏃犳硶鍥炲簲",
-        "鎵€鏈夊皾璇曞潎澶辫触",
+        "unable to respond",
+        "all attempts failed",
         "timed out",
         "timeout",
         "read timed out",
@@ -468,11 +421,11 @@ def load_llm_cache(cache_file: str, expected_metadata: Optional[Dict] = None) ->
                     return None
         quality = cache_result_quality(cache_data)
         if not quality["valid"]:
-            print(f"[Info] 蹇界暐鏃犳晥LLM缂撳瓨({quality['reason']}): {cache_file}")
+            print(f"[Info] Ignore invalid LLM cache ({quality['reason']}): {cache_file}")
             return None
         return cache_data
     except Exception as e:
-        print(f"[Warning] 璇诲彇LLM缂撳瓨澶辫触: {e}")
+        print(f"[Warning] Failed to read LLM cache: {e}")
         return None
 
 
@@ -502,23 +455,20 @@ def save_llm_cache(
         }
         with open(cache_file, "w", encoding="utf-8") as f:
             json.dump(cache_data, f, indent=2, ensure_ascii=False)
-        print(f"[Info] LLM璇嗗埆缁撴灉宸茬紦瀛? {cache_file}")
+        print(f"[Info] Cached LLM recognition result: {cache_file}")
     except Exception as e:
-        print(f"[Warning] 淇濆瓨LLM缂撳瓨澶辫触: {e}")
+        print(f"[Warning] Failed to save LLM cache: {e}")
 
 
 def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_type_override: str = "") -> Dict:
     """Extract axis tick labels and axis type with the configured MLLM."""
     try:
-        # 璇诲彇鍥惧儚骞剁紪鐮佷负base64
         chart_type = (chart_type_override or os.path.basename(os.path.dirname(image_path))).lower()
         image_base64 = encode_axis_crop_to_base64(image_path, direction, chart_type=chart_type)
         prompt = build_tick_extraction_prompt(direction, chart_type)
         
-        # 鏋勫缓鎻愮ず璇?
         prompt = build_tick_extraction_prompt(direction, chart_type)
         
-        # 鏋勫缓鍖呭惈鍥惧儚鐨勬秷鎭?
         messages = [
             {
                 "role": "system",
@@ -541,7 +491,6 @@ def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_typ
             }
         ]
         
-        # 璋冪敤Gemini API锛堝悓姝ョ増鏈級
         response = chat_with_gemini(messages)
         if not response:
             return {
@@ -551,7 +500,6 @@ def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_typ
                 "status": "api_failed",
             }
 
-        # 瑙ｆ瀽鍝嶅簲
         result = parse_llm_response(response, direction)
         if _bar_base_type(chart_type) == "h_bar" and direction.lower() == "y" and result.get("ticks"):
             result["ticks"] = [_clean_hbar_category_tick(tick) for tick in reversed(result["ticks"])]
@@ -560,12 +508,12 @@ def extract_axis_ticks_with_llm(image_path: str, direction: str = 'x', chart_typ
             if direction.lower() == "y" and numeric_ticks and len(numeric_ticks) >= 2:
                 if numeric_ticks[0] > numeric_ticks[-1]:
                     result["ticks"] = list(reversed(result["ticks"]))
-        result["raw_response"] = response  # 淇濆瓨鍘熷鍝嶅簲
+        result["raw_response"] = response
         result["status"] = "ok"
         return result
         
     except Exception as e:
-        print(f"[Error] LLM璇嗗埆{direction}杞村埢搴﹀け璐? {e}")
+        print(f"[Error] LLM failed to extract {direction}-axis ticks: {e}")
         import traceback
         traceback.print_exc()
         return {
@@ -634,17 +582,16 @@ def _legacy_extract_tick_labels_with_llm_unused(
     dataset_id: str = "default",
 ) -> Dict:
     """Extract X/Y tick labels with optional cache support."""
-    # 妫€鏌ョ紦瀛?
     if cache_dir:
         cache_file = get_cache_file_path(image_path, cache_dir)
         cached_result = load_llm_cache(cache_file)
         if cached_result:
-            print(f"[Info] 浠庣紦瀛樺姞杞絃LM璇嗗埆缁撴灉: {cache_file}")
+            print(f"[Info] Loaded LLM tick result from cache: {cache_file}")
             return {
                 "x_ticks": cached_result.get("x_ticks", []),
                 "y_ticks": cached_result.get("y_ticks", []),
-                "x_axis_type": cached_result.get("x_axis_type", "鏈煡"),
-                "y_axis_type": cached_result.get("y_axis_type", "鏈煡")
+                "x_axis_type": cached_result.get("x_axis_type", "unknown"),
+                "y_axis_type": cached_result.get("y_axis_type", "unknown")
             }
 
     if not allow_api:
@@ -656,27 +603,24 @@ def _legacy_extract_tick_labels_with_llm_unused(
             "cache_miss": True,
         }
 
-    print(f"[Info] 寮€濮嬩娇鐢↙LM璇嗗埆鍒诲害鏍囩: {image_path}")
+    print(f"[Info] Start LLM tick extraction: {image_path}")
     
-    # 鍒嗗埆璇嗗埆X杞村拰Y杞?
     x_result = extract_axis_ticks_with_llm(image_path, direction='x')
     y_result = extract_axis_ticks_with_llm(image_path, direction='y')
     
-    # 鑾峰彇鍘熷鍝嶅簲锛堝鏋滃彲鐢級
     x_response = x_result.get("raw_response", "")
     y_response = y_result.get("raw_response", "")
     
     result = {
         "x_ticks": x_result.get("ticks", []),
         "y_ticks": y_result.get("ticks", []),
-        "x_axis_type": x_result.get("axis_type", "鏈煡"),
-        "y_axis_type": y_result.get("axis_type", "鏈煡")
+        "x_axis_type": x_result.get("axis_type", "unknown"),
+        "y_axis_type": y_result.get("axis_type", "unknown")
     }
     
-    print(f"[Info] X杞磋瘑鍒粨鏋? 绫诲瀷={result['x_axis_type']}, 鍒诲害鏁?{len(result['x_ticks'])}")
-    print(f"[Info] Y杞磋瘑鍒粨鏋? 绫诲瀷={result['y_axis_type']}, 鍒诲害鏁?{len(result['y_ticks'])}")
+    print(f"[Info] X-axis tick result: type={result['x_axis_type']}, count={len(result['x_ticks'])}")
+    print(f"[Info] Y-axis tick result: type={result['y_axis_type']}, count={len(result['y_ticks'])}")
     
-    # 淇濆瓨鍒扮紦瀛?
     if cache_dir:
         cache_file = get_cache_file_path(image_path, cache_dir)
         save_llm_cache(cache_file, result, image_path, x_response, y_response)
@@ -706,7 +650,7 @@ def extract_tick_labels_with_llm(
         )
         cached_result = load_llm_cache(cache_file, expected_metadata=metadata)
         if cached_result:
-            print(f"[Info] 浠庣紦瀛樺姞杞絃LM璇嗗埆缁撴灉: {cache_file}")
+            print(f"[Info] Loaded LLM tick result from cache: {cache_file}")
             x_ticks, x_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("x_ticks", []))
             y_ticks, y_had_nonfinite = _replace_nonfinite_ticks(cached_result.get("y_ticks", []))
             if _bar_base_type(chart_type) == "h_bar":
@@ -737,7 +681,7 @@ def extract_tick_labels_with_llm(
             "cache_file": cache_file,
         }
 
-    print(f"[Info] 寮€濮嬩娇鐢↙LM璇嗗埆鍒诲害鏍囩: {image_path}")
+    print(f"[Info] Start LLM tick extraction: {image_path}")
     x_result = extract_axis_ticks_with_llm(image_path, direction="x", chart_type_override=chart_type)
     y_result = extract_axis_ticks_with_llm(image_path, direction="y", chart_type_override=chart_type)
 
@@ -752,14 +696,14 @@ def extract_tick_labels_with_llm(
         "cache_miss": False,
         "cache_file": cache_file,
     }
-    print(f"[Info] X杞磋瘑鍒粨鏋? 绫诲瀷={result['x_axis_type']}, 鍒诲害鏁?{len(result['x_ticks'])}")
-    print(f"[Info] Y杞磋瘑鍒粨鏋? 绫诲瀷={result['y_axis_type']}, 鍒诲害鏁?{len(result['y_ticks'])}")
+    print(f"[Info] X-axis tick result: type={result['x_axis_type']}, count={len(result['x_ticks'])}")
+    print(f"[Info] Y-axis tick result: type={result['y_axis_type']}, count={len(result['y_ticks'])}")
 
     if not (llm_axis_result_is_valid(x_result) and llm_axis_result_is_valid(y_result)):
         result["api_failed"] = True
         result["cache_status"] = "invalid"
         result["failure_reason"] = f"x={result['x_status']};y={result['y_status']}"
-        print(f"[Warning] LLM缁撴灉鏃犳晥锛屼笉鍐欏叆姝ｅ紡缂撳瓨: {result['failure_reason']}")
+        print(f"[Warning] Invalid LLM result; skip writing formal cache: {result['failure_reason']}")
         return result
 
     result["cache_status"] = "ok"
@@ -779,13 +723,13 @@ def extract_tick_labels_with_llm(
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description='娴嬭瘯LLM鍒诲害鏍囩鎻愬彇')
-    parser.add_argument('--image', type=str, required=True, help='鍥惧儚鏂囦欢璺緞')
+    parser = argparse.ArgumentParser(description='Test LLM tick label extraction')
+    parser.add_argument('--image', type=str, required=True, help='Image file path')
     args = parser.parse_args()
     
     result = extract_tick_labels_with_llm(args.image)
-    print("\n璇嗗埆缁撴灉:")
-    print(f"X杞寸被鍨? {result['x_axis_type']}")
-    print(f"X杞村埢搴? {result['x_ticks']}")
-    print(f"Y杞寸被鍨? {result['y_axis_type']}")
-    print(f"Y杞村埢搴? {result['y_ticks']}")
+    print("\nRecognition result:")
+    print(f"X-axis type: {result['x_axis_type']}")
+    print(f"X-axis ticks: {result['x_ticks']}")
+    print(f"Y-axis type: {result['y_axis_type']}")
+    print(f"Y-axis ticks: {result['y_ticks']}")

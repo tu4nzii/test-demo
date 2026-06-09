@@ -1,4 +1,4 @@
-﻿import cv2
+import cv2
 import numpy as np
 from collections import Counter
 import json
@@ -29,7 +29,6 @@ def _split_env_keys(raw_keys: str) -> list:
     return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
 
 
-# API閰嶇疆
 API_URL = _build_chat_completions_url(
     os.getenv("COLOR_LLM_API_URL")
     or os.getenv("COLOR_LLM_BASE_URL")
@@ -56,13 +55,13 @@ LLM_MAX_ATTEMPTS = int(os.getenv("COLOR_LLM_MAX_ATTEMPTS", "8"))
 LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("COLOR_LLM_RETRY_BACKOFF_SECONDS", "2"))
 
 def rotate_key():
-    """鍒囨崲鍒颁笅涓€涓?key"""
+    """Switch to the next API key."""
     global key_index
     key_index = (key_index + 1) % len(API_KEYS)
-    print(f"馃攽 宸插垏鎹㈣嚦鏂扮殑 API Key [{key_index + 1}/{len(API_KEYS)}]")
+    print(f"[Info] Switched to API key [{key_index + 1}/{len(API_KEYS)}]")
 
 def chat_with_gemini(messages: list) -> str:
-    """涓嶨emini杩涜瀵硅瘽锛堝悓姝ョ増鏈級"""
+    """Call the configured chat-completions compatible MLLM."""
     payload = {
         "model": LLM_MODEL,
         "messages": messages,
@@ -81,16 +80,16 @@ def chat_with_gemini(messages: list) -> str:
             response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
 
             if response.status_code in retryable_status:
-                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
+                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
                 rotate_key()
                 if attempt < LLM_MAX_ATTEMPTS:
                     wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
-                    print(f"鈴?绛夊緟 {wait_seconds:.1f}s 鍚庨噸璇?[{attempt}/{LLM_MAX_ATTEMPTS}]...")
+                    print(f"[Info] Retrying after {wait_seconds:.1f}s [{attempt}/{LLM_MAX_ATTEMPTS}]...")
                     time.sleep(wait_seconds)
                 continue
 
             if response.status_code != 200:
-                print(f"鈿狅笍 HTTP {response.status_code}: {response.text[:200]}")
+                print(f"[Error] HTTP {response.status_code}: {response.text[:200]}")
                 return "The model API request failed."
 
             result = response.json()
@@ -98,26 +97,26 @@ def chat_with_gemini(messages: list) -> str:
                 content = result["choices"][0]["message"]["content"]
                 return content
             else:
-                print(f"鈿狅笍 鍝嶅簲鏍煎紡閿欒: {result}")
+                print(f"[Warning] Unexpected response format: {result}")
                 if attempt < LLM_MAX_ATTEMPTS:
                     time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
 
         except Exception as e:
-            print(f"鉂?绗?{attempt} 娆″皾璇曞け璐? {e}")
+            print(f"[Warning] Attempt {attempt} failed: {e}")
             if attempt < LLM_MAX_ATTEMPTS:
                 time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
             continue
 
-    print("鉂?鎵€鏈夊皾璇曞潎澶辫触")
+    print("[Error] All MLLM attempts failed.")
     return "The model API request failed."
 
 def count_legend_items(image_path: str) -> int:
-    """鍒ゆ柇鍥捐〃涓殑鍥句緥鏁伴噺"""
+    """Count visible legend items in a chart."""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
+            raise ValueError("Unable to read image file")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
@@ -134,16 +133,16 @@ def count_legend_items(image_path: str) -> int:
         legend_count = int(re.search(r'\d+', response).group())
         return legend_count
     except Exception as e:
-        print(f"鉂?鏃犳硶璇嗗埆鍥句緥鏁伴噺: {e}")
+        print(f"[Warning] Failed to recognize legend item count: {e}")
         return 1
 
 def recognize_legend_items(image_path: str) -> list:
-    """璇嗗埆鍥捐〃涓殑鎵€鏈夊浘渚嬮」鍙婂叾棰滆壊"""
+    """Recognize legend item names and colors."""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
+            raise ValueError("Unable to read image file")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
@@ -170,10 +169,10 @@ Use #RRGGBB colors. Preserve visible legend names when readable."""},
         result = json.loads(response)
         return result.get('legend_items', [])
     except json.JSONDecodeError as e:
-        print(f"鉂?JSON瑙ｆ瀽閿欒: {e}")
+        print(f"[Warning] JSON parsing failed: {e}")
         return []
     except Exception as e:
-        print(f"鉂?鏃犳硶璇嗗埆鍥句緥椤? {e}")
+        print(f"[Warning] Failed to recognize legend items: {e}")
         return []
 
 def recognize_point_items(image_path: str) -> list:
@@ -231,10 +230,10 @@ Rules:
             return []
         return _clean_point_items(items)
     except json.JSONDecodeError as e:
-        print(f"閴?Point label JSON鐟欙絾鐎介柨娆掝嚖: {e}")
+        print(f"[Warning] Point label JSON parsing failed: {e}")
         return []
     except Exception as e:
-        print(f"閴?閺冪姵纭剁拠鍡楀焼閺佺増宓侀悙瑙勭垼缁? {e}")
+        print(f"[Warning] Failed to recognize point labels: {e}")
         return []
 
 def _clean_point_items(items: list) -> list:
@@ -271,12 +270,12 @@ def _clean_point_items(items: list) -> list:
     return cleaned
 
 def extract_roi_for_histogram(image_path, legend_count):
-    """鏍规嵁鍥句緥鏁伴噺鎻愬彇鐢ㄤ簬缁熻棰滆壊鐩存柟鍥剧殑ROI"""
+    """Extract an ROI for color-histogram analysis."""
     try:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
+            raise ValueError("Unable to read image file")
 
         h, w, _ = image.shape
 
@@ -312,7 +311,7 @@ def extract_roi_for_histogram(image_path, legend_count):
 
         return roi
     except Exception as e:
-        print(f"鉂?鏃犳硶鎻愬彇ROI鍖哄煙: {e}")
+        print(f"[Warning] Failed to extract ROI area: {e}")
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         h, w, _ = image.shape
@@ -326,7 +325,7 @@ def select_chart_series_color(image_path: str, candidate_colors: list) -> str:
         image_path = os.path.normpath(image_path)
         image = cv2.imdecode(np.fromfile(image_path, dtype=np.uint8), cv2.IMREAD_COLOR)
         if image is None:
-            raise ValueError("鏃犳硶璇诲彇鍥惧儚鏂囦欢")
+            raise ValueError("Unable to read image file")
 
         _, buffer = cv2.imencode('.png', image)
         image_base64 = base64.b64encode(buffer).decode('utf-8')
@@ -349,7 +348,7 @@ def select_chart_series_color(image_path: str, candidate_colors: list) -> str:
         else:
             return hex_colors[0]
     except Exception as e:
-        print(f"鉂?鏃犳硶閫夋嫨鍥捐〃绯诲垪棰滆壊: {e}")
+        print(f"[Warning] Failed to select chart series color: {e}")
         return "#000000"
 
 def compute_color_histogram(image):
@@ -361,7 +360,7 @@ def compute_color_histogram(image):
         hist_v = cv2.calcHist([hsv_image], [2], None, [256], [0, 256])
         return hist_h, hist_s, hist_v
     except Exception as e:
-        print(f"鉂?鏃犳硶璁＄畻棰滆壊鐩存柟鍥? {e}")
+        print(f"[Warning] Failed to calculate color histogram: {e}")
         return None, None, None
 
 def filter_colors_by_threshold(image, threshold=0.01):
@@ -375,7 +374,7 @@ def filter_colors_by_threshold(image, threshold=0.01):
         filtered_colors = [color for color, count in color_counts.items() if count / total_pixels > threshold]
         return filtered_colors
     except Exception as e:
-        print(f"鉂?鏃犳硶杩囨护棰滆壊: {e}")
+        print(f"[Warning] Failed to filter colors: {e}")
         return []
 
 def bgr_to_hex(bgr_color):
@@ -384,15 +383,15 @@ def bgr_to_hex(bgr_color):
         b, g, r = bgr_color
         return f"#{r:02x}{g:02x}{b:02x}"
     except Exception as e:
-        print(f"鉂?鏃犳硶杞崲棰滆壊鏍煎紡: {e}")
+        print(f"[Warning] Failed to convert color format: {e}")
         return None
 
 def extract_chart_series_color(image_path):
     """Extract the main data-series color from a chart."""
     try:
-        print(f"馃搳 澶勭悊鍥捐〃: {image_path}")
+        print(f"[Info] Processing chart: {image_path}")
 
-        print("馃攳 AI璇嗗埆鍥句緥椤瑰強棰滆壊...")
+        print("[Info] Recognizing legend items and colors...")
         legend_items = recognize_legend_items(image_path)
 
         if legend_items and len(legend_items) > 0:
@@ -405,7 +404,7 @@ def extract_chart_series_color(image_path):
             return [{'name': 'Series 1', 'color': '#1f77b4'}]
 
     except Exception as e:
-        print(f"鉂?鎻愬彇鍥捐〃棰滆壊澶辫触: {e}")
+        print(f"[Warning] Failed to extract chart colors: {e}")
         return [{'name': 'Series 1', 'color': '#1f77b4'}]
 
 def extract_point_chart_items(image_path):
@@ -425,18 +424,18 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         image_path = sys.argv[1]
     else:
-        image_path = input("璇疯緭鍏ユ祴璇曞浘琛ㄨ矾寰? ")
+        image_path = input("Enter test chart image path: ")
 
     if not os.path.exists(image_path):
-        print(f"鉂?鍥捐〃鏂囦欢涓嶅瓨鍦? {image_path}")
+        print(f"[Error] Chart file does not exist: {image_path}")
         sys.exit(1)
 
     series_colors = extract_chart_series_color(image_path)
 
     if series_colors:
-        print(f"\n馃搵 鏈€缁堢粨鏋?")
+        print("\nFinal result:")
         if len(series_colors) == 1:
-            print(f"   鍥捐〃绯诲垪棰滆壊: {series_colors[0]['color']}")
+            print(f"   Chart series color: {series_colors[0]['color']}")
         else:
             for i, item in enumerate(series_colors, 1):
-                print(f"   绯诲垪{i}: {item['name']} - {item['color']}")
+                print(f"   Series {i}: {item['name']} - {item['color']}")

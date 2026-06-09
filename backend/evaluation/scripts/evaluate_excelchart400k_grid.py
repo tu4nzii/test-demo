@@ -132,7 +132,7 @@ def read_done_rows(csv_path):
     if not csv_path.exists():
         return set()
     done = set()
-    with open(csv_path, "r", encoding="utf-8-sig", newline="") as f:
+    with open(csv_path, "r", encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
             done.add(row.get("chart_id"))
     return done
@@ -226,7 +226,7 @@ def summarize_csv(csv_path):
     problems = []
     if not csv_path.exists():
         return summary, problems
-    with open(csv_path, "r", encoding="utf-8-sig", newline="") as f:
+    with open(csv_path, "r", encoding="utf-8", newline="") as f:
         for row in csv.DictReader(f):
             chart_type = row.get("chart_type", "unknown")
             summary[chart_type]["total"] += 1
@@ -290,7 +290,7 @@ def main():
     csv_exists = csv_path.exists() and not args.no_resume
     mode = "a" if csv_exists else "w"
 
-    with open(csv_path, mode, encoding="utf-8-sig", newline="") as csv_file, open(log_path, "a", encoding="utf-8") as log_file:
+    with open(csv_path, mode, encoding="utf-8", newline="") as csv_file, open(log_path, "a", encoding="utf-8") as log_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         if not csv_exists:
             writer.writeheader()

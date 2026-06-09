@@ -701,7 +701,7 @@ def _save_records(records: list[dict[str, Any]], result_dir: Path) -> None:
     if not records:
         return
     columns = list(records[0])
-    with (result_dir / "experiment_results.csv").open("w", encoding="utf-8-sig", newline="") as file:
+    with (result_dir / "experiment_results.csv").open("w", encoding="utf-8", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=columns)
         writer.writeheader()
         writer.writerows(records)
@@ -748,7 +748,7 @@ def _save_csv(rows: list[dict[str, Any]], path: Path, columns: list[str] | None 
                 columns.append(key)
     if not columns:
         return
-    with path.open("w", encoding="utf-8-sig", newline="") as file:
+    with path.open("w", encoding="utf-8", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=columns, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)

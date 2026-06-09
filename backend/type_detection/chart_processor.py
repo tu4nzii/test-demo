@@ -37,7 +37,7 @@ class ChartProcessor(Protocol):
 
 
 def load_json(path: str) -> Dict[str, Any]:
-    with open(path, "r", encoding="utf-8-sig") as file:
+    with open(path, "r", encoding="utf-8") as file:
         data = json.load(file)
     return data if isinstance(data, dict) else {"data": data}
 

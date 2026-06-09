@@ -37,4 +37,4 @@
 
 - `python -m py_compile backend\Grid_generation\function_calling\axis\infer_axes.py backend\Grid_generation\function_calling\ticks\detect_ticks.py`
 - 对 `line_149.png`、`scatter_000.png`、`v_bar_063.png`、`h_bar_000.png` 做了轴线抽查，均返回合理的可视坐标框线。
-- 端到端 `process_chart` 在进入外部 LLM/API 阶段后因代理连接和 Windows GBK 控制台编码失败中断；中断前 CV 轴线与刻度检测已成功执行。
+- 端到端 `process_chart` 在进入外部 LLM/API 阶段后因代理连接和 Windows 旧式控制台编码失败中断；中断前 CV 轴线与刻度检测已成功执行。

@@ -57,7 +57,7 @@ def base_pngs(chart_type):
 
 
 def read_json_for(image_path):
-    with open(os.path.splitext(image_path)[0] + ".json", "r", encoding="utf-8-sig") as f:
+    with open(os.path.splitext(image_path)[0] + ".json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 

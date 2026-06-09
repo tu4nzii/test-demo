@@ -29,7 +29,7 @@ def save_circular_artifacts(
 ) -> list[dict[str, Any]]:
     ensure_dir(result_dir)
     all_records = _merge_prediction_records(dataset, records, predictions)
-    pd.DataFrame(all_records).to_csv(result_dir / "experiment_results.csv", index=False)
+    pd.DataFrame(all_records).to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
     _save_summary_and_plot(all_records, result_dir, str(dataset.get("chart_id", "")))
     _save_feedback_images(dataset, result_dir, predictions)
     _save_amplifier_images(dataset, chart_type, result_dir, predictions)
@@ -99,7 +99,7 @@ def _save_summary_and_plot(records: list[dict[str, Any]], result_dir: Path, char
         )
         .reset_index()
     )
-    summary.to_csv(result_dir / "summary.csv", index=False)
+    summary.to_csv(result_dir / "summary.csv", index=False, encoding="utf-8")
 
     if summary.empty:
         return

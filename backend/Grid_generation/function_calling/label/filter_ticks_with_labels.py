@@ -13,7 +13,7 @@ def main(idx=None):
 
     # 读取所有 tick label 框
     label_path = "data/debug/recognize_tick_labels/all_tick_label_boxes.json"
-    with open(label_path, 'r') as f:
+    with open(label_path, 'r', encoding='utf-8') as f:
         all_labels = json.load(f)
 
     for image_name in image_names:
@@ -26,7 +26,7 @@ def main(idx=None):
         os.makedirs(os.path.dirname(out_vis), exist_ok=True)
 
         # 加载 tick 数据
-        with open(tick_path, 'r') as f:
+        with open(tick_path, 'r', encoding='utf-8') as f:
             tick_data = json.load(f)
 
         label_boxes = all_labels.get(image_name, [])
@@ -38,7 +38,7 @@ def main(idx=None):
         tick_data["x_ticks"] = x_keep
         tick_data["y_ticks"] = y_keep
 
-        with open(out_json, 'w') as f:
+        with open(out_json, 'w', encoding='utf-8') as f:
             json.dump(tick_data, f, indent=2)
 
         # 读取图像并绘制

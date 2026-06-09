@@ -198,7 +198,7 @@ def _color_items(dataset: dict[str, Any]) -> list[dict[str, Any]]:
         if not name or rgb is None:
             continue
         lowered = name.lower()
-        if lowered in seen or lowered in {"series 1", "系列1", "绯诲垪1"}:
+        if lowered in seen or lowered in {"series 1", "系列1"}:
             continue
         result.append({"name": name, "rgb": rgb})
         seen.add(lowered)

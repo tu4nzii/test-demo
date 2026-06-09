@@ -64,7 +64,7 @@ def safe_error_message(error: Exception) -> str:
 
 
 def load_json(path: Path) -> Dict[str, Any]:
-    with path.open("r", encoding="utf-8-sig") as file:
+    with path.open("r", encoding="utf-8") as file:
         data = json.load(file)
     return data if isinstance(data, dict) else {"data": data}
 
@@ -599,7 +599,7 @@ def extract_predictions_from_result_dir(result_dir: Path, chart_type: str) -> li
 
     by_point: Dict[str, list[Dict[str, str]]] = {}
     try:
-        with csv_path.open("r", encoding="utf-8-sig", newline="") as file:
+        with csv_path.open("r", encoding="utf-8", newline="") as file:
             for row in csv.DictReader(file):
                 value = legacy_prediction_value(row, chart_type)
                 if value is None:
