@@ -7,6 +7,8 @@ test_output/
 *.log
 .venv/
 venv/
+model_secrets.local.json
+backend/evaluation_prediction/common/model_secrets.local.json
 
 # Frontend build/cache
 frontend/chart-demo-ui/dist/

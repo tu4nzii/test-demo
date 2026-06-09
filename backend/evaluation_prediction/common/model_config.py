@@ -7,7 +7,9 @@ with ``CHART_BASE_URL``, ``CHART_MODEL_NAME``, and ``CHART_API_KEY``.
 
 from __future__ import annotations
 
+import json
 import os
+from pathlib import Path
 from typing import Iterable
 
 
@@ -20,7 +22,7 @@ _GPT54_PROFILE = {
 _VVEAI_GEMINI_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
     "model_name": "gemini-3.1-flash-lite",
-    "api_key": "sk-WvF4fU10VeOkfFMq579610Fc01E8496d827d0d3e04C44d0a",
+    "api_key": "",
 }
 
 MODEL_PROFILES = {
@@ -36,6 +38,10 @@ MODEL_PROFILES = {
 }
 
 DEFAULT_PROFILE = "gemini"
+LOCAL_SECRET_PATHS = (
+    Path(__file__).with_name("model_secrets.local.json"),
+    Path(__file__).resolve().parents[3] / "model_secrets.local.json",
+)
 
 
 def get_profile_name() -> str:
@@ -44,6 +50,31 @@ def get_profile_name() -> str:
 
 def get_profile() -> dict[str, str]:
     return MODEL_PROFILES.get(get_profile_name(), MODEL_PROFILES[DEFAULT_PROFILE])
+
+
+def _load_local_secrets() -> dict:
+    for path in LOCAL_SECRET_PATHS:
+        if not path.exists():
+            continue
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            continue
+    return {}
+
+
+def _get_local_secret(field: str) -> str:
+    secrets = _load_local_secrets()
+    profiles = secrets.get("profiles", {})
+    profile = profiles.get(get_profile_name(), {}) if isinstance(profiles, dict) else {}
+    value = profile.get(field) if isinstance(profile, dict) else None
+    if value:
+        return str(value)
+    value = secrets.get(field)
+    return str(value) if value else ""
 
 
 def get_base_url() -> str:
@@ -55,7 +86,12 @@ def get_model_name() -> str:
 
 
 def get_api_key() -> str:
-    return os.getenv("CHART_API_KEY") or os.getenv("OPENAI_API_KEY") or get_profile()["api_key"]
+    return (
+        os.getenv("CHART_API_KEY")
+        or os.getenv("OPENAI_API_KEY")
+        or _get_local_secret("api_key")
+        or get_profile()["api_key"]
+    )
 
 
 def get_chat_completion_url() -> str:
