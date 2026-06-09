@@ -1,0 +1,72 @@
+{
+  "chart_id": "stacked_rose_009",
+  "image_paths": {
+    "with_grid": "charts/stacked_rose/stacked_rose_009.png"
+  },
+  "center": {
+    "x": 400,
+    "y": 384
+  },
+  "data_points": {
+    "Group1": {
+      "OQUX": 31,
+      "ZVBD": 33,
+      "IT": 27,
+      "XR": 20,
+      "ER": 46,
+      "OYFY": 34,
+      "LICO": 32
+    },
+    "Group2": {
+      "OQUX": 23,
+      "ZVBD": 46,
+      "IT": 28,
+      "XR": 29,
+      "ER": 31,
+      "OYFY": 32,
+      "LICO": 25
+    },
+    "Group3": {
+      "OQUX": 31,
+      "ZVBD": 48,
+      "IT": 43,
+      "XR": 28,
+      "ER": 28,
+      "OYFY": 24,
+      "LICO": 48
+    }
+  },
+  "series_color": {
+    "Group1": "#fed9a6",
+    "Group2": "#f2f2f2",
+    "Group3": "#fbb4ae"
+  },
+  "r_ticks": [
+    "65.0",
+    "130"
+  ],
+  "r_pixels": [
+    144,
+    288
+  ],
+  "theta_ticks": [
+    "OQUX",
+    "ZVBD",
+    "IT",
+    "XR",
+    "ER",
+    "OYFY",
+    "LICO"
+  ],
+  "theta_angles": [
+    0.0,
+    51.43,
+    102.86,
+    154.29,
+    205.71,
+    257.14,
+    308.57
+  ],
+  "gap_enabled": true,
+  "gap_size": 0.1
+}

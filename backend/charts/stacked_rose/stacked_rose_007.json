@@ -1,0 +1,82 @@
+{
+  "chart_id": "stacked_rose_007",
+  "image_paths": {
+    "with_grid": "charts/stacked_rose/stacked_rose_007.png"
+  },
+  "center": {
+    "x": 640,
+    "y": 512
+  },
+  "data_points": {
+    "Group1": {
+      "ZMB": 39,
+      "PXS": 31,
+      "WAS": 24,
+      "BPS": 37,
+      "TXMN": 39,
+      "NVIR": 20,
+      "LHOC": 36
+    },
+    "Group2": {
+      "ZMB": 40,
+      "PXS": 36,
+      "WAS": 38,
+      "BPS": 39,
+      "TXMN": 24,
+      "NVIR": 48,
+      "LHOC": 29
+    },
+    "Group3": {
+      "ZMB": 28,
+      "PXS": 28,
+      "WAS": 25,
+      "BPS": 20,
+      "TXMN": 47,
+      "NVIR": 45,
+      "LHOC": 21
+    },
+    "Group4": {
+      "ZMB": 41,
+      "PXS": 31,
+      "WAS": 29,
+      "BPS": 47,
+      "TXMN": 35,
+      "NVIR": 21,
+      "LHOC": 29
+    }
+  },
+  "series_color": {
+    "Group1": "#8dd3c7",
+    "Group2": "#ffed6f",
+    "Group3": "#d9d9d9",
+    "Group4": "#80b1d3"
+  },
+  "r_ticks": [
+    "75.0",
+    "150"
+  ],
+  "r_pixels": [
+    192,
+    383
+  ],
+  "theta_ticks": [
+    "ZMB",
+    "PXS",
+    "WAS",
+    "BPS",
+    "TXMN",
+    "NVIR",
+    "LHOC"
+  ],
+  "theta_angles": [
+    0.0,
+    51.43,
+    102.86,
+    154.29,
+    205.71,
+    257.14,
+    308.57
+  ],
+  "gap_enabled": false,
+  "gap_size": 0.1
+}

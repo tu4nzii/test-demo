@@ -1,0 +1,67 @@
+{
+  "chart_id": "stacked_rose_004",
+  "image_paths": {
+    "with_grid": "charts/stacked_rose/stacked_rose_004.png"
+  },
+  "center": {
+    "x": 400,
+    "y": 320
+  },
+  "data_points": {
+    "Group1": {
+      "YP": 21,
+      "AVU": 43,
+      "ZYI": 37,
+      "RG": 34,
+      "TYP": 47,
+      "UK": 38
+    },
+    "Group2": {
+      "YP": 33,
+      "AVU": 46,
+      "ZYI": 22,
+      "RG": 44,
+      "TYP": 28,
+      "UK": 26
+    },
+    "Group3": {
+      "YP": 29,
+      "AVU": 24,
+      "ZYI": 26,
+      "RG": 29,
+      "TYP": 21,
+      "UK": 50
+    }
+  },
+  "series_color": {
+    "Group1": "#fbb4ae",
+    "Group2": "#fed9a6",
+    "Group3": "#f2f2f2"
+  },
+  "r_ticks": [
+    "60.0",
+    "120"
+  ],
+  "r_pixels": [
+    120,
+    240
+  ],
+  "theta_ticks": [
+    "YP",
+    "AVU",
+    "ZYI",
+    "RG",
+    "TYP",
+    "UK"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "gap_enabled": false,
+  "gap_size": 0.1
+}
