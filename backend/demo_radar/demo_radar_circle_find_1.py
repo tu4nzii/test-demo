@@ -7,16 +7,19 @@ import os
 import math
 from PIL import Image, ImageDraw, ImageFont
 import re
+import sys
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if _project_root not in sys.path:
+    sys.path.insert(0, _project_root)
+from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RadarChartEncoder:
     def __init__(self):
         # 配置参数
-        self.api_key = "sk-1fZigErRE5Mv2Y2d910c8b8f86354dF3AeD8B8F2Bb385dEb"
-        self.url = "https://api.vveai.com/v1/chat/completions"
-        self.headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
-        }
+        self.url = get_chat_completion_url()
+        self.headers = get_headers()
+        self.model_name = get_model_name()
+
         self.tick_density = 2
         
         # 处理结果存储
@@ -26,6 +29,10 @@ class RadarChartEncoder:
         self.coords = [0, 0]  # [cx, cy]
         self.first_r = 0
         self.second_r = 0
+        self.detection_size = 800
+        self.detection_source = None
+        self.detection_transform = None
+        self.detection_image = None
 
     def show_image_with_scaling(self, window_name, image, max_width=800, max_height=600):
         """显示缩放后的图像"""
@@ -54,53 +61,435 @@ class RadarChartEncoder:
             print(f"❌ JSON解析失败: {e}")
             return None
 
+    def get_annotation_metrics(self, image_shape, radial_spacing):
+        """Scale generated tick labels to the detected chart area and ring spacing."""
+        height, width = image_shape[:2]
+        if self.detection_transform is not None:
+            x0, y0, x1, y1 = self.detection_transform["roi"]
+            chart_scale = math.sqrt((x1 - x0) * (y1 - y0))
+        else:
+            chart_scale = min(height, width)
+
+        roi_font_size = max(7, int(round(chart_scale * 0.018)))
+        spacing_font_limit = max(7, int(round(abs(radial_spacing) * 0.55)))
+        font_size = min(roi_font_size, spacing_font_limit)
+        label_offset = max(2, int(round(font_size * 0.25)))
+        cv_font_scale = max(0.25, font_size / 30.0)
+        return font_size, label_offset, cv_font_scale
+
+    def prepare_detection_image(self, image):
+        """Build a conservative square ROI and letterbox it for circle detection."""
+        height, width = image.shape[:2]
+        background_center = self.find_background_disk_center(image)
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        foreground = np.uint8(gray < 250) * 255
+
+        kernel_size = max(11, int(round(min(height, width) * 0.04)))
+        if kernel_size % 2 == 0:
+            kernel_size += 1
+        merged = cv2.morphologyEx(
+            foreground,
+            cv2.MORPH_CLOSE,
+            np.ones((kernel_size, kernel_size), np.uint8),
+        )
+
+        component_count, _, stats, _ = cv2.connectedComponentsWithStats(merged)
+        if component_count <= 1:
+            return None
+        component_indices = [
+            index for index in range(1, component_count)
+            if not (
+                stats[index, cv2.CC_STAT_WIDTH] >= width * 0.95
+                and stats[index, cv2.CC_STAT_HEIGHT] >= height * 0.95
+            )
+        ]
+        if not component_indices:
+            component_indices = list(range(1, component_count))
+        component_index = max(
+            component_indices,
+            key=lambda index: stats[index, cv2.CC_STAT_AREA],
+        )
+        x, y, component_width, component_height, _ = [
+            int(value) for value in stats[component_index]
+        ]
+
+        side = int(round(max(component_width, component_height) * 1.5))
+        side = min(max(side, component_width, component_height), width, height)
+        center_x = x + component_width / 2.0
+        center_y = y + component_height / 2.0
+        x0 = max(0, min(int(round(center_x - side / 2.0)), width - side))
+        y0 = max(0, min(int(round(center_y - side / 2.0)), height - side))
+        x1 = x0 + side
+        y1 = y0 + side
+
+        # Never use a crop that clips the selected main content component.
+        if x0 > x or y0 > y or x1 < x + component_width or y1 < y + component_height:
+            return None
+
+        roi = image[y0:y1, x0:x1]
+        if roi.size == 0:
+            return None
+        scale = min(self.detection_size / roi.shape[1], self.detection_size / roi.shape[0])
+        resized_width = max(1, int(round(roi.shape[1] * scale)))
+        resized_height = max(1, int(round(roi.shape[0] * scale)))
+        resized = cv2.resize(roi, (resized_width, resized_height), interpolation=cv2.INTER_AREA)
+        pad_x = (self.detection_size - resized_width) // 2
+        pad_y = (self.detection_size - resized_height) // 2
+        normalized = np.full((self.detection_size, self.detection_size, 3), 255, dtype=np.uint8)
+        normalized[pad_y:pad_y + resized_height, pad_x:pad_x + resized_width] = resized
+        normalized_content_center = (
+            (center_x - x0) * scale + pad_x,
+            (center_y - y0) * scale + pad_y,
+        )
+        if background_center is not None:
+            normalized_content_center = (
+                (background_center[0] - x0) * scale + pad_x,
+                (background_center[1] - y0) * scale + pad_y,
+            )
+        return {
+            "image": normalized,
+            "roi": (x0, y0, x1, y1),
+            "scale": scale,
+            "pad_x": pad_x,
+            "pad_y": pad_y,
+            "content_center": normalized_content_center,
+            "reliable_center": background_center is not None,
+        }
+
+    def find_background_disk_center(self, image):
+        """Find the center of a large, uniformly colored neutral background disk."""
+        height, width = image.shape[:2]
+        neutral = (
+            (image[:, :, 0] == image[:, :, 1])
+            & (image[:, :, 1] == image[:, :, 2])
+            & (image[:, :, 0] >= 180)
+            & (image[:, :, 0] < 250)
+        )
+        values, counts = np.unique(image[:, :, 0][neutral], return_counts=True)
+        if len(counts) == 0:
+            return None
+        dominant_index = int(np.argmax(counts))
+        dominant_value = int(values[dominant_index])
+        if counts[dominant_index] < height * width * 0.05:
+            return None
+
+        mask = np.uint8(
+            (image[:, :, 0] == dominant_value)
+            & (image[:, :, 1] == dominant_value)
+            & (image[:, :, 2] == dominant_value)
+        ) * 255
+        mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8))
+        component_count, _, stats, _ = cv2.connectedComponentsWithStats(mask)
+        if component_count <= 1:
+            return None
+        component_index = max(
+            range(1, component_count),
+            key=lambda index: stats[index, cv2.CC_STAT_AREA],
+        )
+        x, y, component_width, component_height, area = [
+            int(value) for value in stats[component_index]
+        ]
+        if area < height * width * 0.05:
+            return None
+        aspect_ratio = component_width / max(1, component_height)
+        if not 0.9 <= aspect_ratio <= 1.1:
+            return None
+        return (
+            x + component_width / 2.0,
+            y + component_height / 2.0,
+        )
+
+    def normalize_with_transform(self, image, transform):
+        """Apply the first detection's ROI transform to a modified source image."""
+        x0, y0, x1, y1 = transform["roi"]
+        roi = image[y0:y1, x0:x1]
+        resized_width = max(1, int(round(roi.shape[1] * transform["scale"])))
+        resized_height = max(1, int(round(roi.shape[0] * transform["scale"])))
+        resized = cv2.resize(roi, (resized_width, resized_height), interpolation=cv2.INTER_AREA)
+        normalized = np.full((self.detection_size, self.detection_size, 3), 255, dtype=np.uint8)
+        pad_x = transform["pad_x"]
+        pad_y = transform["pad_y"]
+        normalized[pad_y:pad_y + resized_height, pad_x:pad_x + resized_width] = resized
+        return normalized
+
+    def map_circle_to_original(self, circle, transform):
+        """Map a normalized-image circle back to original image coordinates."""
+        cx, cy, radius = [float(value) for value in circle]
+        x0, y0, _, _ = transform["roi"]
+        scale = transform["scale"]
+        return (
+            int(round((cx - transform["pad_x"]) / scale + x0)),
+            int(round((cy - transform["pad_y"]) / scale + y0)),
+            int(round(radius / scale)),
+        )
+
+    def circle_is_safe(self, circle, image_shape, margin=3):
+        """Check that the full circle remains inside an image with a small margin."""
+        height, width = image_shape[:2]
+        cx, cy, radius = circle
+        return (
+            radius > 0
+            and cx - radius >= margin
+            and cy - radius >= margin
+            and cx + radius < width - margin
+            and cy + radius < height - margin
+        )
+
+    def enhance_detection_gray(self, image):
+        """Increase faint grid contrast without modifying the source image."""
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        enhanced = clahe.apply(gray)
+        return cv2.GaussianBlur(enhanced, (5, 5), 1.2)
+
+    def circle_edge_support(self, edges, circle):
+        """Measure how much of a candidate circumference is supported by edges."""
+        cx, cy, radius = circle
+        height, width = edges.shape[:2]
+        supported = 0
+        sample_count = 180
+        for angle in np.linspace(0, 2 * math.pi, sample_count, endpoint=False):
+            found = False
+            for radius_offset in (-2, -1, 0, 1, 2):
+                x = int(round(cx + (radius + radius_offset) * math.cos(angle)))
+                y = int(round(cy + (radius + radius_offset) * math.sin(angle)))
+                if 0 <= x < width and 0 <= y < height and edges[y, x] > 0:
+                    found = True
+                    break
+            supported += int(found)
+        return supported / sample_count
+
+    def find_safe_normalized_circle(self, normalized, transform, min_radius, max_radius,
+                                    param2, original_shape, required_center=None):
+        enhanced = self.enhance_detection_gray(normalized)
+        edges = cv2.Canny(enhanced, 30, 100)
+        candidates = []
+        seen = set()
+        thresholds = sorted({param2, 25, 20, 15}, reverse=True)
+        for accumulator_threshold in thresholds:
+            circles = cv2.HoughCircles(
+                enhanced, cv2.HOUGH_GRADIENT, dp=1.0, minDist=12,
+                param1=50, param2=accumulator_threshold,
+                minRadius=max(1, min_radius), maxRadius=max_radius,
+            )
+            if circles is None:
+                continue
+            for circle in np.around(circles[0]).astype(int):
+                key = tuple(int(value) for value in circle)
+                if key not in seen:
+                    seen.add(key)
+                    candidates.append(circle)
+
+        safe_candidates = []
+        content_center = transform["content_center"]
+        for circle in candidates:
+            mapped = self.map_circle_to_original(circle, transform)
+            x0, y0, x1, y1 = transform["roi"]
+            roi_circle = (mapped[0] - x0, mapped[1] - y0, mapped[2])
+            if not (
+                self.circle_is_safe(roi_circle, (y1 - y0, x1 - x0))
+                and self.circle_is_safe(mapped, original_shape)
+            ):
+                continue
+            if required_center is not None:
+                center_distance = math.hypot(
+                    mapped[0] - required_center[0],
+                    mapped[1] - required_center[1],
+                )
+                if center_distance > max(3, mapped[2] * 0.04):
+                    continue
+            else:
+                center_distance = math.hypot(
+                    circle[0] - content_center[0],
+                    circle[1] - content_center[1],
+                ) / transform["scale"]
+                if transform.get("reliable_center") and center_distance > 6:
+                    continue
+            edge_support = self.circle_edge_support(edges, circle)
+            safe_candidates.append((circle, mapped, edge_support, center_distance))
+
+        if not safe_candidates:
+            return None
+
+        scored_candidates = []
+        for _, mapped, edge_support, center_distance in safe_candidates:
+            concentric_radii = set()
+            if required_center is None and not transform.get("reliable_center"):
+                center_tolerance = max(4, mapped[2] * 0.04)
+                for _, other_mapped, _, _ in safe_candidates:
+                    if math.hypot(
+                        mapped[0] - other_mapped[0],
+                        mapped[1] - other_mapped[1],
+                    ) <= center_tolerance:
+                        concentric_radii.add(int(round(other_mapped[2] / 8.0)))
+            concentric_score = min(len(concentric_radii), 6) * 3.0
+            score = edge_support * 100.0 + concentric_score - center_distance * 1.5
+            scored_candidates.append((score, mapped))
+
+        return max(scored_candidates, key=lambda item: item[0])[1]
+
+    def find_full_image_circle(self, image, min_radius, max_radius, param2,
+                               required_center=None):
+        """Use the enhanced adaptive detector on the full image as fallback."""
+        height, width = image.shape[:2]
+        short_side = min(height, width)
+        transform = {
+            "roi": (0, 0, width, height),
+            "scale": 1.0,
+            "pad_x": 0,
+            "pad_y": 0,
+            "content_center": (width / 2.0, height / 2.0),
+            "reliable_center": False,
+        }
+        adaptive_min_radius = min_radius
+        adaptive_max_radius = max_radius
+        if required_center is None:
+            adaptive_min_radius = min(min_radius, int(short_side * 0.08))
+            adaptive_max_radius = max(max_radius, int(short_side * 0.48))
+        return self.find_safe_normalized_circle(
+            image,
+            transform,
+            min_radius=adaptive_min_radius,
+            max_radius=adaptive_max_radius,
+            param2=param2,
+            original_shape=image.shape,
+            required_center=required_center,
+        )
+
+    def save_detection_debug_images(self, image_path, output_dir, file_name):
+        """Save the selected ROI and normalized detector input for verification."""
+        image = cv2.imread(image_path)
+        if image is None:
+            return
+        roi_preview = image.copy()
+        if self.detection_transform is not None:
+            x0, y0, x1, y1 = self.detection_transform["roi"]
+            cv2.rectangle(roi_preview, (x0, y0), (x1 - 1, y1 - 1), (0, 0, 255), 2)
+            cv2.imwrite(
+                os.path.join(output_dir, f"detection_normalized_{file_name}.png"),
+                self.detection_transform["image"],
+            )
+            cv2.imwrite(
+                os.path.join(output_dir, f"detection_enhanced_{file_name}.png"),
+                self.enhance_detection_gray(self.detection_transform["image"]),
+            )
+        cv2.putText(
+            roi_preview,
+            f"detection_source: {self.detection_source}",
+            (10, 30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (0, 0, 255),
+            2,
+            cv2.LINE_AA,
+        )
+        cv2.imwrite(os.path.join(output_dir, f"detection_roi_{file_name}.png"), roi_preview)
+
     def visualize_ring_mask(self, image_path, ring_width=5):
         """创建环状掩码并返回处理后的图像"""
         # 读取并预处理图像
         image = cv2.imread(image_path)
+        if image is None:
+            raise ValueError(f"Unable to read image: {image_path}")
         height, width = image.shape[:2]
 
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.GaussianBlur(gray, (9, 9), 2)
-        
-        # 霍夫变换检测第一个圆
-        circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, dp=1.2, minDist=100,
-                                 param1=20, param2=30, minRadius=int(height/5), maxRadius=int(height/4))
-        
-        if circles is not None:
-            circles = np.uint16(np.around(circles))
-            first_circle = circles[0, 0]
-            cx, cy, r = first_circle[0], first_circle[1], first_circle[2]
-            
-            # 创建环状掩膜
-            mask = np.zeros_like(gray)
-            cv2.circle(mask, (cx, cy), int(r+ring_width), 255, -1)
-            cv2.circle(mask, (cx, cy), int(r-ring_width), 0, -1)
-            
-            # 应用环状掩膜
-            masked_blurred = image.copy()
-            masked_blurred[mask == 255] = 255
-            
-            self.coords = [cx, cy]
-            self.first_r = r
-            return masked_blurred
+        self.detection_transform = self.prepare_detection_image(image)
+        first_circle = None
+        if self.detection_transform is not None:
+            self.detection_image = self.detection_transform["image"]
+            first_circle = self.find_safe_normalized_circle(
+                self.detection_image,
+                self.detection_transform,
+                min_radius=int(self.detection_size * 0.12),
+                max_radius=int(self.detection_size * 0.32),
+                param2=30,
+                original_shape=image.shape,
+            )
+        if first_circle is not None:
+            self.detection_source = "cropped"
         else:
+            first_circle = self.find_full_image_circle(
+                image,
+                min_radius=int(height / 5),
+                max_radius=int(height / 4),
+                param2=30,
+            )
+            self.detection_source = "full_image_fallback"
+
+        if first_circle is None:
+            self.detection_source = "failed"
+            self.coords = [0, 0]
+            self.first_r = 0
             return image
 
-    def second_circle_find(self, image):
-        """检测第二个圆"""
-        height, width = image.shape[:2]
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.GaussianBlur(gray, (9, 9), 2)
+        cx, cy, r = first_circle
+        mask = np.zeros((height, width), dtype=np.uint8)
+        cv2.circle(mask, (cx, cy), int(r + ring_width), 255, -1)
+        cv2.circle(mask, (cx, cy), max(0, int(r - ring_width)), 0, -1)
+        masked_image = image.copy()
+        masked_image[mask == 255] = 255
+        self.coords = [cx, cy]
+        self.first_r = r
+        return masked_image
         
-        circles = cv2.HoughCircles(blurred, cv2.HOUGH_GRADIENT, dp=1.2, minDist=100,
-                                 param1=20, param2=50, minRadius=self.first_r+30, maxRadius=int(height / 2))
-        second_r = self.first_r + 50
-        if circles is not None:
-            circles = np.uint16(np.around(circles))
-            second_circle = circles[0, 0]
-            second_r = second_circle[2]
+        # 霍夫变换检测第一个圆
+
+
+            # 创建环状掩膜
             
+            # 应用环状掩膜
+            
+
+    def second_circle_find(self, image):
+        height, width = image.shape[:2]
+        if self.first_r <= 0:
+            self.second_r = 0
+            return 0
+        second_r = 0
+        second_circle = None
+        if self.detection_transform is not None:
+            normalized = self.normalize_with_transform(image, self.detection_transform)
+            scale = self.detection_transform["scale"]
+            second_circle = self.find_safe_normalized_circle(
+                normalized,
+                self.detection_transform,
+                min_radius=int(round((self.first_r + 30) * scale)),
+                max_radius=int(self.detection_size / 2),
+                param2=50,
+                original_shape=image.shape,
+                required_center=self.coords,
+            )
+            if second_circle is None and self.first_r > 30:
+                second_circle = self.find_safe_normalized_circle(
+                    normalized,
+                    self.detection_transform,
+                    min_radius=max(5, int(round(self.first_r * 0.2 * scale))),
+                    max_radius=max(6, int(round((self.first_r - 20) * scale))),
+                    param2=30,
+                    original_shape=image.shape,
+                    required_center=self.coords,
+                )
+        if second_circle is None:
+            second_circle = self.find_full_image_circle(
+                image,
+                min_radius=self.first_r + 30,
+                max_radius=int(height / 2),
+                param2=50,
+                required_center=self.coords,
+            )
+        if second_circle is None and self.first_r > 30:
+            second_circle = self.find_full_image_circle(
+                image,
+                min_radius=max(5, int(round(self.first_r * 0.2))),
+                max_radius=self.first_r - 20,
+                param2=30,
+                required_center=self.coords,
+            )
+        if second_circle is not None:
+            candidate_radius = second_circle[2]
+            min_separation = max(10, int(round(self.first_r * 0.08)))
+            if abs(candidate_radius - self.first_r) >= min_separation:
+                second_r = candidate_radius
         self.second_r = second_r
         return second_r
 
@@ -179,7 +568,7 @@ class RadarChartEncoder:
         """
         
         payload = {
-            "model": "gpt-4.1",
+            "model": self.model_name,
             "messages": [
                 {
                     "role": "user",
@@ -267,26 +656,30 @@ class RadarChartEncoder:
         height, width = image.shape[:2]
         
         # 确保r2 > r1
-        r1, r2 = (self.first_r, self.second_r) if self.second_r > self.first_r else (self.second_r, self.first_r)
+        # Keep each radius paired with the tick recognized from that radius.
+        r1, r2 = self.first_r, self.second_r
         interval = tick_interval / self.tick_density
-        a = (r2 - r1) / (tick2 - tick1)
-        if(min_tick_value > 0):
-            pixels_per_value = float(r1) / (tick1 - (min_tick_value - tick_interval))
-        else:
-            pixels_per_value = float(r1) / (tick1)
-        print(min_tick_value, tick1, pixels_per_value)
-        a = (pixels_per_value + a) / 2
+        if tick2 == tick1:
+            raise ValueError("Two detected circles cannot have the same tick value.")
+        a = float(r2 - r1) / float(tick2 - tick1)
 
         # 计算半径与刻度的线性关系 (r = a*tick + b)
         b = r1 - a * tick1
+        if a <= 0:
+            raise ValueError(
+                f"Invalid radius mapping from detected pairs: "
+                f"({r1}, {tick1}) and ({r2}, {tick2})"
+            )
+        print(f"Radius mapping: r = {a} * tick + {b}")
         
         result = image.copy()
         
         # 设置字体和颜色
         font_CV = cv2.FONT_HERSHEY_DUPLEX 
-        image_area = height * width
-        scale = math.sqrt(image_area)
-        font_scale = scale * 0.006
+        font_size, label_offset, font_scale = self.get_annotation_metrics(
+            image.shape,
+            radial_spacing=a * interval,
+        )
         font_color = (0, 0, 0)  # 黑色
         line_color = (128, 128, 128)
         thickness = 1
@@ -330,7 +723,7 @@ class RadarChartEncoder:
                 
                 # 设置字体
                 try:
-                    font = ImageFont.truetype("arial.ttf", size=int(0.025*scale))
+                    font = ImageFont.truetype("arial.ttf", size=font_size)
                 except IOError:
                     font = ImageFont.load_default()
                     
@@ -341,29 +734,29 @@ class RadarChartEncoder:
                 text_height = bbox[3] - bbox[1]
                 
                 # 右侧旋转90度文本
-                temp_img_right = Image.new('RGBA', (text_width, text_height+100), (255, 255, 255, 0))
+                temp_img_right = Image.new('RGBA', (text_width + 4, text_height + 4), (255, 255, 255, 0))
                 temp_draw_right = ImageDraw.Draw(temp_img_right)
-                temp_draw_right.text((0, 0), text, font=font, fill=font_color)
+                temp_draw_right.text((2, 2), text, font=font, fill=font_color)
                 rotated_right = temp_img_right.rotate(-90, expand=True)  # 顺时针旋转90度
                 
                 # 调整右侧位置
-                pos_right = (center_x + radius - rotated_right.size[0] + int(width*0.0125), 
+                pos_right = (center_x + radius + label_offset,
                             center_y - rotated_right.size[1]//2)
                 pil_img.paste(rotated_right, pos_right, rotated_right)
                 
                 # 左侧旋转-90度文本
-                temp_img_left = Image.new('RGBA', (text_width, text_height+100), (255, 255, 255, 0))
+                temp_img_left = Image.new('RGBA', (text_width + 4, text_height + 4), (255, 255, 255, 0))
                 temp_draw_left = ImageDraw.Draw(temp_img_left)
-                temp_draw_left.text((0, 0), text, font=font, fill=font_color)
+                temp_draw_left.text((2, 2), text, font=font, fill=font_color)
                 rotated_left = temp_img_left.rotate(90, expand=True)  # 逆时针旋转90度
                 
                 # 调整左侧位置
-                pos_left = (center_x - radius - int(width*0.0125), 
+                pos_left = (center_x - radius - rotated_left.size[0] - label_offset,
                         center_y - rotated_left.size[1]//2)
                 
                 # 底部正常文本
                 text_x_bottom = center_x - text_width//2
-                text_y_bottom = center_y + radius - int(height*0.0122) 
+                text_y_bottom = center_y + radius + label_offset
                 draw.text((text_x_bottom, text_y_bottom), text, font=font, fill=font_color)
                 
                 pil_img.paste(rotated_left, pos_left, rotated_left)
@@ -378,7 +771,7 @@ class RadarChartEncoder:
             if count % self.tick_density == 0:
                 continue
                 
-            cv2.putText(result, str(tick), (text_x_up, text_y_up), font_CV, font_scale*0.1, font_color, 1, lineType=cv2.LINE_AA)
+            cv2.putText(result, str(tick), (text_x_up, text_y_up), font_CV, font_scale, font_color, 1, lineType=cv2.LINE_AA)
             
             # 绘制虚线圆环
             circumference = int(2 * math.pi * radius)
@@ -417,9 +810,10 @@ class RadarChartEncoder:
         
         # 设置字体和颜色
         font_CV = cv2.FONT_HERSHEY_DUPLEX 
-        image_area = height * width
-        scale = math.sqrt(image_area)
-        font_scale = scale * 0.006
+        font_size, label_offset, font_scale = self.get_annotation_metrics(
+            image.shape,
+            radial_spacing=a * interval,
+        )
         font_color = (0, 0, 0)  # 黑色
         line_color = (128, 128, 128)
         thickness = 1
@@ -460,7 +854,7 @@ class RadarChartEncoder:
                 
                 # 设置字体
                 try:
-                    font = ImageFont.truetype("arial.ttf", size=int(0.025*scale))
+                    font = ImageFont.truetype("arial.ttf", size=font_size)
                 except IOError:
                     font = ImageFont.load_default()
                     
@@ -471,29 +865,29 @@ class RadarChartEncoder:
                 text_height = bbox[3] - bbox[1]
                 
                 # 右侧旋转90度文本
-                temp_img_right = Image.new('RGBA', (text_width, text_height+100), (255, 255, 255, 0))
+                temp_img_right = Image.new('RGBA', (text_width + 4, text_height + 4), (255, 255, 255, 0))
                 temp_draw_right = ImageDraw.Draw(temp_img_right)
-                temp_draw_right.text((0, 0), text, font=font, fill=font_color)
+                temp_draw_right.text((2, 2), text, font=font, fill=font_color)
                 rotated_right = temp_img_right.rotate(-90, expand=True)  # 顺时针旋转90度
                 
                 # 调整右侧位置
-                pos_right = (center_x + radius - rotated_right.size[0] + int(width*0.0125), 
+                pos_right = (center_x + radius + label_offset,
                             center_y - rotated_right.size[1]//2)
                 pil_img.paste(rotated_right, pos_right, rotated_right)
                 
                 # 左侧旋转-90度文本
-                temp_img_left = Image.new('RGBA', (text_width, text_height+100), (255, 255, 255, 0))
+                temp_img_left = Image.new('RGBA', (text_width + 4, text_height + 4), (255, 255, 255, 0))
                 temp_draw_left = ImageDraw.Draw(temp_img_left)
-                temp_draw_left.text((0, 0), text, font=font, fill=font_color)
+                temp_draw_left.text((2, 2), text, font=font, fill=font_color)
                 rotated_left = temp_img_left.rotate(90, expand=True)  # 逆时针旋转90度
                 
                 # 调整左侧位置
-                pos_left = (center_x - radius - int(width*0.0125), 
+                pos_left = (center_x - radius - rotated_left.size[0] - label_offset,
                         center_y - rotated_left.size[1]//2)
                 
                 # 底部正常文本
                 text_x_bottom = center_x - text_width//2
-                text_y_bottom = center_y + radius - int(height*0.0122) 
+                text_y_bottom = center_y + radius + label_offset
                 draw.text((text_x_bottom, text_y_bottom), text, font=font, fill=font_color)
                 
                 pil_img.paste(rotated_left, pos_left, rotated_left)
@@ -508,7 +902,7 @@ class RadarChartEncoder:
             if count % self.tick_density == 0:
                 continue
                 
-            cv2.putText(result, str(tick), (text_x_up, text_y_up), font_CV, font_scale*0.1, font_color, 1, lineType=cv2.LINE_AA)
+            cv2.putText(result, str(tick), (text_x_up, text_y_up), font_CV, font_scale, font_color, 1, lineType=cv2.LINE_AA)
             
             # 绘制虚线圆环
             circumference = int(2 * math.pi * radius)
@@ -544,6 +938,13 @@ class RadarChartEncoder:
             # 找第二个圆
             second_circle = self.visualize_ring_mask(image_path)
             self.second_circle_find(second_circle)
+            self.save_detection_debug_images(image_path, output_dir, file_name)
+            print(f"Circle detection source: {self.detection_source}")
+            if self.detection_transform is not None:
+                print(f"Detection ROI: {self.detection_transform['roi']}")
+            if self.first_r <= 0:
+                print("Circle detection failed; skipping later processing.")
+                return None
             
             print(f"检测到的圆心坐标: {self.coords}")
             print(f"第一个圆半径: {self.first_r}")
@@ -555,7 +956,8 @@ class RadarChartEncoder:
             # 画出两个圆并保存临时图像
             image = cv2.imread(image_path)
             cv2.circle(image, (self.coords[0], self.coords[1]), self.first_r, (0, 255, 0), 1)  # 绿色外圆
-            cv2.circle(image, (self.coords[0], self.coords[1]), self.second_r, (0, 255, 0), 1)  # 绿色内圆
+            if self.second_r > 0:
+                cv2.circle(image, (self.coords[0], self.coords[1]), self.second_r, (0, 255, 0), 1)  # 绿色内圆
             cv2.circle(image, (self.coords[0], self.coords[1]), 2, (255, 0, 0), -1)  # 蓝色实心中心点
             
             cv2.imwrite(temp_output_path, image)
@@ -566,9 +968,16 @@ class RadarChartEncoder:
             tick1 = result_1.get("tick")
             reason1 = result_1.get("res")
             
-            result_2 = self.find_tick(self.second_r, temp_output_path)
+            result_2 = (
+                self.find_tick(self.second_r, temp_output_path)
+                if self.second_r > 0
+                else {"tick": None, "res": "Second circle was not detected reliably."}
+            )
             tick2 = result_2.get("tick")
             reason2 = result_2.get("res")
+            if tick1 is not None and tick2 == tick1:
+                print("Two circles resolved to the same tick; using the first circle only.")
+                tick2 = None
             
             print(f"第一个圆刻度识别: {reason1}")
             print(f"第一个圆刻度值: {tick1}")
@@ -613,6 +1022,9 @@ class RadarChartEncoder:
             if os.path.exists(json_path):
                 with open(json_path, 'r') as f:
                     json_data = json.load(f)
+                if not isinstance(json_data, dict):
+                    print("JSON root is not an object; skipping metadata update.")
+                    return output_path
                     
                 # 添加r_ticks字段
                 r_ticks = r_ticks[::-1]
@@ -663,7 +1075,7 @@ if __name__ == "__main__":
     encoder = RadarChartEncoder()
     
     # 指定要处理的图像路径和输出目录
-    image_path = "./data/upload/radar_000.png"  # 可以根据需要修改
+    image_path = "./backend/real/RadarChart-18 & RoseChart-6/RadarChart-18-final/RadarChart15.png"  # 可以根据需要修改
     output_dir = "./data/output/radar"      # 可以根据需要修改
     
     # 处理单张图像

@@ -22,3 +22,8 @@ backend/data/output/
 backend/evaluation/recheck_outputs/
 backend/evaluation_prediction/results/
 backend/**/__pycache__/
+
+# Generated chart detection previews and batch reports
+data/output/pie/
+data/output/donut/
+data/output/radar_polygon/
