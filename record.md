@@ -1,5 +1,53 @@
 # 图表网格检测与加密记录
 
+## 项目概览
+
+本项目针对 Pie、Doughnut、圆形雷达图和多边形雷达图，完成图表几何结构检测与网格加密。检测结果始终映射回原图坐标，原始图片尺寸和内容不会被修改。
+
+当前可分享结果：
+
+| 模块 | 测试数量 | 当前结果 | 主要指标 |
+| --- | ---: | --- | --- |
+| Pie 圆心与半径检测 | 11 | 11 个全部成功 | 平均圆心误差 `0.68 px`，平均半径误差 `0.52 px` |
+| Doughnut 内外圆检测 | 14 | 11 个成功，3 个爆炸式或非常规外环暂时跳过 | 平均圆心误差 `0.75 px`，内半径误差 `0.27 px`，外半径误差 `0.45 px` |
+| 多边形雷达图网格加密 | 8 | 3 个完整成功，3 个输出几何预览，2 个安全拒绝 | 成功结果包含圆心、规则顶点、tick 与半径关系及新增网格 |
+
+## 分享结果图
+
+### Pie 圆心与半径检测
+
+![Pie 圆心与半径检测汇总](data/output/share/pie_circle_results_share.png)
+
+### Doughnut 内外圆检测
+
+![Doughnut 内外圆检测汇总](data/output/share/donut_circle_results_share.png)
+
+其中 `DonutChart11`、`DonutChart13`、`DonutChart14` 属于爆炸式或非常规外环，本阶段按设计跳过。
+
+### 多边形雷达图网格加密
+
+![多边形雷达图网格加密汇总](data/output/share/polygon_radar_results_share.png)
+
+- 绿色：完整识别几何结构、tick 与半径关系，并完成网格加密。
+- 橙色：保留几何检测预览，但 tick 与半径关系不足以可靠加密。
+- 红色：没有获得足够可靠的规则多边形，安全拒绝错误加密。
+
+## 批处理复现
+
+```powershell
+python backend/demo_pie/demo_pie_circle_batch.py
+python backend/demo_donut/demo_donut_circle_batch.py
+python backend/demo_radar/demo_radar_polygon_batch.py
+```
+
+详细结果分别保存在：
+
+- `data/output/pie/all_tests/`
+- `data/output/donut/all_tests/`
+- `data/output/radar_polygon/all_tests/`
+
+---
+
 ## 1. 圆形雷达图区域裁剪
 
 ### 1.1 主要目标
