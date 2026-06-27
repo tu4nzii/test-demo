@@ -1168,7 +1168,7 @@ class RadarChartEncoder:
             range_res = range_data.get("res", "")
             print(f"刻度范围: max={max_tick_value}, min={min_tick_value}, interval={tick_interval}, source={range_source}")
             
-            print(f"LLM分析结果: {tick1}, {tick2}, {max_tick_value}, {res}")
+            print(f"LLM分析结果: tick1={tick1}, tick2={tick2}, max={max_tick_value}, res={range_res}")
             
             # 加密处理
             if tick1 and tick2:
