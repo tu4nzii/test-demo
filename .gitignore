@@ -27,3 +27,7 @@ backend/**/__pycache__/
 data/output/pie/
 data/output/donut/
 data/output/radar_polygon/
+data
+chart-18-final
+backend/real
+docs

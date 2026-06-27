@@ -1,3 +1,15 @@
+"""
+Radar chart grid encryption: circle detection + adaptive tick-line overlay.
+
+Detects the radar chart's concentric circles (center + radii) via Hough
+transforms, then draws an encrypted grid of radial and circular tick lines
+for downstream LLM evaluation.
+
+Public API:
+    encoder = RadarChartEncoder()
+    encoder.process_single_image(image_path, output_dir, ...)
+"""
+
 import cv2
 import base64
 import numpy as np
@@ -8,9 +20,11 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 import re
 import sys
-_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-if _project_root not in sys.path:
-    sys.path.insert(0, _project_root)
+from pathlib import Path
+
+_project_root = Path(__file__).resolve().parent.parent.parent
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
 from model_api_config import get_chat_completion_url, get_headers, get_model_name
 
 class RadarChartEncoder:
