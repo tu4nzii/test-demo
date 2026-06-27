@@ -1,0 +1,3 @@
+
+=== rose_005 ===
+GT: ['AXR', 'NMT', 'OLN', 'YU', 'JWWG', 'XXOM', 'UXEY', 'DI', 'PFQY']

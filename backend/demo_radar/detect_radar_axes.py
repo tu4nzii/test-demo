@@ -10,6 +10,7 @@ Public API:
 """
 
 import base64
+import concurrent.futures
 import json
 import math
 import re
@@ -928,6 +929,85 @@ def _generate_sequential_letters_ccw(
     }
 
 
+def llm_refine_labels(
+    image: np.ndarray,
+    image_path: Path,
+    center: Tuple[float, float],
+    outer_radius: float,
+    axis_labels: Dict[int, str],
+    axes_angles: List[float],
+) -> Dict[int, str]:
+    """Use multimodal LLM to verify/refine each axis label.
+
+    For each axis, crops the label region and asks the LLM to read the text.
+    If the LLM disagrees with the OCR label, the LLM answer is used.
+
+    Uses a thread-pool with hard timeout to prevent API hangs from blocking
+    the entire pipeline.
+    """
+    refined = dict(axis_labels)
+    consecutive_timeouts = 0
+
+    for angle in axes_angles:
+        key = int(round(angle)) % 360
+        current = refined.get(key, "?")
+        if current == "?":
+            continue
+
+        # Abort if API seems completely down
+        if consecutive_timeouts >= 3:
+            break
+
+        try:
+            crop, _ = crop_axis_region(image, center, angle, outer_radius, 30.0)
+            if crop is None or crop.size == 0:
+                continue
+
+            _, buf = cv2.imencode(".png", crop)
+            b64 = base64.b64encode(buf).decode("utf-8")
+
+            prompt = (
+                "Read the text label at this radar chart axis position. "
+                "Return ONLY the label text, nothing else. "
+                f"OCR guessed: \"{current}\". If correct, repeat it. "
+                "If wrong, write the correct text."
+            )
+
+            payload = {
+                "model": LLM_MODEL,
+                "temperature": 0.1,
+                "messages": [{
+                    "role": "user",
+                    "content": [
+                        {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64}"}},
+                        {"type": "text", "text": prompt},
+                    ],
+                }],
+            }
+
+            # Hard timeout via thread — requests timeout alone is unreliable
+            # when the server dribbles data.
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                future = executor.submit(
+                    requests.post, LLM_URL, headers=LLM_HEADERS,
+                    json=payload, timeout=8,
+                )
+                resp = future.result(timeout=10)
+
+            if resp.ok:
+                answer = resp.json()["choices"][0]["message"]["content"].strip()
+                answer = re.sub(r'^["\']|["\']$', '', answer)
+                if answer and len(answer) <= 50:
+                    refined[key] = answer
+                consecutive_timeouts = 0
+            else:
+                consecutive_timeouts += 1
+        except (concurrent.futures.TimeoutError, Exception):
+            consecutive_timeouts += 1
+            continue
+    return refined
+
+
 def detect_axes(reader, image_path: Path, center: Tuple[float, float], outer_radius: float,
                 use_llm: bool) -> Tuple[Dict[int, str], Dict, List[Dict]]:
     image = cv2.imread(str(image_path))
@@ -994,6 +1074,18 @@ def detect_axes(reader, image_path: Path, center: Tuple[float, float], outer_rad
         **start_debug,
         **bind_debug,
     }
+
+    # ── LLM refinement: per-axis label verification ──
+    # Skip for sequential letter mode (synthetic charts, already correct).
+    if use_llm and axis_labels and not bind_debug.get("sequential_letter_mode"):
+        try:
+            axis_labels = llm_refine_labels(
+                image, image_path, center, outer_radius, axis_labels, axes_angles
+            )
+            bind_debug["llm_refined"] = True
+        except Exception:
+            pass
+
     return axis_labels, debug, detections
 
 

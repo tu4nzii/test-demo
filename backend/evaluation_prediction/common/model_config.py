@@ -19,8 +19,8 @@ _GPT54_PROFILE = {
 
 _VVEAI_GEMINI_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
-    "model_name": "gemini-3.1-flash-lite",
-    "api_key": "sk-Ut5Cug3aBqhWNeO9CbD6E62e608e46808e1c6aC884Cb8cDd",
+    "model_name": "gemini-2.5-flash",
+    "api_key": "sk-I9YjAaDjKETSoBFJ20E4C608D4D643E59e611bB944E8503a",
 }
 
 MODEL_PROFILES = {
