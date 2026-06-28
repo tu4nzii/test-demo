@@ -41,6 +41,7 @@ if str(BACKEND) not in sys.path:
 
 from demo_radar.detect_radar_axes import (
     detect, evaluate, labels_match, angle_distance, compact_text,
+    init_ocr,
 )
 
 
@@ -213,7 +214,11 @@ def evaluate_one(json_path: Path, dataset: str, args: argparse.Namespace) -> Eva
 
         # ── Run axis label detection ──
         with contextlib.redirect_stdout(io.StringIO()):
-            axis_labels, debug = detect(str(image), center, outer_r, use_llm=True)
+            axis_labels, debug = detect(
+                str(image), center, outer_r,
+                use_llm=not getattr(args, "no_llm", False),
+                reader=getattr(args, "reader", None),
+            )
 
         n_axes_pred = debug.get("n_final")
         n_source = str(debug.get("n_source", ""))
@@ -417,12 +422,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=0, help="Limit charts per dataset.")
     parser.add_argument("--only", type=str, help="Filter by chart id/stem substring.")
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    parser.add_argument("--no-llm", action="store_true", help="Disable LLM refinement/count fallback.")
     return parser.parse_args()
 
 
 def main() -> int:
     configure_stdio()
     args = parse_args()
+    args.reader = init_ocr()
     selected = ["real", "synthetic"] if args.dataset == "all" else [args.dataset]
     rows: list[EvalRow] = []
 

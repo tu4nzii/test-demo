@@ -1039,7 +1039,7 @@ def detect_axes(reader, image_path: Path, center: Tuple[float, float], outer_rad
         if scores:
             neg_rate = sum(1 for s in scores if s < 0) / len(scores)
             med_score = sorted(scores)[len(scores) // 2]
-            if (med_score < 0.0 or neg_rate > 0.25) and n_llm == 0:
+            if med_score < 0.0 or neg_rate > 0.25:
                 axis_labels = {}
                 bind_debug["fallback"] = True
                 bind_debug["fallback_reason"] = (
@@ -1093,7 +1093,7 @@ def detect_axes(reader, image_path: Path, center: Tuple[float, float], outer_rad
 # Public API
 # ---------------------------------------------------------------------------
 
-def detect(image_path, center, outer_radius, use_llm=True):
+def detect(image_path, center, outer_radius, use_llm=True, reader=None):
     """Detect axis labels on a radar chart.
 
     Args:
@@ -1107,7 +1107,8 @@ def detect(image_path, center, outer_radius, use_llm=True):
         and debug is a dict with detection metadata.
         If the chart is deemed unreliable (F6 fallback), axis_labels is {}.
     """
-    reader = init_ocr()
+    if reader is None:
+        reader = init_ocr()
     return detect_axes(reader, Path(image_path),
                        (float(center[0]), float(center[1])),
                        float(outer_radius), use_llm=use_llm)[:2]
