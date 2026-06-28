@@ -1,12 +1,19 @@
-"""Evaluate radar grid extraction fallback rate and geometric errors.
+"""Evaluate radar grid extraction: fallback gate → encryption → geometric errors.
 
-This script evaluates the radar preprocessing stage used before encrypted-grid
-generation. It reports, separately for real and synthetic charts:
+Fallback gate (applied BEFORE encryption, no GT used):
+  1. Polygon radar exclusion (real set only)
+  2. Missing ground-truth metadata
+  3. Image unreadable
+  4. Circle quality failed (RadarChartEncoder.check_circle_quality)
+  5. Insufficient radial axis-line evidence (< 2 clusters)
 
-1. fallback activation rate
-2. center error
-3. detected radius error
-4. radius-to-tick mapping error
+Charts that pass all five gates proceed to circle detection + encryption,
+then are evaluated on five geometric error metrics:
+  1. Center error (px)
+  2. Detected radius max error (px)
+  3. Radius-tick pixel mapping max error (px)
+  4. Tick value max error
+  5. Slope error ratio  |a_pred - a_gt| / |a_gt|
 
 The default tick mode is ``gt-nearest``: detected radii are paired with the
 nearest ground-truth tick rings to measure grid geometry. Use
@@ -40,11 +47,11 @@ if str(ROOT) not in sys.path:
 if str(BACKEND) not in sys.path:
     sys.path.insert(0, str(BACKEND))
 
-from demo_radar.demo_radar_circle_find_1 import RadarChartEncoder  # noqa: E402
+from demo_radar.encrypt_radar import RadarChartEncoder  # noqa: E402
 
 
 REAL_RADAR_DIR = BACKEND / "real" / "RadarChart-18 & RoseChart-6" / "RadarChart-18-final"
-SYNTH_RADAR_DIR = BACKEND / "real" / "radar"
+SYNTH_RADAR_DIR = ROOT / "data" / "output" / "axis_sample_selection" / "radar_rose_50charts_20260628_140358" / "radar"
 OUTPUT_DIR = ROOT / "data" / "output" / "radar_grid_eval"
 POLYGON_REAL_NUMBERS = {1, 5, 6, 8, 16, 17, 18, 23}
 TOLERANCE_RATIO = 0.05
@@ -149,6 +156,12 @@ def chart_number(path: Path, data: dict[str, Any] | None = None) -> int | None:
 def resolve_image(json_path: Path, data: dict[str, Any]) -> Path | None:
     image_paths = data.get("image_paths") if isinstance(data.get("image_paths"), dict) else {}
     candidates: list[Path] = []
+    direct_image = data.get("image")
+    if isinstance(direct_image, str) and direct_image:
+        path = Path(direct_image)
+        candidates.append(path if path.is_absolute() else json_path.parent / path)
+        candidates.append(ROOT / direct_image)
+        candidates.append(BACKEND / direct_image)
     for key in ("no_grid", "image", "with_grid"):
         value = image_paths.get(key)
         if isinstance(value, str) and value:
@@ -262,55 +275,106 @@ def gt_radial_relation(ticks: list[float], pixels: list[float]) -> tuple[float, 
 
 
 def match_radii_to_gt(pred_radii: list[int], gt_ticks: list[float], gt_pixels: list[float]) -> tuple[list[dict], str]:
-    matches = []
-    used = set()
-    for radius in pred_radii:
-        if radius <= 0 or not gt_pixels:
-            continue
-        distances = [(abs(radius - pixel), index) for index, pixel in enumerate(gt_pixels)]
-        distances.sort()
-        _, index = distances[0]
-        matches.append(
-            {
-                "pred_radius": float(radius),
-                "gt_radius": float(gt_pixels[index]),
-                "gt_tick": float(gt_ticks[index]) if index < len(gt_ticks) else None,
-                "radius_error": abs(float(radius) - float(gt_pixels[index])),
-                "duplicate": index in used,
-            }
-        )
-        used.add(index)
-    duplicate_note = "duplicate_radius_tick_match" if any(item["duplicate"] for item in matches) else ""
+    """Match each predicted radius to the NEAREST UNUSED GT ring.
+
+    Avoids duplicate matching: once a GT ring is assigned, subsequent radii
+    must choose a different ring.  Falls back gracefully when pred_radii and
+    gt_pixels lists are of different lengths.
+    """
+    if not pred_radii or not gt_pixels:
+        return [], ""
+
+    gt_count = len(gt_pixels)
+    # Sort predicted radii so larger radii are matched first (outer rings
+    # tend to be more reliable).
+    sorted_radii = sorted(
+        [(r, i) for i, r in enumerate(pred_radii) if r > 0],
+        key=lambda x: x[0], reverse=True,
+    )
+
+    used_gt: set[int] = set()
+    matches: list[dict] = []
+    duplicate = False
+
+    for radius, _ in sorted_radii:
+        # Find nearest UNUSED GT ring
+        best_idx = None
+        best_dist = float("inf")
+        for idx in range(gt_count):
+            if idx in used_gt:
+                continue
+            dist = abs(float(radius) - float(gt_pixels[idx]))
+            if dist < best_dist:
+                best_dist = dist
+                best_idx = idx
+
+        if best_idx is None:
+            # All GT rings used — fall back to nearest (with duplicate)
+            distances = [
+                (abs(float(radius) - float(gt_pixels[idx])), idx)
+                for idx in range(gt_count)
+            ]
+            distances.sort()
+            best_idx = distances[0][1]
+            duplicate = True
+
+        used_gt.add(best_idx)
+        matches.append({
+            "pred_radius": float(radius),
+            "gt_radius": float(gt_pixels[best_idx]),
+            "gt_tick": float(gt_ticks[best_idx]) if best_idx < len(gt_ticks) else None,
+            "radius_error": abs(float(radius) - float(gt_pixels[best_idx])),
+            "duplicate": best_idx in used_gt,
+        })
+
+    duplicate_note = "duplicate_radius_tick_match" if duplicate else ""
     return matches, duplicate_note
 
 
 def mapping_errors(matches: list[dict], gt_ticks: list[float], gt_pixels: list[float]) -> dict[str, float | None]:
-    unique = []
-    seen_ticks = set()
+    # Deduplicate by GT tick — keep first occurrence
+    seen_ticks: set[float] = set()
+    unique: list[dict] = []
     for match in matches:
         tick = match.get("gt_tick")
         if tick is None or tick in seen_ticks:
             continue
         seen_ticks.add(tick)
         unique.append(match)
+
+    # ── Single-point fallback: use origin (tick=0, r=0) as reference ──
+    used_origin = False
+    if len(unique) == 1:
+        r0, t0 = 0.0, 0.0
+        unique.append({"pred_radius": r0, "gt_tick": t0, "gt_radius": r0})
+        used_origin = True
+
     if len(unique) < 2:
         return {
-            "mapping_mean_px": None,
-            "mapping_max_px": None,
-            "value_mean": None,
-            "value_max": None,
+            "mapping_mean_px": None, "mapping_max_px": None,
+            "value_mean": None, "value_max": None,
             "slope_error_ratio": None,
         }
 
     tick_values = np.array([item["gt_tick"] for item in unique], dtype=float)
     pred_pixels = np.array([item["pred_radius"] for item in unique], dtype=float)
-    pred_a, pred_b = np.polyfit(tick_values, pred_pixels, deg=1)
+
+    if used_origin:
+        # Force line through origin: a = r / tick (weighted by the single data point)
+        data_tick = tick_values[0]  # the non-origin point
+        data_pixel = pred_pixels[0]
+        if abs(data_tick) < 1e-9:
+            return {"mapping_mean_px": None, "mapping_max_px": None,
+                    "value_mean": None, "value_max": None, "slope_error_ratio": None}
+        pred_a = data_pixel / data_tick
+        pred_b = 0.0
+    else:
+        pred_a, pred_b = np.polyfit(tick_values, pred_pixels, deg=1)
+
     if not math.isfinite(pred_a) or abs(pred_a) <= 1e-9:
         return {
-            "mapping_mean_px": None,
-            "mapping_max_px": None,
-            "value_mean": None,
-            "value_max": None,
+            "mapping_mean_px": None, "mapping_max_px": None,
+            "value_mean": None, "value_max": None,
             "slope_error_ratio": None,
         }
 
@@ -439,20 +503,69 @@ def evaluate_one(json_path: Path, dataset: str, args: argparse.Namespace) -> Eva
         encoder = RadarChartEncoder()
         with contextlib.redirect_stdout(io.StringIO()):
             ring_mask = encoder.visualize_ring_mask(str(image))
-            encoder.second_circle_find(ring_mask)
         pred_center = [int(encoder.coords[0]), int(encoder.coords[1])] if encoder.first_r > 0 else None
+
+        # ── Fallback Gate 4: Circle quality (BEFORE encryption) ──
+        pass_quality, reason = encoder.check_circle_quality(cv_image.shape)
+        if not pass_quality:
+            return EvalRow(
+                dataset=dataset,
+                chart_id=chart_id,
+                image_path=image_path,
+                json_path=str(json_path.resolve()),
+                fallback=True,
+                fallback_reason=f"circle_quality_failed:{reason}",
+                detection_source=str(encoder.detection_source or ""),
+                edge_support=round(float(encoder.last_edge_support), 4),
+                axis_line_clusters=0,
+                short_side=short_side,
+                tolerance_px=round(float(tolerance_px), 4),
+                center_error_px=None, center_error_ratio=None,
+                radius_error_mean_px=None, radius_error_max_px=None, radius_error_max_ratio=None,
+                radius_tick_mapping_error_mean_px=None, radius_tick_mapping_error_max_px=None,
+                radius_tick_mapping_error_max_ratio=None,
+                radius_tick_value_error_mean=None, radius_tick_value_error_max=None,
+                slope_error_ratio=None,
+                tolerance_pass=None,
+                pred_center=pred_center,
+                pred_radii=[int(r) for r in [encoder.first_r, encoder.second_r] if r and r > 0],
+                gt_center=gt_center, gt_r_pixels=gt_r_pixels, gt_r_ticks=gt_r_ticks,
+                notes=f"circle quality: {reason}",
+            )
+
+        # ── Fallback Gate 5: Axis line evidence ──
+        axis_clusters = radial_axis_cluster_count(cv_image, pred_center or [0, 0], len(data.get("theta_ticks", []) or []))
+        if axis_clusters < args.min_axis_clusters:
+            return EvalRow(
+                dataset=dataset,
+                chart_id=chart_id,
+                image_path=image_path,
+                json_path=str(json_path.resolve()),
+                fallback=True,
+                fallback_reason=f"axis_line_insufficient:{axis_clusters}<{args.min_axis_clusters}",
+                detection_source=str(encoder.detection_source or ""),
+                edge_support=round(float(encoder.last_edge_support), 4),
+                axis_line_clusters=axis_clusters,
+                short_side=short_side,
+                tolerance_px=round(float(tolerance_px), 4),
+                center_error_px=None, center_error_ratio=None,
+                radius_error_mean_px=None, radius_error_max_px=None, radius_error_max_ratio=None,
+                radius_tick_mapping_error_mean_px=None, radius_tick_mapping_error_max_px=None,
+                radius_tick_mapping_error_max_ratio=None,
+                radius_tick_value_error_mean=None, radius_tick_value_error_max=None,
+                slope_error_ratio=None,
+                tolerance_pass=None,
+                pred_center=pred_center,
+                pred_radii=[int(r) for r in [encoder.first_r, encoder.second_r] if r and r > 0],
+                gt_center=gt_center, gt_r_pixels=gt_r_pixels, gt_r_ticks=gt_r_ticks,
+                notes=f"axis line clusters: {axis_clusters}",
+            )
+
+        # ── Encryption: find second circle radius ──
+        encoder.second_circle_find(ring_mask)
         pred_radii = [int(r) for r in [encoder.first_r, encoder.second_r] if r and r > 0]
 
-        pass_quality, reason = encoder.check_circle_quality(cv_image.shape)
-        axis_clusters = radial_axis_cluster_count(cv_image, pred_center or [0, 0], len(data.get("theta_ticks", []) or []))
-        min_axis_clusters = args.min_axis_clusters
-
-        if not pass_quality:
-            fallback_reason = f"circle_quality_failed:{reason}"
-        elif axis_clusters < min_axis_clusters:
-            fallback_reason = f"axis_line_insufficient:{axis_clusters}<{min_axis_clusters}"
-        else:
-            fallback_reason = ""
+        fallback_reason = ""
 
         center_error = None
         center_ratio = None
@@ -621,8 +734,11 @@ def summarize(rows: list[EvalRow]) -> dict[str, Any]:
             "tolerance_fail_count": len(tolerance_fail),
             "fallback_reasons": reasons,
             "center_error_px": stats("center_error_px"),
+            "center_error_ratio": stats("center_error_ratio"),
             "radius_error_max_px": stats("radius_error_max_px"),
+            "radius_error_max_ratio": stats("radius_error_max_ratio"),
             "radius_tick_mapping_error_max_px": stats("radius_tick_mapping_error_max_px"),
+            "radius_tick_mapping_error_max_ratio": stats("radius_tick_mapping_error_max_ratio"),
             "radius_tick_value_error_max": stats("radius_tick_value_error_max"),
             "slope_error_ratio": stats("slope_error_ratio"),
             "max_tolerance_px": round(max((row.tolerance_px for row in success), default=0.0), 4),
@@ -641,49 +757,81 @@ def write_csv(path: Path, rows: list[EvalRow]) -> None:
 
 
 def write_markdown(path: Path, summary: dict[str, Any], args: argparse.Namespace) -> None:
+    dataset_labels = {"real": "真实图表", "synthetic": "合成图表"}
+
     lines = [
-        "# Radar Grid Extraction Evaluation",
+        "# 雷达图网格提取 — 加密评估报告",
         "",
-        "## Fallback Mechanism",
+        "## Fallback 门控（加密前执行，不使用 GT）",
         "",
-        "A chart is routed to fallback and excluded from the CV grid-extraction pipeline when any of the following holds:",
+        "图表在满足以下任一条件时被排除，不进入加密与评估：",
         "",
-        "1. It is a known polygon radar chart in the real set: `1, 5, 6, 8, 16, 17, 18, 23`.",
-        "2. Required image or ground-truth metadata (`center`, `r_pixels`, `r_ticks`) is missing.",
-        "3. Hough/circle detection fails quality checks: no circle, `detection_source == failed`, edge support `< 0.20`, or radius shorter than `8%` of the image short side.",
-        f"4. Fewer than `{args.min_axis_clusters}` radial axis-line clusters are detected by Hough line support near the detected center.",
-        "5. In `--tick-mode algorithm`, OCR/LLM cannot produce at least two usable radius-tick pairs.",
+        "| 门控 | 条件 | 排除原因 |",
+        "|------|------|----------|",
+        "| 1 | 多边形雷达图（仅真实集） | `polygon_radar_excluded` |",
+        "| 2 | 缺少 GT 元数据（`center`, `r_pixels`, `r_ticks`） | `missing_groundtruth_center_or_rings` |",
+        "| 3 | 图片无法读取 | `image_unreadable` |",
+        "| 4 | 圆检测质量不合格：无边 / 边缘覆盖率 < 0.20 / 半径 < 图像短边 8% | `circle_quality_failed` |",
+        f"| 5 | 径向轴线聚类数 < `{args.min_axis_clusters}` | `axis_line_insufficient` |",
         "",
-        f"Tolerance for reported geometry errors: `{args.tolerance_ratio:.3f} * image_short_side`.",
-        f"Tick mode used in this run: `{args.tick_mode}`.",
+        "通过全部 5 道门控的图表进入：",
+        "1. **圆检测** → 圆心 + r₁, r₂",
+        "2. **加密**（algorithm 模式下经 OCR/LLM 读刻度）",
+        "3. **5 项几何误差评估**",
         "",
-        "## Summary",
+        f"容差阈值: `{args.tolerance_ratio:.3f} × 图像短边`  |  刻度模式: `{args.tick_mode}`",
+        "",
+        "## 评估结果总览",
         "",
     ]
+
     for dataset, item in summary.items():
-        lines.extend(
-            [
-                f"### {dataset}",
-                "",
-                f"- Total charts: {item['total']}",
-                f"- Fallback count/rate: {item['fallback_count']} / {item['fallback_rate']:.2%}",
-                f"- Successful CV charts: {item['success_count']}",
-                f"- Tolerance failures among successful charts: {item['tolerance_fail_count']}",
-                f"- Center error px: {item['center_error_px']}",
-                f"- Max radius error px: {item['radius_error_max_px']}",
-                f"- Max radius-tick mapping error px: {item['radius_tick_mapping_error_max_px']}",
-                f"- Max radius-tick value error: {item['radius_tick_value_error_max']}",
-                f"- Slope error ratio (|a_pred - a_gt| / |a_gt|): {item['slope_error_ratio']}",
-                "",
-                "Fallback reasons:",
-            ]
-        )
+        label = dataset_labels.get(dataset, dataset)
+        lines.extend([
+            f"### {label}（{dataset}）",
+            "",
+            f"| 指标 | 值 |",
+            f"|------|----|",
+            f"| 图表总数 | {item['total']} |",
+            f"| Fallback 数 / 率 | {item['fallback_count']} / {item['fallback_rate']:.2%} |",
+            f"| 成功加密数 | {item['success_count']} |",
+            f"| 容差失败数 | {item['tolerance_fail_count']} |",
+            "",
+        ])
+
+        # ── 五项核心误差 ──
+        metrics = [
+            ("圆心误差 (px)", "center_error_px"),
+            ("半径最大误差 (px)", "radius_error_max_px"),
+            ("r_tick→像素映射最大误差 (px)", "radius_tick_mapping_error_max_px"),
+            ("tick 值最大误差", "radius_tick_value_error_max"),
+            ("斜率相对误差", "slope_error_ratio"),
+        ]
+        for name, key in metrics:
+            stats = item.get(key, {})
+            if stats.get("mean") is not None:
+                if "slope" in key.lower() or "ratio" in key.lower():
+                    lines.append(
+                        f"| {name} | mean={stats['mean']:.3%}  "
+                        f"median={stats['median']:.3%}  max={stats['max']:.3%} |"
+                    )
+                else:
+                    lines.append(
+                        f"| {name} | mean={stats['mean']:.2f}  "
+                        f"median={stats['median']:.2f}  max={stats['max']:.2f} |"
+                    )
+        lines.append("")
+
+        # ── Fallback 原因分布 ──
+        lines.append("**Fallback 原因分布：**")
+        lines.append("")
         if item["fallback_reasons"]:
             for reason, count in sorted(item["fallback_reasons"].items()):
-                lines.append(f"- `{reason}`: {count}")
+                lines.append(f"- `{reason}`: {count} 张")
         else:
-            lines.append("- None")
+            lines.append("- 无")
         lines.append("")
+
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
