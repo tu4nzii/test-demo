@@ -8,9 +8,10 @@ import re
 from pathlib import Path
 from typing import Any
 
-import aiohttp
 import pandas as pd
 from aiohttp import ClientTimeout
+
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
 
 from ...common.chart_io import ensure_dir, image_to_data_url
 from ...common.paths import RESULTS_ROOT
@@ -18,7 +19,7 @@ from ...common.runtime import get_repeat_times
 
 from ..circular_artifacts import save_circular_artifacts
 from ..circular_fallback import color_area_predictions, records_from_predictions
-from ..circular_model_config import get_chat_completion_url, get_headers, get_model_name
+from ..circular_model_config import get_model_name
 from ..circular_predictions import complete_circular_predictions, system_label_order
 from .data import CircularTarget, image_path, iter_targets, load_datasets
 from .model import call_llm_once
@@ -154,9 +155,9 @@ Rules:
 3. percentage is a number from 0 to 100.
 4. Angles are optional; include them only when you can estimate them from the grid.
 """.format(label_rule=label_rule)
-    payload = {
-        "model": get_model_name(),
-        "messages": [
+    timeout = ClientTimeout(total=300)
+    text = await chat_with_gemini(
+        [
             {
                 "role": "user",
                 "content": [
@@ -165,14 +166,13 @@ Rules:
                 ],
             }
         ],
-        "max_tokens": 4096,
-        "temperature": 0.0,
-    }
-    timeout = ClientTimeout(total=300)
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        async with session.post(get_chat_completion_url(), headers=get_headers(), json=payload) as response:
-            data = await response.json()
-    text = _response_text(data)
+        model=get_model_name(),
+        max_tokens=4096,
+        temperature=0.0,
+        timeout=timeout,
+    )
+    if text == FAILURE_TEXT:
+        return []
     parsed = _parse_json_object(text)
     items = parsed.get("datapoints") if isinstance(parsed, dict) else None
     if not isinstance(items, list):
@@ -201,12 +201,6 @@ Rules:
             }
         )
     return predictions
-
-
-def _response_text(data: dict[str, Any]) -> str:
-    if isinstance(data.get("choices"), list) and data["choices"]:
-        return str(data["choices"][0].get("message", {}).get("content", ""))
-    return str(data.get("response", ""))
 
 
 def _parse_json_object(text: str) -> dict[str, Any]:

@@ -1,0 +1,22 @@
+{
+  "chart_id": "PieChart19",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart19.png"
+  },
+  "data_points": {
+    "FDP": 0.078,
+    "SPD": 0.432,
+    "CDU/CSU": 0.49
+  },
+  "r_ticks": [],
+  "r_pixels": 126,
+  "center": [
+    271,
+    152
+  ],
+  "series_color": {
+    "FDP": "#E7D739",
+    "SPD": "#B6494A",
+    "CDU/CSU": "#4E4E4E"
+  }
+}

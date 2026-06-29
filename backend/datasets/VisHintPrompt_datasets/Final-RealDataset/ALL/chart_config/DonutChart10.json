@@ -1,0 +1,31 @@
+{
+  "chart_id": "DonutChart10",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart10.png"
+  },
+  "data_points": {
+    "blue": 0.103,
+    "shallowBlue": 0.157,
+    "orange": 0.263,
+    "shallowOrange": 0.079,
+    "green": 0.185,
+    "shallowGreen": 0.213
+  },
+  "center": [
+    99,
+    100
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    60,
+    100
+  ],
+  "series_color": {
+    "blue": "#1F77B4",
+    "shallowBlue": "#AEC7E8",
+    "orange": "#FF7F0E",
+    "shallowOrange": "#FFBB78",
+    "green": "#2CA02C",
+    "shallowGreen": "#98DF8A"
+  }
+}

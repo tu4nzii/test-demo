@@ -1,0 +1,72 @@
+{
+  "chart_id": "BarChart3",
+  "image_paths": {
+    "no_grid": "chart/BarChart3.png",
+    "with_grid": "chart/BarChart3_grid.png",
+    "grid_with_grid": "chart/BarChart3_grid.png"
+  },
+  "data_points": {
+    "none": {
+      "A": 28,
+      "B": 55,
+      "C": 43,
+      "D": 91,
+      "E": 81,
+      "F": 53,
+      "G": 19,
+      "H": 87,
+      "I": 52
+    }
+  },
+  "x_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I"
+  ],
+  "y_ticks": [
+    0,
+    10.0,
+    20,
+    30.0,
+    40,
+    50.0,
+    60,
+    70.0,
+    80,
+    90.0,
+    100
+  ],
+  "x_pixels": [
+    54,
+    74,
+    94,
+    114,
+    134,
+    154,
+    174,
+    194,
+    214
+  ],
+  "y_pixels": [
+    210,
+    190,
+    170,
+    150,
+    130,
+    110,
+    90,
+    70,
+    50,
+    30,
+    10
+  ],
+  "series_color": {
+    "none": "#4C78A8"
+  }
+}

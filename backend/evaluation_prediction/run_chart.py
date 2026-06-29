@@ -12,12 +12,17 @@ async def _run(
     chart_ids: list[str] | None,
     config_paths: list[str] | None,
 ) -> None:
-    if chart_type in {"v_bar", "v_stacked_bar"}:
+    if chart_type == "v_stacked_bar":
+        chart_type = "v_bar"
+    elif chart_type == "h_stacked_bar":
+        chart_type = "h_bar"
+
+    if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment
 
         await run_experiment(batch_size=batch_size, chart_ids=chart_ids, config_paths=config_paths, chart_type=chart_type)
         return
-    elif chart_type in {"h_bar", "h_stacked_bar"}:
+    elif chart_type == "h_bar":
         from .chart_modules.h_bar.runner import run_experiment
 
         await run_experiment(batch_size=batch_size, chart_ids=chart_ids, config_paths=config_paths, chart_type=chart_type)
@@ -67,8 +72,6 @@ def main() -> int:
         choices=[
             "v_bar",
             "h_bar",
-            "v_stacked_bar",
-            "h_stacked_bar",
             "line",
             "scatter",
             "bubble",

@@ -1,0 +1,72 @@
+{
+  "chart_id": "h_bar_036",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_036.png",
+    "with_grid": "charts/h_bar/h_bar_036_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_036_grid_with_grid.png"
+  },
+  "data_points": {
+    "Rate per 100,000 inhabitants": {
+      "Property crime  (total)": 2209.8,
+      "Larceny-theft": 1601.6,
+      "Burglary": 378.0,
+      "Violent crime  (total)": 383.4,
+      "Aggravated assault": 248.2,
+      "Motor vehicle theft": 230.2,
+      "Robbery": 86.1,
+      "Rape": 44.0,
+      "Murder and nonnegligent manslaughter": 5.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    250.0,
+    500.0,
+    750.0,
+    1000.0,
+    1250.0,
+    1500.0,
+    1750.0,
+    2000.0,
+    2250.0,
+    2500.0
+  ],
+  "y_ticks": [
+    "Property crime  (total)",
+    "Larceny-theft",
+    "Burglary",
+    "Violent crime  (total)",
+    "Aggravated assault",
+    "Motor vehicle theft",
+    "Robbery",
+    "Rape",
+    "Murder and nonnegligent manslaughter"
+  ],
+  "x_pixels": [
+    264,
+    390,
+    516,
+    641,
+    767,
+    892,
+    1018,
+    1143,
+    1269,
+    1394,
+    1520
+  ],
+  "y_pixels": [
+    957,
+    868,
+    779,
+    689,
+    600,
+    511,
+    421,
+    332,
+    243
+  ],
+  "series_color": {
+    "Rate per 100,000 inhabitants": "#1f77b4"
+  }
+}

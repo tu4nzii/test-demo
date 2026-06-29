@@ -50,9 +50,9 @@ def collect_images() -> list[dict]:
 
 def main() -> int:
     run_id = time.strftime("%Y%m%d_%H%M%S")
-    output_root = BACKEND_DIR / "evaluation" / "recheck_outputs" / f"cartesian_non_line_full_test_{run_id}"
-    result_path = BACKEND_DIR / "evaluation" / "results" / f"cartesian_non_line_full_test_{run_id}.json"
-    issue_path = BACKEND_DIR / "evaluation" / "results" / f"cartesian_non_line_full_test_{run_id}_issues.json"
+    output_root = BACKEND_DIR / "evaluation" / "recheck_outputs" / "cartesian_non_line_full_test_latest"
+    result_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_full_test_latest.json"
+    issue_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_full_test_latest_issues.json"
     progress_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_full_test_latest_progress.json"
 
     images = collect_images()

@@ -3,21 +3,19 @@ import math
 import json
 import cv2
 import re
-import requests
 import base64
 import os
 
-from model_api_config import get_chat_completion_url, get_headers, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini_sync
+from model_api_config import get_model_name
 
 class RoseChartAxisFinder:
     def __init__(self):
 
-        self.url = get_chat_completion_url()
-        self.headers = get_headers()
         self.model_name = get_model_name()
         
 
-        self.output_dir = "./data/output/rose"
+        self.output_dir = "./sample_outputs/rose"
         self.axes_output_dir = os.path.join(self.output_dir)
         
 
@@ -93,9 +91,7 @@ Return strict JSON only:
 Use null if the label cannot be read clearly.
 """
         
-        payload = {
-            "model": self.model_name,
-            "messages": [
+        messages = [
                 {
                     "role": "user",
                     "content": [
@@ -103,19 +99,20 @@ Use null if the label cannot be read clearly.
                         {"type": "text", "text": prompt}
                     ]
                 }
-            ],
-            "temperature": 0.5
-        }
+        ]
         
         try:
-            response = requests.post(url=self.url, headers=self.headers, json=payload)
-            result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            content = chat_with_gemini_sync(
+                messages,
+                model=self.model_name,
+                temperature=0.5,
+            )
+            if content == FAILURE_TEXT:
+                return None
             data = self.extract_json_response(content)
             return data
-        except requests.exceptions.RequestException as e:
+        except Exception as e:
             print(f"API request error: {e}")
-            print(f"Response content: {response.text if 'response' in locals() else 'no response'}")
             return None
 
     def call_llm_nums(self, image_path: str):
@@ -141,9 +138,7 @@ Return strict JSON only:
 Use null for fields that cannot be recognized.
 """
         
-        payload = {
-            "model": self.model_name,
-            "messages": [
+        messages = [
                 {
                     "role": "user",
                     "content": [
@@ -151,19 +146,20 @@ Use null for fields that cannot be recognized.
                         {"type": "text", "text": prompt}
                     ]
                 }
-            ],
-            "temperature": 0.5
-        }
+        ]
         
         try:
-            response = requests.post(url=self.url, headers=self.headers, json=payload)
-            result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            content = chat_with_gemini_sync(
+                messages,
+                model=self.model_name,
+                temperature=0.5,
+            )
+            if content == FAILURE_TEXT:
+                return None
             data = self.extract_json_response(content)
             return data
-        except requests.exceptions.RequestException as e:
+        except Exception as e:
             print(f"API request error: {e}")
-            print(f"Response content: {response.text if 'response' in locals() else 'no response'}")
             return None
 
     def get_start_angle(self, image_path: str, center_x: int, center_y: int, radius: int):

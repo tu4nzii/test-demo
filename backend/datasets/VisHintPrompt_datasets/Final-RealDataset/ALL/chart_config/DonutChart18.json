@@ -1,0 +1,29 @@
+{
+  "chart_id": "DonutChart18",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart18.png"
+  },
+  "data_points": {
+    "DE": 0.006,
+    "FR": 0.045,
+    "UK": 0.756,
+    "JP": 0.002,
+    "US": 0.191
+  },
+  "center": [
+    300,
+    328
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    198,
+    248
+  ],
+  "series_color": {
+    "DE": "#FCE700",
+    "FR": "#F8C4B4",
+    "UK": "#F6E1EA",
+    "JP": "#BEEAFC",
+    "US": "#BCE29E"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "chart_id": "BarChart15",
+  "image_paths": {
+    "no_grid": "chart/BarChart15.png",
+    "with_grid": "chart/BarChart15_grid.png",
+    "grid_with_grid": "chart/BarChart15_grid.png"
+  },
+  "data_points": {
+    "Party ID": {
+      "Democrat": 1687.5,
+      "Independent": 2143.75,
+      "Other party": 150,
+      "Republican": 1162.5
+    }
+  },
+  "x_ticks": [
+    "Democrat",
+    "Independent",
+    "Other party",
+    "Republican"
+  ],
+  "y_ticks": [
+    0,
+    250.0,
+    500,
+    750.0,
+    1000,
+    1250.0,
+    1500,
+    1750.0,
+    2000
+  ],
+  "x_pixels": [
+    174,
+    343,
+    514,
+    681
+  ],
+  "y_pixels": [
+    417,
+    378,
+    338,
+    299,
+    260,
+    220,
+    181,
+    142,
+    102
+  ],
+  "series_color": {
+    "Party ID": "#BEBEBE"
+  }
+}

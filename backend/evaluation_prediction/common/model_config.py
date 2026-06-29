@@ -21,6 +21,12 @@ _GPT54_PROFILE = {
 
 _VVEAI_GEMINI_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
+    "model_name": "gemini-2.5-flash-lite",
+    "api_key": "",
+}
+
+_WORK_PROFILE = {
+    "base_url": "https://api.vveai.com/v1",
     "model_name": "gemini-3.1-flash-lite",
     "api_key": "",
 }
@@ -35,6 +41,8 @@ MODEL_PROFILES = {
     },
     "vveai_gemini": _VVEAI_GEMINI_PROFILE,
     "gemini": _VVEAI_GEMINI_PROFILE,
+    "work": _WORK_PROFILE,
+    "vveai_work": _WORK_PROFILE,
 }
 
 DEFAULT_PROFILE = "gemini"
@@ -57,7 +65,7 @@ def _load_local_secrets() -> dict:
         if not path.exists():
             continue
         try:
-            with path.open("r", encoding="utf-8") as f:
+            with path.open("r", encoding="utf-8-sig") as f:
                 data = json.load(f)
             if isinstance(data, dict):
                 return data

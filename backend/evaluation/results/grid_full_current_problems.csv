@@ -1,9 +1,0 @@
-﻿chart_type,file,source_path,problem_codes,model_axis_diff_codes,x_axis_type,x_gt_axis_type,y_axis_type,y_gt_axis_type,x_ticks,y_ticks,x_ticks_encrypted,y_ticks_encrypted,expected_x_ticks_encrypted,expected_y_ticks_encrypted,grid_path,encrypted_grid_path,ticks_json_path,error
-v_bar,v_bar_118.png,f:\program\test-demo\backend\charts\v_bar\v_bar_118.png,process_failed,,unknown,text,unknown,numeric,0,0,0,0,0,0,,,,not_enough_tick_lines
-v_bar,v_bar_182.png,f:\program\test-demo\backend\charts\v_bar\v_bar_182.png,process_failed,,unknown,text,unknown,numeric,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_057.png,f:\program\test-demo\backend\charts\h_bar\h_bar_057.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_117.png,f:\program\test-demo\backend\charts\h_bar\h_bar_117.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_144.png,f:\program\test-demo\backend\charts\h_bar\h_bar_144.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_147.png,f:\program\test-demo\backend\charts\h_bar\h_bar_147.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_150.png,f:\program\test-demo\backend\charts\h_bar\h_bar_150.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines
-h_bar,h_bar_174.png,f:\program\test-demo\backend\charts\h_bar\h_bar_174.png,process_failed,,unknown,numeric,unknown,text,0,0,0,0,0,0,,,,not_enough_tick_lines

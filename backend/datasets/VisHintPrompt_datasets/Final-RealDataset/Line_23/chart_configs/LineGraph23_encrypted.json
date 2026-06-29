@@ -1,0 +1,59 @@
+{
+  "chart_id": "lineGraph23",
+  "image_paths": {
+    "no_grid": "chart/LineGraph23.png",
+    "with_grid": "chart/LineGraph23_grid.png",
+    "grid_with_grid": "chart/LineGraph23_grid.png"
+  },
+  "data_points": {
+    "Google Search Console - Impressions by Day": {
+      "2022-01-01": 1800,
+      "2022-03-01": 5600,
+      "2022-05-01": 5300,
+      "2022-07-01": 5300,
+      "2022-09-01": 12700,
+      "2022-11-01": 14300
+    }
+  },
+  "x_ticks": [
+    "2022-01-01",
+    "2022-03-01",
+    "2022-05-01",
+    "2022-07-01",
+    "2022-09-01",
+    "2022-11-01"
+  ],
+  "y_ticks": [
+    0,
+    2500,
+    5000,
+    7500,
+    10000,
+    12500,
+    15000,
+    17500,
+    20000
+  ],
+  "x_pixels": [
+    89,
+    161,
+    234,
+    308,
+    383,
+    456
+  ],
+  "y_pixels": [
+    278,
+    254,
+    229,
+    204,
+    180,
+    156,
+    131,
+    106,
+    82
+  ],
+  "series_color": {
+    "Google Search Console - Impressions by Day": "#4285F4"
+  }
+}

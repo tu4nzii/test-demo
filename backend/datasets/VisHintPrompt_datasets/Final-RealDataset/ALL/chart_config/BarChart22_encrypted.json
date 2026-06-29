@@ -1,0 +1,74 @@
+{
+  "chart_id": "BarChart22",
+  "image_paths": {
+    "no_grid": "chart/BarChart22.png",
+    "with_grid": "chart/BarChart22_grid.png",
+    "grid_with_grid": "chart/BarChart22_grid.png"
+  },
+  "data_points": {
+    "Gini coefficient": {
+      "Colombia": 0.50983,
+      "El Salvador": 0.38753173,
+      "Russia": 0.37710539,
+      "Switzerland": 0.32306957,
+      "Germany": 0.31653914,
+      "Croatia": 0.2954332,
+      "Slovakia": 0.26491234
+    }
+  },
+  "x_ticks": [
+    "Colombia",
+    "El Salvador",
+    "Russia",
+    "Switzerland",
+    "Germany",
+    "Croatia",
+    "Slovakia"
+  ],
+  "y_ticks": [
+    0,
+    0.05,
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5
+  ],
+  "x_pixels": [
+    39,
+    115,
+    159,
+    203,
+    247,
+    292,
+    339
+  ],
+  "y_pixels": [
+    157,
+    146,
+    135,
+    124,
+    114,
+    104,
+    93,
+    82,
+    71,
+    60,
+    50
+  ],
+  "series_color": {
+    "Gini coefficient": {
+      "Colombia": "#AC6E74",
+      "El Salvador": "#ED9A8B",
+      "Russia": "#8297BA",
+      "Switzerland": "#8297BA",
+      "Germany": "#8297BA",
+      "Croatia": "#8297BA",
+      "Slovakia": "#8297BA"
+    }
+  }
+}

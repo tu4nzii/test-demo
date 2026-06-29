@@ -1,0 +1,58 @@
+{
+  "chart_id": "Rose1",
+  "image_paths": {
+    "with_grid": "RoseChart-6/Rose1.png"
+  },
+  "center": {
+    "x": 350,
+    "y": 350
+  },
+  "data_points": {
+    "CategoryA": 0.85,
+    "CategoryB": 0.62,
+    "CategoryC": 0.45,
+    "CategoryD": 0.78,
+    "CategoryE": 0.91,
+    "CategoryF": 0.55,
+    "CategoryG": 0.72,
+    "CategoryH": 0.68
+  },
+  "series_color": {
+    "CategoryA": "#20908c",
+    "CategoryB": "#fde724",
+    "CategoryC": "#5ec961",
+    "CategoryD": "#28ae7f",
+    "CategoryE": "#472c7b",
+    "CategoryF": "#3a528b",
+    "CategoryG": "#440154",
+    "CategoryH": "#addc30"
+  },
+  "r_ticks": [
+    "0.5",
+    "1.0"
+  ],
+  "r_pixels": [
+    150,
+    300
+  ],
+  "theta_ticks": [
+    "CategoryA",
+    "CategoryB",
+    "CategoryC",
+    "CategoryD",
+    "CategoryE",
+    "CategoryF",
+    "CategoryG",
+    "CategoryH"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ]
+}

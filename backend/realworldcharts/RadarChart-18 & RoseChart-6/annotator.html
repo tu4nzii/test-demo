@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图表标注工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 320px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            font-size: 16px;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 8px;
+            margin-bottom: 5px;
+        }
+        .chart-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .chart-item {
+            padding: 10px;
+            background: #34495e;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 13px;
+        }
+        .chart-item:hover {
+            background: #3d5269;
+        }
+        .chart-item.active {
+            background: #3498db;
+        }
+        .tool-panel {
+            background: #34495e;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        .tool-panel label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+        .tool-panel select, .tool-panel input {
+            width: 100%;
+            padding: 6px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .tool-panel button {
+            width: 100%;
+            padding: 8px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-bottom: 6px;
+            transition: background 0.3s;
+            font-size: 13px;
+        }
+        .tool-panel button:hover {
+            background: #2980b9;
+        }
+        .tool-panel button.danger {
+            background: #e74c3c;
+        }
+        .tool-panel button.danger:hover {
+            background: #c0392b;
+        }
+        .data-panel {
+            background: #34495e;
+            padding: 12px;
+            border-radius: 4px;
+        }
+        .data-panel input {
+            width: 100%;
+            padding: 6px;
+            border: none;
+            border-radius: 3px;
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+        .data-panel button {
+            width: 48%;
+            padding: 6px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+        .data-panel button:hover {
+            background: #2980b9;
+        }
+        .data-panel .list-container {
+            max-height: 80px;
+            overflow-y: auto;
+            margin-bottom: 8px;
+        }
+        .data-panel .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 6px;
+            background: #2c3e50;
+            border-radius: 3px;
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
+        .data-panel .list-item button {
+            width: auto;
+            padding: 2px 6px;
+            background: #e74c3c;
+            font-size: 11px;
+        }
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .toolbar {
+            background: white;
+            padding: 12px 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .toolbar span {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        .status {
+            padding: 4px 10px;
+            background: #e7f3ff;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+        }
+        .zoom-controls button {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .zoom-controls button:hover {
+            background: #2980b9;
+        }
+        .zoom-controls input {
+            width: 50px;
+            padding: 3px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .canvas-container {
+            flex: 1;
+            overflow: hidden;
+            background: #e0e0e0;
+            position: relative;
+        }
+        #imageCanvas {
+            display: block;
+            background: white;
+            cursor: crosshair;
+        }
+        #imageCanvas.dragging {
+            cursor: grab;
+        }
+        .annotation-info {
+            position: fixed;
+            bottom: 20px;
+            left: 340px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            max-width: 350px;
+        }
+        .json-editor {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 400px;
+            max-height: 85vh;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: none;
+        }
+        .json-editor.show {
+            display: block;
+        }
+        .json-editor-header {
+            padding: 10px 12px;
+            background: #3498db;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .json-editor-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .json-editor-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+        .json-editor-tabs button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 12px;
+            border-bottom: 2px solid transparent;
+        }
+        .json-editor-tabs button.active {
+            background: white;
+            border-bottom-color: #3498db;
+            color: #3498db;
+        }
+        .json-editor-content {
+            padding: 12px;
+            max-height: calc(85vh - 100px);
+            overflow-y: auto;
+        }
+        .json-editor textarea {
+            width: 100%;
+            height: 350px;
+            font-family: 'Consolas', monospace;
+            font-size: 11px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            resize: vertical;
+        }
+        .editor-section {
+            margin-bottom: 15px;
+        }
+        .editor-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+        .editor-section input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        .editor-section button {
+            padding: 6px 12px;
+            background: #3498db;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .editor-section button:hover {
+            background: #2980b9;
+        }
+        .editor-section button.danger {
+            background: #e74c3c;
+        }
+        .editor-section button.danger:hover {
+            background: #c0392b;
+        }
+        .editor-list {
+            max-height: 100px;
+            overflow-y: auto;
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .editor-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
+        .editor-list-item:last-child {
+            border-bottom: none;
+        }
+        .editor-list-item button {
+            padding: 2px 6px;
+            background: #e74c3c;
+            font-size: 10px;
+        }
+        .color-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .color-picker input[type="color"] {
+            width: 40px;
+            height: 30px;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>图表列表</h2>
+        <div class="chart-list" id="chartList"></div>
+        
+        <div class="tool-panel">
+            <label>标注模式:</label>
+            <select id="annotationMode">
+                <option value="none">选择模式</option>
+                <option value="center">标注圆心</option>
+                <option value="line">标注线段(两点)</option>
+                <option value="angle">标注角度(三点)</option>
+            </select>
+            
+            <label>当前图表类型:</label>
+            <select id="chartType">
+                <option value="radar">雷达图</option>
+                <option value="rose">玫瑰图</option>
+            </select>
+            
+            <button onclick="saveAnnotation()">保存标注</button>
+            <button onclick="clearPoints()">清除标注</button>
+            <button onclick="showJsonEditor()" class="danger">数据编辑</button>
+        </div>
+        
+        <div class="data-panel">
+            <label>r_tick 值:</label>
+            <input type="text" id="rTickInput" placeholder="如: 20,40,60">
+            <button onclick="addRTicks()">添加</button>
+            <button onclick="clearRTicks()">清空</button>
+            <div class="list-container" id="rTicksList"></div>
+        </div>
+        
+        <div class="data-panel">
+            <label>theta_tick 值:</label>
+            <input type="text" id="thetaTickInput" placeholder="如: A,B,C">
+            <button onclick="addThetaTicks()">添加</button>
+            <button onclick="clearThetaTicks()">清空</button>
+            <div class="list-container" id="thetaTicksList"></div>
+        </div>
+        
+        <div class="data-panel">
+            <label>数据点 (name:value):</label>
+            <input type="text" id="dataPointInput" placeholder="如: PDB:83">
+            <button onclick="addDataPoint()">添加</button>
+            <button onclick="clearDataPoints()">清空</button>
+            <div class="list-container" id="dataPointsList"></div>
+        </div>
+    </div>
+    
+    <div class="main-area">
+        <div class="toolbar">
+            <span id="currentChart">选择图表</span>
+            <span class="status" id="status">点击图片进行标注</span>
+            <div class="zoom-controls">
+                <button onclick="zoomOut()">-</button>
+                <input type="text" id="zoomLevel" value="100%" readonly>
+                <button onclick="zoomIn()">+</button>
+                <button onclick="resetZoom()">⟲</button>
+            </div>
+        </div>
+        <div class="canvas-container" id="canvasContainer">
+            <canvas id="imageCanvas"></canvas>
+        </div>
+    </div>
+    
+    <div class="annotation-info" id="annotationInfo">
+        <strong>操作提示:</strong><br>
+        1. 选择图表和标注模式<br>
+        2. 点击图片进行标注<br>
+        3. 在左侧面板输入数据<br>
+        4. 使用滚轮缩放，拖拽平移
+    </div>
+    
+    <div class="json-editor" id="jsonEditor">
+        <div class="json-editor-header">
+            <span>数据编辑器</span>
+            <button onclick="closeJsonEditor()">×</button>
+        </div>
+        <div class="json-editor-tabs">
+            <button class="active" onclick="showTab('form')">表单编辑</button>
+            <button onclick="showTab('json')">JSON编辑</button>
+        </div>
+        <div class="json-editor-content">
+            <div id="formTab">
+                <div class="editor-section">
+                    <label>圆心坐标 (center)</label>
+                    <input type="text" id="centerInput" placeholder="[x, y]">
+                    <button onclick="updateCenter()">更新圆心</button>
+                </div>
+                
+                <div class="editor-section">
+                    <label>径向刻度值 (r_ticks)</label>
+                    <input type="text" id="rTicksInput" placeholder="逗号分隔，如: 20,40,60,80,100">
+                    <button onclick="updateRTicks()">更新</button>
+                    <button onclick="clearRTicks()" class="danger">清空</button>
+                    <div class="editor-list" id="rTicksEditorList"></div>
+                </div>
+                
+                <div class="editor-section">
+                    <label>径向像素值 (r_pixels)</label>
+                    <input type="text" id="rPixelsInput" placeholder="逗号分隔，如: 46,92,138">
+                    <button onclick="updateRPixels()">更新</button>
+                    <button onclick="clearRPixels()" class="danger">清空</button>
+                    <div class="editor-list" id="rPixelsEditorList"></div>
+                </div>
+                
+                <div class="editor-section">
+                    <label>角度刻度值 (theta_ticks)</label>
+                    <input type="text" id="thetaTicksInput" placeholder="逗号分隔，如: A,B,C">
+                    <button onclick="updateThetaTicks()">更新</button>
+                    <button onclick="clearThetaTicks()" class="danger">清空</button>
+                    <div class="editor-list" id="thetaTicksEditorList"></div>
+                </div>
+                
+                <div class="editor-section">
+                    <label>角度值 (theta_angles)</label>
+                    <input type="text" id="thetaAnglesInput" placeholder="逗号分隔，如: 0,120,240">
+                    <button onclick="updateThetaAngles()">更新</button>
+                    <button onclick="clearThetaAngles()" class="danger">清空</button>
+                    <div class="editor-list" id="thetaAnglesEditorList"></div>
+                </div>
+                
+                <div class="editor-section">
+                    <label>数据点 (data_points)</label>
+                    <div style="display: flex; gap: 5px; margin-bottom: 8px;">
+                        <input type="text" id="dataPointName" placeholder="名称" style="flex: 1;">
+                        <input type="text" id="dataPointValue" placeholder="值" style="flex: 1;">
+                        <button onclick="addSingleDataPoint()" style="flex: 0.5;">添加</button>
+                    </div>
+                    <button onclick="clearDataPoints()" class="danger">清空所有</button>
+                    <div class="editor-list" id="dataPointsEditorList"></div>
+                </div>
+                
+                <div class="editor-section">
+                    <label>系列颜色 (series_color)</label>
+                    <div style="display: flex; gap: 5px; margin-bottom: 8px;">
+                        <input type="text" id="colorName" placeholder="名称" style="flex: 1;">
+                        <div class="color-picker">
+                            <input type="color" id="colorValue" value="#3498db">
+                            <input type="text" id="colorHex" placeholder="#3498db" style="width: 80px;">
+                        </div>
+                        <button onclick="addSingleColor()" style="flex: 0.5;">添加</button>
+                    </div>
+                    <button onclick="clearSeriesColors()" class="danger">清空所有</button>
+                    <div class="editor-list" id="seriesColorsEditorList"></div>
+                </div>
+                
+                <div style="margin-top: 15px;">
+                    <button onclick="saveAllChanges()" style="width: 100%; padding: 10px; background: #27ae60;">保存所有更改</button>
+                </div>
+            </div>
+            
+            <div id="jsonTab" style="display: none;">
+                <textarea id="jsonText" placeholder="在此编辑JSON数据..."></textarea>
+                <button onclick="parseJson()" style="width: 48%;">解析JSON</button>
+                <button onclick="downloadJson()" style="width: 48%;">下载JSON</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const charts = [
+            { id: 'radar_001', name: 'RadarChart1.png', path: 'RadarChart-18-final/RadarChart1.png', type: 'radar' },
+            { id: 'radar_003', name: 'RadarChart3.png', path: 'RadarChart-18-final/RadarChart3.png', type: 'radar' },
+            { id: 'radar_004', name: 'RadarChart4.png', path: 'RadarChart-18-final/RadarChart4.png', type: 'radar' },
+            { id: 'radar_005', name: 'RadarChart5.png', path: 'RadarChart-18-final/RadarChart5.png', type: 'radar' },
+            { id: 'radar_006', name: 'RadarChart6.png', path: 'RadarChart-18-final/RadarChart6.png', type: 'radar' },
+            { id: 'radar_008', name: 'RadarChart8.png', path: 'RadarChart-18-final/RadarChart8.png', type: 'radar' },
+            { id: 'radar_009', name: 'RadarChart9.png', path: 'RadarChart-18-final/RadarChart9.png', type: 'radar' },
+            { id: 'radar_010', name: 'RadarChart10.png', path: 'RadarChart-18-final/RadarChart10.png', type: 'radar' },
+            { id: 'radar_015', name: 'RadarChart15.png', path: 'RadarChart-18-final/RadarChart15.png', type: 'radar' },
+            { id: 'radar_016', name: 'RadarChart16.png', path: 'RadarChart-18-final/RadarChart16.png', type: 'radar' },
+            { id: 'radar_017', name: 'RadarChart17.png', path: 'RadarChart-18-final/RadarChart17.png', type: 'radar' },
+            { id: 'radar_018', name: 'RadarChart18.png', path: 'RadarChart-18-final/RadarChart18.png', type: 'radar' },
+            { id: 'radar_019', name: 'RadarChart19.png', path: 'RadarChart-18-final/RadarChart19.png', type: 'radar' },
+            { id: 'radar_020', name: 'RadarChart20.png', path: 'RadarChart-18-final/RadarChart20.png', type: 'radar' },
+            { id: 'radar_021', name: 'RadarChart21.png', path: 'RadarChart-18-final/RadarChart21.png', type: 'radar' },
+            { id: 'radar_022', name: 'RadarChart22.png', path: 'RadarChart-18-final/RadarChart22.png', type: 'radar' },
+            { id: 'radar_023', name: 'RadarChart23.png', path: 'RadarChart-18-final/RadarChart23.png', type: 'radar' },
+            { id: 'radar_024', name: 'RadarChart24.png', path: 'RadarChart-18-final/RadarChart24.png', type: 'radar' },
+            { id: 'rose_001', name: 'Rose1.png', path: 'RoseChart-6/Rose1.png', type: 'rose' },
+            { id: 'rose_002', name: 'rose.png', path: 'RoseChart-6/rose.png', type: 'rose' },
+            { id: 'rose_003', name: 'rose-diagram.png', path: 'RoseChart-6/rose-diagram.png', type: 'rose' },
+            { id: 'rose_004', name: 'RoseDiagramExample2.png', path: 'RoseChart-6/RoseDiagramExample2.png', type: 'rose' },
+            { id: 'rose_005', name: 'plotivy-nightingale-rose-chart.png', path: 'RoseChart-6/plotivy-nightingale-rose-chart.png', type: 'rose' },
+            { id: 'rose_006', name: 'shot-nightingale-rose-chart-4.png', path: 'RoseChart-6/shot-nightingale-rose-chart-4.png', type: 'rose' },
+        ];
+        
+        let currentChart = null;
+        let annotationMode = 'none';
+        let points = [];
+        let annotations = {};
+        let canvas = document.getElementById('imageCanvas');
+        let ctx = canvas.getContext('2d');
+        let imageObj = null;
+        
+        let currentScale = 1;
+        let translateX = 0;
+        let translateY = 0;
+        let isDragging = false;
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+        
+        let imageWidth = 0;
+        let imageHeight = 0;
+        
+        function init() {
+            const chartList = document.getElementById('chartList');
+            charts.forEach(chart => {
+                const item = document.createElement('div');
+                item.className = 'chart-item';
+                item.innerHTML = chart.name;
+                item.onclick = () => loadChart(chart);
+                chartList.appendChild(item);
+            });
+            
+            document.getElementById('annotationMode').addEventListener('change', (e) => {
+                annotationMode = e.target.value;
+                points = [];
+                updateStatus();
+            });
+            
+            canvas.addEventListener('click', handleCanvasClick);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('wheel', handleWheel);
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseleave', handleMouseUp);
+            
+            document.getElementById('colorValue').addEventListener('input', (e) => {
+                document.getElementById('colorHex').value = e.target.value;
+            });
+            
+            document.getElementById('colorHex').addEventListener('change', (e) => {
+                document.getElementById('colorValue').value = e.target.value;
+            });
+            
+            loadAnnotations();
+        }
+        
+        function loadChart(chart) {
+            currentChart = chart;
+            document.getElementById('currentChart').textContent = chart.name;
+            document.getElementById('chartType').value = chart.type;
+            
+            document.querySelectorAll('.chart-item').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            points = [];
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            
+            imageObj = new Image();
+            imageObj.onload = () => {
+                imageWidth = imageObj.width;
+                imageHeight = imageObj.height;
+                updateCanvasSize();
+                drawImage();
+                updateZoomLevel();
+                refreshDataPanels();
+            };
+            imageObj.src = chart.path;
+            
+            updateStatus();
+        }
+        
+        function updateCanvasSize() {
+            const container = document.getElementById('canvasContainer');
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        }
+        
+        function drawImage() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.save();
+            ctx.translate(canvas.width / 2 + translateX, canvas.height / 2 + translateY);
+            ctx.scale(currentScale, currentScale);
+            ctx.drawImage(imageObj, -imageWidth / 2, -imageHeight / 2, imageWidth, imageHeight);
+            
+            drawPoints();
+            ctx.restore();
+        }
+        
+        function drawPoints() {
+            points.forEach((point, index) => {
+                ctx.beginPath();
+                ctx.arc(point.x - imageWidth / 2, point.y - imageHeight / 2, 8 * (1 / currentScale), 0, Math.PI * 2);
+                ctx.fillStyle = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12'][index % 4];
+                ctx.fill();
+                ctx.strokeStyle = 'white';
+                ctx.lineWidth = 2 * (1 / currentScale);
+                ctx.stroke();
+                
+                ctx.fillStyle = 'white';
+                ctx.font = `${12 * (1 / currentScale)}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(`P${index + 1}`, point.x - imageWidth / 2, point.y - imageHeight / 2 - 12 * (1 / currentScale));
+            });
+        }
+        
+        function screenToImageCoords(screenX, screenY) {
+            const rect = canvas.getBoundingClientRect();
+            const x = (screenX - rect.left - canvas.width / 2 - translateX) / currentScale + imageWidth / 2;
+            const y = (screenY - rect.top - canvas.height / 2 - translateY) / currentScale + imageHeight / 2;
+            return { x: Math.round(x), y: Math.round(y) };
+        }
+        
+        function handleCanvasClick(e) {
+            if (annotationMode === 'none' || !currentChart || isDragging) return;
+            
+            const coords = screenToImageCoords(e.clientX, e.clientY);
+            const x = coords.x;
+            const y = coords.y;
+            
+            if (x < 0 || x > imageWidth || y < 0 || y > imageHeight) {
+                return;
+            }
+            
+            if (annotationMode === 'center') {
+                points = [{ x, y }];
+            } else if (annotationMode === 'line') {
+                if (points.length < 2) {
+                    points.push({ x, y });
+                }
+            } else if (annotationMode === 'angle') {
+                if (points.length < 3) {
+                    points.push({ x, y });
+                }
+            }
+            
+            drawImage();
+            updateStatus();
+        }
+        
+        function handleMouseMove(e) {
+            if (isDragging) {
+                const dx = e.clientX - lastMouseX;
+                const dy = e.clientY - lastMouseY;
+                translateX += dx;
+                translateY += dy;
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+                drawImage();
+                return;
+            }
+            
+            let coords = { x: 0, y: 0 };
+            if (currentChart) {
+                coords = screenToImageCoords(e.clientX, e.clientY);
+            }
+            document.getElementById('status').textContent = `鼠标位置: (${coords.x}, ${coords.y}) | 已标记: ${points.length} 个点`;
+        }
+        
+        function handleMouseDown(e) {
+            if (annotationMode === 'none') {
+                isDragging = true;
+                canvas.classList.add('dragging');
+                lastMouseX = e.clientX;
+                lastMouseY = e.clientY;
+            }
+        }
+        
+        function handleMouseUp() {
+            isDragging = false;
+            canvas.classList.remove('dragging');
+        }
+        
+        function handleWheel(e) {
+            e.preventDefault();
+            
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            const imageX = (mouseX - canvas.width / 2 - translateX) / currentScale + imageWidth / 2;
+            const imageY = (mouseY - canvas.height / 2 - translateY) / currentScale + imageHeight / 2;
+            
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;
+            const newScale = Math.max(0.1, Math.min(5, currentScale * delta));
+            
+            const scaleRatio = newScale / currentScale;
+            translateX = mouseX - canvas.width / 2 - (imageX - imageWidth / 2) * newScale;
+            translateY = mouseY - canvas.height / 2 - (imageY - imageHeight / 2) * newScale;
+            
+            currentScale = newScale;
+            
+            drawImage();
+            updateZoomLevel();
+        }
+        
+        function zoomIn() {
+            currentScale = Math.min(5, currentScale * 1.2);
+            drawImage();
+            updateZoomLevel();
+        }
+        
+        function zoomOut() {
+            currentScale = Math.max(0.1, currentScale / 1.2);
+            drawImage();
+            updateZoomLevel();
+        }
+        
+        function resetZoom() {
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            drawImage();
+            updateZoomLevel();
+        }
+        
+        function updateZoomLevel() {
+            document.getElementById('zoomLevel').value = `${Math.round(currentScale * 100)}%`;
+        }
+        
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (annotationMode === 'none') {
+                status.textContent = '请选择标注模式';
+            } else if (annotationMode === 'center') {
+                status.textContent = points.length ? `圆心: (${points[0].x}, ${points[0].y})` : '点击图片标注圆心';
+            } else if (annotationMode === 'line') {
+                if (points.length === 0) {
+                    status.textContent = '点击图片标注线段起点';
+                } else if (points.length === 1) {
+                    status.textContent = `起点: (${points[0].x}, ${points[0].y}) | 点击标注终点`;
+                } else {
+                    const len = Math.round(Math.sqrt(Math.pow(points[1].x - points[0].x, 2) + Math.pow(points[1].y - points[0].y, 2)));
+                    status.textContent = `线段长度: ${len} 像素 | 按清除重新标注`;
+                }
+            } else if (annotationMode === 'angle') {
+                if (points.length === 0) {
+                    status.textContent = '点击图片标注角度第一个点';
+                } else if (points.length === 1) {
+                    status.textContent = `P1: (${points[0].x}, ${points[0].y}) | 点击标注顶点(P2)`;
+                } else if (points.length === 2) {
+                    status.textContent = `P1: (${points[0].x}, ${points[0].y}), P2: (${points[1].x}, ${points[1].y}) | 点击标注P3`;
+                } else {
+                    const angle = calculateAngle(points[0], points[1], points[2]);
+                    status.textContent = `角度: ${angle.toFixed(2)}° | 按清除重新标注`;
+                }
+            }
+        }
+        
+        function calculateAngle(p1, vertex, p2) {
+            const v1 = { x: p1.x - vertex.x, y: p1.y - vertex.y };
+            const v2 = { x: p2.x - vertex.x, y: p2.y - vertex.y };
+            
+            const dot = v1.x * v2.x + v1.y * v2.y;
+            const mag1 = Math.sqrt(v1.x * v1.x + v1.y * v1.y);
+            const mag2 = Math.sqrt(v2.x * v2.x + v2.y * v2.y);
+            
+            const angle = Math.acos(dot / (mag1 * mag2)) * (180 / Math.PI);
+            return angle;
+        }
+        
+        function getCurrentAnnotation() {
+            if (!currentChart) return null;
+            if (!annotations[currentChart.id]) {
+                annotations[currentChart.id] = createDefaultAnnotation();
+            }
+            return annotations[currentChart.id];
+        }
+        
+        function createDefaultAnnotation() {
+            return {
+                chart_id: currentChart.id,
+                chart_type: currentChart.type,
+                center: null,
+                r_ticks: [],
+                r_pixels: [],
+                theta_ticks: [],
+                theta_angles: [],
+                data_points: {},
+                series_color: {},
+                image_paths: {
+                    [currentChart.type === 'radar' ? 'no_grid' : 'with_grid']: currentChart.path
+                }
+            };
+        }
+        
+        function saveAnnotation() {
+            if (!currentChart) {
+                alert('请先选择图表');
+                return;
+            }
+            
+            const annotation = getCurrentAnnotation();
+            
+            if (annotationMode === 'center' && points.length === 1) {
+                annotation.center = [points[0].x, points[0].y];
+                alert(`圆心已保存: (${points[0].x}, ${points[0].y})`);
+            } else if (annotationMode === 'line' && points.length === 2) {
+                const len = Math.round(Math.sqrt(Math.pow(points[1].x - points[0].x, 2) + Math.pow(points[1].y - points[0].y, 2)));
+                annotation.r_pixels.push(len);
+                alert(`线段长度已保存: ${len} 像素`);
+            } else if (annotationMode === 'angle' && points.length === 3) {
+                const angle = calculateAngle(points[0], points[1], points[2]);
+                annotation.theta_angles.push(parseFloat(angle.toFixed(2)));
+                alert(`角度已保存: ${angle.toFixed(2)}°`);
+            } else {
+                alert('请先完成标注');
+                return;
+            }
+            
+            saveAnnotations();
+            points = [];
+            drawImage();
+            updateStatus();
+            refreshDataPanels();
+        }
+        
+        function clearPoints() {
+            points = [];
+            drawImage();
+            updateStatus();
+        }
+        
+        function saveAnnotations() {
+            localStorage.setItem('chart_annotations', JSON.stringify(annotations));
+        }
+        
+        function loadAnnotations() {
+            const saved = localStorage.getItem('chart_annotations');
+            if (saved) {
+                annotations = JSON.parse(saved);
+            }
+        }
+        
+        function refreshDataPanels() {
+            const annotation = getCurrentAnnotation();
+            if (!annotation) return;
+            
+            renderList('rTicksList', annotation.r_ticks);
+            renderList('thetaTicksList', annotation.theta_ticks);
+            renderKeyValueList('dataPointsList', annotation.data_points);
+        }
+        
+        function renderList(containerId, items) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            items.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                div.innerHTML = `${item} <button onclick="removeFromList('${containerId}', ${index})">×</button>`;
+                container.appendChild(div);
+            });
+        }
+        
+        function renderKeyValueList(containerId, obj) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            Object.keys(obj).forEach(key => {
+                const div = document.createElement('div');
+                div.className = 'list-item';
+                div.innerHTML = `${key}: ${obj[key]} <button onclick="removeFromObject('${containerId}', '${key}')">×</button>`;
+                container.appendChild(div);
+            });
+        }
+        
+        function removeFromList(containerId, index) {
+            const annotation = getCurrentAnnotation();
+            if (!annotation) return;
+            
+            let listName = '';
+            if (containerId === 'rTicksList' || containerId === 'rTicksEditorList') listName = 'r_ticks';
+            else if (containerId === 'thetaTicksList' || containerId === 'thetaTicksEditorList') listName = 'theta_ticks';
+            else if (containerId === 'rPixelsEditorList') listName = 'r_pixels';
+            else if (containerId === 'thetaAnglesEditorList') listName = 'theta_angles';
+            
+            if (listName) {
+                annotation[listName].splice(index, 1);
+                saveAnnotations();
+                refreshDataPanels();
+                refreshEditorLists();
+            }
+        }
+        
+        function removeFromObject(containerId, key) {
+            const annotation = getCurrentAnnotation();
+            if (!annotation) return;
+            
+            if (containerId === 'dataPointsList' || containerId === 'dataPointsEditorList') {
+                delete annotation.data_points[key];
+            } else if (containerId === 'seriesColorsEditorList') {
+                delete annotation.series_color[key];
+            }
+            
+            saveAnnotations();
+            refreshDataPanels();
+            refreshEditorLists();
+        }
+        
+        function addRTicks() {
+            const input = document.getElementById('rTickInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            if (values.length === 0) return;
+            
+            const annotation = getCurrentAnnotation();
+            values.forEach(v => {
+                const num = parseFloat(v);
+                if (!isNaN(num)) annotation.r_ticks.push(num);
+                else annotation.r_ticks.push(v);
+            });
+            
+            saveAnnotations();
+            input.value = '';
+            refreshDataPanels();
+        }
+        
+        function clearRTicks() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.r_ticks = [];
+                saveAnnotations();
+                refreshDataPanels();
+                refreshEditorLists();
+            }
+        }
+        
+        function addThetaTicks() {
+            const input = document.getElementById('thetaTickInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            if (values.length === 0) return;
+            
+            const annotation = getCurrentAnnotation();
+            annotation.theta_ticks.push(...values);
+            
+            saveAnnotations();
+            input.value = '';
+            refreshDataPanels();
+        }
+        
+        function clearThetaTicks() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.theta_ticks = [];
+                saveAnnotations();
+                refreshDataPanels();
+                refreshEditorLists();
+            }
+        }
+        
+        function addDataPoint() {
+            const input = document.getElementById('dataPointInput');
+            const parts = input.value.split(':').map(v => v.trim());
+            if (parts.length !== 2) {
+                alert('格式错误，请输入: name:value');
+                return;
+            }
+            
+            const annotation = getCurrentAnnotation();
+            const name = parts[0];
+            const value = parseFloat(parts[1]);
+            annotation.data_points[name] = isNaN(value) ? parts[1] : value;
+            
+            saveAnnotations();
+            input.value = '';
+            refreshDataPanels();
+        }
+        
+        function clearDataPoints() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.data_points = {};
+                saveAnnotations();
+                refreshDataPanels();
+                refreshEditorLists();
+            }
+        }
+        
+        function showJsonEditor() {
+            if (!currentChart) {
+                alert('请先选择图表');
+                return;
+            }
+            document.getElementById('jsonEditor').classList.add('show');
+            showTab('form');
+            refreshEditorLists();
+        }
+        
+        function closeJsonEditor() {
+            document.getElementById('jsonEditor').classList.remove('show');
+        }
+        
+        function showTab(tabName) {
+            document.querySelectorAll('.json-editor-tabs button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('formTab').style.display = 'none';
+            document.getElementById('jsonTab').style.display = 'none';
+            
+            event.target.classList.add('active');
+            document.getElementById(`${tabName}Tab`).style.display = 'block';
+            
+            if (tabName === 'json') {
+                updateJsonText();
+            }
+        }
+        
+        function updateJsonText() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                document.getElementById('jsonText').value = JSON.stringify(annotation, null, 2);
+            }
+        }
+        
+        function parseJson() {
+            const textarea = document.getElementById('jsonText');
+            try {
+                const data = JSON.parse(textarea.value);
+                annotations[currentChart.id] = data;
+                saveAnnotations();
+                refreshDataPanels();
+                refreshEditorLists();
+                alert('JSON解析成功');
+            } catch (e) {
+                alert('JSON格式错误: ' + e.message);
+            }
+        }
+        
+        function refreshEditorLists() {
+            const annotation = getCurrentAnnotation();
+            if (!annotation) return;
+            
+            document.getElementById('centerInput').value = annotation.center ? JSON.stringify(annotation.center) : '';
+            document.getElementById('rTicksInput').value = annotation.r_ticks.join(',');
+            document.getElementById('rPixelsInput').value = annotation.r_pixels.join(',');
+            document.getElementById('thetaTicksInput').value = annotation.theta_ticks.join(',');
+            document.getElementById('thetaAnglesInput').value = annotation.theta_angles.join(',');
+            
+            renderList('rTicksEditorList', annotation.r_ticks);
+            renderList('rPixelsEditorList', annotation.r_pixels);
+            renderList('thetaTicksEditorList', annotation.theta_ticks);
+            renderList('thetaAnglesEditorList', annotation.theta_angles);
+            renderKeyValueList('dataPointsEditorList', annotation.data_points);
+            renderKeyValueList('seriesColorsEditorList', annotation.series_color);
+        }
+        
+        function updateCenter() {
+            const input = document.getElementById('centerInput');
+            try {
+                const center = JSON.parse(input.value);
+                const annotation = getCurrentAnnotation();
+                annotation.center = center;
+                saveAnnotations();
+                alert('圆心已更新');
+            } catch (e) {
+                alert('格式错误，请输入: [x, y]');
+            }
+        }
+        
+        function updateRTicks() {
+            const input = document.getElementById('rTicksInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            const annotation = getCurrentAnnotation();
+            annotation.r_ticks = values.map(v => {
+                const num = parseFloat(v);
+                return isNaN(num) ? v : num;
+            });
+            saveAnnotations();
+            refreshEditorLists();
+        }
+        
+        function updateRPixels() {
+            const input = document.getElementById('rPixelsInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            const annotation = getCurrentAnnotation();
+            annotation.r_pixels = values.map(v => parseFloat(v)).filter(v => !isNaN(v));
+            saveAnnotations();
+            refreshEditorLists();
+        }
+        
+        function clearRPixels() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.r_pixels = [];
+                saveAnnotations();
+                refreshEditorLists();
+            }
+        }
+        
+        function updateThetaTicks() {
+            const input = document.getElementById('thetaTicksInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            const annotation = getCurrentAnnotation();
+            annotation.theta_ticks = values;
+            saveAnnotations();
+            refreshEditorLists();
+        }
+        
+        function updateThetaAngles() {
+            const input = document.getElementById('thetaAnglesInput');
+            const values = input.value.split(',').map(v => v.trim()).filter(v => v);
+            const annotation = getCurrentAnnotation();
+            annotation.theta_angles = values.map(v => parseFloat(v)).filter(v => !isNaN(v));
+            saveAnnotations();
+            refreshEditorLists();
+        }
+        
+        function clearThetaAngles() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.theta_angles = [];
+                saveAnnotations();
+                refreshEditorLists();
+            }
+        }
+        
+        function addSingleDataPoint() {
+            const name = document.getElementById('dataPointName').value.trim();
+            const value = document.getElementById('dataPointValue').value.trim();
+            
+            if (!name || !value) {
+                alert('请填写名称和值');
+                return;
+            }
+            
+            const annotation = getCurrentAnnotation();
+            const numValue = parseFloat(value);
+            annotation.data_points[name] = isNaN(numValue) ? value : numValue;
+            
+            saveAnnotations();
+            document.getElementById('dataPointName').value = '';
+            document.getElementById('dataPointValue').value = '';
+            refreshEditorLists();
+        }
+        
+        function addSingleColor() {
+            const name = document.getElementById('colorName').value.trim();
+            const color = document.getElementById('colorHex').value;
+            
+            if (!name) {
+                alert('请填写名称');
+                return;
+            }
+            
+            const annotation = getCurrentAnnotation();
+            annotation.series_color[name] = color;
+            
+            saveAnnotations();
+            document.getElementById('colorName').value = '';
+            refreshEditorLists();
+        }
+        
+        function clearSeriesColors() {
+            const annotation = getCurrentAnnotation();
+            if (annotation) {
+                annotation.series_color = {};
+                saveAnnotations();
+                refreshEditorLists();
+            }
+        }
+        
+        function saveAllChanges() {
+            saveAnnotations();
+            refreshDataPanels();
+            alert('所有更改已保存');
+        }
+        
+        function downloadJson() {
+            if (!currentChart) return;
+            
+            const annotation = getCurrentAnnotation();
+            const data = JSON.stringify(annotation, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentChart.id}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        window.addEventListener('resize', () => {
+            if (currentChart) {
+                updateCanvasSize();
+                drawImage();
+            }
+        });
+        
+        init();
+    </script>
+</body>
+</html>

@@ -8,10 +8,11 @@ import random
 import sys
 from typing import Any
 
-import aiohttp
 from aiohttp import ClientTimeout
 
-from ..circular_model_config import get_chat_completion_urls, get_headers, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
+
+from ..circular_model_config import get_chat_completion_urls, get_model_name
 
 from .json_parser import parse_model_output
 
@@ -117,47 +118,29 @@ async def call_llm_once(prompt: str, image_path: str, item_name: str | None = No
         b64 = base64.b64encode(f.read()).decode()
 
     timeout = ClientTimeout(total=300)
-    async with aiohttp.ClientSession(timeout=timeout) as sess:
-        try:
-            selected_url = random.choice(URLS)
-            payload = {
-                "model": LLM_MODEL,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": prompt},
-                            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64}"}},
-                        ],
-                    }
+    selected_url = random.choice(URLS)
+    request_urls = [selected_url] + [url for url in URLS if url != selected_url]
+    txt = await chat_with_gemini(
+        [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt},
+                    {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{b64}"}},
                 ],
-                "max_tokens": 2048,
-                "temperature": 0.0,
             }
-
-            async with sess.post(selected_url, headers=get_headers(), json=payload) as resp:
-                res = await resp.json()
-        except asyncio.TimeoutError:
-            safe_print("Request timed out.")
-            return None
-        except Exception as exc:
-            if "resp" in locals():
-                try:
-                    safe_print("JSON decode error", await resp.text())
-                except Exception:
-                    pass
-            safe_print(f"Request failed: {exc}")
-            return None
-
-    if "choices" in res:
-        txt = res["choices"][0]["message"]["content"]
-    elif "response" in res:
-        txt = res["response"]
-        if txt.startswith("```json") and txt.endswith("```"):
-            txt = txt[7:-3].strip()
-    else:
-        safe_print("API response missing expected fields", res)
+        ],
+        model=LLM_MODEL,
+        max_tokens=2048,
+        temperature=0.0,
+        urls=request_urls,
+        timeout=timeout,
+    )
+    if txt == FAILURE_TEXT:
+        safe_print("Request failed: model API request failed.")
         return None
+    if txt.startswith("```json") and txt.endswith("```"):
+        txt = txt[7:-3].strip()
 
     try:
         parsed = await parse_model_output(txt, prompt)

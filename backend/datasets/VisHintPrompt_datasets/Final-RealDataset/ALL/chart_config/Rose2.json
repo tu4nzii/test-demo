@@ -1,0 +1,72 @@
+{
+  "chart_id": "Rose2",
+  "image_paths": {
+    "with_grid": "RoseChart-6/Rose2"
+  },
+  "center": {
+    "x": 500,
+    "y": 384
+  },
+  "data_points": {
+    "After-Sales Support": 65,
+    "Logistics Speed": 55,
+    "Competitiveness": 75,
+    "Customer Retention Rate": 80,
+    "Cost": 70,
+    "Data Analysis Capability": 85,
+    "Brand Awareness": 90,
+    "Product Quality": 78,
+    "Customer Service/Innovation Capability": 82,
+    "Marketing": 88
+  },
+  "series_color": {
+    "After-Sales Support": "#5b9bd5",
+    "Logistics Speed": "#4472c4",
+    "Competitiveness": "#7030a0",
+    "Customer Retention Rate": "#c5504b",
+    "Cost": "#e7a428",
+    "Data Analysis Capability": "#e7a428",
+    "Brand Awareness": "#f4c542",
+    "Product Quality": "#50c878",
+    "Customer Service/Innovation Capability": "#4f81bd",
+    "Marketing": "#7b68ee"
+  },
+  "r_ticks": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80"
+  ],
+  "r_pixels": [
+    0,
+    76,
+    152,
+    228,
+    304
+  ],
+  "theta_ticks": [
+    "After-Sales Support",
+    "Logistics Speed",
+    "Competitiveness",
+    "Customer Retention Rate",
+    "Cost",
+    "Data Analysis Capability",
+    "Brand Awareness",
+    "Product Quality",
+    "Customer Service/Innovation Capability",
+    "Marketing"
+  ],
+  "theta_angles": [
+    90.0,
+    54.0,
+    18.0,
+    342.0,
+    306.0,
+    270.0,
+    234.0,
+    198.0,
+    162.0,
+    126.0
+  ]
+}

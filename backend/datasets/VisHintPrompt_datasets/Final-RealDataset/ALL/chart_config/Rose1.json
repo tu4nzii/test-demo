@@ -1,0 +1,52 @@
+{
+  "chart_id": "Rose1",
+  "image_paths": {
+    "with_grid": "RoseChart-6/Rose1.png"
+  },
+  "center": {
+    "x": 277,
+    "y": 235
+  },
+  "data_points": {
+    "A": 120,
+    "B": 90,
+    "C": 150,
+    "D": 80,
+    "E": 130
+  },
+  "series_color": {
+    "A": "#ff6384",
+    "B": "#36a2eb",
+    "C": "#cc65fe",
+    "D": "#ffce56",
+    "E": "#4bc0c0"
+  },
+  "r_ticks": [
+    "0",
+    "60",
+    "90",
+    "120",
+    "150"
+  ],
+  "r_pixels": [
+    0,
+    156,
+    234,
+    312,
+    390
+  ],
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    90.0,
+    18.0,
+    306.0,
+    234.0,
+    162.0
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "chart_id": "PieChart13",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart13.png"
+  },
+  "data_points": {
+    "largest_sector": 0.608,
+    "2nd_sector": 0.241,
+    "3th": 0.098,
+    "4th": 0.054
+  },
+  "r_ticks": [],
+  "r_pixels": 85,
+  "center": [
+    99,
+    112
+  ],
+  "series_color": {
+    "largest_sector": "#79B8F0",
+    "2nd_sector": "#ABB8F0",
+    "3th": "#F0F0F0",
+    "4th": "#F0F0F0"
+  }
+}

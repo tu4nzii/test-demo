@@ -1,0 +1,66 @@
+{
+  "chart_id": "h_bar_emu_189",
+  "image_paths": {
+    "no_grid": "charts/h_bar_emu/h_bar_emu_189.png",
+    "with_grid": "charts/h_bar_emu/h_bar_emu_189_grid.png",
+    "grid_with_grid": "charts/h_bar_emu/h_bar_emu_189_grid_with_grid.png"
+  },
+  "data_points": {
+    "Group 1": {
+      "A": 51.69,
+      "B": 62.81,
+      "C": 77.85,
+      "D": 53.17,
+      "E": 89.15,
+      "F": 11.86,
+      "G": 57.79
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0
+  ],
+  "y_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "x_pixels": [
+    65,
+    211,
+    356,
+    502,
+    647,
+    793,
+    938,
+    1084,
+    1229,
+    1375,
+    1520
+  ],
+  "y_pixels": [
+    947,
+    831,
+    716,
+    600,
+    484,
+    369,
+    253
+  ],
+  "series_color": {
+    "Group 1": "#66c2a5"
+  }
+}

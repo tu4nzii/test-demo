@@ -659,7 +659,7 @@ if __name__ == "__main__":
 
     # 指定要处理的图像路径和输出目录
     image_path = "./data/rose/rose_001.png"  # 可以根据需要修改
-    output_dir = "./data/output/rose"      # 可以根据需要修改
+    output_dir = "./sample_outputs/rose"      # 可以根据需要修改
 
     # 处理单张图像
     result_path = encoder.process_single_image(image_path, output_dir)

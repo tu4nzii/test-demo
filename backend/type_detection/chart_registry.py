@@ -56,23 +56,9 @@ CHART_DEFINITIONS: Tuple[ChartDefinition, ...] = (
         _COMMON_CAPABILITIES,
     ),
     ChartDefinition(
-        "v_stacked_bar",
-        "Vertical stacked bar",
-        "Vertical bars where each category is composed of stacked colored segments.",
-        CoordinateSystem.CARTESIAN,
-        _COMMON_CAPABILITIES,
-    ),
-    ChartDefinition(
         "h_bar",
         "水平条形图",
         "条形水平排列，通常用于比较类别数据",
-        CoordinateSystem.CARTESIAN,
-        _COMMON_CAPABILITIES,
-    ),
-    ChartDefinition(
-        "h_stacked_bar",
-        "Horizontal stacked bar",
-        "Horizontal bars where each category is composed of stacked colored segments.",
         CoordinateSystem.CARTESIAN,
         _COMMON_CAPABILITIES,
     ),

@@ -1,0 +1,60 @@
+{
+  "chart_id": "lineGraph17",
+  "image_paths": {
+    "no_grid": "chart/LineGraph17.png",
+    "with_grid": "chart/LineGraph17_grid.png",
+    "grid_with_grid": "chart/LineGraph17_grid.png"
+  },
+  "data_points": {
+    "Users": {
+      "18.DEC": 40.585,
+      "25.DEC": 28.433,
+      "1.Jan": 28.291,
+      "8.Jan": 39.327,
+      "15.Jan": 37.077
+    },
+    "Sessions": {
+      "18.DEC": 48.351,
+      "25.DEC": 33.183,
+      "1.Jan": 32.822,
+      "8.Jan": 46.847,
+      "15.Jan": 44.192
+    }
+  },
+  "x_ticks": [
+    "18.DEC",
+    "25.DEC",
+    "1.Jan",
+    "8.Jan",
+    "15.Jan"
+  ],
+  "y_ticks": [
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60
+  ],
+  "x_pixels": [
+    15,
+    147,
+    280,
+    413,
+    545
+  ],
+  "y_pixels": [
+    316,
+    282,
+    247,
+    212,
+    178,
+    143,
+    108
+  ],
+  "series_color": {
+    "Users": "#7CB5EC",
+    "Sessions": "#434348"
+  }
+}

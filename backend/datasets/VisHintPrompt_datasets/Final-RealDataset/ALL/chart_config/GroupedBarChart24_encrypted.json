@@ -1,0 +1,78 @@
+{
+  "chart_id": "GroupedBarChart24",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart24.png",
+    "with_grid": "chart/GroupedBarChart24_grid.png",
+    "grid_with_grid": "chart/GroupedBarChart24_grid.png"
+  },
+  "data_points": {
+    "2013": {
+      "Egypt": 6,
+      "France": 50,
+      "KSA": 11
+    },
+    "2014": {
+      "Egypt": -8.5,
+      "France": 58.5,
+      "KSA": 18
+    },
+    "2015": {
+      "Egypt": -31,
+      "France": 54,
+      "KSA": 10
+    },
+    "2016": {
+      "Egypt": -31,
+      "France": 64,
+      "KSA": 1
+    },
+    "2017": {
+      "Egypt": -22,
+      "France": 8,
+      "KSA": -20.5
+    }
+  },
+  "x_ticks": [
+    "Egypt",
+    "France",
+    "KSA"
+  ],
+  "y_ticks": [
+    -50,
+    -37.5,
+    -25,
+    -12.5,
+    0,
+    12.5,
+    25,
+    37.5,
+    50,
+    62.5,
+    75
+  ],
+  "x_pixels": [
+    155,
+    329,
+    502
+  ],
+  "y_pixels": [
+    308,
+    284,
+    259,
+    234,
+    210,
+    185,
+    160,
+    136,
+    111,
+    86,
+    61
+  ],
+  "series_color": {
+    "2013": "#7CB5EC",
+    "2014": "#434348",
+    "2015": "#90ED7D",
+    "2016": "#F7A35C",
+    "2017": "#8085E9"
+  }
+}

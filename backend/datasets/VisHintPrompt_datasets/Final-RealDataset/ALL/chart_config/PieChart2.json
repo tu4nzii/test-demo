@@ -1,0 +1,28 @@
+{
+  "chart_id": "PieChart2",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart2.png"
+  },
+  "data_points": {
+    "1": 0.105,
+    "2": 0.158,
+    "3": 0.263,
+    "4": 0.08,
+    "5": 0.183,
+    "6": 0.211
+  },
+  "r_ticks": [],
+  "r_pixels": 100,
+  "center": [
+    105,
+    105
+  ],
+  "series_color": {
+    "1": "#4C78A8",
+    "2": "#F58518",
+    "3": "#E45756",
+    "4": "#72B7B2",
+    "5": "#54A24B",
+    "6": "#EECA3B"
+  }
+}

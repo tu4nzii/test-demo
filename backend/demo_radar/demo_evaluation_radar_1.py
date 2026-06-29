@@ -611,7 +611,7 @@ if __name__ == '__main__':
     evaluator = RadarChartEvaluator()
 
     # 指定要处理的单个JSON文件路径
-    json_file_path = './data/output/radar/result/radar_001_evalution_datasets.json'
+    json_file_path = './sample_outputs/radar/result/radar_001_evalution_datasets.json'
 
     # 处理单个图像
     evaluator.process_single_image(json_file_path)

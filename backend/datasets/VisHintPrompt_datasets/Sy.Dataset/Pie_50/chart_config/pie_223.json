@@ -1,0 +1,37 @@
+{
+  "chart_id": "223",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_223_no_grid.png",
+    "with_grid": "charts/pie/pie_223_with_grid.png"
+  },
+  "data_points": {
+    "Read only print books": 139.59,
+    "Read only digital books": 22.04,
+    "Read both print and digital books": 102.86,
+    "Read no books": 95.51
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Read only print books": "#fdc086",
+    "Read only digital books": "#bcbd22",
+    "Read both print and digital books": "#fddaec",
+    "Read no books": "#ccebc5"
+  }
+}

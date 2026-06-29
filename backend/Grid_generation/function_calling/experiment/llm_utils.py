@@ -1,4 +1,3 @@
-import aiohttp
 import base64
 import json
 import os
@@ -13,27 +12,11 @@ for path in (project_root, backend_root):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-from model_api_config import get_chat_completion_url, get_headers, get_model_name  # noqa: E402
+from gemini_calls import FAILURE_TEXT, chat_with_gemini  # noqa: E402
+from model_api_config import get_model_name  # noqa: E402
 
 
 LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("EXPERIMENT_LLM_TIMEOUT_SECONDS", "180"))
-
-
-def _extract_response_text(result: dict) -> str:
-    if "choices" in result and result["choices"]:
-        message = result["choices"][0].get("message", {})
-        content = message.get("content", "")
-        if isinstance(content, list):
-            return "\n".join(
-                part.get("text", "") for part in content if isinstance(part, dict)
-            )
-        return str(content)
-
-    if "candidates" in result and result["candidates"]:
-        parts = result["candidates"][0].get("content", {}).get("parts", [])
-        return "\n".join(part.get("text", "") for part in parts if isinstance(part, dict))
-
-    return ""
 
 
 async def call_llm_response(
@@ -45,41 +28,28 @@ async def call_llm_response(
     with open(image_path, "rb") as img_file:
         base64_image = base64.b64encode(img_file.read()).decode("utf-8")
 
-    payload = {
-        "model": os.getenv("EXPERIMENT_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": prompt},
-                    {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:image/png;base64,{base64_image}"},
-                    },
-                ],
-            }
-        ],
-        "temperature": float(os.getenv("EXPERIMENT_LLM_TEMPERATURE", "0")),
-    }
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{base64_image}"},
+                },
+            ],
+        }
+    ]
 
-    timeout = aiohttp.ClientTimeout(total=LLM_REQUEST_TIMEOUT_SECONDS)
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        try:
-            async with session.post(
-                get_chat_completion_url(),
-                headers=get_headers(),
-                json=payload,
-            ) as response:
-                text = await response.text()
-                if response.status != 200:
-                    print(f"LLM HTTP {response.status}: {text[:200]}")
-                    return (-1, -1) if task != "diameter_estimation" else "-1"
-                result = json.loads(text)
-        except Exception as e:
-            print(f"LLM request/decode error: {e}")
-            return (-1, -1) if task != "diameter_estimation" else "-1"
+    content = await chat_with_gemini(
+        messages,
+        model=os.getenv("EXPERIMENT_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
+        temperature=float(os.getenv("EXPERIMENT_LLM_TEMPERATURE", "0")),
+        max_retries=int(os.getenv("EXPERIMENT_LLM_MAX_ATTEMPTS", "3")),
+    )
+    if content == FAILURE_TEXT:
+        return (-1, -1) if task != "diameter_estimation" else "-1"
 
-    content = _extract_response_text(result)
     print(f"LLM Response:\n{content}")
 
     if task == "diameter_estimation":

@@ -30,8 +30,8 @@ def write_json(path: Path, payload: dict) -> None:
 def main() -> int:
     input_dir = BACKEND_DIR / "charts" / "line"
     run_id = time.strftime("%Y%m%d_%H%M%S")
-    output_dir = BACKEND_DIR / "evaluation" / "recheck_outputs" / f"line_full_test_{run_id}" / "line"
-    result_path = BACKEND_DIR / "evaluation" / "results" / f"line_full_test_{run_id}.json"
+    output_dir = BACKEND_DIR / "evaluation" / "recheck_outputs" / "line_full_test_latest" / "line"
+    result_path = BACKEND_DIR / "evaluation" / "results" / "line_full_test_latest.json"
     progress_path = BACKEND_DIR / "evaluation" / "results" / "line_full_test_latest_progress.json"
 
     images = sorted(path for path in input_dir.glob("*.png") if is_source_line_image(path))

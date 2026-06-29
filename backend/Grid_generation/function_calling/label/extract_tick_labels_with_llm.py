@@ -8,8 +8,6 @@ import re
 import json
 import hashlib
 import math
-import time
-import requests
 from datetime import datetime
 from typing import Dict, List, Optional
 
@@ -23,107 +21,32 @@ project_root = os.path.abspath(os.path.join(current_dir, '../../../..'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from model_api_config import get_api_key, get_chat_completion_url, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini_sync
+from model_api_config import get_model_name
 
-def _build_chat_completions_url(raw_url: str) -> str:
-    url = (raw_url or "").strip().rstrip("/")
-    if not url:
-        return get_chat_completion_url()
-    if url.endswith("/chat/completions"):
-        return url
-    return f"{url}/chat/completions"
-
-
-def _split_env_keys(raw_keys: str) -> List[str]:
-    return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
-
-
-API_URL = _build_chat_completions_url(
-    os.getenv("TICK_LLM_API_URL")
-    or os.getenv("TICK_LLM_BASE_URL")
-    or os.getenv("MLLM_API_URL")
-    or os.getenv("MLLM_BASE_URL")
-    or get_chat_completion_url()
-)
-ENV_API_KEYS = _split_env_keys(
-    os.getenv("TICK_LLM_API_KEYS")
-    or os.getenv("TICK_LLM_API_KEY")
-    or os.getenv("MLLM_API_KEYS")
-    or os.getenv("MLLM_API_KEY")
-    or ""
-)
-DEFAULT_API_KEYS = [
-    get_api_key()
-]
-API_KEYS = ENV_API_KEYS or DEFAULT_API_KEYS
-key_index = 0
 LLM_MODEL = os.getenv("TICK_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name()
 LLM_TEMPERATURE = float(os.getenv("TICK_LLM_TEMPERATURE", "0"))
 LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("TICK_LLM_TIMEOUT_SECONDS", "180"))
 LLM_MAX_ATTEMPTS = int(os.getenv("TICK_LLM_MAX_ATTEMPTS", "8"))
 LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("TICK_LLM_RETRY_BACKOFF_SECONDS", "2"))
-TICK_CACHE_SCHEMA_VERSION = "tick-mllm-v11"
+TICK_CACHE_SCHEMA_VERSION = "tick-mllm-v16"
 TICK_SYSTEM_PROMPT = (
     "You are a precise chart-reading assistant. Extract only visible axis tick labels, "
     "preserve their order, and do not infer data values or legend text as ticks."
 )
 
 
-def rotate_key():
-    """Switch to the next API key."""
-    global key_index
-    key_index = (key_index + 1) % len(API_KEYS)
-    print(f"[Info] Switched to API key [{key_index + 1}/{len(API_KEYS)}]")
-
 def chat_with_gemini(messages: list) -> Optional[str]:
-    """Call the configured chat-completions compatible MLLM."""
-    payload = {
-        "model": LLM_MODEL,
-        "messages": messages,
-        "temperature": LLM_TEMPERATURE
-    }
-    
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {API_KEYS[key_index]}"
-    }
-    
-    retryable_status = {429, 500, 502, 503, 504}
-
-    for attempt in range(1, LLM_MAX_ATTEMPTS + 1):
-        try:
-            response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
-            
-            if response.status_code in retryable_status:
-                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
-                rotate_key()
-                if attempt < LLM_MAX_ATTEMPTS:
-                    wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
-                    print(f"[Info] Retrying after {wait_seconds:.1f}s [{attempt}/{LLM_MAX_ATTEMPTS}]...")
-                    time.sleep(wait_seconds)
-                continue
-            
-            if response.status_code != 200:
-                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
-                return None
-            
-            result = response.json()
-            if "choices" in result and len(result["choices"]) > 0:
-                content = result["choices"][0]["message"]["content"]
-                return content
-            else:
-                print(f"[Warning] Unexpected response format: {result}")
-                if attempt < LLM_MAX_ATTEMPTS:
-                    time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
-                
-        except Exception as e:
-            print(f"[Warning] Attempt {attempt} failed: {e}")
-            if attempt < LLM_MAX_ATTEMPTS:
-                time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
-            continue
-    
-    print("[Error] All MLLM attempts failed.")
-    return None
+    """Call the project-wide Gemini/OpenAI-compatible MLLM helper."""
+    content = chat_with_gemini_sync(
+        messages,
+        model=LLM_MODEL,
+        temperature=LLM_TEMPERATURE,
+        timeout_seconds=LLM_REQUEST_TIMEOUT_SECONDS,
+        max_retries=LLM_MAX_ATTEMPTS,
+        retry_backoff_seconds=LLM_RETRY_BACKOFF_SECONDS,
+    )
+    return None if content == FAILURE_TEXT else content
 
 
 def get_cache_file_path(image_path: str, cache_dir: str) -> str:
@@ -200,12 +123,19 @@ def encode_axis_crop_to_base64(image_path: str, direction: str, chart_type: str 
         return encode_image_to_base64(image_path)
     h, w = image.shape[:2]
     chart_type = _bar_base_type(chart_type or os.path.basename(os.path.dirname(image_path)))
-    if direction.lower() == "x":
+    if chart_type in {"scatter", "bubble"}:
+        return encode_image_to_base64(image_path)
+    if direction.lower() == "x" and chart_type == "h_bar":
+        crop = image
+    elif direction.lower() == "x":
         crop = image[int(h * 0.52):h, 0:w]
     elif chart_type == "h_bar":
         crop = image[0:int(h * 0.82), 0:int(w * 0.68)]
     else:
-        crop = image[0:h, 0:int(w * 0.34)]
+        left = image[0:h, 0:int(w * 0.42)]
+        right = image[0:h, int(w * 0.58):w]
+        gap = np.full((h, max(8, int(w * 0.02)), 3), 255, dtype=np.uint8)
+        crop = np.concatenate([left, gap, right], axis=1)
     ok, buffer = cv2.imencode(".png", crop)
     if not ok:
         return encode_image_to_base64(image_path)
@@ -215,6 +145,7 @@ def encode_axis_crop_to_base64(image_path: str, direction: str, chart_type: str 
 def build_tick_extraction_prompt(direction: str = "x", chart_type: str = "") -> str:
     axis_name = "X axis" if direction.lower() == "x" else "Y axis"
     order = "left to right" if direction.lower() == "x" else "bottom to top"
+    chart_type = (chart_type or "").lower()
     if _bar_base_type(chart_type) == "h_bar" and direction.lower() == "y":
         return """
 Read only the Y-axis category tick labels in this horizontal bar chart.
@@ -235,6 +166,34 @@ Rules:
 4. Preserve category labels exactly, including punctuation and parenthesized text.
 5. Return JSON only, with no Markdown and no explanation.
 """
+    point_chart_rules = ""
+    if chart_type in {"scatter", "bubble"}:
+        point_chart_rules = """
+Point-chart rules:
+- Read ticks from the main plotting area's coordinate axes only.
+- Ignore color bars, size legends, series legends, captions, source notes, and their tick labels.
+- If a color scale or legend appears below the plot, do not treat it as the X axis.
+- Include the full visible range of the main axis, including endpoint ticks at the left/right or bottom/top of the plot.
+"""
+    line_chart_rules = ""
+    if chart_type == "line":
+        line_chart_rules = """
+Line-chart rules:
+- Read only labels printed on the outer axes or plot-frame tick positions.
+- Ignore numeric labels printed next to data points, curve annotations, callouts, tooltips, and legend entries.
+- Ignore right-side series labels unless they are aligned as a numeric axis scale with multiple regular tick labels.
+- If the x-axis is a time/category axis such as months, dates, or years, return those visible axis labels as text in order.
+- If dense minor ticks are present but only a few tick labels are printed, return only the printed tick labels.
+"""
+    bar_chart_rules = ""
+    if _bar_base_type(chart_type) in {"v_bar", "h_bar"}:
+        bar_chart_rules = """
+Bar-chart category-axis rules:
+- For grouped or multi-level category axes, read only the primary tick labels directly aligned with bars or bar groups.
+- Ignore secondary grouping labels such as years printed below quarters, cohort headers, panel labels, axis titles, and legends.
+- If labels such as Q1 Q2 Q3 Q4 repeat under multiple years, return only the repeated Q labels in their visible order, not the year labels.
+"""
+
     return f"""
 Read the visible tick labels on the {axis_name} only.
 
@@ -248,13 +207,17 @@ Rules:
 1. The ticks must be ordered {order}.
 2. Include every visible tick label on this axis, including intermediate labels.
 3. Do not include axis titles, legend labels, data labels, point labels, or grid values from the other axis.
-4. Preserve text labels exactly. For numeric labels, keep signs, decimals, commas, and percentages if shown.
-5. If labels are partially occluded, return only labels that are readable.
-6. Decide axis_type by the role of the axis, not only by whether labels can be parsed as numbers.
-7. Use "numeric" only for a continuous quantitative scale where inserted intermediate tick values would be meaningful on the chart.
-8. Use "text" for discrete categories, names, IDs, dates, months, quarters, or observation periods. Calendar years on a line/bar chart are usually time-point labels, so classify them as text unless the axis is clearly a continuous numeric scale.
-9. Do not convert time labels or category labels into numbers; preserve them as strings.
-10. Return JSON only, with no Markdown and no explanation.
+4. For Y axis labels, inspect both the left and right sides of the plot; some charts place the numeric Y-axis labels on the right.
+5. Preserve text labels exactly. For numeric labels, keep signs, decimals, commas, and percentages if shown.
+6. If labels are partially occluded, return only labels that are readable.
+7. Decide axis_type by the role of the axis, not only by whether labels can be parsed as numbers.
+8. Use "numeric" only for a continuous quantitative scale where inserted intermediate tick values would be meaningful on the chart.
+9. Use "text" for discrete categories, names, IDs, dates, months, quarters, or observation periods. Calendar years on a line/bar chart are usually time-point labels, so classify them as text unless the axis is clearly a continuous numeric scale.
+10. Do not convert time labels or category labels into numbers; preserve them as strings.
+11. Return JSON only, with no Markdown and no explanation.
+{point_chart_rules}
+{line_chart_rules}
+{bar_chart_rules}
 """
 
 
@@ -717,6 +680,129 @@ def extract_tick_labels_with_llm(
             metadata=metadata,
         )
 
+    return result
+
+
+def _bar_value_cache_path(image_path: str, cache_dir: str, chart_type: str) -> str:
+    abs_path = os.path.abspath(image_path)
+    try:
+        image_hash = sha256_file(abs_path)
+    except OSError:
+        image_hash = hashlib.sha256(abs_path.encode("utf-8")).hexdigest()
+    payload = {
+        "schema": "bar-value-labels-v1",
+        "chart_type": chart_type,
+        "image_sha256": image_hash,
+        "model": LLM_MODEL,
+        "temperature": LLM_TEMPERATURE,
+    }
+    return os.path.join(cache_dir, f"{stable_json_hash(payload)}.json")
+
+
+def _parse_bar_value_response(response_text: str) -> List[float]:
+    text = (response_text or "").strip()
+    if not text:
+        return []
+    values = []
+    try:
+        match = re.search(r"\{[\s\S]*\}", text)
+        payload = json.loads(match.group(0) if match else text)
+        raw_values = payload.get("values", [])
+        if isinstance(raw_values, list):
+            if raw_values and all(isinstance(item, dict) for item in raw_values):
+                raw_values = sorted(
+                    raw_values,
+                    key=lambda item: float(item.get("position", item.get("index", 1e9))),
+                )
+                raw_values = [
+                    item.get("value", item.get("label", item.get("text", "")))
+                    for item in raw_values
+                ]
+            for item in raw_values:
+                match_value = re.search(
+                    r"[-+]?\d[\d,]*(?:\.\d+)?",
+                    str(item).replace("\u2212", "-"),
+                )
+                if match_value:
+                    values.append(float(match_value.group(0).replace(",", "")))
+    except Exception:
+        pass
+    if values:
+        return values
+
+    for match_value in re.finditer(r"[-+]?\d[\d,]*(?:\.\d+)?", text.replace("\u2212", "-")):
+        try:
+            values.append(float(match_value.group(0).replace(",", "")))
+        except ValueError:
+            continue
+    return values
+
+
+def extract_bar_value_labels_with_llm(
+    image_path: str,
+    cache_dir: Optional[str] = None,
+    allow_api: bool = True,
+    chart_type_override: str = "",
+) -> Dict:
+    """Read numeric data labels printed at bar ends when an axis has no ticks."""
+    chart_type = (chart_type_override or os.path.basename(os.path.dirname(image_path))).lower()
+    cache_file = None
+    if cache_dir:
+        cache_file = _bar_value_cache_path(image_path, cache_dir, chart_type)
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    cached = json.load(f)
+                if isinstance(cached.get("values"), list):
+                    return {"values": cached.get("values", []), "cache_hit": True}
+            except Exception:
+                pass
+
+    if not allow_api:
+        return {"values": [], "cache_hit": False, "cache_miss": True}
+
+    order = "left to right" if _bar_base_type(chart_type) == "v_bar" else "top to bottom"
+    prompt = f"""
+Read only numeric data labels printed on or immediately beside bar ends in this bar chart.
+
+Return strict JSON only:
+{{
+  "values": [
+    {{"position": 0, "value": "first visible bar-end numeric label"}},
+    {{"position": 1, "value": "next visible bar-end numeric label"}}
+  ]
+}}
+
+Rules:
+1. Order values {order}.
+2. Use only labels that directly annotate bar lengths/heights, such as labels above vertical bars or at the end of horizontal bars.
+3. Do not read axis tick labels, category labels, legend text, titles, source notes, or percentages in captions.
+4. Preserve the numeric text, but units such as m, %, or kg may remain attached.
+5. If there are no bar-end numeric labels, return {{"values": []}}.
+"""
+    messages = [
+        {"role": "system", "content": "You are a precise chart-reading assistant."},
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{encode_image_to_base64(image_path)}"},
+                },
+            ],
+        },
+    ]
+    response = chat_with_gemini(messages)
+    values = _parse_bar_value_response(response or "")
+    result = {"values": values, "raw_response": response or "", "cache_hit": False}
+    if cache_file:
+        try:
+            os.makedirs(os.path.dirname(cache_file), exist_ok=True)
+            with open(cache_file, "w", encoding="utf-8") as f:
+                json.dump(result, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"[Warning] Failed to save bar value cache: {e}")
     return result
 
 

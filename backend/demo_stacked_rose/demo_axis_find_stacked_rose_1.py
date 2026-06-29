@@ -28,7 +28,7 @@ class RoseChartAxisFinder:
             print(f"OCR识别器初始化失败: {e}")
 
         # 统一输出路径配置
-        self.output_dir = "./data/output/stacked_rose"  # 主输出目录
+        self.output_dir = "./sample_outputs/stacked_rose"  # 主输出目录
         self.axes_output_dir = os.path.join(self.output_dir)  # 轴线检测结果目录
 
         # 确保输出目录存在
@@ -464,7 +464,7 @@ if __name__ == "__main__":
 
     # 指定要处理的图像路径
     image_path = r"backend\charts\stacked_rose\stacked_rose_003.png"  # 根据需要修改
-    json_path = r"data\output\stacked_rose\stacked_rose_003.json"  # 根据需要修改
+    json_path = r"sample_outputs\stacked_rose\stacked_rose_003.json"  # 根据需要修改
     # 可以手动指定圆心和半径，也可以让程序自动从JSON文件中读取
     # 手动指定示例:
     # center = [300, 300]  # 根据实际情况修改

@@ -2,22 +2,20 @@ import numpy as np
 import json
 import cv2
 import re
-import requests
 import base64
 import os
 
-from model_api_config import get_chat_completion_url, get_headers, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini_sync
+from model_api_config import get_model_name
 
 class RadarColorMatcher:
     """RadarColorMatcher helper."""
     def __init__(self):
 
-        self.url = get_chat_completion_url()
-        self.headers = get_headers()
         self.model_name = get_model_name()
         
 
-        self.output_dir = "./data/output/radar"
+        self.output_dir = "./sample_outputs/radar"
         os.makedirs(self.output_dir, exist_ok=True)
         
 
@@ -92,9 +90,7 @@ Return strict JSON only:
 position is the legend center in pixels, and range is width/height in pixels. Use null if the legend cannot be located.
 """
         
-        payload = {
-            "model": self.model_name,
-            "messages": [
+        messages = [
                 {
                     "role": "user",
                     "content": [
@@ -102,14 +98,16 @@ position is the legend center in pixels, and range is width/height in pixels. Us
                         {"type": "text", "text": prompt}
                     ]
                 }
-            ],
-            "temperature": 0.5
-        }
+        ]
         
         try:
-            response = requests.post(url=self.url, headers=self.headers, json=payload)
-            result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            content = chat_with_gemini_sync(
+                messages,
+                model=self.model_name,
+                temperature=0.5,
+            )
+            if content == FAILURE_TEXT:
+                return None
             
             data = self.parse_json(content)
             if data and "position" in data and "range" in data:
@@ -120,8 +118,6 @@ position is the legend center in pixels, and range is width/height in pixels. Us
                 
         except Exception as e:
             print(f"API request failed: {e}")
-            if 'response' in locals():
-                print(f"Response content: {response.text}")
             return None
     
     def auto_crop_legend(self, image, scale=2):
@@ -336,9 +332,7 @@ Return strict JSON only as an object mapping entity names to #RRGGBB colors:
 Every entity should receive the most plausible matching color. Do not invent new entity names.
 """
         
-        payload = {
-            "model": self.model_name,
-            "messages": [
+        messages = [
                 {
                     "role": "user",
                     "content": [
@@ -346,21 +340,21 @@ Every entity should receive the most plausible matching color. Do not invent new
                         {"type": "text", "text": prompt}
                     ]
                 }
-            ],
-            "temperature": 0.3
-        }
+        ]
         
         try:
-            response = requests.post(url=self.url, headers=self.headers, json=payload)
-            result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            content = chat_with_gemini_sync(
+                messages,
+                model=self.model_name,
+                temperature=0.3,
+            )
+            if content == FAILURE_TEXT:
+                return None
             
             return self.parse_json(content)
                 
         except Exception as e:
             print(f"API request failed: {e}")
-            if 'response' in locals():
-                print(f"Response content: {response.text}")
             return None
 
     def extract_legend_series_colors(self, image_path, use_auto_crop=True):
@@ -427,9 +421,7 @@ Expected JSON shape:
   }}
 }}
 """
-                payload = {
-                    "model": self.model_name,
-                    "messages": [
+                messages = [
                         {
                             "role": "user",
                             "content": [
@@ -437,13 +429,16 @@ Expected JSON shape:
                                 {"type": "text", "text": prompt},
                             ],
                         }
-                    ],
-                    "temperature": 0.0,
-                }
+                ]
 
-                response = requests.post(url=self.url, headers=self.headers, json=payload, timeout=180)
-                result = response.json()
-                content = result["choices"][0]["message"]["content"]
+                content = chat_with_gemini_sync(
+                    messages,
+                    model=self.model_name,
+                    temperature=0.0,
+                    timeout_seconds=180,
+                )
+                if content == FAILURE_TEXT:
+                    continue
                 parsed = self.parse_json(content)
                 series_color = parsed.get("series_color") if isinstance(parsed, dict) else None
                 if not isinstance(series_color, dict):

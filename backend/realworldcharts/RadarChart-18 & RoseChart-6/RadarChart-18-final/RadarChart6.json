@@ -1,0 +1,69 @@
+{
+  "chart_id": "RadarChart6",
+  "chart_type": "radar",
+  "labels": [
+    "Speed",
+    "Accuracy",
+    "Efficiency",
+    "Reliability",
+    "Usability"
+  ],
+  "data_points": {
+    "SystemX": {
+      "Speed": 78.0,
+      "Accuracy": 85.0,
+      "Efficiency": 70.0,
+      "Reliability": 90.0,
+      "Usability": 82.0
+    },
+    "SystemY": {
+      "Speed": 92.0,
+      "Accuracy": 70.0,
+      "Efficiency": 88.0,
+      "Reliability": 75.0,
+      "Usability": 65.0
+    }
+  },
+  "theta_ticks": [
+    "Speed",
+    "Accuracy",
+    "Efficiency",
+    "Reliability",
+    "Usability"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    45,
+    90,
+    135,
+    180,
+    225
+  ],
+  "center": [
+    320,
+    320
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart6.png"
+  },
+  "series_color": {
+    "SystemX": "#9467bd",
+    "SystemY": "#d62728"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 5
+}

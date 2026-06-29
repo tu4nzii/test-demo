@@ -560,7 +560,7 @@ if __name__ == '__main__':
     evaluator = RadarChartEvaluator()
     
     # 鎸囧畾瑕佸鐞嗙殑鍗曚釜JSON鏂囦欢璺緞
-    json_file_path = './data/output/radar/result/radar_001_evalution_datasets.json'
+    json_file_path = './sample_outputs/radar/result/radar_001_evalution_datasets.json'
     
     # 澶勭悊鍗曚釜鍥惧儚
     evaluator.process_single_image(json_file_path)

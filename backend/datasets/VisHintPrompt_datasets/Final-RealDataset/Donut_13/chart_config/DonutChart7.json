@@ -1,0 +1,27 @@
+{
+  "chart_id": "DonutChart7",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart7.png"
+  },
+  "data_points": {
+    "Sheep": 0.004,
+    "Poultry": 0.498,
+    "Beef": 0.263,
+    "Pig": 0.232
+  },
+  "center": [
+    450,
+    250
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    127,
+    212
+  ],
+  "series_color": {
+    "Sheep": "#FF9B83",
+    "Poultry": "#976393",
+    "Beef": "#685489",
+    "Pig": "#43457F"
+  }
+}

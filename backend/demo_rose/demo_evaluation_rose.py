@@ -97,6 +97,6 @@ Return strict JSON only:
 
 if __name__ == "__main__":
     evaluator = RoseChartEvaluator()
-    json_file_path = "./data/output/rose/result/chart_1761120786_evalution_datasets.json"
+    json_file_path = "./sample_outputs/rose/result/chart_1761120786_evalution_datasets.json"
     evaluator.process_single_image(json_file_path)
     evaluator.save_results()

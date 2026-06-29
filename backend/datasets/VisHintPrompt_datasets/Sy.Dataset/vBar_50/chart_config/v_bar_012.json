@@ -1,0 +1,68 @@
+{
+  "chart_id": "v_bar_012",
+  "image_paths": {
+    "no_grid": "charts/v_bar/v_bar_012.png",
+    "with_grid": "charts/v_bar/v_bar_012_grid.png",
+    "grid_with_grid": "charts/v_bar/v_bar_012_grid_with_grid.png"
+  },
+  "data_points": {
+    "Consumption in million U.S. dollars": {
+      "2020*": 12268.0,
+      "2019*": 12140.0,
+      "2018*": 11974.0,
+      "2017": 11718.0,
+      "2016": 11522.0
+    }
+  },
+  "x_ticks": [
+    "2020*",
+    "2019*",
+    "2018*",
+    "2017",
+    "2016"
+  ],
+  "y_ticks": [
+    0.0,
+    1000.0,
+    2000.0,
+    3000.0,
+    4000.0,
+    5000.0,
+    6000.0,
+    7000.0,
+    8000.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0,
+    13000.0,
+    14000.0
+  ],
+  "x_pixels": [
+    173,
+    279,
+    385,
+    491,
+    597
+  ],
+  "y_pixels": [
+    400,
+    376,
+    351,
+    327,
+    303,
+    279,
+    254,
+    230,
+    206,
+    181,
+    157,
+    133,
+    109,
+    84,
+    60
+  ],
+  "series_color": {
+    "Consumption in million U.S. dollars": "#87ceeb"
+  }
+}

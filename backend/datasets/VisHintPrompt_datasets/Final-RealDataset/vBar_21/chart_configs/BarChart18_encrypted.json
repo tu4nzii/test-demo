@@ -1,0 +1,69 @@
+{
+  "chart_id": "BarChart18",
+  "image_paths": {
+    "no_grid": "chart/BarChart18.png",
+    "with_grid": "chart/BarChart18_grid.png",
+    "grid_with_grid": "chart/BarChart18_grid.png"
+  },
+  "data_points": {
+    "Age Frequency": {
+      "16": 7,
+      "17": 2,
+      "18": 5,
+      "19": 4
+    }
+  },
+  "x_ticks": [
+    "16",
+    "17",
+    "18",
+    "19"
+  ],
+  "y_ticks": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    3.5,
+    4,
+    4.5,
+    5,
+    5.5,
+    6,
+    6.5,
+    7,
+    7.5,
+    8
+  ],
+  "x_pixels": [
+    100,
+    144,
+    189,
+    235
+  ],
+  "y_pixels": [
+    270,
+    254,
+    239,
+    224,
+    209,
+    194,
+    179,
+    164,
+    149,
+    134,
+    119,
+    104,
+    89,
+    74,
+    59,
+    44,
+    29
+  ],
+  "series_color": {
+    "Age Frequency": "#0026CA"
+  }
+}

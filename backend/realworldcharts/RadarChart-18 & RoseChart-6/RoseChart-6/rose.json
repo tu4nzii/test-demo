@@ -1,0 +1,78 @@
+{
+  "chart_id": "rose",
+  "image_paths": {
+    "with_grid": "RoseChart-6/rose.png"
+  },
+  "center": {
+    "x": 400,
+    "y": 400
+  },
+  "data_points": {
+    "Jan": 120,
+    "Feb": 85,
+    "Mar": 95,
+    "Apr": 110,
+    "May": 135,
+    "Jun": 155,
+    "Jul": 165,
+    "Aug": 150,
+    "Sep": 125,
+    "Oct": 90,
+    "Nov": 75,
+    "Dec": 88
+  },
+  "series_color": {
+    "Jan": "#e74c3c",
+    "Feb": "#e67e22",
+    "Mar": "#f39c12",
+    "Apr": "#f1c40f",
+    "May": "#2ecc71",
+    "Jun": "#1abc9c",
+    "Jul": "#3498db",
+    "Aug": "#9b59b6",
+    "Sep": "#34495e",
+    "Oct": "#7f8c8d",
+    "Nov": "#95a5a6",
+    "Dec": "#bdc3c7"
+  },
+  "r_ticks": [
+    "50",
+    "100",
+    "150",
+    "200"
+  ],
+  "r_pixels": [
+    80,
+    160,
+    240,
+    320
+  ],
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "theta_angles": [
+    0.0,
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0,
+    180.0,
+    210.0,
+    240.0,
+    270.0,
+    300.0,
+    330.0
+  ]
+}

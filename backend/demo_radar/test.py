@@ -89,7 +89,7 @@ class SimpleLegendColorExtractor:
         return f"#{rgb_color[0]:02x}{rgb_color[1]:02x}{rgb_color[2]:02x}".upper()
 
 def main():
-    image_path = 'data/output/radar/legend_radar_001.png'
+    image_path = 'sample_outputs/radar/legend_radar_001.png'
     output_json = 'legend_colors_with_position.json'
     output_image = 'legend_color_marked.png'
 

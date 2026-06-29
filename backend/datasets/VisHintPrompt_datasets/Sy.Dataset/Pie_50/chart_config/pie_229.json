@@ -1,0 +1,39 @@
+{
+  "chart_id": "229",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_229_no_grid.png",
+    "with_grid": "charts/pie/pie_229_with_grid.png"
+  },
+  "data_points": {
+    "Have not heard of Latinx": 276.36,
+    "Do not use Latinx": 72.73,
+    "Use Latinx": 10.91
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Have not heard of Latinx": "#1f77b4",
+    "Do not use Latinx": "#e6ab02",
+    "Use Latinx": "#fdc086"
+  }
+}

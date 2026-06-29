@@ -1,0 +1,72 @@
+{
+  "chart_id": "shot-nightingale-rose-chart-4",
+  "image_paths": {
+    "with_grid": "RoseChart-6/shot-nightingale-rose-chart-4.png"
+  },
+  "center": {
+    "x": 500,
+    "y": 175
+  },
+  "data_points": {
+    "Apple": 6806,
+    "Banana": 2000,
+    "Peach": 3474,
+    "Grape": 7303,
+    "Pear": 6224,
+    "Lemon": 5201,
+    "Mango": 4472,
+    "Orange": 5449,
+    "Lychee": 4993,
+    "Pineapple": 6341
+  },
+  "series_color": {
+    "Apple": "#3a678f",
+    "Banana": "#4374a0",
+    "Peach": "#4a7fb0",
+    "Grape": "#5089bc",
+    "Pear": "#5692c9",
+    "Lemon": "#5b9bd5",
+    "Mango": "#7caada",
+    "Orange": "#97b9e0",
+    "Lychee": "#adc6e5",
+    "Pineapple": "#bed1ea"
+  },
+  "r_ticks": [
+    "0",
+    "2000",
+    "4000",
+    "6000",
+    "8000"
+  ],
+  "r_pixels": [
+    0,
+    50,
+    100,
+    150,
+    200
+  ],
+  "theta_ticks": [
+    "Apple",
+    "Banana",
+    "Peach",
+    "Grape",
+    "Pear",
+    "Lemon",
+    "Mango",
+    "Orange",
+    "Lychee",
+    "Pineapple"
+  ],
+  "theta_angles": [
+    90.0,
+    54.0,
+    18.0,
+    342.0,
+    306.0,
+    270.0,
+    234.0,
+    198.0,
+    162.0,
+    126.0
+  ]
+}

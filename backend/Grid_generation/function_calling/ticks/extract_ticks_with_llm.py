@@ -5,8 +5,6 @@ import os
 import re
 import sys
 
-import requests
-
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, "../../../.."))
 backend_root = os.path.abspath(os.path.join(current_dir, "../../.."))
@@ -17,7 +15,8 @@ for path in (project_root, backend_root, grid_root, function_calling_root):
         sys.path.insert(0, path)
 
 from config import DEBUG_OUTPUT_DIRS, IMG_PATHS  # noqa: E402
-from model_api_config import get_chat_completion_url, get_headers, get_model_name  # noqa: E402
+from gemini_calls import FAILURE_TEXT, chat_with_gemini_sync  # noqa: E402
+from model_api_config import get_model_name  # noqa: E402
 
 
 LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("TICK_LLM_TIMEOUT_SECONDS", "180"))
@@ -41,55 +40,34 @@ def build_tick_extraction_prompt():
     )
 
 
-def _extract_response_text(result):
-    if "choices" in result and result["choices"]:
-        message = result["choices"][0].get("message", {})
-        content = message.get("content", "")
-        if isinstance(content, list):
-            return "\n".join(
-                part.get("text", "") for part in content if isinstance(part, dict)
-            )
-        return str(content)
-
-    if "candidates" in result and result["candidates"]:
-        parts = result["candidates"][0].get("content", {}).get("parts", [])
-        return "\n".join(part.get("text", "") for part in parts if isinstance(part, dict))
-
-    return ""
-
-
 def call_gemini_for_ticks(image_path):
     image_base64 = encode_image_to_base64(image_path)
     prompt = build_tick_extraction_prompt()
 
-    payload = {
-        "model": os.getenv("TICK_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": prompt},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/png;base64,{image_base64}",
-                        },
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{image_base64}",
                     },
-                ],
-            }
-        ],
-        "temperature": float(os.getenv("TICK_LLM_TEMPERATURE", "0")),
-    }
+                },
+            ],
+        }
+    ]
 
     try:
-        response = requests.post(
-            get_chat_completion_url(),
-            headers=get_headers(),
-            json=payload,
-            timeout=LLM_REQUEST_TIMEOUT_SECONDS,
+        text = chat_with_gemini_sync(
+            messages,
+            model=os.getenv("TICK_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
+            temperature=float(os.getenv("TICK_LLM_TEMPERATURE", "0")),
+            timeout_seconds=LLM_REQUEST_TIMEOUT_SECONDS,
         )
-        response.raise_for_status()
-        text = _extract_response_text(response.json())
+        if text == FAILURE_TEXT:
+            raise ValueError("Model API request failed.")
         match = re.search(r"\{[\s\S]*\}", text)
         if not match:
             raise ValueError("No JSON object found in LLM response.")

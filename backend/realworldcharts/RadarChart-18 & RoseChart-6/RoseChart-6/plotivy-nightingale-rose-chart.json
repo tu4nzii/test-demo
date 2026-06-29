@@ -1,0 +1,80 @@
+{
+  "chart_id": "plotivy-nightingale-rose-chart",
+  "image_paths": {
+    "with_grid": "RoseChart-6/plotivy-nightingale-rose-chart.png"
+  },
+  "center": {
+    "x": 450,
+    "y": 450
+  },
+  "data_points": {
+    "Category1": 0.35,
+    "Category2": 0.65,
+    "Category3": 0.48,
+    "Category4": 0.82,
+    "Category5": 0.55,
+    "Category6": 0.70,
+    "Category7": 0.42,
+    "Category8": 0.58,
+    "Category9": 0.68,
+    "Category10": 0.75,
+    "Category11": 0.52,
+    "Category12": 0.62
+  },
+  "series_color": {
+    "Category1": "#aec7e8",
+    "Category2": "#ff7f0e",
+    "Category3": "#98df8a",
+    "Category4": "#ff9896",
+    "Category5": "#c49c94",
+    "Category6": "#c5b0d5",
+    "Category7": "#ffbb78",
+    "Category8": "#98c999",
+    "Category9": "#f7b6d2",
+    "Category10": "#c7c7c7",
+    "Category11": "#dbdb8d",
+    "Category12": "#9edae5"
+  },
+  "r_ticks": [
+    "0.2",
+    "0.4",
+    "0.6",
+    "0.8",
+    "1.0"
+  ],
+  "r_pixels": [
+    100,
+    200,
+    300,
+    400,
+    500
+  ],
+  "theta_ticks": [
+    "Category1",
+    "Category2",
+    "Category3",
+    "Category4",
+    "Category5",
+    "Category6",
+    "Category7",
+    "Category8",
+    "Category9",
+    "Category10",
+    "Category11",
+    "Category12"
+  ],
+  "theta_angles": [
+    0.0,
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0,
+    180.0,
+    210.0,
+    240.0,
+    270.0,
+    300.0,
+    330.0
+  ]
+}

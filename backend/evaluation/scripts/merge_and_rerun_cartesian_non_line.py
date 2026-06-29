@@ -110,12 +110,12 @@ def main() -> int:
     logging.getLogger("grid_generation").setLevel(logging.WARNING)
 
     run_id = time.strftime("%Y%m%d_%H%M%S")
-    output_root = BACKEND_DIR / "evaluation" / "recheck_outputs" / f"cartesian_non_line_merged_rerun_{run_id}"
-    result_path = BACKEND_DIR / "evaluation" / "results" / f"cartesian_non_line_merged_rerun_{run_id}.json"
+    output_root = BACKEND_DIR / "evaluation" / "recheck_outputs" / "cartesian_non_line_merged_rerun_latest"
+    result_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_merged_rerun_latest.json"
     latest_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_merged_rerun_latest.json"
-    issue_path = BACKEND_DIR / "evaluation" / "results" / f"cartesian_non_line_merged_rerun_{run_id}_issues.json"
+    issue_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_merged_rerun_latest_issues.json"
     latest_issue_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_merged_rerun_latest_issues.json"
-    log_path = BACKEND_DIR / "evaluation" / "results" / f"cartesian_non_line_merged_rerun_{run_id}.log"
+    log_path = BACKEND_DIR / "evaluation" / "results" / "cartesian_non_line_merged_rerun_latest.log"
 
     original = read_json(ORIGINAL_RESULT)
     source_items = original.get("items", [])

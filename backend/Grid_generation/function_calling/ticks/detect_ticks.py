@@ -8,13 +8,16 @@ def scan_pixels_for_ticks(image, axis_line, direction='x', scan_range=20, min_ti
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     h, w = gray.shape
     tick_lines = []
+    if axis_line is None:
+        return tick_lines
+    axis_line = [int(round(v)) for v in axis_line]
 
     if direction == 'x':
-        axis_y = (axis_line[1] + axis_line[3]) // 2
+        axis_y = int(np.clip((axis_line[1] + axis_line[3]) // 2, 0, h - 1))
         # x_start = max(0, min(axis_line[0], axis_line[2]) - scan_range)
         # x_end   = min(w, max(axis_line[0], axis_line[2]) + scan_range)
-        x_start = min(axis_line[0], axis_line[2])
-        x_end   = max(axis_line[0], axis_line[2])
+        x_start = max(0, min(axis_line[0], axis_line[2]))
+        x_end   = min(w, max(axis_line[0], axis_line[2]) + 1)
         for xx in range(x_start, x_end):
             tick_start = axis_y + 1
             tick_end = min(axis_y + scan_range, h - 1)
@@ -30,11 +33,11 @@ def scan_pixels_for_ticks(image, axis_line, direction='x', scan_range=20, min_ti
                 print(f"[Debug][X-axis-from-origin] Tick at x={xx}, y=({black_run[0]}-{black_run[-1]})")
 
     elif direction == 'y':
-        axis_x = (axis_line[0] + axis_line[2]) // 2
+        axis_x = int(np.clip((axis_line[0] + axis_line[2]) // 2, 0, w - 1))
         # y_start = max(0, min(axis_line[1], axis_line[3]) - scan_range)
         # y_end   = min(h, max(axis_line[1], axis_line[3]) + scan_range)
-        y_start = min(axis_line[1], axis_line[3])
-        y_end   = max(axis_line[1], axis_line[3])
+        y_start = max(0, min(axis_line[1], axis_line[3]))
+        y_end   = min(h, max(axis_line[1], axis_line[3]) + 1)
 
         for yy in range(y_start, y_end):
             black_run = []

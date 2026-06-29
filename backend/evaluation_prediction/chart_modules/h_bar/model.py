@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
-import asyncio
 from pathlib import Path
 from typing import Any
 
 import aiohttp
 
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
+
 from ...common.chart_io import image_to_data_url
 from ...common.json_utils import parse_model_json, unwrap_openai_content
-from ...common.model_config import get_chat_completion_urls, get_headers, get_model_name
+from ...common.model_config import get_chat_completion_urls, get_model_name
 
 from .parser import extract_coords
 
@@ -67,22 +68,18 @@ class HBarModelClient:
         }
 
     async def call_text(self, prompt: str, image_path: Path, label: str) -> str | None:
-        session = await self._ensure_session()
-        for attempt in range(1, self.max_retries + 1):
-            url = self._next_url()
-            print(f"[h_bar model] {label} -> {url}")
-            try:
-                async with session.post(url, headers=get_headers(), json=self._payload(prompt, image_path)) as resp:
-                    text = await asyncio.wait_for(resp.text(), timeout=90)
-                    if resp.status != 200:
-                        print(f"[h_bar model] HTTP {resp.status}: {text[:200]}")
-                        await asyncio.sleep(2 * attempt)
-                        continue
-                    return unwrap_openai_content(text)
-            except (aiohttp.ClientError, asyncio.TimeoutError) as exc:
-                print(f"[h_bar model] attempt {attempt}/{self.max_retries} failed: {exc}")
-                await asyncio.sleep(2 * attempt)
-        return None
+        url = self._next_url()
+        print(f"[h_bar model] {label} -> {url}")
+        request_urls = [url] + [item for item in self.urls if item != url]
+        content = await chat_with_gemini(
+            self._payload(prompt, image_path)["messages"],
+            model=self.model_name,
+            max_tokens=512,
+            urls=request_urls,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+        )
+        return None if content == FAILURE_TEXT else content
 
     async def predict_coords(self, prompt: str, image_path: Path, point_name: str) -> tuple[Any, Any]:
         content = await self.call_text(prompt, image_path, point_name)

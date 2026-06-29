@@ -1,0 +1,75 @@
+{
+  "chart_id": "GroupedBarChart8",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart8.png",
+    "with_grid": "chart/GroupedBarChart8_grid.png",
+    "grid_with_grid": "chart/GroupedBarChart8_grid.png"
+  },
+  "data_points": {
+    "Sales": {
+      "2017": 1030,
+      "2016": 660,
+      "2015": 1170,
+      "2014": 1000
+    },
+    "Expenses": {
+      "2017": 540,
+      "2016": 1120,
+      "2015": 460,
+      "2014": 400
+    },
+    "Profit": {
+      "2017": 350,
+      "2016": 390,
+      "2015": 250,
+      "2014": 200
+    }
+  },
+  "x_ticks": [
+    0,
+    100.0,
+    200,
+    300.0,
+    400,
+    500.0,
+    600,
+    700.0,
+    800,
+    900.0,
+    1000,
+    1100.0,
+    1200
+  ],
+  "y_ticks": [
+    "2017",
+    "2016",
+    "2015",
+    "2014"
+  ],
+  "x_pixels": [
+    65,
+    122,
+    180,
+    238,
+    296,
+    354,
+    412,
+    470,
+    528,
+    586,
+    643,
+    700,
+    758
+  ],
+  "y_pixels": [
+    433,
+    325,
+    218,
+    111
+  ],
+  "series_color": {
+    "Sales": "#5283F2",
+    "Expenses": "#D8453A",
+    "Profit": "#F0B51E"
+  }
+}

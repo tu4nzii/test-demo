@@ -1,0 +1,70 @@
+{
+  "chart_id": "BarChart14",
+  "image_paths": {
+    "no_grid": "chart/BarChart14.png",
+    "with_grid": "chart/BarChart14_grid.png",
+    "grid_with_grid": "chart/BarChart14_grid.png"
+  },
+  "data_points": {
+    "Region": {
+      "South": 112.95,
+      "East": 112.95,
+      "SouthWest": 109.25,
+      "West": 101.85,
+      "Northwest": 100,
+      "Southeast": -77.75,
+      "North": -103.7
+    }
+  },
+  "x_ticks": [
+    "South",
+    "East",
+    "SouthWest",
+    "West",
+    "Northwest",
+    "Southeast",
+    "North"
+  ],
+  "y_ticks": [
+    -150,
+    -125.0,
+    -100,
+    -75.0,
+    -50,
+    -25.0,
+    0,
+    25.0,
+    50,
+    75.0,
+    100,
+    125.0,
+    150
+  ],
+  "x_pixels": [
+    68,
+    144,
+    218,
+    294,
+    370,
+    445,
+    522
+  ],
+  "y_pixels": [
+    172,
+    158,
+    145,
+    132,
+    118,
+    104,
+    91,
+    78,
+    64,
+    50,
+    37,
+    24,
+    10
+  ],
+  "series_color": {
+    "Region": "#236AA4"
+  }
+}

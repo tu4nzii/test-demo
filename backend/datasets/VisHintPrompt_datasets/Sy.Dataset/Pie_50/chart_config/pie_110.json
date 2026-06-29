@@ -1,0 +1,35 @@
+{
+  "chart_id": "110",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_110_no_grid.png",
+    "with_grid": "charts/pie/pie_110_with_grid.png"
+  },
+  "data_points": {
+    "No confidence": 72.0,
+    "DK": 10.8,
+    "Confidence": 277.2
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 270,
+  "center": [
+    520,
+    520
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "No confidence": "#a6761d",
+    "DK": "#fb8072",
+    "Confidence": "#666666"
+  }
+}

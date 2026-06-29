@@ -1,0 +1,81 @@
+{
+  "chart_id": "RadarChart10",
+  "chart_type": "radar",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun"
+  ],
+  "data_points": {
+    "RegionA": {
+      "Jan": 45.0,
+      "Feb": 52.0,
+      "Mar": 48.0,
+      "Apr": 58.0,
+      "May": 62.0,
+      "Jun": 55.0
+    },
+    "RegionB": {
+      "Jan": 38.0,
+      "Feb": 42.0,
+      "Mar": 45.0,
+      "Apr": 50.0,
+      "May": 48.0,
+      "Jun": 52.0
+    },
+    "RegionC": {
+      "Jan": 55.0,
+      "Feb": 50.0,
+      "Mar": 58.0,
+      "Apr": 65.0,
+      "May": 70.0,
+      "Jun": 68.0
+    }
+  },
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80
+  ],
+  "r_pixels": [
+    42,
+    84,
+    126,
+    168
+  ],
+  "center": [
+    260,
+    260
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart10.png"
+  },
+  "series_color": {
+    "RegionA": "#e7298a",
+    "RegionB": "#66a61e",
+    "RegionC": "#e6ab02"
+  },
+  "num_entities": 3,
+  "fill_enabled": true,
+  "num_vars": 6
+}

@@ -11,10 +11,11 @@ import sys
 import threading
 from typing import Any
 
-import aiohttp
 from aiohttp import ClientTimeout
 
-from ..circular_model_config import get_chat_completion_urls, get_headers, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
+
+from ..circular_model_config import get_chat_completion_urls, get_model_name
 
 
 LEGACY_URLS = [
@@ -115,54 +116,37 @@ def _value_from_datapoints(datapoints: Any, item_name: str | None = None) -> Any
 async def call_llm_once(prompt: str, image_path: str, item_name: str | None = None) -> dict[str, float] | float | None:
     timeout = ClientTimeout(total=300)
 
-    async with aiohttp.ClientSession(timeout=timeout) as sess:
-        try:
-            with open(image_path, "rb") as f:
-                base64_image = base64.b64encode(f.read()).decode("utf-8")
+    try:
+        with open(image_path, "rb") as f:
+            base64_image = base64.b64encode(f.read()).decode("utf-8")
 
-            payload = {
-                "model": LLM_MODEL,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": prompt},
-                            {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}},
-                        ],
-                    }
-                ],
-                "max_tokens": 2048,
-                "temperature": 0.0,
-            }
-
-            current_url = get_next_api_url()
-            safe_print(f"Using API URL: {current_url}")
-
-            async with sess.post(current_url, json=payload, headers=get_headers()) as resp:
-                res = await resp.json()
-        except asyncio.TimeoutError:
-            safe_print("Request timed out.")
-            return None
-        except Exception as exc:
-            if "resp" in locals():
-                try:
-                    safe_print("JSON decode error", await resp.text())
-                except Exception:
-                    pass
-            safe_print(f"Request failed: {exc}")
-            return None
-
-    safe_print(f"Full API Response: {json.dumps(res, indent=2, ensure_ascii=False)}")
-
-    if "response" in res:
-        txt = res["response"]
-        safe_print(f"Extracted response from 'response' field: {txt}")
-    elif "choices" in res:
-        txt = res["choices"][0]["message"]["content"]
-        safe_print(f"Extracted response from 'choices' field: {txt}")
-    else:
-        safe_print("API response missing expected fields", res)
+        current_url = get_next_api_url()
+        request_urls = [current_url] + [url for url in API_URLS if url != current_url]
+        safe_print(f"Using API URL: {current_url}")
+        txt = await chat_with_gemini(
+            [
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                        {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}},
+                    ],
+                }
+            ],
+            model=LLM_MODEL,
+            max_tokens=2048,
+            temperature=0.0,
+            urls=request_urls,
+            timeout=timeout,
+        )
+    except Exception as exc:
+        safe_print(f"Request failed: {exc}")
         return None
+
+    if txt == FAILURE_TEXT:
+        safe_print("Request failed: model API request failed.")
+        return None
+    safe_print(f"Model API Response Text: {txt}")
 
     try:
         safe_print(f"Model Output Raw:\n{txt}\n")

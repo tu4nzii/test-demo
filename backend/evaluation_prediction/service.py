@@ -10,8 +10,6 @@ from typing import Any
 SUPPORTED_PREDICTION_TYPES = {
     "v_bar",
     "h_bar",
-    "v_stacked_bar",
-    "h_stacked_bar",
     "line",
     "scatter",
     "bubble",
@@ -20,7 +18,16 @@ SUPPORTED_PREDICTION_TYPES = {
     "radar",
     "rose",
 }
-SUPPORTED_BAR_TYPES = {"v_bar", "h_bar", "v_stacked_bar", "h_stacked_bar"}
+SUPPORTED_BAR_TYPES = {"v_bar", "h_bar"}
+
+
+def normalize_prediction_type(chart_type: str) -> str:
+    text = str(chart_type or "").lower()
+    if text == "v_stacked_bar":
+        return "v_bar"
+    if text == "h_stacked_bar":
+        return "h_bar"
+    return text
 
 
 async def run_bar_prediction_async(
@@ -29,7 +36,8 @@ async def run_bar_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
-    if chart_type in {"v_bar", "v_stacked_bar"}:
+    chart_type = normalize_prediction_type(chart_type)
+    if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment
 
         return await run_experiment(
@@ -37,7 +45,7 @@ async def run_bar_prediction_async(
             config_paths=[str(config_json_path)],
             chart_type=chart_type,
         )
-    elif chart_type in {"h_bar", "h_stacked_bar"}:
+    elif chart_type == "h_bar":
         from .chart_modules.h_bar.runner import run_experiment
 
         return await run_experiment(
@@ -60,9 +68,10 @@ async def run_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
-    if chart_type in {"v_bar", "v_stacked_bar"}:
+    chart_type = normalize_prediction_type(chart_type)
+    if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment
-    elif chart_type in {"h_bar", "h_stacked_bar"}:
+    elif chart_type == "h_bar":
         from .chart_modules.h_bar.runner import run_experiment
     elif chart_type == "line":
         from .chart_modules.line.runner import run_experiment

@@ -1,0 +1,120 @@
+{
+  "chart_id": "ScatterPlot15",
+  "chart_type": "scatterplot",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot15.png",
+    "with_grid": "chart/ScatterPlot15_grid.png",
+    "grid_with_grid": "chart/ScatterPlot15_grid.png"
+  },
+  "data_points": {
+    "Debugging": [
+      0.0,
+      0.0
+    ],
+    "Collaborating": [
+      0.0,
+      11.97
+    ],
+    "UI Testing": [
+      1.01,
+      13.83
+    ],
+    "Finding Things": [
+      3.01,
+      16.76
+    ],
+    "Deploying": [
+      3.01,
+      40.96
+    ],
+    "Automated Testing": [
+      3.01,
+      45.21
+    ],
+    "Developing": [
+      5.97,
+      71.01
+    ],
+    "Gaining Knowledge": [
+      8.0,
+      84.84
+    ],
+    "Getting Reviews": [
+      9.02,
+      45.74
+    ]
+  },
+  "x_ticks": [
+    0,
+    1.0,
+    2,
+    3.0,
+    4,
+    5.0,
+    6,
+    7.0,
+    8
+  ],
+  "y_ticks": [
+    0,
+    12.5,
+    25,
+    37.5,
+    50,
+    62.5,
+    75,
+    87.5,
+    100
+  ],
+  "x_pixels": [
+    105,
+    172,
+    238,
+    305,
+    372,
+    439,
+    506,
+    572,
+    639
+  ],
+  "y_pixels": [
+    453,
+    406,
+    359,
+    312,
+    265,
+    218,
+    170,
+    123,
+    76
+  ],
+  "series_color": {
+    "Debugging": [
+      "#F6C333"
+    ],
+    "Collaborating": [
+      "#E2695F"
+    ],
+    "UI Testing": [
+      "#616DBC"
+    ],
+    "Finding Things": [
+      "#6BCAD1"
+    ],
+    "Deploying": [
+      "#3FB179"
+    ],
+    "Automated Testing": [
+      "#689DF6"
+    ],
+    "Developing": [
+      "#FF8A33"
+    ],
+    "Gaining Knowledge": [
+      "#BC59D0"
+    ],
+    "Getting Reviews": [
+      "#CDC94C"
+    ]
+  }
+}

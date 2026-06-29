@@ -1,0 +1,86 @@
+{
+  "chart_id": "BarChart17",
+  "image_paths": {
+    "no_grid": "chart/BarChart17.png",
+    "with_grid": "chart/BarChart17_grid.png",
+    "grid_with_grid": "chart/BarChart17_grid.png"
+  },
+  "data_points": {
+    "none": {
+      "Comparison 1": 90,
+      "Comparison 2": 80,
+      "Comparison 3": 65.14,
+      "Emphasis": 40,
+      "Comparison 4": 20
+    }
+  },
+  "x_ticks": [
+    "Comparison 1",
+    "Comparison 2",
+    "Comparison 3",
+    "Emphasis",
+    "Comparison 4"
+  ],
+  "y_ticks": [
+    0,
+    5.0,
+    10,
+    15.0,
+    20,
+    25.0,
+    30,
+    35.0,
+    40,
+    45.0,
+    50,
+    55.0,
+    60,
+    65.0,
+    70,
+    75.0,
+    80,
+    85.0,
+    90,
+    95.0,
+    100
+  ],
+  "x_pixels": [
+    102,
+    203,
+    304,
+    404,
+    505
+  ],
+  "y_pixels": [
+    362,
+    344,
+    327,
+    310,
+    292,
+    274,
+    257,
+    240,
+    222,
+    204,
+    187,
+    170,
+    152,
+    134,
+    117,
+    100,
+    82,
+    64,
+    47,
+    30,
+    12
+  ],
+  "series_color": {
+    "none": {
+      "Comparison 1": "#D3D3D3",
+      "Comparison 2": "#D3D3D3",
+      "Comparison 3": "#D3D3D3",
+      "Emphasis": "#0000CD",
+      "Comparison 4": "#D3D3D3"
+    }
+  }
+}

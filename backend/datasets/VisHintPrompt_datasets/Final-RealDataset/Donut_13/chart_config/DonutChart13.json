@@ -1,0 +1,37 @@
+{
+  "chart_id": "DonutChart13",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart13.png"
+  },
+  "data_points": {
+    "elixir": 0.14,
+    "erlang": 0.188,
+    "javascript": 0.169,
+    "go": 0.006,
+    "scala": 0.008,
+    "css": 0.134,
+    "rust": 0.168,
+    "java": 0.041,
+    "sass": 0.146
+  },
+  "center": [
+    450,
+    250
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    102,
+    170
+  ],
+  "series_color": {
+    "elixir": "#E8C1A0",
+    "erlang": "#F47560",
+    "javascript": "#F1E15B",
+    "go": "#E8A838",
+    "scala": "#61CDBB",
+    "css": "#97E3D5",
+    "rust": "#E8C1A0",
+    "java": "#F47560",
+    "sass": "#F1E15B"
+  }
+}

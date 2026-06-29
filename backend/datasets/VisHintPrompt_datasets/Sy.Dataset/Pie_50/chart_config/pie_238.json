@@ -1,0 +1,39 @@
+{
+  "chart_id": "238",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_238_no_grid.png",
+    "with_grid": "charts/pie/pie_238_with_grid.png"
+  },
+  "data_points": {
+    "Should not unlock iPhone": 136.8,
+    "Don't know": 39.6,
+    "Should unlock iPhone": 183.6
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 127,
+  "center": [
+    260,
+    260
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Should not unlock iPhone": "#e7298a",
+    "Don't know": "#a6761d",
+    "Should unlock iPhone": "#f7b6d2"
+  }
+}

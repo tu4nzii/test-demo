@@ -1,0 +1,76 @@
+{
+  "chart_id": "RadarChart23",
+  "chart_type": "radar",
+  "labels": [
+    "North",
+    "East",
+    "South",
+    "West"
+  ],
+  "data_points": {
+    "Spring": {
+      "North": 75.0,
+      "East": 60.0,
+      "South": 85.0,
+      "West": 70.0
+    },
+    "Summer": {
+      "North": 80.0,
+      "East": 90.0,
+      "South": 65.0,
+      "West": 85.0
+    },
+    "Autumn": {
+      "North": 65.0,
+      "East": 75.0,
+      "South": 70.0,
+      "West": 60.0
+    },
+    "Winter": {
+      "North": 45.0,
+      "East": 50.0,
+      "South": 55.0,
+      "West": 40.0
+    }
+  },
+  "theta_ticks": [
+    "North",
+    "East",
+    "South",
+    "West"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "r_pixels": [
+    36,
+    72,
+    108,
+    144
+  ],
+  "center": [
+    255,
+    255
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart23.png"
+  },
+  "series_color": {
+    "Spring": "#2ca02c",
+    "Summer": "#ff7f0e",
+    "Autumn": "#d62728",
+    "Winter": "#1f77b4"
+  },
+  "num_entities": 4,
+  "fill_enabled": true,
+  "num_vars": 4
+}

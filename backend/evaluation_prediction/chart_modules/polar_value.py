@@ -14,6 +14,8 @@ from typing import Any, Iterable
 import aiohttp
 import matplotlib.pyplot as plt
 
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
+
 from ..common.chart_io import ensure_dir, filter_chart_configs, image_to_data_url, read_json
 from ..common.json_utils import parse_model_json, unwrap_openai_content
 from ..common.model_config import get_chat_completion_urls, get_headers, get_model_name, use_legacy_pixtral
@@ -202,22 +204,20 @@ class PolarModelClient:
         return extract_whole_chart_predictions(parsed)
 
     async def _call_text(self, prompt: str, used_image: Path, label: str) -> str | None:
-        session = await self._ensure_session()
-        for attempt in range(1, self.max_retries + 1):
-            url = self._next_url()
-            print(f"[polar model] {label} -> {url}")
-            try:
-                async with session.post(url, headers=self.headers, json=self._payload(prompt, used_image)) as resp:
-                    text = await asyncio.wait_for(resp.text(), timeout=90)
-                    if resp.status != 200:
-                        print(f"[polar model] HTTP {resp.status}: {text[:200]}")
-                        await asyncio.sleep(2 * attempt)
-                        continue
-                    return unwrap_openai_content(text)
-            except (aiohttp.ClientError, asyncio.TimeoutError) as exc:
-                print(f"[polar model] attempt {attempt}/{self.max_retries} failed: {exc}")
-                await asyncio.sleep(2 * attempt)
-        return None
+        url = self._next_url()
+        print(f"[polar model] {label} -> {url}")
+        request_urls = [url] + [item for item in self.urls if item != url]
+        content = await chat_with_gemini(
+            self._payload(prompt, used_image)["messages"],
+            model=self.model_name,
+            max_tokens=8192,
+            temperature=0.0,
+            urls=request_urls,
+            headers=self.headers,
+            timeout=self.timeout,
+            max_retries=self.max_retries,
+        )
+        return None if content == FAILURE_TEXT else content
 
 
 def _use_circular_model_fallback() -> bool:

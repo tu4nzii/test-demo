@@ -9,6 +9,12 @@ test_output/
 venv/
 model_secrets.local.json
 backend/evaluation_prediction/common/model_secrets.local.json
+recognized_text.json
+.vscode/settings.json
+**/.vscode/settings.json
+runtime_logs/
+data/output/
+sample_outputs/
 
 # Frontend build/cache
 frontend/chart-demo-ui/dist/
@@ -21,6 +27,11 @@ backend/data/upload/
 backend/data/processed/
 backend/data/results/
 backend/data/output/
+backend/evaluation/results/
+backend/evaluation/tmp/
+backend/evaluation/reports/*.json
+backend/evaluation/reports/*.html
+backend/evaluation/reports/*.csv
 backend/evaluation/recheck_outputs/
 backend/evaluation_prediction/results/
 backend/**/__pycache__/

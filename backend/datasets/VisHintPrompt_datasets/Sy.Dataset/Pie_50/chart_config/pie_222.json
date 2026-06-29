@@ -1,0 +1,37 @@
+{
+  "chart_id": "222",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_222_no_grid.png",
+    "with_grid": "charts/pie/pie_222_with_grid.png"
+  },
+  "data_points": {
+    "Racial background": 40.0,
+    "Both, racial and ethnic background": 203.64,
+    "Don't know": 47.27,
+    "Ethnic background": 69.09
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "90°",
+    "180°",
+    "270°"
+  ],
+  "r_pixels": 215,
+  "center": [
+    420,
+    420
+  ],
+  "theta_angles": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "series_color": {
+    "Racial background": "#d9d9d9",
+    "Both, racial and ethnic background": "#17becf",
+    "Don't know": "#e6ab02",
+    "Ethnic background": "#8c564b"
+  }
+}

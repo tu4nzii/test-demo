@@ -6,109 +6,31 @@ import sys
 import os
 import base64
 import re
-import requests
-import time
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, '../../../..'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-from model_api_config import get_api_key, get_chat_completion_url, get_model_name
+from gemini_calls import chat_with_gemini_sync
+from model_api_config import get_model_name
 
-def _build_chat_completions_url(raw_url: str) -> str:
-    url = (raw_url or "").strip().rstrip("/")
-    if not url:
-        return get_chat_completion_url()
-    if url.endswith("/chat/completions"):
-        return url
-    return f"{url}/chat/completions"
-
-
-def _split_env_keys(raw_keys: str) -> list:
-    return [key.strip() for key in re.split(r"[,\s;]+", raw_keys or "") if key.strip()]
-
-
-API_URL = _build_chat_completions_url(
-    os.getenv("COLOR_LLM_API_URL")
-    or os.getenv("COLOR_LLM_BASE_URL")
-    or os.getenv("MLLM_API_URL")
-    or os.getenv("MLLM_BASE_URL")
-    or get_chat_completion_url()
-)
-ENV_API_KEYS = _split_env_keys(
-    os.getenv("COLOR_LLM_API_KEYS")
-    or os.getenv("COLOR_LLM_API_KEY")
-    or os.getenv("MLLM_API_KEYS")
-    or os.getenv("MLLM_API_KEY")
-    or ""
-)
-DEFAULT_API_KEYS = [
-    get_api_key()
-]
-API_KEYS = ENV_API_KEYS or DEFAULT_API_KEYS
-key_index = 0
 LLM_MODEL = os.getenv("COLOR_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name()
 LLM_TEMPERATURE = float(os.getenv("COLOR_LLM_TEMPERATURE", "0.7"))
 LLM_REQUEST_TIMEOUT_SECONDS = int(os.getenv("COLOR_LLM_TIMEOUT_SECONDS", "180"))
 LLM_MAX_ATTEMPTS = int(os.getenv("COLOR_LLM_MAX_ATTEMPTS", "8"))
 LLM_RETRY_BACKOFF_SECONDS = float(os.getenv("COLOR_LLM_RETRY_BACKOFF_SECONDS", "2"))
 
-def rotate_key():
-    """Switch to the next API key."""
-    global key_index
-    key_index = (key_index + 1) % len(API_KEYS)
-    print(f"[Info] Switched to API key [{key_index + 1}/{len(API_KEYS)}]")
-
 def chat_with_gemini(messages: list) -> str:
-    """Call the configured chat-completions compatible MLLM."""
-    payload = {
-        "model": LLM_MODEL,
-        "messages": messages,
-        "temperature": LLM_TEMPERATURE
-    }
-
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {API_KEYS[key_index]}"
-    }
-
-    retryable_status = {429, 500, 502, 503, 504}
-
-    for attempt in range(1, LLM_MAX_ATTEMPTS + 1):
-        try:
-            response = requests.post(API_URL, headers=headers, json=payload, timeout=LLM_REQUEST_TIMEOUT_SECONDS)
-
-            if response.status_code in retryable_status:
-                print(f"[Warning] HTTP {response.status_code}: {response.text[:200]}")
-                rotate_key()
-                if attempt < LLM_MAX_ATTEMPTS:
-                    wait_seconds = min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20)
-                    print(f"[Info] Retrying after {wait_seconds:.1f}s [{attempt}/{LLM_MAX_ATTEMPTS}]...")
-                    time.sleep(wait_seconds)
-                continue
-
-            if response.status_code != 200:
-                print(f"[Error] HTTP {response.status_code}: {response.text[:200]}")
-                return "The model API request failed."
-
-            result = response.json()
-            if "choices" in result and len(result["choices"]) > 0:
-                content = result["choices"][0]["message"]["content"]
-                return content
-            else:
-                print(f"[Warning] Unexpected response format: {result}")
-                if attempt < LLM_MAX_ATTEMPTS:
-                    time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
-
-        except Exception as e:
-            print(f"[Warning] Attempt {attempt} failed: {e}")
-            if attempt < LLM_MAX_ATTEMPTS:
-                time.sleep(min(LLM_RETRY_BACKOFF_SECONDS * attempt, 20))
-            continue
-
-    print("[Error] All MLLM attempts failed.")
-    return "The model API request failed."
+    """Call the project-wide Gemini/OpenAI-compatible MLLM helper."""
+    return chat_with_gemini_sync(
+        messages,
+        model=LLM_MODEL,
+        temperature=LLM_TEMPERATURE,
+        timeout_seconds=LLM_REQUEST_TIMEOUT_SECONDS,
+        max_retries=LLM_MAX_ATTEMPTS,
+        retry_backoff_seconds=LLM_RETRY_BACKOFF_SECONDS,
+    )
 
 def count_legend_items(image_path: str) -> int:
     """Count visible legend items in a chart."""

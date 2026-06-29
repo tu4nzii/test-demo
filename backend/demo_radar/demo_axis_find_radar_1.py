@@ -17,7 +17,7 @@ class RadarChartAxisFinder:
         self.model_name = get_model_name()
 
         # 统一输出路径配置
-        self.output_dir = "./data/output/radar"  # 主输出目录
+        self.output_dir = "./sample_outputs/radar"  # 主输出目录
         self.axes_output_dir = os.path.join(self.output_dir)  # 轴线检测结果目录
 
         # 确保输出目录存在

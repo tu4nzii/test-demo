@@ -1,0 +1,122 @@
+{
+  "chart_id": "BubbleChart20",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart20.png",
+    "with_grid": "chart/BubbleChart20_grid.png",
+    "grid_with_grid": "chart/BubbleChart20_grid.png"
+  },
+  "data_points": {
+    "Brazil": [
+      12.92,
+      41.3
+    ],
+    "Germany": [
+      22.08,
+      21.0
+    ],
+    "France": [
+      24.86,
+      12.04
+    ],
+    "Chile": [
+      34.03,
+      13.94
+    ],
+    "United States": [
+      34.17,
+      66.94
+    ],
+    "United Kingdom": [
+      55.97,
+      23.05
+    ],
+    "spain": [
+      65.14,
+      43.01
+    ]
+  },
+  "x_ticks": [
+    0,
+    10.0,
+    20,
+    30.0,
+    40,
+    50.0,
+    60,
+    70.0,
+    80
+  ],
+  "y_ticks": [
+    0,
+    5.0,
+    10,
+    15.0,
+    20,
+    25.0,
+    30,
+    35.0,
+    40,
+    45.0,
+    50,
+    55.0,
+    60,
+    65.0,
+    70,
+    75.0,
+    80
+  ],
+  "x_pixels": [
+    111,
+    183,
+    255,
+    327,
+    399,
+    472,
+    544,
+    616,
+    687
+  ],
+  "y_pixels": [
+    685,
+    650,
+    616,
+    582,
+    548,
+    514,
+    480,
+    446,
+    412,
+    378,
+    343,
+    309,
+    275,
+    241,
+    207,
+    172,
+    138
+  ],
+  "series_color": {
+    "Brazil": [
+      "#2A9D8F"
+    ],
+    "Germany": [
+      "#0A3C47"
+    ],
+    "France": [
+      "#0A3C47"
+    ],
+    "Chile": [
+      "#2A9D8F"
+    ],
+    "United States": [
+      "#E77052"
+    ],
+    "United Kingdom": [
+      "#0A3C47"
+    ],
+    "spain": [
+      "#0A3C47"
+    ]
+  }
+}

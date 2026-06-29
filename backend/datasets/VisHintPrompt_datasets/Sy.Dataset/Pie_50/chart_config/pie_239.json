@@ -1,0 +1,41 @@
+{
+  "chart_id": "239",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_239_no_grid.png",
+    "with_grid": "charts/pie/pie_239_with_grid.png"
+  },
+  "data_points": {
+    "Somewhat willing": 126.23,
+    "Very willing": 154.29,
+    "No  answer": 4.68,
+    "Not willing at all": 74.81
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Somewhat willing": "#ffffb3",
+    "Very willing": "#1f77b4",
+    "No  answer": "#9467bd",
+    "Not willing at all": "#e7298a"
+  }
+}

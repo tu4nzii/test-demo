@@ -661,7 +661,7 @@ if __name__ == "__main__":
 
     # 指定要处理的图像路径和输出目录
     image_path = "backend\\charts\\stacked_rose\\stacked_rose_003.png"  # 可以根据需要修改
-    output_dir = "./data/output/stacked_rose"      # 可以根据需要修改
+    output_dir = "./sample_outputs/stacked_rose"      # 可以根据需要修改
 
     # 处理单张图像
     result_path = encoder.process_single_image(image_path, output_dir)

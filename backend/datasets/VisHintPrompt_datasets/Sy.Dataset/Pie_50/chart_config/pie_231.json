@@ -1,0 +1,37 @@
+{
+  "chart_id": "231",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_231_no_grid.png",
+    "with_grid": "charts/pie/pie_231_with_grid.png"
+  },
+  "data_points": {
+    "Help other countries deal with their problems": 172.34,
+    "Deal with its own problems and let other countries deal with their own problems": 187.66
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Help other countries deal with their problems": "#17becf",
+    "Deal with its own problems and let other countries deal with their own problems": "#1f77b4"
+  }
+}

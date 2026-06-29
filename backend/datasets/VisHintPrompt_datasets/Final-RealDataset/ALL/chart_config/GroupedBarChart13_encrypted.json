@@ -1,0 +1,52 @@
+{
+  "chart_id": "GroupedBarChart13",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart13.png",
+    "with_grid": "chart/GroupedBarChart13_grid.png",
+    "grid_with_grid": "chart/GroupedBarChart13_grid.png"
+  },
+  "data_points": {
+    "Female": {
+      "Dowry Dispute": 47.19,
+      "Fall In Social Reputation": 13.75
+    },
+    "Male": {
+      "Dowry Dispute": 50,
+      "Fall In Social Reputation": 79.06
+    }
+  },
+  "x_ticks": [
+    "Dowry Dispute",
+    "Fall In Social Reputation"
+  ],
+  "y_ticks": [
+    0,
+    10.0,
+    20,
+    30.0,
+    40,
+    50.0,
+    60,
+    70.0,
+    80
+  ],
+  "x_pixels": [
+    171,
+    338
+  ],
+  "y_pixels": [
+    304,
+    272,
+    240,
+    208,
+    177,
+    145,
+    113,
+    81,
+    49
+  ],
+  "series_color": {
+    "Dowry Dispute": "#FBB4AE",
+    "Fall In Social Reputation": "#B3CDE3"
+  }
+}

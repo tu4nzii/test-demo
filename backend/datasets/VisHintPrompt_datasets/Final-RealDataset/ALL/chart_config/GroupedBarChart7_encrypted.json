@@ -1,0 +1,83 @@
+{
+  "chart_id": "GroupedBarChart7",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart7.png",
+    "with_grid": "chart/GroupedBarChart7_grid.png",
+    "grid_with_grid": "chart/GroupedBarChart7_grid.png"
+  },
+  "data_points": {
+    "red": {
+      "banana": 12,
+      "poacee": 6,
+      "sorgho": 11,
+      "triticum": 19
+    },
+    "blue": {
+      "banana": 1,
+      "poacee": 6,
+      "sorgho": 28,
+      "triticum": 6
+    },
+    "green": {
+      "banana": 13,
+      "poacee": 33,
+      "sorgho": 12,
+      "triticum": 1
+    }
+  },
+  "x_ticks": [
+    "banana",
+    "poacee",
+    "sorgho",
+    "triticum"
+  ],
+  "y_ticks": [
+    0,
+    2.5,
+    5,
+    7.5,
+    10,
+    12.5,
+    15,
+    17.5,
+    20,
+    22.5,
+    25,
+    27.5,
+    30,
+    32.5,
+    35,
+    37.5,
+    40
+  ],
+  "x_pixels": [
+    104,
+    195,
+    284,
+    374
+  ],
+  "y_pixels": [
+    380,
+    357,
+    334,
+    310,
+    287,
+    264,
+    242,
+    218,
+    195,
+    172,
+    149,
+    126,
+    102,
+    79,
+    56,
+    33,
+    10
+  ],
+  "series_color": {
+    "red": "#E41A1C",
+    "blue": "#377EB8",
+    "green": "#4DAF4A"
+  }
+}

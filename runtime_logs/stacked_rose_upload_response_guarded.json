@@ -1,1 +1,0 @@
-﻿{"chart_id":"5d9917bb-0a36-4426-a5e6-0f069bea1fe3","chart_type":"rose","coordinate_system":"polar","confidence":0.98,"axis_repair":{"x_axis_missing":true,"y_axis_missing":true,"x_ticks_missing":true,"y_ticks_missing":true,"confidence":0.99,"reason":"Rose charts typically lack traditional x/y axes and tick marks; these are not visible in the chart."},"has_gt_json":false}

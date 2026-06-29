@@ -22,7 +22,7 @@ class RadarColorMatcher:
         self.model_name = get_model_name()
 
         # 输出配置
-        self.output_dir = "./data/output/radar"
+        self.output_dir = "./sample_outputs/radar"
         os.makedirs(self.output_dir, exist_ok=True)
 
         # 结果存储

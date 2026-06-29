@@ -1,0 +1,27 @@
+{
+  "chart_id": "DonutChart19",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart19.png"
+  },
+  "data_points": {
+    "Item1": 0.418,
+    "Item2": 0.318,
+    "Item3": 0.158,
+    "Item4": 0.106
+  },
+  "center": [
+    324,
+    196
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    75,
+    115
+  ],
+  "series_color": {
+    "Item1": "#94D13D",
+    "Item2": "#6F58E9",
+    "Item3": "#2D99FE",
+    "Item4": "#2DDAC1"
+  }
+}

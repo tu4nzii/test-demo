@@ -1,0 +1,39 @@
+{
+  "chart_id": "056",
+  "image_paths": {
+    "no_grid": "charts/pie/pie_056_no_grid.png",
+    "with_grid": "charts/pie/pie_056_with_grid.png"
+  },
+  "data_points": {
+    "Don't know": 32.4,
+    "Remain in EU": 180.0,
+    "Leave EU": 147.6
+  },
+  "r_ticks": [],
+  "theta_ticks": [
+    "0°",
+    "60°",
+    "120°",
+    "180°",
+    "240°",
+    "300°"
+  ],
+  "r_pixels": 170,
+  "center": [
+    340,
+    340
+  ],
+  "theta_angles": [
+    0,
+    60,
+    120,
+    180,
+    240,
+    300
+  ],
+  "series_color": {
+    "Don't know": "#bebada",
+    "Remain in EU": "#17becf",
+    "Leave EU": "#d95f02"
+  }
+}

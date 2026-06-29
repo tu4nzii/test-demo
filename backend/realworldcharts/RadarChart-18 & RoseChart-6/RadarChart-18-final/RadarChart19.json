@@ -1,0 +1,76 @@
+{
+  "chart_id": "RadarChart19",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "data_points": {
+    "Group1": {
+      "A": 65.0,
+      "B": 75.0,
+      "C": 55.0,
+      "D": 80.0
+    },
+    "Group2": {
+      "A": 85.0,
+      "B": 60.0,
+      "C": 70.0,
+      "D": 50.0
+    },
+    "Group3": {
+      "A": 70.0,
+      "B": 80.0,
+      "C": 85.0,
+      "D": 65.0
+    },
+    "Group4": {
+      "A": 55.0,
+      "B": 50.0,
+      "C": 60.0,
+      "D": 75.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "r_pixels": [
+    38,
+    76,
+    114,
+    152
+  ],
+  "center": [
+    265,
+    265
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart19.png"
+  },
+  "series_color": {
+    "Group1": "#1f77b4",
+    "Group2": "#ff7f0e",
+    "Group3": "#2ca02c",
+    "Group4": "#9467bd"
+  },
+  "num_entities": 4,
+  "fill_enabled": true,
+  "num_vars": 4
+}

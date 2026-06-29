@@ -1,0 +1,97 @@
+{
+  "chart_id": "h_bar_039",
+  "image_paths": {
+    "no_grid": "charts/h_bar/h_bar_039.png",
+    "with_grid": "charts/h_bar/h_bar_039_grid.png",
+    "grid_with_grid": "charts/h_bar/h_bar_039_grid_with_grid.png"
+  },
+  "data_points": {
+    "Number of retail chains": {
+      "Fashion & Clothing": 113.0,
+      "Food": 54.0,
+      "Footwear & Leather": 58.0,
+      "Personal Care": 42.0,
+      "Consumer Electronics": 38.0,
+      "Furniture & Decoration": 36.0,
+      "Jewelry & Watches": 30.0,
+      "Home Ware": 32.0,
+      "Baby Ware": 22.0,
+      "DIY & Gardening": 21.0,
+      "Toys & Games": 20.0,
+      "Books & Magazines": 17.0,
+      "Petrol": 12.0,
+      "Optical": 14.0,
+      "Telecom": 9.0,
+      "Pet Care": 6.0
+    }
+  },
+  "x_ticks": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    40.0,
+    50.0,
+    60.0,
+    70.0,
+    80.0,
+    90.0,
+    100.0,
+    110.0,
+    120.0
+  ],
+  "y_ticks": [
+    "Fashion & Clothing",
+    "Food",
+    "Footwear & Leather",
+    "Personal Care",
+    "Consumer Electronics",
+    "Furniture & Decoration",
+    "Jewelry & Watches",
+    "Home Ware",
+    "Baby Ware",
+    "DIY & Gardening",
+    "Toys & Games",
+    "Books & Magazines",
+    "Petrol",
+    "Optical",
+    "Telecom",
+    "Pet Care"
+  ],
+  "x_pixels": [
+    284,
+    371,
+    458,
+    546,
+    633,
+    720,
+    807,
+    894,
+    981,
+    1069,
+    1156,
+    1243,
+    1330
+  ],
+  "y_pixels": [
+    811,
+    769,
+    728,
+    686,
+    645,
+    604,
+    562,
+    521,
+    479,
+    438,
+    396,
+    355,
+    314,
+    272,
+    231,
+    189
+  ],
+  "series_color": {
+    "Number of retail chains": "#1f77b4"
+  }
+}

@@ -1,0 +1,82 @@
+1{
+  "chart_id": "plotivy-nightingale-rose-chart",
+  "image_paths": {
+    "with_grid": "RoseChart-6/plotivy-nightingale-rose-chart.png"
+  },
+  "center": {
+    "x": 500,
+    "y": 500
+  },
+  "data_points": {
+    "Jan": 95,
+    "Feb": 105,
+    "Mar": 130,
+    "Apr": 145,
+    "May": 155,
+    "Jun": 140,
+    "Jul": 135,
+    "Aug": 145,
+    "Sep": 160,
+    "Oct": 180,
+    "Nov": 220,
+    "Dec": 280
+  },
+  "series_color": {
+    "Jan": "#5dace3",
+    "Feb": "#5dace3",
+    "Mar": "#52bd80",
+    "Apr": "#52bd80",
+    "May": "#52bd80",
+    "Jun": "#f1d040",
+    "Jul": "#f1d040",
+    "Aug": "#f1d040",
+    "Sep": "#ec984e",
+    "Oct": "#ec984e",
+    "Nov": "#ec984e",
+    "Dec": "#ec984e"
+  },
+  "r_ticks": [
+    "0",
+    "50",
+    "100",
+    "150",
+    "200",
+    "250"
+  ],
+  "r_pixels": [
+    0,
+    80,
+    160,
+    240,
+    320,
+    400
+  ],
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ]
+}

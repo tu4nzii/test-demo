@@ -1,0 +1,68 @@
+{
+  "chart_id": "rose-diagram",
+  "image_paths": {
+    "with_grid": "RoseChart-6/rose-diagram.png"
+  },
+  "center": {
+    "x": 550,
+    "y": 462
+  },
+  "data_points": {
+    "NORTH": 18,
+    "NORTH-EAST": 5,
+    "EAST": 2.5,
+    "SOUTH-EAST": 7.5,
+    "SOUTH": 20,
+    "SOUTH-WEST": 32.5,
+    "WEST": 13,
+    "NORTH-WEST": 2
+  },
+  "series_color": {
+    "NORTH": "#00953a",
+    "NORTH-EAST": " #00953a",
+    "EAST": "#00953a",
+    "SOUTH-EAST": "#00953a",
+    "SOUTH": "#00953a",
+    "SOUTH-WEST": "#00953a",
+    "WEST": "#00953a",
+    "NORTH-WEST": "#00953a"
+  },
+  "r_ticks": [
+    "0",
+    "5",
+    "10",
+    "15",
+    "20",
+    "25",
+    "30"
+  ],
+  "r_pixels": [
+    0,
+    68,
+    136,
+    204,
+    272,
+    340,
+    408
+  ],
+  "theta_ticks": [
+    "NORTH",
+    "NORTH-EAST",
+    "EAST",
+    "SOUTH-EAST",
+    "SOUTH",
+    "SOUTH-WEST",
+    "WEST",
+    "NORTH-WEST"
+  ],
+  "theta_angles": [
+    90.0,
+    45.0,
+    0.0,
+    315.0,
+    270.0,
+    225.0,
+    180.0,
+    135.0
+  ]
+}

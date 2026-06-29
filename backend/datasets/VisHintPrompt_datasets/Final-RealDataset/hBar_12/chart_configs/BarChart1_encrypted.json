@@ -1,0 +1,58 @@
+{
+  "chart_id": "BarChart1",
+  "image_paths": {
+    "no_grid": "chart/BarChart1.png",
+    "with_grid": "chart/BarChart1_grid.png",
+    "grid_with_grid": "chart/BarChart1_grid.png"
+  },
+  "data_points": {
+    "Appearance": {
+      "John": 10000,
+      "Jake": 12000,
+      "Peter": 13000,
+      "James": 10000,
+      "Mary": 9000
+    }
+  },
+  "x_ticks": [
+    8000,
+    9000.0,
+    10000,
+    11000.0,
+    12000,
+    13000.0,
+    14000
+  ],
+  "y_ticks": [
+    "Mary",
+    "James",
+    "Peter",
+    "Jake",
+    "John"
+  ],
+  "x_pixels": [
+    79,
+    182,
+    286,
+    390,
+    494,
+    598,
+    702
+  ],
+  "y_pixels": [
+    654,
+    517,
+    380,
+    240,
+    104
+  ],
+  "series_color": {
+    "Appearance": {
+      "John": "#7BC0F7",
+      "Jake": "#7BC0F7",
+      "Peter": "#5CD65C",
+      "James": "#7BC0F7",
+      "Mary": "#7BC0F7"
+    }
+  }
+}

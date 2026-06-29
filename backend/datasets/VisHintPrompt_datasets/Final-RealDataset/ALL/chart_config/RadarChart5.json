@@ -1,0 +1,54 @@
+{
+  "chart_id": "radarchart_5",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart5.png"
+  },
+  "labels": ["JP Morgan", "HSBC", "Credit Suisse", "Goldman Sachs", "Morgan Stanley", "Societe Generale", "UBS", "BNP Paribas", "Unicredit", "Credit Agricole", "Deutsche Bank", "Barclays", "Citigroup", "RBS"],
+  "data_points": {
+    "Market value as of 2007": {
+      "JP Morgan": 250.0,
+      "HSBC": 150.0,
+      "Credit Suisse": 80.0,
+      "Goldman Sachs": 120.0,
+      "Morgan Stanley": 60.0,
+      "Societe Generale": 40.0,
+      "UBS": 50.0,
+      "BNP Paribas": 70.0,
+      "Unicredit": 60.0,
+      "Credit Agricole": 50.0,
+      "Deutsche Bank": 80.0,
+      "Barclays": 100.0,
+      "Citigroup": 200.0,
+      "RBS": 180.0
+    },
+    "Market value as of 2009": {
+      "JP Morgan": 180.0,
+      "HSBC": 120.0,
+      "Credit Suisse": 60.0,
+      "Goldman Sachs": 90.0,
+      "Morgan Stanley": 40.0,
+      "Societe Generale": 30.0,
+      "UBS": 35.0,
+      "BNP Paribas": 50.0,
+      "Unicredit": 40.0,
+      "Credit Agricole": 35.0,
+      "Deutsche Bank": 50.0,
+      "Barclays": 70.0,
+      "Citigroup": 100.0,
+      "RBS": 80.0
+    }
+  },
+  "theta_ticks": ["JP Morgan", "HSBC", "Credit Suisse", "Goldman Sachs", "Morgan Stanley", "Societe Generale", "UBS", "BNP Paribas", "Unicredit", "Credit Agricole", "Deutsche Bank", "Barclays", "Citigroup", "RBS"],
+  "theta_angles": [0.0, 25.71, 51.43, 77.14, 102.86, 128.57, 154.29, 180.0, 205.71, 231.43, 257.14, 282.86, 308.57, 334.29],
+  "r_ticks": [50, 100, 150, 200, 250, 300],
+  "r_pixels": [20, 40, 60, 80, 100, 120],
+  "center": [471, 223],
+  "series_color": {
+    "Market value as of 2007": "#1f77b4",
+    "Market value as of 2009": "#ffcc33"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 14
+}

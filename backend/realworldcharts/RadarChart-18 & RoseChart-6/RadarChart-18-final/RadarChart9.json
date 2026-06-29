@@ -1,0 +1,74 @@
+{
+  "chart_id": "RadarChart9",
+  "chart_type": "radar",
+  "labels": [
+    "FeatureA",
+    "FeatureB",
+    "FeatureC",
+    "FeatureD",
+    "FeatureE",
+    "FeatureF"
+  ],
+  "data_points": {
+    "User1": {
+      "FeatureA": 90.0,
+      "FeatureB": 75.0,
+      "FeatureC": 82.0,
+      "FeatureD": 68.0,
+      "FeatureE": 88.0,
+      "FeatureF": 70.0
+    },
+    "User2": {
+      "FeatureA": 65.0,
+      "FeatureB": 88.0,
+      "FeatureC": 70.0,
+      "FeatureD": 92.0,
+      "FeatureE": 75.0,
+      "FeatureF": 80.0
+    }
+  },
+  "theta_ticks": [
+    "FeatureA",
+    "FeatureB",
+    "FeatureC",
+    "FeatureD",
+    "FeatureE",
+    "FeatureF"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    38,
+    76,
+    114,
+    152,
+    190
+  ],
+  "center": [
+    290,
+    290
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart9.png"
+  },
+  "series_color": {
+    "User1": "#1b9e77",
+    "User2": "#7570b3"
+  },
+  "num_entities": 2,
+  "fill_enabled": true,
+  "num_vars": 6
+}

@@ -1,0 +1,71 @@
+{
+  "chart_id": "radarchart_19",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart19.png"
+  },
+  "labels": [
+    "Human Capital & Research",
+    "Infrastructure",
+    "Business Sophistication",
+    "Institutions",
+    "Market Sophistication"
+  ],
+  "data_points": {
+    "Ethiopia": {
+      "Human Capital & Research": 20.0,
+      "Infrastructure": 15.0,
+      "Business Sophistication": 25.0,
+      "Institutions": 30.0,
+      "Market Sophistication": 20.0
+    },
+    "Nigeria": {
+      "Human Capital & Research": 30.0,
+      "Infrastructure": 20.0,
+      "Business Sophistication": 35.0,
+      "Institutions": 45.0,
+      "Market Sophistication": 35.0
+    },
+    "South Africa": {
+      "Human Capital & Research": 40.0,
+      "Infrastructure": 35.0,
+      "Business Sophistication": 50.0,
+      "Institutions": 60.0,
+      "Market Sophistication": 55.0
+    }
+  },
+  "theta_ticks": [
+    "Human Capital & Research",
+    "Infrastructure",
+    "Business Sophistication",
+    "Institutions",
+    "Market Sophistication"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    40,
+    80
+  ],
+  "r_pixels": [
+    100,
+    200
+  ],
+  "center": [
+    512,
+    376
+  ],
+  "series_color": {
+    "Ethiopia": "#66b3aa",
+    "Nigeria": "#ff9933",
+    "South Africa": "#cc5566"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 5
+}

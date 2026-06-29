@@ -1,0 +1,28 @@
+{
+  "chart_id": "PieChart22",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart22.png"
+  },
+  "data_points": {
+    "Samsung": 0.206,
+    "Apple": 0.139,
+    "Huawei": 0.105,
+    "OPPO": 0.072,
+    "Vivo": 0.066,
+    "Others": 0.412
+  },
+  "r_ticks": [],
+  "r_pixels": 160,
+  "center": [
+    280,
+    196
+  ],
+  "series_color": {
+    "Samsung": "#71C0FF",
+    "Apple": "#428A9B",
+    "Huawei": "#FF6472",
+    "OPPO": "#8662FB",
+    "Vivo": "#CE582C",
+    "Others": "#B81D9B"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "chart_id": "RadarChart5",
+  "chart_type": "radar",
+  "labels": [
+    "Quality",
+    "Service",
+    "Price",
+    "Delivery"
+  ],
+  "data_points": {
+    "ProductA": {
+      "Quality": 85.0,
+      "Service": 75.0,
+      "Price": 65.0,
+      "Delivery": 90.0
+    },
+    "ProductB": {
+      "Quality": 70.0,
+      "Service": 88.0,
+      "Price": 80.0,
+      "Delivery": 75.0
+    },
+    "ProductC": {
+      "Quality": 92.0,
+      "Service": 60.0,
+      "Price": 55.0,
+      "Delivery": 85.0
+    }
+  },
+  "theta_ticks": [
+    "Quality",
+    "Service",
+    "Price",
+    "Delivery"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    35,
+    70,
+    105,
+    140,
+    175
+  ],
+  "center": [
+    280,
+    280
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart5.png"
+  },
+  "series_color": {
+    "ProductA": "#1f77b4",
+    "ProductB": "#ff7f0e",
+    "ProductC": "#2ca02c"
+  },
+  "num_entities": 3,
+  "fill_enabled": true,
+  "num_vars": 4
+}

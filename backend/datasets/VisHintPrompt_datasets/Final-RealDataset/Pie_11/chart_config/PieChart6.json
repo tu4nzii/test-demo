@@ -1,0 +1,28 @@
+{
+  "chart_id": "PieChart6",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart6.png"
+  },
+  "data_points": {
+    "a": 0.106,
+    "b": 0.16,
+    "c": 0.264,
+    "d": 0.078,
+    "e": 0.184,
+    "f": 0.209
+  },
+  "r_ticks": [],
+  "r_pixels": 81,
+  "center": [
+    105,
+    105
+  ],
+  "series_color": {
+    "a": "#4C78A8",
+    "b": "#F58518",
+    "c": "#E45756",
+    "d": "#72B7B2",
+    "e": "#54A24B",
+    "f": "#EECA3B"
+  }
+}

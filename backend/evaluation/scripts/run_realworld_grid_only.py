@@ -7,12 +7,16 @@ evaluation_prediction.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import shutil
 import sys
 import time
 import traceback
 from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -32,14 +36,28 @@ from type_detection.chart_registry import (  # noqa: E402
 IMAGE_EXTS = {".png", ".jpg", ".jpeg"}
 
 
-def copy_if_exists(path: str | Path | None, dest_dir: Path) -> str | None:
+def safe_name(value: str, limit: int = 48) -> str:
+    cleaned = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in value)
+    cleaned = cleaned.strip("._") or "item"
+    if len(cleaned) <= limit:
+        return cleaned
+    digest = hashlib.sha1(cleaned.encode("utf-8")).hexdigest()[:8]
+    return f"{cleaned[: max(8, limit - 9)]}_{digest}"
+
+
+def short_artifact_name(src: Path, limit: int = 80) -> str:
+    stem = safe_name(src.stem, max(16, limit - len(src.suffix)))
+    return f"{stem}{src.suffix}"
+
+
+def copy_if_exists(path: str | Path | None, dest_dir: Path, dest_name: str | None = None) -> str | None:
     if not path:
         return None
     src = Path(path)
     if not src.exists():
         return None
     dest_dir.mkdir(parents=True, exist_ok=True)
-    dest = dest_dir / src.name
+    dest = dest_dir / (dest_name or short_artifact_name(src))
     shutil.copy2(src, dest)
     return str(dest)
 
@@ -53,8 +71,12 @@ def copy_generated_sidecars(output_dir: Path, image_stem: str, chart_id: str, de
                 continue
             seen.add(src)
             dest_dir.mkdir(parents=True, exist_ok=True)
-            dest = dest_dir / src.name
-            shutil.copy2(src, dest)
+            dest = dest_dir / short_artifact_name(src, limit=52)
+            try:
+                shutil.copy2(src, dest)
+            except OSError as exc:
+                copied.append(f"SKIPPED:{src.name}:{exc}")
+                continue
             copied.append(str(dest))
     return copied
 
@@ -71,19 +93,88 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Output folder name under backend/evaluation/recheck_outputs.",
     )
+    parser.add_argument(
+        "--include-dirs",
+        default=None,
+        help="Comma-separated first-level directory names to include.",
+    )
     return parser.parse_args()
+
+
+def write_contact_sheet(recheck_root: Path, manifest: dict) -> str | None:
+    records = [record for record in manifest.get("records", []) if record.get("status") == "success"]
+    if not records:
+        return None
+
+    thumb_w, thumb_h = 360, 280
+    label_h = 38
+    gap = 18
+    try:
+        font = ImageFont.truetype("arial.ttf", 15)
+    except Exception:
+        font = ImageFont.load_default()
+
+    def fit(path: str | Path, width: int, height: int) -> Image.Image:
+        img = Image.open(path).convert("RGB")
+        img.thumbnail((width, height), Image.Resampling.LANCZOS)
+        canvas = Image.new("RGB", (width, height), "white")
+        canvas.paste(img, ((width - img.width) // 2, (height - img.height) // 2))
+        return canvas
+
+    sheet_w = thumb_w * 2 + gap * 3
+    sheet_h = (thumb_h + label_h + gap) * len(records) + gap
+    sheet = Image.new("RGB", (sheet_w, sheet_h), "white")
+    draw = ImageDraw.Draw(sheet)
+
+    y = gap
+    for record in records:
+        copied = record.get("copied") or {}
+        source = copied.get("source_image")
+        encrypted = copied.get("encrypted_grid")
+        if not source or not encrypted or not Path(source).exists() or not Path(encrypted).exists():
+            continue
+        x1 = gap
+        x2 = gap * 2 + thumb_w
+        sheet.paste(fit(source, thumb_w, thumb_h), (x1, y + label_h))
+        sheet.paste(fit(encrypted, thumb_w, thumb_h), (x2, y + label_h))
+        rel = Path(str(record.get("relative", record.get("source", "")))).name
+        draw.text((x1, y), f"Original: {rel}", fill=(20, 20, 20), font=font)
+        draw.text((x2, y), f"With grid: {record.get('detected_type')}", fill=(20, 20, 20), font=font)
+        draw.rectangle([x1, y + label_h, x1 + thumb_w - 1, y + label_h + thumb_h - 1], outline=(210, 210, 210))
+        draw.rectangle([x2, y + label_h, x2 + thumb_w - 1, y + label_h + thumb_h - 1], outline=(210, 210, 210))
+        y += thumb_h + label_h + gap
+
+    out = recheck_root / "contact_sheet_original_vs_with_grid.png"
+    sheet.save(out)
+    return str(out)
 
 
 def main() -> int:
     args = parse_args()
     run_id = time.strftime("%Y%m%d_%H%M%S")
-    source_root = Path(args.source_root)
-    run_name = args.run_name or f"realworld_grid_{get_profile_name()}_{get_model_name()}_{run_id}"
+    source_root = Path(args.source_root).resolve()
+    run_name = args.run_name or f"realworld_grid_{get_profile_name()}_{get_model_name()}_latest"
     run_name = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in run_name)
     recheck_root = BACKEND / "evaluation" / "recheck_outputs" / run_name
     recheck_root.mkdir(parents=True, exist_ok=True)
 
-    images = sorted(p for p in source_root.rglob("*") if p.is_file() and p.suffix.lower() in IMAGE_EXTS)
+    include_dirs = None
+    if args.include_dirs:
+        include_dirs = {item.strip().lower() for item in args.include_dirs.split(",") if item.strip()}
+    images = []
+    for path in source_root.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in IMAGE_EXTS:
+            continue
+        if include_dirs:
+            try:
+                rel = path.relative_to(source_root)
+            except ValueError:
+                continue
+            first = rel.parts[0].lower() if len(rel.parts) > 1 else source_root.name.lower()
+            if first not in include_dirs:
+                continue
+        images.append(path.resolve())
+    images = sorted(images)
     manifest = {
         "run_id": run_id,
         "mode": "grid_encryption_only",
@@ -113,9 +204,9 @@ def main() -> int:
     for index, image_src in enumerate(images, start=1):
         rel = image_src.relative_to(source_root)
         group = rel.parts[0] if len(rel.parts) > 1 else "root"
-        safe_stem = image_src.stem.replace(" ", "_").replace(",", "_")
-        chart_id = f"{get_profile_name()}_grid_{group}_{safe_stem}_{run_id}"
-        item_dir = recheck_root / group / image_src.stem
+        safe_stem = safe_name(image_src.stem, 40)
+        chart_id = f"{get_profile_name()}_grid_{group}_{safe_stem}"
+        item_dir = recheck_root / group / safe_stem
         upload_path = backend_main.UPLOAD_DIR / f"{chart_id}_image{image_src.suffix.lower()}"
         record = {
             "index": index,
@@ -146,9 +237,9 @@ def main() -> int:
             output_dir = Path(chart_info.get("output_dir") or backend_main.OUTPUT_DIR / chart_info["chart_type"])
             copied_dir = item_dir / "artifacts"
             copied = {
-                "source_image": copy_if_exists(image_src, copied_dir),
-                "uploaded_image": copy_if_exists(upload_path, copied_dir),
-                "encrypted_grid": copy_if_exists(encrypted_path, copied_dir),
+                "source_image": copy_if_exists(image_src, copied_dir, f"source{image_src.suffix.lower()}"),
+                "uploaded_image": copy_if_exists(upload_path, copied_dir, f"upload{image_src.suffix.lower()}"),
+                "encrypted_grid": copy_if_exists(encrypted_path, copied_dir, "image_with_grid.png"),
             }
             sidecars = copy_generated_sidecars(output_dir, upload_path.stem, chart_id, copied_dir)
             record.update(
@@ -193,6 +284,14 @@ def main() -> int:
         json.dumps(summary, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    contact_sheet = write_contact_sheet(recheck_root, manifest)
+    if contact_sheet:
+        summary["contact_sheet"] = contact_sheet
+        (recheck_root / "summary.json").write_text(
+            json.dumps(summary, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(f"Contact sheet: {contact_sheet}", flush=True)
     print(f"Done: success={manifest['success']} failed={manifest['failed']}", flush=True)
     print(f"Summary: {recheck_root / 'summary.json'}", flush=True)
     return 0 if manifest["failed"] == 0 else 1

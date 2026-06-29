@@ -2,18 +2,14 @@
 """JSON parsing helpers for model outputs."""
 
 import json
-import os
 import re
 import sys
-import asyncio
-import aiohttp
 from aiohttp import ClientTimeout
 
-from model_api_config import get_chat_completion_url, get_headers, get_model_name
+from gemini_calls import FAILURE_TEXT, chat_with_gemini
+from model_api_config import get_model_name
 
 
-GEMINI_URL = get_chat_completion_url()
-GEMINI_HEADERS = get_headers()
 GEMINI_MODEL = get_model_name()
 
 
@@ -121,45 +117,35 @@ async def call_gemini_for_json_fix(original_output, prompt):
     修复后的 JSON：
     """
     
-    payload = {
-        "model": GEMINI_MODEL,
-        "messages": [
+    messages = [
             {"role": "system", "content": "You are a professional JSON formatter. Fix the JSON format errors in the given text."},
             {"role": "user", "content": fix_prompt}
-        ],
-        "temperature": 0.1,
-        "max_tokens": 1000
-    }
+    ]
     
     try:
         timeout = ClientTimeout(total=300)
-        async with aiohttp.ClientSession(timeout=timeout) as session:
-            async with session.post(GEMINI_URL, json=payload, headers=GEMINI_HEADERS) as response:
-                if response.status != 200:
-                    print(f"[Error] Model API request failed with status: {response.status}")
-                    return None
-                
-                response_data = await response.json()
-                
-                if not response_data or "choices" not in response_data or not response_data["choices"]:
-                    print(f"[Error] Model API returned an unexpected response: {response_data}")
-                    return None
-                
-                fixed_content = response_data["choices"][0]["message"]["content"].strip()
-                
-                fixed_json = extract_json_with_regex(fixed_content)
-                if fixed_json:
-                    return fixed_json
-                else:
-                    try:
-                        parsed = json.loads(fixed_content)
-                        return normalize_value(parsed)
-                    except Exception:
-                        print(f"[Error] Repaired model output is still not valid JSON: {fixed_content}")
-                        return None
-    except asyncio.TimeoutError:
-        print("[Error] Model API request timed out.")
-        return None
+        fixed_content = await chat_with_gemini(
+            messages,
+            model=GEMINI_MODEL,
+            temperature=0.1,
+            max_tokens=1000,
+            timeout=timeout,
+        )
+        if fixed_content == FAILURE_TEXT:
+            print("[Error] Model API request failed.")
+            return None
+        fixed_content = fixed_content.strip()
+
+        fixed_json = extract_json_with_regex(fixed_content)
+        if fixed_json:
+            return fixed_json
+        else:
+            try:
+                parsed = json.loads(fixed_content)
+                return normalize_value(parsed)
+            except Exception:
+                print(f"[Error] Repaired model output is still not valid JSON: {fixed_content}")
+                return None
     except json.JSONDecodeError as e:
         print(f"[Error] Model API response is not valid JSON: {e}")
         return None

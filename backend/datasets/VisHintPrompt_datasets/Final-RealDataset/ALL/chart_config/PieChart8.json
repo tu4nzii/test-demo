@@ -1,0 +1,24 @@
+{
+  "chart_id": "PieChart8",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart8.png"
+  },
+  "data_points": {
+    "TN": 0.487,
+    "FP": 0.009,
+    "FN": 0.025,
+    "TP": 0.479
+  },
+  "r_ticks": [],
+  "r_pixels": 142,
+  "center": [
+    376,
+    202
+  ],
+  "series_color": {
+    "TN": "#FF744C",
+    "FP": "#E9B19D",
+    "FN": "#C7FEFF",
+    "TP": "#00C7E8"
+  }
+}

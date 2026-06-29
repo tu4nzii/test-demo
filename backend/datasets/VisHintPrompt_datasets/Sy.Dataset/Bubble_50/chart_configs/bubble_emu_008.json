@@ -1,0 +1,85 @@
+{
+  "chart_id": "bubble_emu_008",
+  "image_paths": {
+    "no_grid": "charts/bubble_emu/bubble_emu_008.png",
+    "with_grid": "charts/bubble_emu/bubble_emu_008_grid.png",
+    "grid_with_grid": "charts/bubble_emu/bubble_emu_008_grid_with_grid.png"
+  },
+  "data_points": {
+    "D01": [
+      0.17,
+      92.56
+    ],
+    "B02": [
+      36.42,
+      7.0
+    ],
+    "E03": [
+      31.39,
+      84.8
+    ],
+    "E04": [
+      30.93,
+      40.84
+    ],
+    "E05": [
+      12.73,
+      42.04
+    ]
+  },
+  "x_ticks": [
+    -2.0,
+    3.25,
+    8.5,
+    13.75,
+    19.0,
+    24.25,
+    29.5,
+    34.75,
+    40.0
+  ],
+  "y_ticks": [
+    2.0,
+    14.0,
+    26.0,
+    38.0,
+    50.0,
+    62.0,
+    74.0,
+    86.0,
+    98.0
+  ],
+  "x_pixels": [
+    120,
+    195,
+    270,
+    345,
+    420,
+    495,
+    570,
+    645,
+    720
+  ],
+  "y_pixels": [
+    720,
+    640,
+    560,
+    480,
+    400,
+    320,
+    240,
+    160,
+    80
+  ],
+  "series_color": {
+    "C3": [
+      "#e31a1c",
+      "#66c2a5"
+    ],
+    "C2": [
+      "#b2df8a",
+      "#e78ac3",
+      "#8da0cb"
+    ]
+  }
+}

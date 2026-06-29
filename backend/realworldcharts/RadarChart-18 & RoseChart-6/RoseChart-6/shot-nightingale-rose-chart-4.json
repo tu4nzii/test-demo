@@ -1,0 +1,58 @@
+{
+  "chart_id": "shot-nightingale-rose-chart-4",
+  "image_paths": {
+    "with_grid": "RoseChart-6/shot-nightingale-rose-chart-4.png"
+  },
+  "center": {
+    "x": 360,
+    "y": 360
+  },
+  "data_points": {
+    "Item1": 0.62,
+    "Item2": 0.88,
+    "Item3": 0.55,
+    "Item4": 0.75,
+    "Item5": 0.92,
+    "Item6": 0.48,
+    "Item7": 0.70,
+    "Item8": 0.82
+  },
+  "series_color": {
+    "Item1": "#2ca02c",
+    "Item2": "#ff7f0e",
+    "Item3": "#1f77b4",
+    "Item4": "#d62728",
+    "Item5": "#9467bd",
+    "Item6": "#8c564b",
+    "Item7": "#e377c2",
+    "Item8": "#7f7f7f"
+  },
+  "r_ticks": [
+    "0.5",
+    "1.0"
+  ],
+  "r_pixels": [
+    160,
+    320
+  ],
+  "theta_ticks": [
+    "Item1",
+    "Item2",
+    "Item3",
+    "Item4",
+    "Item5",
+    "Item6",
+    "Item7",
+    "Item8"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ]
+}

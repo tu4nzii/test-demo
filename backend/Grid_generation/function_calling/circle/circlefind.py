@@ -7,7 +7,6 @@ from typing import Optional, Tuple
 
 import cv2
 import numpy as np
-import requests
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, "../../../.."))
@@ -16,7 +15,8 @@ for path in (project_root, backend_root):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-from model_api_config import get_chat_completion_url, get_headers, get_model_name  # noqa: E402
+from gemini_calls import FAILURE_TEXT, chat_with_gemini_sync  # noqa: E402
+from model_api_config import get_model_name  # noqa: E402
 
 
 def find_center_by_hough_transform(image_path):
@@ -69,23 +69,6 @@ def _encode_cv_image(cv_image) -> str:
     return base64.b64encode(encoded.tobytes()).decode("utf-8")
 
 
-def _extract_response_text(result: dict) -> str:
-    if "choices" in result and result["choices"]:
-        message = result["choices"][0].get("message", {})
-        content = message.get("content", "")
-        if isinstance(content, list):
-            return "\n".join(
-                part.get("text", "") for part in content if isinstance(part, dict)
-            )
-        return str(content)
-
-    if "candidates" in result and result["candidates"]:
-        parts = result["candidates"][0].get("content", {}).get("parts", [])
-        return "\n".join(part.get("text", "") for part in parts if isinstance(part, dict))
-
-    return ""
-
-
 def _parse_json_object(text: str) -> dict:
     cleaned = text.strip()
     if cleaned.startswith("```json"):
@@ -119,34 +102,31 @@ Please analyze the chart and return only strict JSON:
 Use null for any value that cannot be identified.
 """
 
-    payload = {
-        "model": os.getenv("CIRCLE_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
-        "messages": [
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": prompt},
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/png;base64,{_encode_cv_image(cv_image)}",
-                        },
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": prompt},
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{_encode_cv_image(cv_image)}",
                     },
-                ],
-            }
-        ],
-        "temperature": float(os.getenv("CIRCLE_LLM_TEMPERATURE", "0")),
-    }
+                },
+            ],
+        }
+    ]
 
     try:
-        response = requests.post(
-            get_chat_completion_url(),
-            headers=get_headers(),
-            json=payload,
-            timeout=int(os.getenv("CIRCLE_LLM_TIMEOUT_SECONDS", "180")),
+        vlm_raw_text = chat_with_gemini_sync(
+            messages,
+            model=os.getenv("CIRCLE_LLM_MODEL") or os.getenv("MLLM_MODEL") or get_model_name(),
+            temperature=float(os.getenv("CIRCLE_LLM_TEMPERATURE", "0")),
+            timeout_seconds=int(os.getenv("CIRCLE_LLM_TIMEOUT_SECONDS", "180")),
         )
-        response.raise_for_status()
-        vlm_raw_text = _extract_response_text(response.json()).strip()
+        if vlm_raw_text == FAILURE_TEXT:
+            raise ValueError("Model API request failed.")
+        vlm_raw_text = vlm_raw_text.strip()
         print(f"Radial scale raw response:\n{vlm_raw_text}")
 
         vlm_data = _parse_json_object(vlm_raw_text)

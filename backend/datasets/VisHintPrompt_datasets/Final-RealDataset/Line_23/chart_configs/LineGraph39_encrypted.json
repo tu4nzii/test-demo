@@ -1,0 +1,94 @@
+{
+  "chart_id": "lineGraph39",
+  "image_paths": {
+    "no_grid": "chart/LineGraph39.png",
+    "with_grid": "chart/LineGraph39_grid.png",
+    "grid_with_grid": "chart/LineGraph39_grid.png"
+  },
+  "data_points": {
+    "green": {
+      "Jan": 57.14,
+      "Feb": 140.48,
+      "Mar": 194.05,
+      "Apr": 46.43,
+      "May": 135.7,
+      "Jun": 78.56,
+      "Jul": 95.24
+    },
+    "yellow": {
+      "Jan": 165.47,
+      "Feb": 209.52,
+      "Mar": 286.89,
+      "Apr": 144.05,
+      "May": 189.29,
+      "Jun": 167.85,
+      "Jul": 211.9
+    },
+    "blue": {
+      "Jan": 123.8,
+      "Feb": 276.2,
+      "Mar": 309.52,
+      "Apr": 210.71,
+      "May": 239.27,
+      "Jun": 155.95,
+      "Jul": 98.81
+    }
+  },
+  "x_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul"
+  ],
+  "y_ticks": [
+    0,
+    25,
+    50,
+    75,
+    100,
+    125,
+    150,
+    175,
+    200,
+    225,
+    250,
+    275,
+    300,
+    325,
+    350
+  ],
+  "x_pixels": [
+    91,
+    206,
+    322,
+    437,
+    553,
+    668,
+    783
+  ],
+  "y_pixels": [
+    346,
+    325,
+    304,
+    283,
+    262,
+    241,
+    220,
+    198,
+    177,
+    156,
+    135,
+    114,
+    93,
+    72,
+    51
+  ],
+  "series_color": {
+    "green": "#4CD180",
+    "yellow": "#FFE162",
+    "blue": "#1475AD"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "chart_id": "RadarChart24",
+  "chart_type": "radar",
+  "labels": [
+    "Metric1",
+    "Metric2",
+    "Metric3",
+    "Metric4",
+    "Metric5"
+  ],
+  "data_points": {
+    "SampleA": {
+      "Metric1": 82.0,
+      "Metric2": 70.0,
+      "Metric3": 88.0,
+      "Metric4": 75.0,
+      "Metric5": 90.0
+    },
+    "SampleB": {
+      "Metric1": 65.0,
+      "Metric2": 85.0,
+      "Metric3": 72.0,
+      "Metric4": 92.0,
+      "Metric5": 68.0
+    },
+    "SampleC": {
+      "Metric1": 78.0,
+      "Metric2": 75.0,
+      "Metric3": 70.0,
+      "Metric4": 80.0,
+      "Metric5": 85.0
+    }
+  },
+  "theta_ticks": [
+    "Metric1",
+    "Metric2",
+    "Metric3",
+    "Metric4",
+    "Metric5"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "center": [
+    290,
+    290
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart24.png"
+  },
+  "series_color": {
+    "SampleA": "#1f77b4",
+    "SampleB": "#ff7f0e",
+    "SampleC": "#2ca02c"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 5
+}

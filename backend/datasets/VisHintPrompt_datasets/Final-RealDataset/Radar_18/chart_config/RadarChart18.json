@@ -1,0 +1,103 @@
+{
+  "chart_id": "radarchart_18",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart18.png"
+  },
+  "labels": [
+    "1: A Game of Thrones",
+    "2: A Clash of Kings",
+    "3: A Storm of Swords",
+    "4: A Feast for Crows",
+    "5: A Dance with Dragons"
+  ],
+  "data_points": {
+    "Baratheon": {
+      "1: A Game of Thrones": 10.0,
+      "2: A Clash of Kings": 50.0,
+      "3: A Storm of Swords": 40.0,
+      "4: A Feast for Crows": 5.0,
+      "5: A Dance with Dragons": 5.0
+    },
+    "Lannister": {
+      "1: A Game of Thrones": 30.0,
+      "2: A Clash of Kings": 25.0,
+      "3: A Storm of Swords": 35.0,
+      "4: A Feast for Crows": 20.0,
+      "5: A Dance with Dragons": 15.0
+    },
+    "Martell": {
+      "1: A Game of Thrones": 5.0,
+      "2: A Clash of Kings": 10.0,
+      "3: A Storm of Swords": 15.0,
+      "4: A Feast for Crows": 40.0,
+      "5: A Dance with Dragons": 25.0
+    },
+    "Stark": {
+      "1: A Game of Thrones": 60.0,
+      "2: A Clash of Kings": 20.0,
+      "3: A Storm of Swords": 30.0,
+      "4: A Feast for Crows": 5.0,
+      "5: A Dance with Dragons": 10.0
+    },
+    "Targaryen": {
+      "1: A Game of Thrones": 5.0,
+      "2: A Clash of Kings": 10.0,
+      "3: A Storm of Swords": 15.0,
+      "4: A Feast for Crows": 5.0,
+      "5: A Dance with Dragons": 50.0
+    },
+    "Night's Watch": {
+      "1: A Game of Thrones": 15.0,
+      "2: A Clash of Kings": 20.0,
+      "3: A Storm of Swords": 35.0,
+      "4: A Feast for Crows": 30.0,
+      "5: A Dance with Dragons": 25.0
+    }
+  },
+  "theta_ticks": [
+    "1: A Game of Thrones",
+    "2: A Clash of Kings",
+    "3: A Storm of Swords",
+    "4: A Feast for Crows",
+    "5: A Dance with Dragons"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60
+  ],
+  "r_pixels": [
+    20,
+    40,
+    60,
+    80,
+    100,
+    120
+  ],
+  "center": [
+    300,
+    237
+  ],
+  "series_color": {
+    "Baratheon": "#99bbff",
+    "Lannister": "#cc99ff",
+    "Martell": "#66cc88",
+    "Stark": "#ff9999",
+    "Targaryen": "#ffcc66",
+    "Night's Watch": "#6666ff"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 5
+}

@@ -1,0 +1,69 @@
+{
+  "chart_id": "RadarChart15",
+  "chart_type": "radar",
+  "labels": [
+    "Strength",
+    "Agility",
+    "Intelligence",
+    "Charisma"
+  ],
+  "data_points": {
+    "Warrior": {
+      "Strength": 95.0,
+      "Agility": 60.0,
+      "Intelligence": 45.0,
+      "Charisma": 55.0
+    },
+    "Mage": {
+      "Strength": 30.0,
+      "Agility": 50.0,
+      "Intelligence": 92.0,
+      "Charisma": 70.0
+    },
+    "Rogue": {
+      "Strength": 45.0,
+      "Agility": 90.0,
+      "Intelligence": 65.0,
+      "Charisma": 75.0
+    }
+  },
+  "theta_ticks": [
+    "Strength",
+    "Agility",
+    "Intelligence",
+    "Charisma"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "r_pixels": [
+    40,
+    80,
+    120,
+    160
+  ],
+  "center": [
+    275,
+    275
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart15.png"
+  },
+  "series_color": {
+    "Warrior": "#d62728",
+    "Mage": "#9467bd",
+    "Rogue": "#1f77b4"
+  },
+  "num_entities": 3,
+  "fill_enabled": true,
+  "num_vars": 4
+}

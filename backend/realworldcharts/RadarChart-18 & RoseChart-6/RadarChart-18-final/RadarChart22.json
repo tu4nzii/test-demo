@@ -1,0 +1,69 @@
+{
+  "chart_id": "RadarChart22",
+  "chart_type": "radar",
+  "labels": [
+    "Skill1",
+    "Skill2",
+    "Skill3",
+    "Skill4"
+  ],
+  "data_points": {
+    "Beginner": {
+      "Skill1": 40.0,
+      "Skill2": 35.0,
+      "Skill3": 45.0,
+      "Skill4": 30.0
+    },
+    "Intermediate": {
+      "Skill1": 65.0,
+      "Skill2": 70.0,
+      "Skill3": 60.0,
+      "Skill4": 75.0
+    },
+    "Expert": {
+      "Skill1": 90.0,
+      "Skill2": 85.0,
+      "Skill3": 95.0,
+      "Skill4": 88.0
+    }
+  },
+  "theta_ticks": [
+    "Skill1",
+    "Skill2",
+    "Skill3",
+    "Skill4"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "r_pixels": [
+    42,
+    84,
+    126,
+    168
+  ],
+  "center": [
+    270,
+    270
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart22.png"
+  },
+  "series_color": {
+    "Beginner": "#9467bd",
+    "Intermediate": "#ff7f0e",
+    "Expert": "#2ca02c"
+  },
+  "num_entities": 3,
+  "fill_enabled": true,
+  "num_vars": 4
+}

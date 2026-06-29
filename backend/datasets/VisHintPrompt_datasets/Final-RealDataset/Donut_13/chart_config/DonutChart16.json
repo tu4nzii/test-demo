@@ -1,0 +1,25 @@
+{
+  "chart_id": "DonutChart16",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart16.png"
+  },
+  "data_points": {
+    "blue": 0.25,
+    "darkBlue": 0.137,
+    "shallowBlue": 0.613
+  },
+  "center": [
+    21,
+    21
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    5,
+    18
+  ],
+  "series_color": {
+    "blue": "#448AFF",
+    "darkBlue": "#3F51B5",
+    "shallowBlue": "#00BCD4"
+  }
+}

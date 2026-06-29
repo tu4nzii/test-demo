@@ -1,0 +1,69 @@
+{
+  "chart_id": "RadarChart8",
+  "chart_type": "radar",
+  "labels": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4"
+  ],
+  "data_points": {
+    "Sales": {
+      "Q1": 120.0,
+      "Q2": 150.0,
+      "Q3": 135.0,
+      "Q4": 180.0
+    },
+    "Profit": {
+      "Q1": 45.0,
+      "Q2": 55.0,
+      "Q3": 48.0,
+      "Q4": 72.0
+    },
+    "Cost": {
+      "Q1": 75.0,
+      "Q2": 95.0,
+      "Q3": 87.0,
+      "Q4": 108.0
+    }
+  },
+  "theta_ticks": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4"
+  ],
+  "theta_angles": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "r_ticks": [
+    50,
+    100,
+    150,
+    200
+  ],
+  "r_pixels": [
+    50,
+    100,
+    150,
+    200
+  ],
+  "center": [
+    250,
+    250
+  ],
+  "image_paths": {
+    "no_grid": "RadarChart-18-final/RadarChart8.png"
+  },
+  "series_color": {
+    "Sales": "#393b79",
+    "Profit": "#637939",
+    "Cost": "#8c6d31"
+  },
+  "num_entities": 3,
+  "fill_enabled": true,
+  "num_vars": 4
+}

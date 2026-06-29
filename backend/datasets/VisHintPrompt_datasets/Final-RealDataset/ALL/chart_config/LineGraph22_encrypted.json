@@ -1,0 +1,63 @@
+{
+  "chart_id": "lineGraph22",
+  "image_paths": {
+    "no_grid": "chart/LineGraph22.png",
+    "with_grid": "chart/LineGraph22_grid.png",
+    "grid_with_grid": "chart/LineGraph22_grid.png"
+  },
+  "data_points": {
+    "Ohio": {
+      "1990": 58000,
+      "2000": 65000,
+      "2010": 54800,
+      "2020": 60000
+    },
+    "Pennsylvania": {
+      "1990": 56000,
+      "2000": 69000,
+      "2010": 57800,
+      "2020": 70000
+    },
+    "West Virginia": {
+      "1990": 42800,
+      "2000": 44000,
+      "2010": 50800,
+      "2020": 51800
+    }
+  },
+  "x_ticks": [
+    "1990",
+    "2000",
+    "2010",
+    "2020"
+  ],
+  "y_ticks": [
+    40000,
+    45000,
+    50000,
+    55000,
+    60000,
+    65000,
+    70000
+  ],
+  "x_pixels": [
+    162,
+    249,
+    336,
+    423
+  ],
+  "y_pixels": [
+    210,
+    184,
+    159,
+    134,
+    108,
+    82,
+    56
+  ],
+  "series_color": {
+    "Ohio": "#2C2CFF",
+    "Pennsylvania": "#18FF18",
+    "West Virginia": "#FF0000"
+  }
+}

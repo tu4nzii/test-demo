@@ -1,0 +1,80 @@
+{
+  "chart_id": "RoseDiagramExample2",
+  "image_paths": {
+    "with_grid": "RoseChart-6/RoseDiagramExample2.png"
+  },
+  "center": {
+    "x": 175,
+    "y": 144
+  },
+  "data_points": {
+    "Label A": 22,
+    "Label B": 48,
+    "Label C": 10,
+    "Label D": 30,
+    "Label E": 10,
+    "Label F": 63,
+    "Label G": 90,
+    "Label H": 70,
+    "Label I": 43,
+    "Label J": 15,
+    "Label K": 23,
+    "Label L": 33
+  },
+  "series_color": {
+    "Label A": "#8da62b",
+    "Label B": "#8da62b",
+    "Label C": "#8da62b",
+    "Label D": "#8da62b",
+    "Label E": "#8da62b",
+    "Label F": "#8da62b",
+    "Label G": "#8da62b",
+    "Label H": "#8da62b",
+    "Label I": "#8da62b",
+    "Label J": "#8da62b",
+    "Label K": "#8da62b",
+    "Label L": "#8da62b"
+  },
+  "r_ticks": [
+    "0",
+    "20",
+    "40",
+    "60",
+    "80"
+  ],
+  "r_pixels": [
+    0,
+    36,
+    72,
+    108,
+    144
+  ],
+  "theta_ticks": [
+    "Label A",
+    "Label B",
+    "Label C",
+    "Label D",
+    "Label E",
+    "Label F",
+    "Label G",
+    "Label H",
+    "Label I",
+    "Label J",
+    "Label K",
+    "Label L"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ]
+}

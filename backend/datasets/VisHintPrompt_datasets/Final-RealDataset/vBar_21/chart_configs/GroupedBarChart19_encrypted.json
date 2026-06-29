@@ -1,0 +1,56 @@
+{
+  "chart_id": "GroupedBarChart19",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart19.png",
+    "with_grid": "chart/GroupedBarChart19_grid.png",
+    "grid_with_grid": "chart/GroupedBarChart19_grid.png"
+  },
+  "data_points": {
+    "Portugal": {
+      "Cats": 250000,
+      "Dogs": 250000
+    },
+    "UK": {
+      "Cats": 200000,
+      "Dogs": 128780
+    }
+  },
+  "x_ticks": [
+    "Cats",
+    "Dogs"
+  ],
+  "y_ticks": [
+    0,
+    25000.0,
+    50000,
+    75000.0,
+    100000,
+    125000.0,
+    150000,
+    175000.0,
+    200000,
+    225000.0,
+    250000
+  ],
+  "x_pixels": [
+    160,
+    250
+  ],
+  "y_pixels": [
+    278,
+    262,
+    245,
+    228,
+    212,
+    196,
+    179,
+    162,
+    146,
+    130,
+    113
+  ],
+  "series_color": {
+    "Portugal": "#0066FF",
+    "UK": "#DE98FF"
+  }
+}

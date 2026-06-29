@@ -1,0 +1,63 @@
+{
+  "chart_id": "radarchart_4",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart4.png"
+  },
+  "labels": [
+    "Timeliness",
+    "Consistency",
+    "Validity",
+    "Completeness",
+    "Accuracy",
+    "Uniqueness"
+  ],
+  "data_points": {
+    "Data Quality": {
+      "Timeliness": 52.46,
+      "Consistency": 80.57,
+      "Validity": 84.54,
+      "Completeness": 91.82,
+      "Accuracy": 41.5,
+      "Uniqueness": 27.02
+    }
+  },
+  "theta_ticks": [
+    "Timeliness",
+    "Consistency",
+    "Validity",
+    "Completeness",
+    "Accuracy",
+    "Uniqueness"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    25,
+    50,
+    75,
+    100
+  ],
+  "r_pixels": [
+    37,
+    75,
+    112,
+    150
+  ],
+  "center": [
+    200,
+    200
+  ],
+  "series_color": {
+    "Data Quality": "#ff9999"
+  },
+  "num_entities": 1,
+  "fill_enabled": true,
+  "num_vars": 6
+}

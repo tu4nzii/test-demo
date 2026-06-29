@@ -1,0 +1,233 @@
+{
+  "chart_id": "ScatterPlot10",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot10.png",
+    "with_grid": "chart/ScatterPlot10_grid.png",
+    "grid_with_grid": "chart/ScatterPlot10_grid.png"
+  },
+  "data_points": {
+    "Socialite": [
+      0.05,
+      0.24
+    ],
+    "Financier": [
+      0.16,
+      0.05
+    ],
+    "Stylist": [
+      0.16,
+      0.37
+    ],
+    "Receptionist": [
+      0.18,
+      0.35
+    ],
+    "Hairdresser": [
+      0.19,
+      0.36
+    ],
+    "Bookkeeper": [
+      0.2,
+      0.2
+    ],
+    "Protege": [
+      0.21,
+      0.16
+    ],
+    "Maestro": [
+      0.22,
+      0.14
+    ],
+    "Homemaker": [
+      0.23,
+      0.39
+    ],
+    "Nanny": [
+      0.24,
+      0.38
+    ],
+    "Philosopher": [
+      0.27,
+      0.21
+    ],
+    "Housekeeper": [
+      0.27,
+      0.44
+    ],
+    "Magician": [
+      0.29,
+      0.29
+    ],
+    "Broadcaster": [
+      0.3,
+      0.25
+    ],
+    "Skipper": [
+      0.34,
+      0.19
+    ],
+    "Warrior": [
+      0.35,
+      0.32
+    ],
+    "Designer": [
+      0.35,
+      0.45
+    ],
+    "Architect": [
+      0.38,
+      0.26
+    ],
+    "Librarian": [
+      0.39,
+      0.43
+    ],
+    "Counselor": [
+      0.39,
+      0.44
+    ],
+    "Nurse": [
+      0.48,
+      0.64
+    ],
+    "Pilot": [
+      0.54,
+      0.54
+    ],
+    "Boss": [
+      0.56,
+      0.43
+    ],
+    "Captain": [
+      0.58,
+      0.41
+    ]
+  },
+  "x_ticks": [
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "y_ticks": [
+    0.1,
+    0.15000000000000002,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6
+  ],
+  "x_pixels": [
+    183,
+    242,
+    301,
+    360,
+    420,
+    479,
+    538,
+    598,
+    657,
+    716,
+    776
+  ],
+  "y_pixels": [
+    503,
+    462,
+    420,
+    379,
+    338,
+    297,
+    256,
+    214,
+    173,
+    132,
+    91
+  ],
+  "series_color": {
+    "Socialite": [
+      "#0002F2"
+    ],
+    "Financier": [
+      "#F80100"
+    ],
+    "Stylist": [
+      "#0002F2"
+    ],
+    "Receptionist": [
+      "#0002F2"
+    ],
+    "Hairdresser": [
+      "#0002F2"
+    ],
+    "Bookkeeper": [
+      "#020BF1"
+    ],
+    "Protege": [
+      "#F70406"
+    ],
+    "Maestro": [
+      "#FB0300"
+    ],
+    "Homemaker": [
+      "#0104E3"
+    ],
+    "Nanny": [
+      "#0005F7"
+    ],
+    "Philosopher": [
+      "#F90D00"
+    ],
+    "Housekeeper": [
+      "#0002FE"
+    ],
+    "Magician": [
+      "#F10000"
+    ],
+    "Broadcaster": [
+      "#FD0300"
+    ],
+    "Skipper": [
+      "#F50300"
+    ],
+    "Warrior": [
+      "#F30100"
+    ],
+    "Designer": [
+      "#060FFC"
+    ],
+    "Architect": [
+      "#F20100"
+    ],
+    "Librarian": [
+      "#0205F9"
+    ],
+    "Counselor": [
+      "#0001F3"
+    ],
+    "Nurse": [
+      "#0003F3"
+    ],
+    "Pilot": [
+      "#F60800"
+    ],
+    "Boss": [
+      "#F30300"
+    ],
+    "Captain": [
+      "#FE0300"
+    ]
+  }
+}

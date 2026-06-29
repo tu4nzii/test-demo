@@ -1,0 +1,27 @@
+{
+  "chart_id": "DonutChart12",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart12.png"
+  },
+  "data_points": {
+    "dog": 0.379,
+    "cat": 0.319,
+    "fish": 0.192,
+    "other": 0.11
+  },
+  "center": [
+    249,
+    257
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    99,
+    185
+  ],
+  "series_color": {
+    "dog": "#9E007E",
+    "cat": "#11B0A6",
+    "fish": "#84BD00",
+    "other": "#FF757A"
+  }
+}

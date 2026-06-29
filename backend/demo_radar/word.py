@@ -4,7 +4,7 @@ import numpy as np
 import json
 
 # 加载图像
-image_path = 'data/output/radar/legend_radar_001.png'
+image_path = 'sample_outputs/radar/legend_radar_001.png'
 image = cv2.imread(image_path)
 
 # 初始化 OCR 识别器
