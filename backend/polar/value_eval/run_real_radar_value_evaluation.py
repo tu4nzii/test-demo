@@ -1,6 +1,6 @@
 """Run real radar value evaluation from prepared GT-encrypted JSON files.
 
-This is a thin wrapper around ``backend/polar/radar/demo_evaluation_radar_1 copy.py``.
+This is a thin wrapper around ``backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py``.
 It exists because that evaluator expects image paths to be relative to the
 current working directory.
 """
@@ -18,7 +18,7 @@ from typing import Any
 
 ROOT_DIR = Path(__file__).resolve().parents[3]
 DEFAULT_JSON_DIR = ROOT_DIR / "backend" / "data" / "polar" / "real_evaluation_data" / "radar"
-DEFAULT_EVALUATOR = ROOT_DIR / "backend" / "polar" / "radar" / "demo_evaluation_radar_1 copy.py"
+DEFAULT_EVALUATOR = ROOT_DIR / "backend" / "polar" / "legacy" / "demo_radar" / "demo_evaluation_radar_1.py"
 
 
 def load_json(path: Path) -> dict[str, Any]:

@@ -1,55 +1,71 @@
-# Polar Pipeline
+# Polar Chart Pipeline
 
-极坐标相关代码统一放在这里，包含 radar、rose、pie、donut 的检测、fallback、加密和评估。
-
-## 目录
+这里现在只保留两个主入口：
 
 ```text
-backend/polar/
-  scripts/      # 推荐命令入口
-  evaluation/   # 轴检测、fallback、几何误差评估
-  encryption/   # 真实图表 GT 加密数据准备
-  value_eval/   # 后续数值评估入口
-  radar/        # radar 底层实现
-  rose/         # rose 底层实现
-  pie/          # pie 底层实现
-  donut/        # donut 底层实现
-  legacy/       # 旧脚本归档
+backend/polar/scripts/run_one_chart.py
+backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
 ```
 
-## 常用命令
+## 1. 单张图完整流程
 
-单张图从头到尾:
+后面如果要检查一张图，从这里跑：
 
 ```powershell
 D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_one_chart.py --chart-type radar --json "backend\real\RadarChart-18 & RoseChart-6\RadarChart-18-final\RadarChart24.json"
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_one_chart.py --chart-type rose --dataset real_corrected --json "backend\real\RadarChart-18 & RoseChart-6\RoseChart-6\Rose1_gt_encrypt.json"
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_one_chart.py --chart-type pie --json "backend\real\pie\pie_001.json"
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_one_chart.py --chart-type donut --json "backend\real\donut\donut_001.json"
 ```
 
-批量统计:
+它的流程是：
+
+```text
+原图/JSON
+-> 轴检测或圆检测
+-> fallback 判断
+-> radar/rose: 生成加密图和对应评估 JSON
+-> pie/donut: 生成圆心/半径检测结果
+-> pipeline_summary.json
+```
+
+pie/donut 当前没有网格加密阶段，只评估圆心和半径先验。
+
+## 2. 后续值评估
+
+你说的“评估”默认指这个文件：
+
+```text
+backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
+```
+
+如果想用包装器批量跑已经准备好的真实 radar JSON，可以用：
 
 ```powershell
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_axis_eval.py --chart-type radar --dataset real --tick-mode gt-nearest
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_axis_eval.py --chart-type rose --dataset real_corrected --tick-mode gt-nearest
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_axis_eval.py --chart-type pie-donut --dataset all
-D:\anaconda3\envs\ADtry\python.exe backend\polar\scripts\run_grid_encrypt.py --chart-type all --mode gt
 D:\anaconda3\envs\ADtry\python.exe backend\polar\value_eval\run_real_radar_value_evaluation.py --dry-run
 ```
 
-## 数据和文档
+包装器只是帮你切工作目录和批量传 JSON，实际 evaluator 仍然是上面的 legacy 文件。
+
+## 3. 主目录说明
 
 ```text
-backend/data/polar   # 输出、manifest、归档
-backend/docs/polar   # 流程说明和 fallback 说明
-backend/real         # 真实/合成原始图表输入
+backend/polar/
+  scripts/       # 只放单张图主流程
+  evaluation/    # run_one_chart 依赖的轴/圆检测评估模块
+  encryption/    # run_one_chart 依赖的 GT 网格加密模块
+  value_eval/    # legacy evaluator 的轻量包装器
+  radar/         # radar 底层检测/加密实现
+  rose/          # rose 底层检测/加密实现
+  pie/           # pie 圆检测实现
+  donut/         # donut 圆检测实现
+  legacy/        # 当前保留的旧版值评估入口
+  archive_unused/# 旧批处理、历史 demo、论文统计脚本归档
 ```
 
-先看:
+## 4. 旧脚本归档
+
+旧的批量轴评估、fallback 复现、50 张抽样、旧 demo 等已经放到：
 
 ```text
-backend/docs/polar/polar_file_inventory.md
-backend/docs/polar/polar_axis_grid_pipeline.md
-backend/docs/polar/polar_fallback_policy.md
+backend/polar/archive_unused/20260629_cleanup
 ```
+
+这些文件没有删除，只是不再作为当前主流程入口。
