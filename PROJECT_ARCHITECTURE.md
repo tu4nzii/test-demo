@@ -1,99 +1,101 @@
-﻿# Project Architecture Notes
+# Project Architecture Notes
 
-This repository is a chart analysis demo with a FastAPI backend and a Vue/Vite frontend. It uploads a chart image, detects the chart type, generates a processed/grid-enhanced image, and returns extracted prediction results. A hidden admin/backdoor mode can optionally upload GT JSON for metric calculation, but the normal user flow does not depend on dataset GT.
-
-## Quick Start
-
-Backend:
-
-```powershell
-cd backend
-pip install -r requirements.txt
-python main.py
-```
-
-The API runs at `http://127.0.0.1:8000`.
-
-Frontend:
-
-```powershell
-cd frontend/chart-demo-ui
-npm install
-npm.cmd run dev -- --host 127.0.0.1
-```
-
-The UI runs at `http://127.0.0.1:5173`.
-
-On Windows PowerShell, prefer `npm.cmd` if execution policy blocks `npm.ps1`.
+This repository is a FastAPI + Vue/Vite chart analysis demo. The current `main`
+branch is the source of truth for cartesian chart handling. The `origin/stacked_bar`
+branch is useful only as a polar-coordinate reference and must not overwrite the
+cartesian grid/encryption flow.
 
 ## Runtime Flow
 
-1. `frontend/chart-demo-ui/src/App.vue` accepts a chart image. In admin/backdoor mode it can also accept GT JSON.
-2. `POST /api/upload/` in `backend/main.py` saves uploaded files under `backend/data/upload/`.
-3. `backend/type_detection/chart_type.py` tries to classify the chart with an external LLM API. If that fails, it falls back to a default chart type so the app can continue.
-4. `backend/type_detection/chart_registry.py` is the shared registry for supported chart types, coordinate-system categories, and capabilities.
-5. `POST /api/process/` uses `ChartProcessorFactory` from `backend/type_detection/chart_processor.py`.
-6. Polar charts route to `backend/demo_rose/` or `backend/demo_radar/`; cartesian charts route to `backend/Grid_generation/`.
-7. Generated images and intermediate JSON are written under `backend/data/output/`.
-8. `POST /api/evaluate/` runs `backend/evaluation_prediction/` to extract values from the system-generated image/JSON. In admin/backdoor mode, saved GT can also be used to calculate metrics.
-9. `GET /api/images/{filename}` and `GET /api/results/{filename}` serve outputs to the frontend.
+1. `frontend/chart-demo-ui/src/App.vue` accepts either a custom uploaded chart image or a dataset-preview sample.
+2. `POST /api/upload/` saves a custom image under `backend/data/upload/` and calls MLLM chart-type detection.
+3. Detection failures are surfaced as errors. The backend does not silently fall back to a wrong chart type.
+4. `POST /api/process/` routes through `ChartProcessorFactory`.
+5. Cartesian charts route to `backend/Grid_generation/`; polar and circular charts route to their registered processors.
+6. Generated outputs are written under `backend/data/output/` or `backend/data/dataset_preview_cache/`.
+7. `POST /api/evaluate/` runs evaluation prediction from the system-generated JSON and grid images.
+8. Dataset-preview endpoints load cached current-system outputs by dataset source and category.
 
-Runtime code must not import from `reference/`. That directory is kept only for archived/reference scripts such as the moved `reference/prediction_core`.
+Normal generation must not consume dataset GT. GT is only allowed in offline metric calculation.
 
-## Files Worth Reading First
+## Supported Types
 
-| Path | Why it matters |
+The registry lives in `backend/type_detection/chart_registry.py`.
+
+```text
+rose, radar, v_bar, h_bar, line, scatter, bubble, donut, pie
+```
+
+There are no runtime `v_stacked_bar` or `h_stacked_bar` chart types in the current main flow. Stacked-bar wording may be normalized into ordinary bar types, but cartesian behavior remains the current main implementation.
+
+## Key Files
+
+| Path | Purpose |
 | --- | --- |
-| `backend/main.py` | FastAPI app, route definitions, upload/process/evaluate orchestration helpers, runtime directories, in-memory `charts_db`. |
-| `backend/type_detection/chart_registry.py` | Shared chart type registry: type names, coordinate-system categories, supported capabilities, and fallback type. |
-| `backend/type_detection/chart_processor.py` | Processor protocol, shared polar processor base, cartesian processor, and chart type factory. |
-| `backend/type_detection/chart_type.py` | Chart type detection and fallback behavior; contains external API configuration. |
-| `backend/evaluation/` | Unified evaluation package extracted from the old `Final_scatterplot_0717` experiment scripts: data normalization, metric calculation, and API-ready summaries. |
-| `backend/evaluation_prediction/` | Runtime value-extraction flows for bar, stacked bar, line, scatter, bubble, pie, donut, radar, and rose charts. Uses backend-generated JSON rather than dataset GT in the normal flow. |
-| `backend/Grid_generation/grid_generation.py` | Main cartesian chart processing pipeline. |
-| `backend/Grid_generation/function_calling/` | Axis, tick, label, color, and grid helper modules. |
-| `backend/demo_rose/` | Rose chart encode, axis detection, and evaluation helpers. |
-| `backend/demo_radar/` | Radar chart encode, axis detection, and evaluation helpers. |
-| `frontend/chart-demo-ui/src/App.vue` | Entire current UI and API interaction logic. |
+| `backend/main.py` | FastAPI app, upload/process/evaluate orchestration, dataset preview cache routes. |
+| `backend/type_detection/chart_type.py` | MLLM chart-type detection and upload-time structure priors. |
+| `backend/type_detection/chart_registry.py` | Supported types and coordinate-system registry. |
+| `backend/type_detection/chart_processor.py` | Processor protocol and chart-type routing. |
+| `backend/Grid_generation/` | Main cartesian grid reconstruction and encryption flow. |
+| `backend/evaluation_prediction/` | Runtime value extraction for step 3, independent from grid generation. |
+| `backend/evaluation/` | Offline metrics, reports, and batch evaluation helpers. |
+| `backend/datasets/VisHintPrompt_datasets/` | Dataset preview sources. |
+| `frontend/chart-demo-ui/src/App.vue` | Current UI and API integration. |
+| `reference/` | Archived/reference code only; runtime code must not import from it. |
 
-## Paths To Avoid Re-reading Unless Needed
+## Dataset Preview
 
-| Path | Note |
+Dataset sources:
+
+| source | directory |
 | --- | --- |
-| `backend/charts/` | Large local sample image/JSON corpus. Read specific files only when testing a sample. |
-| `backend/data/` | Runtime upload/output/result/cache directories; safe to regenerate. |
-| `frontend/chart-demo-ui/node_modules/` | Dependency install output. |
-| `frontend/chart-demo-ui/dist/` | Vite build output. |
-| `Final_scatterplot_0717/` | Legacy experiment workspace. Core metric ideas were migrated into `backend/evaluation/`; old batch scripts, venvs, temporary crops, and result images are not needed by the app. |
-| `reference/` | Archived/reference scripts only. Runtime backend/frontend code should not import from here. |
-| `test_output/` | Generated/test output. |
+| `realworld` | `backend/datasets/VisHintPrompt_datasets/Final-RealDataset` |
+| `synthetic` | `backend/datasets/VisHintPrompt_datasets/Sy.Dataset` |
 
-## Verification Commands
+The UI loads categories first, then samples for the selected category. This keeps preview startup fast. Preview cache is stored under:
+
+```text
+backend/data/dataset_preview_cache/
+```
+
+Batch-generated current-system cache can also be seeded from:
+
+```text
+backend/evaluation/recheck_outputs/vishintprompt_full_grid_encryption_latest/
+```
+
+## Model Configuration
+
+Model settings are centralized in:
+
+```text
+backend/evaluation_prediction/common/model_config.py
+backend/model_api_config.py
+model_api_config.py
+```
+
+The current Gemini default is `gemini-2.5-flash-lite`. API keys should come from ignored local secret files or environment variables, not from committed code.
+
+## Verification
 
 ```powershell
-python -m py_compile backend/main.py
-python -m compileall -q backend/type_detection backend/Grid_generation backend/demo_rose backend/demo_radar
+python -m py_compile backend/main.py backend/type_detection/chart_type.py backend/type_detection/chart_registry.py backend/Grid_generation/grid_generation.py
 cd frontend/chart-demo-ui
 npm.cmd run build
 ```
 
-Smoke checks after starting both services:
+Smoke checks after starting services:
 
 ```powershell
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:8000/
 Invoke-WebRequest -UseBasicParsing http://127.0.0.1:5173/
 ```
 
-## Known Gotchas
+## Gotchas
 
-- Many Chinese comments and some terminal output display as mojibake in PowerShell, but the app and browser UI can still render Chinese correctly.
-- Full upload/process/evaluate flows may call external LLM APIs. They can fail without network access or valid credentials.
-- Model API settings are centralized in `backend/evaluation_prediction/common/model_config.py` and exposed through `model_api_config.py`. Switch profiles with `CHART_MODEL_PROFILE` or override individual fields with `CHART_BASE_URL`, `CHART_MODEL_NAME`, and `CHART_API_KEY`.
-- `charts_db` is in-memory, so uploaded `chart_id` values disappear when the backend restarts.
-- Upload and process endpoints intentionally keep the same response fields used by the frontend: `chart_id`, `chart_type`, `confidence`, and `encrypted_image_url`.
-- The repository currently has many pre-existing modified/deleted dataset files. Treat them as user work unless explicitly told to restore or remove them.
-
-## Cleanup Policy
-
-Safe generated paths are ignored in `.gitignore`: Python caches, frontend `dist`, frontend `node_modules`, backend runtime `data` output/cache/log directories, and `*.log`. Prefer cleaning those before reviewing diffs. Do not delete sample datasets or old source directories just because they are large.
-
+- Do not use GT to generate grids, ticks, labels, colors, or prediction previews.
+- Custom upload must run the current system chain from scratch and should not use dataset preview cache.
+- Dataset preview cache must be regenerated when grid style, label style, or prediction output format changes.
+- Runtime code must not import from `reference/`.
+- Do not merge cartesian code from `origin/stacked_bar` into `main`; only inspect its polar handling when needed.
+- There may be local modified dataset files. Treat them as user work unless explicitly asked to restore them.
