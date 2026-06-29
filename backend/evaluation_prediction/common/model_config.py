@@ -27,7 +27,7 @@ _VVEAI_GEMINI_PROFILE = {
 
 _WORK_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
-    "model_name": "gemini-3.1-flash-lite",
+    "model_name": "gemini-2.5-flash-lite",
     "api_key": "",
 }
 

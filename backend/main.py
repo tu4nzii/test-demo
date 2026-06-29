@@ -162,7 +162,9 @@ DATASET_CATEGORY_LABELS = {
     "scatter": "Scatter",
     "line": "Line",
     "v_bar": "Vertical Bar",
+    "v_stacked_bar": "Vertical Stacked Bar",
     "h_bar": "Horizontal Bar",
+    "h_stacked_bar": "Horizontal Stacked Bar",
     "pie": "Pie",
     "donut": "Donut",
     "radar": "Radar",
@@ -172,23 +174,27 @@ DATASET_CATEGORY_PREFIXES = (
     "Bubble_",
     "Donut_",
     "hBar_",
+    "hStackedBar_",
     "Line_",
     "Pie_",
     "Radar_",
     "Rose_",
     "Scatter_",
     "vBar_",
+    "vStackedBar_",
 )
 DATASET_CATEGORY_PRIORITY = {
     "bubble": 0,
     "scatter": 1,
     "line": 2,
     "v_bar": 3,
-    "h_bar": 4,
-    "pie": 5,
-    "donut": 6,
-    "radar": 7,
-    "rose": 8,
+    "v_stacked_bar": 4,
+    "h_bar": 5,
+    "h_stacked_bar": 6,
+    "pie": 7,
+    "donut": 8,
+    "radar": 9,
+    "rose": 10,
 }
 DATASET_PREVIEW_MANIFEST_CACHE: Dict[str, Any] = {"mtime": None, "records": {}}
 
@@ -342,9 +348,9 @@ def infer_dataset_chart_type(image_path: Path) -> str:
     if "rose" in text:
         return "rose"
     if "stacked" in text and ("xbar" in text or "hbar" in text or "horizontal" in text):
-        return "h_bar"
+        return "h_stacked_bar"
     if "stacked" in text and "bar" in text:
-        return "v_bar"
+        return "v_stacked_bar"
     if "xbar" in text or "hbar" in text or "horizontal" in text:
         return "h_bar"
     if "bar" in text:

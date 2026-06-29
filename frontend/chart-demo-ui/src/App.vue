@@ -87,7 +87,7 @@ const extractedPredictions = computed(() => {
   const chartTypeValue = getActiveChartType();
   if (pointPredictionChartTypes.has(chartTypeValue)) return predictions;
 
-  const shouldUseXTicks = ['v_bar', 'line'].includes(chartTypeValue);
+  const shouldUseXTicks = ['v_bar', 'v_stacked_bar', 'line'].includes(chartTypeValue);
   const primaryTicks = shouldUseXTicks ? processedJson.x_ticks : processedJson.y_ticks;
   const fallbackTicks = shouldUseXTicks ? processedJson.y_ticks : processedJson.x_ticks;
   const tickValues = Array.isArray(primaryTicks) && primaryTicks.length

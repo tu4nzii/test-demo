@@ -1271,7 +1271,7 @@ def priority_axis_quality(
     if (
         axis_type == "numeric"
         and target_count >= 8
-        and max_ocr_distance > 8.0
+        and max_ocr_distance > 10.0
         and max_ocr_distance > safe_float(selected.get("mean_ocr_distance")) * 4.0
     ):
         reasons.append(f"{axis_name}_numeric_selected_large_ocr_distance")

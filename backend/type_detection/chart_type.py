@@ -30,16 +30,16 @@ class ChartTypeDetector:
         "bar chart": "v_bar",
         "vertical_bar": "v_bar",
         "vertical bar": "v_bar",
-        "v_stacked_bar": "v_bar",
-        "vertical_stacked_bar": "v_bar",
-        "vertical stacked bar": "v_bar",
-        "stacked_bar": "v_bar",
-        "stacked bar": "v_bar",
+        "v_stacked_bar": "v_stacked_bar",
+        "vertical_stacked_bar": "v_stacked_bar",
+        "vertical stacked bar": "v_stacked_bar",
+        "stacked_bar": "v_stacked_bar",
+        "stacked bar": "v_stacked_bar",
         "horizontal_bar": "h_bar",
         "horizontal bar": "h_bar",
-        "h_stacked_bar": "h_bar",
-        "horizontal_stacked_bar": "h_bar",
-        "horizontal stacked bar": "h_bar",
+        "h_stacked_bar": "h_stacked_bar",
+        "horizontal_stacked_bar": "h_stacked_bar",
+        "horizontal stacked bar": "h_stacked_bar",
         "linechart": "line",
         "line_chart": "line",
         "line chart": "line",
@@ -294,6 +294,16 @@ class ChartTypeDetector:
             },
             "series_items": series_items,
         }
+
+    def apply_bar_layout_type_hint(self, chart_type, axis_repair):
+        if not isinstance(axis_repair, dict) or axis_repair.get("bar_layout") != "stacked":
+            return chart_type
+        orientation = axis_repair.get("bar_orientation")
+        if chart_type == "h_bar" or orientation == "horizontal":
+            return "h_stacked_bar"
+        if chart_type == "v_bar" or orientation == "vertical":
+            return "v_stacked_bar"
+        return chart_type
 
     def normalize_series_items(self, value):
         """Normalize visible legend/point color hints returned by upload MLLM."""
@@ -704,6 +714,7 @@ Rules:
                 raise ValueError(f"Invalid confidence value: {confidence}")
 
             axis_repair = self.normalize_axis_repair(result)
+            chart_type = self.apply_bar_layout_type_hint(chart_type, axis_repair)
             self.refine_legend_series_colors_from_image(image_path, axis_repair)
 
             print(f"[Success] Chart type detected: {chart_type}, confidence={confidence}")
