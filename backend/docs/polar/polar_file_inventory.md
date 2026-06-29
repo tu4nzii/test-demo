@@ -13,7 +13,7 @@ backend/data/polar   # 输出、manifest、归档数据
 | 任务 | 入口 |
 | --- | --- |
 | 单张图完整流程：原图/JSON -> fallback -> 轴/圆检测 -> 加密或圆检测结果 | `backend/polar/scripts/run_one_chart.py` |
-| 后续值评估，也就是你之后说“评估”时默认指的脚本 | `backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py` |
+| 后续值评估，也就是你之后说“评估”时默认指的脚本 | `backend/polar/radar/demo_evaluation_radar_1 copy.py` |
 
 `backend/polar/value_eval/run_real_radar_value_evaluation.py` 只是一个轻量包装器，用来批量调用上面的 legacy evaluator。
 
@@ -51,7 +51,7 @@ backend/polar/
   rose/          # rose 底层检测/加密实现
   pie/           # pie 圆检测实现
   donut/         # donut 圆检测实现
-  legacy/        # 当前保留 demo_radar/demo_evaluation_radar_1.py
+  legacy/        # 其他旧版 demo 追溯
   archive_unused/# 旧脚本归档
 ```
 

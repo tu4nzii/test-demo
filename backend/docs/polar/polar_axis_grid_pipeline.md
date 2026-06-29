@@ -61,7 +61,7 @@ pipeline_summary.json
 之后你说“评估”时，默认指这个脚本：
 
 ```text
-backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
+backend/polar/radar/demo_evaluation_radar_1 copy.py
 ```
 
 包装器入口：

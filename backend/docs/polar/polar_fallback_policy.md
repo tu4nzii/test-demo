@@ -92,7 +92,7 @@ backend/polar/scripts/run_one_chart.py
 后续值评估：
 
 ```text
-backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
+backend/polar/radar/demo_evaluation_radar_1 copy.py
 ```
 
 旧的批量统计和 manifest 复现脚本已经归档到：

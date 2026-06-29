@@ -4,7 +4,7 @@
 
 ```text
 backend/polar/scripts/run_one_chart.py
-backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
+backend/polar/radar/demo_evaluation_radar_1 copy.py
 ```
 
 ## 1. 单张图完整流程
@@ -33,7 +33,7 @@ pie/donut 当前没有网格加密阶段，只评估圆心和半径先验。
 你说的“评估”默认指这个文件：
 
 ```text
-backend/polar/legacy/demo_radar/demo_evaluation_radar_1.py
+backend/polar/radar/demo_evaluation_radar_1 copy.py
 ```
 
 如果想用包装器批量跑已经准备好的真实 radar JSON，可以用：
@@ -56,7 +56,7 @@ backend/polar/
   rose/          # rose 底层检测/加密实现
   pie/           # pie 圆检测实现
   donut/         # donut 圆检测实现
-  legacy/        # 当前保留的旧版值评估入口
+  legacy/        # 其他旧版 demo 追溯
   archive_unused/# 旧批处理、历史 demo、论文统计脚本归档
 ```
 
