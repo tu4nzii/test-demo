@@ -1,0 +1,79 @@
+{
+  "chart_id": "radarchart_10",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart10.png"
+  },
+  "labels": [
+    "Lithuania",
+    "Czechia",
+    "Ireland",
+    "Germany",
+    "Australia",
+    "Austria",
+    "UK",
+    "Belgium",
+    "The Netherlands"
+  ],
+  "data_points": {
+    "Beer Consumption": {
+      "Lithuania": 501.0,
+      "Czechia": 301.0,
+      "Ireland": 266.0,
+      "Germany": 165.0,
+      "Australia": 139.0,
+      "Austria": 336.0,
+      "UK": 290.0,
+      "Belgium": 325.0,
+      "The Netherlands": 40.0
+    }
+  },
+  "theta_ticks": [
+    "Lithuania",
+    "Czechia",
+    "Ireland",
+    "Germany",
+    "Australia",
+    "Austria",
+    "UK",
+    "Belgium",
+    "The Netherlands"
+  ],
+  "theta_angles": [
+    0.0,
+    40.0,
+    80.0,
+    120.0,
+    160.0,
+    200.0,
+    240.0,
+    280.0,
+    320.0
+  ],
+  "r_ticks": [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600
+  ],
+  "r_pixels": [
+    30,
+    60,
+    90,
+    120,
+    150,
+    180
+  ],
+  "center": [
+    445,
+    248
+  ],
+  "series_color": {
+    "Beer Consumption": "#66b3ee"
+  },
+  "num_entities": 1,
+  "fill_enabled": false,
+  "num_vars": 9
+}

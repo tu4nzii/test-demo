@@ -1,0 +1,31 @@
+{
+  "chart_id": "DonutChart21",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart21.png"
+  },
+  "data_points": {
+    "Hydroelectric": 0.175,
+    "Nuclear": 0.238,
+    "Coal": 0.117,
+    "Solar": 0.053,
+    "Wind": 0.225,
+    "Other": 0.192
+  },
+  "center": [
+    423,
+    225
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    66,
+    154
+  ],
+  "series_color": {
+    "Hydroelectric": "#1274AC",
+    "Nuclear": "#FFE162",
+    "Coal": "#4CD180",
+    "Solar": "#0074E6",
+    "Wind": "#9B4FE6",
+    "Other": "#FF80AC"
+  }
+}

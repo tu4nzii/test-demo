@@ -1,0 +1,74 @@
+{
+  "chart_id": "radarchart_17",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart17.png"
+  },
+  "labels": [
+    "Sales",
+    "Marketing",
+    "Development",
+    "Customer Support",
+    "Information Technology",
+    "Administration"
+  ],
+  "data_points": {
+    "Allocated Budget": {
+      "Sales": 30.0,
+      "Marketing": 25.0,
+      "Development": 45.0,
+      "Customer Support": 20.0,
+      "Information Technology": 15.0,
+      "Administration": 10.0
+    },
+    "Actual Spending": {
+      "Sales": 45.0,
+      "Marketing": 30.0,
+      "Development": 25.0,
+      "Customer Support": 15.0,
+      "Information Technology": 20.0,
+      "Administration": 30.0
+    }
+  },
+  "theta_ticks": [
+    "Sales",
+    "Marketing",
+    "Development",
+    "Customer Support",
+    "Information Technology",
+    "Administration"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    55,
+    110,
+    165,
+    220,
+    275
+  ],
+  "center": [
+    375,
+    375
+  ],
+  "series_color": {
+    "Allocated Budget": "#4477aa",
+    "Actual Spending": "#ff7744"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 6
+}

@@ -1,0 +1,40 @@
+{
+  "chart_id": "Rose1",
+  "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\Rose1.png",
+  "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\Rose1.json",
+  "output": "D:\\home work\\Agent.paper\\NEW\\test-demo\\data\\output\\rose_gt_encrypt\\Rose1_gt_encrypt.png",
+  "center": [
+    265,
+    259
+  ],
+  "r_ticks": [
+    0.0,
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0
+  ],
+  "r_pixels": [
+    0.0,
+    34.0,
+    69.0,
+    103.0,
+    136.0,
+    171.0
+  ],
+  "theta_ticks": [
+    "Product A",
+    "Product B",
+    "Product C",
+    "Product D",
+    "Product E"
+  ],
+  "theta_angles": [
+    90.0,
+    18.0,
+    306.0,
+    234.0,
+    162.0
+  ]
+}

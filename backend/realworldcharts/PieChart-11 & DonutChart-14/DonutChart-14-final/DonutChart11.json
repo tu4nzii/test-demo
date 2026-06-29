@@ -1,0 +1,29 @@
+{
+  "chart_id": "DonutChart11",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart11.png"
+  },
+  "data_points": {
+    "Mouse": 0.401,
+    "Bear": 0.064,
+    "Wolf": 0.098,
+    "Fox": 0.156,
+    "Rabbit": 0.278
+  },
+  "center": [
+    250,
+    251
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    106,
+    149
+  ],
+  "series_color": {
+    "Mouse": "#A49B73",
+    "Bear": "#3D311D",
+    "Wolf": "#0F0D07",
+    "Fox": "#8C543C",
+    "Rabbit": "#685F43"
+  }
+}

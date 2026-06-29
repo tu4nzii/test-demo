@@ -1,0 +1,40 @@
+{
+  "chart_id": "Piechart4",
+  "image_paths": {
+    "no_grid": "charts/pie/Piechart4.png"
+  },
+  "data_points": {
+    "Care_for_household_members": 0.025,
+    "Housework": 0.087,
+    "Shopping": 0.019,
+    "Other_unpaid_work&volunteering": 0.057,
+    "Sleep": 0.457,
+    "Eating_and_drinking": 0.055,
+    "Personal_care": 0.049,
+    "Sports": 0.016,
+    "Attending_events": 0.007,
+    "Seeing_friends": 0.038,
+    "TV_and_Radio": 0.127,
+    "Other_leisure_activities": 0.064
+  },
+  "r_ticks": [],
+  "r_pixels": 121,
+  "center": [
+    300,
+    200
+  ],
+  "series_color": {
+    "Care_for_household_members": "#A6CEE3",
+    "Housework": "#1F78B4",
+    "Shopping": "#B2DF8A",
+    "Other_unpaid_work&volunteering": "#33A02C",
+    "Sleep": "#FB9A99",
+    "Eating_and_drinking": "#E31A1C",
+    "Personal_care": "#FDBF6F",
+    "Sports": "#FF7F00",
+    "Attending_events": "#CAB2D6",
+    "Seeing_friends": "#6A3D9A",
+    "TV_and_Radio": "#FFFF99",
+    "Other_leisure_activities": "#B15928"
+  }
+}

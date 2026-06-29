@@ -1,0 +1,74 @@
+{
+  "chart_id": "radarchart_23",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart23.png"
+  },
+  "labels": [
+    "US",
+    "Germany",
+    "UK",
+    "Japan",
+    "Italy",
+    "Greece"
+  ],
+  "data_points": {
+    "Sales": {
+      "US": 95.0,
+      "Germany": 40.0,
+      "UK": 35.0,
+      "Japan": 50.0,
+      "Italy": 45.0,
+      "Greece": 100.0
+    },
+    "Downloads": {
+      "US": 30.0,
+      "Germany": 45.0,
+      "UK": 50.0,
+      "Japan": 35.0,
+      "Italy": 40.0,
+      "Greece": 30.0
+    }
+  },
+  "theta_ticks": [
+    "US",
+    "Germany",
+    "UK",
+    "Japan",
+    "Italy",
+    "Greece"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    30,
+    60,
+    90,
+    120,
+    150
+  ],
+  "center": [
+    274,
+    191
+  ],
+  "series_color": {
+    "Sales": "#aa99dd",
+    "Downloads": "#99cc66"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 6
+}

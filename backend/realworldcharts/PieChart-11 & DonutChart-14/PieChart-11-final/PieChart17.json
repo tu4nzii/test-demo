@@ -1,0 +1,26 @@
+{
+  "chart_id": "PieChart17",
+  "image_paths": {
+    "no_grid": "charts/pie/PieChart17.png"
+  },
+  "data_points": {
+    "Australia": 0.044,
+    "USA": 0.672,
+    "UK": 0.17,
+    "Canada": 0.059,
+    "Other": 0.056
+  },
+  "r_ticks": [],
+  "r_pixels": 107,
+  "center": [
+    137,
+    138
+  ],
+  "series_color": {
+    "Australia": "#8FBC8F",
+    "USA": "#F5DEB3",
+    "UK": "#DDA0DD",
+    "Canada": "#FF6347",
+    "Other": "#B03060"
+  }
+}

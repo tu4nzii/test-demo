@@ -1,0 +1,43 @@
+{
+  "chart_id": "DonutChart17",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart17.png"
+  },
+  "data_points": {
+    "Care_for_household_members": 0.027,
+    "Housework": 0.086,
+    "Shopping": 0.018,
+    "Other_unpaid_work&volunteering": 0.057,
+    "Sleep": 0.457,
+    "Eating_and_drinking": 0.056,
+    "Personal_care": 0.048,
+    "Sports": 0.016,
+    "Attending_events": 0.007,
+    "Seeing_friends": 0.038,
+    "TV_and_Radio": 0.127,
+    "Other_leisure_activities": 0.064
+  },
+  "center": [
+    300,
+    200
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    70,
+    121
+  ],
+  "series_color": {
+    "Care_for_household_members": "#8DD3C7",
+    "Housework": "#FFFFB3",
+    "Shopping": "#BEBADA",
+    "Other_unpaid_work&volunteering": "#FB8072",
+    "Sleep": "#80B1D3",
+    "Eating_and_drinking": "#FDB462",
+    "Personal_care": "#B3DE69",
+    "Sports": "#FCCDE5",
+    "Attending_events": "#D9D9D9",
+    "Seeing_friends": "#BC80BD",
+    "TV_and_Radio": "#CCEBC5",
+    "Other_leisure_activities": "#FFED6F"
+  }
+}

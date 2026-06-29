@@ -1,0 +1,56 @@
+{
+  "chart_id": "plotivy-nightingale-rose-chart",
+  "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\plotivy-nightingale-rose-chart.png",
+  "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\plotivy-nightingale-rose-chart.json",
+  "output": "D:\\home work\\Agent.paper\\NEW\\test-demo\\data\\output\\rose_gt_encrypt\\plotivy-nightingale-rose-chart_gt_encrypt.png",
+  "center": [
+    442,
+    522
+  ],
+  "r_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0
+  ],
+  "r_pixels": [
+    0.0,
+    67.0,
+    133.0,
+    199.0,
+    265.0,
+    332.0,
+    398.0
+  ],
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "chart_id": "RoseDiagramExample2",
+  "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\RoseDiagramExample2.png",
+  "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RoseChart-6\\RoseDiagramExample2.json",
+  "output": "D:\\home work\\Agent.paper\\NEW\\test-demo\\data\\output\\rose_gt_encrypt\\RoseDiagramExample2_gt_encrypt.png",
+  "center": [
+    176,
+    142
+  ],
+  "r_ticks": [
+    0.0,
+    20.0,
+    40.0,
+    60.0,
+    80.0
+  ],
+  "r_pixels": [
+    0.0,
+    26.0,
+    52.0,
+    78.0,
+    104.0
+  ],
+  "theta_ticks": [
+    "Label A",
+    "Label B",
+    "Label C",
+    "Label D",
+    "Label E",
+    "Label F",
+    "Label G",
+    "Label H",
+    "Label I",
+    "Label J",
+    "Label K",
+    "Label L"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "chart_id": "DonutChart14",
+  "image_paths": {
+    "no_grid": "charts/donut/DonutChart14.png"
+  },
+  "data_points": {
+    "Germany": 0.165,
+    "Spain": 0.236,
+    "France": 0.257,
+    "Poland": 0.146,
+    "CzechRepublic": 0.037,
+    "Italy": 0.14,
+    "Switzerland": 0.02
+  },
+  "center": [
+    300,
+    278
+  ],
+  "r_ticks": [],
+  "r_pixels": [
+    40,
+    197
+  ],
+  "series_color": {
+    "Germany": "#23E274",
+    "Spain": "#4CAEFE",
+    "France": "#3DC3E8",
+    "Poland": "#2DD9DB",
+    "CzechRepublic": "#1FEEAF",
+    "Italy": "#0FF3A0",
+    "Switzerland": "#00E887"
+  }
+}

@@ -3,10 +3,10 @@ import os
 import shutil
 from typing import Any, Dict, Optional, Protocol, Type
 
-from demo_radar.demo_axis_find_radar import RadarChartAxisFinder
-from demo_radar.demo_radar_circle_find import RadarChartEncoder
-from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
-from demo_rose.demo_rose_circle_find import RoseChartEncoder
+from polar.radar.demo_axis_find_radar import RadarChartAxisFinder
+from polar.radar.demo_radar_circle_find import RadarChartEncoder
+from polar.rose.demo_axis_find_rose import RoseChartAxisFinder
+from polar.rose.demo_rose_circle_find import RoseChartEncoder
 from evaluation import evaluate_chart_data
 from Grid_generation.circular_angle_grid import process_circular_angle_chart
 from Grid_generation.grid_generation import process_chart

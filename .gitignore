@@ -31,3 +31,12 @@ data
 chart-18-final
 backend/real
 docs
+
+# Reproducibility docs/data for the polar pipeline
+!backend/docs/
+!backend/docs/polar/
+!backend/docs/polar/**
+!backend/data/
+backend/data/*
+!backend/data/polar/
+!backend/data/polar/**

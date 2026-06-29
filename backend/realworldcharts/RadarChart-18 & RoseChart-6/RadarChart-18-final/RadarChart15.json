@@ -1,0 +1,107 @@
+{
+  "chart_id": "radarchart_15",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart15.png"
+  },
+  "labels": [
+    "Self-efficacy",
+    "Principled",
+    "Industrious",
+    "Competitive",
+    "Complexity",
+    "Cooperative",
+    "Perfectionism",
+    "Suspicious",
+    "Volatile",
+    "Assertive",
+    "Altruistic",
+    "Spontaneity",
+    "Team-orientated",
+    "Need for achievement"
+  ],
+  "data_points": {
+    "Personality": {
+      "Self-efficacy": 7.5,
+      "Principled": 8.0,
+      "Industrious": 2.0,
+      "Competitive": 3.5,
+      "Complexity": 4.0,
+      "Cooperative": 6.0,
+      "Perfectionism": 8.5,
+      "Suspicious": 5.0,
+      "Volatile": 4.0,
+      "Assertive": 5.5,
+      "Altruistic": 4.5,
+      "Spontaneity": 3.0,
+      "Team-orientated": 6.5,
+      "Need for achievement": 7.0
+    }
+  },
+  "theta_ticks": [
+    "Self-efficacy",
+    "Principled",
+    "Industrious",
+    "Competitive",
+    "Complexity",
+    "Cooperative",
+    "Perfectionism",
+    "Suspicious",
+    "Volatile",
+    "Assertive",
+    "Altruistic",
+    "Spontaneity",
+    "Team-orientated",
+    "Need for achievement"
+  ],
+  "theta_angles": [
+    0.0,
+    25.71,
+    51.43,
+    77.14,
+    102.86,
+    128.57,
+    154.29,
+    180.0,
+    205.71,
+    231.43,
+    257.14,
+    282.86,
+    308.57,
+    334.29
+  ],
+  "r_ticks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "r_pixels": [
+    20,
+    40,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180,
+    200
+  ],
+  "center": [
+    357,
+    229
+  ],
+  "series_color": {
+    "Personality": "#4477aa"
+  },
+  "num_entities": 1,
+  "fill_enabled": true,
+  "num_vars": 14
+}

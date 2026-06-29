@@ -1,0 +1,77 @@
+{
+  "chart_id": "radarchart_1",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart1.png"
+  },
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "Budget": {
+      "A": 20.0,
+      "B": 25.0,
+      "C": 15.0,
+      "D": 30.0,
+      "E": 22.0
+    },
+    "Actual Expenditure": {
+      "A": 35.0,
+      "B": 30.0,
+      "C": 10.0,
+      "D": 25.0,
+      "E": 28.0
+    },
+    "Earning": {
+      "A": 45.0,
+      "B": 35.0,
+      "C": 30.0,
+      "D": 40.0,
+      "E": 32.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "r_pixels": [
+    60,
+    110,
+    160,
+    210,
+    260
+  ],
+  "center": [
+    465,
+    586
+  ],
+  "series_color": {
+    "Budget": "#666666",
+    "Actual Expenditure": "#cc3333",
+    "Earning": "#003366"
+  },
+  "num_entities": 3,
+  "fill_enabled": false,
+  "num_vars": 5
+}

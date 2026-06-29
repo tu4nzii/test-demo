@@ -32,7 +32,7 @@ from type_detection.chart_processor import ChartProcessorFactory  # noqa: E402
 from type_detection.chart_registry import DEFAULT_CHART_TYPE, get_coordinate_system, normalize_chart_type  # noqa: E402
 from type_detection.chart_type import ChartTypeDetector  # noqa: E402
 from evaluation_prediction.service import SUPPORTED_PREDICTION_TYPES, run_prediction_async  # noqa: E402
-from demo_radar.color import RadarColorMatcher  # noqa: E402
+from polar.legacy.demo_radar.color import RadarColorMatcher  # noqa: E402
 
 
 app = FastAPI(title="Chart Analysis API")

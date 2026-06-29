@@ -1,0 +1,89 @@
+{
+  "chart_id": "radarchart_8",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "RadarChart8.png"
+  },
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "data_points": {
+    "2020 Sales": {
+      "Jan": 196.0,
+      "Feb": 178.0,
+      "Mar": 169.0,
+      "Apr": 166.0,
+      "May": 172.0,
+      "Jun": 132.0,
+      "Jul": 95.0,
+      "Aug": 66.0,
+      "Sep": 127.0,
+      "Oct": 142.0,
+      "Nov": 158.0,
+      "Dec": 197.0
+    }
+  },
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "theta_angles": [
+    0.0,
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0,
+    180.0,
+    210.0,
+    240.0,
+    270.0,
+    300.0,
+    330.0
+  ],
+  "r_ticks": [
+    50,
+    100,
+    150,
+    200,
+    250
+  ],
+  "r_pixels": [
+    55,
+    110,
+    165,
+    220,
+    275
+  ],
+  "center": [
+    408,
+    402
+  ],
+  "series_color": {
+    "2020 Sales": "#5599ff"
+  },
+  "num_entities": 1,
+  "fill_enabled": true,
+  "num_vars": 12
+}
