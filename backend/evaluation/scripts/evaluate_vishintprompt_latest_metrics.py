@@ -138,7 +138,17 @@ def chart_family(value: Any) -> str:
     chart_type = normalize_chart_type(value)
     if chart_type in {"v_bar", "h_bar"}:
         return "bar"
+    if chart_type in {"bubble", "scatter"}:
+        return "point"
     return chart_type
+
+
+def chart_type_matches(pred_type: Any, gt_type: Any) -> bool:
+    pred = normalize_chart_type(pred_type)
+    gt = normalize_chart_type(gt_type)
+    if pred == gt:
+        return True
+    return {pred, gt} == {"bubble", "scatter"}
 
 
 def category_folder_type(folder_name: str) -> str | None:
@@ -1086,6 +1096,7 @@ def write_report(
         "- Tick MAE 和 Tick Acc@2px 只统计数值轴；分类轴/文字轴不参与这两个指标。",
         f"- Tick 准确率阈值：{threshold_label}。",
         f"- 图例颜色准确率阈值：{color_threshold_label}（RGB 欧氏距离）。",
+        "- 图表分类准确率：`bubble` 与 `scatter` 按点图族互认。",
         f"- 明细文件：`{details_path}`",
         "",
         "## 类别汇总",
@@ -1221,7 +1232,7 @@ def main() -> None:
             "gt_type": gt_type,
             "pred_type": pred_type,
             "chart_type_total": 1,
-            "chart_type_correct": 1 if pred_type == gt_type else 0,
+            "chart_type_correct": 1 if chart_type_matches(pred_type, gt_type) else 0,
             "chart_family_correct": 1 if chart_family(pred_type) == chart_family(gt_type) else 0,
         }
         gt_path = source_config_path(args.dataset_root, dataset_relative)

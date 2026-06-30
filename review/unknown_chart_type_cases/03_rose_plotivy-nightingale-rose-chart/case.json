@@ -1,0 +1,14 @@
+{
+  "index": 3,
+  "dataset_relative": "Final-RealDataset/Rose_6/chart/plotivy-nightingale-rose-chart.png",
+  "gt_type": "rose",
+  "pred_type": "unknown",
+  "status": "failed",
+  "manifest_status": "failed",
+  "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_plotivy-nightingale-rose-chart_fb0e4930",
+  "source_image": "F:\\program\\test-demo\\backend\\datasets\\VisHintPrompt_datasets\\Final-RealDataset\\Rose_6\\chart\\plotivy-nightingale-rose-chart.png",
+  "copied_source": "review\\unknown_chart_type_cases\\03_rose_plotivy-nightingale-rose-chart\\source.png",
+  "error": "500: Chart processing failed",
+  "traceback_tail": "Traceback (most recent call last):\n  File \"F:\\program\\test-demo\\backend\\evaluation\\scripts\\run_vishintprompt_full_grid_encryption.py\", line 269, in main\n    encrypted_path = backend_main.process_chart_image(chart_info, force=False)\n  File \"F:\\program\\test-demo\\backend\\main.py\", line 858, in process_chart_image\n    raise HTTPException(status_code=500, detail=\"Chart processing failed\")\nfastapi.exceptions.HTTPException: 500: Chart processing failed\n",
+  "copied_artifacts": []
+}

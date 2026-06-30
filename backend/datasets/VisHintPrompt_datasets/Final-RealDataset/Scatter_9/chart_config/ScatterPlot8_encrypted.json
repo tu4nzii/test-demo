@@ -1,6 +1,6 @@
 {
   "chart_id": "ScatterPlot8",
-  "chart_type": "bubble",
+  "chart_type": "scatter",
   "image_paths": {
     "no_grid": "chart/ScatterPlot8.png",
     "with_grid": "chart/ScatterPlot8_grid.png",

@@ -1,0 +1,410 @@
+{
+  "metrics_rows": [
+    {
+      "dataset": "Final-RealDataset",
+      "gt_type": "bubble",
+      "sample_count": 9,
+      "processed_count": 9,
+      "tick_value_mae_px": 0.4824561403508772,
+      "tick_value_accuracy_2px": 0.9912280701754386,
+      "label_name_accuracy": 0.9649122807017544
+    },
+    {
+      "dataset": "Final-RealDataset",
+      "gt_type": "h_bar",
+      "sample_count": 12,
+      "processed_count": 11,
+      "tick_value_mae_px": 1.8676470588235294,
+      "tick_value_accuracy_2px": 0.8088235294117647,
+      "label_name_accuracy": 0.7524752475247525
+    },
+    {
+      "dataset": "Final-RealDataset",
+      "gt_type": "line",
+      "sample_count": 23,
+      "processed_count": 21,
+      "tick_value_mae_px": 0.9595959595959596,
+      "tick_value_accuracy_2px": 0.920265780730897,
+      "label_name_accuracy": 0.9722991689750693
+    },
+    {
+      "dataset": "Final-RealDataset",
+      "gt_type": "scatter",
+      "sample_count": 9,
+      "processed_count": 7,
+      "tick_value_mae_px": 0.8137254901960784,
+      "tick_value_accuracy_2px": 0.9803921568627451,
+      "label_name_accuracy": 1.0
+    },
+    {
+      "dataset": "Final-RealDataset",
+      "gt_type": "v_bar",
+      "sample_count": 21,
+      "processed_count": 19,
+      "tick_value_mae_px": 0.8064516129032258,
+      "tick_value_accuracy_2px": 0.9419354838709677,
+      "label_name_accuracy": 0.9586206896551724
+    },
+    {
+      "dataset": "Sy.Dataset",
+      "gt_type": "bubble",
+      "sample_count": 50,
+      "processed_count": 50,
+      "tick_value_mae_px": 0.874,
+      "tick_value_accuracy_2px": 0.954,
+      "label_name_accuracy": 0.994
+    },
+    {
+      "dataset": "Sy.Dataset",
+      "gt_type": "h_bar",
+      "sample_count": 50,
+      "processed_count": 49,
+      "tick_value_mae_px": 0.7707006369426752,
+      "tick_value_accuracy_2px": 0.9808917197452229,
+      "label_name_accuracy": 0.9345549738219895
+    },
+    {
+      "dataset": "Sy.Dataset",
+      "gt_type": "line",
+      "sample_count": 50,
+      "processed_count": 50,
+      "tick_value_mae_px": 0.5643410852713179,
+      "tick_value_accuracy_2px": 0.9675925925925926,
+      "label_name_accuracy": 0.9800918836140888
+    },
+    {
+      "dataset": "Sy.Dataset",
+      "gt_type": "scatter",
+      "sample_count": 50,
+      "processed_count": 50,
+      "tick_value_mae_px": 0.442,
+      "tick_value_accuracy_2px": 0.986,
+      "label_name_accuracy": 1.0
+    },
+    {
+      "dataset": "Sy.Dataset",
+      "gt_type": "v_bar",
+      "sample_count": 51,
+      "processed_count": 51,
+      "tick_value_mae_px": 0.46200607902735563,
+      "tick_value_accuracy_2px": 0.9878419452887538,
+      "label_name_accuracy": 0.971976401179941
+    }
+  ],
+  "overall": {
+    "sample_count": 325,
+    "processed_count": 317,
+    "tick_value_mae_px": 0.691468253968254,
+    "tick_value_accuracy_2px": 0.9637083470801716,
+    "tick_position_mae_px": 0.8492985002418965,
+    "label_name_accuracy": 0.9613352545629202
+  },
+  "artifacts": {
+    "latest_recheck_dir": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest",
+    "decision_count": 650,
+    "decision_with_all_three_sources": 650,
+    "final_binding_file_count": 1176,
+    "candidate_binding_file_count": 1809,
+    "selection_file_count": 650,
+    "grid_status_report_file_count": 650,
+    "actual_failure_or_exit_report_count": 14,
+    "mllm_used_count": 12,
+    "selection_policy_counts": {
+      "score_first_mllm_when_needed": 650
+    },
+    "x_choice_counts": {
+      "semantic_guide": 232,
+      "tick_supplement": 374,
+      "combined_mask": 44
+    },
+    "y_choice_counts": {
+      "semantic_guide": 204,
+      "combined_mask": 90,
+      "tick_supplement": 356
+    },
+    "sample_decisions": [
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart14_25fa6e3a\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart14_25fa6e3a_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "semantic_guide",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:single_valid_candidate",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart14_25fa6e3a\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart14_25fa6e3a_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "semantic_guide",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:single_valid_candidate",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart18_4824fcec\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart18_4824fcec_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "combined_mask",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart18_4824fcec\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart18_4824fcec_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "combined_mask",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:single_valid_candidate",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:single_valid_candidate",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "combined_mask",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "tick_supplement",
+        "y_choice": "combined_mask",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:highest_score",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart9_3197f9d5\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart9_3197f9d5_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "semantic_guide",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:single_valid_candidate",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart9_3197f9d5\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart9_3197f9d5_image_grid_priority_decision.json",
+        "selection_policy": "score_first_mllm_when_needed",
+        "mllm_used": false,
+        "x_choice": "semantic_guide",
+        "y_choice": "semantic_guide",
+        "x_reason": "score_prefill:highest_score",
+        "y_reason": "score_prefill:single_valid_candidate",
+        "x_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "y_sources": [
+          "combined_mask",
+          "semantic_guide",
+          "tick_supplement"
+        ],
+        "has_all_three_x": true,
+        "has_all_three_y": true
+      }
+    ],
+    "sample_failures": [
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_numeric_selected_large_ocr_distance"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_numeric_selected_large_ocr_distance"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\BarChart12_bd87e261\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_BarChart12_bd87e261_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_semantic_only_low_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\BarChart12_bd87e261\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart12_bd87e261_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_semantic_only_low_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\LineGraph22_9b2b0619\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_LineGraph22_9b2b0619_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_selected_candidate_invalid+x_axis_selected_candidate_has_invalid_reasons+x_axis_selected_axis_severely_undercovered+x_axis_dense_axis_low_unique_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\LineGraph22_9b2b0619\\work\\vishint_Final-Re_fbdfbc9a_ALL_LineGraph22_9b2b0619_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_selected_candidate_invalid+x_axis_selected_candidate_has_invalid_reasons+x_axis_selected_axis_severely_undercovered+x_axis_dense_axis_low_unique_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\LineGraph36_f969cbcc\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_LineGraph36_f969cbcc_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_numeric_selected_low_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\LineGraph36_f969cbcc\\work\\vishint_Final-Re_fbdfbc9a_ALL_LineGraph36_f969cbcc_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_numeric_selected_low_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\GroupedBarChart1_103f6521\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart1_103f6521_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_semantic_only_repeated_labels"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\GroupedBarChart1_103f6521\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart1_103f6521_image_grid_failure.json",
+        "failed": true,
+        "reason": "x_axis_semantic_only_repeated_labels"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\GroupedBarChart2_7c59b2a8\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart2_7c59b2a8_image_grid_failure.json",
+        "failed": true,
+        "reason": "y_axis_semantic_only_repeated_labels"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\GroupedBarChart2_7c59b2a8\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart2_7c59b2a8_image_grid_failure.json",
+        "failed": true,
+        "reason": "y_axis_semantic_only_repeated_labels"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot7_c9bcd839\\artifacts\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot7_c9bcd839_image_grid_failure.json",
+        "failed": true,
+        "reason": "y_axis_numeric_selected_low_ocr_support"
+      },
+      {
+        "path": "backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot7_c9bcd839\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot7_c9bcd839_image_grid_failure.json",
+        "failed": true,
+        "reason": "y_axis_numeric_selected_low_ocr_support"
+      }
+    ]
+  }
+}

@@ -108,7 +108,7 @@ async def run_prediction_async(
         "batch_size": batch_size,
         "config_paths": [str(config_json_path)],
     }
-    if chart_type in {"v_bar", "h_bar", "line"}:
+    if chart_type in {"v_bar", "h_bar"}:
         kwargs["chart_type"] = chart_type
     return await run_experiment(**kwargs)
 

@@ -221,7 +221,7 @@ def main() -> int:
             shutil.copy2(image_src, upload_path)
             print(f"[{index}/{len(images)}] detect/process {rel}", flush=True)
             detection = backend_main.detect_chart_type(upload_path)
-            chart_type = normalize_chart_type(detection.get("type", DEFAULT_CHART_TYPE))
+            chart_type = normalize_chart_type(detection.get("type"))
             chart_info = {
                 "chart_id": chart_id,
                 "chart_type": chart_type,

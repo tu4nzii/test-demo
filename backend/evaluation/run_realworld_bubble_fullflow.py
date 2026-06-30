@@ -74,9 +74,7 @@ async def run_one(
     try:
         print(f"\n===== {label}: detect =====", flush=True)
         detection = backend_main.detect_chart_type(upload_image)
-        chart_type = backend_main.normalize_chart_type(
-            detection.get("type", backend_main.DEFAULT_CHART_TYPE)
-        )
+        chart_type = backend_main.normalize_chart_type(detection.get("type"))
         chart_id = f"realworld_bubble_{number}_{run_id}"
         chart_info = {
             "chart_id": chart_id,
