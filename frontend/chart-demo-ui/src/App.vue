@@ -1,6 +1,6 @@
 <!-- src/App.vue -->
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
 import axios from 'axios';
 
 // --- Reactive State ---
@@ -29,6 +29,8 @@ const isLoadingProcess = ref(false);
 const isLoadingEvaluate = ref(false);
 const statusMessage = ref('');
 const errorMessage = ref('');
+const messageCountdown = ref(0);
+let messageCountdownTimer = null;
 const evaluationView = ref('visual');
 const isDetailsFullscreen = ref(false);
 const fileVersion = ref(0);
@@ -46,11 +48,46 @@ const pointPredictionChartTypes = new Set(['scatter', 'bubble']);
 const circularPredictionChartTypes = new Set(['pie', 'donut']);
 const polarPredictionChartTypes = new Set(['radar', 'rose']);
 
+function stopMessageCountdown() {
+  if (messageCountdownTimer) {
+    window.clearInterval(messageCountdownTimer);
+    messageCountdownTimer = null;
+  }
+}
+
+function startMessageCountdown() {
+  stopMessageCountdown();
+  if (!statusMessage.value && !errorMessage.value) {
+    messageCountdown.value = 0;
+    return;
+  }
+  messageCountdown.value = 3;
+  messageCountdownTimer = window.setInterval(() => {
+    messageCountdown.value -= 1;
+    if (messageCountdown.value <= 0) {
+      stopMessageCountdown();
+      clearMessages();
+    }
+  }, 1000);
+}
+
 // --- Computed Properties for Disabling Buttons ---
 const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
 const isProcessDisabled = computed(() => !chartId.value || isLoadingProcess.value);
 const isEvaluateDisabled = computed(() => !processedImageUrl.value || isLoadingEvaluate.value);
 const hasColoredGridPreview = computed(() => Boolean(processedColoredImageUrl.value));
+const hasGridPreview = computed(() => Boolean(processedStandardImageUrl.value || processedColoredImageUrl.value));
+const previewImageUrl = computed(() => {
+  if (gridLinePreviewMode.value === 'original') return originalImageUrl.value;
+  if (gridLinePreviewMode.value === 'color' && processedColoredImageUrl.value) return processedColoredImageUrl.value;
+  return processedStandardImageUrl.value || processedImageUrl.value;
+});
+const previewImageTitle = computed(() => (gridLinePreviewMode.value === 'original' ? '原图' : '加密图片'));
+const previewPlaceholderText = computed(() => (
+  gridLinePreviewMode.value === 'original'
+    ? '上传图片或选择数据集样例后显示'
+    : '处理后的图片将在此处显示'
+));
 const evaluationSummary = computed(() => {
   if (!evaluationResults.value) return [];
   const result = evaluationResults.value;
@@ -177,7 +214,7 @@ const evaluationJson = computed(() => {
 // --- Methods ---
 
 // Handle file selection from input fields
-function handleImageUpload(event) {
+async function handleImageUpload(event) {
   const file = event.target.files[0];
   if (file) {
     fileVersion.value += 1;
@@ -187,6 +224,7 @@ function handleImageUpload(event) {
     originalImageUrl.value = URL.createObjectURL(file);
     resetProcessedResults(true);
     clearMessages();
+    await uploadFiles();
   }
 }
 
@@ -219,7 +257,9 @@ function setGridLinePreviewMode(mode) {
     processedImageUrl.value = processedColoredImageUrl.value;
     return;
   }
-  processedImageUrl.value = processedStandardImageUrl.value;
+  if (mode !== 'original') {
+    processedImageUrl.value = processedStandardImageUrl.value;
+  }
 }
 
 function getActiveChartType() {
@@ -252,6 +292,13 @@ function formatPercentage(value) {
   return `${Number(numberValue.toFixed(4)).toString()}%`;
 }
 
+function datasetCategoryDisplayLabel(category) {
+  const value = String(category?.value || '').toLowerCase();
+  if (value === 'v_bar') return 'v-bar';
+  if (value === 'h_bar') return 'h-bar';
+  return category?.label || '';
+}
+
 function predictionNumericValue(item) {
   if (item && Number.isFinite(Number(item.value))) return Number(item.value);
   if (item && Number.isFinite(Number(item.y))) return Number(item.y);
@@ -278,6 +325,7 @@ function predictionDisplayValue(item) {
 function clearMessages() {
   statusMessage.value = '';
   errorMessage.value = '';
+  messageCountdown.value = 0;
 }
 
 function applyProcessedImageUrls(data) {
@@ -501,49 +549,72 @@ onMounted(async () => {
   await fetchDatasetCategories();
   fetchDatasetSamples();
 });
+
+watch([statusMessage, errorMessage], startMessageCountdown);
+
+onBeforeUnmount(() => {
+  stopMessageCountdown();
+});
 </script>
 
 <template>
   <div class="app-container">
-    <header class="app-header">
-      <h1>图表智能分析</h1>
-    </header>
+    <Teleport to="body">
+      <div v-if="statusMessage || errorMessage" class="floating-message-stack">
+        <div v-if="statusMessage" class="message status">
+          <span>{{ statusMessage }}</span>
+          <span class="message-countdown">{{ messageCountdown }}s</span>
+        </div>
+        <div v-if="errorMessage" class="message error">
+          <span>{{ errorMessage }}</span>
+          <span class="message-countdown">{{ messageCountdown }}s</span>
+        </div>
+      </div>
+    </Teleport>
     
     <main class="content-container">
-      <div v-if="statusMessage" class="message status">{{ statusMessage }}</div>
-      <div v-if="errorMessage" class="message error">{{ errorMessage }}</div>
-
       <!-- 三列并排布局 -->
       <div class="columns-wrapper">
-        <!-- 左侧：上传区域 -->
+        <!-- 左侧：输入与数据集区域 -->
         <div class="column upload-column">
-          <h2>1. 上传文件</h2>
-          <div class="input-group">
-            <label for="image-upload">选择图片文件:</label>
-            <input id="image-upload" type="file" @change="handleImageUpload" accept="image/png, image/jpeg" />
+          <div class="section-heading upload-heading">
+            <div class="sidebar-brand">图表智能分析</div>
+            <label
+              class="clickable-heading"
+              :class="{ disabled: isLoadingUpload }"
+              for="image-upload"
+              role="button"
+              tabindex="0"
+            >
+              1. 上传文件{{ isLoadingUpload ? '中...' : '' }}
+            </label>
+            <input
+              id="image-upload"
+              class="hidden-file-input"
+              type="file"
+              @change="handleImageUpload"
+              accept="image/png, image/jpeg"
+              :disabled="isLoadingUpload"
+            />
           </div>
-          
-          <button @click="uploadFiles" :disabled="isUploadDisabled" class="action-button">
-            {{ isLoadingUpload ? '上传中...' : '上传' }}
-          </button>
 
-          <div class="dataset-preview-panel">
+          <div class="dataset-preview-panel" :class="{ compact: chartId }">
             <div class="dataset-preview-header">
               <h3>数据集快速预览</h3>
+              <div class="dataset-source-toggle" role="group" aria-label="dataset source">
+                <button
+                  v-for="option in datasetSourceOptions"
+                  :key="option.value"
+                  type="button"
+                  :class="{ active: datasetSource === option.value }"
+                  :disabled="isLoadingDataset"
+                  @click="setDatasetSource(option.value)"
+                >
+                  {{ option.label }}
+                </button>
+              </div>
               <button type="button" class="text-button" @click="fetchDatasetSamples" :disabled="isLoadingDataset">
                 {{ isLoadingDataset ? '加载中' : '刷新' }}
-              </button>
-            </div>
-            <div class="dataset-source-toggle" role="group" aria-label="dataset source">
-              <button
-                v-for="option in datasetSourceOptions"
-                :key="option.value"
-                type="button"
-                :class="{ active: datasetSource === option.value }"
-                :disabled="isLoadingDataset"
-                @click="setDatasetSource(option.value)"
-              >
-                {{ option.label }}
               </button>
             </div>
             <div v-if="datasetCategories.length" class="dataset-category-list" role="group" aria-label="dataset category">
@@ -555,7 +626,7 @@ onMounted(async () => {
                 :disabled="isLoadingDataset"
                 @click="setDatasetCategory(category.value)"
               >
-                <span>{{ category.label }}</span>
+                <span>{{ datasetCategoryDisplayLabel(category) }}</span>
                 <small>{{ category.count }}</small>
               </button>
             </div>
@@ -570,10 +641,6 @@ onMounted(async () => {
                 @click="selectDatasetSample(sample)"
               >
                 <img :src="`${API_URL}${sample.image_url}`" :alt="sample.name" />
-                <span class="dataset-sample-name">{{ sample.name }}</span>
-                <span class="dataset-sample-type">
-                  {{ sample.chart_type }}{{ sample.cached ? ' · 网格已缓存' : '' }}{{ sample.evaluation_cached ? ' · 预测已缓存' : '' }}
-                </span>
               </button>
             </div>
             <div v-else class="dataset-empty">
@@ -581,13 +648,6 @@ onMounted(async () => {
             </div>
           </div>
 
-          <div v-if="originalImageUrl" class="image-preview">
-            <h3>原始图片</h3>
-            <div class="large-image-container">
-              <img :src="originalImageUrl" alt="Original Chart Preview" />
-            </div>
-          </div>
-          
           <!-- 图表信息显示区域 -->
           <div v-if="chartId" class="chart-info">
             <h3>图表信息</h3>
@@ -610,66 +670,97 @@ onMounted(async () => {
 
         <!-- 中间：处理区域 -->
         <div class="column process-column">
-          <h2>2. 加密处理</h2>
-          <button @click="processImage" :disabled="isProcessDisabled" class="action-button">
-            {{ isLoadingProcess ? '处理中...' : '加密处理' }}
-          </button>
+          <div class="section-heading process-heading">
+            <h2
+              class="clickable-heading"
+              :class="{ disabled: isProcessDisabled }"
+              role="button"
+              tabindex="0"
+              @click="processImage"
+              @keydown.enter.prevent="processImage"
+              @keydown.space.prevent="processImage"
+            >
+              2. 加密处理{{ isLoadingProcess ? '中...' : '' }}
+            </h2>
+            <div class="heading-actions">
+              <div v-if="originalImageUrl || hasGridPreview" class="grid-preview-toggle compact" role="group" aria-label="grid line preview mode">
+                <button
+                  type="button"
+                  :class="{ active: gridLinePreviewMode === 'original' }"
+                  :disabled="!originalImageUrl"
+                  @click="setGridLinePreviewMode('original')"
+                >
+                  原图
+                </button>
+                <button
+                  type="button"
+                  :class="{ active: gridLinePreviewMode === 'standard' }"
+                  :disabled="!processedStandardImageUrl"
+                  @click="setGridLinePreviewMode('standard')"
+                >
+                  标准灰色
+                </button>
+                <button
+                  type="button"
+                  :class="{ active: gridLinePreviewMode === 'color' }"
+                  :disabled="!hasColoredGridPreview"
+                  @click="setGridLinePreviewMode('color')"
+                >
+                  彩色预览
+                </button>
+              </div>
+            </div>
+          </div>
 
-          <div class="image-preview">
-            <h3>加密后图片</h3>
-            <div v-if="processedImageUrl" class="grid-preview-toggle" role="group" aria-label="grid line preview mode">
-              <button
-                type="button"
-                :class="{ active: gridLinePreviewMode === 'standard' }"
-                @click="setGridLinePreviewMode('standard')"
-              >
-                标准灰色
-              </button>
-              <button
-                type="button"
-                :class="{ active: gridLinePreviewMode === 'color' }"
-                :disabled="!hasColoredGridPreview"
-                @click="setGridLinePreviewMode('color')"
-              >
-                彩色预览
-              </button>
+          <div class="process-image-stack single">
+            <div v-if="previewImageUrl" class="large-image-container compact-image-container">
+              <h3 class="image-inside-title">{{ previewImageTitle }}</h3>
+              <img :src="previewImageUrl" alt="Chart Preview" />
             </div>
-            <div v-if="processedImageUrl" class="large-image-container">
-              <img :src="processedImageUrl" alt="Processed Chart" />
+            <div v-else class="placeholder compact-image-placeholder">
+              <h3 class="image-inside-title">{{ previewImageTitle }}</h3>
+              <p>{{ previewPlaceholderText }}</p>
             </div>
-            <div v-else class="placeholder">
-              <p>处理后的图片将在此处显示</p>
-            </div>
+          </div>
+          <div v-if="processedImageUrl && !hasColoredGridPreview" class="preview-hint">
+            当前样例仅提供标准灰色网格预览。
           </div>
         </div>
 
         <!-- 右侧：评估区域 -->
         <div class="column evaluation-column">
-          <h2>3. 评估预测</h2>
-          <button @click="evaluateChart" :disabled="isEvaluateDisabled" class="action-button">
-            {{ isLoadingEvaluate ? '预测中...' : '进行预测' }}
-          </button>
+          <div class="section-heading evaluation-heading">
+            <h2
+              class="clickable-heading"
+              :class="{ disabled: isEvaluateDisabled }"
+              role="button"
+              tabindex="0"
+              @click="evaluateChart"
+              @keydown.enter.prevent="evaluateChart"
+              @keydown.space.prevent="evaluateChart"
+            >
+              3. 评估预测{{ isLoadingEvaluate ? '中...' : '' }}
+            </h2>
+            <div v-if="evaluationResults" class="view-toggle compact" role="group" aria-label="prediction result view">
+              <button
+                type="button"
+                :class="{ active: evaluationView === 'visual' }"
+                @click="evaluationView = 'visual'"
+              >
+                可视化展示
+              </button>
+              <button
+                type="button"
+                :class="{ active: evaluationView === 'details' }"
+                @click="evaluationView = 'details'"
+              >
+                具体信息
+              </button>
+            </div>
+          </div>
 
           <div class="evaluation-preview">
-            <h3>预测结果</h3>
             <div v-if="evaluationResults" class="table-container">
-              <div class="view-toggle" role="group" aria-label="prediction result view">
-                <button
-                  type="button"
-                  :class="{ active: evaluationView === 'visual' }"
-                  @click="evaluationView = 'visual'"
-                >
-                  可视化展示
-                </button>
-                <button
-                  type="button"
-                  :class="{ active: evaluationView === 'details' }"
-                  @click="evaluationView = 'details'"
-                >
-                  具体信息
-                </button>
-              </div>
-
               <div v-if="evaluationView === 'visual'" class="prediction-visual">
                 <table v-if="isPointPredictionChart && pointVisualPredictions.length" class="results-table academic point-prediction-table">
                   <thead>
@@ -842,6 +933,17 @@ onMounted(async () => {
 
 <style scoped>
 /* 学术风格的全局样式 */
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(html),
+:global(body) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 :global(body) {
   background-color: #f8f9fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -853,30 +955,20 @@ onMounted(async () => {
 
 .app-container {
   width: 100%;
-  min-height: 100vh;
-}
-
-.app-header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.app-header h1 {
-  margin: 0;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-align: center;
-  font-size: 1.8rem;
-  letter-spacing: 0.3px;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .content-container {
   max-width: 1800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 1.25rem;
   width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -897,13 +989,66 @@ onMounted(async () => {
   background-color: #f44336;
 }
 
+.floating-message-stack {
+  position: fixed;
+  top: max(0.35rem, env(safe-area-inset-top));
+  left: 50%;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: min(720px, calc(100vw - 2rem));
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.floating-message-stack .message {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.floating-message-stack .message > span:first-child {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.message-countdown {
+  grid-column: 3;
+  justify-self: end;
+  flex: 0 0 auto;
+  min-width: 2.4rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.24);
+  padding: 0.1rem 0.45rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .floating-message-stack {
+    position: fixed;
+    top: max(0.5rem, env(safe-area-inset-top));
+    width: min(92vw, 720px);
+  }
+}
+
 /* 三列布局 */
 .columns-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(420px, 1.25fr) minmax(360px, 1fr);
   gap: 1.5rem;
-  height: calc(100vh - 200px);
-  min-height: 700px;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 /* 列样式 */
@@ -916,6 +1061,23 @@ onMounted(async () => {
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.evaluation-column {
+  min-height: 0;
+}
+
+.sidebar-brand {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .column h2 {
@@ -926,6 +1088,94 @@ onMounted(async () => {
   border-bottom: 2px solid #0066cc;
   padding-bottom: 0.5rem;
   font-size: 1.3rem;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 2px solid #0066cc;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.section-heading h2,
+.section-heading label {
+  border-bottom: 0;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.section-heading .clickable-heading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #0066cc;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0 0.95rem;
+  margin-left: 0;
+  white-space: nowrap;
+}
+
+.section-heading .clickable-heading:hover:not(.disabled),
+.section-heading .clickable-heading:focus-visible:not(.disabled) {
+  background-color: #0052a3;
+  color: #ffffff;
+  outline: none;
+}
+
+.section-heading .clickable-heading.disabled {
+  background-color: #d6dce3;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.process-heading {
+  align-items: center;
+}
+
+.evaluation-heading {
+  align-items: center;
+}
+
+.heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.upload-heading {
+  align-items: center;
+}
+
+.upload-heading .clickable-heading {
+  flex: 0 0 auto;
+}
+
+.hidden-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .column h3 {
@@ -970,35 +1220,44 @@ input[type="file"]:focus {
 
 /* 按钮样式 */
 .dataset-preview-panel {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   border: 1px solid #d9e1ea;
   border-radius: 6px;
-  padding: 0.85rem;
+  padding: 0.8rem;
   background-color: #fbfcfe;
+}
+
+.dataset-preview-panel.compact {
+  margin-bottom: 0.75rem;
+  padding: 0.65rem;
 }
 
 .dataset-preview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.4rem;
   margin-bottom: 0.75rem;
 }
 
 .dataset-preview-header h3 {
+  flex: 0 0 auto;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .text-button {
+  flex: 0 0 auto;
   border: 1px solid #b8c7d6;
   border-radius: 4px;
   background-color: #ffffff;
   color: #1f3a56;
   cursor: pointer;
-  min-height: 32px;
-  padding: 0 0.75rem;
+  min-height: 30px;
+  padding: 0 0.55rem;
   font-weight: 600;
+  font-size: 0.82rem;
 }
 
 .text-button:disabled {
@@ -1009,20 +1268,24 @@ input[type="file"]:focus {
 .dataset-source-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  flex: 0 1 174px;
+  min-width: 150px;
   border: 1px solid #c8d2dc;
   border-radius: 4px;
   overflow: hidden;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0;
 }
 
 .dataset-source-toggle button {
-  min-height: 34px;
+  min-height: 30px;
   border: 0;
   background-color: #f5f7fa;
   color: #243447;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.7rem;
+  padding: 0 0.25rem;
+  white-space: nowrap;
 }
 
 .dataset-source-toggle button + button {
@@ -1049,6 +1312,12 @@ input[type="file"]:focus {
   padding-right: 0.2rem;
 }
 
+.dataset-preview-panel.compact .dataset-category-list {
+  gap: 0.35rem;
+  max-height: 88px;
+  margin-bottom: 0.65rem;
+}
+
 .dataset-category-list button {
   display: inline-flex;
   align-items: center;
@@ -1063,6 +1332,12 @@ input[type="file"]:focus {
   font-size: 0.78rem;
   font-weight: 600;
   padding: 0 0.55rem;
+}
+
+.dataset-preview-panel.compact .dataset-category-list button {
+  min-height: 26px;
+  font-size: 0.74rem;
+  padding: 0 0.45rem;
 }
 
 .dataset-category-list button.active {
@@ -1086,22 +1361,28 @@ input[type="file"]:focus {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
-  max-height: 260px;
+  max-height: 300px;
   overflow: auto;
   padding-right: 0.25rem;
 }
 
+.dataset-preview-panel.compact .dataset-sample-grid {
+  gap: 0.55rem;
+  max-height: 250px;
+}
+
 .dataset-sample-button {
-  display: grid;
-  grid-template-rows: 74px auto auto;
-  gap: 0.35rem;
+  display: block;
   border: 1px solid #d4dde7;
   border-radius: 4px;
   background-color: #ffffff;
   color: #182635;
   cursor: pointer;
-  padding: 0.45rem;
-  text-align: left;
+  padding: 0.3rem;
+}
+
+.dataset-preview-panel.compact .dataset-sample-button {
+  padding: 0.28rem;
 }
 
 .dataset-sample-button.active {
@@ -1115,27 +1396,14 @@ input[type="file"]:focus {
 
 .dataset-sample-button img {
   width: 100%;
-  height: 74px;
+  height: 96px;
   object-fit: contain;
   background-color: #ffffff;
   border: 1px solid #eef1f4;
 }
 
-.dataset-sample-name,
-.dataset-sample-type {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.dataset-sample-name {
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.dataset-sample-type {
-  font-size: 0.72rem;
-  color: #516274;
+.dataset-preview-panel.compact .dataset-sample-button img {
+  height: 82px;
 }
 
 .dataset-empty {
@@ -1182,6 +1450,7 @@ input[type="file"]:focus {
 }
 
 .large-image-container {
+  position: relative;
   flex: 1;
   display: flex;
   align-items: center;
@@ -1202,20 +1471,77 @@ input[type="file"]:focus {
   background-color: #ffffff;
 }
 
+.process-image-stack {
+  flex: 1;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.7rem;
+  min-height: 0;
+}
+
+.process-image-stack.single {
+  display: flex;
+  flex-direction: column;
+}
+
+.process-image-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.compact-image-container,
+.compact-image-placeholder {
+  min-height: 0;
+}
+
+.compact-image-container {
+  padding: 1.6rem 0.5rem 0.5rem;
+}
+
+.image-inside-title {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.55rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #d5dde7;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #243447;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.preview-hint {
+  margin-top: 0.75rem;
+  color: #5b6878;
+  font-size: 0.86rem;
+}
+
 /* 评估结果区域 */
 .evaluation-preview {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden;
+}
+
+.evaluation-preview > .placeholder {
+  min-height: 0;
 }
 
 .table-container {
   flex: 1;
+  min-height: 0;
+  max-height: 100%;
   overflow-y: auto;
+  overflow-x: auto;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  min-height: 0;
 }
 
 /* 学术风格表格 */
@@ -1261,7 +1587,8 @@ input[type="file"]:focus {
 .view-toggle,
 .grid-preview-toggle {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   gap: 0;
   margin: 0 0 1rem;
   border: 1px solid #c8d2dc;
@@ -1271,6 +1598,31 @@ input[type="file"]:focus {
 
 .grid-preview-toggle {
   margin: 0 0 0.75rem;
+}
+
+.grid-preview-toggle.compact {
+  width: 300px;
+  min-width: 270px;
+  height: 36px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.view-toggle.compact {
+  width: 180px;
+  height: 36px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.grid-preview-toggle.compact button {
+  min-height: 34px;
+  font-size: 0.86rem;
+}
+
+.view-toggle.compact button {
+  min-height: 34px;
+  font-size: 0.86rem;
 }
 
 .view-toggle button,
@@ -1301,6 +1653,7 @@ input[type="file"]:focus {
 
 .prediction-visual,
 .detail-view {
+  min-height: 0;
   padding: 1rem;
 }
 
@@ -1464,6 +1817,7 @@ input[type="file"]:focus {
   max-height: none;
 }
 .placeholder {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1474,80 +1828,202 @@ input[type="file"]:focus {
   color: #666666;
   background-color: #f9f9f9;
   min-height: 400px;
+  overflow: hidden;
 }
 
 /* 图表信息区域样式 */
 .chart-info {
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
   border-top: 1px solid #e0e0e0;
-  padding-top: 1.5rem;
+  padding-top: 0.75rem;
 }
 
 .chart-info h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.45rem;
   font-weight: 500;
   color: #333333;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .info-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.75rem;
+  gap: 0.4rem;
 }
 
 .info-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
+  gap: 0.75rem;
+  padding: 0.4rem 0.55rem;
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
+  min-height: 28px;
 }
 
 .info-label {
   font-weight: 500;
   color: #333333;
+  font-size: 0.82rem;
+  white-space: nowrap;
 }
 
 .info-value {
   font-weight: 600;
   color: #0066cc;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 响应式设计 */
-@media (max-width: 1400px) {
+@media (max-width: 900px) {
+  :global(html),
+  :global(body) {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .app-container {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .content-container {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
   .columns-wrapper {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    gap: 2rem;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    gap: 1rem;
   }
   
   .column {
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    min-height: 500px;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
   
   .large-image-container,
   .placeholder {
-    min-height: 350px;
+    min-height: 260px;
+  }
+
+  .process-image-stack.single,
+  .evaluation-preview,
+  .table-container {
+    min-height: 320px;
   }
 }
 
 @media (max-width: 768px) {
   .content-container {
-    padding: 1rem;
-  }
-  
-  .app-header h1 {
-    font-size: 1.5rem;
+    padding: 0.75rem;
   }
   
   .column h2 {
     font-size: 1.2rem;
+  }
+
+  .sidebar-brand {
+    font-size: 1.05rem;
+  }
+
+  .column {
+    padding: 1rem;
+  }
+
+  .section-heading {
+    gap: 0.65rem;
+    min-width: 0;
+  }
+
+  .upload-heading {
+    flex-wrap: wrap;
+  }
+
+  .sidebar-brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .upload-heading .clickable-heading {
+    flex: 0 0 auto;
+  }
+
+  .process-heading,
+  .evaluation-heading {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .heading-actions {
+    min-width: 0;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+
+  .grid-preview-toggle.compact,
+  .view-toggle.compact {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dataset-preview-header {
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .dataset-preview-header h3 {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .dataset-source-toggle {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .dataset-sample-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+  }
+
+  .dataset-preview-panel.compact .dataset-sample-grid {
+    max-height: none;
+  }
+
+  .dataset-sample-button img,
+  .dataset-preview-panel.compact .dataset-sample-button img {
+    height: 110px;
   }
 }
 </style>
