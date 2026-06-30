@@ -2,9 +2,14 @@
 
 from __future__ import annotations
 
+import json
+import math
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+
+from PIL import Image
 
 from ...common.backend_dataset import load_backend_generated_datasets, resolve_image_path
 from ...common.chart_io import filter_chart_configs, load_json_configs
@@ -31,6 +36,7 @@ class PointTarget:
     chart_id: str
     point_name: str
     visual_name: str
+    category: str
     gt_x: float | None
     gt_y: float | None
 
@@ -67,6 +73,7 @@ def iter_targets(dataset: dict[str, Any]) -> list[PointTarget]:
                 chart_id=dataset["chart_id"],
                 point_name=str(point_name),
                 visual_name=visual_name,
+                category=_category_for_point(dataset, visual_name),
                 gt_x=_float_or_none(coords[0]),
                 gt_y=_float_or_none(coords[1]),
             )
@@ -78,8 +85,9 @@ def iter_targets(dataset: dict[str, Any]) -> list[PointTarget]:
         targets.append(
             PointTarget(
                 chart_id=dataset["chart_id"],
-                point_name=name,
-                visual_name=name,
+                point_name=name["name"],
+                visual_name=name["name"],
+                category=name.get("category", ""),
                 gt_x=None,
                 gt_y=None,
             )
@@ -87,23 +95,280 @@ def iter_targets(dataset: dict[str, Any]) -> list[PointTarget]:
     return targets
 
 
-def _target_names_from_generated_json(dataset: dict[str, Any]) -> list[str]:
-    names: list[str] = []
+def _target_names_from_generated_json(dataset: dict[str, Any]) -> list[dict[str, str]]:
+    explicit = _explicit_point_labels(dataset)
+    if explicit:
+        return explicit
+    ocr_targets = _ocr_point_labels(dataset)
+    if ocr_targets:
+        return ocr_targets
+    return []
+
+
+def _explicit_point_labels(dataset: dict[str, Any]) -> list[dict[str, str]]:
+    value = dataset.get("point_labels") or dataset.get("point_items") or dataset.get("points")
+    if not isinstance(value, list):
+        return []
+    targets: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for item in value:
+        if isinstance(item, str):
+            name = item.strip()
+            category = ""
+        elif isinstance(item, dict):
+            name = str(item.get("name") or item.get("label") or item.get("id") or "").strip()
+            category = str(item.get("category") or item.get("series_name") or item.get("group") or "").strip()
+        else:
+            continue
+        key = _normalize_name_key(name)
+        if name and key not in seen:
+            seen.add(key)
+            targets.append({"name": name, "category": category})
+    return targets
+
+
+def _ocr_point_labels(dataset: dict[str, Any]) -> list[dict[str, str]]:
+    ocr_path = _ocr_axis_path(dataset)
+    if ocr_path is None or not ocr_path.exists():
+        return []
+    try:
+        with ocr_path.open("r", encoding="utf-8") as file:
+            payload = json.load(file)
+    except Exception:
+        return []
+    items = payload.get("items") if isinstance(payload, dict) else None
+    if not isinstance(items, list):
+        return []
+
+    bounds = _plot_bounds(dataset)
+    if bounds is None:
+        return []
+    left, top, right, bottom = bounds
+    legend_names = _legend_names(dataset)
+    targets: list[dict[str, str]] = []
+    seen: set[str] = set()
+    image = _open_no_grid_image(dataset)
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        text = _clean_point_label(item.get("text"))
+        if not text or not _looks_like_point_label(text):
+            continue
+        if item.get("role") in {"x_axis", "y_axis"} or item.get("label_kind") == "axis_label":
+            continue
+        if _normalize_name_key(text) in legend_names:
+            continue
+        center = _center(item)
+        if center is None:
+            continue
+        x, y = center
+        if not (left - 18 <= x <= right + 18 and top - 18 <= y <= bottom + 18):
+            continue
+        score = _float_or_none(item.get("score"))
+        if score is not None and score < 0.65:
+            continue
+        key = _normalize_name_key(text)
+        if key in seen:
+            continue
+        seen.add(key)
+        category = _category_near_label(dataset, item, image)
+        targets.append({"name": text, "category": category})
+    return targets
+
+
+def _ocr_axis_path(dataset: dict[str, Any]) -> Path | None:
+    reconstruction = dataset.get("enhanced_grid_reconstruction")
+    outputs = reconstruction.get("outputs") if isinstance(reconstruction, dict) else None
+    value = outputs.get("ocr_axis_path") if isinstance(outputs, dict) else None
+    if value:
+        return Path(str(value))
+    return None
+
+
+def _plot_bounds(dataset: dict[str, Any]) -> tuple[float, float, float, float] | None:
+    try:
+        x_pixels = [float(value) for value in dataset.get("x_pixels", [])]
+        y_pixels = [float(value) for value in dataset.get("y_pixels", [])]
+    except Exception:
+        return None
+    if not x_pixels or not y_pixels:
+        return None
+    return min(x_pixels), min(y_pixels), max(x_pixels), max(y_pixels)
+
+
+def _clean_point_label(value: Any) -> str:
+    text = " ".join(str(value or "").strip().split())
+    return text.strip("·•:;,. ")
+
+
+def _looks_like_point_label(text: str) -> bool:
+    if len(text) < 2 or len(text) > 32:
+        return False
+    if "=" in text or ":" in text:
+        return False
+    if re.fullmatch(r"[-+]?\d+(\.\d+)?", text):
+        return False
+    if not re.search(r"[A-Za-z\u4e00-\u9fff]", text):
+        return False
+    # Long prose inside the plot area is usually an annotation, not a point id.
+    if len(text.split()) > 4:
+        return False
+    return True
+
+
+def _center(item: dict[str, Any]) -> tuple[float, float] | None:
+    value = item.get("center")
+    if isinstance(value, (list, tuple)) and len(value) >= 2:
+        x = _float_or_none(value[0])
+        y = _float_or_none(value[1])
+        if x is not None and y is not None:
+            return x, y
+    box = item.get("box")
+    if isinstance(box, list) and box:
+        xs: list[float] = []
+        ys: list[float] = []
+        for point in box:
+            if isinstance(point, (list, tuple)) and len(point) >= 2:
+                x = _float_or_none(point[0])
+                y = _float_or_none(point[1])
+                if x is not None and y is not None:
+                    xs.append(x)
+                    ys.append(y)
+        if xs and ys:
+            return sum(xs) / len(xs), sum(ys) / len(ys)
+    return None
+
+
+def _legend_names(dataset: dict[str, Any]) -> set[str]:
+    names: set[str] = set()
     series_color = dataset.get("series_color")
     if isinstance(series_color, dict):
-        names.extend(str(name) for name in series_color if str(name).strip())
-
+        names.update(_normalize_name_key(name) for name in series_color)
     colors = dataset.get("colors")
     if isinstance(colors, list):
-        for index, item in enumerate(colors, start=1):
-            if not isinstance(item, dict):
-                continue
-            name = item.get("name") or f"{dataset.get('chart_type', 'point')}_{index}"
-            text = str(name).strip()
-            if text and text not in names:
-                names.append(text)
+        for item in colors:
+            if isinstance(item, dict) and item.get("name"):
+                names.add(_normalize_name_key(item.get("name")))
+    return {name for name in names if name}
 
-    return names
+
+def _category_for_point(dataset: dict[str, Any], point_name: str) -> str:
+    key = _normalize_name_key(point_name)
+    for name in _legend_names(dataset):
+        if key == name:
+            return point_name
+    return ""
+
+
+def _category_near_label(dataset: dict[str, Any], item: dict[str, Any], image: Image.Image | None) -> str:
+    if image is None:
+        return ""
+    legend_colors = _legend_colors(dataset)
+    if not legend_colors:
+        return ""
+    box = _box_bounds(item)
+    if box is None:
+        center = _center(item)
+        if center is None:
+            return ""
+        x, y = center
+        box = (x - 12, y - 12, x + 12, y + 12)
+    left, top, right, bottom = box
+    sample_box = (
+        max(0, int(left - 18)),
+        max(0, int(top - 18)),
+        min(image.width, int(right + 18)),
+        min(image.height, int(bottom + 18)),
+    )
+    pixels = image.crop(sample_box).convert("RGB").getdata()
+    best_name = ""
+    best_score = float("inf")
+    for pixel in pixels:
+        if _is_neutral_pixel(pixel):
+            continue
+        for name, color in legend_colors.items():
+            distance = _rgb_distance(pixel, color)
+            if distance < best_score:
+                best_score = distance
+                best_name = name
+    return best_name if best_score <= 90 else ""
+
+
+def _box_bounds(item: dict[str, Any]) -> tuple[float, float, float, float] | None:
+    box = item.get("box")
+    if not isinstance(box, list) or not box:
+        return None
+    xs: list[float] = []
+    ys: list[float] = []
+    for point in box:
+        if isinstance(point, (list, tuple)) and len(point) >= 2:
+            x = _float_or_none(point[0])
+            y = _float_or_none(point[1])
+            if x is not None and y is not None:
+                xs.append(x)
+                ys.append(y)
+    if not xs or not ys:
+        return None
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def _open_no_grid_image(dataset: dict[str, Any]) -> Image.Image | None:
+    try:
+        path = resolve_image_path(dataset, "no_grid")
+        if path.exists():
+            return Image.open(path).convert("RGB")
+    except Exception:
+        return None
+    return None
+
+
+def _legend_colors(dataset: dict[str, Any]) -> dict[str, tuple[int, int, int]]:
+    colors: dict[str, tuple[int, int, int]] = {}
+    source = dataset.get("series_color")
+    if isinstance(source, dict):
+        for name, value in source.items():
+            rgb = _parse_color(value)
+            if rgb is not None:
+                colors[str(name)] = rgb
+    if not _legend_colors_reliable(colors):
+        return {}
+    return colors
+
+
+def _legend_colors_reliable(colors: dict[str, tuple[int, int, int]]) -> bool:
+    values = list(colors.values())
+    if len(values) <= 1:
+        return bool(values)
+    min_distance = min(
+        _rgb_distance(left, right)
+        for index, left in enumerate(values)
+        for right in values[index + 1 :]
+    )
+    return min_distance >= 50
+
+
+def _parse_color(value: Any) -> tuple[int, int, int] | None:
+    if isinstance(value, list) and value:
+        value = value[0]
+    text = str(value or "").strip()
+    if re.fullmatch(r"#[0-9a-fA-F]{6}", text):
+        return int(text[1:3], 16), int(text[3:5], 16), int(text[5:7], 16)
+    return None
+
+
+def _is_neutral_pixel(pixel: tuple[int, int, int]) -> bool:
+    r, g, b = pixel
+    if max(pixel) > 245 or min(pixel) < 25:
+        return True
+    return max(abs(r - g), abs(r - b), abs(g - b)) < 18
+
+
+def _rgb_distance(left: tuple[int, int, int], right: tuple[int, int, int]) -> float:
+    return math.sqrt(sum((float(a) - float(b)) ** 2 for a, b in zip(left, right)))
+
+
+def _normalize_name_key(value: Any) -> str:
+    return " ".join(str(value or "").strip().casefold().split())
 
 
 def _float_or_none(value: Any) -> float | None:

@@ -123,6 +123,7 @@ def _record(
     return {
         "chart_id": dataset["chart_id"],
         "point_name": target.point_name,
+        "category": target.category,
         "prompt_type": prompt_type,
         "image_type": image_type,
         "run": run,
@@ -424,7 +425,8 @@ def _select_predictions(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         predictions.append(
             {
                 "id": point,
-                "series_name": point,
+                "series_name": chosen.get("category", ""),
+                "category": chosen.get("category", ""),
                 "label": point,
                 "axis": "xy",
                 "value": {"x": pair[0], "y": pair[1]},

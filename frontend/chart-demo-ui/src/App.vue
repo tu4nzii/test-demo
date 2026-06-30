@@ -185,12 +185,14 @@ const pointVisualPredictions = computed(() => {
     const yValue = item?.y ?? item?.value?.y;
     return {
       id: item?.id ?? `${index}`,
-      name: item?.label || item?.id || item?.series_name || `Point ${index + 1}`,
+      name: item?.label || item?.id || `Point ${index + 1}`,
+      category: item?.category || item?.group || '',
       x: formatPredictionCoordinate(xValue),
       y: formatPredictionCoordinate(yValue),
     };
   });
 });
+const pointVisualHasCategory = computed(() => pointVisualPredictions.value.some((item) => item.category));
 const circularVisualPredictions = computed(() => {
   return extractedPredictions.value.map((item, index) => ({
     id: item?.id ?? `${index}`,
@@ -905,6 +907,7 @@ onBeforeUnmount(() => {
                   <thead>
                     <tr>
                       <th>点名称</th>
+                      <th v-if="pointVisualHasCategory">Category</th>
                       <th>X</th>
                       <th>Y</th>
                     </tr>
@@ -912,6 +915,7 @@ onBeforeUnmount(() => {
                   <tbody>
                     <tr v-for="item in pointVisualPredictions" :key="item.id">
                       <td>{{ item.name }}</td>
+                      <td v-if="pointVisualHasCategory">{{ item.category || '-' }}</td>
                       <td>{{ item.x }}</td>
                       <td>{{ item.y }}</td>
                     </tr>
