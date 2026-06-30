@@ -1393,8 +1393,8 @@ input[type="file"]:focus {
 }
 
 .dataset-preview-panel.compact {
-  margin-bottom: 0.75rem;
-  padding: 0.65rem;
+  margin-bottom: 0.8rem;
+  padding: 0.75rem;
 }
 
 .dataset-preview-header {
@@ -1478,9 +1478,9 @@ input[type="file"]:focus {
 }
 
 .dataset-preview-panel.compact .dataset-category-list {
-  gap: 0.35rem;
-  max-height: 88px;
-  margin-bottom: 0.65rem;
+  gap: 0.38rem;
+  max-height: 104px;
+  margin-bottom: 0.7rem;
 }
 
 .dataset-category-list button {
@@ -1532,8 +1532,8 @@ input[type="file"]:focus {
 }
 
 .dataset-preview-panel.compact .dataset-sample-grid {
-  gap: 0.55rem;
-  max-height: 250px;
+  gap: 0.6rem;
+  max-height: 292px;
 }
 
 .dataset-sample-button {
@@ -1568,7 +1568,7 @@ input[type="file"]:focus {
 }
 
 .dataset-preview-panel.compact .dataset-sample-button img {
-  height: 82px;
+  height: 96px;
 }
 
 .dataset-empty {
@@ -1998,9 +1998,9 @@ input[type="file"]:focus {
 
 /* 图表信息区域样式 */
 .chart-info {
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
   border-top: 1px solid #e0e0e0;
-  padding-top: 0.75rem;
+  padding-top: 0.9rem;
 }
 
 .chart-info h3 {
@@ -2014,7 +2014,7 @@ input[type="file"]:focus {
 .info-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .info-item {
@@ -2022,11 +2022,11 @@ input[type="file"]:focus {
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.4rem 0.55rem;
+  padding: 0.5rem 0.65rem;
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
-  min-height: 28px;
+  min-height: 34px;
 }
 
 .info-label {
