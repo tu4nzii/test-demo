@@ -222,7 +222,26 @@ const evaluationJson = computed(() => {
 // --- Methods ---
 
 // Handle file selection from input fields
+function showStaticUploadNotice() {
+  window.alert(
+    '当前页面运行在 GitHub Pages 静态部署环境。GitHub Pages 的特性决定了它不能提供后端服务，因此无法在页面上处理自定义上传图片。\n\n'
+      + '我们已如实提供本地完整运行后的论文数据集缓存，用于论文完整性与功能演示；这些缓存均基于 VisHintPrompt 框架和 Gemini-2.5-flash-lite 得出。\n\n'
+      + '开发者在本地启动后端后，自定义上传、加密处理和评估预测功能仍会正常可用。'
+  );
+}
+
+function handleUploadHeadingClick(event) {
+  if (!staticPreviewMode.value) return;
+  event.preventDefault();
+  showStaticUploadNotice();
+}
+
 async function handleImageUpload(event) {
+  if (staticPreviewMode.value) {
+    event.target.value = '';
+    showStaticUploadNotice();
+    return;
+  }
   const file = event.target.files[0];
   if (file) {
     fileVersion.value += 1;
@@ -726,6 +745,9 @@ onBeforeUnmount(() => {
               for="image-upload"
               role="button"
               tabindex="0"
+              @click="handleUploadHeadingClick"
+              @keydown.enter="handleUploadHeadingClick"
+              @keydown.space="handleUploadHeadingClick"
             >
               1. 上传文件{{ isLoadingUpload ? '中...' : '' }}
             </label>
