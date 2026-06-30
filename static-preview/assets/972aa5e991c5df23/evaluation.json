@@ -1,425 +1,379 @@
 {
-    "success": true,
-    "mode": "prediction_extraction",
-    "chart_id": "dataset_972aa5e991c5df23",
-    "chart_type": "scatter",
-    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_ticks.json",
-    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_ticks.json",
-    "summary": {
-        "object_count": 4,
-        "chart_runs": 1,
-        "system_cv_fallback": false
+  "success": true,
+  "mode": "prediction_extraction",
+  "cache_mode": "system_ocr_grid_mapping",
+  "chart_id": "dataset_972aa5e991c5df23",
+  "chart_type": "scatter",
+  "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_ticks.json",
+  "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_ticks.json",
+  "summary": {
+    "object_count": 4,
+    "chart_runs": 0,
+    "system_cv_fallback": false,
+    "label_target_count": 4
+  },
+  "predictions": [
+    {
+      "id": "Fastest run",
+      "series_name": "",
+      "category": "",
+      "label": "Fastest run",
+      "axis": "xy",
+      "value": {
+        "x": 5.0235,
+        "y": 11.1435
+      },
+      "x": 5.0235,
+      "y": 11.1435,
+      "pixel": {
+        "x": 467.78,
+        "y": 182.22
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     },
-    "predictions": [
-        {
-            "id": "Shortest run",
-            "series_name": "Shortest run",
-            "label": "Shortest run",
-            "axis": "xy",
-            "value": {
-                "x": 3.5,
-                "y": 10.0
-            },
-            "x": 3.5,
-            "y": 10.0,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Shortest run_rt2_round3_crop.png"
-        },
-        {
-            "id": "Fastest run",
-            "series_name": "Fastest run",
-            "label": "Fastest run",
-            "axis": "xy",
-            "value": {
-                "x": 5.0,
-                "y": 11.35
-            },
-            "x": 5.0,
-            "y": 11.35,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Fastest run_rt2_round3_crop.png"
-        },
-        {
-            "id": "Most Average run",
-            "series_name": "Most Average run",
-            "label": "Most Average run",
-            "axis": "xy",
-            "value": {
-                "x": 5.7,
-                "y": 9.75
-            },
-            "x": 5.7,
-            "y": 9.75,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Most Average run_rt2_round3_crop.png"
-        },
-        {
-            "id": "Longest run",
-            "series_name": "Longest run",
-            "label": "Longest run",
-            "axis": "xy",
-            "value": {
-                "x": 11.875,
-                "y": 8.125
-            },
-            "x": 11.875,
-            "y": 8.125,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Longest run_rt0_round3_adaptive.png"
-        }
-    ],
-    "artifacts": [
-        {
-            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image",
-            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image",
-            "record_count": 48,
-            "object_count": 4,
-            "predictions": [
-                {
-                    "id": "Shortest run",
-                    "series_name": "Shortest run",
-                    "label": "Shortest run",
-                    "axis": "xy",
-                    "value": {
-                        "x": 3.5,
-                        "y": 10.0
-                    },
-                    "x": 3.5,
-                    "y": 10.0,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Shortest run_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Fastest run",
-                    "series_name": "Fastest run",
-                    "label": "Fastest run",
-                    "axis": "xy",
-                    "value": {
-                        "x": 5.0,
-                        "y": 11.35
-                    },
-                    "x": 5.0,
-                    "y": 11.35,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Fastest run_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Most Average run",
-                    "series_name": "Most Average run",
-                    "label": "Most Average run",
-                    "axis": "xy",
-                    "value": {
-                        "x": 5.7,
-                        "y": 9.75
-                    },
-                    "x": 5.7,
-                    "y": 9.75,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Most Average run_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Longest run",
-                    "series_name": "Longest run",
-                    "label": "Longest run",
-                    "axis": "xy",
-                    "value": {
-                        "x": 11.875,
-                        "y": 8.125
-                    },
-                    "x": 11.875,
-                    "y": 8.125,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image\\raw_crops\\Longest run_rt0_round3_adaptive.png"
-                }
-            ]
-        }
-    ],
-    "processed_json": {
-        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image",
-        "chart_type": "scatter",
-        "x_ticks": [
-            2.0,
-            4.0,
-            6.0,
-            8.0,
-            10.0,
-            12.0
-        ],
-        "y_ticks": [
-            12.0,
-            11.0,
-            10.0,
-            9.0,
-            8.0
-        ],
-        "x_pixels": [
-            370,
-            434,
-            500,
-            564,
-            630,
-            694
-        ],
-        "y_pixels": [
-            100,
-            196,
-            292,
-            388,
-            484
-        ],
-        "x_ticks_encrypted": [
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            6.0,
-            7.0,
-            8.0,
-            9.0,
-            10.0,
-            11.0,
-            12.0
-        ],
-        "y_ticks_encrypted": [
-            12.0,
-            11.5,
-            11.0,
-            10.5,
-            10.0,
-            9.5,
-            9.0,
-            8.5,
-            8.0
-        ],
-        "x_pixels_encrypted": [
-            370,
-            402,
-            434,
-            467,
-            500,
-            532,
-            564,
-            597,
-            630,
-            662,
-            694
-        ],
-        "y_pixels_encrypted": [
-            100,
-            148,
-            196,
-            244,
-            292,
-            340,
-            388,
-            436,
-            484
-        ],
-        "x_axis_type": "数值轴",
-        "y_axis_type": "数值轴",
-        "x_axis_scale": "linear",
-        "y_axis_scale": "linear",
-        "x_label_orientation_angle": 0.0,
-        "y_label_orientation_angle": 0.0,
-        "x_skipped_encrypted_intervals": [],
-        "y_skipped_encrypted_intervals": [],
-        "x_dense_encrypted_interval_warnings": [
-            {
-                "left_tick": 6.0,
-                "right_tick": 8.0,
-                "left_pixel": 500,
-                "right_pixel": 564,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 32.0,
-                "label_axis_extent": 27.0,
-                "required_spacing": 34.4,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "x"
-            },
-            {
-                "left_tick": 8.0,
-                "right_tick": 10.0,
-                "left_pixel": 564,
-                "right_pixel": 630,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 33.0,
-                "label_axis_extent": 31.0,
-                "required_spacing": 39.2,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "x"
-            },
-            {
-                "left_tick": 10.0,
-                "right_tick": 12.0,
-                "left_pixel": 630,
-                "right_pixel": 694,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 32.0,
-                "label_axis_extent": 32.0,
-                "required_spacing": 40.4,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "x"
-            }
-        ],
-        "y_dense_encrypted_interval_warnings": [],
-        "x_axis_encryption_policy": "all_numeric_midpoints",
-        "y_axis_encryption_policy": "all_numeric_midpoints",
-        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image.png",
-        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_grid.png",
-        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
-        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
-        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
-        "generation_cache_disabled": true,
-        "colors": [
-            {
-                "name": "Shortest run",
-                "color": "#c87dff"
-            },
-            {
-                "name": "Fastest run",
-                "color": "#c87dff"
-            },
-            {
-                "name": "Most Average run",
-                "color": "#c87dff"
-            },
-            {
-                "name": "Longest run",
-                "color": "#c87dff"
-            }
-        ],
-        "series_color": {
-            "Shortest run": "#c87dff",
-            "Fastest run": "#c87dff",
-            "Most Average run": "#c87dff",
-            "Longest run": "#c87dff"
-        },
-        "axis_repair": {
-            "hint": {
-                "x_axis_missing": false,
-                "y_axis_missing": false,
-                "x_ticks_missing": false,
-                "y_ticks_missing": false,
-                "x_axis_role": "numeric",
-                "y_axis_role": "numeric",
-                "x_axis_position": "bottom",
-                "y_axis_position": "left",
-                "plot_area_style": "grid_only",
-                "has_background_grid": true,
-                "x_tick_recovery_from_grid": false,
-                "y_tick_recovery_from_grid": false,
-                "bar_layout": "single",
-                "bar_orientation": "unknown",
-                "confidence": 1.0,
-                "reason": "The chart has visible x and y axes with tick labels and grid lines.",
-                "axis_tick_labels": {
-                    "x_ticks": [
-                        "2 km",
-                        "4 km",
-                        "6 km",
-                        "8 km",
-                        "10 km",
-                        "12 km"
-                    ],
-                    "y_ticks": [
-                        "8 km/h",
-                        "9 km/h",
-                        "10 km/h",
-                        "11 km/h",
-                        "12 km/h"
-                    ],
-                    "x_ticks_encrypted": [
-                        "2.0",
-                        "3.0",
-                        "4.0",
-                        "5.0",
-                        "6.0",
-                        "7.0",
-                        "8.0",
-                        "9.0",
-                        "10.0",
-                        "11.0",
-                        "12.0"
-                    ],
-                    "y_ticks_encrypted": [
-                        "8.0",
-                        "8.5",
-                        "9.0",
-                        "9.5",
-                        "10.0",
-                        "10.5",
-                        "11.0",
-                        "11.5",
-                        "12.0"
-                    ],
-                    "x_axis_type": "numeric",
-                    "y_axis_type": "numeric",
-                    "source": "upload_detection"
-                },
-                "series_items": {
-                    "items": [
-                        {
-                            "name": "Shortest run",
-                            "color": "#c87dff"
-                        },
-                        {
-                            "name": "Fastest run",
-                            "color": "#c87dff"
-                        },
-                        {
-                            "name": "Most Average run",
-                            "color": "#c87dff"
-                        },
-                        {
-                            "name": "Longest run",
-                            "color": "#c87dff"
-                        }
-                    ],
-                    "source": "upload_detection",
-                    "kind": "point_labels"
-                }
-            },
-            "source": "enhanced_grid_first"
-        },
-        "enhanced_grid_reconstruction": {
-            "enabled": true,
-            "error": null,
-            "source": "computed",
-            "outputs": {
-                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_preview.png",
-                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1.png",
-                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1_overlay.png",
-                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1_selection.json",
-                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_axis_fusion.json",
-                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_grid_label_bindings.json",
-                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_grid_layers.json",
-                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_mllm_axis.json",
-                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_ocr_axis.json",
-                "mllm_cache_root": ""
-            }
-        },
-        "encrypted_tick_source": "enhanced_grid_label_bindings",
-        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
-        "cartesian_flow": "enhanced_grid_first",
-        "legacy_cartesian_flow_used": false,
-        "image_paths": {
-            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
-            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
-            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
-            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
-            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
-            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_grid.png"
-        }
+    {
+      "id": "Shortest run",
+      "series_name": "",
+      "category": "",
+      "label": "Shortest run",
+      "axis": "xy",
+      "value": {
+        "x": 2.8428,
+        "y": 9.8897
+      },
+      "x": 2.8428,
+      "y": 9.8897,
+      "pixel": {
+        "x": 396.97,
+        "y": 302.59
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Most Average run",
+      "series_name": "",
+      "category": "",
+      "label": "Most Average run",
+      "axis": "xy",
+      "value": {
+        "x": 5.0074,
+        "y": 10.0
+      },
+      "x": 5.0074,
+      "y": 10.0,
+      "pixel": {
+        "x": 467.25,
+        "y": 292.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Longest run",
+      "series_name": "",
+      "category": "",
+      "label": "Longest run",
+      "axis": "xy",
+      "value": {
+        "x": 11.8972,
+        "y": 8.2147
+      },
+      "x": 11.8972,
+      "y": 8.2147,
+      "pixel": {
+        "x": 690.71,
+        "y": 463.39
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     }
+  ],
+  "artifacts": [],
+  "processed_json": {
+    "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image",
+    "chart_type": "scatter",
+    "x_ticks": [
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0,
+      12.0
+    ],
+    "y_ticks": [
+      12.0,
+      11.0,
+      10.0,
+      9.0,
+      8.0
+    ],
+    "x_pixels": [
+      370,
+      434,
+      500,
+      564,
+      630,
+      694
+    ],
+    "y_pixels": [
+      100,
+      196,
+      292,
+      388,
+      484
+    ],
+    "x_ticks_encrypted": [
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      11.0,
+      12.0
+    ],
+    "y_ticks_encrypted": [
+      12.0,
+      11.5,
+      11.0,
+      10.5,
+      10.0,
+      9.5,
+      9.0,
+      8.5,
+      8.0
+    ],
+    "x_pixels_encrypted": [
+      370,
+      402,
+      434,
+      467,
+      500,
+      532,
+      564,
+      597,
+      630,
+      662,
+      694
+    ],
+    "y_pixels_encrypted": [
+      100,
+      148,
+      196,
+      244,
+      292,
+      340,
+      388,
+      436,
+      484
+    ],
+    "x_axis_type": "数值轴",
+    "y_axis_type": "数值轴",
+    "x_axis_scale": "linear",
+    "y_axis_scale": "linear",
+    "x_label_orientation_angle": 0.0,
+    "y_label_orientation_angle": 0.0,
+    "x_skipped_encrypted_intervals": [],
+    "y_skipped_encrypted_intervals": [],
+    "x_dense_encrypted_interval_warnings": [
+      {
+        "left_tick": 6.0,
+        "right_tick": 8.0,
+        "left_pixel": 500,
+        "right_pixel": 564,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 32.0,
+        "label_axis_extent": 27.0,
+        "required_spacing": 34.4,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "x"
+      },
+      {
+        "left_tick": 8.0,
+        "right_tick": 10.0,
+        "left_pixel": 564,
+        "right_pixel": 630,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 33.0,
+        "label_axis_extent": 31.0,
+        "required_spacing": 39.2,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "x"
+      },
+      {
+        "left_tick": 10.0,
+        "right_tick": 12.0,
+        "left_pixel": 630,
+        "right_pixel": 694,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 32.0,
+        "label_axis_extent": 32.0,
+        "required_spacing": 40.4,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "x"
+      }
+    ],
+    "y_dense_encrypted_interval_warnings": [],
+    "x_axis_encryption_policy": "all_numeric_midpoints",
+    "y_axis_encryption_policy": "all_numeric_midpoints",
+    "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image.png",
+    "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_grid.png",
+    "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
+    "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
+    "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+    "generation_cache_disabled": true,
+    "colors": [
+      {
+        "name": "Shortest run",
+        "color": "#c87dff"
+      },
+      {
+        "name": "Fastest run",
+        "color": "#c87dff"
+      },
+      {
+        "name": "Most Average run",
+        "color": "#c87dff"
+      },
+      {
+        "name": "Longest run",
+        "color": "#c87dff"
+      }
+    ],
+    "series_color": {
+      "Shortest run": "#c87dff",
+      "Fastest run": "#c87dff",
+      "Most Average run": "#c87dff",
+      "Longest run": "#c87dff"
+    },
+    "axis_repair": {
+      "hint": {
+        "x_axis_missing": false,
+        "y_axis_missing": false,
+        "x_ticks_missing": false,
+        "y_ticks_missing": false,
+        "x_axis_role": "numeric",
+        "y_axis_role": "numeric",
+        "x_axis_position": "bottom",
+        "y_axis_position": "left",
+        "plot_area_style": "grid_only",
+        "has_background_grid": true,
+        "x_tick_recovery_from_grid": false,
+        "y_tick_recovery_from_grid": false,
+        "bar_layout": "single",
+        "bar_orientation": "unknown",
+        "confidence": 1.0,
+        "reason": "The chart has visible x and y axes with tick labels and grid lines.",
+        "axis_tick_labels": {
+          "x_ticks": [
+            "2 km",
+            "4 km",
+            "6 km",
+            "8 km",
+            "10 km",
+            "12 km"
+          ],
+          "y_ticks": [
+            "8 km/h",
+            "9 km/h",
+            "10 km/h",
+            "11 km/h",
+            "12 km/h"
+          ],
+          "x_ticks_encrypted": [
+            "2.0",
+            "3.0",
+            "4.0",
+            "5.0",
+            "6.0",
+            "7.0",
+            "8.0",
+            "9.0",
+            "10.0",
+            "11.0",
+            "12.0"
+          ],
+          "y_ticks_encrypted": [
+            "8.0",
+            "8.5",
+            "9.0",
+            "9.5",
+            "10.0",
+            "10.5",
+            "11.0",
+            "11.5",
+            "12.0"
+          ],
+          "x_axis_type": "numeric",
+          "y_axis_type": "numeric",
+          "source": "upload_detection"
+        },
+        "series_items": {
+          "items": [
+            {
+              "name": "Shortest run",
+              "color": "#c87dff"
+            },
+            {
+              "name": "Fastest run",
+              "color": "#c87dff"
+            },
+            {
+              "name": "Most Average run",
+              "color": "#c87dff"
+            },
+            {
+              "name": "Longest run",
+              "color": "#c87dff"
+            }
+          ],
+          "source": "upload_detection",
+          "kind": "point_labels"
+        }
+      },
+      "source": "enhanced_grid_first"
+    },
+    "enhanced_grid_reconstruction": {
+      "enabled": true,
+      "error": null,
+      "source": "computed",
+      "outputs": {
+        "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_preview.png",
+        "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1.png",
+        "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1_overlay.png",
+        "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_final1_selection.json",
+        "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_axis_fusion.json",
+        "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_grid_label_bindings.json",
+        "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_grid_layers.json",
+        "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_mllm_axis.json",
+        "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\ScatterPlot1_3faea313\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot1_3faea313_image_ocr_axis.json",
+        "mllm_cache_root": ""
+      }
+    },
+    "encrypted_tick_source": "enhanced_grid_label_bindings",
+    "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+    "cartesian_flow": "enhanced_grid_first",
+    "legacy_cartesian_flow_used": false,
+    "image_paths": {
+      "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
+      "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid.png",
+      "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
+      "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
+      "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_with_grid_color.png",
+      "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\972aa5e991c5df23\\output\\972aa5e991c5df23_original_grid.png"
+    }
+  },
+  "note": "Dataset preview point cache rebuilt from system-generated OCR/grid outputs only; dataset GT/reference JSON is not used."
 }

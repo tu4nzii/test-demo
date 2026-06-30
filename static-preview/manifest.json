@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-30T13:33:42.196563+00:00",
+  "generated_at": "2026-06-30T14:35:13.689678+00:00",
   "sources": {
     "realworld": {
       "label": "Final-RealDataset",
@@ -12164,6 +12164,7 @@
   "summary": {
     "samples": 574,
     "cached": 569,
-    "evaluation_cached": 358
+    "evaluation_cached": 358,
+    "point_evaluation_refreshed": 118
   }
 }

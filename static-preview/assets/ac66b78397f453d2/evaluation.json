@@ -1,264 +1,266 @@
 {
-    "success": true,
-    "mode": "prediction_extraction",
-    "chart_id": "dataset_ac66b78397f453d2",
+  "success": true,
+  "mode": "prediction_extraction",
+  "cache_mode": "system_ocr_grid_mapping",
+  "chart_id": "dataset_ac66b78397f453d2",
+  "chart_type": "bubble",
+  "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_ticks.json",
+  "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_ticks.json",
+  "summary": {
+    "object_count": 5,
+    "chart_runs": 0,
+    "system_cv_fallback": true,
+    "label_target_count": 0
+  },
+  "predictions": [
+    {
+      "id": "bubble_1",
+      "label": "bubble_1",
+      "axis": "xy",
+      "x": 0.9865,
+      "y": 92.6205,
+      "value": {
+        "x": 0.9865,
+        "y": 92.6205
+      },
+      "pixel": {
+        "x": 150.5,
+        "y": 115.86
+      },
+      "area": 498,
+      "source": "system_cv_fallback"
+    },
+    {
+      "id": "bubble_3",
+      "label": "bubble_3",
+      "axis": "xy",
+      "x": 12.6951,
+      "y": 42.1148,
+      "value": {
+        "x": 12.6951,
+        "y": 42.1148
+      },
+      "pixel": {
+        "x": 329.93,
+        "y": 452.57
+      },
+      "area": 724,
+      "source": "system_cv_fallback"
+    },
+    {
+      "id": "bubble_4",
+      "label": "bubble_4",
+      "axis": "xy",
+      "x": 30.8857,
+      "y": 40.9199,
+      "value": {
+        "x": 30.8857,
+        "y": 40.9199
+      },
+      "pixel": {
+        "x": 589.8,
+        "y": 460.53
+      },
+      "area": 386,
+      "source": "system_cv_fallback"
+    },
+    {
+      "id": "bubble_2",
+      "label": "bubble_2",
+      "axis": "xy",
+      "x": 31.355,
+      "y": 84.875,
+      "value": {
+        "x": 31.355,
+        "y": 84.875
+      },
+      "pixel": {
+        "x": 596.5,
+        "y": 167.5
+      },
+      "area": 592,
+      "source": "system_cv_fallback"
+    },
+    {
+      "id": "bubble_5",
+      "label": "bubble_5",
+      "axis": "xy",
+      "x": 36.387,
+      "y": 7.0696,
+      "value": {
+        "x": 36.387,
+        "y": 7.0696
+      },
+      "pixel": {
+        "x": 668.39,
+        "y": 686.2
+      },
+      "area": 553,
+      "source": "system_cv_fallback"
+    }
+  ],
+  "artifacts": [],
+  "processed_json": {
+    "chart_id": "vishint_Sy.Dataset_Bubble_50_bubble_emu_008_d32e9fb6_image",
     "chart_type": "bubble",
-    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_ticks.json",
-    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_ticks.json",
-    "summary": {
-        "object_count": 5,
-        "chart_runs": 0,
-        "system_cv_fallback": true
-    },
-    "predictions": [
-        {
-            "id": "bubble_1",
-            "label": "bubble_1",
-            "axis": "xy",
-            "x": 0.9865,
-            "y": 92.6205,
-            "value": {
-                "x": 0.9865,
-                "y": 92.6205
-            },
-            "pixel": {
-                "x": 150.5,
-                "y": 115.86
-            },
-            "area": 498,
-            "source": "system_cv_fallback"
-        },
-        {
-            "id": "bubble_3",
-            "label": "bubble_3",
-            "axis": "xy",
-            "x": 12.6951,
-            "y": 42.1148,
-            "value": {
-                "x": 12.6951,
-                "y": 42.1148
-            },
-            "pixel": {
-                "x": 329.93,
-                "y": 452.57
-            },
-            "area": 724,
-            "source": "system_cv_fallback"
-        },
-        {
-            "id": "bubble_4",
-            "label": "bubble_4",
-            "axis": "xy",
-            "x": 30.8857,
-            "y": 40.9199,
-            "value": {
-                "x": 30.8857,
-                "y": 40.9199
-            },
-            "pixel": {
-                "x": 589.8,
-                "y": 460.53
-            },
-            "area": 386,
-            "source": "system_cv_fallback"
-        },
-        {
-            "id": "bubble_2",
-            "label": "bubble_2",
-            "axis": "xy",
-            "x": 31.355,
-            "y": 84.875,
-            "value": {
-                "x": 31.355,
-                "y": 84.875
-            },
-            "pixel": {
-                "x": 596.5,
-                "y": 167.5
-            },
-            "area": 592,
-            "source": "system_cv_fallback"
-        },
-        {
-            "id": "bubble_5",
-            "label": "bubble_5",
-            "axis": "xy",
-            "x": 36.387,
-            "y": 7.0696,
-            "value": {
-                "x": 36.387,
-                "y": 7.0696
-            },
-            "pixel": {
-                "x": 668.39,
-                "y": 686.2
-            },
-            "area": 553,
-            "source": "system_cv_fallback"
-        }
+    "x_ticks": [
+      -2.0,
+      8.5,
+      19.0,
+      29.5,
+      40.0
     ],
-    "artifacts": [],
-    "processed_json": {
-        "chart_id": "vishint_Sy.Dataset_Bubble_50_bubble_emu_008_d32e9fb6_image",
-        "chart_type": "bubble",
-        "x_ticks": [
-            -2.0,
-            8.5,
-            19.0,
-            29.5,
-            40.0
-        ],
-        "y_ticks": [
-            98.0,
-            74.0,
-            50.0,
-            26.0,
-            2.0
-        ],
-        "x_pixels": [
-            103,
-            270,
-            420,
-            570,
-            720
-        ],
-        "y_pixels": [
-            80,
-            240,
-            400,
-            560,
-            720
-        ],
-        "x_ticks_encrypted": [
-            -2.0,
-            3.25,
-            8.5,
-            13.75,
-            19.0,
-            24.25,
-            29.5,
-            34.75,
-            40.0
-        ],
-        "y_ticks_encrypted": [
-            98.0,
-            86.0,
-            74.0,
-            62.0,
-            50.0,
-            38.0,
-            26.0,
-            14.0,
-            2.0
-        ],
-        "x_pixels_encrypted": [
-            103,
-            186,
-            270,
-            345,
-            420,
-            495,
-            570,
-            645,
-            720
-        ],
-        "y_pixels_encrypted": [
-            80,
-            160,
-            240,
-            320,
-            400,
-            480,
-            560,
-            640,
-            720
-        ],
-        "x_axis_type": "数值轴",
-        "y_axis_type": "数值轴",
-        "x_axis_scale": "linear",
-        "y_axis_scale": "linear",
-        "x_label_orientation_angle": 0.0,
-        "y_label_orientation_angle": 0.0,
-        "x_skipped_encrypted_intervals": [],
-        "y_skipped_encrypted_intervals": [],
-        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\source.png",
-        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_grid.png",
-        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
-        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
-        "colors": [],
-        "axis_repair": {
-            "hint": {
-                "x_axis_missing": false,
-                "y_axis_missing": false,
-                "x_ticks_missing": false,
-                "y_ticks_missing": false,
-                "x_axis_role": "unknown",
-                "y_axis_role": "unknown",
-                "x_axis_position": "unknown",
-                "y_axis_position": "unknown",
-                "plot_area_style": "unknown",
-                "has_background_grid": false,
-                "x_tick_recovery_from_grid": false,
-                "y_tick_recovery_from_grid": false,
-                "bar_layout": "unknown",
-                "bar_orientation": "unknown",
-                "confidence": 0,
-                "reason": "",
-                "axis_tick_labels": {
-                    "x_ticks": [],
-                    "y_ticks": [],
-                    "x_ticks_encrypted": [],
-                    "y_ticks_encrypted": [],
-                    "x_axis_type": "unknown",
-                    "y_axis_type": "unknown",
-                    "source": "upload_detection"
-                }
-            },
-            "source": "enhanced_grid_first"
-        },
-        "enhanced_grid_reconstruction": {
-            "enabled": true,
-            "error": null,
-            "source": "synced_from_grid_reference_generated_outputs",
-            "outputs": {
-                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_preview.png",
-                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2.png",
-                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2_overlay.png",
-                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2_selection.json",
-                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_axis_fusion.json",
-                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_grid_label_bindings.json",
-                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_grid_layers.json",
-                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_mllm_axis.json",
-                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_ocr_axis.json",
-                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
-            },
-            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
-        },
-        "encrypted_tick_source": "enhanced_grid_label_bindings",
-        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
-        "cartesian_flow": "enhanced_grid_first",
-        "legacy_cartesian_flow_used": false,
-        "fast_refresh": {
-            "enabled": true,
-            "source": "existing_tick_sidecar_and_enhanced_artifacts",
-            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\image_with_grid.png",
-            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\image_with_grid_color.png"
-        },
-        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
-        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\Bubble_50\\charts",
-        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
-        "x_dense_encrypted_interval_warnings": [],
-        "x_axis_encryption_policy": "all_numeric_midpoints",
-        "y_dense_encrypted_interval_warnings": [],
-        "y_axis_encryption_policy": "all_numeric_midpoints",
-        "image_paths": {
-            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
-            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
-            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
-            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
-            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
-            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_grid.png"
+    "y_ticks": [
+      98.0,
+      74.0,
+      50.0,
+      26.0,
+      2.0
+    ],
+    "x_pixels": [
+      103,
+      270,
+      420,
+      570,
+      720
+    ],
+    "y_pixels": [
+      80,
+      240,
+      400,
+      560,
+      720
+    ],
+    "x_ticks_encrypted": [
+      -2.0,
+      3.25,
+      8.5,
+      13.75,
+      19.0,
+      24.25,
+      29.5,
+      34.75,
+      40.0
+    ],
+    "y_ticks_encrypted": [
+      98.0,
+      86.0,
+      74.0,
+      62.0,
+      50.0,
+      38.0,
+      26.0,
+      14.0,
+      2.0
+    ],
+    "x_pixels_encrypted": [
+      103,
+      186,
+      270,
+      345,
+      420,
+      495,
+      570,
+      645,
+      720
+    ],
+    "y_pixels_encrypted": [
+      80,
+      160,
+      240,
+      320,
+      400,
+      480,
+      560,
+      640,
+      720
+    ],
+    "x_axis_type": "数值轴",
+    "y_axis_type": "数值轴",
+    "x_axis_scale": "linear",
+    "y_axis_scale": "linear",
+    "x_label_orientation_angle": 0.0,
+    "y_label_orientation_angle": 0.0,
+    "x_skipped_encrypted_intervals": [],
+    "y_skipped_encrypted_intervals": [],
+    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\source.png",
+    "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_grid.png",
+    "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
+    "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
+    "colors": [],
+    "axis_repair": {
+      "hint": {
+        "x_axis_missing": false,
+        "y_axis_missing": false,
+        "x_ticks_missing": false,
+        "y_ticks_missing": false,
+        "x_axis_role": "unknown",
+        "y_axis_role": "unknown",
+        "x_axis_position": "unknown",
+        "y_axis_position": "unknown",
+        "plot_area_style": "unknown",
+        "has_background_grid": false,
+        "x_tick_recovery_from_grid": false,
+        "y_tick_recovery_from_grid": false,
+        "bar_layout": "unknown",
+        "bar_orientation": "unknown",
+        "confidence": 0,
+        "reason": "",
+        "axis_tick_labels": {
+          "x_ticks": [],
+          "y_ticks": [],
+          "x_ticks_encrypted": [],
+          "y_ticks_encrypted": [],
+          "x_axis_type": "unknown",
+          "y_axis_type": "unknown",
+          "source": "upload_detection"
         }
+      },
+      "source": "enhanced_grid_first"
     },
-    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+    "enhanced_grid_reconstruction": {
+      "enabled": true,
+      "error": null,
+      "source": "synced_from_grid_reference_generated_outputs",
+      "outputs": {
+        "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_preview.png",
+        "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2.png",
+        "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2_overlay.png",
+        "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_final2_selection.json",
+        "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_axis_fusion.json",
+        "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_grid_label_bindings.json",
+        "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_grid_layers.json",
+        "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_mllm_axis.json",
+        "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\bubble_emu_008_ocr_axis.json",
+        "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+      },
+      "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+    },
+    "encrypted_tick_source": "enhanced_grid_label_bindings",
+    "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+    "cartesian_flow": "enhanced_grid_first",
+    "legacy_cartesian_flow_used": false,
+    "fast_refresh": {
+      "enabled": true,
+      "source": "existing_tick_sidecar_and_enhanced_artifacts",
+      "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\image_with_grid.png",
+      "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\Bubble_50\\bubble_emu_008_d32e9fb6\\artifacts\\image_with_grid_color.png"
+    },
+    "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+    "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\Bubble_50\\charts",
+    "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+    "x_dense_encrypted_interval_warnings": [],
+    "x_axis_encryption_policy": "all_numeric_midpoints",
+    "y_dense_encrypted_interval_warnings": [],
+    "y_axis_encryption_policy": "all_numeric_midpoints",
+    "image_paths": {
+      "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
+      "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid.png",
+      "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
+      "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
+      "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_with_grid_color.png",
+      "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ac66b78397f453d2\\output\\ac66b78397f453d2_original_grid.png"
+    }
+  },
+  "note": "Dataset preview point cache rebuilt from system-generated OCR/grid outputs only; dataset GT/reference JSON is not used."
 }

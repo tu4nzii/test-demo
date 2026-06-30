@@ -1,463 +1,477 @@
 {
-    "success": true,
-    "mode": "prediction_extraction",
-    "chart_id": "dataset_8de06653fa0b12d2",
-    "chart_type": "bubble",
-    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_ticks.json",
-    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_ticks.json",
-    "summary": {
-        "object_count": 6,
-        "chart_runs": 1,
-        "system_cv_fallback": false
+  "success": true,
+  "mode": "prediction_extraction",
+  "cache_mode": "system_ocr_grid_mapping",
+  "chart_id": "dataset_8de06653fa0b12d2",
+  "chart_type": "bubble",
+  "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_ticks.json",
+  "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_ticks.json",
+  "summary": {
+    "object_count": 10,
+    "chart_runs": 0,
+    "system_cv_fallback": false,
+    "label_target_count": 10
+  },
+  "predictions": [
+    {
+      "id": "Afghanistan",
+      "series_name": "",
+      "category": "",
+      "label": "Afghanistan",
+      "axis": "xy",
+      "value": {
+        "x": 6.4172,
+        "y": 2.9508
+      },
+      "x": 6.4172,
+      "y": 2.9508,
+      "pixel": {
+        "x": 440.2,
+        "y": 161.64
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     },
-    "predictions": [
-        {
-            "id": "Africa",
-            "series_name": "Africa",
-            "label": "Africa",
-            "axis": "xy",
-            "value": {
-                "x": 4.5,
-                "y": 2.5
-            },
-            "x": 4.5,
-            "y": 2.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Africa_rt3_round3_crop.png"
-        },
-        {
-            "id": "Asia",
-            "series_name": "Asia",
-            "label": "Asia",
-            "axis": "xy",
-            "value": {
-                "x": 3.2,
-                "y": 1.1
-            },
-            "x": 3.2,
-            "y": 1.1,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Asia_rt3_round3_crop.png"
-        },
-        {
-            "id": "Europe",
-            "series_name": "Europe",
-            "label": "Europe",
-            "axis": "xy",
-            "value": {
-                "x": 2.0,
-                "y": 0.25
-            },
-            "x": 2.0,
-            "y": 0.25,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Europe_rt3_round3_crop.png"
-        },
-        {
-            "id": "North America",
-            "series_name": "North America",
-            "label": "North America",
-            "axis": "xy",
-            "value": {
-                "x": 2.0,
-                "y": -0.2
-            },
-            "x": 2.0,
-            "y": -0.2,
-            "prompt_type": "feedback",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_North America_feedback_grid_with_grid_run3.png"
-        },
-        {
-            "id": "Oceania",
-            "series_name": "Oceania",
-            "label": "Oceania",
-            "axis": "xy",
-            "value": {
-                "x": 7.5,
-                "y": 0.5
-            },
-            "x": 7.5,
-            "y": 0.5,
-            "prompt_type": "feedback",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_Oceania_feedback_grid_with_grid_run3.png"
-        },
-        {
-            "id": "South America",
-            "series_name": "South America",
-            "label": "South America",
-            "axis": "xy",
-            "value": {
-                "x": 9.2,
-                "y": 0.2
-            },
-            "x": 9.2,
-            "y": 0.2,
-            "prompt_type": "feedback",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_South America_feedback_grid_with_grid_run3.png"
-        }
-    ],
-    "artifacts": [
-        {
-            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image",
-            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image",
-            "record_count": 72,
-            "object_count": 6,
-            "predictions": [
-                {
-                    "id": "Africa",
-                    "series_name": "Africa",
-                    "label": "Africa",
-                    "axis": "xy",
-                    "value": {
-                        "x": 4.5,
-                        "y": 2.5
-                    },
-                    "x": 4.5,
-                    "y": 2.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Africa_rt3_round3_crop.png"
-                },
-                {
-                    "id": "Asia",
-                    "series_name": "Asia",
-                    "label": "Asia",
-                    "axis": "xy",
-                    "value": {
-                        "x": 3.2,
-                        "y": 1.1
-                    },
-                    "x": 3.2,
-                    "y": 1.1,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Asia_rt3_round3_crop.png"
-                },
-                {
-                    "id": "Europe",
-                    "series_name": "Europe",
-                    "label": "Europe",
-                    "axis": "xy",
-                    "value": {
-                        "x": 2.0,
-                        "y": 0.25
-                    },
-                    "x": 2.0,
-                    "y": 0.25,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\raw_crops\\Europe_rt3_round3_crop.png"
-                },
-                {
-                    "id": "North America",
-                    "series_name": "North America",
-                    "label": "North America",
-                    "axis": "xy",
-                    "value": {
-                        "x": 2.0,
-                        "y": -0.2
-                    },
-                    "x": 2.0,
-                    "y": -0.2,
-                    "prompt_type": "feedback",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_North America_feedback_grid_with_grid_run3.png"
-                },
-                {
-                    "id": "Oceania",
-                    "series_name": "Oceania",
-                    "label": "Oceania",
-                    "axis": "xy",
-                    "value": {
-                        "x": 7.5,
-                        "y": 0.5
-                    },
-                    "x": 7.5,
-                    "y": 0.5,
-                    "prompt_type": "feedback",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_Oceania_feedback_grid_with_grid_run3.png"
-                },
-                {
-                    "id": "South America",
-                    "series_name": "South America",
-                    "label": "South America",
-                    "axis": "xy",
-                    "value": {
-                        "x": 9.2,
-                        "y": 0.2
-                    },
-                    "x": 9.2,
-                    "y": 0.2,
-                    "prompt_type": "feedback",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_South America_feedback_grid_with_grid_run3.png"
-                }
-            ]
-        }
-    ],
-    "processed_json": {
-        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image",
-        "chart_type": "scatter",
-        "x_ticks": [
-            0.0,
-            2.0,
-            4.0,
-            6.0,
-            8.0,
-            10.0
-        ],
-        "y_ticks": [
-            3.0,
-            2.0,
-            1.0,
-            0.0,
-            -1.0
-        ],
-        "x_pixels": [
-            68,
-            184,
-            300,
-            416,
-            532,
-            648
-        ],
-        "y_pixels": [
-            158,
-            232,
-            304,
-            378,
-            450
-        ],
-        "x_ticks_encrypted": [
-            0.0,
-            1.0,
-            2.0,
-            3.0,
-            4.0,
-            5.0,
-            6.0,
-            7.0,
-            8.0,
-            9.0,
-            10.0
-        ],
-        "y_ticks_encrypted": [
-            3.0,
-            2.5,
-            2.0,
-            1.5,
-            1.0,
-            0.5,
-            0.0,
-            -0.5,
-            -1.0
-        ],
-        "x_pixels_encrypted": [
-            68,
-            126,
-            184,
-            242,
-            300,
-            358,
-            416,
-            474,
-            532,
-            590,
-            648
-        ],
-        "y_pixels_encrypted": [
-            158,
-            195,
-            232,
-            268,
-            304,
-            341,
-            378,
-            414,
-            450
-        ],
-        "x_axis_type": "数值轴",
-        "y_axis_type": "数值轴",
-        "x_axis_scale": "linear",
-        "y_axis_scale": "linear",
-        "x_label_orientation_angle": 0.0,
-        "y_label_orientation_angle": 0.0,
-        "x_skipped_encrypted_intervals": [],
-        "y_skipped_encrypted_intervals": [],
-        "x_dense_encrypted_interval_warnings": [],
-        "y_dense_encrypted_interval_warnings": [],
-        "x_axis_encryption_policy": "all_numeric_midpoints",
-        "y_axis_encryption_policy": "all_numeric_midpoints",
-        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image.png",
-        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_grid.png",
-        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
-        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
-        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
-        "generation_cache_disabled": true,
-        "colors": [
-            {
-                "name": "Africa",
-                "color": "#748bb2"
-            },
-            {
-                "name": "Asia",
-                "color": "#8499bb"
-            },
-            {
-                "name": "Europe",
-                "color": "#637da9"
-            },
-            {
-                "name": "North America",
-                "color": "#6b84ad"
-            },
-            {
-                "name": "Oceania",
-                "color": "#90a3c2"
-            },
-            {
-                "name": "South America",
-                "color": "#657faa"
-            }
-        ],
-        "series_color": {
-            "Africa": "#748bb2",
-            "Asia": "#8499bb",
-            "Europe": "#637da9",
-            "North America": "#6b84ad",
-            "Oceania": "#90a3c2",
-            "South America": "#657faa"
-        },
-        "axis_repair": {
-            "hint": {
-                "x_axis_missing": false,
-                "y_axis_missing": false,
-                "x_ticks_missing": false,
-                "y_ticks_missing": false,
-                "x_axis_role": "numeric",
-                "y_axis_role": "numeric",
-                "x_axis_position": "bottom",
-                "y_axis_position": "left",
-                "plot_area_style": "explicit_axes",
-                "has_background_grid": true,
-                "x_tick_recovery_from_grid": false,
-                "y_tick_recovery_from_grid": false,
-                "bar_layout": "single",
-                "bar_orientation": "unknown",
-                "confidence": 1.0,
-                "reason": "The chart has clear x and y axes with tick marks and labels. The plot area is defined by these axes and has a background grid.",
-                "axis_tick_labels": {
-                    "x_ticks": [
-                        "0%",
-                        "2%",
-                        "4%",
-                        "6%",
-                        "8%",
-                        "10%"
-                    ],
-                    "y_ticks": [
-                        "-1%",
-                        "0%",
-                        "1%",
-                        "2%",
-                        "3%"
-                    ],
-                    "x_ticks_encrypted": [
-                        "0.0",
-                        "1.0",
-                        "2.0",
-                        "3.0",
-                        "4.0",
-                        "5.0",
-                        "6.0",
-                        "7.0",
-                        "8.0",
-                        "9.0",
-                        "10.0"
-                    ],
-                    "y_ticks_encrypted": [
-                        "-1.0",
-                        "-0.5",
-                        "0.0",
-                        "0.5",
-                        "1.0",
-                        "1.5",
-                        "2.0",
-                        "2.5",
-                        "3.0"
-                    ],
-                    "x_axis_type": "numeric",
-                    "y_axis_type": "numeric",
-                    "source": "upload_detection"
-                },
-                "series_items": {
-                    "items": [
-                        {
-                            "name": "Africa",
-                            "color": "#748bb2"
-                        },
-                        {
-                            "name": "Asia",
-                            "color": "#8499bb"
-                        },
-                        {
-                            "name": "Europe",
-                            "color": "#637da9"
-                        },
-                        {
-                            "name": "North America",
-                            "color": "#6b84ad"
-                        },
-                        {
-                            "name": "Oceania",
-                            "color": "#90a3c2"
-                        },
-                        {
-                            "name": "South America",
-                            "color": "#657faa"
-                        }
-                    ],
-                    "source": "upload_detection+local_legend_swatch",
-                    "kind": "legend"
-                }
-            },
-            "source": "enhanced_grid_first"
-        },
-        "enhanced_grid_reconstruction": {
-            "enabled": true,
-            "error": null,
-            "source": "computed",
-            "outputs": {
-                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_preview.png",
-                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1.png",
-                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1_overlay.png",
-                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1_selection.json",
-                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_axis_fusion.json",
-                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_grid_label_bindings.json",
-                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_grid_layers.json",
-                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_mllm_axis.json",
-                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_ocr_axis.json",
-                "mllm_cache_root": ""
-            }
-        },
-        "encrypted_tick_source": "enhanced_grid_label_bindings",
-        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
-        "cartesian_flow": "enhanced_grid_first",
-        "legacy_cartesian_flow_used": false,
-        "image_paths": {
-            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
-            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
-            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
-            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
-            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
-            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_grid.png"
-        }
+    {
+      "id": "Malawi Ethiopia",
+      "series_name": "",
+      "category": "",
+      "label": "Malawi Ethiopia",
+      "axis": "xy",
+      "value": {
+        "x": 4.7731,
+        "y": 2.7144
+      },
+      "x": 4.7731,
+      "y": 2.7144,
+      "pixel": {
+        "x": 344.84,
+        "y": 179.13
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Guinea",
+      "series_name": "",
+      "category": "",
+      "label": "Guinea",
+      "axis": "xy",
+      "value": {
+        "x": 8.1211,
+        "y": 2.2415
+      },
+      "x": 8.1211,
+      "y": 2.2415,
+      "pixel": {
+        "x": 539.03,
+        "y": 214.13
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "'Iraq Samoa",
+      "series_name": "",
+      "category": "",
+      "label": "'Iraq Samoa",
+      "axis": "xy",
+      "value": {
+        "x": 2.1817,
+        "y": 2.2784
+      },
+      "x": 2.1817,
+      "y": 2.2784,
+      "pixel": {
+        "x": 194.54,
+        "y": 211.4
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Kenya Laos",
+      "series_name": "",
+      "category": "",
+      "label": "Kenya Laos",
+      "axis": "xy",
+      "value": {
+        "x": 4.442,
+        "y": 2.0688
+      },
+      "x": 4.442,
+      "y": 2.0688,
+      "pixel": {
+        "x": 325.64,
+        "y": 226.91
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Haiti Eswatini",
+      "series_name": "",
+      "category": "",
+      "label": "Haiti Eswatini",
+      "axis": "xy",
+      "value": {
+        "x": 5.7353,
+        "y": 1.3729
+      },
+      "x": 5.7353,
+      "y": 1.3729,
+      "pixel": {
+        "x": 400.65,
+        "y": 277.15
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Israel",
+      "series_name": "",
+      "category": "",
+      "label": "Israel",
+      "axis": "xy",
+      "value": {
+        "x": 0.657,
+        "y": 1.4965
+      },
+      "x": 0.657,
+      "y": 1.4965,
+      "pixel": {
+        "x": 106.11,
+        "y": 268.25
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Lesotho",
+      "series_name": "",
+      "category": "",
+      "label": "Lesotho",
+      "axis": "xy",
+      "value": {
+        "x": 7.9828,
+        "y": 2.234
+      },
+      "x": 7.9828,
+      "y": 2.234,
+      "pixel": {
+        "x": 531.0,
+        "y": 214.68
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Myanmar",
+      "series_name": "",
+      "category": "",
+      "label": "Myanmar",
+      "axis": "xy",
+      "value": {
+        "x": 4.7667,
+        "y": 0.8396
+      },
+      "x": 4.7667,
+      "y": 0.8396,
+      "pixel": {
+        "x": 344.47,
+        "y": 315.87
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Russia Saint Helena Serbia",
+      "series_name": "",
+      "category": "",
+      "label": "Russia Saint Helena Serbia",
+      "axis": "xy",
+      "value": {
+        "x": 1.4295,
+        "y": -0.7386
+      },
+      "x": 1.4295,
+      "y": -0.7386,
+      "pixel": {
+        "x": 150.91,
+        "y": 431.18
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     }
+  ],
+  "artifacts": [],
+  "processed_json": {
+    "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image",
+    "chart_type": "scatter",
+    "x_ticks": [
+      0.0,
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0
+    ],
+    "y_ticks": [
+      3.0,
+      2.0,
+      1.0,
+      0.0,
+      -1.0
+    ],
+    "x_pixels": [
+      68,
+      184,
+      300,
+      416,
+      532,
+      648
+    ],
+    "y_pixels": [
+      158,
+      232,
+      304,
+      378,
+      450
+    ],
+    "x_ticks_encrypted": [
+      0.0,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0
+    ],
+    "y_ticks_encrypted": [
+      3.0,
+      2.5,
+      2.0,
+      1.5,
+      1.0,
+      0.5,
+      0.0,
+      -0.5,
+      -1.0
+    ],
+    "x_pixels_encrypted": [
+      68,
+      126,
+      184,
+      242,
+      300,
+      358,
+      416,
+      474,
+      532,
+      590,
+      648
+    ],
+    "y_pixels_encrypted": [
+      158,
+      195,
+      232,
+      268,
+      304,
+      341,
+      378,
+      414,
+      450
+    ],
+    "x_axis_type": "数值轴",
+    "y_axis_type": "数值轴",
+    "x_axis_scale": "linear",
+    "y_axis_scale": "linear",
+    "x_label_orientation_angle": 0.0,
+    "y_label_orientation_angle": 0.0,
+    "x_skipped_encrypted_intervals": [],
+    "y_skipped_encrypted_intervals": [],
+    "x_dense_encrypted_interval_warnings": [],
+    "y_dense_encrypted_interval_warnings": [],
+    "x_axis_encryption_policy": "all_numeric_midpoints",
+    "y_axis_encryption_policy": "all_numeric_midpoints",
+    "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image.png",
+    "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_grid.png",
+    "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
+    "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
+    "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+    "generation_cache_disabled": true,
+    "colors": [
+      {
+        "name": "Africa",
+        "color": "#748bb2"
+      },
+      {
+        "name": "Asia",
+        "color": "#8499bb"
+      },
+      {
+        "name": "Europe",
+        "color": "#637da9"
+      },
+      {
+        "name": "North America",
+        "color": "#6b84ad"
+      },
+      {
+        "name": "Oceania",
+        "color": "#90a3c2"
+      },
+      {
+        "name": "South America",
+        "color": "#657faa"
+      }
+    ],
+    "series_color": {
+      "Africa": "#748bb2",
+      "Asia": "#8499bb",
+      "Europe": "#637da9",
+      "North America": "#6b84ad",
+      "Oceania": "#90a3c2",
+      "South America": "#657faa"
+    },
+    "axis_repair": {
+      "hint": {
+        "x_axis_missing": false,
+        "y_axis_missing": false,
+        "x_ticks_missing": false,
+        "y_ticks_missing": false,
+        "x_axis_role": "numeric",
+        "y_axis_role": "numeric",
+        "x_axis_position": "bottom",
+        "y_axis_position": "left",
+        "plot_area_style": "explicit_axes",
+        "has_background_grid": true,
+        "x_tick_recovery_from_grid": false,
+        "y_tick_recovery_from_grid": false,
+        "bar_layout": "single",
+        "bar_orientation": "unknown",
+        "confidence": 1.0,
+        "reason": "The chart has clear x and y axes with tick marks and labels. The plot area is defined by these axes and has a background grid.",
+        "axis_tick_labels": {
+          "x_ticks": [
+            "0%",
+            "2%",
+            "4%",
+            "6%",
+            "8%",
+            "10%"
+          ],
+          "y_ticks": [
+            "-1%",
+            "0%",
+            "1%",
+            "2%",
+            "3%"
+          ],
+          "x_ticks_encrypted": [
+            "0.0",
+            "1.0",
+            "2.0",
+            "3.0",
+            "4.0",
+            "5.0",
+            "6.0",
+            "7.0",
+            "8.0",
+            "9.0",
+            "10.0"
+          ],
+          "y_ticks_encrypted": [
+            "-1.0",
+            "-0.5",
+            "0.0",
+            "0.5",
+            "1.0",
+            "1.5",
+            "2.0",
+            "2.5",
+            "3.0"
+          ],
+          "x_axis_type": "numeric",
+          "y_axis_type": "numeric",
+          "source": "upload_detection"
+        },
+        "series_items": {
+          "items": [
+            {
+              "name": "Africa",
+              "color": "#748bb2"
+            },
+            {
+              "name": "Asia",
+              "color": "#8499bb"
+            },
+            {
+              "name": "Europe",
+              "color": "#637da9"
+            },
+            {
+              "name": "North America",
+              "color": "#6b84ad"
+            },
+            {
+              "name": "Oceania",
+              "color": "#90a3c2"
+            },
+            {
+              "name": "South America",
+              "color": "#657faa"
+            }
+          ],
+          "source": "upload_detection+local_legend_swatch",
+          "kind": "legend"
+        }
+      },
+      "source": "enhanced_grid_first"
+    },
+    "enhanced_grid_reconstruction": {
+      "enabled": true,
+      "error": null,
+      "source": "computed",
+      "outputs": {
+        "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_preview.png",
+        "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1.png",
+        "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1_overlay.png",
+        "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_final1_selection.json",
+        "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_axis_fusion.json",
+        "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_grid_label_bindings.json",
+        "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_grid_layers.json",
+        "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_mllm_axis.json",
+        "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BubbleChart26_c0ee33ea\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart26_c0ee33ea_image_ocr_axis.json",
+        "mllm_cache_root": ""
+      }
+    },
+    "encrypted_tick_source": "enhanced_grid_label_bindings",
+    "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+    "cartesian_flow": "enhanced_grid_first",
+    "legacy_cartesian_flow_used": false,
+    "image_paths": {
+      "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
+      "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid.png",
+      "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
+      "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
+      "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_with_grid_color.png",
+      "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8de06653fa0b12d2\\output\\8de06653fa0b12d2_original_grid.png"
+    }
+  },
+  "note": "Dataset preview point cache rebuilt from system-generated OCR/grid outputs only; dataset GT/reference JSON is not used."
 }
