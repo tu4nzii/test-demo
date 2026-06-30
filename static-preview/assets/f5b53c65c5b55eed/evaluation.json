@@ -1,0 +1,270 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_f5b53c65c5b55eed",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original.json",
+    "summary": {
+        "object_count": 9,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "UCJPDN, UCJPDN",
+            "series_name": "UCJPDN",
+            "theta_label": "UCJPDN",
+            "label": "UCJPDN",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "UCJPDN, NHRHO",
+            "series_name": "UCJPDN",
+            "theta_label": "NHRHO",
+            "label": "NHRHO",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "FKCI, UCJPDN",
+            "series_name": "FKCI",
+            "theta_label": "UCJPDN",
+            "label": "UCJPDN",
+            "axis": "r",
+            "value": 120.0,
+            "r": 120.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "FKCI, FKCI",
+            "series_name": "FKCI",
+            "theta_label": "FKCI",
+            "label": "FKCI",
+            "axis": "r",
+            "value": 150.0,
+            "r": 150.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "NHRHO, UCJPDN",
+            "series_name": "NHRHO",
+            "theta_label": "UCJPDN",
+            "label": "UCJPDN",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "NHRHO, FKCI",
+            "series_name": "NHRHO",
+            "theta_label": "FKCI",
+            "label": "FKCI",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "NHRHO, NHRHO",
+            "series_name": "NHRHO",
+            "theta_label": "NHRHO",
+            "label": "NHRHO",
+            "axis": "r",
+            "value": 100.0,
+            "r": 100.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "UCJPDN, FKCI",
+            "series_name": "UCJPDN",
+            "theta_label": "FKCI",
+            "label": "FKCI",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        },
+        {
+            "id": "FKCI, NHRHO",
+            "series_name": "FKCI",
+            "theta_label": "NHRHO",
+            "label": "NHRHO",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_f5b53c65c5b55eed",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_f5b53c65c5b55eed",
+            "record_count": 27,
+            "object_count": 9,
+            "predictions": [
+                {
+                    "id": "UCJPDN, UCJPDN",
+                    "series_name": "UCJPDN",
+                    "theta_label": "UCJPDN",
+                    "label": "UCJPDN",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "UCJPDN, NHRHO",
+                    "series_name": "UCJPDN",
+                    "theta_label": "NHRHO",
+                    "label": "NHRHO",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "FKCI, UCJPDN",
+                    "series_name": "FKCI",
+                    "theta_label": "UCJPDN",
+                    "label": "UCJPDN",
+                    "axis": "r",
+                    "value": 120.0,
+                    "r": 120.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "FKCI, FKCI",
+                    "series_name": "FKCI",
+                    "theta_label": "FKCI",
+                    "label": "FKCI",
+                    "axis": "r",
+                    "value": 150.0,
+                    "r": 150.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "NHRHO, UCJPDN",
+                    "series_name": "NHRHO",
+                    "theta_label": "UCJPDN",
+                    "label": "UCJPDN",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "NHRHO, FKCI",
+                    "series_name": "NHRHO",
+                    "theta_label": "FKCI",
+                    "label": "FKCI",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "NHRHO, NHRHO",
+                    "series_name": "NHRHO",
+                    "theta_label": "NHRHO",
+                    "label": "NHRHO",
+                    "axis": "r",
+                    "value": 100.0,
+                    "r": 100.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "UCJPDN, FKCI",
+                    "series_name": "UCJPDN",
+                    "theta_label": "FKCI",
+                    "label": "FKCI",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                },
+                {
+                    "id": "FKCI, NHRHO",
+                    "series_name": "FKCI",
+                    "theta_label": "NHRHO",
+                    "label": "NHRHO",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "UCJPDN": "#96655B",
+            "FKCI": "#4DAF4D",
+            "NHRHO": "#B3CAE9"
+        },
+        "colors": [
+            {
+                "name": "UCJPDN",
+                "color": "#96655B"
+            },
+            {
+                "name": "FKCI",
+                "color": "#4DAF4D"
+            },
+            {
+                "name": "NHRHO",
+                "color": "#B3CAE9"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\legend_default_f5b53c65c5b55eed_original.png",
+        "chart_id": "dataset_f5b53c65c5b55eed",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\f5b53c65c5b55eed_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f5b53c65c5b55eed\\output\\f5b53c65c5b55eed_original_encode.png"
+        }
+    }
+}

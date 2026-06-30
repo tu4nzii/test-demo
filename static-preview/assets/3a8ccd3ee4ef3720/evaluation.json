@@ -1,0 +1,290 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_3a8ccd3ee4ef3720",
+    "chart_type": "pie",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3a8ccd3ee4ef3720\\output\\3a8ccd3ee4ef3720_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3a8ccd3ee4ef3720\\output\\3a8ccd3ee4ef3720_original.json",
+    "summary": {
+        "object_count": 6,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "largest sector",
+            "series_name": "",
+            "label": "largest sector",
+            "axis": "theta",
+            "value": 0.45,
+            "percentage": 45.0,
+            "start_angle": 0.0,
+            "end_angle": 162.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        {
+            "id": "2nd sector",
+            "series_name": "",
+            "label": "2nd sector",
+            "axis": "theta",
+            "value": 0.3,
+            "percentage": 30.0,
+            "start_angle": 162.0,
+            "end_angle": 270.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        {
+            "id": "3th",
+            "series_name": "",
+            "label": "3th",
+            "axis": "theta",
+            "value": 0.15,
+            "percentage": 15.0,
+            "start_angle": 270.0,
+            "end_angle": 324.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        {
+            "id": "4th",
+            "series_name": "",
+            "label": "4th",
+            "axis": "theta",
+            "value": 0.1,
+            "percentage": 10.0,
+            "start_angle": 324.0,
+            "end_angle": 360.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        {
+            "id": "Start",
+            "series_name": "",
+            "label": "Start",
+            "axis": "theta",
+            "value": 0.0,
+            "percentage": 0.0,
+            "start_angle": 0.0,
+            "end_angle": 0.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        {
+            "id": "Finish",
+            "series_name": "",
+            "label": "Finish",
+            "axis": "theta",
+            "value": 0.0,
+            "percentage": 0.0,
+            "start_angle": 345.0,
+            "end_angle": 345.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\pie\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02",
+            "record_count": 6,
+            "object_count": 6,
+            "predictions": [
+                {
+                    "id": "largest sector",
+                    "series_name": "",
+                    "label": "largest sector",
+                    "axis": "theta",
+                    "value": 0.45,
+                    "percentage": 45.0,
+                    "start_angle": 0.0,
+                    "end_angle": 162.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                },
+                {
+                    "id": "2nd sector",
+                    "series_name": "",
+                    "label": "2nd sector",
+                    "axis": "theta",
+                    "value": 0.3,
+                    "percentage": 30.0,
+                    "start_angle": 162.0,
+                    "end_angle": 270.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                },
+                {
+                    "id": "3th",
+                    "series_name": "",
+                    "label": "3th",
+                    "axis": "theta",
+                    "value": 0.15,
+                    "percentage": 15.0,
+                    "start_angle": 270.0,
+                    "end_angle": 324.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                },
+                {
+                    "id": "4th",
+                    "series_name": "",
+                    "label": "4th",
+                    "axis": "theta",
+                    "value": 0.1,
+                    "percentage": 10.0,
+                    "start_angle": 324.0,
+                    "end_angle": 360.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                },
+                {
+                    "id": "Start",
+                    "series_name": "",
+                    "label": "Start",
+                    "axis": "theta",
+                    "value": 0.0,
+                    "percentage": 0.0,
+                    "start_angle": 0.0,
+                    "end_angle": 0.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                },
+                {
+                    "id": "Finish",
+                    "series_name": "",
+                    "label": "Finish",
+                    "axis": "theta",
+                    "value": 0.0,
+                    "percentage": 0.0,
+                    "start_angle": 345.0,
+                    "end_angle": 345.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02",
+        "chart_type": "pie",
+        "coordinate_system": "polar",
+        "center": [
+            99,
+            112
+        ],
+        "r_pixels": 85,
+        "theta_angles": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            75,
+            90,
+            105,
+            120,
+            135,
+            150,
+            165,
+            180,
+            195,
+            210,
+            225,
+            240,
+            255,
+            270,
+            285,
+            300,
+            315,
+            330,
+            345
+        ],
+        "theta_ticks": [
+            "0°",
+            "15°",
+            "30°",
+            "45°",
+            "60°",
+            "75°",
+            "90°",
+            "105°",
+            "120°",
+            "135°",
+            "150°",
+            "165°",
+            "180°",
+            "195°",
+            "210°",
+            "225°",
+            "240°",
+            "255°",
+            "270°",
+            "285°",
+            "300°",
+            "315°",
+            "330°",
+            "345°"
+        ],
+        "r_ticks": [],
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\PieChart13_35053b02\\work\\vishint_Final-Re_fbdfbc9a_ALL_PieChart13_35053b02_image_with_grid.png"
+        },
+        "colors": [
+            {
+                "name": "largest sector",
+                "color": "#5ca8f0"
+            },
+            {
+                "name": "2nd sector",
+                "color": "#b2b2ff"
+            },
+            {
+                "name": "3th",
+                "color": "#f2f2f2"
+            },
+            {
+                "name": "4th",
+                "color": "#ffffff"
+            },
+            {
+                "name": "Start",
+                "color": "#41a1f2"
+            },
+            {
+                "name": "Finish",
+                "color": "#d3d3d3"
+            }
+        ],
+        "grid_generation": {
+            "type": "angle_grid",
+            "angle_step_degrees": 15,
+            "plot_area_detection": "color_mask"
+        },
+        "series_color": {
+            "largest sector": "#5ca8f0",
+            "2nd sector": "#b2b2ff",
+            "3th": "#f2f2f2",
+            "4th": "#ffffff",
+            "Start": "#41a1f2",
+            "Finish": "#d3d3d3"
+        }
+    }
+}

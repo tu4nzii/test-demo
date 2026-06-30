@@ -1,0 +1,270 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_4dd2734413ea0832",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original.json",
+    "summary": {
+        "object_count": 9,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "NQP, NQP",
+            "series_name": "NQP",
+            "theta_label": "NQP",
+            "label": "NQP",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "NQP, AMO",
+            "series_name": "NQP",
+            "theta_label": "AMO",
+            "label": "AMO",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "NQP, PYCUMY",
+            "series_name": "NQP",
+            "theta_label": "PYCUMY",
+            "label": "PYCUMY",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+        },
+        {
+            "id": "AMO, NQP",
+            "series_name": "AMO",
+            "theta_label": "NQP",
+            "label": "NQP",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+        },
+        {
+            "id": "AMO, AMO",
+            "series_name": "AMO",
+            "theta_label": "AMO",
+            "label": "AMO",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "AMO, PYCUMY",
+            "series_name": "AMO",
+            "theta_label": "PYCUMY",
+            "label": "PYCUMY",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "PYCUMY, NQP",
+            "series_name": "PYCUMY",
+            "theta_label": "NQP",
+            "label": "NQP",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "PYCUMY, AMO",
+            "series_name": "PYCUMY",
+            "theta_label": "AMO",
+            "label": "AMO",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        },
+        {
+            "id": "PYCUMY, PYCUMY",
+            "series_name": "PYCUMY",
+            "theta_label": "PYCUMY",
+            "label": "PYCUMY",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_4dd2734413ea0832",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_4dd2734413ea0832",
+            "record_count": 18,
+            "object_count": 9,
+            "predictions": [
+                {
+                    "id": "NQP, NQP",
+                    "series_name": "NQP",
+                    "theta_label": "NQP",
+                    "label": "NQP",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "NQP, AMO",
+                    "series_name": "NQP",
+                    "theta_label": "AMO",
+                    "label": "AMO",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "NQP, PYCUMY",
+                    "series_name": "NQP",
+                    "theta_label": "PYCUMY",
+                    "label": "PYCUMY",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+                },
+                {
+                    "id": "AMO, NQP",
+                    "series_name": "AMO",
+                    "theta_label": "NQP",
+                    "label": "NQP",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+                },
+                {
+                    "id": "AMO, AMO",
+                    "series_name": "AMO",
+                    "theta_label": "AMO",
+                    "label": "AMO",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "AMO, PYCUMY",
+                    "series_name": "AMO",
+                    "theta_label": "PYCUMY",
+                    "label": "PYCUMY",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "PYCUMY, NQP",
+                    "series_name": "PYCUMY",
+                    "theta_label": "NQP",
+                    "label": "NQP",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "PYCUMY, AMO",
+                    "series_name": "PYCUMY",
+                    "theta_label": "AMO",
+                    "label": "AMO",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+                },
+                {
+                    "id": "PYCUMY, PYCUMY",
+                    "series_name": "PYCUMY",
+                    "theta_label": "PYCUMY",
+                    "label": "PYCUMY",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "NQP": "#C7A199",
+            "AMO": "#F7BAD4",
+            "PYCUMY": "#B2CAE9"
+        },
+        "colors": [
+            {
+                "name": "NQP",
+                "color": "#C7A199"
+            },
+            {
+                "name": "AMO",
+                "color": "#F7BAD4"
+            },
+            {
+                "name": "PYCUMY",
+                "color": "#B2CAE9"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\legend_default_4dd2734413ea0832_original.png",
+        "chart_id": "dataset_4dd2734413ea0832",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\4dd2734413ea0832_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\4dd2734413ea0832\\output\\4dd2734413ea0832_original_encode.png"
+        }
+    }
+}

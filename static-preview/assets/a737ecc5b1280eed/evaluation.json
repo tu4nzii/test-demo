@@ -1,0 +1,601 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_a737ecc5b1280eed",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_ticks.json",
+    "summary": {
+        "object_count": 20,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_15",
+            "label": "Agoda.com",
+            "axis": "x",
+            "value": 30.0741,
+            "pixel": {
+                "x": 347,
+                "y": 763,
+                "w": 201,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_6",
+            "label": "Airbnb.com",
+            "axis": "x",
+            "value": 12.2727,
+            "pixel": {
+                "x": 347,
+                "y": 406,
+                "w": 82,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_20",
+            "label": "Booking.com",
+            "axis": "x",
+            "value": 180.0,
+            "pixel": {
+                "x": 347,
+                "y": 961,
+                "w": 920,
+                "h": 20
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_11",
+            "label": "Cheapoair.com",
+            "axis": "x",
+            "value": 20.0,
+            "pixel": {
+                "x": 347,
+                "y": 604,
+                "w": 133,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "Ctrip.com",
+            "axis": "x",
+            "value": 8.4848,
+            "pixel": {
+                "x": 347,
+                "y": 247,
+                "w": 57,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "Decolar.com",
+            "axis": "x",
+            "value": 11.2121,
+            "pixel": {
+                "x": 347,
+                "y": 326,
+                "w": 75,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_18",
+            "label": "Expedia Family",
+            "axis": "x",
+            "value": 58.4496,
+            "pixel": {
+                "x": 347,
+                "y": 882,
+                "w": 387,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_1",
+            "label": "HomeAway.com",
+            "axis": "x",
+            "value": 7.2727,
+            "pixel": {
+                "x": 347,
+                "y": 218,
+                "w": 49,
+                "h": 21
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_17",
+            "label": "Hotels.com",
+            "axis": "x",
+            "value": 33.7778,
+            "pixel": {
+                "x": 347,
+                "y": 842,
+                "w": 226,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_14",
+            "label": "Hotelurbano",
+            "axis": "x",
+            "value": 25.037,
+            "pixel": {
+                "x": 347,
+                "y": 723,
+                "w": 167,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "Hotwire.com",
+            "axis": "x",
+            "value": 13.0303,
+            "pixel": {
+                "x": 347,
+                "y": 445,
+                "w": 87,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_13",
+            "label": "Kayak.com",
+            "axis": "x",
+            "value": 24.0,
+            "pixel": {
+                "x": 347,
+                "y": 683,
+                "w": 160,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "Makemytrip.com",
+            "axis": "x",
+            "value": 17.2727,
+            "pixel": {
+                "x": 347,
+                "y": 564,
+                "w": 115,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "Orbitz.com",
+            "axis": "x",
+            "value": 16.9697,
+            "pixel": {
+                "x": 347,
+                "y": 525,
+                "w": 113,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_16",
+            "label": "Priceline.com",
+            "axis": "x",
+            "value": 30.6667,
+            "pixel": {
+                "x": 347,
+                "y": 802,
+                "w": 205,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_3",
+            "label": "Slyscanner.com",
+            "axis": "x",
+            "value": 9.5455,
+            "pixel": {
+                "x": 347,
+                "y": 287,
+                "w": 64,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_12",
+            "label": "Travel.yahoo.com",
+            "axis": "x",
+            "value": 23.7037,
+            "pixel": {
+                "x": 347,
+                "y": 644,
+                "w": 158,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_8",
+            "label": "Travelocity",
+            "axis": "x",
+            "value": 14.8485,
+            "pixel": {
+                "x": 347,
+                "y": 485,
+                "w": 99,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "Travelzoo.com",
+            "axis": "x",
+            "value": 11.9697,
+            "pixel": {
+                "x": 347,
+                "y": 366,
+                "w": 80,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_19",
+            "label": "Tripadvisor Family",
+            "axis": "x",
+            "value": 180.0,
+            "pixel": {
+                "x": 347,
+                "y": 921,
+                "w": 920,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_060_768ac95e_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0,
+            120.0,
+            140.0,
+            160.0,
+            180.0
+        ],
+        "y_ticks": [
+            "HomeAway.com",
+            "Ctrip.com",
+            "Slyscanner.com",
+            "Decolar.com",
+            "Travelzoo.com",
+            "Airbnb.com",
+            "Hotwire.com",
+            "Travelocity",
+            "Orbitz.com",
+            "Makemytrip.com",
+            "Cheapoair.com",
+            "Travel.yahoo.com",
+            "Kayak.com",
+            "Hotelurbano",
+            "Agoda.com",
+            "Priceline.com",
+            "Hotels.com",
+            "Expedia Family",
+            "Tripadvisor Family",
+            "Booking.com"
+        ],
+        "x_pixels": [
+            348,
+            480,
+            615,
+            744,
+            872,
+            999,
+            1007,
+            1021,
+            1134,
+            1262
+        ],
+        "y_pixels": [
+            222,
+            262,
+            302,
+            341,
+            380,
+            419,
+            460,
+            502,
+            538,
+            580,
+            619,
+            660,
+            698,
+            737,
+            779,
+            816,
+            857,
+            896,
+            938,
+            976
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0,
+            60.0,
+            70.0,
+            80.0,
+            90.0,
+            100.0,
+            110.0,
+            120.0,
+            130.0,
+            140.0,
+            150.0,
+            160.0,
+            170.0,
+            180.0
+        ],
+        "y_ticks_encrypted": [
+            "HomeAway.com",
+            "Ctrip.com",
+            "Slyscanner.com",
+            "Decolar.com",
+            "Travelzoo.com",
+            "Airbnb.com",
+            "Hotwire.com",
+            "Travelocity",
+            "Orbitz.com",
+            "Makemytrip.com",
+            "Cheapoair.com",
+            "Travel.yahoo.com",
+            "Kayak.com",
+            "Hotelurbano",
+            "Agoda.com",
+            "Priceline.com",
+            "Hotels.com",
+            "Expedia Family",
+            "Tripadvisor Family",
+            "Booking.com"
+        ],
+        "x_pixels_encrypted": [
+            348,
+            414,
+            480,
+            548,
+            615,
+            680,
+            744,
+            808,
+            872,
+            936,
+            999,
+            1003,
+            1007,
+            1014,
+            1021,
+            1078,
+            1134,
+            1198,
+            1262
+        ],
+        "y_pixels_encrypted": [
+            222,
+            262,
+            302,
+            341,
+            380,
+            419,
+            460,
+            502,
+            538,
+            580,
+            619,
+            660,
+            698,
+            737,
+            779,
+            816,
+            857,
+            896,
+            938,
+            976
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid_color.png",
+        "colors": [],
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "unknown",
+                "y_axis_role": "unknown",
+                "x_axis_position": "unknown",
+                "y_axis_position": "unknown",
+                "plot_area_style": "unknown",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 0,
+                "reason": "",
+                "axis_tick_labels": {
+                    "x_ticks": [],
+                    "y_ticks": [],
+                    "x_ticks_encrypted": [],
+                    "y_ticks_encrypted": [],
+                    "x_axis_type": "unknown",
+                    "y_axis_type": "unknown",
+                    "source": "upload_detection"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\h_bar_060_ocr_axis.json",
+                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_060_768ac95e\\artifacts\\image_with_grid_color.png"
+        },
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.0,
+                "right_tick": 20.0,
+                "left_pixel": 348,
+                "right_pixel": 480,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 66.0,
+                "label_axis_extent": 56.0,
+                "required_spacing": 69.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 20.0,
+                "right_tick": 40.0,
+                "left_pixel": 480,
+                "right_pixel": 615,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 67.5,
+                "label_axis_extent": 75.0,
+                "required_spacing": 92.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 40.0,
+                "right_tick": 60.0,
+                "left_pixel": 615,
+                "right_pixel": 744,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 64.5,
+                "label_axis_extent": 75.0,
+                "required_spacing": 92.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 60.0,
+                "right_tick": 80.0,
+                "left_pixel": 744,
+                "right_pixel": 872,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 64.0,
+                "label_axis_extent": 81.0,
+                "required_spacing": 99.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 80.0,
+                "right_tick": 100.0,
+                "left_pixel": 872,
+                "right_pixel": 999,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 63.5,
+                "label_axis_extent": 104.0,
+                "required_spacing": 126.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 100.0,
+                "right_tick": 120.0,
+                "left_pixel": 999,
+                "right_pixel": 1007,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 4.0,
+                "label_axis_extent": 104.0,
+                "required_spacing": 126.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_dense_encrypted_interval_warnings": [],
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a737ecc5b1280eed\\output\\a737ecc5b1280eed_original_grid.png"
+        }
+    },
+    "prediction_runner_error": "[Errno 2] No such file or directory: 'F:\\\\program\\\\test-demo\\\\backend\\\\evaluation\\\\recheck_outputs\\\\vishintprompt_full_grid_encryption_latest\\\\Sy.Dataset\\\\hBar_50\\\\h_bar_060_768ac95e\\\\artifacts\\\\source.png'",
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

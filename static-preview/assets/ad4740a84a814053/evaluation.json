@@ -1,0 +1,390 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_ad4740a84a814053",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original.json",
+    "summary": {
+        "object_count": 14,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "EGWXMC, RRZ CIB",
+            "series_name": "EGWXMC",
+            "theta_label": "RRZ CIB",
+            "label": "RRZ CIB",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "EGWXMC, LDJNBT",
+            "series_name": "EGWXMC",
+            "theta_label": "LDJNBT",
+            "label": "LDJNBT",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "RRZ CIB, A",
+            "series_name": "RRZ CIB",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "RRZ CIB, B",
+            "series_name": "RRZ CIB",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "RRZ CIB, C",
+            "series_name": "RRZ CIB",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "RRZ CIB, D",
+            "series_name": "RRZ CIB",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "EGWXMC, A",
+            "series_name": "EGWXMC",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "EGWXMC, B",
+            "series_name": "EGWXMC",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "EGWXMC, C",
+            "series_name": "EGWXMC",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "EGWXMC, D",
+            "series_name": "EGWXMC",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "LDJNBT, A",
+            "series_name": "LDJNBT",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "LDJNBT, B",
+            "series_name": "LDJNBT",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "LDJNBT, C",
+            "series_name": "LDJNBT",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        },
+        {
+            "id": "LDJNBT, D",
+            "series_name": "LDJNBT",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_ad4740a84a814053",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_ad4740a84a814053",
+            "record_count": 30,
+            "object_count": 14,
+            "predictions": [
+                {
+                    "id": "EGWXMC, RRZ CIB",
+                    "series_name": "EGWXMC",
+                    "theta_label": "RRZ CIB",
+                    "label": "RRZ CIB",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "EGWXMC, LDJNBT",
+                    "series_name": "EGWXMC",
+                    "theta_label": "LDJNBT",
+                    "label": "LDJNBT",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "RRZ CIB, A",
+                    "series_name": "RRZ CIB",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "RRZ CIB, B",
+                    "series_name": "RRZ CIB",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "RRZ CIB, C",
+                    "series_name": "RRZ CIB",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "RRZ CIB, D",
+                    "series_name": "RRZ CIB",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "EGWXMC, A",
+                    "series_name": "EGWXMC",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "EGWXMC, B",
+                    "series_name": "EGWXMC",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "EGWXMC, C",
+                    "series_name": "EGWXMC",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "EGWXMC, D",
+                    "series_name": "EGWXMC",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "LDJNBT, A",
+                    "series_name": "LDJNBT",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "LDJNBT, B",
+                    "series_name": "LDJNBT",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "LDJNBT, C",
+                    "series_name": "LDJNBT",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                },
+                {
+                    "id": "LDJNBT, D",
+                    "series_name": "LDJNBT",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "RRZ CIB": "#4AAD4A",
+            "EGWXMC": "#9A6B61",
+            "LDJNBT": "#A8DEE7"
+        },
+        "colors": [
+            {
+                "name": "RRZ CIB",
+                "color": "#4AAD4A"
+            },
+            {
+                "name": "EGWXMC",
+                "color": "#9A6B61"
+            },
+            {
+                "name": "LDJNBT",
+                "color": "#A8DEE7"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\legend_default_ad4740a84a814053_original.png",
+        "chart_id": "dataset_ad4740a84a814053",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\ad4740a84a814053_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ad4740a84a814053\\output\\ad4740a84a814053_original_encode.png"
+        }
+    }
+}

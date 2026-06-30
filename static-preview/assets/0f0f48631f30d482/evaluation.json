@@ -1,0 +1,550 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_0f0f48631f30d482",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_ticks.json",
+    "summary": {
+        "object_count": 15,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "2013, Egypt",
+            "series_name": "2013",
+            "label": "Egypt",
+            "axis": "y",
+            "value": -42.9675,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2013, Egypt_round1_attempt0.png"
+        },
+        {
+            "id": "2013, France",
+            "series_name": "2013",
+            "label": "France",
+            "axis": "y",
+            "value": 50.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2013, France_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2013, KSA",
+            "series_name": "2013",
+            "label": "KSA",
+            "axis": "y",
+            "value": 6.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2013, KSA_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2014, Egypt",
+            "series_name": "2014",
+            "label": "Egypt",
+            "axis": "y",
+            "value": -12.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2014, Egypt_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2014, France",
+            "series_name": "2014",
+            "label": "France",
+            "axis": "y",
+            "value": -39.84,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2014, France_round1_attempt3.png"
+        },
+        {
+            "id": "2014, KSA",
+            "series_name": "2014",
+            "label": "KSA",
+            "axis": "y",
+            "value": 10.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2014, KSA_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2015, Egypt",
+            "series_name": "2015",
+            "label": "Egypt",
+            "axis": "y",
+            "value": -12.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, Egypt_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2015, France",
+            "series_name": "2015",
+            "label": "France",
+            "axis": "y",
+            "value": 52.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, France_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2015, KSA",
+            "series_name": "2015",
+            "label": "KSA",
+            "axis": "y",
+            "value": 2.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, KSA_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2016, Egypt",
+            "series_name": "2016",
+            "label": "Egypt",
+            "axis": "y",
+            "value": -12.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2016, Egypt_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2016, France",
+            "series_name": "2016",
+            "label": "France",
+            "axis": "y",
+            "value": -37.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2016, France_round1_attempt0.png"
+        },
+        {
+            "id": "2016, KSA",
+            "series_name": "2016",
+            "label": "KSA",
+            "axis": "y",
+            "value": 0.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2016, KSA_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2017, Egypt",
+            "series_name": "2017",
+            "label": "Egypt",
+            "axis": "y",
+            "value": -25.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2017, Egypt_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2017, France",
+            "series_name": "2017",
+            "label": "France",
+            "axis": "y",
+            "value": -42.185,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2017, France_round1_attempt0.png"
+        },
+        {
+            "id": "2017, KSA",
+            "series_name": "2017",
+            "label": "KSA",
+            "axis": "y",
+            "value": -11.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2017, KSA_feedback_grid_with_grid_run3.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image",
+            "record_count": 139,
+            "object_count": 15,
+            "predictions": [
+                {
+                    "id": "2013, Egypt",
+                    "series_name": "2013",
+                    "label": "Egypt",
+                    "axis": "y",
+                    "value": -42.9675,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2013, Egypt_round1_attempt0.png"
+                },
+                {
+                    "id": "2013, France",
+                    "series_name": "2013",
+                    "label": "France",
+                    "axis": "y",
+                    "value": 50.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2013, France_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2013, KSA",
+                    "series_name": "2013",
+                    "label": "KSA",
+                    "axis": "y",
+                    "value": 6.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2013, KSA_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2014, Egypt",
+                    "series_name": "2014",
+                    "label": "Egypt",
+                    "axis": "y",
+                    "value": -12.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2014, Egypt_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2014, France",
+                    "series_name": "2014",
+                    "label": "France",
+                    "axis": "y",
+                    "value": -39.84,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2014, France_round1_attempt3.png"
+                },
+                {
+                    "id": "2014, KSA",
+                    "series_name": "2014",
+                    "label": "KSA",
+                    "axis": "y",
+                    "value": 10.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2014, KSA_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2015, Egypt",
+                    "series_name": "2015",
+                    "label": "Egypt",
+                    "axis": "y",
+                    "value": -12.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, Egypt_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2015, France",
+                    "series_name": "2015",
+                    "label": "France",
+                    "axis": "y",
+                    "value": 52.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, France_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2015, KSA",
+                    "series_name": "2015",
+                    "label": "KSA",
+                    "axis": "y",
+                    "value": 2.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2015, KSA_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2016, Egypt",
+                    "series_name": "2016",
+                    "label": "Egypt",
+                    "axis": "y",
+                    "value": -12.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2016, Egypt_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2016, France",
+                    "series_name": "2016",
+                    "label": "France",
+                    "axis": "y",
+                    "value": -37.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2016, France_round1_attempt0.png"
+                },
+                {
+                    "id": "2016, KSA",
+                    "series_name": "2016",
+                    "label": "KSA",
+                    "axis": "y",
+                    "value": 0.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2016, KSA_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2017, Egypt",
+                    "series_name": "2017",
+                    "label": "Egypt",
+                    "axis": "y",
+                    "value": -25.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2017, Egypt_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2017, France",
+                    "series_name": "2017",
+                    "label": "France",
+                    "axis": "y",
+                    "value": -42.185,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\amplifier_crop_2017, France_round1_attempt0.png"
+                },
+                {
+                    "id": "2017, KSA",
+                    "series_name": "2017",
+                    "label": "KSA",
+                    "axis": "y",
+                    "value": -11.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image\\tempy\\overlay_2017, KSA_feedback_grid_with_grid_run3.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            "Egypt",
+            "France",
+            "KSA"
+        ],
+        "y_ticks": [
+            75.0,
+            50.0,
+            25.0,
+            0.0,
+            -25.0,
+            -50.0
+        ],
+        "x_pixels": [
+            156,
+            328,
+            502
+        ],
+        "y_pixels": [
+            53,
+            103,
+            153,
+            203,
+            253,
+            303
+        ],
+        "x_ticks_encrypted": [
+            "Egypt",
+            "France",
+            "KSA"
+        ],
+        "y_ticks_encrypted": [
+            75.0,
+            62.5,
+            50.0,
+            37.5,
+            25.0,
+            12.5,
+            0.0,
+            -12.5,
+            -25.0,
+            -37.5,
+            -50.0
+        ],
+        "x_pixels_encrypted": [
+            156,
+            328,
+            502
+        ],
+        "y_pixels_encrypted": [
+            53,
+            78,
+            103,
+            128,
+            153,
+            178,
+            203,
+            228,
+            253,
+            278,
+            303
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "2013",
+                "color": "#645a93"
+            },
+            {
+                "name": "2014",
+                "color": "#72689c"
+            },
+            {
+                "name": "2015",
+                "color": "#655b93"
+            },
+            {
+                "name": "2016",
+                "color": "#645a93"
+            },
+            {
+                "name": "2017",
+                "color": "#6b6197"
+            }
+        ],
+        "series_color": {
+            "2013": "#645a93",
+            "2014": "#72689c",
+            "2015": "#655b93",
+            "2016": "#645a93",
+            "2017": "#6b6197"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "grouped",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart displays vertical bars grouped by country, with each group representing a year. The x-axis shows country names (categories), and the y-axis shows income (numeric). Axes and ticks are clearly visible.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Egypt",
+                        "France",
+                        "KSA"
+                    ],
+                    "y_ticks": [
+                        "-50",
+                        "-25",
+                        "0",
+                        "25",
+                        "50",
+                        "75"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Egypt",
+                        "France",
+                        "KSA"
+                    ],
+                    "y_ticks_encrypted": [
+                        "-50.0",
+                        "-37.5",
+                        "-25.0",
+                        "-12.5",
+                        "0.0",
+                        "12.5",
+                        "25.0",
+                        "37.5",
+                        "50.0",
+                        "62.5",
+                        "75.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "2013",
+                            "color": "#645a93"
+                        },
+                        {
+                            "name": "2014",
+                            "color": "#72689c"
+                        },
+                        {
+                            "name": "2015",
+                            "color": "#655b93"
+                        },
+                        {
+                            "name": "2016",
+                            "color": "#645a93"
+                        },
+                        {
+                            "name": "2017",
+                            "color": "#6b6197"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_finalH1V3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_finalH1V3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_finalH1V3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart24_0aedde6c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart24_0aedde6c_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0f0f48631f30d482\\output\\0f0f48631f30d482_original_grid.png"
+        }
+    }
+}

@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_ce389d4a87406741",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\ce389d4a87406741_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\ce389d4a87406741_original.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "NESMFC, NESMFC",
+            "series_name": "NESMFC",
+            "theta_label": "NESMFC",
+            "label": "NESMFC",
+            "axis": "r",
+            "value": 28.0,
+            "r": 28.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\ce389d4a87406741_original_encode.png"
+        },
+        {
+            "id": "NESMFC, ORJH",
+            "series_name": "NESMFC",
+            "theta_label": "ORJH",
+            "label": "ORJH",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+        },
+        {
+            "id": "ORJH, NESMFC",
+            "series_name": "ORJH",
+            "theta_label": "NESMFC",
+            "label": "NESMFC",
+            "axis": "r",
+            "value": 8.0,
+            "r": 8.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+        },
+        {
+            "id": "ORJH, ORJH",
+            "series_name": "ORJH",
+            "theta_label": "ORJH",
+            "label": "ORJH",
+            "axis": "r",
+            "value": 8.0,
+            "r": 8.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_ce389d4a87406741",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_ce389d4a87406741",
+            "record_count": 8,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "NESMFC, NESMFC",
+                    "series_name": "NESMFC",
+                    "theta_label": "NESMFC",
+                    "label": "NESMFC",
+                    "axis": "r",
+                    "value": 28.0,
+                    "r": 28.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\ce389d4a87406741_original_encode.png"
+                },
+                {
+                    "id": "NESMFC, ORJH",
+                    "series_name": "NESMFC",
+                    "theta_label": "ORJH",
+                    "label": "ORJH",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+                },
+                {
+                    "id": "ORJH, NESMFC",
+                    "series_name": "ORJH",
+                    "theta_label": "NESMFC",
+                    "label": "NESMFC",
+                    "axis": "r",
+                    "value": 8.0,
+                    "r": 8.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+                },
+                {
+                    "id": "ORJH, ORJH",
+                    "series_name": "ORJH",
+                    "theta_label": "ORJH",
+                    "label": "ORJH",
+                    "axis": "r",
+                    "value": 8.0,
+                    "r": 8.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "NESMFC": "#458EC0",
+            "ORJH": "#FF9E49"
+        },
+        "colors": [
+            {
+                "name": "NESMFC",
+                "color": "#458EC0"
+            },
+            {
+                "name": "ORJH",
+                "color": "#FF9E49"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\legend_default_ce389d4a87406741_original.png",
+        "chart_id": "dataset_ce389d4a87406741",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\ce389d4a87406741_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\ce389d4a87406741\\output\\ce389d4a87406741_original_encode.png"
+        }
+    }
+}

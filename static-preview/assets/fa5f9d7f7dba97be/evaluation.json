@@ -1,0 +1,297 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_fa5f9d7f7dba97be",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_ticks.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Portugal, Cats",
+            "series_name": "Portugal",
+            "label": "Cats",
+            "axis": "y",
+            "value": 250000.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_Portugal, Cats_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Portugal, Dogs",
+            "series_name": "Portugal",
+            "label": "Dogs",
+            "axis": "y",
+            "value": 75000.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_Portugal, Dogs_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "UK, Cats",
+            "series_name": "UK",
+            "label": "Cats",
+            "axis": "y",
+            "value": 190000.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_UK, Cats_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "UK, Dogs",
+            "series_name": "UK",
+            "label": "Dogs",
+            "axis": "y",
+            "value": 125000.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_UK, Dogs_feedback_grid_with_grid_run3.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image",
+            "record_count": 36,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "Portugal, Cats",
+                    "series_name": "Portugal",
+                    "label": "Cats",
+                    "axis": "y",
+                    "value": 250000.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_Portugal, Cats_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Portugal, Dogs",
+                    "series_name": "Portugal",
+                    "label": "Dogs",
+                    "axis": "y",
+                    "value": 75000.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_Portugal, Dogs_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "UK, Cats",
+                    "series_name": "UK",
+                    "label": "Cats",
+                    "axis": "y",
+                    "value": 190000.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_UK, Cats_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "UK, Dogs",
+                    "series_name": "UK",
+                    "label": "Dogs",
+                    "axis": "y",
+                    "value": 125000.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image\\tempy\\overlay_UK, Dogs_feedback_grid_with_grid_run3.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            "Cats",
+            "Dogs"
+        ],
+        "y_ticks": [
+            250000.0,
+            200000.0,
+            150000.0,
+            100000.0,
+            50000.0,
+            0.0
+        ],
+        "x_pixels": [
+            161,
+            250
+        ],
+        "y_pixels": [
+            114,
+            146,
+            180,
+            212,
+            246,
+            278
+        ],
+        "x_ticks_encrypted": [
+            "Cats",
+            "Dogs"
+        ],
+        "y_ticks_encrypted": [
+            250000.0,
+            225000.0,
+            200000.0,
+            175000.0,
+            150000.0,
+            125000.0,
+            100000.0,
+            75000.0,
+            50000.0,
+            25000.0,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            161,
+            250
+        ],
+        "y_pixels_encrypted": [
+            114,
+            130,
+            146,
+            163,
+            180,
+            196,
+            212,
+            229,
+            246,
+            262,
+            278
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Portugal",
+                "color": "#414d62"
+            },
+            {
+                "name": "UK",
+                "color": "#6f7988"
+            }
+        ],
+        "series_color": {
+            "Portugal": "#414d62",
+            "UK": "#6f7988"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "grouped",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a vertical bar chart with grouped bars. The x-axis represents categories (Cats, Dogs) and the y-axis represents numeric counts. Axes and ticks are clearly visible.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Cats",
+                        "Dogs"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "50K",
+                        "100K",
+                        "150K",
+                        "200K",
+                        "250K"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Cats",
+                        "Dogs"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "25.0",
+                        "50.0",
+                        "75.0",
+                        "100.0",
+                        "125.0",
+                        "150.0",
+                        "175.0",
+                        "200.0",
+                        "225.0",
+                        "250.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Portugal",
+                            "color": "#414d62"
+                        },
+                        {
+                            "name": "UK",
+                            "color": "#6f7988"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_final3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_final3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_final3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\GroupedBarChart19_01c2bf73\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart19_01c2bf73_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fa5f9d7f7dba97be\\output\\fa5f9d7f7dba97be_original_grid.png"
+        }
+    }
+}

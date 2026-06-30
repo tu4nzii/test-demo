@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_cd51f2b66b0e024c",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "SDJPD, SDJPD",
+            "series_name": "SDJPD",
+            "theta_label": "SDJPD",
+            "label": "SDJPD",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+        },
+        {
+            "id": "SDJPD, AOEY",
+            "series_name": "SDJPD",
+            "theta_label": "AOEY",
+            "label": "AOEY",
+            "axis": "r",
+            "value": 70.0,
+            "r": 70.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+        },
+        {
+            "id": "AOEY, SDJPD",
+            "series_name": "AOEY",
+            "theta_label": "SDJPD",
+            "label": "SDJPD",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+        },
+        {
+            "id": "AOEY, AOEY",
+            "series_name": "AOEY",
+            "theta_label": "AOEY",
+            "label": "AOEY",
+            "axis": "r",
+            "value": 70.0,
+            "r": 70.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_cd51f2b66b0e024c",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_cd51f2b66b0e024c",
+            "record_count": 12,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "SDJPD, SDJPD",
+                    "series_name": "SDJPD",
+                    "theta_label": "SDJPD",
+                    "label": "SDJPD",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+                },
+                {
+                    "id": "SDJPD, AOEY",
+                    "series_name": "SDJPD",
+                    "theta_label": "AOEY",
+                    "label": "AOEY",
+                    "axis": "r",
+                    "value": 70.0,
+                    "r": 70.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+                },
+                {
+                    "id": "AOEY, SDJPD",
+                    "series_name": "AOEY",
+                    "theta_label": "SDJPD",
+                    "label": "SDJPD",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+                },
+                {
+                    "id": "AOEY, AOEY",
+                    "series_name": "AOEY",
+                    "theta_label": "AOEY",
+                    "label": "AOEY",
+                    "axis": "r",
+                    "value": 70.0,
+                    "r": 70.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "SDJPD": "#DD4C4D",
+            "AOEY": "#A6E39A"
+        },
+        "colors": [
+            {
+                "name": "SDJPD",
+                "color": "#DD4C4D"
+            },
+            {
+                "name": "AOEY",
+                "color": "#A6E39A"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\legend_default_cd51f2b66b0e024c_original.png",
+        "chart_id": "dataset_cd51f2b66b0e024c",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\cd51f2b66b0e024c_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\cd51f2b66b0e024c\\output\\cd51f2b66b0e024c_original_encode.png"
+        }
+    }
+}

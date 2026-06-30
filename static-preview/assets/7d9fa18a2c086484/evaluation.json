@@ -1,0 +1,644 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_7d9fa18a2c086484",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_ticks.json",
+    "summary": {
+        "object_count": 15,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Mary, John",
+            "series_name": "Mary",
+            "label": 8062.5,
+            "axis": "x",
+            "value": 8000.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, John_round3_attempt1.png"
+        },
+        {
+            "id": "Mary, Jake",
+            "series_name": "Mary",
+            "label": "Jake",
+            "axis": "x",
+            "value": 12000.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, Jake_round1_attempt0.png"
+        },
+        {
+            "id": "Mary, James",
+            "series_name": "Mary",
+            "label": "James",
+            "axis": "x",
+            "value": 8500.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, James_round2_attempt0.png"
+        },
+        {
+            "id": "Mary, Mary",
+            "series_name": "Mary",
+            "label": "Mary",
+            "axis": "x",
+            "value": 9000.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, Mary_round3_attempt0.png"
+        },
+        {
+            "id": "James, John",
+            "series_name": "James",
+            "label": "John",
+            "axis": "x",
+            "value": 10000.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_James, John_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Peter, John",
+            "series_name": "Peter",
+            "label": "John",
+            "axis": "x",
+            "value": 9300.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Peter, John_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Peter, Jake",
+            "series_name": "Peter",
+            "label": "Jake",
+            "axis": "x",
+            "value": 12500.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Peter, Jake_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Peter, Peter",
+            "series_name": "Peter",
+            "label": "Peter",
+            "axis": "x",
+            "value": 12958.33,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Peter, Peter_round3_attempt0.png"
+        },
+        {
+            "id": "Peter, Mary",
+            "series_name": "Peter",
+            "label": "Mary",
+            "axis": "x",
+            "value": 13000.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Peter, Mary_round1_attempt2.png"
+        },
+        {
+            "id": "Jake, John",
+            "series_name": "Jake",
+            "label": "John",
+            "axis": "x",
+            "value": 9000.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Jake, John_round3_attempt0.png"
+        },
+        {
+            "id": "Jake, Jake",
+            "series_name": "Jake",
+            "label": "Jake",
+            "axis": "x",
+            "value": 11125.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Jake, Jake_round3_attempt0.png"
+        },
+        {
+            "id": "Jake, Peter",
+            "series_name": "Jake",
+            "label": "Peter",
+            "axis": "x",
+            "value": 12500.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Jake, Peter_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "John, John",
+            "series_name": "John",
+            "label": 9333.33,
+            "axis": "x",
+            "value": 9250.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_John, John_round3_attempt0.png"
+        },
+        {
+            "id": "John, Jake",
+            "series_name": "John",
+            "label": "Jake",
+            "axis": "x",
+            "value": 8140.625,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_John, Jake_round3_attempt1.png"
+        },
+        {
+            "id": "John, Mary",
+            "series_name": "John",
+            "label": "Mary",
+            "axis": "x",
+            "value": 9700.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_John, Mary_feedback_grid_with_grid_run3.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image",
+            "record_count": 259,
+            "object_count": 25,
+            "predictions": [
+                {
+                    "id": "Mary, John",
+                    "series_name": "Mary",
+                    "label": 8062.5,
+                    "axis": "x",
+                    "value": 8000.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, John_round3_attempt1.png"
+                },
+                {
+                    "id": "Mary, Jake",
+                    "series_name": "Mary",
+                    "label": "Jake",
+                    "axis": "x",
+                    "value": 12000.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, Jake_round1_attempt0.png"
+                },
+                {
+                    "id": "Mary, Peter",
+                    "series_name": "Mary",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Mary, Peter_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Mary, James",
+                    "series_name": "Mary",
+                    "label": "James",
+                    "axis": "x",
+                    "value": 8500.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, James_round2_attempt0.png"
+                },
+                {
+                    "id": "Mary, Mary",
+                    "series_name": "Mary",
+                    "label": "Mary",
+                    "axis": "x",
+                    "value": 9000.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Mary, Mary_round3_attempt0.png"
+                },
+                {
+                    "id": "James, John",
+                    "series_name": "James",
+                    "label": "John",
+                    "axis": "x",
+                    "value": 10000.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_James, John_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "James, Jake",
+                    "series_name": "James",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_James, Jake_round3_attempt2.png"
+                },
+                {
+                    "id": "James, Peter",
+                    "series_name": "James",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_James, Peter_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "James, James",
+                    "series_name": "James",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_James, James_round2_attempt0.png"
+                },
+                {
+                    "id": "James, Mary",
+                    "series_name": "James",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_James, Mary_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Peter, John",
+                    "series_name": "Peter",
+                    "label": "John",
+                    "axis": "x",
+                    "value": 9300.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Peter, John_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Peter, Jake",
+                    "series_name": "Peter",
+                    "label": "Jake",
+                    "axis": "x",
+                    "value": 12500.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Peter, Jake_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Peter, Peter",
+                    "series_name": "Peter",
+                    "label": "Peter",
+                    "axis": "x",
+                    "value": 12958.33,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Peter, Peter_round3_attempt0.png"
+                },
+                {
+                    "id": "Peter, James",
+                    "series_name": "Peter",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Peter, James_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Peter, Mary",
+                    "series_name": "Peter",
+                    "label": "Mary",
+                    "axis": "x",
+                    "value": 13000.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Peter, Mary_round1_attempt2.png"
+                },
+                {
+                    "id": "Jake, John",
+                    "series_name": "Jake",
+                    "label": "John",
+                    "axis": "x",
+                    "value": 9000.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Jake, John_round3_attempt0.png"
+                },
+                {
+                    "id": "Jake, Jake",
+                    "series_name": "Jake",
+                    "label": "Jake",
+                    "axis": "x",
+                    "value": 11125.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Jake, Jake_round3_attempt0.png"
+                },
+                {
+                    "id": "Jake, Peter",
+                    "series_name": "Jake",
+                    "label": "Peter",
+                    "axis": "x",
+                    "value": 12500.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Jake, Peter_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Jake, James",
+                    "series_name": "Jake",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_Jake, James_round3_attempt5.png"
+                },
+                {
+                    "id": "Jake, Mary",
+                    "series_name": "Jake",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_Jake, Mary_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "John, John",
+                    "series_name": "John",
+                    "label": 9333.33,
+                    "axis": "x",
+                    "value": 9250.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_John, John_round3_attempt0.png"
+                },
+                {
+                    "id": "John, Jake",
+                    "series_name": "John",
+                    "label": "Jake",
+                    "axis": "x",
+                    "value": 8140.625,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_John, Jake_round3_attempt1.png"
+                },
+                {
+                    "id": "John, Peter",
+                    "series_name": "John",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_John, Peter_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "John, James",
+                    "series_name": "John",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\amplifier_crop_John, James_round1_attempt1.png"
+                },
+                {
+                    "id": "John, Mary",
+                    "series_name": "John",
+                    "label": "Mary",
+                    "axis": "x",
+                    "value": 9700.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image\\tempy\\overlay_John, Mary_feedback_grid_with_grid_run3.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            8000.0,
+            10000.0,
+            12000.0,
+            14000.0
+        ],
+        "y_ticks": [
+            "John",
+            "Jake",
+            "Peter",
+            "James",
+            "Mary"
+        ],
+        "x_pixels": [
+            78,
+            286,
+            494,
+            702
+        ],
+        "y_pixels": [
+            101,
+            238,
+            378,
+            516,
+            652
+        ],
+        "x_ticks_encrypted": [
+            8000.0,
+            9000.0,
+            10000.0,
+            11000.0,
+            12000.0,
+            13000.0,
+            14000.0
+        ],
+        "y_ticks_encrypted": [
+            "John",
+            "Jake",
+            "Peter",
+            "James",
+            "Mary"
+        ],
+        "x_pixels_encrypted": [
+            78,
+            182,
+            286,
+            390,
+            494,
+            598,
+            702
+        ],
+        "y_pixels_encrypted": [
+            101,
+            238,
+            378,
+            516,
+            652
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Mary",
+                "color": "#66b3ff"
+            },
+            {
+                "name": "James",
+                "color": "#66b3ff"
+            },
+            {
+                "name": "Peter",
+                "color": "#77dd77"
+            },
+            {
+                "name": "Jake",
+                "color": "#66b3ff"
+            },
+            {
+                "name": "John",
+                "color": "#66b3ff"
+            }
+        ],
+        "series_color": {
+            "Mary": "#66b3ff",
+            "James": "#66b3ff",
+            "Peter": "#77dd77",
+            "Jake": "#66b3ff",
+            "John": "#66b3ff"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "category",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "horizontal",
+                "confidence": 1.0,
+                "reason": "The chart is a horizontal bar chart with clear axes and tick labels.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "8000",
+                        "10000",
+                        "12000",
+                        "14000"
+                    ],
+                    "y_ticks": [
+                        "Mary",
+                        "James",
+                        "Peter",
+                        "Jake",
+                        "John"
+                    ],
+                    "x_ticks_encrypted": [
+                        "8000.0",
+                        "9000.0",
+                        "10000.0",
+                        "11000.0",
+                        "12000.0",
+                        "13000.0",
+                        "14000.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "Mary",
+                        "James",
+                        "Peter",
+                        "Jake",
+                        "John"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "category",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Mary",
+                            "color": "#66b3ff"
+                        },
+                        {
+                            "name": "James",
+                            "color": "#66b3ff"
+                        },
+                        {
+                            "name": "Peter",
+                            "color": "#77dd77"
+                        },
+                        {
+                            "name": "Jake",
+                            "color": "#66b3ff"
+                        },
+                        {
+                            "name": "John",
+                            "color": "#66b3ff"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart1_ebb4f96f\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart1_ebb4f96f_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7d9fa18a2c086484\\output\\7d9fa18a2c086484_original_grid.png"
+        }
+    }
+}

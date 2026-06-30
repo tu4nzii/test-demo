@@ -1,0 +1,344 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_8bced4a5cc6a50a7",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_ticks.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Series 1, Democrat",
+            "series_name": "Series 1",
+            "label": "Democrat",
+            "axis": "y",
+            "value": 83.33,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Democrat_round3_attempt2.png"
+        },
+        {
+            "id": "Series 1, Independent",
+            "series_name": "Series 1",
+            "label": "Independent",
+            "axis": "y",
+            "value": 62.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Independent_round3_attempt0.png"
+        },
+        {
+            "id": "Series 1, Other party",
+            "series_name": "Series 1",
+            "label": "Other party",
+            "axis": "y",
+            "value": 62.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Other party_round3_attempt0.png"
+        },
+        {
+            "id": "Series 1, Republican",
+            "series_name": "Series 1",
+            "label": "Republican",
+            "axis": "y",
+            "value": 20.83,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Republican_round3_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image",
+            "record_count": 48,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "Series 1, Democrat",
+                    "series_name": "Series 1",
+                    "label": "Democrat",
+                    "axis": "y",
+                    "value": 83.33,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Democrat_round3_attempt2.png"
+                },
+                {
+                    "id": "Series 1, Independent",
+                    "series_name": "Series 1",
+                    "label": "Independent",
+                    "axis": "y",
+                    "value": 62.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Independent_round3_attempt0.png"
+                },
+                {
+                    "id": "Series 1, Other party",
+                    "series_name": "Series 1",
+                    "label": "Other party",
+                    "axis": "y",
+                    "value": 62.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Other party_round3_attempt0.png"
+                },
+                {
+                    "id": "Series 1, Republican",
+                    "series_name": "Series 1",
+                    "label": "Republican",
+                    "axis": "y",
+                    "value": 20.83,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image\\tempy\\amplifier_crop_Series 1, Republican_round3_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            "Democrat",
+            "Independent",
+            "Other party",
+            "Republican"
+        ],
+        "y_ticks": [
+            2000.0,
+            1500.0,
+            1000.0,
+            500.0,
+            0.0
+        ],
+        "x_pixels": [
+            174,
+            343,
+            512,
+            680
+        ],
+        "y_pixels": [
+            102,
+            181,
+            260,
+            338,
+            417
+        ],
+        "x_ticks_encrypted": [
+            "Democrat",
+            "Independent",
+            "Other party",
+            "Republican"
+        ],
+        "y_ticks_encrypted": [
+            2000.0,
+            1750.0,
+            1500.0,
+            1250.0,
+            1000.0,
+            750.0,
+            500.0,
+            250.0,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            174,
+            343,
+            512,
+            680
+        ],
+        "y_pixels_encrypted": [
+            102,
+            142,
+            181,
+            220,
+            260,
+            299,
+            338,
+            378,
+            417
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 2000.0,
+                "right_tick": 1500.0,
+                "left_pixel": 102,
+                "right_pixel": 181,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 39.5,
+                "label_axis_extent": 44.0,
+                "required_spacing": 54.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 1500.0,
+                "right_tick": 1000.0,
+                "left_pixel": 181,
+                "right_pixel": 260,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 39.5,
+                "label_axis_extent": 43.0,
+                "required_spacing": 53.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 1000.0,
+                "right_tick": 500.0,
+                "left_pixel": 260,
+                "right_pixel": 338,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 39.0,
+                "label_axis_extent": 42.0,
+                "required_spacing": 52.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 500.0,
+                "right_tick": 0.0,
+                "left_pixel": 338,
+                "right_pixel": 417,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 39.5,
+                "label_axis_extent": 36.0,
+                "required_spacing": 45.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Series 1",
+                "color": "#A9A9A9"
+            }
+        ],
+        "series_color": {
+            "Series 1": "#A9A9A9"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a standard vertical bar chart with clear axes and tick labels.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Democrat",
+                        "Independent",
+                        "Other party",
+                        "Republican"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "500",
+                        "1000",
+                        "1500",
+                        "2000"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Democrat",
+                        "Independent",
+                        "Other party",
+                        "Republican"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "250.0",
+                        "500.0",
+                        "750.0",
+                        "1000.0",
+                        "1250.0",
+                        "1500.0",
+                        "1750.0",
+                        "2000.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Series 1",
+                            "color": "#A9A9A9"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "single_series"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_final2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_final2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_final2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BarChart15_3f786468\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart15_3f786468_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8bced4a5cc6a50a7\\output\\8bced4a5cc6a50a7_original_grid.png"
+        }
+    }
+}

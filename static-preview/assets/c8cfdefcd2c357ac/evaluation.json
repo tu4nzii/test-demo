@@ -1,0 +1,918 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_c8cfdefcd2c357ac",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_ticks.json",
+    "summary": {
+        "object_count": 23,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Comparison 1, Comparison 1",
+            "series_name": "Comparison 1",
+            "label": "Comparison 1",
+            "axis": "y",
+            "value": 3.6,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 1, Comparison 1_round3_attempt0.png"
+        },
+        {
+            "id": "Comparison 1, Comparison 2",
+            "series_name": "Comparison 1",
+            "label": "Comparison 2",
+            "axis": "y",
+            "value": 1.25,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 1, Comparison 2_round1_attempt0.png"
+        },
+        {
+            "id": "Comparison 1, Comparison 3",
+            "series_name": "Comparison 1",
+            "label": "Comparison 3",
+            "axis": "y",
+            "value": 65.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Comparison 3_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 1, Emphasis",
+            "series_name": "Comparison 1",
+            "label": "Emphasis",
+            "axis": "y",
+            "value": 40.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Emphasis_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 1, Comparison 4",
+            "series_name": "Comparison 1",
+            "label": "Comparison 4",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Comparison 4_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 2, Comparison 1",
+            "series_name": "Comparison 2",
+            "label": "Comparison 1",
+            "axis": "y",
+            "value": 87.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 1_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 2, Comparison 3",
+            "series_name": "Comparison 2",
+            "label": "Comparison 3",
+            "axis": "y",
+            "value": 0.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 3_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 2, Emphasis",
+            "series_name": "Comparison 2",
+            "label": "Emphasis",
+            "axis": "y",
+            "value": 40.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Emphasis_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 2, Comparison 4",
+            "series_name": "Comparison 2",
+            "label": "Comparison 4",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 4_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 3, Comparison 1",
+            "series_name": "Comparison 3",
+            "label": "Comparison 1",
+            "axis": "y",
+            "value": 87.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 1_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 3, Comparison 2",
+            "series_name": "Comparison 3",
+            "label": "Comparison 2",
+            "axis": "y",
+            "value": 80.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 2_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 3, Comparison 3",
+            "series_name": "Comparison 3",
+            "label": "Comparison 3",
+            "axis": "y",
+            "value": 65.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 3_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 3, Emphasis",
+            "series_name": "Comparison 3",
+            "label": "Emphasis",
+            "axis": "y",
+            "value": 40.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Emphasis_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 3, Comparison 4",
+            "series_name": "Comparison 3",
+            "label": "Comparison 4",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 4_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Emphasis, Comparison 1",
+            "series_name": "Emphasis",
+            "label": "Comparison 1",
+            "axis": "y",
+            "value": 88.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 1_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Emphasis, Comparison 2",
+            "series_name": "Emphasis",
+            "label": "Comparison 2",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 2_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Emphasis, Comparison 3",
+            "series_name": "Emphasis",
+            "label": "Comparison 3",
+            "axis": "y",
+            "value": 0.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 3_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Emphasis, Emphasis",
+            "series_name": "Emphasis",
+            "label": "Emphasis",
+            "axis": "y",
+            "value": 3.12,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Emphasis, Emphasis_round3_attempt0.png"
+        },
+        {
+            "id": "Emphasis, Comparison 4",
+            "series_name": "Emphasis",
+            "label": "Comparison 4",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 4_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 4, Comparison 2",
+            "series_name": "Comparison 4",
+            "label": "Comparison 2",
+            "axis": "y",
+            "value": 14.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Comparison 2_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 4, Comparison 3",
+            "series_name": "Comparison 4",
+            "label": "Comparison 3",
+            "axis": "y",
+            "value": 65.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Comparison 3_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 4, Emphasis",
+            "series_name": "Comparison 4",
+            "label": "Emphasis",
+            "axis": "y",
+            "value": 40.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Emphasis_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Comparison 4, Comparison 4",
+            "series_name": "Comparison 4",
+            "label": "Comparison 4",
+            "axis": "y",
+            "value": 3.12,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 4, Comparison 4_round3_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image",
+            "record_count": 237,
+            "object_count": 25,
+            "predictions": [
+                {
+                    "id": "Comparison 1, Comparison 1",
+                    "series_name": "Comparison 1",
+                    "label": "Comparison 1",
+                    "axis": "y",
+                    "value": 3.6,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 1, Comparison 1_round3_attempt0.png"
+                },
+                {
+                    "id": "Comparison 1, Comparison 2",
+                    "series_name": "Comparison 1",
+                    "label": "Comparison 2",
+                    "axis": "y",
+                    "value": 1.25,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 1, Comparison 2_round1_attempt0.png"
+                },
+                {
+                    "id": "Comparison 1, Comparison 3",
+                    "series_name": "Comparison 1",
+                    "label": "Comparison 3",
+                    "axis": "y",
+                    "value": 65.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Comparison 3_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 1, Emphasis",
+                    "series_name": "Comparison 1",
+                    "label": "Emphasis",
+                    "axis": "y",
+                    "value": 40.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Emphasis_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 1, Comparison 4",
+                    "series_name": "Comparison 1",
+                    "label": "Comparison 4",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 1, Comparison 4_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 2, Comparison 1",
+                    "series_name": "Comparison 2",
+                    "label": "Comparison 1",
+                    "axis": "y",
+                    "value": 87.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 1_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 2, Comparison 2",
+                    "series_name": "Comparison 2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 2, Comparison 2_round1_attempt2.png"
+                },
+                {
+                    "id": "Comparison 2, Comparison 3",
+                    "series_name": "Comparison 2",
+                    "label": "Comparison 3",
+                    "axis": "y",
+                    "value": 0.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 3_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 2, Emphasis",
+                    "series_name": "Comparison 2",
+                    "label": "Emphasis",
+                    "axis": "y",
+                    "value": 40.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Emphasis_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 2, Comparison 4",
+                    "series_name": "Comparison 2",
+                    "label": "Comparison 4",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 2, Comparison 4_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 3, Comparison 1",
+                    "series_name": "Comparison 3",
+                    "label": "Comparison 1",
+                    "axis": "y",
+                    "value": 87.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 1_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 3, Comparison 2",
+                    "series_name": "Comparison 3",
+                    "label": "Comparison 2",
+                    "axis": "y",
+                    "value": 80.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 2_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 3, Comparison 3",
+                    "series_name": "Comparison 3",
+                    "label": "Comparison 3",
+                    "axis": "y",
+                    "value": 65.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 3_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 3, Emphasis",
+                    "series_name": "Comparison 3",
+                    "label": "Emphasis",
+                    "axis": "y",
+                    "value": 40.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Emphasis_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 3, Comparison 4",
+                    "series_name": "Comparison 3",
+                    "label": "Comparison 4",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 3, Comparison 4_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Emphasis, Comparison 1",
+                    "series_name": "Emphasis",
+                    "label": "Comparison 1",
+                    "axis": "y",
+                    "value": 88.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 1_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Emphasis, Comparison 2",
+                    "series_name": "Emphasis",
+                    "label": "Comparison 2",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 2_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Emphasis, Comparison 3",
+                    "series_name": "Emphasis",
+                    "label": "Comparison 3",
+                    "axis": "y",
+                    "value": 0.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 3_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Emphasis, Emphasis",
+                    "series_name": "Emphasis",
+                    "label": "Emphasis",
+                    "axis": "y",
+                    "value": 3.12,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Emphasis, Emphasis_round3_attempt0.png"
+                },
+                {
+                    "id": "Emphasis, Comparison 4",
+                    "series_name": "Emphasis",
+                    "label": "Comparison 4",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Emphasis, Comparison 4_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 4, Comparison 1",
+                    "series_name": "Comparison 4",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 4, Comparison 1_round1_attempt6.png"
+                },
+                {
+                    "id": "Comparison 4, Comparison 2",
+                    "series_name": "Comparison 4",
+                    "label": "Comparison 2",
+                    "axis": "y",
+                    "value": 14.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Comparison 2_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 4, Comparison 3",
+                    "series_name": "Comparison 4",
+                    "label": "Comparison 3",
+                    "axis": "y",
+                    "value": 65.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Comparison 3_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 4, Emphasis",
+                    "series_name": "Comparison 4",
+                    "label": "Emphasis",
+                    "axis": "y",
+                    "value": 40.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\overlay_Comparison 4, Emphasis_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Comparison 4, Comparison 4",
+                    "series_name": "Comparison 4",
+                    "label": "Comparison 4",
+                    "axis": "y",
+                    "value": 3.12,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image\\tempy\\amplifier_crop_Comparison 4, Comparison 4_round3_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            "Comparison 1",
+            "Comparison 2",
+            "Comparison 3",
+            "Emphasis",
+            "Comparison 4"
+        ],
+        "y_ticks": [
+            100.0,
+            90.0,
+            80.0,
+            70.0,
+            60.0,
+            50.0,
+            40.0,
+            30.0,
+            20.0,
+            10.0,
+            0.0
+        ],
+        "x_pixels": [
+            105,
+            204,
+            304,
+            405,
+            506
+        ],
+        "y_pixels": [
+            12,
+            47,
+            82,
+            117,
+            152,
+            187,
+            222,
+            257,
+            292,
+            326,
+            360
+        ],
+        "x_ticks_encrypted": [
+            "Comparison 1",
+            "Comparison 2",
+            "Comparison 3",
+            "Emphasis",
+            "Comparison 4"
+        ],
+        "y_ticks_encrypted": [
+            100.0,
+            95.0,
+            90.0,
+            85.0,
+            80.0,
+            75.0,
+            70.0,
+            65.0,
+            60.0,
+            55.0,
+            50.0,
+            45.0,
+            40.0,
+            35.0,
+            30.0,
+            25.0,
+            20.0,
+            15.0,
+            10.0,
+            5.0,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            105,
+            204,
+            304,
+            405,
+            506
+        ],
+        "y_pixels_encrypted": [
+            12,
+            30,
+            47,
+            64,
+            82,
+            100,
+            117,
+            134,
+            152,
+            170,
+            187,
+            204,
+            222,
+            240,
+            257,
+            274,
+            292,
+            309,
+            326,
+            343,
+            360
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 100.0,
+                "right_tick": 90.0,
+                "left_pixel": 12,
+                "right_pixel": 47,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 30.0,
+                "required_spacing": 38.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 90.0,
+                "right_tick": 80.0,
+                "left_pixel": 47,
+                "right_pixel": 82,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 30.0,
+                "required_spacing": 38.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 80.0,
+                "right_tick": 70.0,
+                "left_pixel": 82,
+                "right_pixel": 117,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 27.0,
+                "required_spacing": 34.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 70.0,
+                "right_tick": 60.0,
+                "left_pixel": 117,
+                "right_pixel": 152,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 60.0,
+                "right_tick": 50.0,
+                "left_pixel": 152,
+                "right_pixel": 187,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 50.0,
+                "right_tick": 40.0,
+                "left_pixel": 187,
+                "right_pixel": 222,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 40.0,
+                "right_tick": 30.0,
+                "left_pixel": 222,
+                "right_pixel": 257,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 30.0,
+                "right_tick": 20.0,
+                "left_pixel": 257,
+                "right_pixel": 292,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.5,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 20.0,
+                "right_tick": 10.0,
+                "left_pixel": 292,
+                "right_pixel": 326,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.0,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 10.0,
+                "right_tick": 0.0,
+                "left_pixel": 326,
+                "right_pixel": 360,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 17.0,
+                "label_axis_extent": 25.0,
+                "required_spacing": 32.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Comparison 1",
+                "color": "#cccccc"
+            },
+            {
+                "name": "Comparison 2",
+                "color": "#cccccc"
+            },
+            {
+                "name": "Comparison 3",
+                "color": "#cccccc"
+            },
+            {
+                "name": "Emphasis",
+                "color": "#0000ff"
+            },
+            {
+                "name": "Comparison 4",
+                "color": "#cccccc"
+            }
+        ],
+        "series_color": {
+            "Comparison 1": "#cccccc",
+            "Comparison 2": "#cccccc",
+            "Comparison 3": "#cccccc",
+            "Emphasis": "#0000ff",
+            "Comparison 4": "#cccccc"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a standard vertical bar chart with clear axes and ticks.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Comparison 1",
+                        "Comparison 2",
+                        "Comparison 3",
+                        "Emphasis",
+                        "Comparison 4"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "10",
+                        "20",
+                        "30",
+                        "40",
+                        "50",
+                        "60",
+                        "70",
+                        "80",
+                        "90",
+                        "100"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Comparison 1",
+                        "Comparison 2",
+                        "Comparison 3",
+                        "Emphasis",
+                        "Comparison 4"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "5.0",
+                        "10.0",
+                        "15.0",
+                        "20.0",
+                        "25.0",
+                        "30.0",
+                        "35.0",
+                        "40.0",
+                        "45.0",
+                        "50.0",
+                        "55.0",
+                        "60.0",
+                        "65.0",
+                        "70.0",
+                        "75.0",
+                        "80.0",
+                        "85.0",
+                        "90.0",
+                        "95.0",
+                        "100.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Comparison 1",
+                            "color": "#cccccc"
+                        },
+                        {
+                            "name": "Comparison 2",
+                            "color": "#cccccc"
+                        },
+                        {
+                            "name": "Comparison 3",
+                            "color": "#cccccc"
+                        },
+                        {
+                            "name": "Emphasis",
+                            "color": "#0000ff"
+                        },
+                        {
+                            "name": "Comparison 4",
+                            "color": "#cccccc"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_finalH1V3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_finalH1V3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_finalH1V3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart17_7b0991f9\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart17_7b0991f9_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c8cfdefcd2c357ac\\output\\c8cfdefcd2c357ac_original_grid.png"
+        }
+    }
+}

@@ -1,0 +1,325 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_bb344119edc21d8c",
+    "chart_type": "donut",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\bb344119edc21d8c\\output\\bb344119edc21d8c_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\bb344119edc21d8c\\output\\bb344119edc21d8c_original.json",
+    "summary": {
+        "object_count": 7,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "A",
+            "series_name": "",
+            "label": "A",
+            "axis": "theta",
+            "value": 0.08333333333333333,
+            "percentage": 8.333333333333332,
+            "start_angle": 345.0,
+            "end_angle": 15.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\A_amp1.png"
+        },
+        {
+            "id": "B",
+            "series_name": "",
+            "label": "B",
+            "axis": "theta",
+            "value": 0.20833333333333334,
+            "percentage": 20.833333333333336,
+            "start_angle": 270.0,
+            "end_angle": 345.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\B_amp2.png"
+        },
+        {
+            "id": "C",
+            "series_name": "",
+            "label": "C",
+            "axis": "theta",
+            "value": 0.06944444444444445,
+            "percentage": 6.944444444444445,
+            "start_angle": 245.0,
+            "end_angle": 270.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\C_amp2.png"
+        },
+        {
+            "id": "D",
+            "series_name": "",
+            "label": "D",
+            "axis": "theta",
+            "value": 0.041666666666666664,
+            "percentage": 4.166666666666666,
+            "start_angle": 240.0,
+            "end_angle": 255.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\D_amp1.png"
+        },
+        {
+            "id": "E",
+            "series_name": "",
+            "label": "E",
+            "axis": "theta",
+            "value": 0.08333333333333333,
+            "percentage": 8.333333333333332,
+            "start_angle": 205.0,
+            "end_angle": 235.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\E_amp2.png"
+        },
+        {
+            "id": "F",
+            "series_name": "",
+            "label": "F",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 105.0,
+            "end_angle": 150.0,
+            "prompt_type": "amplifier_pct",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\F_amp2.png"
+        },
+        {
+            "id": "G",
+            "series_name": "",
+            "label": "G",
+            "axis": "theta",
+            "value": 0.3592592592592593,
+            "percentage": 35.92592592592593,
+            "start_angle": 1.0,
+            "end_angle": 98.0,
+            "prompt_type": "color_area_fallback",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image.png",
+            "extraction_source": "system_json_color_area",
+            "chart_type": "donut"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5",
+            "record_count": 36,
+            "object_count": 7,
+            "predictions": [
+                {
+                    "id": "A",
+                    "series_name": "",
+                    "label": "A",
+                    "axis": "theta",
+                    "value": 0.08333333333333333,
+                    "percentage": 8.333333333333332,
+                    "start_angle": 345.0,
+                    "end_angle": 15.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\A_amp1.png"
+                },
+                {
+                    "id": "B",
+                    "series_name": "",
+                    "label": "B",
+                    "axis": "theta",
+                    "value": 0.20833333333333334,
+                    "percentage": 20.833333333333336,
+                    "start_angle": 270.0,
+                    "end_angle": 345.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\B_amp2.png"
+                },
+                {
+                    "id": "C",
+                    "series_name": "",
+                    "label": "C",
+                    "axis": "theta",
+                    "value": 0.06944444444444445,
+                    "percentage": 6.944444444444445,
+                    "start_angle": 245.0,
+                    "end_angle": 270.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\C_amp2.png"
+                },
+                {
+                    "id": "D",
+                    "series_name": "",
+                    "label": "D",
+                    "axis": "theta",
+                    "value": 0.041666666666666664,
+                    "percentage": 4.166666666666666,
+                    "start_angle": 240.0,
+                    "end_angle": 255.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\D_amp1.png"
+                },
+                {
+                    "id": "E",
+                    "series_name": "",
+                    "label": "E",
+                    "axis": "theta",
+                    "value": 0.08333333333333333,
+                    "percentage": 8.333333333333332,
+                    "start_angle": 205.0,
+                    "end_angle": 235.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\E_amp2.png"
+                },
+                {
+                    "id": "F",
+                    "series_name": "",
+                    "label": "F",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 105.0,
+                    "end_angle": 150.0,
+                    "prompt_type": "amplifier_pct",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5\\amplifier_img\\F_amp2.png"
+                },
+                {
+                    "id": "G",
+                    "series_name": "",
+                    "label": "G",
+                    "axis": "theta",
+                    "value": 0.3592592592592593,
+                    "percentage": 35.92592592592593,
+                    "start_angle": 1.0,
+                    "end_angle": 98.0,
+                    "prompt_type": "color_area_fallback",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image.png",
+                    "extraction_source": "system_json_color_area",
+                    "chart_type": "donut"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5",
+        "chart_type": "donut",
+        "coordinate_system": "polar",
+        "center": [
+            717,
+            504
+        ],
+        "r_pixels": 350,
+        "theta_angles": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            75,
+            90,
+            105,
+            120,
+            135,
+            150,
+            165,
+            180,
+            195,
+            210,
+            225,
+            240,
+            255,
+            270,
+            285,
+            300,
+            315,
+            330,
+            345
+        ],
+        "theta_ticks": [
+            "0°",
+            "15°",
+            "30°",
+            "45°",
+            "60°",
+            "75°",
+            "90°",
+            "105°",
+            "120°",
+            "135°",
+            "150°",
+            "165°",
+            "180°",
+            "195°",
+            "210°",
+            "225°",
+            "240°",
+            "255°",
+            "270°",
+            "285°",
+            "300°",
+            "315°",
+            "330°",
+            "345°"
+        ],
+        "r_ticks": [],
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Sy.Dataset\\Donut_50\\donut_145_fb2fdcd5\\work\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image_with_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Sy.Dataset\\Donut_50\\donut_145_fb2fdcd5\\work\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image_with_grid.png",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Sy.Dataset\\Donut_50\\donut_145_fb2fdcd5\\work\\vishint_Sy.Dataset_Donut_50_donut_145_fb2fdcd5_image_with_grid.png"
+        },
+        "colors": [
+            {
+                "name": "A",
+                "color": "#e08c8c"
+            },
+            {
+                "name": "B",
+                "color": "#d8e092"
+            },
+            {
+                "name": "C",
+                "color": "#94a85a"
+            },
+            {
+                "name": "D",
+                "color": "#d3d3e1"
+            },
+            {
+                "name": "E",
+                "color": "#a6696a"
+            },
+            {
+                "name": "F",
+                "color": "#e0e0e0"
+            },
+            {
+                "name": "G",
+                "color": "#e89c6c"
+            }
+        ],
+        "grid_generation": {
+            "type": "angle_grid",
+            "angle_step_degrees": 15,
+            "plot_area_detection": "color_mask"
+        },
+        "series_color": {
+            "A": "#e08c8c",
+            "B": "#d8e092",
+            "C": "#94a85a",
+            "D": "#d3d3e1",
+            "E": "#a6696a",
+            "F": "#e0e0e0",
+            "G": "#e89c6c"
+        }
+    }
+}

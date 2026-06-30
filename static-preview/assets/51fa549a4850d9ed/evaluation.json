@@ -1,0 +1,443 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_51fa549a4850d9ed",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original.json",
+    "summary": {
+        "object_count": 16,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "CRC, CRC",
+            "series_name": "CRC",
+            "theta_label": "CRC",
+            "label": "CRC",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "CRC, BPF",
+            "series_name": "CRC",
+            "theta_label": "BPF",
+            "label": "BPF",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "CRC, OQA",
+            "series_name": "CRC",
+            "theta_label": "OQA",
+            "label": "OQA",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "CRC, SOEQP",
+            "series_name": "CRC",
+            "theta_label": "SOEQP",
+            "label": "SOEQP",
+            "axis": "r",
+            "value": 60.0,
+            "r": 60.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "BPF, CRC",
+            "series_name": "BPF",
+            "theta_label": "CRC",
+            "label": "CRC",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "BPF, BPF",
+            "series_name": "BPF",
+            "theta_label": "BPF",
+            "label": "BPF",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "BPF, OQA",
+            "series_name": "BPF",
+            "theta_label": "OQA",
+            "label": "OQA",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "BPF, SOEQP",
+            "series_name": "BPF",
+            "theta_label": "SOEQP",
+            "label": "SOEQP",
+            "axis": "r",
+            "value": 60.0,
+            "r": 60.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "OQA, CRC",
+            "series_name": "OQA",
+            "theta_label": "CRC",
+            "label": "CRC",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "OQA, BPF",
+            "series_name": "OQA",
+            "theta_label": "BPF",
+            "label": "BPF",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "OQA, OQA",
+            "series_name": "OQA",
+            "theta_label": "OQA",
+            "label": "OQA",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "OQA, SOEQP",
+            "series_name": "OQA",
+            "theta_label": "SOEQP",
+            "label": "SOEQP",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "SOEQP, CRC",
+            "series_name": "SOEQP",
+            "theta_label": "CRC",
+            "label": "CRC",
+            "axis": "r",
+            "value": 60.0,
+            "r": 60.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "SOEQP, BPF",
+            "series_name": "SOEQP",
+            "theta_label": "BPF",
+            "label": "BPF",
+            "axis": "r",
+            "value": 70.0,
+            "r": 70.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "SOEQP, OQA",
+            "series_name": "SOEQP",
+            "theta_label": "OQA",
+            "label": "OQA",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        },
+        {
+            "id": "SOEQP, SOEQP",
+            "series_name": "SOEQP",
+            "theta_label": "SOEQP",
+            "label": "SOEQP",
+            "axis": "r",
+            "value": 65.0,
+            "r": 65.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_51fa549a4850d9ed",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_51fa549a4850d9ed",
+            "record_count": 32,
+            "object_count": 16,
+            "predictions": [
+                {
+                    "id": "CRC, CRC",
+                    "series_name": "CRC",
+                    "theta_label": "CRC",
+                    "label": "CRC",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "CRC, BPF",
+                    "series_name": "CRC",
+                    "theta_label": "BPF",
+                    "label": "BPF",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "CRC, OQA",
+                    "series_name": "CRC",
+                    "theta_label": "OQA",
+                    "label": "OQA",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "CRC, SOEQP",
+                    "series_name": "CRC",
+                    "theta_label": "SOEQP",
+                    "label": "SOEQP",
+                    "axis": "r",
+                    "value": 60.0,
+                    "r": 60.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "BPF, CRC",
+                    "series_name": "BPF",
+                    "theta_label": "CRC",
+                    "label": "CRC",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "BPF, BPF",
+                    "series_name": "BPF",
+                    "theta_label": "BPF",
+                    "label": "BPF",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "BPF, OQA",
+                    "series_name": "BPF",
+                    "theta_label": "OQA",
+                    "label": "OQA",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "BPF, SOEQP",
+                    "series_name": "BPF",
+                    "theta_label": "SOEQP",
+                    "label": "SOEQP",
+                    "axis": "r",
+                    "value": 60.0,
+                    "r": 60.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "OQA, CRC",
+                    "series_name": "OQA",
+                    "theta_label": "CRC",
+                    "label": "CRC",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "OQA, BPF",
+                    "series_name": "OQA",
+                    "theta_label": "BPF",
+                    "label": "BPF",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "OQA, OQA",
+                    "series_name": "OQA",
+                    "theta_label": "OQA",
+                    "label": "OQA",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "OQA, SOEQP",
+                    "series_name": "OQA",
+                    "theta_label": "SOEQP",
+                    "label": "SOEQP",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "SOEQP, CRC",
+                    "series_name": "SOEQP",
+                    "theta_label": "CRC",
+                    "label": "CRC",
+                    "axis": "r",
+                    "value": 60.0,
+                    "r": 60.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "SOEQP, BPF",
+                    "series_name": "SOEQP",
+                    "theta_label": "BPF",
+                    "label": "BPF",
+                    "axis": "r",
+                    "value": 70.0,
+                    "r": 70.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "SOEQP, OQA",
+                    "series_name": "SOEQP",
+                    "theta_label": "OQA",
+                    "label": "OQA",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                },
+                {
+                    "id": "SOEQP, SOEQP",
+                    "series_name": "SOEQP",
+                    "theta_label": "SOEQP",
+                    "label": "SOEQP",
+                    "axis": "r",
+                    "value": 65.0,
+                    "r": 65.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "CRC": "#C7B3D6",
+            "BPF": "#DFDF9B",
+            "OQA": "#E689CA",
+            "SOEQP": "#B5CCEA"
+        },
+        "colors": [
+            {
+                "name": "CRC",
+                "color": "#C7B3D6"
+            },
+            {
+                "name": "BPF",
+                "color": "#DFDF9B"
+            },
+            {
+                "name": "OQA",
+                "color": "#E689CA"
+            },
+            {
+                "name": "SOEQP",
+                "color": "#B5CCEA"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\legend_default_51fa549a4850d9ed_original.png",
+        "chart_id": "dataset_51fa549a4850d9ed",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\51fa549a4850d9ed_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\51fa549a4850d9ed\\output\\51fa549a4850d9ed_original_encode.png"
+        }
+    }
+}

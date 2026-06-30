@@ -1,0 +1,313 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_0eaac82e4809187b",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original.json",
+    "summary": {
+        "object_count": 11,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "HPJTK, NIA",
+            "series_name": "HPJTK",
+            "theta_label": "NIA",
+            "label": "NIA",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "NIA, NIA",
+            "series_name": "NIA",
+            "theta_label": "NIA",
+            "label": "NIA",
+            "axis": "r",
+            "value": 17.0,
+            "r": 17.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\0eaac82e4809187b_original.png"
+        },
+        {
+            "id": "HPJTK, A",
+            "series_name": "HPJTK",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 17.5,
+            "r": 17.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "HPJTK, B",
+            "series_name": "HPJTK",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 7.5,
+            "r": 7.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "HPJTK, C",
+            "series_name": "HPJTK",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 5.0,
+            "r": 5.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "NIA, A",
+            "series_name": "NIA",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "NIA, B",
+            "series_name": "NIA",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 17.5,
+            "r": 17.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "NIA, C",
+            "series_name": "NIA",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "BGLFME, A",
+            "series_name": "BGLFME",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "BGLFME, B",
+            "series_name": "BGLFME",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        },
+        {
+            "id": "BGLFME, C",
+            "series_name": "BGLFME",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 17.5,
+            "r": 17.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_0eaac82e4809187b",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_0eaac82e4809187b",
+            "record_count": 17,
+            "object_count": 11,
+            "predictions": [
+                {
+                    "id": "HPJTK, NIA",
+                    "series_name": "HPJTK",
+                    "theta_label": "NIA",
+                    "label": "NIA",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "NIA, NIA",
+                    "series_name": "NIA",
+                    "theta_label": "NIA",
+                    "label": "NIA",
+                    "axis": "r",
+                    "value": 17.0,
+                    "r": 17.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\0eaac82e4809187b_original.png"
+                },
+                {
+                    "id": "HPJTK, A",
+                    "series_name": "HPJTK",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 17.5,
+                    "r": 17.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "HPJTK, B",
+                    "series_name": "HPJTK",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 7.5,
+                    "r": 7.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "HPJTK, C",
+                    "series_name": "HPJTK",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 5.0,
+                    "r": 5.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "NIA, A",
+                    "series_name": "NIA",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "NIA, B",
+                    "series_name": "NIA",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 17.5,
+                    "r": 17.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "NIA, C",
+                    "series_name": "NIA",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "BGLFME, A",
+                    "series_name": "BGLFME",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "BGLFME, B",
+                    "series_name": "BGLFME",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                },
+                {
+                    "id": "BGLFME, C",
+                    "series_name": "BGLFME",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 17.5,
+                    "r": 17.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "HPJTK": "#C7B3D6",
+            "NIA": "#FFC892"
+        },
+        "colors": [
+            {
+                "name": "HPJTK",
+                "color": "#C7B3D6"
+            },
+            {
+                "name": "NIA",
+                "color": "#FFC892"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\legend_default_0eaac82e4809187b_original.png",
+        "chart_id": "dataset_0eaac82e4809187b",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\0eaac82e4809187b_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\0eaac82e4809187b\\output\\0eaac82e4809187b_original_encode.png"
+        }
+    }
+}

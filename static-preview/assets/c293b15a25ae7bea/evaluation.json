@@ -1,0 +1,443 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_c293b15a25ae7bea",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original.json",
+    "summary": {
+        "object_count": 16,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "KHZXR, KHZXR",
+            "series_name": "KHZXR",
+            "theta_label": "KHZXR",
+            "label": "KHZXR",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHZXR, VSPVJ",
+            "series_name": "KHZXR",
+            "theta_label": "VSPVJ",
+            "label": "VSPVJ",
+            "axis": "r",
+            "value": 45.0,
+            "r": 45.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHZXR, KHTVYB",
+            "series_name": "KHZXR",
+            "theta_label": "KHTVYB",
+            "label": "KHTVYB",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "VSPVJ, VSPVJ",
+            "series_name": "VSPVJ",
+            "theta_label": "VSPVJ",
+            "label": "VSPVJ",
+            "axis": "r",
+            "value": 35.0,
+            "r": 35.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "VSPVJ, KHTVYB",
+            "series_name": "VSPVJ",
+            "theta_label": "KHTVYB",
+            "label": "KHTVYB",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "VSPVJ, EOWULQ",
+            "series_name": "VSPVJ",
+            "theta_label": "EOWULQ",
+            "label": "EOWULQ",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHTVYB, KHZXR",
+            "series_name": "KHTVYB",
+            "theta_label": "KHZXR",
+            "label": "KHZXR",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHTVYB, VSPVJ",
+            "series_name": "KHTVYB",
+            "theta_label": "VSPVJ",
+            "label": "VSPVJ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHTVYB, KHTVYB",
+            "series_name": "KHTVYB",
+            "theta_label": "KHTVYB",
+            "label": "KHTVYB",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "EOWULQ, VSPVJ",
+            "series_name": "EOWULQ",
+            "theta_label": "VSPVJ",
+            "label": "VSPVJ",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "EOWULQ, KHTVYB",
+            "series_name": "EOWULQ",
+            "theta_label": "KHTVYB",
+            "label": "KHTVYB",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "EOWULQ, EOWULQ",
+            "series_name": "EOWULQ",
+            "theta_label": "EOWULQ",
+            "label": "EOWULQ",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHZXR, EOWULQ",
+            "series_name": "KHZXR",
+            "theta_label": "EOWULQ",
+            "label": "EOWULQ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "VSPVJ, KHZXR",
+            "series_name": "VSPVJ",
+            "theta_label": "KHZXR",
+            "label": "KHZXR",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "KHTVYB, EOWULQ",
+            "series_name": "KHTVYB",
+            "theta_label": "EOWULQ",
+            "label": "EOWULQ",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        },
+        {
+            "id": "EOWULQ, KHZXR",
+            "series_name": "EOWULQ",
+            "theta_label": "KHZXR",
+            "label": "KHZXR",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_c293b15a25ae7bea",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_c293b15a25ae7bea",
+            "record_count": 48,
+            "object_count": 16,
+            "predictions": [
+                {
+                    "id": "KHZXR, KHZXR",
+                    "series_name": "KHZXR",
+                    "theta_label": "KHZXR",
+                    "label": "KHZXR",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHZXR, VSPVJ",
+                    "series_name": "KHZXR",
+                    "theta_label": "VSPVJ",
+                    "label": "VSPVJ",
+                    "axis": "r",
+                    "value": 45.0,
+                    "r": 45.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHZXR, KHTVYB",
+                    "series_name": "KHZXR",
+                    "theta_label": "KHTVYB",
+                    "label": "KHTVYB",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "VSPVJ, VSPVJ",
+                    "series_name": "VSPVJ",
+                    "theta_label": "VSPVJ",
+                    "label": "VSPVJ",
+                    "axis": "r",
+                    "value": 35.0,
+                    "r": 35.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "VSPVJ, KHTVYB",
+                    "series_name": "VSPVJ",
+                    "theta_label": "KHTVYB",
+                    "label": "KHTVYB",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "VSPVJ, EOWULQ",
+                    "series_name": "VSPVJ",
+                    "theta_label": "EOWULQ",
+                    "label": "EOWULQ",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHTVYB, KHZXR",
+                    "series_name": "KHTVYB",
+                    "theta_label": "KHZXR",
+                    "label": "KHZXR",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHTVYB, VSPVJ",
+                    "series_name": "KHTVYB",
+                    "theta_label": "VSPVJ",
+                    "label": "VSPVJ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHTVYB, KHTVYB",
+                    "series_name": "KHTVYB",
+                    "theta_label": "KHTVYB",
+                    "label": "KHTVYB",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "EOWULQ, VSPVJ",
+                    "series_name": "EOWULQ",
+                    "theta_label": "VSPVJ",
+                    "label": "VSPVJ",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "EOWULQ, KHTVYB",
+                    "series_name": "EOWULQ",
+                    "theta_label": "KHTVYB",
+                    "label": "KHTVYB",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "EOWULQ, EOWULQ",
+                    "series_name": "EOWULQ",
+                    "theta_label": "EOWULQ",
+                    "label": "EOWULQ",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHZXR, EOWULQ",
+                    "series_name": "KHZXR",
+                    "theta_label": "EOWULQ",
+                    "label": "EOWULQ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "VSPVJ, KHZXR",
+                    "series_name": "VSPVJ",
+                    "theta_label": "KHZXR",
+                    "label": "KHZXR",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "KHTVYB, EOWULQ",
+                    "series_name": "KHTVYB",
+                    "theta_label": "EOWULQ",
+                    "label": "EOWULQ",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                },
+                {
+                    "id": "EOWULQ, KHZXR",
+                    "series_name": "EOWULQ",
+                    "theta_label": "KHZXR",
+                    "label": "KHZXR",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "KHZXR": "#5195C4",
+            "VSPVJ": "#DFDF9B",
+            "KHTVYB": "#9A6B61",
+            "EOWULQ": "#9A6B61"
+        },
+        "colors": [
+            {
+                "name": "KHZXR",
+                "color": "#5195C4"
+            },
+            {
+                "name": "VSPVJ",
+                "color": "#DFDF9B"
+            },
+            {
+                "name": "KHTVYB",
+                "color": "#9A6B61"
+            },
+            {
+                "name": "EOWULQ",
+                "color": "#9A6B61"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\legend_default_c293b15a25ae7bea_original.png",
+        "chart_id": "dataset_c293b15a25ae7bea",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\c293b15a25ae7bea_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\c293b15a25ae7bea\\output\\c293b15a25ae7bea_original_encode.png"
+        }
+    }
+}

@@ -1,0 +1,178 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_448bf9fffd80f554",
+    "chart_type": "rose",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original.json",
+    "summary": {
+        "object_count": 6,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "JP",
+            "series_name": "",
+            "theta_label": "JP",
+            "label": "JP",
+            "axis": "r",
+            "value": 16.0,
+            "r": 16.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        },
+        {
+            "id": "FGVM",
+            "series_name": "",
+            "theta_label": "FGVM",
+            "label": "FGVM",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        },
+        {
+            "id": "VET",
+            "series_name": "",
+            "theta_label": "VET",
+            "label": "VET",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        },
+        {
+            "id": "YP",
+            "series_name": "",
+            "theta_label": "YP",
+            "label": "YP",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        },
+        {
+            "id": "MWW",
+            "series_name": "",
+            "theta_label": "MWW",
+            "label": "MWW",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        },
+        {
+            "id": "XCM",
+            "series_name": "",
+            "theta_label": "XCM",
+            "label": "XCM",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_448bf9fffd80f554",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\rose\\dataset_448bf9fffd80f554",
+            "record_count": 6,
+            "object_count": 6,
+            "predictions": [
+                {
+                    "id": "JP",
+                    "series_name": "",
+                    "theta_label": "JP",
+                    "label": "JP",
+                    "axis": "r",
+                    "value": 16.0,
+                    "r": 16.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                },
+                {
+                    "id": "FGVM",
+                    "series_name": "",
+                    "theta_label": "FGVM",
+                    "label": "FGVM",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                },
+                {
+                    "id": "VET",
+                    "series_name": "",
+                    "theta_label": "VET",
+                    "label": "VET",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                },
+                {
+                    "id": "YP",
+                    "series_name": "",
+                    "theta_label": "YP",
+                    "label": "YP",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                },
+                {
+                    "id": "MWW",
+                    "series_name": "",
+                    "theta_label": "MWW",
+                    "label": "MWW",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                },
+                {
+                    "id": "XCM",
+                    "series_name": "",
+                    "theta_label": "XCM",
+                    "label": "XCM",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "dataset_448bf9fffd80f554",
+        "chart_type": "rose",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\448bf9fffd80f554_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\448bf9fffd80f554\\output\\448bf9fffd80f554_original_encode.png"
+        }
+    }
+}

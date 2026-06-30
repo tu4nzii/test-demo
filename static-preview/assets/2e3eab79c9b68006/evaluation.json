@@ -1,0 +1,1136 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_2e3eab79c9b68006",
+    "chart_type": "scatter",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_ticks.json",
+    "summary": {
+        "object_count": 14,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "West Midlands",
+            "series_name": "West Midlands",
+            "label": "West Midlands",
+            "axis": "xy",
+            "value": {
+                "x": 87.5,
+                "y": 425.0
+            },
+            "x": 87.5,
+            "y": 425.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\West Midlands_rt2_round3_crop.png"
+        },
+        {
+            "id": "East Midlands",
+            "series_name": "East Midlands",
+            "label": "East Midlands",
+            "axis": "xy",
+            "value": {
+                "x": 125.0,
+                "y": 425.0
+            },
+            "x": 125.0,
+            "y": 425.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\East Midlands_rt2_round3_crop.png"
+        },
+        {
+            "id": "N. Ireland",
+            "series_name": "N. Ireland",
+            "label": "N. Ireland",
+            "axis": "xy",
+            "value": {
+                "x": 87.5,
+                "y": 225.0
+            },
+            "x": 87.5,
+            "y": 225.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\N. Ireland_rt1_round3_crop.png"
+        },
+        {
+            "id": "Wales",
+            "series_name": "Wales",
+            "label": "Wales",
+            "axis": "xy",
+            "value": {
+                "x": 115.0,
+                "y": 130.0
+            },
+            "x": 115.0,
+            "y": 130.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Wales_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "NE",
+            "series_name": "NE",
+            "label": "NE",
+            "axis": "xy",
+            "value": {
+                "x": 98.913,
+                "y": 150.0
+            },
+            "x": 98.913,
+            "y": 150.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\NE_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "Yorkshire & Humber",
+            "series_name": "Yorkshire & Humber",
+            "label": "Yorkshire & Humber",
+            "axis": "xy",
+            "value": {
+                "x": 150.0,
+                "y": 100.0
+            },
+            "x": 150.0,
+            "y": 100.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Yorkshire & Humber_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "NW",
+            "series_name": "NW",
+            "label": "NW",
+            "axis": "xy",
+            "value": {
+                "x": 112.5,
+                "y": 350.0
+            },
+            "x": 112.5,
+            "y": 350.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\NW_rt1_round3_crop.png"
+        },
+        {
+            "id": "SW UK",
+            "series_name": "SW UK",
+            "label": "SW UK",
+            "axis": "xy",
+            "value": {
+                "x": 212.5,
+                "y": 325.0
+            },
+            "x": 212.5,
+            "y": 325.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\SW UK_rt1_round3_crop.png"
+        },
+        {
+            "id": "East England",
+            "series_name": "East England",
+            "label": "East England",
+            "axis": "xy",
+            "value": {
+                "x": 125.0,
+                "y": 800.0
+            },
+            "x": 125.0,
+            "y": 800.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\East England_rt2_round3_crop.png"
+        },
+        {
+            "id": "South East",
+            "series_name": "South East",
+            "label": "South East",
+            "axis": "xy",
+            "value": {
+                "x": 225.0,
+                "y": 625.0
+            },
+            "x": 225.0,
+            "y": 625.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\South East_rt2_round3_crop.png"
+        },
+        {
+            "id": "London",
+            "series_name": "London",
+            "label": "London",
+            "axis": "xy",
+            "value": {
+                "x": 387.5,
+                "y": 250.0
+            },
+            "x": 387.5,
+            "y": 250.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\London_rt1_round3_crop.png"
+        },
+        {
+            "id": "Scotland",
+            "series_name": "Scotland",
+            "label": "Scotland",
+            "axis": "xy",
+            "value": {
+                "x": 298.913,
+                "y": 150.0
+            },
+            "x": 298.913,
+            "y": 150.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Scotland_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "USA",
+            "series_name": "USA",
+            "label": "USA",
+            "axis": "xy",
+            "value": {
+                "x": 250.0,
+                "y": 825.0
+            },
+            "x": 250.0,
+            "y": 825.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\USA_rt2_round3_crop.png"
+        },
+        {
+            "id": "Euro area",
+            "series_name": "Euro area",
+            "label": "Euro area",
+            "axis": "xy",
+            "value": {
+                "x": 250.0,
+                "y": 375.0
+            },
+            "x": 250.0,
+            "y": 375.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Euro area_rt1_round3_crop.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image",
+            "record_count": 168,
+            "object_count": 14,
+            "predictions": [
+                {
+                    "id": "West Midlands",
+                    "series_name": "West Midlands",
+                    "label": "West Midlands",
+                    "axis": "xy",
+                    "value": {
+                        "x": 87.5,
+                        "y": 425.0
+                    },
+                    "x": 87.5,
+                    "y": 425.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\West Midlands_rt2_round3_crop.png"
+                },
+                {
+                    "id": "East Midlands",
+                    "series_name": "East Midlands",
+                    "label": "East Midlands",
+                    "axis": "xy",
+                    "value": {
+                        "x": 125.0,
+                        "y": 425.0
+                    },
+                    "x": 125.0,
+                    "y": 425.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\East Midlands_rt2_round3_crop.png"
+                },
+                {
+                    "id": "N. Ireland",
+                    "series_name": "N. Ireland",
+                    "label": "N. Ireland",
+                    "axis": "xy",
+                    "value": {
+                        "x": 87.5,
+                        "y": 225.0
+                    },
+                    "x": 87.5,
+                    "y": 225.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\N. Ireland_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Wales",
+                    "series_name": "Wales",
+                    "label": "Wales",
+                    "axis": "xy",
+                    "value": {
+                        "x": 115.0,
+                        "y": 130.0
+                    },
+                    "x": 115.0,
+                    "y": 130.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Wales_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "NE",
+                    "series_name": "NE",
+                    "label": "NE",
+                    "axis": "xy",
+                    "value": {
+                        "x": 98.913,
+                        "y": 150.0
+                    },
+                    "x": 98.913,
+                    "y": 150.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\NE_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "Yorkshire & Humber",
+                    "series_name": "Yorkshire & Humber",
+                    "label": "Yorkshire & Humber",
+                    "axis": "xy",
+                    "value": {
+                        "x": 150.0,
+                        "y": 100.0
+                    },
+                    "x": 150.0,
+                    "y": 100.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Yorkshire & Humber_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "NW",
+                    "series_name": "NW",
+                    "label": "NW",
+                    "axis": "xy",
+                    "value": {
+                        "x": 112.5,
+                        "y": 350.0
+                    },
+                    "x": 112.5,
+                    "y": 350.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\NW_rt1_round3_crop.png"
+                },
+                {
+                    "id": "SW UK",
+                    "series_name": "SW UK",
+                    "label": "SW UK",
+                    "axis": "xy",
+                    "value": {
+                        "x": 212.5,
+                        "y": 325.0
+                    },
+                    "x": 212.5,
+                    "y": 325.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\SW UK_rt1_round3_crop.png"
+                },
+                {
+                    "id": "East England",
+                    "series_name": "East England",
+                    "label": "East England",
+                    "axis": "xy",
+                    "value": {
+                        "x": 125.0,
+                        "y": 800.0
+                    },
+                    "x": 125.0,
+                    "y": 800.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\East England_rt2_round3_crop.png"
+                },
+                {
+                    "id": "South East",
+                    "series_name": "South East",
+                    "label": "South East",
+                    "axis": "xy",
+                    "value": {
+                        "x": 225.0,
+                        "y": 625.0
+                    },
+                    "x": 225.0,
+                    "y": 625.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\South East_rt2_round3_crop.png"
+                },
+                {
+                    "id": "London",
+                    "series_name": "London",
+                    "label": "London",
+                    "axis": "xy",
+                    "value": {
+                        "x": 387.5,
+                        "y": 250.0
+                    },
+                    "x": 387.5,
+                    "y": 250.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\London_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Scotland",
+                    "series_name": "Scotland",
+                    "label": "Scotland",
+                    "axis": "xy",
+                    "value": {
+                        "x": 298.913,
+                        "y": 150.0
+                    },
+                    "x": 298.913,
+                    "y": 150.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Scotland_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "USA",
+                    "series_name": "USA",
+                    "label": "USA",
+                    "axis": "xy",
+                    "value": {
+                        "x": 250.0,
+                        "y": 825.0
+                    },
+                    "x": 250.0,
+                    "y": 825.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\USA_rt2_round3_crop.png"
+                },
+                {
+                    "id": "Euro area",
+                    "series_name": "Euro area",
+                    "label": "Euro area",
+                    "axis": "xy",
+                    "value": {
+                        "x": 250.0,
+                        "y": 375.0
+                    },
+                    "x": 250.0,
+                    "y": 375.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image\\raw_crops\\Euro area_rt1_round3_crop.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image",
+        "chart_type": "scatter",
+        "x_ticks": [
+            0.0,
+            50.0,
+            100.0,
+            150.0,
+            200.0,
+            250.0,
+            300.0,
+            350.0,
+            400.0,
+            450.0,
+            500.0
+        ],
+        "y_ticks": [
+            1000.0,
+            900.0,
+            800.0,
+            700.0,
+            600.0,
+            500.0,
+            400.0,
+            300.0,
+            200.0,
+            100.0,
+            0.0
+        ],
+        "x_pixels": [
+            186,
+            232,
+            280,
+            326,
+            374,
+            420,
+            468,
+            514,
+            560,
+            608,
+            657
+        ],
+        "y_pixels": [
+            14,
+            46,
+            76,
+            108,
+            140,
+            170,
+            202,
+            232,
+            264,
+            296,
+            327
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0,
+            175.0,
+            200.0,
+            225.0,
+            250.0,
+            275.0,
+            300.0,
+            325.0,
+            350.0,
+            375.0,
+            400.0,
+            425.0,
+            450.0,
+            475.0,
+            500.0
+        ],
+        "y_ticks_encrypted": [
+            1000.0,
+            950.0,
+            900.0,
+            850.0,
+            800.0,
+            750.0,
+            700.0,
+            650.0,
+            600.0,
+            550.0,
+            500.0,
+            450.0,
+            400.0,
+            350.0,
+            300.0,
+            250.0,
+            200.0,
+            150.0,
+            100.0,
+            50.0,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            186,
+            209,
+            232,
+            256,
+            280,
+            303,
+            326,
+            350,
+            374,
+            397,
+            420,
+            444,
+            468,
+            491,
+            514,
+            537,
+            560,
+            584,
+            608,
+            632,
+            657
+        ],
+        "y_pixels_encrypted": [
+            14,
+            30,
+            46,
+            61,
+            76,
+            92,
+            108,
+            124,
+            140,
+            155,
+            170,
+            186,
+            202,
+            217,
+            232,
+            248,
+            264,
+            280,
+            296,
+            312,
+            327
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.0,
+                "right_tick": 50.0,
+                "left_pixel": 186,
+                "right_pixel": 232,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.0,
+                "label_axis_extent": 33.0,
+                "required_spacing": 41.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 50.0,
+                "right_tick": 100.0,
+                "left_pixel": 232,
+                "right_pixel": 280,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.0,
+                "label_axis_extent": 30.0,
+                "required_spacing": 38.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 100.0,
+                "right_tick": 150.0,
+                "left_pixel": 280,
+                "right_pixel": 326,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.0,
+                "label_axis_extent": 32.0,
+                "required_spacing": 40.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 150.0,
+                "right_tick": 200.0,
+                "left_pixel": 326,
+                "right_pixel": 374,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.0,
+                "label_axis_extent": 33.0,
+                "required_spacing": 41.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 200.0,
+                "right_tick": 250.0,
+                "left_pixel": 374,
+                "right_pixel": 420,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.0,
+                "label_axis_extent": 33.0,
+                "required_spacing": 41.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 250.0,
+                "right_tick": 300.0,
+                "left_pixel": 420,
+                "right_pixel": 468,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.0,
+                "label_axis_extent": 35.0,
+                "required_spacing": 44.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 300.0,
+                "right_tick": 350.0,
+                "left_pixel": 468,
+                "right_pixel": 514,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.0,
+                "label_axis_extent": 35.0,
+                "required_spacing": 44.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 350.0,
+                "right_tick": 400.0,
+                "left_pixel": 514,
+                "right_pixel": 560,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.0,
+                "label_axis_extent": 35.0,
+                "required_spacing": 44.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 400.0,
+                "right_tick": 450.0,
+                "left_pixel": 560,
+                "right_pixel": 608,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.0,
+                "label_axis_extent": 35.0,
+                "required_spacing": 44.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 450.0,
+                "right_tick": 500.0,
+                "left_pixel": 608,
+                "right_pixel": 657,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.5,
+                "label_axis_extent": 43.0,
+                "required_spacing": 53.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 1000.0,
+                "right_tick": 900.0,
+                "left_pixel": 14,
+                "right_pixel": 46,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 900.0,
+                "right_tick": 800.0,
+                "left_pixel": 46,
+                "right_pixel": 76,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 15.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 800.0,
+                "right_tick": 700.0,
+                "left_pixel": 76,
+                "right_pixel": 108,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 700.0,
+                "right_tick": 600.0,
+                "left_pixel": 108,
+                "right_pixel": 140,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 600.0,
+                "right_tick": 500.0,
+                "left_pixel": 140,
+                "right_pixel": 170,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 15.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 500.0,
+                "right_tick": 400.0,
+                "left_pixel": 170,
+                "right_pixel": 202,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 400.0,
+                "right_tick": 300.0,
+                "left_pixel": 202,
+                "right_pixel": 232,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 15.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 300.0,
+                "right_tick": 200.0,
+                "left_pixel": 232,
+                "right_pixel": 264,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 200.0,
+                "right_tick": 100.0,
+                "left_pixel": 264,
+                "right_pixel": 296,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 16.0,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 100.0,
+                "right_tick": 0.0,
+                "left_pixel": 296,
+                "right_pixel": 327,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 15.5,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "West Midlands",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "East Midlands",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "N. Ireland",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "Wales",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "NE",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "Yorkshire & Humber",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "NW",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "SW UK",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "East England",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "South East",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "London",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "Scotland",
+                "color": "#e41a1c"
+            },
+            {
+                "name": "USA",
+                "color": "#ffff33"
+            },
+            {
+                "name": "Euro area",
+                "color": "#4d4dff"
+            }
+        ],
+        "series_color": {
+            "West Midlands": "#e41a1c",
+            "East Midlands": "#e41a1c",
+            "N. Ireland": "#e41a1c",
+            "Wales": "#e41a1c",
+            "NE": "#e41a1c",
+            "Yorkshire & Humber": "#e41a1c",
+            "NW": "#e41a1c",
+            "SW UK": "#e41a1c",
+            "East England": "#e41a1c",
+            "South East": "#e41a1c",
+            "London": "#e41a1c",
+            "Scotland": "#e41a1c",
+            "USA": "#ffff33",
+            "Euro area": "#4d4dff"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "unknown",
+                "confidence": 1.0,
+                "reason": "The chart has clear x and y axes with numerical tick labels and explicit axis lines.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "0",
+                        "50",
+                        "100",
+                        "150",
+                        "200",
+                        "250",
+                        "300",
+                        "350",
+                        "400",
+                        "450",
+                        "500"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "100",
+                        "200",
+                        "300",
+                        "400",
+                        "500",
+                        "600",
+                        "700",
+                        "800",
+                        "900",
+                        "1000"
+                    ],
+                    "x_ticks_encrypted": [
+                        "0.0",
+                        "25.0",
+                        "50.0",
+                        "75.0",
+                        "100.0",
+                        "125.0",
+                        "150.0",
+                        "175.0",
+                        "200.0",
+                        "225.0",
+                        "250.0",
+                        "275.0",
+                        "300.0",
+                        "325.0",
+                        "350.0",
+                        "375.0",
+                        "400.0",
+                        "425.0",
+                        "450.0",
+                        "475.0",
+                        "500.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "50.0",
+                        "100.0",
+                        "150.0",
+                        "200.0",
+                        "250.0",
+                        "300.0",
+                        "350.0",
+                        "400.0",
+                        "450.0",
+                        "500.0",
+                        "550.0",
+                        "600.0",
+                        "650.0",
+                        "700.0",
+                        "750.0",
+                        "800.0",
+                        "850.0",
+                        "900.0",
+                        "950.0",
+                        "1000.0"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "West Midlands",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "East Midlands",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "N. Ireland",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "Wales",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "NE",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "Yorkshire & Humber",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "NW",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "SW UK",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "East England",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "South East",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "London",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "Scotland",
+                            "color": "#e41a1c"
+                        },
+                        {
+                            "name": "USA",
+                            "color": "#ffff33"
+                        },
+                        {
+                            "name": "Euro area",
+                            "color": "#4d4dff"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "point_labels"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_final1.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_final1_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_final1_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\ScatterPlot8_f7dc4e8b\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot8_f7dc4e8b_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2e3eab79c9b68006\\output\\2e3eab79c9b68006_original_grid.png"
+        }
+    }
+}

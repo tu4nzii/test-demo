@@ -1,0 +1,778 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_7f13865527ea6869",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_ticks.json",
+    "summary": {
+        "object_count": 14,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Stream #0, 1.0",
+            "series_name": "Stream #0",
+            "label": "1.0",
+            "axis": "y",
+            "value": 0.108,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 1.0_round3_attempt2.png"
+        },
+        {
+            "id": "Stream #0, 3.0",
+            "series_name": "Stream #0",
+            "label": "3.0",
+            "axis": "y",
+            "value": 0.17,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 3.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #0, 5.0",
+            "series_name": "Stream #0",
+            "label": "5.0",
+            "axis": "y",
+            "value": 0.075,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 5.0_round3_attempt2.png"
+        },
+        {
+            "id": "Stream #0, 7.0",
+            "series_name": "Stream #0",
+            "label": "7.0",
+            "axis": "y",
+            "value": 0.11,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 7.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #0, 9.0",
+            "series_name": "Stream #0",
+            "label": "9.0",
+            "axis": "y",
+            "value": 0.16,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 9.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #0, 11.0",
+            "series_name": "Stream #0",
+            "label": "11.0",
+            "axis": "y",
+            "value": 0.172,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 11.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #1, 3.0",
+            "series_name": "Stream #1",
+            "label": "3.0",
+            "axis": "y",
+            "value": 0.03,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 3.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #1, 5.0",
+            "series_name": "Stream #1",
+            "label": "5.0",
+            "axis": "y",
+            "value": 0.16,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 5.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #1, 11.0",
+            "series_name": "Stream #1",
+            "label": "11.0",
+            "axis": "y",
+            "value": 0.17,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 11.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #2, 1.0",
+            "series_name": "Stream #2",
+            "label": "1.0",
+            "axis": "y",
+            "value": 0.18,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 1.0_round2_attempt2.png"
+        },
+        {
+            "id": "Stream #2, 3.0",
+            "series_name": "Stream #2",
+            "label": "3.0",
+            "axis": "y",
+            "value": 0.25,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\overlay_Stream #2, 3.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Stream #2, 7.0",
+            "series_name": "Stream #2",
+            "label": "7.0",
+            "axis": "y",
+            "value": 0.108,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 7.0_round3_attempt0.png"
+        },
+        {
+            "id": "Stream #2, 9.0",
+            "series_name": "Stream #2",
+            "label": "9.0",
+            "axis": "y",
+            "value": 0.19,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 9.0_round3_attempt4.png"
+        },
+        {
+            "id": "Stream #2, 11.0",
+            "series_name": "Stream #2",
+            "label": "11.0",
+            "axis": "y",
+            "value": 0.156,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 11.0_round1_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image",
+            "record_count": 204,
+            "object_count": 18,
+            "predictions": [
+                {
+                    "id": "Stream #0, 1.0",
+                    "series_name": "Stream #0",
+                    "label": "1.0",
+                    "axis": "y",
+                    "value": 0.108,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 1.0_round3_attempt2.png"
+                },
+                {
+                    "id": "Stream #0, 3.0",
+                    "series_name": "Stream #0",
+                    "label": "3.0",
+                    "axis": "y",
+                    "value": 0.17,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 3.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #0, 5.0",
+                    "series_name": "Stream #0",
+                    "label": "5.0",
+                    "axis": "y",
+                    "value": 0.075,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 5.0_round3_attempt2.png"
+                },
+                {
+                    "id": "Stream #0, 7.0",
+                    "series_name": "Stream #0",
+                    "label": "7.0",
+                    "axis": "y",
+                    "value": 0.11,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 7.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #0, 9.0",
+                    "series_name": "Stream #0",
+                    "label": "9.0",
+                    "axis": "y",
+                    "value": 0.16,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 9.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #0, 11.0",
+                    "series_name": "Stream #0",
+                    "label": "11.0",
+                    "axis": "y",
+                    "value": 0.172,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #0, 11.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #1, 1.0",
+                    "series_name": "Stream #1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 1.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Stream #1, 3.0",
+                    "series_name": "Stream #1",
+                    "label": "3.0",
+                    "axis": "y",
+                    "value": 0.03,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 3.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #1, 5.0",
+                    "series_name": "Stream #1",
+                    "label": "5.0",
+                    "axis": "y",
+                    "value": 0.16,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 5.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #1, 7.0",
+                    "series_name": "Stream #1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 7.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Stream #1, 9.0",
+                    "series_name": "Stream #1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 9.0_round1_attempt2.png"
+                },
+                {
+                    "id": "Stream #1, 11.0",
+                    "series_name": "Stream #1",
+                    "label": "11.0",
+                    "axis": "y",
+                    "value": 0.17,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #1, 11.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #2, 1.0",
+                    "series_name": "Stream #2",
+                    "label": "1.0",
+                    "axis": "y",
+                    "value": 0.18,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 1.0_round2_attempt2.png"
+                },
+                {
+                    "id": "Stream #2, 3.0",
+                    "series_name": "Stream #2",
+                    "label": "3.0",
+                    "axis": "y",
+                    "value": 0.25,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\overlay_Stream #2, 3.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Stream #2, 5.0",
+                    "series_name": "Stream #2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 5.0_round3_attempt2.png"
+                },
+                {
+                    "id": "Stream #2, 7.0",
+                    "series_name": "Stream #2",
+                    "label": "7.0",
+                    "axis": "y",
+                    "value": 0.108,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 7.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Stream #2, 9.0",
+                    "series_name": "Stream #2",
+                    "label": "9.0",
+                    "axis": "y",
+                    "value": 0.19,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 9.0_round3_attempt4.png"
+                },
+                {
+                    "id": "Stream #2, 11.0",
+                    "series_name": "Stream #2",
+                    "label": "11.0",
+                    "axis": "y",
+                    "value": 0.156,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image\\tempy\\amplifier_crop_Stream #2, 11.0_round1_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            1.0,
+            3.0,
+            5.0,
+            7.0,
+            9.0,
+            11.0
+        ],
+        "y_ticks": [
+            5.4,
+            5.0,
+            4.5,
+            4.0,
+            3.5,
+            3.0,
+            2.5,
+            2.0,
+            1.5,
+            1.0,
+            0.5,
+            0.0
+        ],
+        "x_pixels": [
+            159,
+            290,
+            421,
+            552,
+            683,
+            815
+        ],
+        "y_pixels": [
+            21,
+            60,
+            98,
+            138,
+            176,
+            216,
+            254,
+            294,
+            333,
+            372,
+            410,
+            448
+        ],
+        "x_ticks_encrypted": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+            7.0,
+            8.0,
+            9.0,
+            10.0,
+            11.0
+        ],
+        "y_ticks_encrypted": [
+            5.4,
+            5.2,
+            5.0,
+            4.75,
+            4.5,
+            4.25,
+            4.0,
+            3.75,
+            3.5,
+            3.25,
+            3.0,
+            2.75,
+            2.5,
+            2.25,
+            2.0,
+            1.75,
+            1.5,
+            1.25,
+            1.0,
+            0.75,
+            0.5,
+            0.25,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            159,
+            224,
+            290,
+            356,
+            421,
+            486,
+            552,
+            618,
+            683,
+            749,
+            815
+        ],
+        "y_pixels_encrypted": [
+            21,
+            40,
+            60,
+            79,
+            98,
+            118,
+            138,
+            157,
+            176,
+            196,
+            216,
+            235,
+            254,
+            274,
+            294,
+            314,
+            333,
+            352,
+            372,
+            391,
+            410,
+            429,
+            448
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 5.4,
+                "right_tick": 5.0,
+                "left_pixel": 21,
+                "right_pixel": 60,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.5,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 5.0,
+                "right_tick": 4.5,
+                "left_pixel": 60,
+                "right_pixel": 98,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 4.5,
+                "right_tick": 4.0,
+                "left_pixel": 98,
+                "right_pixel": 138,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 20.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 4.0,
+                "right_tick": 3.5,
+                "left_pixel": 138,
+                "right_pixel": 176,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 3.5,
+                "right_tick": 3.0,
+                "left_pixel": 176,
+                "right_pixel": 216,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 20.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 3.0,
+                "right_tick": 2.5,
+                "left_pixel": 216,
+                "right_pixel": 254,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 2.5,
+                "right_tick": 2.0,
+                "left_pixel": 254,
+                "right_pixel": 294,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 20.0,
+                "label_axis_extent": 23.0,
+                "required_spacing": 29.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 2.0,
+                "right_tick": 1.5,
+                "left_pixel": 294,
+                "right_pixel": 333,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.5,
+                "label_axis_extent": 21.0,
+                "required_spacing": 27.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 1.5,
+                "right_tick": 1.0,
+                "left_pixel": 333,
+                "right_pixel": 372,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.5,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 1.0,
+                "right_tick": 0.5,
+                "left_pixel": 372,
+                "right_pixel": 410,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.0,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 0.5,
+                "right_tick": 0.0,
+                "left_pixel": 410,
+                "right_pixel": 448,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 19.0,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Stream #0",
+                "color": "#1f77b4"
+            },
+            {
+                "name": "Stream #1",
+                "color": "#aec7e8"
+            },
+            {
+                "name": "Stream #2",
+                "color": "#ff7f0e"
+            }
+        ],
+        "series_color": {
+            "Stream #0": "#1f77b4",
+            "Stream #1": "#aec7e8",
+            "Stream #2": "#ff7f0e"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "grouped",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a vertical bar chart with grouped bars. Both x and y axes are clearly visible with ticks and labels. The x-axis represents categories, and the y-axis represents numerical values.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "1",
+                        "3",
+                        "5",
+                        "7",
+                        "9",
+                        "11"
+                    ],
+                    "y_ticks": [
+                        "0.0",
+                        "0.5",
+                        "1.0",
+                        "1.5",
+                        "2.0",
+                        "2.5",
+                        "3.0",
+                        "3.5",
+                        "4.0",
+                        "4.5",
+                        "5.0",
+                        "5.4"
+                    ],
+                    "x_ticks_encrypted": [
+                        "1",
+                        "3",
+                        "5",
+                        "7",
+                        "9",
+                        "11"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "0.25",
+                        "0.5",
+                        "0.75",
+                        "1.0",
+                        "1.25",
+                        "1.5",
+                        "1.75",
+                        "2.0",
+                        "2.25",
+                        "2.5",
+                        "2.75",
+                        "3.0",
+                        "3.25",
+                        "3.5",
+                        "3.75",
+                        "4.0",
+                        "4.25",
+                        "4.5",
+                        "4.75",
+                        "5.0",
+                        "5.2",
+                        "5.4"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Stream #0",
+                            "color": "#1f77b4"
+                        },
+                        {
+                            "name": "Stream #1",
+                            "color": "#aec7e8"
+                        },
+                        {
+                            "name": "Stream #2",
+                            "color": "#ff7f0e"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart10_a22318d0\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart10_a22318d0_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7f13865527ea6869\\output\\7f13865527ea6869_original_grid.png"
+        }
+    }
+}
