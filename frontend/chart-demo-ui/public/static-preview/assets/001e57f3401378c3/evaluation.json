@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_001e57f3401378c3",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "UKOLQP, UKOLQP",
+            "series_name": "UKOLQP",
+            "theta_label": "UKOLQP",
+            "label": "UKOLQP",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\001e57f3401378c3_original.png"
+        },
+        {
+            "id": "UKOLQP, LIVQR",
+            "series_name": "UKOLQP",
+            "theta_label": "LIVQR",
+            "label": "LIVQR",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+        },
+        {
+            "id": "LIVQR, UKOLQP",
+            "series_name": "LIVQR",
+            "theta_label": "UKOLQP",
+            "label": "UKOLQP",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+        },
+        {
+            "id": "LIVQR, LIVQR",
+            "series_name": "LIVQR",
+            "theta_label": "LIVQR",
+            "label": "LIVQR",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_001e57f3401378c3",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_001e57f3401378c3",
+            "record_count": 8,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "UKOLQP, UKOLQP",
+                    "series_name": "UKOLQP",
+                    "theta_label": "UKOLQP",
+                    "label": "UKOLQP",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\001e57f3401378c3_original.png"
+                },
+                {
+                    "id": "UKOLQP, LIVQR",
+                    "series_name": "UKOLQP",
+                    "theta_label": "LIVQR",
+                    "label": "LIVQR",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+                },
+                {
+                    "id": "LIVQR, UKOLQP",
+                    "series_name": "LIVQR",
+                    "theta_label": "UKOLQP",
+                    "label": "UKOLQP",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+                },
+                {
+                    "id": "LIVQR, LIVQR",
+                    "series_name": "LIVQR",
+                    "theta_label": "LIVQR",
+                    "label": "LIVQR",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "UKOLQP": "#CBCC55",
+            "LIVQR": "#C7B3D6"
+        },
+        "colors": [
+            {
+                "name": "UKOLQP",
+                "color": "#CBCC55"
+            },
+            {
+                "name": "LIVQR",
+                "color": "#C7B3D6"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\legend_default_001e57f3401378c3_original.png",
+        "chart_id": "dataset_001e57f3401378c3",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\001e57f3401378c3_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\001e57f3401378c3\\output\\001e57f3401378c3_original_encode.png"
+        }
+    }
+}

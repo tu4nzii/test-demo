@@ -38,6 +38,7 @@ jobs:
         env:
           VITE_BASE: /test-demo/
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_STATIC_PREVIEW_ONLY: true
 
       - name: Disable Jekyll
         run: touch dist/.nojekyll

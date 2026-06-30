@@ -1,0 +1,882 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_077db148eb556378",
+    "chart_type": "bubble",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_ticks.json",
+    "summary": {
+        "object_count": 13,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "United States",
+            "series_name": "United States",
+            "label": "United States",
+            "axis": "xy",
+            "value": {
+                "x": 67.0,
+                "y": 125.0
+            },
+            "x": 67.0,
+            "y": 125.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\United States_rt2_round3_crop.png"
+        },
+        {
+            "id": "New Zealand",
+            "series_name": "New Zealand",
+            "label": "New Zealand",
+            "axis": "xy",
+            "value": {
+                "x": 66.25,
+                "y": 81.25
+            },
+            "x": 66.25,
+            "y": 81.25,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\New Zealand_rt1_round3_crop.png"
+        },
+        {
+            "id": "Hungary",
+            "series_name": "Hungary",
+            "label": "Hungary",
+            "axis": "xy",
+            "value": {
+                "x": 67.5,
+                "y": 50.0
+            },
+            "x": 67.5,
+            "y": 50.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Hungary_rt1_round3_crop.png"
+        },
+        {
+            "id": "United Kingdom",
+            "series_name": "United Kingdom",
+            "label": "United Kingdom",
+            "axis": "xy",
+            "value": {
+                "x": 75.0,
+                "y": 87.5
+            },
+            "x": 75.0,
+            "y": 87.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\United Kingdom_rt1_round3_crop.png"
+        },
+        {
+            "id": "Norway",
+            "series_name": "Norway",
+            "label": "Norway",
+            "axis": "xy",
+            "value": {
+                "x": 72.5,
+                "y": 81.25
+            },
+            "x": 72.5,
+            "y": 81.25,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Norway_rt1_round3_crop.png"
+        },
+        {
+            "id": "Italy",
+            "series_name": "Italy",
+            "label": "Italy",
+            "axis": "xy",
+            "value": {
+                "x": 70.0,
+                "y": 56.25
+            },
+            "x": 70.0,
+            "y": 56.25,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Italy_rt1_round3_crop.png"
+        },
+        {
+            "id": "France",
+            "series_name": "France",
+            "label": "France",
+            "axis": "xy",
+            "value": {
+                "x": 75.0,
+                "y": 68.75
+            },
+            "x": 75.0,
+            "y": 68.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\France_rt1_round3_crop.png"
+        },
+        {
+            "id": "Russia",
+            "series_name": "Russia",
+            "label": "Russia",
+            "axis": "xy",
+            "value": {
+                "x": 67.5,
+                "y": 15.625
+            },
+            "x": 67.5,
+            "y": 15.625,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Russia_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "Finland",
+            "series_name": "Finland",
+            "label": "Finland",
+            "axis": "xy",
+            "value": {
+                "x": 85.0,
+                "y": 87.5
+            },
+            "x": 85.0,
+            "y": 87.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Finland_rt1_round3_crop.png"
+        },
+        {
+            "id": "Netherlands",
+            "series_name": "Netherlands",
+            "label": "Netherlands",
+            "axis": "xy",
+            "value": {
+                "x": 80.0,
+                "y": 100.0
+            },
+            "x": 80.0,
+            "y": 100.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Netherlands_rt2_round3_crop.png"
+        },
+        {
+            "id": "Spain",
+            "series_name": "Spain",
+            "label": "Spain",
+            "axis": "xy",
+            "value": {
+                "x": 78.75,
+                "y": 68.75
+            },
+            "x": 78.75,
+            "y": 68.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Spain_rt1_round3_crop.png"
+        },
+        {
+            "id": "Germany",
+            "series_name": "Germany",
+            "label": "Germany",
+            "axis": "xy",
+            "value": {
+                "x": 86.25,
+                "y": 100.0
+            },
+            "x": 86.25,
+            "y": 100.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Germany_rt2_round3_crop.png"
+        },
+        {
+            "id": "Belgium",
+            "series_name": "Belgium",
+            "label": "Belgium",
+            "axis": "xy",
+            "value": {
+                "x": 93.75,
+                "y": 75.0
+            },
+            "x": 93.75,
+            "y": 75.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Belgium_rt2_round3_crop.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image",
+            "record_count": 156,
+            "object_count": 13,
+            "predictions": [
+                {
+                    "id": "United States",
+                    "series_name": "United States",
+                    "label": "United States",
+                    "axis": "xy",
+                    "value": {
+                        "x": 67.0,
+                        "y": 125.0
+                    },
+                    "x": 67.0,
+                    "y": 125.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\United States_rt2_round3_crop.png"
+                },
+                {
+                    "id": "New Zealand",
+                    "series_name": "New Zealand",
+                    "label": "New Zealand",
+                    "axis": "xy",
+                    "value": {
+                        "x": 66.25,
+                        "y": 81.25
+                    },
+                    "x": 66.25,
+                    "y": 81.25,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\New Zealand_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Hungary",
+                    "series_name": "Hungary",
+                    "label": "Hungary",
+                    "axis": "xy",
+                    "value": {
+                        "x": 67.5,
+                        "y": 50.0
+                    },
+                    "x": 67.5,
+                    "y": 50.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Hungary_rt1_round3_crop.png"
+                },
+                {
+                    "id": "United Kingdom",
+                    "series_name": "United Kingdom",
+                    "label": "United Kingdom",
+                    "axis": "xy",
+                    "value": {
+                        "x": 75.0,
+                        "y": 87.5
+                    },
+                    "x": 75.0,
+                    "y": 87.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\United Kingdom_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Norway",
+                    "series_name": "Norway",
+                    "label": "Norway",
+                    "axis": "xy",
+                    "value": {
+                        "x": 72.5,
+                        "y": 81.25
+                    },
+                    "x": 72.5,
+                    "y": 81.25,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Norway_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Italy",
+                    "series_name": "Italy",
+                    "label": "Italy",
+                    "axis": "xy",
+                    "value": {
+                        "x": 70.0,
+                        "y": 56.25
+                    },
+                    "x": 70.0,
+                    "y": 56.25,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Italy_rt1_round3_crop.png"
+                },
+                {
+                    "id": "France",
+                    "series_name": "France",
+                    "label": "France",
+                    "axis": "xy",
+                    "value": {
+                        "x": 75.0,
+                        "y": 68.75
+                    },
+                    "x": 75.0,
+                    "y": 68.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\France_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Russia",
+                    "series_name": "Russia",
+                    "label": "Russia",
+                    "axis": "xy",
+                    "value": {
+                        "x": 67.5,
+                        "y": 15.625
+                    },
+                    "x": 67.5,
+                    "y": 15.625,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Russia_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "Finland",
+                    "series_name": "Finland",
+                    "label": "Finland",
+                    "axis": "xy",
+                    "value": {
+                        "x": 85.0,
+                        "y": 87.5
+                    },
+                    "x": 85.0,
+                    "y": 87.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Finland_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Netherlands",
+                    "series_name": "Netherlands",
+                    "label": "Netherlands",
+                    "axis": "xy",
+                    "value": {
+                        "x": 80.0,
+                        "y": 100.0
+                    },
+                    "x": 80.0,
+                    "y": 100.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Netherlands_rt2_round3_crop.png"
+                },
+                {
+                    "id": "Spain",
+                    "series_name": "Spain",
+                    "label": "Spain",
+                    "axis": "xy",
+                    "value": {
+                        "x": 78.75,
+                        "y": 68.75
+                    },
+                    "x": 78.75,
+                    "y": 68.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Spain_rt1_round3_crop.png"
+                },
+                {
+                    "id": "Germany",
+                    "series_name": "Germany",
+                    "label": "Germany",
+                    "axis": "xy",
+                    "value": {
+                        "x": 86.25,
+                        "y": 100.0
+                    },
+                    "x": 86.25,
+                    "y": 100.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Germany_rt2_round3_crop.png"
+                },
+                {
+                    "id": "Belgium",
+                    "series_name": "Belgium",
+                    "label": "Belgium",
+                    "axis": "xy",
+                    "value": {
+                        "x": 93.75,
+                        "y": 75.0
+                    },
+                    "x": 93.75,
+                    "y": 75.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\bubble\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image\\raw_crops\\Belgium_rt2_round3_crop.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image",
+        "chart_type": "bubble",
+        "x_ticks": [
+            65.0,
+            70.0,
+            75.0,
+            80.0,
+            85.0,
+            90.0,
+            95.0
+        ],
+        "y_ticks": [
+            150.0,
+            125.0,
+            100.0,
+            75.0,
+            50.0,
+            25.0,
+            0.0
+        ],
+        "x_pixels": [
+            143,
+            212,
+            281,
+            351,
+            420,
+            489,
+            559
+        ],
+        "y_pixels": [
+            52,
+            100,
+            149,
+            196,
+            243,
+            292,
+            340
+        ],
+        "x_ticks_encrypted": [
+            65.0,
+            67.5,
+            70.0,
+            72.5,
+            75.0,
+            77.5,
+            80.0,
+            82.5,
+            85.0,
+            87.5,
+            90.0,
+            92.5,
+            95.0
+        ],
+        "y_ticks_encrypted": [
+            150.0,
+            137.5,
+            125.0,
+            112.5,
+            100.0,
+            87.5,
+            75.0,
+            62.5,
+            50.0,
+            37.5,
+            25.0,
+            12.5,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            143,
+            178,
+            212,
+            246,
+            281,
+            316,
+            351,
+            386,
+            420,
+            454,
+            489,
+            524,
+            559
+        ],
+        "y_pixels_encrypted": [
+            52,
+            76,
+            100,
+            124,
+            149,
+            172,
+            196,
+            220,
+            243,
+            268,
+            292,
+            316,
+            340
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 65.0,
+                "right_tick": 70.0,
+                "left_pixel": 143,
+                "right_pixel": 212,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 34.5,
+                "label_axis_extent": 38.0,
+                "required_spacing": 47.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 70.0,
+                "right_tick": 75.0,
+                "left_pixel": 212,
+                "right_pixel": 281,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 34.5,
+                "label_axis_extent": 37.0,
+                "required_spacing": 46.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 75.0,
+                "right_tick": 80.0,
+                "left_pixel": 281,
+                "right_pixel": 351,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 35.0,
+                "label_axis_extent": 37.0,
+                "required_spacing": 46.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 80.0,
+                "right_tick": 85.0,
+                "left_pixel": 351,
+                "right_pixel": 420,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 34.5,
+                "label_axis_extent": 37.0,
+                "required_spacing": 46.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 85.0,
+                "right_tick": 90.0,
+                "left_pixel": 420,
+                "right_pixel": 489,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 34.5,
+                "label_axis_extent": 39.0,
+                "required_spacing": 48.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 90.0,
+                "right_tick": 95.0,
+                "left_pixel": 489,
+                "right_pixel": 559,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 35.0,
+                "label_axis_extent": 40.0,
+                "required_spacing": 50.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 100.0,
+                "right_tick": 75.0,
+                "left_pixel": 149,
+                "right_pixel": 196,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.5,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 75.0,
+                "right_tick": 50.0,
+                "left_pixel": 196,
+                "right_pixel": 243,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 23.5,
+                "label_axis_extent": 20.0,
+                "required_spacing": 26.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 25.0,
+                "right_tick": 0.0,
+                "left_pixel": 292,
+                "right_pixel": 340,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 24.0,
+                "label_axis_extent": 21.0,
+                "required_spacing": 27.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "United States",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "New Zealand",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Hungary",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "United Kingdom",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Norway",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Italy",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "France",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Russia",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Finland",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Netherlands",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Spain",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Germany",
+                "color": "#a2a2f0"
+            },
+            {
+                "name": "Belgium",
+                "color": "#a2a2f0"
+            }
+        ],
+        "series_color": {
+            "United States": "#a2a2f0",
+            "New Zealand": "#a2a2f0",
+            "Hungary": "#a2a2f0",
+            "United Kingdom": "#a2a2f0",
+            "Norway": "#a2a2f0",
+            "Italy": "#a2a2f0",
+            "France": "#a2a2f0",
+            "Russia": "#a2a2f0",
+            "Finland": "#a2a2f0",
+            "Netherlands": "#a2a2f0",
+            "Spain": "#a2a2f0",
+            "Germany": "#a2a2f0",
+            "Belgium": "#a2a2f0"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 1.0,
+                "reason": "The chart has clear x and y axes with numeric labels and tick marks. Background grid lines are also present.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "65 gr",
+                        "70 gr",
+                        "75 gr",
+                        "80 gr",
+                        "85 gr",
+                        "90 gr",
+                        "95 gr"
+                    ],
+                    "y_ticks": [
+                        "0 gr",
+                        "25 gr",
+                        "50 gr",
+                        "75 gr",
+                        "100 gr",
+                        "125 gr",
+                        "150 gr"
+                    ],
+                    "x_ticks_encrypted": [
+                        "65.0",
+                        "67.5",
+                        "70.0",
+                        "72.5",
+                        "75.0",
+                        "77.5",
+                        "80.0",
+                        "82.5",
+                        "85.0",
+                        "87.5",
+                        "90.0",
+                        "92.5",
+                        "95.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "12.5",
+                        "25.0",
+                        "37.5",
+                        "50.0",
+                        "62.5",
+                        "75.0",
+                        "87.5",
+                        "100.0",
+                        "112.5",
+                        "125.0",
+                        "137.5",
+                        "150.0"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "United States",
+                            "color": null
+                        },
+                        {
+                            "name": "New Zealand",
+                            "color": null
+                        },
+                        {
+                            "name": "Hungary",
+                            "color": null
+                        },
+                        {
+                            "name": "Russia",
+                            "color": null
+                        },
+                        {
+                            "name": "Italy",
+                            "color": null
+                        },
+                        {
+                            "name": "France",
+                            "color": null
+                        },
+                        {
+                            "name": "Norway",
+                            "color": null
+                        },
+                        {
+                            "name": "United Kingdom",
+                            "color": null
+                        },
+                        {
+                            "name": "Spain",
+                            "color": null
+                        },
+                        {
+                            "name": "Finland",
+                            "color": null
+                        },
+                        {
+                            "name": "Netherlands",
+                            "color": null
+                        },
+                        {
+                            "name": "Germany",
+                            "color": null
+                        },
+                        {
+                            "name": "Belgium",
+                            "color": null
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "point_labels"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_finalH1V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_finalH1V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_finalH1V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\BubbleChart19_bac35d77\\work\\vishint_Final-Re_fbdfbc9a_ALL_BubbleChart19_bac35d77_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\077db148eb556378\\output\\077db148eb556378_original_grid.png"
+        }
+    }
+}

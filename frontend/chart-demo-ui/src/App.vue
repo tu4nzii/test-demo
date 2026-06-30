@@ -6,6 +6,9 @@ import axios from 'axios';
 // --- Reactive State ---
 // Backend API URL
 const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+const STATIC_PREVIEW_BASE = `${import.meta.env.BASE_URL || '/'}static-preview`;
+const FORCE_STATIC_PREVIEW = import.meta.env.VITE_STATIC_PREVIEW_ONLY === 'true'
+  || (!import.meta.env.VITE_API_URL && typeof window !== 'undefined' && window.location.hostname.endsWith('github.io'));
 
 // File holders
 const imageFile = ref(null);
@@ -39,7 +42,10 @@ const datasetSource = ref('realworld');
 const datasetCategory = ref('');
 const datasetCategories = ref([]);
 const selectedDatasetSampleId = ref('');
+const selectedStaticDatasetSample = ref(null);
 const isLoadingDataset = ref(false);
+const staticPreviewManifest = ref(null);
+const staticPreviewMode = ref(FORCE_STATIC_PREVIEW);
 const datasetSourceOptions = [
   { value: 'realworld', label: 'Final-RealDataset' },
   { value: 'synthetic', label: 'Sy.Dataset' },
@@ -72,7 +78,7 @@ function startMessageCountdown() {
 }
 
 // --- Computed Properties for Disabling Buttons ---
-const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value);
+const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value || staticPreviewMode.value);
 const isProcessDisabled = computed(() => !chartId.value || isLoadingProcess.value);
 const isEvaluateDisabled = computed(() => !processedImageUrl.value || isLoadingEvaluate.value);
 const hasColoredGridPreview = computed(() => Boolean(processedColoredImageUrl.value));
@@ -299,6 +305,56 @@ function datasetCategoryDisplayLabel(category) {
   return category?.label || '';
 }
 
+function joinUrl(base, path) {
+  if (!path) return '';
+  const value = String(path);
+  if (/^https?:\/\//i.test(value) || value.startsWith('blob:') || value.startsWith('data:')) {
+    return value;
+  }
+  return `${String(base).replace(/\/+$/, '')}/${value.replace(/^\/+/, '')}`;
+}
+
+function staticPreviewUrl(path) {
+  return joinUrl(STATIC_PREVIEW_BASE, path);
+}
+
+function backendUrl(path) {
+  return joinUrl(API_URL, path);
+}
+
+function sampleImageSrc(sample) {
+  if (!sample) return '';
+  return sample.static_preview ? staticPreviewUrl(sample.image_url) : backendUrl(sample.image_url);
+}
+
+async function loadStaticPreviewManifest() {
+  if (staticPreviewManifest.value) return staticPreviewManifest.value;
+  const response = await axios.get(staticPreviewUrl('manifest.json'));
+  staticPreviewManifest.value = response.data || {};
+  return staticPreviewManifest.value;
+}
+
+function currentStaticSource() {
+  const sources = staticPreviewManifest.value?.sources || {};
+  return sources[datasetSource.value] || null;
+}
+
+function applyStaticDatasetCategories() {
+  const source = currentStaticSource();
+  datasetCategories.value = Array.isArray(source?.categories) ? source.categories : [];
+  if (!datasetCategory.value || !datasetCategories.value.some((item) => item.value === datasetCategory.value)) {
+    datasetCategory.value = datasetCategories.value[0]?.value || '';
+  }
+}
+
+function applyStaticDatasetSamples() {
+  const source = currentStaticSource();
+  const samples = Array.isArray(source?.samples) ? source.samples : [];
+  datasetSamples.value = samples
+    .filter((sample) => !datasetCategory.value || datasetCategory.value === 'all' || sample.category === datasetCategory.value)
+    .slice(0, 36);
+}
+
 function predictionNumericValue(item) {
   if (item && Number.isFinite(Number(item.value))) return Number(item.value);
   if (item && Number.isFinite(Number(item.y))) return Number(item.y);
@@ -328,19 +384,20 @@ function clearMessages() {
   messageCountdown.value = 0;
 }
 
-function applyProcessedImageUrls(data) {
+function applyProcessedImageUrls(data, staticPreview = false) {
+  const resolveUrl = staticPreview ? staticPreviewUrl : backendUrl;
   processedStandardImageUrl.value = data.standard_grid_url || data.encrypted_image_url
-    ? `${API_URL}${data.standard_grid_url || data.encrypted_image_url}`
+    ? resolveUrl(data.standard_grid_url || data.encrypted_image_url)
     : '';
-  processedColoredImageUrl.value = data.colored_grid_url ? `${API_URL}${data.colored_grid_url}` : '';
+  processedColoredImageUrl.value = data.colored_grid_url ? resolveUrl(data.colored_grid_url) : '';
   if (processedStandardImageUrl.value) {
     setGridLinePreviewMode('standard');
   }
 }
 
-async function loadEvaluationResultsFromUrl(resultsUrl, requestChartId) {
+async function loadEvaluationResultsFromUrl(resultsUrl, requestChartId, staticPreview = false) {
   if (!resultsUrl) return false;
-  const response = await axios.get(`${API_URL}${resultsUrl}`);
+  const response = await axios.get(staticPreview ? staticPreviewUrl(resultsUrl) : backendUrl(resultsUrl));
   if (requestChartId && requestChartId !== chartId.value) return false;
   evaluationResults.value = response.data;
   evaluationView.value = 'visual';
@@ -350,6 +407,12 @@ async function loadEvaluationResultsFromUrl(resultsUrl, requestChartId) {
 async function fetchDatasetSamples() {
   isLoadingDataset.value = true;
   try {
+    if (staticPreviewMode.value) {
+      await loadStaticPreviewManifest();
+      applyStaticDatasetCategories();
+      applyStaticDatasetSamples();
+      return;
+    }
     const response = await axios.get(`${API_URL}/api/dataset-preview/samples/`, {
       params: { source: datasetSource.value, category: datasetCategory.value, limit: 36 },
     });
@@ -362,6 +425,14 @@ async function fetchDatasetSamples() {
     datasetSamples.value = response.data.samples || [];
   } catch (error) {
     console.error('Dataset sample load error:', error);
+    try {
+      staticPreviewMode.value = true;
+      await loadStaticPreviewManifest();
+      applyStaticDatasetCategories();
+      applyStaticDatasetSamples();
+    } catch (staticError) {
+      console.error('Static dataset sample load error:', staticError);
+    }
   } finally {
     isLoadingDataset.value = false;
   }
@@ -370,6 +441,12 @@ async function fetchDatasetSamples() {
 async function fetchDatasetCategories() {
   isLoadingDataset.value = true;
   try {
+    if (staticPreviewMode.value) {
+      await loadStaticPreviewManifest();
+      applyStaticDatasetCategories();
+      datasetSamples.value = [];
+      return;
+    }
     const response = await axios.get(`${API_URL}/api/dataset-preview/categories/`, {
       params: { source: datasetSource.value },
     });
@@ -378,8 +455,16 @@ async function fetchDatasetCategories() {
     datasetSamples.value = [];
   } catch (error) {
     console.error('Dataset category load error:', error);
-    datasetCategories.value = [];
-    datasetCategory.value = '';
+    try {
+      staticPreviewMode.value = true;
+      await loadStaticPreviewManifest();
+      applyStaticDatasetCategories();
+      datasetSamples.value = [];
+    } catch (staticError) {
+      console.error('Static dataset category load error:', staticError);
+      datasetCategories.value = [];
+      datasetCategory.value = '';
+    }
   } finally {
     isLoadingDataset.value = false;
   }
@@ -391,6 +476,7 @@ async function setDatasetSource(source) {
   datasetCategory.value = '';
   datasetCategories.value = [];
   selectedDatasetSampleId.value = '';
+  selectedStaticDatasetSample.value = null;
   datasetSamples.value = [];
   await fetchDatasetCategories();
   fetchDatasetSamples();
@@ -400,6 +486,7 @@ function setDatasetCategory(category) {
   if (datasetCategory.value === category || isLoadingDataset.value) return;
   datasetCategory.value = category;
   selectedDatasetSampleId.value = '';
+  selectedStaticDatasetSample.value = null;
   datasetSamples.value = [];
   fetchDatasetSamples();
 }
@@ -410,9 +497,30 @@ async function selectDatasetSample(sample) {
   resetProcessedResults(true);
   imageFile.value = null;
   selectedDatasetSampleId.value = sample.sample_id;
+  selectedStaticDatasetSample.value = sample.static_preview ? sample : null;
   isLoadingDataset.value = true;
 
   try {
+    if (sample.static_preview) {
+      chartId.value = sample.chart_id || `dataset_${sample.sample_id}`;
+      chartType.value = sample.chart_type;
+      confidence.value = sample.confidence ?? 1.0;
+      revokeOriginalImageUrl();
+      originalImageUrl.value = staticPreviewUrl(sample.image_url);
+      applyProcessedImageUrls(sample, true);
+      let hasEvaluationCache = false;
+      if (sample.evaluated && sample.results_url) {
+        hasEvaluationCache = await loadEvaluationResultsFromUrl(sample.results_url, chartId.value, true);
+      }
+      if (sample.cached && hasEvaluationCache) {
+        statusMessage.value = 'Loaded static cached grid and prediction preview.';
+      } else if (sample.cached) {
+        statusMessage.value = 'Loaded static cached grid preview.';
+      } else {
+        statusMessage.value = 'Loaded static dataset sample. No cached grid is available.';
+      }
+      return;
+    }
     const response = await axios.post(
       `${API_URL}/api/dataset-preview/select/`,
       null,
@@ -423,7 +531,7 @@ async function selectDatasetSample(sample) {
     chartType.value = data.chart_type;
     confidence.value = data.confidence;
     revokeOriginalImageUrl();
-    originalImageUrl.value = `${API_URL}${data.original_image_url || sample.image_url}`;
+    originalImageUrl.value = backendUrl(data.original_image_url || sample.image_url);
     applyProcessedImageUrls(data);
     let hasEvaluationCache = false;
     if (data.evaluated && data.results_url) {
@@ -478,6 +586,17 @@ async function uploadFiles() {
 // 2. Process the uploaded chart
 async function processImage() {
   if (isProcessDisabled.value) return;
+
+  if (selectedStaticDatasetSample.value) {
+    clearMessages();
+    applyProcessedImageUrls(selectedStaticDatasetSample.value, true);
+    if (processedStandardImageUrl.value || processedColoredImageUrl.value) {
+      statusMessage.value = 'Loaded cached static encryption preview.';
+    } else {
+      errorMessage.value = 'Static preview has no cached encryption result for this sample.';
+    }
+    return;
+  }
   
   clearMessages();
   processedImageUrl.value = '';
@@ -516,6 +635,26 @@ async function processImage() {
 // 3. 评估处理后的图表并获取结果 (已修正)
 async function evaluateChart() {
   if (isEvaluateDisabled.value) return;
+
+  if (selectedStaticDatasetSample.value) {
+    clearMessages();
+    isLoadingEvaluate.value = true;
+    evaluationResults.value = null;
+    evaluationView.value = 'visual';
+    try {
+      if (!selectedStaticDatasetSample.value.results_url) {
+        throw new Error('No cached evaluation result for this sample.');
+      }
+      await loadEvaluationResultsFromUrl(selectedStaticDatasetSample.value.results_url, chartId.value, true);
+      statusMessage.value = 'Loaded cached static prediction preview.';
+    } catch (error) {
+      console.error("Static evaluation error:", error);
+      errorMessage.value = `Static evaluation load failed: ${error.response?.data?.detail || error.message}`;
+    } finally {
+      isLoadingEvaluate.value = false;
+    }
+    return;
+  }
 
   clearMessages();
   isLoadingEvaluate.value = true;
@@ -581,7 +720,7 @@ onBeforeUnmount(() => {
             <div class="sidebar-brand">图表智能分析</div>
             <label
               class="clickable-heading"
-              :class="{ disabled: isLoadingUpload }"
+              :class="{ disabled: isLoadingUpload || staticPreviewMode }"
               for="image-upload"
               role="button"
               tabindex="0"
@@ -594,7 +733,7 @@ onBeforeUnmount(() => {
               type="file"
               @change="handleImageUpload"
               accept="image/png, image/jpeg"
-              :disabled="isLoadingUpload"
+              :disabled="isLoadingUpload || staticPreviewMode"
             />
           </div>
 
@@ -640,7 +779,7 @@ onBeforeUnmount(() => {
                 :disabled="isLoadingDataset"
                 @click="selectDatasetSample(sample)"
               >
-                <img :src="`${API_URL}${sample.image_url}`" :alt="sample.name" />
+                <img :src="sampleImageSrc(sample)" :alt="sample.name" />
               </button>
             </div>
             <div v-else class="dataset-empty">

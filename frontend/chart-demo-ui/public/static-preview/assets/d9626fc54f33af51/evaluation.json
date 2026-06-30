@@ -1,0 +1,270 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_d9626fc54f33af51",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original.json",
+    "summary": {
+        "object_count": 9,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "LUL, LUL",
+            "series_name": "LUL",
+            "theta_label": "LUL",
+            "label": "LUL",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "LUL, GTDT",
+            "series_name": "LUL",
+            "theta_label": "GTDT",
+            "label": "GTDT",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "LUL, IJFSPK",
+            "series_name": "LUL",
+            "theta_label": "IJFSPK",
+            "label": "IJFSPK",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "GTDT, LUL",
+            "series_name": "GTDT",
+            "theta_label": "LUL",
+            "label": "LUL",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "GTDT, GTDT",
+            "series_name": "GTDT",
+            "theta_label": "GTDT",
+            "label": "GTDT",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "GTDT, IJFSPK",
+            "series_name": "GTDT",
+            "theta_label": "IJFSPK",
+            "label": "IJFSPK",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\d9626fc54f33af51_original.png"
+        },
+        {
+            "id": "IJFSPK, LUL",
+            "series_name": "IJFSPK",
+            "theta_label": "LUL",
+            "label": "LUL",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "IJFSPK, GTDT",
+            "series_name": "IJFSPK",
+            "theta_label": "GTDT",
+            "label": "GTDT",
+            "axis": "r",
+            "value": 7.5,
+            "r": 7.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        },
+        {
+            "id": "IJFSPK, IJFSPK",
+            "series_name": "IJFSPK",
+            "theta_label": "IJFSPK",
+            "label": "IJFSPK",
+            "axis": "r",
+            "value": 12.5,
+            "r": 12.5,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_d9626fc54f33af51",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_d9626fc54f33af51",
+            "record_count": 18,
+            "object_count": 9,
+            "predictions": [
+                {
+                    "id": "LUL, LUL",
+                    "series_name": "LUL",
+                    "theta_label": "LUL",
+                    "label": "LUL",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "LUL, GTDT",
+                    "series_name": "LUL",
+                    "theta_label": "GTDT",
+                    "label": "GTDT",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "LUL, IJFSPK",
+                    "series_name": "LUL",
+                    "theta_label": "IJFSPK",
+                    "label": "IJFSPK",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "GTDT, LUL",
+                    "series_name": "GTDT",
+                    "theta_label": "LUL",
+                    "label": "LUL",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "GTDT, GTDT",
+                    "series_name": "GTDT",
+                    "theta_label": "GTDT",
+                    "label": "GTDT",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "GTDT, IJFSPK",
+                    "series_name": "GTDT",
+                    "theta_label": "IJFSPK",
+                    "label": "IJFSPK",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\d9626fc54f33af51_original.png"
+                },
+                {
+                    "id": "IJFSPK, LUL",
+                    "series_name": "IJFSPK",
+                    "theta_label": "LUL",
+                    "label": "LUL",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "IJFSPK, GTDT",
+                    "series_name": "IJFSPK",
+                    "theta_label": "GTDT",
+                    "label": "GTDT",
+                    "axis": "r",
+                    "value": 7.5,
+                    "r": 7.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                },
+                {
+                    "id": "IJFSPK, IJFSPK",
+                    "series_name": "IJFSPK",
+                    "theta_label": "IJFSPK",
+                    "label": "IJFSPK",
+                    "axis": "r",
+                    "value": 12.5,
+                    "r": 12.5,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "LUL": "#9A6B61",
+            "GTDT": "#FF9E4A",
+            "IJFSPK": "#B5CCEA"
+        },
+        "colors": [
+            {
+                "name": "LUL",
+                "color": "#9A6B61"
+            },
+            {
+                "name": "GTDT",
+                "color": "#FF9E4A"
+            },
+            {
+                "name": "IJFSPK",
+                "color": "#B5CCEA"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\legend_default_d9626fc54f33af51_original.png",
+        "chart_id": "dataset_d9626fc54f33af51",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\d9626fc54f33af51_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d9626fc54f33af51\\output\\d9626fc54f33af51_original_encode.png"
+        }
+    }
+}

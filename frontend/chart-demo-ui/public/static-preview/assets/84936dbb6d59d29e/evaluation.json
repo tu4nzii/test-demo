@@ -1,0 +1,432 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_84936dbb6d59d29e",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_ticks.json",
+    "summary": {
+        "object_count": 10,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_8",
+            "label": "Agrium (3)*",
+            "axis": "x",
+            "value": 7150.3268,
+            "pixel": {
+                "x": 257,
+                "y": 640,
+                "w": 548,
+                "h": 54
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "Air Liquide (8)",
+            "axis": "x",
+            "value": 3181.8182,
+            "pixel": {
+                "x": 257,
+                "y": 373,
+                "w": 243,
+                "h": 54
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_6",
+            "label": "AkzoNobel (6)",
+            "axis": "x",
+            "value": 4428.5714,
+            "pixel": {
+                "x": 257,
+                "y": 507,
+                "w": 339,
+                "h": 53
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "BASF (1)",
+            "axis": "x",
+            "value": 12993.4641,
+            "pixel": {
+                "x": 257,
+                "y": 774,
+                "w": 995,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "Bayer (5)",
+            "axis": "x",
+            "value": 4285.7143,
+            "pixel": {
+                "x": 257,
+                "y": 440,
+                "w": 328,
+                "h": 53
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "Evonik Industries\n(9)",
+            "axis": "x",
+            "value": 2662.3377,
+            "pixel": {
+                "x": 257,
+                "y": 240,
+                "w": 203,
+                "h": 53
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "LyondellBasell (-)",
+            "axis": "x",
+            "value": 10545.4545,
+            "pixel": {
+                "x": 257,
+                "y": 707,
+                "w": 807,
+                "h": 53
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_3",
+            "label": "Shin-Etsu Chemical\n(12)**",
+            "axis": "x",
+            "value": 3064.9351,
+            "pixel": {
+                "x": 257,
+                "y": 306,
+                "w": 234,
+                "h": 54
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_1",
+            "label": "Syngenta (11)",
+            "axis": "x",
+            "value": 2584.4156,
+            "pixel": {
+                "x": 257,
+                "y": 194,
+                "w": 197,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "Total (4)",
+            "axis": "x",
+            "value": 4519.4805,
+            "pixel": {
+                "x": 257,
+                "y": 573,
+                "w": 346,
+                "h": 54
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_003_9c27b445_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            2000.0,
+            4000.0,
+            6000.0,
+            8000.0,
+            10000.0,
+            12000.0,
+            14000.0
+        ],
+        "y_ticks": [
+            "Syngenta (11)",
+            "Evonik Industries\n(9)",
+            "Shin-Etsu Chemical\n(12)**",
+            "Air Liquide (8)",
+            "Bayer (5)",
+            "AkzoNobel (6)",
+            "Total (4)",
+            "Agrium (3)*",
+            "LyondellBasell (-)",
+            "BASF (1)"
+        ],
+        "x_pixels": [
+            257,
+            409,
+            563,
+            717,
+            870,
+            1022,
+            1176,
+            1329
+        ],
+        "y_pixels": [
+            198,
+            264,
+            331,
+            400,
+            468,
+            530,
+            600,
+            665,
+            734,
+            800
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            1000.0,
+            2000.0,
+            3000.0,
+            4000.0,
+            5000.0,
+            6000.0,
+            7000.0,
+            8000.0,
+            9000.0,
+            10000.0,
+            11000.0,
+            12000.0,
+            13000.0,
+            14000.0
+        ],
+        "y_ticks_encrypted": [
+            "Syngenta (11)",
+            "Evonik Industries\n(9)",
+            "Shin-Etsu Chemical\n(12)**",
+            "Air Liquide (8)",
+            "Bayer (5)",
+            "AkzoNobel (6)",
+            "Total (4)",
+            "Agrium (3)*",
+            "LyondellBasell (-)",
+            "BASF (1)"
+        ],
+        "x_pixels_encrypted": [
+            257,
+            333,
+            409,
+            486,
+            563,
+            640,
+            717,
+            794,
+            870,
+            946,
+            1022,
+            1099,
+            1176,
+            1252,
+            1329
+        ],
+        "y_pixels_encrypted": [
+            198,
+            264,
+            331,
+            400,
+            468,
+            530,
+            600,
+            665,
+            734,
+            800
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid_color.png",
+        "colors": [],
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "unknown",
+                "y_axis_role": "unknown",
+                "x_axis_position": "unknown",
+                "y_axis_position": "unknown",
+                "plot_area_style": "unknown",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 0,
+                "reason": "",
+                "axis_tick_labels": {
+                    "x_ticks": [],
+                    "y_ticks": [],
+                    "x_ticks_encrypted": [],
+                    "y_ticks_encrypted": [],
+                    "x_axis_type": "unknown",
+                    "y_axis_type": "unknown",
+                    "source": "upload_detection"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\h_bar_003_ocr_axis.json",
+                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_003_9c27b445\\artifacts\\image_with_grid_color.png"
+        },
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.0,
+                "right_tick": 2000.0,
+                "left_pixel": 257,
+                "right_pixel": 409,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 76.0,
+                "label_axis_extent": 67.0,
+                "required_spacing": 82.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 2000.0,
+                "right_tick": 4000.0,
+                "left_pixel": 409,
+                "right_pixel": 563,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 77.0,
+                "label_axis_extent": 67.0,
+                "required_spacing": 82.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 4000.0,
+                "right_tick": 6000.0,
+                "left_pixel": 563,
+                "right_pixel": 717,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 77.0,
+                "label_axis_extent": 66.0,
+                "required_spacing": 81.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 6000.0,
+                "right_tick": 8000.0,
+                "left_pixel": 717,
+                "right_pixel": 870,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 76.5,
+                "label_axis_extent": 66.0,
+                "required_spacing": 81.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 8000.0,
+                "right_tick": 10000.0,
+                "left_pixel": 870,
+                "right_pixel": 1022,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 76.0,
+                "label_axis_extent": 79.0,
+                "required_spacing": 96.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 10000.0,
+                "right_tick": 12000.0,
+                "left_pixel": 1022,
+                "right_pixel": 1176,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 77.0,
+                "label_axis_extent": 80.0,
+                "required_spacing": 98.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 12000.0,
+                "right_tick": 14000.0,
+                "left_pixel": 1176,
+                "right_pixel": 1329,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 76.5,
+                "label_axis_extent": 80.0,
+                "required_spacing": 98.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_dense_encrypted_interval_warnings": [],
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\84936dbb6d59d29e\\output\\84936dbb6d59d29e_original_grid.png"
+        }
+    },
+    "prediction_runner_error": "[Errno 2] No such file or directory: 'F:\\\\program\\\\test-demo\\\\backend\\\\evaluation\\\\recheck_outputs\\\\vishintprompt_full_grid_encryption_latest\\\\Sy.Dataset\\\\hBar_50\\\\h_bar_003_9c27b445\\\\artifacts\\\\source.png'",
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

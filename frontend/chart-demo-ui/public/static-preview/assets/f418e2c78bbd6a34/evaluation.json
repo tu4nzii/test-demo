@@ -1,0 +1,178 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_f418e2c78bbd6a34",
+    "chart_type": "rose",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original.json",
+    "summary": {
+        "object_count": 6,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "TY",
+            "series_name": "",
+            "theta_label": "TY",
+            "label": "TY",
+            "axis": "r",
+            "value": 175.0,
+            "r": 175.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        },
+        {
+            "id": "MK",
+            "series_name": "",
+            "theta_label": "MK",
+            "label": "MK",
+            "axis": "r",
+            "value": 150.0,
+            "r": 150.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        },
+        {
+            "id": "QTNS",
+            "series_name": "",
+            "theta_label": "QTNS",
+            "label": "QTNS",
+            "axis": "r",
+            "value": 125.0,
+            "r": 125.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        },
+        {
+            "id": "GIS",
+            "series_name": "",
+            "theta_label": "GIS",
+            "label": "GIS",
+            "axis": "r",
+            "value": 125.0,
+            "r": 125.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        },
+        {
+            "id": "ZST",
+            "series_name": "",
+            "theta_label": "ZST",
+            "label": "ZST",
+            "axis": "r",
+            "value": 150.0,
+            "r": 150.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        },
+        {
+            "id": "CLUZ",
+            "series_name": "",
+            "theta_label": "CLUZ",
+            "label": "CLUZ",
+            "axis": "r",
+            "value": 125.0,
+            "r": 125.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_f418e2c78bbd6a34",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\rose\\dataset_f418e2c78bbd6a34",
+            "record_count": 6,
+            "object_count": 6,
+            "predictions": [
+                {
+                    "id": "TY",
+                    "series_name": "",
+                    "theta_label": "TY",
+                    "label": "TY",
+                    "axis": "r",
+                    "value": 175.0,
+                    "r": 175.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                },
+                {
+                    "id": "MK",
+                    "series_name": "",
+                    "theta_label": "MK",
+                    "label": "MK",
+                    "axis": "r",
+                    "value": 150.0,
+                    "r": 150.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                },
+                {
+                    "id": "QTNS",
+                    "series_name": "",
+                    "theta_label": "QTNS",
+                    "label": "QTNS",
+                    "axis": "r",
+                    "value": 125.0,
+                    "r": 125.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                },
+                {
+                    "id": "GIS",
+                    "series_name": "",
+                    "theta_label": "GIS",
+                    "label": "GIS",
+                    "axis": "r",
+                    "value": 125.0,
+                    "r": 125.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                },
+                {
+                    "id": "ZST",
+                    "series_name": "",
+                    "theta_label": "ZST",
+                    "label": "ZST",
+                    "axis": "r",
+                    "value": 150.0,
+                    "r": 150.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                },
+                {
+                    "id": "CLUZ",
+                    "series_name": "",
+                    "theta_label": "CLUZ",
+                    "label": "CLUZ",
+                    "axis": "r",
+                    "value": 125.0,
+                    "r": 125.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "dataset_f418e2c78bbd6a34",
+        "chart_type": "rose",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\f418e2c78bbd6a34_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f418e2c78bbd6a34\\output\\f418e2c78bbd6a34_original_encode.png"
+        }
+    }
+}

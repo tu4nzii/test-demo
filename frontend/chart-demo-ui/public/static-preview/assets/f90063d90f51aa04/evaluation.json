@@ -1,0 +1,130 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_f90063d90f51aa04",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f90063d90f51aa04\\output\\f90063d90f51aa04_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f90063d90f51aa04\\output\\f90063d90f51aa04_original.json",
+    "summary": {
+        "object_count": 2,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "RADARCH, N",
+            "series_name": "RADARCH",
+            "theta_label": "N",
+            "label": "N",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image_encode.png"
+        },
+        {
+            "id": "RADARCH, E",
+            "series_name": "RADARCH",
+            "theta_label": "E",
+            "label": "E",
+            "axis": "r",
+            "value": 42.0,
+            "r": 42.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa",
+            "record_count": 10,
+            "object_count": 2,
+            "predictions": [
+                {
+                    "id": "RADARCH, N",
+                    "series_name": "RADARCH",
+                    "theta_label": "N",
+                    "label": "N",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image_encode.png"
+                },
+                {
+                    "id": "RADARCH, E",
+                    "series_name": "RADARCH",
+                    "theta_label": "E",
+                    "label": "E",
+                    "axis": "r",
+                    "value": 42.0,
+                    "r": 42.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image.png",
+        "r_ticks": [
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100.0
+        ],
+        "pred_coords": [
+            469,
+            594
+        ],
+        "argument": {
+            "a": 3.84,
+            "b": 0
+        },
+        "scale_source": "simulated_polygon_default",
+        "scale_note": "No readable radial numeric tick labels were detected; a default 0-100 mapping was used for encryption.",
+        "axis_labels": {
+            "0": "N",
+            "72": "E",
+            "144": "N",
+            "216": "E",
+            "288": "N"
+        },
+        "axes_angles": [
+            0,
+            72,
+            144,
+            216,
+            288
+        ],
+        "start_angle": 0,
+        "series_color": {
+            "RADARCH": "#4F4F4F"
+        },
+        "colors": [
+            {
+                "name": "RADARCH",
+                "color": "#4F4F4F"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\legend_default_vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image.png",
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\RadarChart1_da4ad3aa\\work\\vishint_Final-Re_fbdfbc9a_ALL_RadarChart1_da4ad3aa_image_encode.png"
+        }
+    }
+}

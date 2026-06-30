@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_b7e0932a4e629706",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\b7e0932a4e629706_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\b7e0932a4e629706_original.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "USWDZ, USWDZ",
+            "series_name": "USWDZ",
+            "theta_label": "USWDZ",
+            "label": "USWDZ",
+            "axis": "r",
+            "value": 70.0,
+            "r": 70.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\b7e0932a4e629706_original_encode.png"
+        },
+        {
+            "id": "USWDZ, BQN",
+            "series_name": "USWDZ",
+            "theta_label": "BQN",
+            "label": "BQN",
+            "axis": "r",
+            "value": 62.0,
+            "r": 62.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+        },
+        {
+            "id": "BQN, USWDZ",
+            "series_name": "BQN",
+            "theta_label": "USWDZ",
+            "label": "USWDZ",
+            "axis": "r",
+            "value": 62.0,
+            "r": 62.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+        },
+        {
+            "id": "BQN, BQN",
+            "series_name": "BQN",
+            "theta_label": "BQN",
+            "label": "BQN",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_b7e0932a4e629706",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_b7e0932a4e629706",
+            "record_count": 8,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "USWDZ, USWDZ",
+                    "series_name": "USWDZ",
+                    "theta_label": "USWDZ",
+                    "label": "USWDZ",
+                    "axis": "r",
+                    "value": 70.0,
+                    "r": 70.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\b7e0932a4e629706_original_encode.png"
+                },
+                {
+                    "id": "USWDZ, BQN",
+                    "series_name": "USWDZ",
+                    "theta_label": "BQN",
+                    "label": "BQN",
+                    "axis": "r",
+                    "value": 62.0,
+                    "r": 62.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+                },
+                {
+                    "id": "BQN, USWDZ",
+                    "series_name": "BQN",
+                    "theta_label": "USWDZ",
+                    "label": "USWDZ",
+                    "axis": "r",
+                    "value": 62.0,
+                    "r": 62.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+                },
+                {
+                    "id": "BQN, BQN",
+                    "series_name": "BQN",
+                    "theta_label": "BQN",
+                    "label": "BQN",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "USWDZ": "#FF9E49",
+            "BQN": "#B3CAE9"
+        },
+        "colors": [
+            {
+                "name": "USWDZ",
+                "color": "#FF9E49"
+            },
+            {
+                "name": "BQN",
+                "color": "#B3CAE9"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\legend_default_b7e0932a4e629706_original.png",
+        "chart_id": "dataset_b7e0932a4e629706",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\b7e0932a4e629706_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\b7e0932a4e629706\\output\\b7e0932a4e629706_original_encode.png"
+        }
+    }
+}

@@ -1,0 +1,432 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_f80654923e186949",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_ticks.json",
+    "summary": {
+        "object_count": 10,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_3",
+            "label": "David Wesley",
+            "axis": "x",
+            "value": 5270.2703,
+            "pixel": {
+                "x": 147,
+                "y": 153,
+                "w": 194,
+                "h": 27
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "Dell Curry",
+            "axis": "x",
+            "value": 9840.0,
+            "pixel": {
+                "x": 147,
+                "y": 354,
+                "w": 364,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_1",
+            "label": "Emeka Okafor",
+            "axis": "x",
+            "value": 4648.6486,
+            "pixel": {
+                "x": 147,
+                "y": 96,
+                "w": 171,
+                "h": 17
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "Gerald Henderson",
+            "axis": "x",
+            "value": 4729.7297,
+            "pixel": {
+                "x": 147,
+                "y": 120,
+                "w": 174,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_8",
+            "label": "Gerald Wallace",
+            "axis": "x",
+            "value": 7459.4595,
+            "pixel": {
+                "x": 147,
+                "y": 320,
+                "w": 275,
+                "h": 27
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_6",
+            "label": "Glen Rice",
+            "axis": "x",
+            "value": 5675.6757,
+            "pixel": {
+                "x": 147,
+                "y": 253,
+                "w": 209,
+                "h": 27
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "Kemba Walker",
+            "axis": "x",
+            "value": 12027.027,
+            "pixel": {
+                "x": 147,
+                "y": 387,
+                "w": 444,
+                "h": 18
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "Larry Johnson",
+            "axis": "x",
+            "value": 7432.4324,
+            "pixel": {
+                "x": 147,
+                "y": 287,
+                "w": 274,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "Muggsy Bogues",
+            "axis": "x",
+            "value": 5567.5676,
+            "pixel": {
+                "x": 147,
+                "y": 220,
+                "w": 205,
+                "h": 27
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "Raymond Felton",
+            "axis": "x",
+            "value": 5324.3243,
+            "pixel": {
+                "x": 147,
+                "y": 187,
+                "w": 196,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_066_d3866d30_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            2000.0,
+            4000.0,
+            6000.0,
+            8000.0,
+            10000.0,
+            12000.0,
+            14000.0
+        ],
+        "y_ticks": [
+            "Emeka Okafor",
+            "Gerald Henderson",
+            "David Wesley",
+            "Raymond Felton",
+            "Muggsy Bogues",
+            "Glen Rice",
+            "Larry Johnson",
+            "Gerald Wallace",
+            "Dell Curry",
+            "Kemba Walker"
+        ],
+        "x_pixels": [
+            148,
+            221,
+            294,
+            368,
+            442,
+            517,
+            590,
+            664
+        ],
+        "y_pixels": [
+            100,
+            133,
+            166,
+            200,
+            233,
+            267,
+            302,
+            332,
+            366,
+            400
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            1000.0,
+            2000.0,
+            3000.0,
+            4000.0,
+            5000.0,
+            6000.0,
+            7000.0,
+            8000.0,
+            9000.0,
+            10000.0,
+            11000.0,
+            12000.0,
+            13000.0,
+            14000.0
+        ],
+        "y_ticks_encrypted": [
+            "Emeka Okafor",
+            "Gerald Henderson",
+            "David Wesley",
+            "Raymond Felton",
+            "Muggsy Bogues",
+            "Glen Rice",
+            "Larry Johnson",
+            "Gerald Wallace",
+            "Dell Curry",
+            "Kemba Walker"
+        ],
+        "x_pixels_encrypted": [
+            148,
+            184,
+            221,
+            258,
+            294,
+            331,
+            368,
+            405,
+            442,
+            480,
+            517,
+            554,
+            590,
+            627,
+            664
+        ],
+        "y_pixels_encrypted": [
+            100,
+            133,
+            166,
+            200,
+            233,
+            267,
+            302,
+            332,
+            366,
+            400
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid_color.png",
+        "colors": [],
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "unknown",
+                "y_axis_role": "unknown",
+                "x_axis_position": "unknown",
+                "y_axis_position": "unknown",
+                "plot_area_style": "unknown",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 0,
+                "reason": "",
+                "axis_tick_labels": {
+                    "x_ticks": [],
+                    "y_ticks": [],
+                    "x_ticks_encrypted": [],
+                    "y_ticks_encrypted": [],
+                    "x_axis_type": "unknown",
+                    "y_axis_type": "unknown",
+                    "source": "upload_detection"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_final3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_final3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_final3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\h_bar_066_ocr_axis.json",
+                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_066_d3866d30\\artifacts\\image_with_grid_color.png"
+        },
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.0,
+                "right_tick": 2000.0,
+                "left_pixel": 148,
+                "right_pixel": 221,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 36.5,
+                "label_axis_extent": 38.0,
+                "required_spacing": 47.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 2000.0,
+                "right_tick": 4000.0,
+                "left_pixel": 221,
+                "right_pixel": 294,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 36.5,
+                "label_axis_extent": 38.0,
+                "required_spacing": 47.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 4000.0,
+                "right_tick": 6000.0,
+                "left_pixel": 294,
+                "right_pixel": 368,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 37.0,
+                "label_axis_extent": 38.0,
+                "required_spacing": 47.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 6000.0,
+                "right_tick": 8000.0,
+                "left_pixel": 368,
+                "right_pixel": 442,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 37.0,
+                "label_axis_extent": 42.0,
+                "required_spacing": 52.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 8000.0,
+                "right_tick": 10000.0,
+                "left_pixel": 442,
+                "right_pixel": 517,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 37.5,
+                "label_axis_extent": 50.0,
+                "required_spacing": 62.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 10000.0,
+                "right_tick": 12000.0,
+                "left_pixel": 517,
+                "right_pixel": 590,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 36.5,
+                "label_axis_extent": 50.0,
+                "required_spacing": 62.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 12000.0,
+                "right_tick": 14000.0,
+                "left_pixel": 590,
+                "right_pixel": 664,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 37.0,
+                "label_axis_extent": 49.0,
+                "required_spacing": 60.8,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_dense_encrypted_interval_warnings": [],
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f80654923e186949\\output\\f80654923e186949_original_grid.png"
+        }
+    },
+    "prediction_runner_error": "[Errno 2] No such file or directory: 'F:\\\\program\\\\test-demo\\\\backend\\\\evaluation\\\\recheck_outputs\\\\vishintprompt_full_grid_encryption_latest\\\\Sy.Dataset\\\\hBar_50\\\\h_bar_066_d3866d30\\\\artifacts\\\\source.png'",
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

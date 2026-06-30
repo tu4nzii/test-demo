@@ -1,0 +1,443 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_1f495fc73bd24d24",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original.json",
+    "summary": {
+        "object_count": 16,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "CRO, CRO",
+            "series_name": "CRO",
+            "theta_label": "CRO",
+            "label": "CRO",
+            "axis": "r",
+            "value": 80.0,
+            "r": 80.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+        },
+        {
+            "id": "CRO, DIM",
+            "series_name": "CRO",
+            "theta_label": "DIM",
+            "label": "DIM",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "CRO, OKNYG",
+            "series_name": "CRO",
+            "theta_label": "OKNYG",
+            "label": "OKNYG",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "CRO, KRE",
+            "series_name": "CRO",
+            "theta_label": "KRE",
+            "label": "KRE",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "DIM, CRO",
+            "series_name": "DIM",
+            "theta_label": "CRO",
+            "label": "CRO",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "DIM, DIM",
+            "series_name": "DIM",
+            "theta_label": "DIM",
+            "label": "DIM",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "DIM, OKNYG",
+            "series_name": "DIM",
+            "theta_label": "OKNYG",
+            "label": "OKNYG",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "DIM, KRE",
+            "series_name": "DIM",
+            "theta_label": "KRE",
+            "label": "KRE",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "OKNYG, CRO",
+            "series_name": "OKNYG",
+            "theta_label": "CRO",
+            "label": "CRO",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "OKNYG, DIM",
+            "series_name": "OKNYG",
+            "theta_label": "DIM",
+            "label": "DIM",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "OKNYG, OKNYG",
+            "series_name": "OKNYG",
+            "theta_label": "OKNYG",
+            "label": "OKNYG",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "OKNYG, KRE",
+            "series_name": "OKNYG",
+            "theta_label": "KRE",
+            "label": "KRE",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+        },
+        {
+            "id": "KRE, CRO",
+            "series_name": "KRE",
+            "theta_label": "CRO",
+            "label": "CRO",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "KRE, DIM",
+            "series_name": "KRE",
+            "theta_label": "DIM",
+            "label": "DIM",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "KRE, OKNYG",
+            "series_name": "KRE",
+            "theta_label": "OKNYG",
+            "label": "OKNYG",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        },
+        {
+            "id": "KRE, KRE",
+            "series_name": "KRE",
+            "theta_label": "KRE",
+            "label": "KRE",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_1f495fc73bd24d24",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_1f495fc73bd24d24",
+            "record_count": 32,
+            "object_count": 16,
+            "predictions": [
+                {
+                    "id": "CRO, CRO",
+                    "series_name": "CRO",
+                    "theta_label": "CRO",
+                    "label": "CRO",
+                    "axis": "r",
+                    "value": 80.0,
+                    "r": 80.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+                },
+                {
+                    "id": "CRO, DIM",
+                    "series_name": "CRO",
+                    "theta_label": "DIM",
+                    "label": "DIM",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "CRO, OKNYG",
+                    "series_name": "CRO",
+                    "theta_label": "OKNYG",
+                    "label": "OKNYG",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "CRO, KRE",
+                    "series_name": "CRO",
+                    "theta_label": "KRE",
+                    "label": "KRE",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "DIM, CRO",
+                    "series_name": "DIM",
+                    "theta_label": "CRO",
+                    "label": "CRO",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "DIM, DIM",
+                    "series_name": "DIM",
+                    "theta_label": "DIM",
+                    "label": "DIM",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "DIM, OKNYG",
+                    "series_name": "DIM",
+                    "theta_label": "OKNYG",
+                    "label": "OKNYG",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "DIM, KRE",
+                    "series_name": "DIM",
+                    "theta_label": "KRE",
+                    "label": "KRE",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "OKNYG, CRO",
+                    "series_name": "OKNYG",
+                    "theta_label": "CRO",
+                    "label": "CRO",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "OKNYG, DIM",
+                    "series_name": "OKNYG",
+                    "theta_label": "DIM",
+                    "label": "DIM",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "OKNYG, OKNYG",
+                    "series_name": "OKNYG",
+                    "theta_label": "OKNYG",
+                    "label": "OKNYG",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "OKNYG, KRE",
+                    "series_name": "OKNYG",
+                    "theta_label": "KRE",
+                    "label": "KRE",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+                },
+                {
+                    "id": "KRE, CRO",
+                    "series_name": "KRE",
+                    "theta_label": "CRO",
+                    "label": "CRO",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "KRE, DIM",
+                    "series_name": "KRE",
+                    "theta_label": "DIM",
+                    "label": "DIM",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "KRE, OKNYG",
+                    "series_name": "KRE",
+                    "theta_label": "OKNYG",
+                    "label": "OKNYG",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+                },
+                {
+                    "id": "KRE, KRE",
+                    "series_name": "KRE",
+                    "theta_label": "KRE",
+                    "label": "KRE",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "CRO": "#96655B",
+            "DIM": "#FFA8A6",
+            "OKNYG": "#458EC0",
+            "KRE": "#C7A19A"
+        },
+        "colors": [
+            {
+                "name": "CRO",
+                "color": "#96655B"
+            },
+            {
+                "name": "DIM",
+                "color": "#FFA8A6"
+            },
+            {
+                "name": "OKNYG",
+                "color": "#458EC0"
+            },
+            {
+                "name": "KRE",
+                "color": "#C7A19A"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\legend_default_1f495fc73bd24d24_original.png",
+        "chart_id": "dataset_1f495fc73bd24d24",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\1f495fc73bd24d24_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\1f495fc73bd24d24\\output\\1f495fc73bd24d24_original_encode.png"
+        }
+    }
+}

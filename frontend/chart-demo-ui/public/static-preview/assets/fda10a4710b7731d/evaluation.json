@@ -1,0 +1,317 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_fda10a4710b7731d",
+    "chart_type": "donut",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fda10a4710b7731d\\output\\fda10a4710b7731d_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\fda10a4710b7731d\\output\\fda10a4710b7731d_original.json",
+    "summary": {
+        "object_count": 8,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Segment 1",
+            "series_name": "",
+            "label": "Segment 1",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 0.0,
+            "end_angle": 45.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 2",
+            "series_name": "",
+            "label": "Segment 2",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 45.0,
+            "end_angle": 90.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 3",
+            "series_name": "",
+            "label": "Segment 3",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 90.0,
+            "end_angle": 135.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 4",
+            "series_name": "",
+            "label": "Segment 4",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 135.0,
+            "end_angle": 180.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 5",
+            "series_name": "",
+            "label": "Segment 5",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 180.0,
+            "end_angle": 225.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 6",
+            "series_name": "",
+            "label": "Segment 6",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 225.0,
+            "end_angle": 270.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 7",
+            "series_name": "",
+            "label": "Segment 7",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 270.0,
+            "end_angle": 315.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        {
+            "id": "Segment 8",
+            "series_name": "",
+            "label": "Segment 8",
+            "axis": "theta",
+            "value": 0.125,
+            "percentage": 12.5,
+            "start_angle": 315.0,
+            "end_angle": 360.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\donut\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e",
+            "record_count": 8,
+            "object_count": 8,
+            "predictions": [
+                {
+                    "id": "Segment 1",
+                    "series_name": "",
+                    "label": "Segment 1",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 0.0,
+                    "end_angle": 45.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 2",
+                    "series_name": "",
+                    "label": "Segment 2",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 45.0,
+                    "end_angle": 90.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 3",
+                    "series_name": "",
+                    "label": "Segment 3",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 90.0,
+                    "end_angle": 135.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 4",
+                    "series_name": "",
+                    "label": "Segment 4",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 135.0,
+                    "end_angle": 180.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 5",
+                    "series_name": "",
+                    "label": "Segment 5",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 180.0,
+                    "end_angle": 225.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 6",
+                    "series_name": "",
+                    "label": "Segment 6",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 225.0,
+                    "end_angle": 270.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 7",
+                    "series_name": "",
+                    "label": "Segment 7",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 270.0,
+                    "end_angle": 315.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                },
+                {
+                    "id": "Segment 8",
+                    "series_name": "",
+                    "label": "Segment 8",
+                    "axis": "theta",
+                    "value": 0.125,
+                    "percentage": 12.5,
+                    "start_angle": 315.0,
+                    "end_angle": 360.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e",
+        "chart_type": "donut",
+        "coordinate_system": "polar",
+        "center": [
+            100,
+            100
+        ],
+        "r_pixels": 104,
+        "theta_angles": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            75,
+            90,
+            105,
+            120,
+            135,
+            150,
+            165,
+            180,
+            195,
+            210,
+            225,
+            240,
+            255,
+            270,
+            285,
+            300,
+            315,
+            330,
+            345
+        ],
+        "theta_ticks": [
+            "0°",
+            "15°",
+            "30°",
+            "45°",
+            "60°",
+            "75°",
+            "90°",
+            "105°",
+            "120°",
+            "135°",
+            "150°",
+            "165°",
+            "180°",
+            "195°",
+            "210°",
+            "225°",
+            "240°",
+            "255°",
+            "270°",
+            "285°",
+            "300°",
+            "315°",
+            "330°",
+            "345°"
+        ],
+        "r_ticks": [],
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\DonutChart10_adf5754e\\work\\vishint_Final-Re_fbdfbc9a_ALL_DonutChart10_adf5754e_image_with_grid.png"
+        },
+        "colors": [
+            {
+                "name": "Series 1",
+                "color": "#1f77b4"
+            }
+        ],
+        "grid_generation": {
+            "type": "angle_grid",
+            "angle_step_degrees": 15,
+            "plot_area_detection": "color_mask"
+        },
+        "series_color": {
+            "Series 1": "#1f77b4"
+        }
+    }
+}

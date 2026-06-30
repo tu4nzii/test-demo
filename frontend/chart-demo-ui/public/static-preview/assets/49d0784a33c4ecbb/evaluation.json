@@ -1,0 +1,514 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_49d0784a33c4ecbb",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_ticks.json",
+    "summary": {
+        "object_count": 8,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "banana, banana",
+            "series_name": "banana",
+            "label": "banana",
+            "axis": "y",
+            "value": 0.86,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_banana, banana_round3_attempt0.png"
+        },
+        {
+            "id": "banana, poacee",
+            "series_name": "banana",
+            "label": "poacee",
+            "axis": "y",
+            "value": 5.6,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_banana, poacee_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "poacee, poacee",
+            "series_name": "poacee",
+            "label": "poacee",
+            "axis": "y",
+            "value": 1.56,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_poacee, poacee_round3_attempt0.png"
+        },
+        {
+            "id": "sorgho, banana",
+            "series_name": "sorgho",
+            "label": "banana",
+            "axis": "y",
+            "value": 0.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_sorgho, banana_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "sorgho, sorgho",
+            "series_name": "sorgho",
+            "label": "sorgho",
+            "axis": "y",
+            "value": 0.31,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_sorgho, sorgho_round3_attempt0.png"
+        },
+        {
+            "id": "sorgho, triticum",
+            "series_name": "sorgho",
+            "label": "triticum",
+            "axis": "y",
+            "value": 20.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_sorgho, triticum_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "triticum, poacee",
+            "series_name": "triticum",
+            "label": "poacee",
+            "axis": "y",
+            "value": 1.875,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, poacee_round1_attempt0.png"
+        },
+        {
+            "id": "triticum, triticum",
+            "series_name": "triticum",
+            "label": "triticum",
+            "axis": "y",
+            "value": 0.86,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, triticum_round3_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image",
+            "record_count": 169,
+            "object_count": 16,
+            "predictions": [
+                {
+                    "id": "banana, banana",
+                    "series_name": "banana",
+                    "label": "banana",
+                    "axis": "y",
+                    "value": 0.86,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_banana, banana_round3_attempt0.png"
+                },
+                {
+                    "id": "banana, poacee",
+                    "series_name": "banana",
+                    "label": "poacee",
+                    "axis": "y",
+                    "value": 5.6,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_banana, poacee_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "banana, sorgho",
+                    "series_name": "banana",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_banana, sorgho_round2_attempt2.png"
+                },
+                {
+                    "id": "banana, triticum",
+                    "series_name": "banana",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_banana, triticum_round2_attempt0.png"
+                },
+                {
+                    "id": "poacee, banana",
+                    "series_name": "poacee",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_poacee, banana_round1_attempt1.png"
+                },
+                {
+                    "id": "poacee, poacee",
+                    "series_name": "poacee",
+                    "label": "poacee",
+                    "axis": "y",
+                    "value": 1.56,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_poacee, poacee_round3_attempt0.png"
+                },
+                {
+                    "id": "poacee, sorgho",
+                    "series_name": "poacee",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_poacee, sorgho_round1_attempt0.png"
+                },
+                {
+                    "id": "poacee, triticum",
+                    "series_name": "poacee",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_poacee, triticum_round1_attempt0.png"
+                },
+                {
+                    "id": "sorgho, banana",
+                    "series_name": "sorgho",
+                    "label": "banana",
+                    "axis": "y",
+                    "value": 0.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_sorgho, banana_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "sorgho, poacee",
+                    "series_name": "sorgho",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_sorgho, poacee_round2_attempt0.png"
+                },
+                {
+                    "id": "sorgho, sorgho",
+                    "series_name": "sorgho",
+                    "label": "sorgho",
+                    "axis": "y",
+                    "value": 0.31,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_sorgho, sorgho_round3_attempt0.png"
+                },
+                {
+                    "id": "sorgho, triticum",
+                    "series_name": "sorgho",
+                    "label": "triticum",
+                    "axis": "y",
+                    "value": 20.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\overlay_sorgho, triticum_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "triticum, banana",
+                    "series_name": "triticum",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, banana_round2_attempt0.png"
+                },
+                {
+                    "id": "triticum, poacee",
+                    "series_name": "triticum",
+                    "label": "poacee",
+                    "axis": "y",
+                    "value": 1.875,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, poacee_round1_attempt0.png"
+                },
+                {
+                    "id": "triticum, sorgho",
+                    "series_name": "triticum",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, sorgho_round1_attempt0.png"
+                },
+                {
+                    "id": "triticum, triticum",
+                    "series_name": "triticum",
+                    "label": "triticum",
+                    "axis": "y",
+                    "value": 0.86,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image\\tempy\\amplifier_crop_triticum, triticum_round3_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image",
+        "chart_type": "v_bar",
+        "x_ticks": [
+            "banana",
+            "poacee",
+            "sorgho",
+            "triticum"
+        ],
+        "y_ticks": [
+            40.0,
+            35.0,
+            30.0,
+            25.0,
+            20.0,
+            15.0,
+            10.0,
+            5.0,
+            0.0
+        ],
+        "x_pixels": [
+            104,
+            194,
+            285,
+            374
+        ],
+        "y_pixels": [
+            10,
+            56,
+            102,
+            149,
+            195,
+            241,
+            288,
+            334,
+            380
+        ],
+        "x_ticks_encrypted": [
+            "banana",
+            "poacee",
+            "sorgho",
+            "triticum"
+        ],
+        "y_ticks_encrypted": [
+            40.0,
+            37.5,
+            35.0,
+            32.5,
+            30.0,
+            27.5,
+            25.0,
+            22.5,
+            20.0,
+            17.5,
+            15.0,
+            12.5,
+            10.0,
+            7.5,
+            5.0,
+            2.5,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            104,
+            194,
+            285,
+            374
+        ],
+        "y_pixels_encrypted": [
+            10,
+            33,
+            56,
+            79,
+            102,
+            126,
+            149,
+            172,
+            195,
+            218,
+            241,
+            264,
+            288,
+            311,
+            334,
+            357,
+            380
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "banana",
+                "color": "#e62323"
+            },
+            {
+                "name": "poacee",
+                "color": "#13702f"
+            },
+            {
+                "name": "sorgho",
+                "color": "#1a73e8"
+            },
+            {
+                "name": "triticum",
+                "color": "#e62323"
+            }
+        ],
+        "series_color": {
+            "banana": "#e62323",
+            "poacee": "#13702f",
+            "sorgho": "#1a73e8",
+            "triticum": "#e62323"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "grouped",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a vertical bar chart with grouped bars. The x-axis represents categories and the y-axis represents numeric values. Both axes and their ticks are clearly visible.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "banana",
+                        "poacee",
+                        "sorgho",
+                        "triticum"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "5",
+                        "10",
+                        "15",
+                        "20",
+                        "25",
+                        "30",
+                        "35",
+                        "40"
+                    ],
+                    "x_ticks_encrypted": [
+                        "banana",
+                        "poacee",
+                        "sorgho",
+                        "triticum"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "2.5",
+                        "5.0",
+                        "7.5",
+                        "10.0",
+                        "12.5",
+                        "15.0",
+                        "17.5",
+                        "20.0",
+                        "22.5",
+                        "25.0",
+                        "27.5",
+                        "30.0",
+                        "32.5",
+                        "35.0",
+                        "37.5",
+                        "40.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "banana",
+                            "color": "#e62323"
+                        },
+                        {
+                            "name": "poacee",
+                            "color": "#13702f"
+                        },
+                        {
+                            "name": "sorgho",
+                            "color": "#1a73e8"
+                        },
+                        {
+                            "name": "triticum",
+                            "color": "#e62323"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_finalH2V3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_finalH2V3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_finalH2V3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart7_a816632a\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart7_a816632a_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\49d0784a33c4ecbb\\output\\49d0784a33c4ecbb_original_grid.png"
+        }
+    }
+}

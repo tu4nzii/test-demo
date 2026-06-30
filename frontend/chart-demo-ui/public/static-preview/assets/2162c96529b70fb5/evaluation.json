@@ -1,0 +1,906 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_2162c96529b70fb5",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_ticks.json",
+    "summary": {
+        "object_count": 22,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "IF, Fair",
+            "series_name": "IF",
+            "label": "Fair",
+            "axis": "y",
+            "value": 10.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Fair_round3_attempt0.png"
+        },
+        {
+            "id": "IF, Good",
+            "series_name": "IF",
+            "label": "Good",
+            "axis": "y",
+            "value": 60.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Good_round3_attempt0.png"
+        },
+        {
+            "id": "IF, Very Good",
+            "series_name": "IF",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 180.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Very Good_round3_attempt0.png"
+        },
+        {
+            "id": "IF, Premium",
+            "series_name": "IF",
+            "label": "Premium",
+            "axis": "y",
+            "value": 155.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "VVS1, Good",
+            "series_name": "VVS1",
+            "label": "Good",
+            "axis": "y",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Good_round3_attempt0.png"
+        },
+        {
+            "id": "VVS1, Very Good",
+            "series_name": "VVS1",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 180.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Very Good_round3_attempt2.png"
+        },
+        {
+            "id": "VVS1, Premium",
+            "series_name": "VVS1",
+            "label": "Premium",
+            "axis": "y",
+            "value": 125.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "VVS2, Good",
+            "series_name": "VVS2",
+            "label": "Good",
+            "axis": "y",
+            "value": 160.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Good_round3_attempt0.png"
+        },
+        {
+            "id": "VVS2, Very Good",
+            "series_name": "VVS2",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 166.67,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Very Good_round3_attempt2.png"
+        },
+        {
+            "id": "VVS2, Premium",
+            "series_name": "VVS2",
+            "label": "Premium",
+            "axis": "y",
+            "value": 170.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "VS1, Fair",
+            "series_name": "VS1",
+            "label": "Fair",
+            "axis": "y",
+            "value": 165.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Fair_round3_attempt0.png"
+        },
+        {
+            "id": "VS1, Good",
+            "series_name": "VS1",
+            "label": "Good",
+            "axis": "y",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Good_round3_attempt0.png"
+        },
+        {
+            "id": "VS1, Premium",
+            "series_name": "VS1",
+            "label": "Premium",
+            "axis": "y",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "VS2, Very Good",
+            "series_name": "VS2",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Very Good_round3_attempt0.png"
+        },
+        {
+            "id": "SI1, Very Good",
+            "series_name": "SI1",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 140.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Very Good_round3_attempt0.png"
+        },
+        {
+            "id": "SI1, Premium",
+            "series_name": "SI1",
+            "label": "Premium",
+            "axis": "y",
+            "value": 175.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "SI1, Ideal",
+            "series_name": "SI1",
+            "label": "Ideal",
+            "axis": "y",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Ideal_round3_attempt0.png"
+        },
+        {
+            "id": "SI2, Very Good",
+            "series_name": "SI2",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 42.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Very Good_round1_attempt2.png"
+        },
+        {
+            "id": "I1, Good",
+            "series_name": "I1",
+            "label": "Good",
+            "axis": "y",
+            "value": 190.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Good_round3_attempt0.png"
+        },
+        {
+            "id": "I1, Very Good",
+            "series_name": "I1",
+            "label": "Very Good",
+            "axis": "y",
+            "value": 55.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Very Good_round3_attempt0.png"
+        },
+        {
+            "id": "I1, Premium",
+            "series_name": "I1",
+            "label": "Premium",
+            "axis": "y",
+            "value": 220.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Premium_round3_attempt0.png"
+        },
+        {
+            "id": "I1, Ideal",
+            "series_name": "I1",
+            "label": "Ideal",
+            "axis": "y",
+            "value": 220.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Ideal_round3_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image",
+            "record_count": 455,
+            "object_count": 40,
+            "predictions": [
+                {
+                    "id": "IF, Fair",
+                    "series_name": "IF",
+                    "label": "Fair",
+                    "axis": "y",
+                    "value": 10.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Fair_round3_attempt0.png"
+                },
+                {
+                    "id": "IF, Good",
+                    "series_name": "IF",
+                    "label": "Good",
+                    "axis": "y",
+                    "value": 60.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "IF, Very Good",
+                    "series_name": "IF",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 180.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Very Good_round3_attempt0.png"
+                },
+                {
+                    "id": "IF, Premium",
+                    "series_name": "IF",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 155.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "IF, Ideal",
+                    "series_name": "IF",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_IF, Ideal_round3_attempt0.png"
+                },
+                {
+                    "id": "VVS1, Fair",
+                    "series_name": "VVS1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Fair_round1_attempt0.png"
+                },
+                {
+                    "id": "VVS1, Good",
+                    "series_name": "VVS1",
+                    "label": "Good",
+                    "axis": "y",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "VVS1, Very Good",
+                    "series_name": "VVS1",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 180.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Very Good_round3_attempt2.png"
+                },
+                {
+                    "id": "VVS1, Premium",
+                    "series_name": "VVS1",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 125.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "VVS1, Ideal",
+                    "series_name": "VVS1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS1, Ideal_round2_attempt0.png"
+                },
+                {
+                    "id": "VVS2, Fair",
+                    "series_name": "VVS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Fair_round1_attempt0.png"
+                },
+                {
+                    "id": "VVS2, Good",
+                    "series_name": "VVS2",
+                    "label": "Good",
+                    "axis": "y",
+                    "value": 160.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "VVS2, Very Good",
+                    "series_name": "VVS2",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 166.67,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Very Good_round3_attempt2.png"
+                },
+                {
+                    "id": "VVS2, Premium",
+                    "series_name": "VVS2",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 170.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "VVS2, Ideal",
+                    "series_name": "VVS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VVS2, Ideal_round1_attempt0.png"
+                },
+                {
+                    "id": "VS1, Fair",
+                    "series_name": "VS1",
+                    "label": "Fair",
+                    "axis": "y",
+                    "value": 165.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Fair_round3_attempt0.png"
+                },
+                {
+                    "id": "VS1, Good",
+                    "series_name": "VS1",
+                    "label": "Good",
+                    "axis": "y",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "VS1, Very Good",
+                    "series_name": "VS1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Very Good_round2_attempt2.png"
+                },
+                {
+                    "id": "VS1, Premium",
+                    "series_name": "VS1",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "VS1, Ideal",
+                    "series_name": "VS1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS1, Ideal_round3_attempt0.png"
+                },
+                {
+                    "id": "VS2, Fair",
+                    "series_name": "VS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Fair_round2_attempt0.png"
+                },
+                {
+                    "id": "VS2, Good",
+                    "series_name": "VS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Good_round2_attempt4.png"
+                },
+                {
+                    "id": "VS2, Very Good",
+                    "series_name": "VS2",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Very Good_round3_attempt0.png"
+                },
+                {
+                    "id": "VS2, Premium",
+                    "series_name": "VS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Premium_round1_attempt2.png"
+                },
+                {
+                    "id": "VS2, Ideal",
+                    "series_name": "VS2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_VS2, Ideal_round2_attempt0.png"
+                },
+                {
+                    "id": "SI1, Fair",
+                    "series_name": "SI1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Fair_round1_attempt0.png"
+                },
+                {
+                    "id": "SI1, Good",
+                    "series_name": "SI1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Good_round1_attempt0.png"
+                },
+                {
+                    "id": "SI1, Very Good",
+                    "series_name": "SI1",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 140.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Very Good_round3_attempt0.png"
+                },
+                {
+                    "id": "SI1, Premium",
+                    "series_name": "SI1",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 175.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "SI1, Ideal",
+                    "series_name": "SI1",
+                    "label": "Ideal",
+                    "axis": "y",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI1, Ideal_round3_attempt0.png"
+                },
+                {
+                    "id": "SI2, Fair",
+                    "series_name": "SI2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Fair_round2_attempt0.png"
+                },
+                {
+                    "id": "SI2, Good",
+                    "series_name": "SI2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "SI2, Very Good",
+                    "series_name": "SI2",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 42.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Very Good_round1_attempt2.png"
+                },
+                {
+                    "id": "SI2, Premium",
+                    "series_name": "SI2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Premium_round1_attempt0.png"
+                },
+                {
+                    "id": "SI2, Ideal",
+                    "series_name": "SI2",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_SI2, Ideal_round2_attempt0.png"
+                },
+                {
+                    "id": "I1, Fair",
+                    "series_name": "I1",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Fair_round1_attempt0.png"
+                },
+                {
+                    "id": "I1, Good",
+                    "series_name": "I1",
+                    "label": "Good",
+                    "axis": "y",
+                    "value": 190.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Good_round3_attempt0.png"
+                },
+                {
+                    "id": "I1, Very Good",
+                    "series_name": "I1",
+                    "label": "Very Good",
+                    "axis": "y",
+                    "value": 55.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Very Good_round3_attempt0.png"
+                },
+                {
+                    "id": "I1, Premium",
+                    "series_name": "I1",
+                    "label": "Premium",
+                    "axis": "y",
+                    "value": 220.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Premium_round3_attempt0.png"
+                },
+                {
+                    "id": "I1, Ideal",
+                    "series_name": "I1",
+                    "label": "Ideal",
+                    "axis": "y",
+                    "value": 220.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image\\tempy\\amplifier_crop_I1, Ideal_round3_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image",
+        "chart_type": "v_stacked_bar",
+        "x_ticks": [
+            "Fair",
+            "Good",
+            "Very Good",
+            "Premium",
+            "Ideal"
+        ],
+        "y_ticks": [
+            5000.0,
+            4000.0,
+            3000.0,
+            2000.0,
+            1000.0,
+            0.0
+        ],
+        "x_pixels": [
+            134,
+            281,
+            428,
+            575,
+            724
+        ],
+        "y_pixels": [
+            45,
+            108,
+            171,
+            234,
+            297,
+            360
+        ],
+        "x_ticks_encrypted": [
+            "Fair",
+            "Good",
+            "Very Good",
+            "Premium",
+            "Ideal"
+        ],
+        "y_ticks_encrypted": [
+            5000.0,
+            4500.0,
+            4000.0,
+            3500.0,
+            3000.0,
+            2500.0,
+            2000.0,
+            1500.0,
+            1000.0,
+            500.0,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            134,
+            281,
+            428,
+            575,
+            724
+        ],
+        "y_pixels_encrypted": [
+            45,
+            76,
+            108,
+            140,
+            171,
+            202,
+            234,
+            266,
+            297,
+            328,
+            360
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "IF",
+                "color": "#fde725"
+            },
+            {
+                "name": "VVS1",
+                "color": "#9fda3a"
+            },
+            {
+                "name": "VVS2",
+                "color": "#4ac16d"
+            },
+            {
+                "name": "VS1",
+                "color": "#1fa187"
+            },
+            {
+                "name": "VS2",
+                "color": "#277f8e"
+            },
+            {
+                "name": "SI1",
+                "color": "#365c8d"
+            },
+            {
+                "name": "SI2",
+                "color": "#46337e"
+            },
+            {
+                "name": "I1",
+                "color": "#440154"
+            }
+        ],
+        "series_color": {
+            "IF": "#fde725",
+            "VVS1": "#9fda3a",
+            "VVS2": "#4ac16d",
+            "VS1": "#1fa187",
+            "VS2": "#277f8e",
+            "SI1": "#365c8d",
+            "SI2": "#46337e",
+            "I1": "#440154"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "stacked",
+                "bar_orientation": "vertical",
+                "confidence": 1.0,
+                "reason": "The chart is a vertical stacked bar chart with clear axes and ticks. The x-axis represents categories, and the y-axis represents numeric values. The bars are stacked vertically.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Fair",
+                        "Good",
+                        "Very Good",
+                        "Premium",
+                        "Ideal"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "2000",
+                        "3000",
+                        "4000",
+                        "5000"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Fair",
+                        "Good",
+                        "Very Good",
+                        "Premium",
+                        "Ideal"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "1000.0",
+                        "2000.0",
+                        "2500.0",
+                        "3000.0",
+                        "3500.0",
+                        "4000.0",
+                        "4500.0",
+                        "5000.0"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "IF",
+                            "color": "#fde725"
+                        },
+                        {
+                            "name": "VVS1",
+                            "color": "#9fda3a"
+                        },
+                        {
+                            "name": "VVS2",
+                            "color": "#4ac16d"
+                        },
+                        {
+                            "name": "VS1",
+                            "color": "#1fa187"
+                        },
+                        {
+                            "name": "VS2",
+                            "color": "#277f8e"
+                        },
+                        {
+                            "name": "SI1",
+                            "color": "#365c8d"
+                        },
+                        {
+                            "name": "SI2",
+                            "color": "#46337e"
+                        },
+                        {
+                            "name": "I1",
+                            "color": "#440154"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_finalH1V3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_finalH1V3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_finalH1V3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\GroupedBarChart20_46f8a06c\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart20_46f8a06c_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2162c96529b70fb5\\output\\2162c96529b70fb5_original_grid.png"
+        }
+    }
+}

@@ -1,0 +1,1345 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_8754dfbdab3b4f50",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_ticks.json",
+    "summary": {
+        "object_count": 38,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "2019, 2026.0",
+            "series_name": "2019",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 780.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2019, 2026.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2019, 2024.0",
+            "series_name": "2019",
+            "label": "2024.0",
+            "axis": "x",
+            "value": 400.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2024.0_round3_attempt0.png"
+        },
+        {
+            "id": "2019, 2022.0",
+            "series_name": "2019",
+            "label": 108.33,
+            "axis": "x",
+            "value": 100.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2022.0_round1_attempt5.png"
+        },
+        {
+            "id": "2019, 2020.0",
+            "series_name": "2019",
+            "label": "2020.0",
+            "axis": "x",
+            "value": 250.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2020.0_round3_attempt0.png"
+        },
+        {
+            "id": "2020, 2026.0",
+            "series_name": "2020",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 800.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2026.0_round1_attempt2.png"
+        },
+        {
+            "id": "2020, 2020.0",
+            "series_name": "2020",
+            "label": "2020.0",
+            "axis": "x",
+            "value": 256.25,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2020.0_round3_attempt0.png"
+        },
+        {
+            "id": "2020, 2019.0",
+            "series_name": "2020",
+            "label": "2019.0",
+            "axis": "x",
+            "value": 139.06,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2019.0_round3_attempt0.png"
+        },
+        {
+            "id": "2021, 2026.0",
+            "series_name": "2021",
+            "label": 762.5,
+            "axis": "x",
+            "value": 750.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2026.0_round1_attempt6.png"
+        },
+        {
+            "id": "2021, 2025.0",
+            "series_name": "2021",
+            "label": 587.5,
+            "axis": "x",
+            "value": 581.25,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2025.0_round3_attempt1.png"
+        },
+        {
+            "id": "2021, 2024.0",
+            "series_name": "2021",
+            "label": "2024.0",
+            "axis": "x",
+            "value": 350.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2024.0_round3_attempt1.png"
+        },
+        {
+            "id": "2021, 2023.0",
+            "series_name": "2021",
+            "label": 116.67,
+            "axis": "x",
+            "value": 100.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2023.0_round1_attempt5.png"
+        },
+        {
+            "id": "2021, 2021.0",
+            "series_name": "2021",
+            "label": "2021.0",
+            "axis": "x",
+            "value": 250.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2021.0_round3_attempt0.png"
+        },
+        {
+            "id": "2021, 2020.0",
+            "series_name": "2021",
+            "label": "2020.0",
+            "axis": "x",
+            "value": 175.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2020.0_round3_attempt0.png"
+        },
+        {
+            "id": "2022, 2023.0",
+            "series_name": "2022",
+            "label": "2023.0",
+            "axis": "x",
+            "value": 405.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2023.0_round1_attempt2.png"
+        },
+        {
+            "id": "2022, 2021.0",
+            "series_name": "2022",
+            "label": 2021.0,
+            "axis": "x",
+            "value": 2022.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2021.0_round1_attempt2.png"
+        },
+        {
+            "id": "2023, 2026.0",
+            "series_name": "2023",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 800.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2023, 2026.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2023, 2025.0",
+            "series_name": "2023",
+            "label": "2025.0",
+            "axis": "x",
+            "value": 515.625,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2025.0_round3_attempt0.png"
+        },
+        {
+            "id": "2023, 2022.0",
+            "series_name": "2023",
+            "label": "2022.0",
+            "axis": "x",
+            "value": 350.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2023, 2022.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2023, 2021.0",
+            "series_name": "2023",
+            "label": 2021.0,
+            "axis": "x",
+            "value": 2023.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2021.0_round2_attempt4.png"
+        },
+        {
+            "id": "2024, 2026.0",
+            "series_name": "2024",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 750.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2026.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2024, 2024.0",
+            "series_name": "2024",
+            "label": "2024.0",
+            "axis": "x",
+            "value": 393.75,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2024, 2024.0_round3_attempt0.png"
+        },
+        {
+            "id": "2024, 2023.0",
+            "series_name": "2024",
+            "label": "2023.0",
+            "axis": "x",
+            "value": 400.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2023.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2024, 2021.0",
+            "series_name": "2024",
+            "label": "2021.0",
+            "axis": "x",
+            "value": 260.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2021.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2024, 2020.0",
+            "series_name": "2024",
+            "label": 2020.0,
+            "axis": "x",
+            "value": 2024.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2020.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2024, 2019.0",
+            "series_name": "2024",
+            "label": "2019.0",
+            "axis": "x",
+            "value": 100.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2019.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2025, 2026.0",
+            "series_name": "2025",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 550.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2026.0_round1_attempt3.png"
+        },
+        {
+            "id": "2025, 2025.0",
+            "series_name": "2025",
+            "label": "2025.0",
+            "axis": "x",
+            "value": 500.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2025.0_round3_attempt0.png"
+        },
+        {
+            "id": "2025, 2024.0",
+            "series_name": "2025",
+            "label": 2024.0,
+            "axis": "x",
+            "value": 2025.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2025, 2024.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2025, 2023.0",
+            "series_name": "2025",
+            "label": "2023.0",
+            "axis": "x",
+            "value": 109.722,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2023.0_round2_attempt1.png"
+        },
+        {
+            "id": "2025, 2022.0",
+            "series_name": "2025",
+            "label": "2022.0",
+            "axis": "x",
+            "value": 200.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2022.0_round3_attempt2.png"
+        },
+        {
+            "id": "2025, 2020.0",
+            "series_name": "2025",
+            "label": 156.25,
+            "axis": "x",
+            "value": 150.0,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2020.0_round3_attempt1.png"
+        },
+        {
+            "id": "2025, 2019.0",
+            "series_name": "2025",
+            "label": "2019.0",
+            "axis": "x",
+            "value": 140.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2025, 2019.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2026, 2026.0",
+            "series_name": "2026",
+            "label": "2026.0",
+            "axis": "x",
+            "value": 800.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2026.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2026, 2025.0",
+            "series_name": "2026",
+            "label": "2025.0",
+            "axis": "x",
+            "value": 751.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2026, 2025.0_round3_attempt0.png"
+        },
+        {
+            "id": "2026, 2024.0",
+            "series_name": "2026",
+            "label": "2024.0",
+            "axis": "x",
+            "value": 380.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2024.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2026, 2022.0",
+            "series_name": "2026",
+            "label": "2022.0",
+            "axis": "x",
+            "value": 325.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2022.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2026, 2021.0",
+            "series_name": "2026",
+            "label": "2021.0",
+            "axis": "x",
+            "value": 260.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2021.0_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "2026, 2020.0",
+            "series_name": "2026",
+            "label": "2020.0",
+            "axis": "x",
+            "value": 300.0,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2020.0_feedback_grid_with_grid_run3.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image",
+            "record_count": 665,
+            "object_count": 64,
+            "predictions": [
+                {
+                    "id": "2019, 2026.0",
+                    "series_name": "2019",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 780.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2019, 2026.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2019, 2025.0",
+                    "series_name": "2019",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2025.0_round1_attempt4.png"
+                },
+                {
+                    "id": "2019, 2024.0",
+                    "series_name": "2019",
+                    "label": "2024.0",
+                    "axis": "x",
+                    "value": 400.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2024.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2019, 2023.0",
+                    "series_name": "2019",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2023.0_round1_attempt0.png"
+                },
+                {
+                    "id": "2019, 2022.0",
+                    "series_name": "2019",
+                    "label": 108.33,
+                    "axis": "x",
+                    "value": 100.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2022.0_round1_attempt5.png"
+                },
+                {
+                    "id": "2019, 2021.0",
+                    "series_name": "2019",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2021.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2019, 2020.0",
+                    "series_name": "2019",
+                    "label": "2020.0",
+                    "axis": "x",
+                    "value": 250.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2020.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2019, 2019.0",
+                    "series_name": "2019",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2019, 2019.0_round2_attempt0.png"
+                },
+                {
+                    "id": "2020, 2026.0",
+                    "series_name": "2020",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 800.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2026.0_round1_attempt2.png"
+                },
+                {
+                    "id": "2020, 2025.0",
+                    "series_name": "2020",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2025.0_round2_attempt3.png"
+                },
+                {
+                    "id": "2020, 2024.0",
+                    "series_name": "2020",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2024.0_round3_attempt1.png"
+                },
+                {
+                    "id": "2020, 2023.0",
+                    "series_name": "2020",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2023.0_round2_attempt0.png"
+                },
+                {
+                    "id": "2020, 2022.0",
+                    "series_name": "2020",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2022.0_round3_attempt4.png"
+                },
+                {
+                    "id": "2020, 2021.0",
+                    "series_name": "2020",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2020, 2021.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2020, 2020.0",
+                    "series_name": "2020",
+                    "label": "2020.0",
+                    "axis": "x",
+                    "value": 256.25,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2020.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2020, 2019.0",
+                    "series_name": "2020",
+                    "label": "2019.0",
+                    "axis": "x",
+                    "value": 139.06,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2020, 2019.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2021, 2026.0",
+                    "series_name": "2021",
+                    "label": 762.5,
+                    "axis": "x",
+                    "value": 750.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2026.0_round1_attempt6.png"
+                },
+                {
+                    "id": "2021, 2025.0",
+                    "series_name": "2021",
+                    "label": 587.5,
+                    "axis": "x",
+                    "value": 581.25,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2025.0_round3_attempt1.png"
+                },
+                {
+                    "id": "2021, 2024.0",
+                    "series_name": "2021",
+                    "label": "2024.0",
+                    "axis": "x",
+                    "value": 350.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2024.0_round3_attempt1.png"
+                },
+                {
+                    "id": "2021, 2023.0",
+                    "series_name": "2021",
+                    "label": 116.67,
+                    "axis": "x",
+                    "value": 100.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2023.0_round1_attempt5.png"
+                },
+                {
+                    "id": "2021, 2022.0",
+                    "series_name": "2021",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2022.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2021, 2021.0",
+                    "series_name": "2021",
+                    "label": "2021.0",
+                    "axis": "x",
+                    "value": 250.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2021.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2021, 2020.0",
+                    "series_name": "2021",
+                    "label": "2020.0",
+                    "axis": "x",
+                    "value": 175.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2020.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2021, 2019.0",
+                    "series_name": "2021",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2021, 2019.0_round1_attempt0.png"
+                },
+                {
+                    "id": "2022, 2026.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2022, 2026.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2022, 2025.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2025.0_round1_attempt4.png"
+                },
+                {
+                    "id": "2022, 2024.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2024.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2022, 2023.0",
+                    "series_name": "2022",
+                    "label": "2023.0",
+                    "axis": "x",
+                    "value": 405.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2023.0_round1_attempt2.png"
+                },
+                {
+                    "id": "2022, 2022.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2022, 2022.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2022, 2021.0",
+                    "series_name": "2022",
+                    "label": 2021.0,
+                    "axis": "x",
+                    "value": 2022.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2021.0_round1_attempt2.png"
+                },
+                {
+                    "id": "2022, 2020.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2020.0_round1_attempt1.png"
+                },
+                {
+                    "id": "2022, 2019.0",
+                    "series_name": "2022",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2022, 2019.0_round1_attempt0.png"
+                },
+                {
+                    "id": "2023, 2026.0",
+                    "series_name": "2023",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 800.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2023, 2026.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2023, 2025.0",
+                    "series_name": "2023",
+                    "label": "2025.0",
+                    "axis": "x",
+                    "value": 515.625,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2025.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2023, 2024.0",
+                    "series_name": "2023",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2024.0_round2_attempt1.png"
+                },
+                {
+                    "id": "2023, 2023.0",
+                    "series_name": "2023",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2023.0_round1_attempt1.png"
+                },
+                {
+                    "id": "2023, 2022.0",
+                    "series_name": "2023",
+                    "label": "2022.0",
+                    "axis": "x",
+                    "value": 350.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2023, 2022.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2023, 2021.0",
+                    "series_name": "2023",
+                    "label": 2021.0,
+                    "axis": "x",
+                    "value": 2023.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2021.0_round2_attempt4.png"
+                },
+                {
+                    "id": "2023, 2020.0",
+                    "series_name": "2023",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2020.0_round2_attempt0.png"
+                },
+                {
+                    "id": "2023, 2019.0",
+                    "series_name": "2023",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2023, 2019.0_round1_attempt3.png"
+                },
+                {
+                    "id": "2024, 2026.0",
+                    "series_name": "2024",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 750.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2026.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2024, 2025.0",
+                    "series_name": "2024",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2024, 2025.0_round1_attempt0.png"
+                },
+                {
+                    "id": "2024, 2024.0",
+                    "series_name": "2024",
+                    "label": "2024.0",
+                    "axis": "x",
+                    "value": 393.75,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2024, 2024.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2024, 2023.0",
+                    "series_name": "2024",
+                    "label": "2023.0",
+                    "axis": "x",
+                    "value": 400.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2023.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2024, 2022.0",
+                    "series_name": "2024",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2022.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2024, 2021.0",
+                    "series_name": "2024",
+                    "label": "2021.0",
+                    "axis": "x",
+                    "value": 260.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2021.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2024, 2020.0",
+                    "series_name": "2024",
+                    "label": 2020.0,
+                    "axis": "x",
+                    "value": 2024.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2020.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2024, 2019.0",
+                    "series_name": "2024",
+                    "label": "2019.0",
+                    "axis": "x",
+                    "value": 100.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2024, 2019.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2025, 2026.0",
+                    "series_name": "2025",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 550.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2026.0_round1_attempt3.png"
+                },
+                {
+                    "id": "2025, 2025.0",
+                    "series_name": "2025",
+                    "label": "2025.0",
+                    "axis": "x",
+                    "value": 500.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2025.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2025, 2024.0",
+                    "series_name": "2025",
+                    "label": 2024.0,
+                    "axis": "x",
+                    "value": 2025.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2025, 2024.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2025, 2023.0",
+                    "series_name": "2025",
+                    "label": "2023.0",
+                    "axis": "x",
+                    "value": 109.722,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2023.0_round2_attempt1.png"
+                },
+                {
+                    "id": "2025, 2022.0",
+                    "series_name": "2025",
+                    "label": "2022.0",
+                    "axis": "x",
+                    "value": 200.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2022.0_round3_attempt2.png"
+                },
+                {
+                    "id": "2025, 2021.0",
+                    "series_name": "2025",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2021.0_round1_attempt0.png"
+                },
+                {
+                    "id": "2025, 2020.0",
+                    "series_name": "2025",
+                    "label": 156.25,
+                    "axis": "x",
+                    "value": 150.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2025, 2020.0_round3_attempt1.png"
+                },
+                {
+                    "id": "2025, 2019.0",
+                    "series_name": "2025",
+                    "label": "2019.0",
+                    "axis": "x",
+                    "value": 140.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2025, 2019.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2026.0",
+                    "series_name": "2026",
+                    "label": "2026.0",
+                    "axis": "x",
+                    "value": 800.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2026.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2025.0",
+                    "series_name": "2026",
+                    "label": "2025.0",
+                    "axis": "x",
+                    "value": 751.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2026, 2025.0_round3_attempt0.png"
+                },
+                {
+                    "id": "2026, 2024.0",
+                    "series_name": "2026",
+                    "label": "2024.0",
+                    "axis": "x",
+                    "value": 380.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2024.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2023.0",
+                    "series_name": "2026",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\amplifier_crop_2026, 2023.0_round1_attempt5.png"
+                },
+                {
+                    "id": "2026, 2022.0",
+                    "series_name": "2026",
+                    "label": "2022.0",
+                    "axis": "x",
+                    "value": 325.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2022.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2021.0",
+                    "series_name": "2026",
+                    "label": "2021.0",
+                    "axis": "x",
+                    "value": 260.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2021.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2020.0",
+                    "series_name": "2026",
+                    "label": "2020.0",
+                    "axis": "x",
+                    "value": 300.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2020.0_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "2026, 2019.0",
+                    "series_name": "2026",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image\\tempy\\overlay_2026, 2019.0_feedback_grid_with_grid_run3.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            100.0,
+            200.0,
+            300.0,
+            400.0,
+            500.0,
+            600.0,
+            700.0,
+            800.0
+        ],
+        "y_ticks": [
+            2026.0,
+            2025.0,
+            2024.0,
+            2023.0,
+            2022.0,
+            2021.0,
+            2020.0,
+            2019.0
+        ],
+        "x_pixels": [
+            176,
+            256,
+            334,
+            410,
+            488,
+            566,
+            644,
+            722
+        ],
+        "y_pixels": [
+            66,
+            112,
+            158,
+            206,
+            250,
+            296,
+            342,
+            388
+        ],
+        "x_ticks_encrypted": [
+            100.0,
+            150.0,
+            200.0,
+            250.0,
+            300.0,
+            350.0,
+            400.0,
+            450.0,
+            500.0,
+            550.0,
+            600.0,
+            650.0,
+            700.0,
+            750.0,
+            800.0
+        ],
+        "y_ticks_encrypted": [
+            2026.0,
+            2025.5,
+            2025.0,
+            2024.5,
+            2024.0,
+            2023.5,
+            2023.0,
+            2022.5,
+            2022.0,
+            2021.5,
+            2021.0,
+            2020.5,
+            2020.0,
+            2019.5,
+            2019.0
+        ],
+        "x_pixels_encrypted": [
+            176,
+            216,
+            256,
+            295,
+            334,
+            372,
+            410,
+            449,
+            488,
+            527,
+            566,
+            605,
+            644,
+            683,
+            722
+        ],
+        "y_pixels_encrypted": [
+            66,
+            89,
+            112,
+            135,
+            158,
+            182,
+            206,
+            228,
+            250,
+            273,
+            296,
+            319,
+            342,
+            365,
+            388
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 300.0,
+                "right_tick": 400.0,
+                "left_pixel": 334,
+                "right_pixel": 410,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 38.0,
+                "label_axis_extent": 32.0,
+                "required_spacing": 40.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "2019",
+                "color": "#34d0c1"
+            },
+            {
+                "name": "2020",
+                "color": "#34c8c1"
+            },
+            {
+                "name": "2021",
+                "color": "#34c1c1"
+            },
+            {
+                "name": "2022",
+                "color": "#34b9c1"
+            },
+            {
+                "name": "2023",
+                "color": "#34b1c1"
+            },
+            {
+                "name": "2024",
+                "color": "#34a9c1"
+            },
+            {
+                "name": "2025",
+                "color": "#34a1c1"
+            },
+            {
+                "name": "2026",
+                "color": "#3499c1"
+            }
+        ],
+        "series_color": {
+            "2019": "#34d0c1",
+            "2020": "#34c8c1",
+            "2021": "#34c1c1",
+            "2022": "#34b9c1",
+            "2023": "#34b1c1",
+            "2024": "#34a9c1",
+            "2025": "#34a1c1",
+            "2026": "#3499c1"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "category",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "horizontal",
+                "confidence": 1.0,
+                "reason": "The chart is a horizontal bar chart with visible axes and ticks.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "100",
+                        "200",
+                        "300",
+                        "400",
+                        "500",
+                        "600",
+                        "700",
+                        "800"
+                    ],
+                    "y_ticks": [
+                        "2019",
+                        "2020",
+                        "2021",
+                        "2022",
+                        "2023",
+                        "2024",
+                        "2025",
+                        "2026"
+                    ],
+                    "x_ticks_encrypted": [
+                        "100.0",
+                        "150.0",
+                        "200.0",
+                        "250.0",
+                        "300.0",
+                        "350.0",
+                        "400.0",
+                        "450.0",
+                        "500.0",
+                        "550.0",
+                        "600.0",
+                        "650.0",
+                        "700.0",
+                        "750.0",
+                        "800.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "2019",
+                        "2020",
+                        "2021",
+                        "2022",
+                        "2023",
+                        "2024",
+                        "2025",
+                        "2026"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "category",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Series 1",
+                            "color": null
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "single_series"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_finalH3V1.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_finalH3V1_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_finalH3V1_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\BarChart13_e9af3dfd\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart13_e9af3dfd_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\8754dfbdab3b4f50\\output\\8754dfbdab3b4f50_original_grid.png"
+        }
+    }
+}

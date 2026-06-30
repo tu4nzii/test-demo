@@ -1,0 +1,1139 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_871eb5a297dab2ad",
+    "chart_type": "v_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_ticks.json",
+    "summary": {
+        "object_count": 37,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Africa, Colombia",
+            "series_name": "Africa",
+            "label": "Colombia",
+            "axis": "y",
+            "value": 0.05,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Colombia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, El Salvador",
+            "series_name": "Africa",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.05,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, Russia",
+            "series_name": "Africa",
+            "label": "Russia",
+            "axis": "y",
+            "value": 0.05,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Russia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, Switzerland",
+            "series_name": "Africa",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.3,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, Germany",
+            "series_name": "Africa",
+            "label": "Germany",
+            "axis": "y",
+            "value": 0.08,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Germany_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, Croatia",
+            "series_name": "Africa",
+            "label": "Croatia",
+            "axis": "y",
+            "value": 0.15,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Croatia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa, Slovakia",
+            "series_name": "Africa",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.07,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Slovakia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, Colombia",
+            "series_name": "Asia",
+            "label": "Colombia",
+            "axis": "y",
+            "value": 0.5,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Colombia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, El Salvador",
+            "series_name": "Asia",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.2,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, Switzerland",
+            "series_name": "Asia",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.32,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, Germany",
+            "series_name": "Asia",
+            "label": "Germany",
+            "axis": "y",
+            "value": 0.33,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Germany_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, Croatia",
+            "series_name": "Asia",
+            "label": "Croatia",
+            "axis": "y",
+            "value": 0.35,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Croatia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Asia, Slovakia",
+            "series_name": "Asia",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.018,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Asia, Slovakia_round3_attempt0.png"
+        },
+        {
+            "id": "Europe, Colombia",
+            "series_name": "Europe",
+            "label": "Colombia",
+            "axis": "y",
+            "value": 0.45,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Colombia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Europe, El Salvador",
+            "series_name": "Europe",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.15,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Europe, Russia",
+            "series_name": "Europe",
+            "label": "Russia",
+            "axis": "y",
+            "value": 0.35,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Russia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Europe, Switzerland",
+            "series_name": "Europe",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.37,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Europe, Croatia",
+            "series_name": "Europe",
+            "label": "Croatia",
+            "axis": "y",
+            "value": 0.12,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Croatia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Europe, Slovakia",
+            "series_name": "Europe",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.03,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Europe, Slovakia_round3_attempt0.png"
+        },
+        {
+            "id": "North America, Colombia",
+            "series_name": "North America",
+            "label": "Colombia",
+            "axis": "y",
+            "value": 0.48,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Colombia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "North America, El Salvador",
+            "series_name": "North America",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.28,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "North America, Switzerland",
+            "series_name": "North America",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.32,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "North America, Germany",
+            "series_name": "North America",
+            "label": "Germany",
+            "axis": "y",
+            "value": 0.29,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Germany_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "North America, Croatia",
+            "series_name": "North America",
+            "label": "Croatia",
+            "axis": "y",
+            "value": 0.25,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Croatia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "North America, Slovakia",
+            "series_name": "North America",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.017,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_North America, Slovakia_round1_attempt4.png"
+        },
+        {
+            "id": "Oceania, El Salvador",
+            "series_name": "Oceania",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.2,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Oceania, Russia",
+            "series_name": "Oceania",
+            "label": "Russia",
+            "axis": "y",
+            "value": 0.36,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Russia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Oceania, Switzerland",
+            "series_name": "Oceania",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.32,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Oceania, Germany",
+            "series_name": "Oceania",
+            "label": "Germany",
+            "axis": "y",
+            "value": 0.35,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Germany_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Oceania, Slovakia",
+            "series_name": "Oceania",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.25,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Slovakia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Colombia",
+            "series_name": "South America",
+            "label": "Colombia",
+            "axis": "y",
+            "value": 0.05,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Colombia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, El Salvador",
+            "series_name": "South America",
+            "label": "El Salvador",
+            "axis": "y",
+            "value": 0.27,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, El Salvador_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Russia",
+            "series_name": "South America",
+            "label": "Russia",
+            "axis": "y",
+            "value": 0.33,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Russia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Switzerland",
+            "series_name": "South America",
+            "label": "Switzerland",
+            "axis": "y",
+            "value": 0.3,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Switzerland_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Germany",
+            "series_name": "South America",
+            "label": "Germany",
+            "axis": "y",
+            "value": 0.15,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Germany_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Croatia",
+            "series_name": "South America",
+            "label": "Croatia",
+            "axis": "y",
+            "value": 0.07,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Croatia_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "South America, Slovakia",
+            "series_name": "South America",
+            "label": "Slovakia",
+            "axis": "y",
+            "value": 0.26,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Slovakia_feedback_grid_with_grid_run3.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image",
+            "record_count": 390,
+            "object_count": 42,
+            "predictions": [
+                {
+                    "id": "Africa, Colombia",
+                    "series_name": "Africa",
+                    "label": "Colombia",
+                    "axis": "y",
+                    "value": 0.05,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, El Salvador",
+                    "series_name": "Africa",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.05,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, Russia",
+                    "series_name": "Africa",
+                    "label": "Russia",
+                    "axis": "y",
+                    "value": 0.05,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Russia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, Switzerland",
+                    "series_name": "Africa",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.3,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, Germany",
+                    "series_name": "Africa",
+                    "label": "Germany",
+                    "axis": "y",
+                    "value": 0.08,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Germany_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, Croatia",
+                    "series_name": "Africa",
+                    "label": "Croatia",
+                    "axis": "y",
+                    "value": 0.15,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa, Slovakia",
+                    "series_name": "Africa",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.07,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Africa, Slovakia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, Colombia",
+                    "series_name": "Asia",
+                    "label": "Colombia",
+                    "axis": "y",
+                    "value": 0.5,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, El Salvador",
+                    "series_name": "Asia",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.2,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, Russia",
+                    "series_name": "Asia",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Asia, Russia_round3_attempt0.png"
+                },
+                {
+                    "id": "Asia, Switzerland",
+                    "series_name": "Asia",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.32,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, Germany",
+                    "series_name": "Asia",
+                    "label": "Germany",
+                    "axis": "y",
+                    "value": 0.33,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Germany_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, Croatia",
+                    "series_name": "Asia",
+                    "label": "Croatia",
+                    "axis": "y",
+                    "value": 0.35,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Asia, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Asia, Slovakia",
+                    "series_name": "Asia",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.018,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Asia, Slovakia_round3_attempt0.png"
+                },
+                {
+                    "id": "Europe, Colombia",
+                    "series_name": "Europe",
+                    "label": "Colombia",
+                    "axis": "y",
+                    "value": 0.45,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Europe, El Salvador",
+                    "series_name": "Europe",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.15,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Europe, Russia",
+                    "series_name": "Europe",
+                    "label": "Russia",
+                    "axis": "y",
+                    "value": 0.35,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Russia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Europe, Switzerland",
+                    "series_name": "Europe",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.37,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Europe, Germany",
+                    "series_name": "Europe",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Europe, Germany_round1_attempt2.png"
+                },
+                {
+                    "id": "Europe, Croatia",
+                    "series_name": "Europe",
+                    "label": "Croatia",
+                    "axis": "y",
+                    "value": 0.12,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Europe, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Europe, Slovakia",
+                    "series_name": "Europe",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.03,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_Europe, Slovakia_round3_attempt0.png"
+                },
+                {
+                    "id": "North America, Colombia",
+                    "series_name": "North America",
+                    "label": "Colombia",
+                    "axis": "y",
+                    "value": 0.48,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "North America, El Salvador",
+                    "series_name": "North America",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.28,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "North America, Russia",
+                    "series_name": "North America",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_North America, Russia_round1_attempt2.png"
+                },
+                {
+                    "id": "North America, Switzerland",
+                    "series_name": "North America",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.32,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "North America, Germany",
+                    "series_name": "North America",
+                    "label": "Germany",
+                    "axis": "y",
+                    "value": 0.29,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Germany_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "North America, Croatia",
+                    "series_name": "North America",
+                    "label": "Croatia",
+                    "axis": "y",
+                    "value": 0.25,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_North America, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "North America, Slovakia",
+                    "series_name": "North America",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.017,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\amplifier_crop_North America, Slovakia_round1_attempt4.png"
+                },
+                {
+                    "id": "Oceania, Colombia",
+                    "series_name": "Oceania",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, El Salvador",
+                    "series_name": "Oceania",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.2,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, Russia",
+                    "series_name": "Oceania",
+                    "label": "Russia",
+                    "axis": "y",
+                    "value": 0.36,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Russia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, Switzerland",
+                    "series_name": "Oceania",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.32,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, Germany",
+                    "series_name": "Oceania",
+                    "label": "Germany",
+                    "axis": "y",
+                    "value": 0.35,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Germany_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, Croatia",
+                    "series_name": "Oceania",
+                    "label": "",
+                    "axis": "y",
+                    "value": -1.0,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Oceania, Slovakia",
+                    "series_name": "Oceania",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.25,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_Oceania, Slovakia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Colombia",
+                    "series_name": "South America",
+                    "label": "Colombia",
+                    "axis": "y",
+                    "value": 0.05,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Colombia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, El Salvador",
+                    "series_name": "South America",
+                    "label": "El Salvador",
+                    "axis": "y",
+                    "value": 0.27,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, El Salvador_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Russia",
+                    "series_name": "South America",
+                    "label": "Russia",
+                    "axis": "y",
+                    "value": 0.33,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Russia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Switzerland",
+                    "series_name": "South America",
+                    "label": "Switzerland",
+                    "axis": "y",
+                    "value": 0.3,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Switzerland_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Germany",
+                    "series_name": "South America",
+                    "label": "Germany",
+                    "axis": "y",
+                    "value": 0.15,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Germany_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Croatia",
+                    "series_name": "South America",
+                    "label": "Croatia",
+                    "axis": "y",
+                    "value": 0.07,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Croatia_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "South America, Slovakia",
+                    "series_name": "South America",
+                    "label": "Slovakia",
+                    "axis": "y",
+                    "value": 0.26,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\v_bar\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image\\tempy\\overlay_South America, Slovakia_feedback_grid_with_grid_run3.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image",
+        "chart_type": "v_stacked_bar",
+        "x_ticks": [
+            "Colombia",
+            "El Salvador",
+            "Russia",
+            "Switzerland",
+            "Germany",
+            "Croatia",
+            "Slovakia"
+        ],
+        "y_ticks": [
+            0.5,
+            0.4,
+            0.3,
+            0.2,
+            0.1,
+            0.0
+        ],
+        "x_pixels": [
+            51,
+            114,
+            159,
+            203,
+            248,
+            292,
+            338
+        ],
+        "y_pixels": [
+            50,
+            72,
+            93,
+            114,
+            134,
+            156
+        ],
+        "x_ticks_encrypted": [
+            "Colombia",
+            "El Salvador",
+            "Russia",
+            "Switzerland",
+            "Germany",
+            "Croatia",
+            "Slovakia"
+        ],
+        "y_ticks_encrypted": [
+            0.5,
+            0.45,
+            0.4,
+            0.35,
+            0.3,
+            0.25,
+            0.2,
+            0.15,
+            0.1,
+            0.05,
+            0.0
+        ],
+        "x_pixels_encrypted": [
+            51,
+            114,
+            159,
+            203,
+            248,
+            292,
+            338
+        ],
+        "y_pixels_encrypted": [
+            50,
+            61,
+            72,
+            82,
+            93,
+            104,
+            114,
+            124,
+            134,
+            145,
+            156
+        ],
+        "x_axis_type": "文字轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.5,
+                "right_tick": 0.4,
+                "left_pixel": 50,
+                "right_pixel": 72,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 11.0,
+                "label_axis_extent": 13.0,
+                "required_spacing": 17.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 0.4,
+                "right_tick": 0.3,
+                "left_pixel": 72,
+                "right_pixel": 93,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 10.5,
+                "label_axis_extent": 10.0,
+                "required_spacing": 14.0,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 0.3,
+                "right_tick": 0.2,
+                "left_pixel": 93,
+                "right_pixel": 114,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 10.5,
+                "label_axis_extent": 12.0,
+                "required_spacing": 16.4,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 0.2,
+                "right_tick": 0.1,
+                "left_pixel": 114,
+                "right_pixel": 134,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 10.0,
+                "label_axis_extent": 13.0,
+                "required_spacing": 17.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            },
+            {
+                "left_tick": 0.1,
+                "right_tick": 0.0,
+                "left_pixel": 134,
+                "right_pixel": 156,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 11.0,
+                "label_axis_extent": 13.0,
+                "required_spacing": 17.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "y"
+            }
+        ],
+        "x_axis_encryption_policy": "text_axis_no_encryption",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Africa",
+                "color": "#b88569"
+            },
+            {
+                "name": "Asia",
+                "color": "#8498bb"
+            },
+            {
+                "name": "Europe",
+                "color": "#8fa1c0"
+            },
+            {
+                "name": "North America",
+                "color": "#8498bb"
+            },
+            {
+                "name": "Oceania",
+                "color": "#8a9dbe"
+            },
+            {
+                "name": "South America",
+                "color": "#899dbe"
+            }
+        ],
+        "series_color": {
+            "Africa": "#b88569",
+            "Asia": "#8498bb",
+            "Europe": "#8fa1c0",
+            "North America": "#8498bb",
+            "Oceania": "#8a9dbe",
+            "South America": "#899dbe"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "category",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "stacked",
+                "bar_orientation": "vertical",
+                "confidence": 0.95,
+                "reason": "The chart displays vertical bars that are stacked, with categories on the x-axis and numerical values on the y-axis. Axes and ticks are clearly visible.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "Colombia",
+                        "El Salvador",
+                        "Russia",
+                        "Switzerland",
+                        "Germany",
+                        "Croatia",
+                        "Slovakia"
+                    ],
+                    "y_ticks": [
+                        "0",
+                        "0.1",
+                        "0.2",
+                        "0.3",
+                        "0.4",
+                        "0.5"
+                    ],
+                    "x_ticks_encrypted": [
+                        "Colombia",
+                        "El Salvador",
+                        "Russia",
+                        "Switzerland",
+                        "Germany",
+                        "Croatia",
+                        "Slovakia"
+                    ],
+                    "y_ticks_encrypted": [
+                        "0.0",
+                        "0.05",
+                        "0.1",
+                        "0.15",
+                        "0.2",
+                        "0.25",
+                        "0.3",
+                        "0.35",
+                        "0.4",
+                        "0.45",
+                        "0.5"
+                    ],
+                    "x_axis_type": "category",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Africa",
+                            "color": "#b88569"
+                        },
+                        {
+                            "name": "Asia",
+                            "color": "#8498bb"
+                        },
+                        {
+                            "name": "Europe",
+                            "color": "#8fa1c0"
+                        },
+                        {
+                            "name": "North America",
+                            "color": "#8498bb"
+                        },
+                        {
+                            "name": "Oceania",
+                            "color": "#8a9dbe"
+                        },
+                        {
+                            "name": "South America",
+                            "color": "#899dbe"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_finalH1V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_finalH1V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_finalH1V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_0\\Final-RealDataset\\ALL\\BarChart22_05c88f62\\work\\vishint_Final-Re_fbdfbc9a_ALL_BarChart22_05c88f62_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\871eb5a297dab2ad\\output\\871eb5a297dab2ad_original_grid.png"
+        }
+    }
+}

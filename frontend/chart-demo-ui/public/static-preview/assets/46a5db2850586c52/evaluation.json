@@ -1,0 +1,494 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_46a5db2850586c52",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_ticks.json",
+    "summary": {
+        "object_count": 7,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Liberal, 3.0",
+            "series_name": "Liberal",
+            "label": "3.0",
+            "axis": "x",
+            "value": 1.56,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 3.0_round3_attempt0.png"
+        },
+        {
+            "id": "Moderate, 5.0",
+            "series_name": "Moderate",
+            "label": "5.0",
+            "axis": "x",
+            "value": 65.62,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 5.0_round3_attempt0.png"
+        },
+        {
+            "id": "Moderate, 4.0",
+            "series_name": "Moderate",
+            "label": 9.38,
+            "axis": "x",
+            "value": 6.25,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 4.0_round3_attempt0.png"
+        },
+        {
+            "id": "Moderate, 3.0",
+            "series_name": "Moderate",
+            "label": "3.0",
+            "axis": "x",
+            "value": 23.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 3.0_round3_attempt0.png"
+        },
+        {
+            "id": "Moderate, 1.0",
+            "series_name": "Moderate",
+            "label": "1.0",
+            "axis": "x",
+            "value": 40.62,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 1.0_round3_attempt0.png"
+        },
+        {
+            "id": "Conservative, 2.0",
+            "series_name": "Conservative",
+            "label": "2.0",
+            "axis": "x",
+            "value": 40.62,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 2.0_round3_attempt0.png"
+        },
+        {
+            "id": "Conservative, 1.0",
+            "series_name": "Conservative",
+            "label": "1.0",
+            "axis": "x",
+            "value": 12.5,
+            "prompt_type": "amplifier",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 1.0_round3_attempt0.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image",
+            "record_count": 165,
+            "object_count": 15,
+            "predictions": [
+                {
+                    "id": "Liberal, 5.0",
+                    "series_name": "Liberal",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 5.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Liberal, 4.0",
+                    "series_name": "Liberal",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 4.0_round2_attempt0.png"
+                },
+                {
+                    "id": "Liberal, 3.0",
+                    "series_name": "Liberal",
+                    "label": "3.0",
+                    "axis": "x",
+                    "value": 1.56,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 3.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Liberal, 2.0",
+                    "series_name": "Liberal",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 2.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Liberal, 1.0",
+                    "series_name": "Liberal",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Liberal, 1.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Moderate, 5.0",
+                    "series_name": "Moderate",
+                    "label": "5.0",
+                    "axis": "x",
+                    "value": 65.62,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 5.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Moderate, 4.0",
+                    "series_name": "Moderate",
+                    "label": 9.38,
+                    "axis": "x",
+                    "value": 6.25,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 4.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Moderate, 3.0",
+                    "series_name": "Moderate",
+                    "label": "3.0",
+                    "axis": "x",
+                    "value": 23.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 3.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Moderate, 2.0",
+                    "series_name": "Moderate",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 2.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Moderate, 1.0",
+                    "series_name": "Moderate",
+                    "label": "1.0",
+                    "axis": "x",
+                    "value": 40.62,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Moderate, 1.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Conservative, 5.0",
+                    "series_name": "Conservative",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 5.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Conservative, 4.0",
+                    "series_name": "Conservative",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 4.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Conservative, 3.0",
+                    "series_name": "Conservative",
+                    "label": -1,
+                    "axis": "x",
+                    "value": -1.0,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 3.0_round1_attempt0.png"
+                },
+                {
+                    "id": "Conservative, 2.0",
+                    "series_name": "Conservative",
+                    "label": "2.0",
+                    "axis": "x",
+                    "value": 40.62,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 2.0_round3_attempt0.png"
+                },
+                {
+                    "id": "Conservative, 1.0",
+                    "series_name": "Conservative",
+                    "label": "1.0",
+                    "axis": "x",
+                    "value": 12.5,
+                    "prompt_type": "amplifier",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\h_bar\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image\\tempy\\amplifier_crop_Conservative, 1.0_round3_attempt0.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            50.0,
+            100.0,
+            150.0
+        ],
+        "y_ticks": [
+            5.0,
+            4.0,
+            3.0,
+            2.0,
+            1.0
+        ],
+        "x_pixels": [
+            198,
+            242,
+            285,
+            328
+        ],
+        "y_pixels": [
+            71,
+            124,
+            178,
+            230,
+            284
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            25.0,
+            50.0,
+            75.0,
+            100.0,
+            125.0,
+            150.0
+        ],
+        "y_ticks_encrypted": [
+            5.0,
+            4.5,
+            4.0,
+            3.5,
+            3.0,
+            2.5,
+            2.0,
+            1.5,
+            1.0
+        ],
+        "x_pixels_encrypted": [
+            198,
+            220,
+            242,
+            264,
+            285,
+            306,
+            328
+        ],
+        "y_pixels_encrypted": [
+            71,
+            98,
+            124,
+            151,
+            178,
+            204,
+            230,
+            257,
+            284
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 0.0,
+                "right_tick": 50.0,
+                "left_pixel": 198,
+                "right_pixel": 242,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 22.0,
+                "label_axis_extent": 26.0,
+                "required_spacing": 33.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 50.0,
+                "right_tick": 100.0,
+                "left_pixel": 242,
+                "right_pixel": 285,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 21.5,
+                "label_axis_extent": 36.0,
+                "required_spacing": 45.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 100.0,
+                "right_tick": 150.0,
+                "left_pixel": 285,
+                "right_pixel": 328,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 21.5,
+                "label_axis_extent": 36.0,
+                "required_spacing": 45.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "Liberal",
+                "color": "#808080"
+            },
+            {
+                "name": "Moderate",
+                "color": "#FFA500"
+            },
+            {
+                "name": "Conservative",
+                "color": "#87CEEB"
+            }
+        ],
+        "series_color": {
+            "Liberal": "#808080",
+            "Moderate": "#FFA500",
+            "Conservative": "#87CEEB"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "category",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "stacked",
+                "bar_orientation": "horizontal",
+                "confidence": 1.0,
+                "reason": "The chart is a horizontal stacked bar chart with clear axes and ticks.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "0",
+                        "50",
+                        "100",
+                        "150"
+                    ],
+                    "y_ticks": [
+                        "1. Never",
+                        "2. Once a week or less",
+                        "3. A few times a week",
+                        "4. Once a day",
+                        "5. Several times a day"
+                    ],
+                    "x_ticks_encrypted": [
+                        "0.0",
+                        "25.0",
+                        "50.0",
+                        "75.0",
+                        "100.0",
+                        "125.0",
+                        "150.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "1. Never",
+                        "2. Once a week or less",
+                        "3. A few times a week",
+                        "4. Once a day",
+                        "5. Several times a day"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "category",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "Liberal",
+                            "color": "#808080"
+                        },
+                        {
+                            "name": "Moderate",
+                            "color": "#FFA500"
+                        },
+                        {
+                            "name": "Conservative",
+                            "color": "#87CEEB"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_final3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_final3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_final3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Final-RealDataset\\ALL\\GroupedBarChart12_d9e68259\\work\\vishint_Final-Re_fbdfbc9a_ALL_GroupedBarChart12_d9e68259_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\46a5db2850586c52\\output\\46a5db2850586c52_original_grid.png"
+        }
+    }
+}

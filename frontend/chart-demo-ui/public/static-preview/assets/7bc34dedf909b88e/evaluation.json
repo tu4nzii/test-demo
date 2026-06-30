@@ -1,0 +1,498 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_7bc34dedf909b88e",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_ticks.json",
+    "summary": {
+        "object_count": 20,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_6",
+            "label": "Aquafil Group",
+            "axis": "x",
+            "value": 550.6073,
+            "pixel": {
+                "x": 275,
+                "y": 406,
+                "w": 137,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_18",
+            "label": "Bracco Group",
+            "axis": "x",
+            "value": 1204.8193,
+            "pixel": {
+                "x": 275,
+                "y": 882,
+                "w": 299,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_15",
+            "label": "COIM Group",
+            "axis": "x",
+            "value": 846.1538,
+            "pixel": {
+                "x": 275,
+                "y": 763,
+                "w": 210,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "Colorobbia Group",
+            "axis": "x",
+            "value": 574.8988,
+            "pixel": {
+                "x": 275,
+                "y": 525,
+                "w": 143,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "Esseco Group",
+            "axis": "x",
+            "value": 465.587,
+            "pixel": {
+                "x": 275,
+                "y": 326,
+                "w": 116,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_3",
+            "label": "FIS",
+            "axis": "x",
+            "value": 465.587,
+            "pixel": {
+                "x": 275,
+                "y": 287,
+                "w": 116,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_16",
+            "label": "Gruppo SOL",
+            "axis": "x",
+            "value": 910.9312,
+            "pixel": {
+                "x": 275,
+                "y": 802,
+                "w": 226,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_12",
+            "label": "Intercos Group",
+            "axis": "x",
+            "value": 716.5992,
+            "pixel": {
+                "x": 275,
+                "y": 644,
+                "w": 178,
+                "h": 31
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "Italmatch Chemicals",
+            "axis": "x",
+            "value": 599.1903,
+            "pixel": {
+                "x": 275,
+                "y": 564,
+                "w": 149,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "Lamberti Group",
+            "axis": "x",
+            "value": 510.1215,
+            "pixel": {
+                "x": 275,
+                "y": 366,
+                "w": 127,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_19",
+            "label": "Mapei Group",
+            "axis": "x",
+            "value": 2776.0,
+            "pixel": {
+                "x": 275,
+                "y": 921,
+                "w": 691,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_13",
+            "label": "P&R Group",
+            "axis": "x",
+            "value": 825.9109,
+            "pixel": {
+                "x": 275,
+                "y": 683,
+                "w": 205,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_14",
+            "label": "Polynt Group*",
+            "axis": "x",
+            "value": 838.0567,
+            "pixel": {
+                "x": 275,
+                "y": 723,
+                "w": 208,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_17",
+            "label": "Radici Group",
+            "axis": "x",
+            "value": 1096.3855,
+            "pixel": {
+                "x": 275,
+                "y": 842,
+                "w": 272,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_11",
+            "label": "SIAD Group",
+            "axis": "x",
+            "value": 704.4534,
+            "pixel": {
+                "x": 275,
+                "y": 604,
+                "w": 175,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_8",
+            "label": "Sapio Group",
+            "axis": "x",
+            "value": 554.6559,
+            "pixel": {
+                "x": 275,
+                "y": 485,
+                "w": 138,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "Sipcam-Oxon Group",
+            "axis": "x",
+            "value": 457.4899,
+            "pixel": {
+                "x": 275,
+                "y": 247,
+                "w": 114,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "Sodalis Group",
+            "axis": "x",
+            "value": 550.6073,
+            "pixel": {
+                "x": 275,
+                "y": 445,
+                "w": 137,
+                "h": 32
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_20",
+            "label": "Versalis",
+            "axis": "x",
+            "value": 4125.0,
+            "pixel": {
+                "x": 275,
+                "y": 961,
+                "w": 1026,
+                "h": 20
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_1",
+            "label": "Zobele Group",
+            "axis": "x",
+            "value": 417.004,
+            "pixel": {
+                "x": 275,
+                "y": 216,
+                "w": 104,
+                "h": 23
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_035_762c76e1_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            1000.0,
+            2000.0,
+            3000.0,
+            4000.0,
+            5000.0
+        ],
+        "y_ticks": [
+            "Zobele Group",
+            "Sipcam-Oxon Group",
+            "FIS",
+            "Esseco Group",
+            "Lamberti Group",
+            "Aquafil Group",
+            "Sodalis Group",
+            "Sapio Group",
+            "Colorobbia Group",
+            "Italmatch Chemicals",
+            "SIAD Group",
+            "Intercos Group",
+            "P&R Group",
+            "Polynt Group*",
+            "COIM Group",
+            "Gruppo SOL",
+            "Radici Group",
+            "Bracco Group",
+            "Mapei Group",
+            "Versalis"
+        ],
+        "x_pixels": [
+            276,
+            523,
+            772,
+            1022,
+            1270,
+            1518
+        ],
+        "y_pixels": [
+            220,
+            262,
+            301,
+            340,
+            380,
+            419,
+            460,
+            500,
+            539,
+            578,
+            618,
+            658,
+            697,
+            739,
+            777,
+            818,
+            856,
+            896,
+            936,
+            976
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            500.0,
+            1000.0,
+            1500.0,
+            2000.0,
+            2500.0,
+            3000.0,
+            3500.0,
+            4000.0,
+            4500.0,
+            5000.0
+        ],
+        "y_ticks_encrypted": [
+            "Zobele Group",
+            "Sipcam-Oxon Group",
+            "FIS",
+            "Esseco Group",
+            "Lamberti Group",
+            "Aquafil Group",
+            "Sodalis Group",
+            "Sapio Group",
+            "Colorobbia Group",
+            "Italmatch Chemicals",
+            "SIAD Group",
+            "Intercos Group",
+            "P&R Group",
+            "Polynt Group*",
+            "COIM Group",
+            "Gruppo SOL",
+            "Radici Group",
+            "Bracco Group",
+            "Mapei Group",
+            "Versalis"
+        ],
+        "x_pixels_encrypted": [
+            276,
+            400,
+            523,
+            648,
+            772,
+            897,
+            1022,
+            1146,
+            1270,
+            1394,
+            1518
+        ],
+        "y_pixels_encrypted": [
+            220,
+            262,
+            301,
+            340,
+            380,
+            419,
+            460,
+            500,
+            539,
+            578,
+            618,
+            658,
+            697,
+            739,
+            777,
+            818,
+            856,
+            896,
+            936,
+            976
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid_color.png",
+        "colors": [],
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "unknown",
+                "y_axis_role": "unknown",
+                "x_axis_position": "unknown",
+                "y_axis_position": "unknown",
+                "plot_area_style": "unknown",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 0,
+                "reason": "",
+                "axis_tick_labels": {
+                    "x_ticks": [],
+                    "y_ticks": [],
+                    "x_ticks_encrypted": [],
+                    "y_ticks_encrypted": [],
+                    "x_axis_type": "unknown",
+                    "y_axis_type": "unknown",
+                    "source": "upload_detection"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\h_bar_035_ocr_axis.json",
+                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_035_762c76e1\\artifacts\\image_with_grid_color.png"
+        },
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_dense_encrypted_interval_warnings": [],
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\7bc34dedf909b88e\\output\\7bc34dedf909b88e_original_grid.png"
+        }
+    },
+    "prediction_runner_error": "[Errno 2] No such file or directory: 'F:\\\\program\\\\test-demo\\\\backend\\\\evaluation\\\\recheck_outputs\\\\vishintprompt_full_grid_encryption_latest\\\\Sy.Dataset\\\\hBar_50\\\\h_bar_035_762c76e1\\\\artifacts\\\\source.png'",
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

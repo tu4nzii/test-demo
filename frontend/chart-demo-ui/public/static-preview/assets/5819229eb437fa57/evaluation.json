@@ -1,0 +1,512 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_5819229eb437fa57",
+    "chart_type": "scatter",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_ticks.json",
+    "summary": {
+        "object_count": 6,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "North America",
+            "series_name": "North America",
+            "label": "North America",
+            "axis": "xy",
+            "value": {
+                "x": 15000.0,
+                "y": 6.5
+            },
+            "x": 15000.0,
+            "y": 6.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\North America_rt3_round3_crop.png"
+        },
+        {
+            "id": "South America",
+            "series_name": "South America",
+            "label": "South America",
+            "axis": "xy",
+            "value": {
+                "x": 7500.0,
+                "y": 5.75
+            },
+            "x": 7500.0,
+            "y": 5.75,
+            "prompt_type": "feedback",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_South America_feedback_grid_with_grid_run3.png"
+        },
+        {
+            "id": "Africa",
+            "series_name": "Africa",
+            "label": "Africa",
+            "axis": "xy",
+            "value": {
+                "x": 10000.0,
+                "y": 4.75
+            },
+            "x": 10000.0,
+            "y": 4.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Africa_rt3_round3_crop.png"
+        },
+        {
+            "id": "Europe",
+            "series_name": "Europe",
+            "label": "Europe",
+            "axis": "xy",
+            "value": {
+                "x": 13000.0,
+                "y": 5.75
+            },
+            "x": 13000.0,
+            "y": 5.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Europe_rt3_round3_crop.png"
+        },
+        {
+            "id": "Asia",
+            "series_name": "Asia",
+            "label": "Asia",
+            "axis": "xy",
+            "value": {
+                "x": 10000.0,
+                "y": 4.75
+            },
+            "x": 10000.0,
+            "y": 4.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Asia_rt3_round3_crop.png"
+        },
+        {
+            "id": "Oceania",
+            "series_name": "Oceania",
+            "label": "Oceania",
+            "axis": "xy",
+            "value": {
+                "x": 15000.0,
+                "y": 5.75
+            },
+            "x": 15000.0,
+            "y": 5.75,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Oceania_rt3_round3_crop.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image",
+            "record_count": 72,
+            "object_count": 6,
+            "predictions": [
+                {
+                    "id": "North America",
+                    "series_name": "North America",
+                    "label": "North America",
+                    "axis": "xy",
+                    "value": {
+                        "x": 15000.0,
+                        "y": 6.5
+                    },
+                    "x": 15000.0,
+                    "y": 6.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\North America_rt3_round3_crop.png"
+                },
+                {
+                    "id": "South America",
+                    "series_name": "South America",
+                    "label": "South America",
+                    "axis": "xy",
+                    "value": {
+                        "x": 7500.0,
+                        "y": 5.75
+                    },
+                    "x": 7500.0,
+                    "y": 5.75,
+                    "prompt_type": "feedback",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\tempy\\overlay_vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_South America_feedback_grid_with_grid_run3.png"
+                },
+                {
+                    "id": "Africa",
+                    "series_name": "Africa",
+                    "label": "Africa",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10000.0,
+                        "y": 4.75
+                    },
+                    "x": 10000.0,
+                    "y": 4.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Africa_rt3_round3_crop.png"
+                },
+                {
+                    "id": "Europe",
+                    "series_name": "Europe",
+                    "label": "Europe",
+                    "axis": "xy",
+                    "value": {
+                        "x": 13000.0,
+                        "y": 5.75
+                    },
+                    "x": 13000.0,
+                    "y": 5.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Europe_rt3_round3_crop.png"
+                },
+                {
+                    "id": "Asia",
+                    "series_name": "Asia",
+                    "label": "Asia",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10000.0,
+                        "y": 4.75
+                    },
+                    "x": 10000.0,
+                    "y": 4.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Asia_rt3_round3_crop.png"
+                },
+                {
+                    "id": "Oceania",
+                    "series_name": "Oceania",
+                    "label": "Oceania",
+                    "axis": "xy",
+                    "value": {
+                        "x": 15000.0,
+                        "y": 5.75
+                    },
+                    "x": 15000.0,
+                    "y": 5.75,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image\\raw_crops\\Oceania_rt3_round3_crop.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image",
+        "chart_type": "scatter",
+        "x_ticks": [
+            2000.0,
+            5000.0,
+            10000.0,
+            20000.0,
+            50000.0,
+            100000.0
+        ],
+        "y_ticks": [
+            7.0,
+            6.0,
+            5.0,
+            4.0,
+            3.0,
+            2.0
+        ],
+        "x_pixels": [
+            123,
+            252,
+            351,
+            449,
+            580,
+            678
+        ],
+        "y_pixels": [
+            170,
+            228,
+            284,
+            340,
+            397,
+            453
+        ],
+        "x_ticks_encrypted": [
+            2000.0,
+            3500.0,
+            5000.0,
+            7500.0,
+            10000.0,
+            15000.0,
+            20000.0,
+            35000.0,
+            50000.0,
+            75000.0,
+            100000.0
+        ],
+        "y_ticks_encrypted": [
+            7.0,
+            6.5,
+            6.0,
+            5.5,
+            5.0,
+            4.5,
+            4.0,
+            3.5,
+            3.0,
+            2.5,
+            2.0
+        ],
+        "x_pixels_encrypted": [
+            123,
+            188,
+            252,
+            302,
+            351,
+            400,
+            449,
+            514,
+            580,
+            629,
+            678
+        ],
+        "y_pixels_encrypted": [
+            170,
+            199,
+            228,
+            256,
+            284,
+            312,
+            340,
+            368,
+            397,
+            425,
+            453
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [
+            {
+                "left_tick": 5000.0,
+                "right_tick": 10000.0,
+                "left_pixel": 252,
+                "right_pixel": 351,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 49.5,
+                "label_axis_extent": 51.0,
+                "required_spacing": 63.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 10000.0,
+                "right_tick": 20000.0,
+                "left_pixel": 351,
+                "right_pixel": 449,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 49.0,
+                "label_axis_extent": 51.0,
+                "required_spacing": 63.2,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            },
+            {
+                "left_tick": 50000.0,
+                "right_tick": 100000.0,
+                "left_pixel": 580,
+                "right_pixel": 678,
+                "reason": "dense_label_spacing",
+                "encrypted_neighbor_spacing": 49.0,
+                "label_axis_extent": 58.0,
+                "required_spacing": 71.6,
+                "spacing_ratio": 1.2,
+                "spacing_tolerance": 2.0,
+                "axis_key": "x"
+            }
+        ],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "North America",
+                "color": "#3fa29e"
+            },
+            {
+                "name": "South America",
+                "color": "#5fb2ae"
+            },
+            {
+                "name": "Africa",
+                "color": "#67b5b2"
+            },
+            {
+                "name": "Europe",
+                "color": "#67b5b2"
+            },
+            {
+                "name": "Asia",
+                "color": "#57aeaa"
+            },
+            {
+                "name": "Oceania",
+                "color": "#60b2ae"
+            }
+        ],
+        "series_color": {
+            "North America": "#3fa29e",
+            "South America": "#5fb2ae",
+            "Africa": "#67b5b2",
+            "Europe": "#67b5b2",
+            "Asia": "#57aeaa",
+            "Oceania": "#60b2ae"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": true,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "unknown",
+                "confidence": 1.0,
+                "reason": "The chart has clear x and y axes with visible tick labels and grid lines.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "$2,000",
+                        "$5,000",
+                        "$10,000",
+                        "$20,000",
+                        "$50,000",
+                        "$100,000"
+                    ],
+                    "y_ticks": [
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ],
+                    "x_ticks_encrypted": [
+                        "2000.0",
+                        "3500.0",
+                        "5000.0",
+                        "7500.0",
+                        "10000.0",
+                        "15000.0",
+                        "20000.0",
+                        "35000.0",
+                        "50000.0",
+                        "75000.0",
+                        "100000.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "2.0",
+                        "2.5",
+                        "3.0",
+                        "3.5",
+                        "4.0",
+                        "4.5",
+                        "5.0",
+                        "5.5",
+                        "6.0",
+                        "6.5",
+                        "7.0"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "North America",
+                            "color": "#3fa29e"
+                        },
+                        {
+                            "name": "South America",
+                            "color": "#5fb2ae"
+                        },
+                        {
+                            "name": "Africa",
+                            "color": "#67b5b2"
+                        },
+                        {
+                            "name": "Europe",
+                            "color": "#67b5b2"
+                        },
+                        {
+                            "name": "Asia",
+                            "color": "#57aeaa"
+                        },
+                        {
+                            "name": "Oceania",
+                            "color": "#60b2ae"
+                        }
+                    ],
+                    "source": "upload_detection+local_legend_swatch",
+                    "kind": "legend"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_finalH1V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_finalH1V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_finalH1V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot6_17cbd2a5\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot6_17cbd2a5_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\5819229eb437fa57\\output\\5819229eb437fa57_original_grid.png"
+        }
+    }
+}

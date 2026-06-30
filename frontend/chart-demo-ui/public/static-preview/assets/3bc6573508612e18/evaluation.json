@@ -1,0 +1,462 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_3bc6573508612e18",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original.json",
+    "summary": {
+        "object_count": 17,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "IQGI, ICNYLJ",
+            "series_name": "IQGI",
+            "theta_label": "ICNYLJ",
+            "label": "ICNYLJ",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "IQGI, FIR",
+            "series_name": "IQGI",
+            "theta_label": "FIR",
+            "label": "FIR",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "ICNYLJ, IQGI",
+            "series_name": "ICNYLJ",
+            "theta_label": "IQGI",
+            "label": "IQGI",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "ICNYLJ, ICNYLJ",
+            "series_name": "ICNYLJ",
+            "theta_label": "ICNYLJ",
+            "label": "ICNYLJ",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\3bc6573508612e18_original.png"
+        },
+        {
+            "id": "ICNYLJ, FIR",
+            "series_name": "ICNYLJ",
+            "theta_label": "FIR",
+            "label": "FIR",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\3bc6573508612e18_original.png"
+        },
+        {
+            "id": "FIR, IQGI",
+            "series_name": "FIR",
+            "theta_label": "IQGI",
+            "label": "IQGI",
+            "axis": "r",
+            "value": 55.0,
+            "r": 55.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "FIR, ICNYLJ",
+            "series_name": "FIR",
+            "theta_label": "ICNYLJ",
+            "label": "ICNYLJ",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "FIR, FIR",
+            "series_name": "FIR",
+            "theta_label": "FIR",
+            "label": "FIR",
+            "axis": "r",
+            "value": 55.0,
+            "r": 55.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "IQGI, B",
+            "series_name": "IQGI",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 70.0,
+            "r": 70.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "IQGI, A",
+            "series_name": "IQGI",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 10.0,
+            "r": 10.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "IQGI, C",
+            "series_name": "IQGI",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 60.0,
+            "r": 60.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "ICNYLJ, B",
+            "series_name": "ICNYLJ",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "ICNYLJ, A",
+            "series_name": "ICNYLJ",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "ICNYLJ, C",
+            "series_name": "ICNYLJ",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "FIR, B",
+            "series_name": "FIR",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 55.0,
+            "r": 55.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "FIR, A",
+            "series_name": "FIR",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        },
+        {
+            "id": "FIR, C",
+            "series_name": "FIR",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 40.0,
+            "r": 40.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_3bc6573508612e18",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_3bc6573508612e18",
+            "record_count": 27,
+            "object_count": 17,
+            "predictions": [
+                {
+                    "id": "IQGI, ICNYLJ",
+                    "series_name": "IQGI",
+                    "theta_label": "ICNYLJ",
+                    "label": "ICNYLJ",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "IQGI, FIR",
+                    "series_name": "IQGI",
+                    "theta_label": "FIR",
+                    "label": "FIR",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "ICNYLJ, IQGI",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "IQGI",
+                    "label": "IQGI",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "ICNYLJ, ICNYLJ",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "ICNYLJ",
+                    "label": "ICNYLJ",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\3bc6573508612e18_original.png"
+                },
+                {
+                    "id": "ICNYLJ, FIR",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "FIR",
+                    "label": "FIR",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\3bc6573508612e18_original.png"
+                },
+                {
+                    "id": "FIR, IQGI",
+                    "series_name": "FIR",
+                    "theta_label": "IQGI",
+                    "label": "IQGI",
+                    "axis": "r",
+                    "value": 55.0,
+                    "r": 55.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "FIR, ICNYLJ",
+                    "series_name": "FIR",
+                    "theta_label": "ICNYLJ",
+                    "label": "ICNYLJ",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "FIR, FIR",
+                    "series_name": "FIR",
+                    "theta_label": "FIR",
+                    "label": "FIR",
+                    "axis": "r",
+                    "value": 55.0,
+                    "r": 55.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "IQGI, B",
+                    "series_name": "IQGI",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 70.0,
+                    "r": 70.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "IQGI, A",
+                    "series_name": "IQGI",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 10.0,
+                    "r": 10.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "IQGI, C",
+                    "series_name": "IQGI",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 60.0,
+                    "r": 60.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "ICNYLJ, B",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "ICNYLJ, A",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "ICNYLJ, C",
+                    "series_name": "ICNYLJ",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "FIR, B",
+                    "series_name": "FIR",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 55.0,
+                    "r": 55.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "FIR, A",
+                    "series_name": "FIR",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                },
+                {
+                    "id": "FIR, C",
+                    "series_name": "FIR",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 40.0,
+                    "r": 40.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "IQGI": "#5195C4",
+            "ICNYLJ": "#E689CA",
+            "FIR": "#9A6B61"
+        },
+        "colors": [
+            {
+                "name": "IQGI",
+                "color": "#5195C4"
+            },
+            {
+                "name": "ICNYLJ",
+                "color": "#E689CA"
+            },
+            {
+                "name": "FIR",
+                "color": "#9A6B61"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\legend_default_3bc6573508612e18_original.png",
+        "chart_id": "dataset_3bc6573508612e18",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\3bc6573508612e18_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\3bc6573508612e18\\output\\3bc6573508612e18_original_encode.png"
+        }
+    }
+}

@@ -1,0 +1,166 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_f3dd047797f5d357",
+    "chart_type": "pie",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f3dd047797f5d357\\output\\f3dd047797f5d357_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\f3dd047797f5d357\\output\\f3dd047797f5d357_original.json",
+    "summary": {
+        "object_count": 2,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "Refused to use",
+            "series_name": "",
+            "label": "Refused to use",
+            "axis": "theta",
+            "value": 0.6667000000000001,
+            "percentage": 66.67,
+            "start_angle": 270.0,
+            "end_angle": 90.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png"
+        },
+        {
+            "id": "Don't know",
+            "series_name": "",
+            "label": "Don't know",
+            "axis": "theta",
+            "value": 0.3333,
+            "percentage": 33.33,
+            "start_angle": 90.0,
+            "end_angle": 270.0,
+            "prompt_type": "whole_chart",
+            "image_type": "with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\pie\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d",
+            "record_count": 2,
+            "object_count": 2,
+            "predictions": [
+                {
+                    "id": "Refused to use",
+                    "series_name": "",
+                    "label": "Refused to use",
+                    "axis": "theta",
+                    "value": 0.6667000000000001,
+                    "percentage": 66.67,
+                    "start_angle": 270.0,
+                    "end_angle": 90.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png"
+                },
+                {
+                    "id": "Don't know",
+                    "series_name": "",
+                    "label": "Don't know",
+                    "axis": "theta",
+                    "value": 0.3333,
+                    "percentage": 33.33,
+                    "start_angle": 90.0,
+                    "end_angle": 270.0,
+                    "prompt_type": "whole_chart",
+                    "image_type": "with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d",
+        "chart_type": "pie",
+        "coordinate_system": "polar",
+        "center": [
+            340,
+            340
+        ],
+        "r_pixels": 169,
+        "theta_angles": [
+            0,
+            15,
+            30,
+            45,
+            60,
+            75,
+            90,
+            105,
+            120,
+            135,
+            150,
+            165,
+            180,
+            195,
+            210,
+            225,
+            240,
+            255,
+            270,
+            285,
+            300,
+            315,
+            330,
+            345
+        ],
+        "theta_ticks": [
+            "0°",
+            "15°",
+            "30°",
+            "45°",
+            "60°",
+            "75°",
+            "90°",
+            "105°",
+            "120°",
+            "135°",
+            "150°",
+            "165°",
+            "180°",
+            "195°",
+            "210°",
+            "225°",
+            "240°",
+            "255°",
+            "270°",
+            "285°",
+            "300°",
+            "315°",
+            "330°",
+            "345°"
+        ],
+        "r_ticks": [],
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Pie_50\\pie_001_no_grid_6ef8951d\\work\\vishint_Sy.Dataset_Pie_50_pie_001_no_grid_6ef8951d_image_with_grid.png"
+        },
+        "colors": [
+            {
+                "name": "Refused to use",
+                "color": "#f9c98b"
+            },
+            {
+                "name": "Don't know",
+                "color": "#90ee90"
+            }
+        ],
+        "grid_generation": {
+            "type": "angle_grid",
+            "angle_step_degrees": 15,
+            "plot_area_detection": "color_mask"
+        },
+        "series_color": {
+            "Refused to use": "#f9c98b",
+            "Don't know": "#90ee90"
+        }
+    }
+}

@@ -1,0 +1,491 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_24f78764a281828b",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_ticks.json",
+    "summary": {
+        "object_count": 27,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_1",
+            "label": "",
+            "axis": "x",
+            "value": 25.061,
+            "pixel": {
+                "x": 200,
+                "y": 213,
+                "w": 413,
+                "h": 291
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "",
+            "axis": "x",
+            "value": 73.0488,
+            "pixel": {
+                "x": 200,
+                "y": 576,
+                "w": 1205,
+                "h": 291
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_3",
+            "label": "",
+            "axis": "x",
+            "value": 9.8795,
+            "pixel": {
+                "x": 350,
+                "y": 920,
+                "w": 14,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "",
+            "axis": "x",
+            "value": 11.1585,
+            "pixel": {
+                "x": 374,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_20",
+            "label": "",
+            "axis": "x",
+            "value": 19.878,
+            "pixel": {
+                "x": 513,
+                "y": 940,
+                "w": 15,
+                "h": 5
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "",
+            "axis": "x",
+            "value": 21.1585,
+            "pixel": {
+                "x": 533,
+                "y": 920,
+                "w": 16,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_24",
+            "label": "",
+            "axis": "x",
+            "value": 31.8182,
+            "pixel": {
+                "x": 658,
+                "y": 1062,
+                "w": 66,
+                "h": 24
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_6",
+            "label": "",
+            "axis": "x",
+            "value": 29.939,
+            "pixel": {
+                "x": 680,
+                "y": 920,
+                "w": 13,
+                "h": 9
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_16",
+            "label": "",
+            "axis": "x",
+            "value": 30.4848,
+            "pixel": {
+                "x": 680,
+                "y": 923,
+                "w": 22,
+                "h": 22
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "",
+            "axis": "x",
+            "value": 31.2121,
+            "pixel": {
+                "x": 703,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_21",
+            "label": "",
+            "axis": "x",
+            "value": 35.8182,
+            "pixel": {
+                "x": 754,
+                "y": 1061,
+                "w": 36,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_22",
+            "label": "",
+            "axis": "x",
+            "value": 37.1515,
+            "pixel": {
+                "x": 795,
+                "y": 1060,
+                "w": 17,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_8",
+            "label": "",
+            "axis": "x",
+            "value": 40.4878,
+            "pixel": {
+                "x": 842,
+                "y": 920,
+                "w": 25,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "",
+            "axis": "x",
+            "value": 41.2195,
+            "pixel": {
+                "x": 868,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_26",
+            "label": "",
+            "axis": "x",
+            "value": 49.0244,
+            "pixel": {
+                "x": 986,
+                "y": 1070,
+                "w": 21,
+                "h": 16
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "",
+            "axis": "x",
+            "value": 50.0,
+            "pixel": {
+                "x": 1009,
+                "y": 920,
+                "w": 14,
+                "h": 22
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_27",
+            "label": "",
+            "axis": "x",
+            "value": 50.241,
+            "pixel": {
+                "x": 1016,
+                "y": 1071,
+                "w": 11,
+                "h": 11
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_25",
+            "label": "",
+            "axis": "x",
+            "value": 51.506,
+            "pixel": {
+                "x": 1029,
+                "y": 1067,
+                "w": 19,
+                "h": 19
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_11",
+            "label": "",
+            "axis": "x",
+            "value": 51.2651,
+            "pixel": {
+                "x": 1033,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_23",
+            "label": "",
+            "axis": "x",
+            "value": 52.2289,
+            "pixel": {
+                "x": 1049,
+                "y": 1060,
+                "w": 11,
+                "h": 26
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_19",
+            "label": "",
+            "axis": "x",
+            "value": 59.6386,
+            "pixel": {
+                "x": 1171,
+                "y": 926,
+                "w": 12,
+                "h": 16
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_17",
+            "label": "",
+            "axis": "x",
+            "value": 60.4217,
+            "pixel": {
+                "x": 1184,
+                "y": 923,
+                "w": 12,
+                "h": 19
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_12",
+            "label": "",
+            "axis": "x",
+            "value": 61.1446,
+            "pixel": {
+                "x": 1197,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_13",
+            "label": "",
+            "axis": "x",
+            "value": 69.8795,
+            "pixel": {
+                "x": 1338,
+                "y": 920,
+                "w": 15,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_14",
+            "label": "",
+            "axis": "x",
+            "value": 71.1585,
+            "pixel": {
+                "x": 1363,
+                "y": 920,
+                "w": 11,
+                "h": 25
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_15",
+            "label": "",
+            "axis": "x",
+            "value": 79.6341,
+            "pixel": {
+                "x": 1502,
+                "y": 920,
+                "w": 11,
+                "h": 9
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_18",
+            "label": "",
+            "axis": "x",
+            "value": 80.0,
+            "pixel": {
+                "x": 1506,
+                "y": 923,
+                "w": 18,
+                "h": 19
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_166_380edc4c_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0,
+            60.0,
+            70.0,
+            80.0
+        ],
+        "y_ticks": [],
+        "x_pixels": [
+            200,
+            366,
+            530,
+            694,
+            859,
+            1023,
+            1189,
+            1355,
+            1519
+        ],
+        "y_pixels": [],
+        "x_ticks_encrypted": [
+            0.0,
+            5.0,
+            10.0,
+            15.0,
+            20.0,
+            25.0,
+            30.0,
+            35.0,
+            40.0,
+            45.0,
+            50.0,
+            55.0,
+            60.0,
+            65.0,
+            70.0,
+            75.0,
+            80.0
+        ],
+        "y_ticks_encrypted": [],
+        "x_pixels_encrypted": [
+            200,
+            283,
+            366,
+            448,
+            530,
+            612,
+            694,
+            776,
+            859,
+            941,
+            1023,
+            1106,
+            1189,
+            1272,
+            1355,
+            1437,
+            1519
+        ],
+        "y_pixels_encrypted": [],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid_color.png",
+        "colors": [],
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_grid_label_bindings.json",
+                "final_bindings_path": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart\\h_bar_166_final2_bindings.json",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_final2.png",
+                "grid_path": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart\\h_bar_166_grid.png",
+                "grid_overlay_path": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart\\h_bar_166_grid_overlay.png",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_axis_fusion.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_ocr_axis.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_mllm_axis.json",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_final2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_final2_selection.json",
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_preview.png",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\h_bar_166_grid_layers.json"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_grid_reference_bindings",
+        "recovered_from_grid_reference": true,
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_166_380edc4c\\artifacts\\image_with_grid_color.png"
+        },
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\24f78764a281828b\\output\\24f78764a281828b_original_grid.png"
+        }
+    },
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

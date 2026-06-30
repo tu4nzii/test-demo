@@ -1,0 +1,413 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_a093eaa37b1d9ace",
+    "chart_type": "h_bar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_ticks.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_ticks.json",
+    "summary": {
+        "object_count": 15,
+        "chart_runs": 0,
+        "system_cv_fallback": true
+    },
+    "predictions": [
+        {
+            "id": "bar_12",
+            "label": "Accenture",
+            "axis": "x",
+            "value": 31.3693,
+            "pixel": {
+                "x": 317,
+                "y": 696,
+                "w": 377,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_1",
+            "label": "CSC",
+            "axis": "x",
+            "value": 10.1681,
+            "pixel": {
+                "x": 317,
+                "y": 214,
+                "w": 123,
+                "h": 23
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_3",
+            "label": "Capgemini",
+            "axis": "x",
+            "value": 13.2773,
+            "pixel": {
+                "x": 317,
+                "y": 291,
+                "w": 160,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_11",
+            "label": "Cisco Systems",
+            "axis": "x",
+            "value": 49.6667,
+            "pixel": {
+                "x": 317,
+                "y": 651,
+                "w": 597,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_13",
+            "label": "Dell",
+            "axis": "x",
+            "value": 59.0833,
+            "pixel": {
+                "x": 317,
+                "y": 741,
+                "w": 710,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_4",
+            "label": "Deloitte",
+            "axis": "x",
+            "value": 35.2697,
+            "pixel": {
+                "x": 317,
+                "y": 336,
+                "w": 424,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_9",
+            "label": "EMC",
+            "axis": "x",
+            "value": 24.8963,
+            "pixel": {
+                "x": 317,
+                "y": 561,
+                "w": 299,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_6",
+            "label": "Fujitsu Limited",
+            "axis": "x",
+            "value": 38.5062,
+            "pixel": {
+                "x": 317,
+                "y": 426,
+                "w": 463,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_10",
+            "label": "Hewlett Packard Enterprise",
+            "axis": "x",
+            "value": 51.8333,
+            "pixel": {
+                "x": 317,
+                "y": 606,
+                "w": 623,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_15",
+            "label": "IBM",
+            "axis": "x",
+            "value": 81.7427,
+            "pixel": {
+                "x": 317,
+                "y": 831,
+                "w": 983,
+                "h": 22
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_5",
+            "label": "Intel",
+            "axis": "x",
+            "value": 55.4167,
+            "pixel": {
+                "x": 317,
+                "y": 381,
+                "w": 666,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_8",
+            "label": "Lenovo",
+            "axis": "x",
+            "value": 46.0833,
+            "pixel": {
+                "x": 317,
+                "y": 516,
+                "w": 554,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_14",
+            "label": "Microsoft",
+            "axis": "x",
+            "value": 88.1328,
+            "pixel": {
+                "x": 317,
+                "y": 786,
+                "w": 1060,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_7",
+            "label": "Oracle",
+            "axis": "x",
+            "value": 37.4274,
+            "pixel": {
+                "x": 317,
+                "y": 471,
+                "w": 450,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        },
+        {
+            "id": "bar_2",
+            "label": "SAP",
+            "axis": "x",
+            "value": 23.5685,
+            "pixel": {
+                "x": 317,
+                "y": 246,
+                "w": 283,
+                "h": 36
+            },
+            "source": "system_cv_fallback"
+        }
+    ],
+    "artifacts": [],
+    "processed_json": {
+        "chart_id": "vishint_Sy.Dataset_hBar_50_h_bar_038_2bbe1c9e_image",
+        "chart_type": "h_bar",
+        "x_ticks": [
+            0.0,
+            20.0,
+            40.0,
+            60.0,
+            80.0,
+            100.0
+        ],
+        "y_ticks": [
+            "CSC",
+            "SAP",
+            "Capgemini",
+            "Deloitte",
+            "Intel",
+            "Fujitsu Limited",
+            "Oracle",
+            "Lenovo",
+            "EMC",
+            "Hewlett Packard Enterprise",
+            "Cisco Systems",
+            "Accenture",
+            "Dell",
+            "Microsoft",
+            "IBM"
+        ],
+        "x_pixels": [
+            319,
+            557,
+            798,
+            1038,
+            1279,
+            1520
+        ],
+        "y_pixels": [
+            218,
+            262,
+            308,
+            352,
+            400,
+            443,
+            488,
+            533,
+            576,
+            623,
+            668,
+            717,
+            757,
+            802,
+            848
+        ],
+        "x_ticks_encrypted": [
+            0.0,
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0,
+            60.0,
+            70.0,
+            80.0,
+            90.0,
+            100.0
+        ],
+        "y_ticks_encrypted": [
+            "CSC",
+            "SAP",
+            "Capgemini",
+            "Deloitte",
+            "Intel",
+            "Fujitsu Limited",
+            "Oracle",
+            "Lenovo",
+            "EMC",
+            "Hewlett Packard Enterprise",
+            "Cisco Systems",
+            "Accenture",
+            "Dell",
+            "Microsoft",
+            "IBM"
+        ],
+        "x_pixels_encrypted": [
+            319,
+            438,
+            557,
+            678,
+            798,
+            918,
+            1038,
+            1158,
+            1279,
+            1400,
+            1520
+        ],
+        "y_pixels_encrypted": [
+            218,
+            262,
+            308,
+            352,
+            400,
+            443,
+            488,
+            533,
+            576,
+            623,
+            668,
+            717,
+            757,
+            802,
+            848
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "文字轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "image_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\source.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid_color.png",
+        "colors": [],
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "unknown",
+                "y_axis_role": "unknown",
+                "x_axis_position": "unknown",
+                "y_axis_position": "unknown",
+                "plot_area_style": "unknown",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "unknown",
+                "bar_orientation": "unknown",
+                "confidence": 0,
+                "reason": "",
+                "axis_tick_labels": {
+                    "x_ticks": [],
+                    "y_ticks": [],
+                    "x_ticks_encrypted": [],
+                    "y_ticks_encrypted": [],
+                    "x_axis_type": "unknown",
+                    "y_axis_type": "unknown",
+                    "source": "upload_detection"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "synced_from_grid_reference_generated_outputs",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_finalH3V2.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_finalH3V2_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_finalH3V2_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\h_bar_038_ocr_axis.json",
+                "mllm_cache_root": "F:\\program\\test-demo\\backend\\data\\llm_cache\\enhanced_grid_reconstruction\\gemini-2.5-flash"
+            },
+            "grid_reference_root": "F:\\program\\grid\\VisHintPrompt_full_eval"
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "fast_refresh": {
+            "enabled": true,
+            "source": "existing_tick_sidecar_and_enhanced_artifacts",
+            "refreshed_encrypted_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\image_with_grid.png",
+            "refreshed_colored_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\Sy.Dataset\\hBar_50\\h_bar_038_2bbe1c9e\\artifacts\\image_with_grid_color.png"
+        },
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "grid_restoration_synced_from": "F:\\program\\grid\\VisHintPrompt_full_eval\\Sy.Dataset\\hBar_50\\chart",
+        "grid_restoration_sync_version": "grid_reference_generated_outputs_v1",
+        "x_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_dense_encrypted_interval_warnings": [],
+        "y_axis_encryption_policy": "text_axis_no_encryption",
+        "image_paths": {
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_with_grid_color.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\a093eaa37b1d9ace\\output\\a093eaa37b1d9ace_original_grid.png"
+        }
+    },
+    "prediction_runner_error": "[Errno 2] No such file or directory: 'F:\\\\program\\\\test-demo\\\\backend\\\\evaluation\\\\recheck_outputs\\\\vishintprompt_full_grid_encryption_latest\\\\Sy.Dataset\\\\hBar_50\\\\h_bar_038_2bbe1c9e\\\\artifacts\\\\source.png'",
+    "note": "Prediction runner had no usable system-generated targets/results; returned CV fallback predictions from generated ticks and image pixels. Ground-truth dataset JSON is intentionally not used."
+}

@@ -1,0 +1,510 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_2497543cd0b48c9a",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original.json",
+    "summary": {
+        "object_count": 19,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "QOK, QOK",
+            "series_name": "QOK",
+            "theta_label": "QOK",
+            "label": "QOK",
+            "axis": "r",
+            "value": 45.0,
+            "r": 45.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "QOK, KQEUJ",
+            "series_name": "QOK",
+            "theta_label": "KQEUJ",
+            "label": "KQEUJ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\2497543cd0b48c9a_original.png"
+        },
+        {
+            "id": "QOK, DNJ",
+            "series_name": "QOK",
+            "theta_label": "DNJ",
+            "label": "DNJ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, QOK",
+            "series_name": "KQEUJ",
+            "theta_label": "QOK",
+            "label": "QOK",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, DNJ",
+            "series_name": "KQEUJ",
+            "theta_label": "DNJ",
+            "label": "DNJ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, KQEUJ",
+            "series_name": "DNJ",
+            "theta_label": "KQEUJ",
+            "label": "KQEUJ",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, DNJ",
+            "series_name": "DNJ",
+            "theta_label": "DNJ",
+            "label": "DNJ",
+            "axis": "r",
+            "value": 45.0,
+            "r": 45.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "QOK, A",
+            "series_name": "QOK",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "QOK, B",
+            "series_name": "QOK",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 50.0,
+            "r": 50.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "QOK, C",
+            "series_name": "QOK",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "QOK, D",
+            "series_name": "QOK",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 45.0,
+            "r": 45.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, A",
+            "series_name": "KQEUJ",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 20.0,
+            "r": 20.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, B",
+            "series_name": "KQEUJ",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 35.0,
+            "r": 35.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, C",
+            "series_name": "KQEUJ",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 35.0,
+            "r": 35.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "KQEUJ, D",
+            "series_name": "KQEUJ",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, A",
+            "series_name": "DNJ",
+            "theta_label": "A",
+            "label": "A",
+            "axis": "r",
+            "value": 30.0,
+            "r": 30.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, B",
+            "series_name": "DNJ",
+            "theta_label": "B",
+            "label": "B",
+            "axis": "r",
+            "value": 45.0,
+            "r": 45.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, C",
+            "series_name": "DNJ",
+            "theta_label": "C",
+            "label": "C",
+            "axis": "r",
+            "value": 25.0,
+            "r": 25.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        },
+        {
+            "id": "DNJ, D",
+            "series_name": "DNJ",
+            "theta_label": "D",
+            "label": "D",
+            "axis": "r",
+            "value": 15.0,
+            "r": 15.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_2497543cd0b48c9a",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_2497543cd0b48c9a",
+            "record_count": 30,
+            "object_count": 19,
+            "predictions": [
+                {
+                    "id": "QOK, QOK",
+                    "series_name": "QOK",
+                    "theta_label": "QOK",
+                    "label": "QOK",
+                    "axis": "r",
+                    "value": 45.0,
+                    "r": 45.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "QOK, KQEUJ",
+                    "series_name": "QOK",
+                    "theta_label": "KQEUJ",
+                    "label": "KQEUJ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\2497543cd0b48c9a_original.png"
+                },
+                {
+                    "id": "QOK, DNJ",
+                    "series_name": "QOK",
+                    "theta_label": "DNJ",
+                    "label": "DNJ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, QOK",
+                    "series_name": "KQEUJ",
+                    "theta_label": "QOK",
+                    "label": "QOK",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, DNJ",
+                    "series_name": "KQEUJ",
+                    "theta_label": "DNJ",
+                    "label": "DNJ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, KQEUJ",
+                    "series_name": "DNJ",
+                    "theta_label": "KQEUJ",
+                    "label": "KQEUJ",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, DNJ",
+                    "series_name": "DNJ",
+                    "theta_label": "DNJ",
+                    "label": "DNJ",
+                    "axis": "r",
+                    "value": 45.0,
+                    "r": 45.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "QOK, A",
+                    "series_name": "QOK",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "QOK, B",
+                    "series_name": "QOK",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 50.0,
+                    "r": 50.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "QOK, C",
+                    "series_name": "QOK",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "QOK, D",
+                    "series_name": "QOK",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 45.0,
+                    "r": 45.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, A",
+                    "series_name": "KQEUJ",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 20.0,
+                    "r": 20.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, B",
+                    "series_name": "KQEUJ",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 35.0,
+                    "r": 35.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, C",
+                    "series_name": "KQEUJ",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 35.0,
+                    "r": 35.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "KQEUJ, D",
+                    "series_name": "KQEUJ",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, A",
+                    "series_name": "DNJ",
+                    "theta_label": "A",
+                    "label": "A",
+                    "axis": "r",
+                    "value": 30.0,
+                    "r": 30.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, B",
+                    "series_name": "DNJ",
+                    "theta_label": "B",
+                    "label": "B",
+                    "axis": "r",
+                    "value": 45.0,
+                    "r": 45.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, C",
+                    "series_name": "DNJ",
+                    "theta_label": "C",
+                    "label": "C",
+                    "axis": "r",
+                    "value": 25.0,
+                    "r": 25.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                },
+                {
+                    "id": "DNJ, D",
+                    "series_name": "DNJ",
+                    "theta_label": "D",
+                    "label": "D",
+                    "axis": "r",
+                    "value": 15.0,
+                    "r": 15.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "QOK": "#FF9E49",
+            "KQEUJ": "#E78CCB",
+            "DNJ": "#C7C848"
+        },
+        "colors": [
+            {
+                "name": "QOK",
+                "color": "#FF9E49"
+            },
+            {
+                "name": "KQEUJ",
+                "color": "#E78CCB"
+            },
+            {
+                "name": "DNJ",
+                "color": "#C7C848"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\legend_default_2497543cd0b48c9a_original.png",
+        "chart_id": "dataset_2497543cd0b48c9a",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\2497543cd0b48c9a_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\2497543cd0b48c9a\\output\\2497543cd0b48c9a_original_encode.png"
+        }
+    }
+}

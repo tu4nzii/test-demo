@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_74da10a77062afe1",
+    "chart_type": "radar",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original.json",
+    "summary": {
+        "object_count": 4,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "YPRMJH, YPRMJH",
+            "series_name": "YPRMJH",
+            "theta_label": "YPRMJH",
+            "label": "YPRMJH",
+            "axis": "r",
+            "value": 80.0,
+            "r": 80.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+        },
+        {
+            "id": "YPRMJH, PELU",
+            "series_name": "YPRMJH",
+            "theta_label": "PELU",
+            "label": "PELU",
+            "axis": "r",
+            "value": 60.0,
+            "r": 60.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+        },
+        {
+            "id": "PELU, YPRMJH",
+            "series_name": "PELU",
+            "theta_label": "YPRMJH",
+            "label": "YPRMJH",
+            "axis": "r",
+            "value": 80.0,
+            "r": 80.0,
+            "prompt_type": "baseline",
+            "image_type": "no_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\74da10a77062afe1_original.png"
+        },
+        {
+            "id": "PELU, PELU",
+            "series_name": "PELU",
+            "theta_label": "PELU",
+            "label": "PELU",
+            "axis": "r",
+            "value": 120.0,
+            "r": 120.0,
+            "prompt_type": "grid",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "dataset_74da10a77062afe1",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\radar\\dataset_74da10a77062afe1",
+            "record_count": 8,
+            "object_count": 4,
+            "predictions": [
+                {
+                    "id": "YPRMJH, YPRMJH",
+                    "series_name": "YPRMJH",
+                    "theta_label": "YPRMJH",
+                    "label": "YPRMJH",
+                    "axis": "r",
+                    "value": 80.0,
+                    "r": 80.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+                },
+                {
+                    "id": "YPRMJH, PELU",
+                    "series_name": "YPRMJH",
+                    "theta_label": "PELU",
+                    "label": "PELU",
+                    "axis": "r",
+                    "value": 60.0,
+                    "r": 60.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+                },
+                {
+                    "id": "PELU, YPRMJH",
+                    "series_name": "PELU",
+                    "theta_label": "YPRMJH",
+                    "label": "YPRMJH",
+                    "axis": "r",
+                    "value": 80.0,
+                    "r": 80.0,
+                    "prompt_type": "baseline",
+                    "image_type": "no_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\74da10a77062afe1_original.png"
+                },
+                {
+                    "id": "PELU, PELU",
+                    "series_name": "PELU",
+                    "theta_label": "PELU",
+                    "label": "PELU",
+                    "axis": "r",
+                    "value": 120.0,
+                    "r": 120.0,
+                    "prompt_type": "grid",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "series_color": {
+            "YPRMJH": "#FF9E4A",
+            "PELU": "#A47EC6"
+        },
+        "colors": [
+            {
+                "name": "YPRMJH",
+                "color": "#FF9E4A"
+            },
+            {
+                "name": "PELU",
+                "color": "#A47EC6"
+            }
+        ],
+        "legend_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\legend_default_74da10a77062afe1_original.png",
+        "chart_id": "dataset_74da10a77062afe1",
+        "chart_type": "radar",
+        "coordinate_system": "polar",
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\74da10a77062afe1_original.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\74da10a77062afe1\\output\\74da10a77062afe1_original_encode.png"
+        }
+    }
+}

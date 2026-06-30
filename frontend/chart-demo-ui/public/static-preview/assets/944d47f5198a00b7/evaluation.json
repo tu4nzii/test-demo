@@ -1,0 +1,807 @@
+{
+    "success": true,
+    "mode": "prediction_extraction",
+    "chart_id": "dataset_944d47f5198a00b7",
+    "chart_type": "scatter",
+    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original.json",
+    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original.json",
+    "summary": {
+        "object_count": 15,
+        "chart_runs": 1,
+        "system_cv_fallback": false
+    },
+    "predictions": [
+        {
+            "id": "FRA",
+            "series_name": "FRA",
+            "label": "FRA",
+            "axis": "xy",
+            "value": {
+                "x": 8.5,
+                "y": 45.125
+            },
+            "x": 8.5,
+            "y": 45.125,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\FRA_rt2_round3_crop.png"
+        },
+        {
+            "id": "IDN",
+            "series_name": "IDN",
+            "label": "IDN",
+            "axis": "xy",
+            "value": {
+                "x": 9.5,
+                "y": 54.5
+            },
+            "x": 9.5,
+            "y": 54.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\IDN_rt2_round3_crop.png"
+        },
+        {
+            "id": "PAK",
+            "series_name": "PAK",
+            "label": "PAK",
+            "axis": "xy",
+            "value": {
+                "x": 9.7,
+                "y": 56.38
+            },
+            "x": 9.7,
+            "y": 56.38,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\PAK_rt2_round3_crop.png"
+        },
+        {
+            "id": "NGA",
+            "series_name": "NGA",
+            "label": "NGA",
+            "axis": "xy",
+            "value": {
+                "x": 9.75,
+                "y": 53.5
+            },
+            "x": 9.75,
+            "y": 53.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\NGA_rt2_round3_crop.png"
+        },
+        {
+            "id": "DEU",
+            "series_name": "DEU",
+            "label": "DEU",
+            "axis": "xy",
+            "value": {
+                "x": 10.8,
+                "y": 48.88
+            },
+            "x": 10.8,
+            "y": 48.88,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\DEU_rt2_round3_crop.png"
+        },
+        {
+            "id": "CHN",
+            "series_name": "CHN",
+            "label": "CHN",
+            "axis": "xy",
+            "value": {
+                "x": 10.8,
+                "y": 48.5
+            },
+            "x": 10.8,
+            "y": 48.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\CHN_rt2_round3_crop.png"
+        },
+        {
+            "id": "VNM",
+            "series_name": "VNM",
+            "label": "VNM",
+            "axis": "xy",
+            "value": {
+                "x": 10.75,
+                "y": 43.25
+            },
+            "x": 10.75,
+            "y": 43.25,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\VNM_rt1_round3_crop.png"
+        },
+        {
+            "id": "AUS",
+            "series_name": "AUS",
+            "label": "AUS",
+            "axis": "xy",
+            "value": {
+                "x": 10.1,
+                "y": 39.5
+            },
+            "x": 10.1,
+            "y": 39.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\AUS_rt1_round3_crop.png"
+        },
+        {
+            "id": "TUR",
+            "series_name": "TUR",
+            "label": "TUR",
+            "axis": "xy",
+            "value": {
+                "x": 12.1,
+                "y": 60.125
+            },
+            "x": 12.1,
+            "y": 60.125,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\TUR_rt2_round3_crop.png"
+        },
+        {
+            "id": "COL",
+            "series_name": "COL",
+            "label": "COL",
+            "axis": "xy",
+            "value": {
+                "x": 13.1,
+                "y": 54.5
+            },
+            "x": 13.1,
+            "y": 54.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\COL_rt2_round3_crop.png"
+        },
+        {
+            "id": "PHL",
+            "series_name": "PHL",
+            "label": "PHL",
+            "axis": "xy",
+            "value": {
+                "x": 11.7,
+                "y": 43.25
+            },
+            "x": 11.7,
+            "y": 43.25,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\PHL_rt1_round3_crop.png"
+        },
+        {
+            "id": "KOR",
+            "series_name": "KOR",
+            "label": "KOR",
+            "axis": "xy",
+            "value": {
+                "x": 12.5,
+                "y": 39.5
+            },
+            "x": 12.5,
+            "y": 39.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\KOR_rt1_round3_crop.png"
+        },
+        {
+            "id": "USA",
+            "series_name": "USA",
+            "label": "USA",
+            "axis": "xy",
+            "value": {
+                "x": 12.0,
+                "y": 32.0
+            },
+            "x": 12.0,
+            "y": 32.0,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\USA_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "UKR",
+            "series_name": "UKR",
+            "label": "UKR",
+            "axis": "xy",
+            "value": {
+                "x": 9.6571,
+                "y": 34.5714
+            },
+            "x": 9.6571,
+            "y": 34.5714,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\UKR_rt0_round3_adaptive.png"
+        },
+        {
+            "id": "ARG",
+            "series_name": "ARG",
+            "label": "ARG",
+            "axis": "xy",
+            "value": {
+                "x": 14.2,
+                "y": 38.5
+            },
+            "x": 14.2,
+            "y": 38.5,
+            "prompt_type": "feedback_crop_adaptive",
+            "image_type": "grid_with_grid",
+            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\ARG_rt1_round3_crop.png"
+        }
+    ],
+    "artifacts": [
+        {
+            "chart_id": "vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178",
+            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178",
+            "record_count": 180,
+            "object_count": 15,
+            "predictions": [
+                {
+                    "id": "FRA",
+                    "series_name": "FRA",
+                    "label": "FRA",
+                    "axis": "xy",
+                    "value": {
+                        "x": 8.5,
+                        "y": 45.125
+                    },
+                    "x": 8.5,
+                    "y": 45.125,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\FRA_rt2_round3_crop.png"
+                },
+                {
+                    "id": "IDN",
+                    "series_name": "IDN",
+                    "label": "IDN",
+                    "axis": "xy",
+                    "value": {
+                        "x": 9.5,
+                        "y": 54.5
+                    },
+                    "x": 9.5,
+                    "y": 54.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\IDN_rt2_round3_crop.png"
+                },
+                {
+                    "id": "PAK",
+                    "series_name": "PAK",
+                    "label": "PAK",
+                    "axis": "xy",
+                    "value": {
+                        "x": 9.7,
+                        "y": 56.38
+                    },
+                    "x": 9.7,
+                    "y": 56.38,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\PAK_rt2_round3_crop.png"
+                },
+                {
+                    "id": "NGA",
+                    "series_name": "NGA",
+                    "label": "NGA",
+                    "axis": "xy",
+                    "value": {
+                        "x": 9.75,
+                        "y": 53.5
+                    },
+                    "x": 9.75,
+                    "y": 53.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\NGA_rt2_round3_crop.png"
+                },
+                {
+                    "id": "DEU",
+                    "series_name": "DEU",
+                    "label": "DEU",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10.8,
+                        "y": 48.88
+                    },
+                    "x": 10.8,
+                    "y": 48.88,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\DEU_rt2_round3_crop.png"
+                },
+                {
+                    "id": "CHN",
+                    "series_name": "CHN",
+                    "label": "CHN",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10.8,
+                        "y": 48.5
+                    },
+                    "x": 10.8,
+                    "y": 48.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\CHN_rt2_round3_crop.png"
+                },
+                {
+                    "id": "VNM",
+                    "series_name": "VNM",
+                    "label": "VNM",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10.75,
+                        "y": 43.25
+                    },
+                    "x": 10.75,
+                    "y": 43.25,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\VNM_rt1_round3_crop.png"
+                },
+                {
+                    "id": "AUS",
+                    "series_name": "AUS",
+                    "label": "AUS",
+                    "axis": "xy",
+                    "value": {
+                        "x": 10.1,
+                        "y": 39.5
+                    },
+                    "x": 10.1,
+                    "y": 39.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\AUS_rt1_round3_crop.png"
+                },
+                {
+                    "id": "TUR",
+                    "series_name": "TUR",
+                    "label": "TUR",
+                    "axis": "xy",
+                    "value": {
+                        "x": 12.1,
+                        "y": 60.125
+                    },
+                    "x": 12.1,
+                    "y": 60.125,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\TUR_rt2_round3_crop.png"
+                },
+                {
+                    "id": "COL",
+                    "series_name": "COL",
+                    "label": "COL",
+                    "axis": "xy",
+                    "value": {
+                        "x": 13.1,
+                        "y": 54.5
+                    },
+                    "x": 13.1,
+                    "y": 54.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\COL_rt2_round3_crop.png"
+                },
+                {
+                    "id": "PHL",
+                    "series_name": "PHL",
+                    "label": "PHL",
+                    "axis": "xy",
+                    "value": {
+                        "x": 11.7,
+                        "y": 43.25
+                    },
+                    "x": 11.7,
+                    "y": 43.25,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\PHL_rt1_round3_crop.png"
+                },
+                {
+                    "id": "KOR",
+                    "series_name": "KOR",
+                    "label": "KOR",
+                    "axis": "xy",
+                    "value": {
+                        "x": 12.5,
+                        "y": 39.5
+                    },
+                    "x": 12.5,
+                    "y": 39.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\KOR_rt1_round3_crop.png"
+                },
+                {
+                    "id": "USA",
+                    "series_name": "USA",
+                    "label": "USA",
+                    "axis": "xy",
+                    "value": {
+                        "x": 12.0,
+                        "y": 32.0
+                    },
+                    "x": 12.0,
+                    "y": 32.0,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\USA_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "UKR",
+                    "series_name": "UKR",
+                    "label": "UKR",
+                    "axis": "xy",
+                    "value": {
+                        "x": 9.6571,
+                        "y": 34.5714
+                    },
+                    "x": 9.6571,
+                    "y": 34.5714,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\UKR_rt0_round3_adaptive.png"
+                },
+                {
+                    "id": "ARG",
+                    "series_name": "ARG",
+                    "label": "ARG",
+                    "axis": "xy",
+                    "value": {
+                        "x": 14.2,
+                        "y": 38.5
+                    },
+                    "x": 14.2,
+                    "y": 38.5,
+                    "prompt_type": "feedback_crop_adaptive",
+                    "image_type": "grid_with_grid",
+                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178\\raw_crops\\ARG_rt1_round3_crop.png"
+                }
+            ]
+        }
+    ],
+    "processed_json": {
+        "chart_type": "scatter",
+        "x_ticks": [
+            8.0,
+            10.0,
+            12.0,
+            14.0,
+            16.0
+        ],
+        "y_ticks": [
+            62.0,
+            54.5,
+            47.0,
+            39.5,
+            32.0
+        ],
+        "x_pixels": [
+            104,
+            245,
+            384,
+            524,
+            665
+        ],
+        "y_pixels": [
+            75,
+            145,
+            216,
+            286,
+            357
+        ],
+        "x_ticks_encrypted": [
+            8.0,
+            9.0,
+            10.0,
+            11.0,
+            12.0,
+            13.0,
+            14.0,
+            15.0,
+            16.0
+        ],
+        "y_ticks_encrypted": [
+            62.0,
+            58.25,
+            54.5,
+            50.75,
+            47.0,
+            43.25,
+            39.5,
+            35.75,
+            32.0
+        ],
+        "x_pixels_encrypted": [
+            104,
+            174,
+            245,
+            314,
+            384,
+            454,
+            524,
+            594,
+            665
+        ],
+        "y_pixels_encrypted": [
+            75,
+            110,
+            145,
+            180,
+            216,
+            251,
+            286,
+            322,
+            357
+        ],
+        "x_axis_type": "数值轴",
+        "y_axis_type": "数值轴",
+        "x_axis_scale": "linear",
+        "y_axis_scale": "linear",
+        "x_label_orientation_angle": 0.0,
+        "y_label_orientation_angle": 0.0,
+        "x_skipped_encrypted_intervals": [],
+        "y_skipped_encrypted_intervals": [],
+        "x_dense_encrypted_interval_warnings": [],
+        "y_dense_encrypted_interval_warnings": [],
+        "x_axis_encryption_policy": "all_numeric_midpoints",
+        "y_axis_encryption_policy": "all_numeric_midpoints",
+        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image.png",
+        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_grid.png",
+        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid.png",
+        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid_color.png",
+        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+        "generation_cache_disabled": true,
+        "colors": [
+            {
+                "name": "FRA",
+                "color": "#a6c8e5"
+            },
+            {
+                "name": "IDN",
+                "color": "#73c06c"
+            },
+            {
+                "name": "PAK",
+                "color": "#a6a6a6"
+            },
+            {
+                "name": "NGA",
+                "color": "#e598d0"
+            },
+            {
+                "name": "DEU",
+                "color": "#f2c873"
+            },
+            {
+                "name": "CHN",
+                "color": "#f29c73"
+            },
+            {
+                "name": "VNM",
+                "color": "#a6d0e5"
+            },
+            {
+                "name": "AUS",
+                "color": "#73d0c0"
+            },
+            {
+                "name": "TUR",
+                "color": "#73a6e5"
+            },
+            {
+                "name": "COL",
+                "color": "#c07373"
+            },
+            {
+                "name": "PHL",
+                "color": "#c073e5"
+            },
+            {
+                "name": "KOR",
+                "color": "#73e5a6"
+            },
+            {
+                "name": "USA",
+                "color": "#e57373"
+            },
+            {
+                "name": "UKR",
+                "color": "#e5a673"
+            },
+            {
+                "name": "ARG",
+                "color": "#e598d0"
+            }
+        ],
+        "series_color": {
+            "FRA": "#a6c8e5",
+            "IDN": "#73c06c",
+            "PAK": "#a6a6a6",
+            "NGA": "#e598d0",
+            "DEU": "#f2c873",
+            "CHN": "#f29c73",
+            "VNM": "#a6d0e5",
+            "AUS": "#73d0c0",
+            "TUR": "#73a6e5",
+            "COL": "#c07373",
+            "PHL": "#c073e5",
+            "KOR": "#73e5a6",
+            "USA": "#e57373",
+            "UKR": "#e5a673",
+            "ARG": "#e598d0"
+        },
+        "axis_repair": {
+            "hint": {
+                "x_axis_missing": false,
+                "y_axis_missing": false,
+                "x_ticks_missing": false,
+                "y_ticks_missing": false,
+                "x_axis_role": "numeric",
+                "y_axis_role": "numeric",
+                "x_axis_position": "bottom",
+                "y_axis_position": "left",
+                "plot_area_style": "explicit_axes",
+                "has_background_grid": false,
+                "x_tick_recovery_from_grid": false,
+                "y_tick_recovery_from_grid": false,
+                "bar_layout": "single",
+                "bar_orientation": "unknown",
+                "confidence": 1.0,
+                "reason": "The chart has visible x and y axes with tick marks and labels.",
+                "axis_tick_labels": {
+                    "x_ticks": [
+                        "8",
+                        "10",
+                        "12",
+                        "14",
+                        "16"
+                    ],
+                    "y_ticks": [
+                        "32.0",
+                        "39.5",
+                        "47.0",
+                        "54.5",
+                        "62.0"
+                    ],
+                    "x_ticks_encrypted": [
+                        "8.0",
+                        "9.0",
+                        "10.0",
+                        "11.0",
+                        "12.0",
+                        "13.0",
+                        "14.0",
+                        "15.0",
+                        "16.0"
+                    ],
+                    "y_ticks_encrypted": [
+                        "32.0",
+                        "35.75",
+                        "39.5",
+                        "43.25",
+                        "47.0",
+                        "50.75",
+                        "54.5",
+                        "58.25",
+                        "62.0"
+                    ],
+                    "x_axis_type": "numeric",
+                    "y_axis_type": "numeric",
+                    "source": "upload_detection"
+                },
+                "series_items": {
+                    "items": [
+                        {
+                            "name": "FRA",
+                            "color": "#a6c8e5"
+                        },
+                        {
+                            "name": "IDN",
+                            "color": "#73c06c"
+                        },
+                        {
+                            "name": "PAK",
+                            "color": "#a6a6a6"
+                        },
+                        {
+                            "name": "NGA",
+                            "color": "#e598d0"
+                        },
+                        {
+                            "name": "DEU",
+                            "color": "#f2c873"
+                        },
+                        {
+                            "name": "CHN",
+                            "color": "#f29c73"
+                        },
+                        {
+                            "name": "VNM",
+                            "color": "#a6d0e5"
+                        },
+                        {
+                            "name": "AUS",
+                            "color": "#73d0c0"
+                        },
+                        {
+                            "name": "TUR",
+                            "color": "#73a6e5"
+                        },
+                        {
+                            "name": "COL",
+                            "color": "#c07373"
+                        },
+                        {
+                            "name": "PHL",
+                            "color": "#c073e5"
+                        },
+                        {
+                            "name": "KOR",
+                            "color": "#73e5a6"
+                        },
+                        {
+                            "name": "USA",
+                            "color": "#e57373"
+                        },
+                        {
+                            "name": "UKR",
+                            "color": "#e5a673"
+                        },
+                        {
+                            "name": "ARG",
+                            "color": "#e598d0"
+                        }
+                    ],
+                    "source": "upload_detection",
+                    "kind": "point_labels"
+                }
+            },
+            "source": "enhanced_grid_first"
+        },
+        "enhanced_grid_reconstruction": {
+            "enabled": true,
+            "error": null,
+            "source": "computed",
+            "outputs": {
+                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_preview.png",
+                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_finalH2V3.png",
+                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_finalH2V3_overlay.png",
+                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_finalH2V3_selection.json",
+                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_axis_fusion.json",
+                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_grid_label_bindings.json",
+                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_grid_layers.json",
+                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_mllm_axis.json",
+                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_1\\Sy.Dataset\\Scatetr_50\\scatter_071_ab8f1178\\work\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image_ocr_axis.json",
+                "mllm_cache_root": ""
+            }
+        },
+        "encrypted_tick_source": "enhanced_grid_label_bindings",
+        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+        "cartesian_flow": "enhanced_grid_first",
+        "legacy_cartesian_flow_used": false,
+        "image_paths": {
+            "no_grid": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178_image.png",
+            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid.png",
+            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid_color.png",
+            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid_color.png",
+            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid_color.png",
+            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_with_grid.png",
+            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\944d47f5198a00b7\\output\\944d47f5198a00b7_original_grid.png"
+        },
+        "chart_id": "vishint_Sy.Dataset_Scatetr_50_scatter_071_ab8f1178",
+        "coordinate_system": "cartesian"
+    }
+}
