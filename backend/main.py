@@ -338,6 +338,21 @@ def preview_tick_sidecar_current(tick_sidecar: Path) -> bool:
     return ticks_data.get("encrypted_label_style_version") == DATASET_PREVIEW_LABEL_STYLE_VERSION
 
 
+def preview_encrypted_grid_path(cache_dir: Path, image_stem: str) -> Optional[Path]:
+    candidates = [
+        cache_dir / f"{image_stem}_with_grid.png",
+        cache_dir / f"{image_stem}_encode.png",
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    for pattern in ("*_with_grid.png", "*_encode.png"):
+        match = next(cache_dir.glob(pattern), None)
+        if match is not None:
+            return match
+    return None
+
+
 def copy_existing_file(src: Any, dest: Path) -> Optional[str]:
     if not src:
         return None
@@ -411,12 +426,19 @@ def dataset_image_paths(source: str = "realworld", category: Optional[str] = Non
                     image_paths.append(path)
     elif source == "synthetic":
         seen: set[Path] = set()
-        for pattern in ("*/charts", "*/chart"):
-            for chart_dir in sorted(root.glob(pattern)):
-                group_category = dataset_chart_category(chart_dir.parent)
-                if category and category != "all" and group_category != category:
-                    continue
-                for path in chart_dir.rglob("*"):
+        for group_dir in sorted(root.iterdir()):
+            if not group_dir.is_dir():
+                continue
+            if not any(group_dir.name.startswith(prefix) for prefix in DATASET_CATEGORY_PREFIXES):
+                continue
+            group_category = dataset_chart_category(group_dir)
+            if category and category != "all" and group_category != category:
+                continue
+            chart_dirs = [path for path in (group_dir / "charts", group_dir / "chart") if path.exists()]
+            if not chart_dirs:
+                chart_dirs = [group_dir]
+            for chart_dir in chart_dirs:
+                for path in sorted(chart_dir.rglob("*")):
                     if not path.is_file() or path.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
                         continue
                     resolved = path.resolve()
@@ -466,7 +488,14 @@ def iter_dataset_samples(source: str = "realworld", category: Optional[str] = No
         rel_path = image_path.resolve().relative_to(root.resolve()).as_posix()
         cache_dir = DATASET_PREVIEW_CACHE_DIR / sample_id / "output"
         tick_sidecar = cache_dir / f"{sample_id}_original_ticks.json"
-        preview_cached = preview_tick_sidecar_current(tick_sidecar) and any(cache_dir.glob("*_with_grid.png"))
+        encrypted_preview = preview_encrypted_grid_path(cache_dir, f"{sample_id}_original")
+        preview_cached = bool(
+            encrypted_preview
+            and (
+                preview_tick_sidecar_current(tick_sidecar)
+                or encrypted_preview.name.endswith("_encode.png")
+            )
+        )
         batch_cached = batch_cached_dataset_record(source, rel_path) is not None
         cached = preview_cached or batch_cached
         evaluation_cached = dataset_evaluation_cache_path(sample_id).exists()
@@ -532,6 +561,9 @@ def register_dataset_sample(sample_id: str) -> Dict[str, Any]:
     seeded_encrypted = output_dir / f"{cached_image_path.stem}_with_grid.png"
     if seeded_encrypted.exists():
         encrypted_image_path = str(seeded_encrypted)
+    polar_encrypted = output_dir / f"{cached_image_path.stem}_encode.png"
+    if polar_encrypted.exists():
+        encrypted_image_path = str(polar_encrypted)
     seeded_colored = output_dir / f"{cached_image_path.stem}_with_grid_color.png"
     if seeded_colored.exists():
         colored_image_path = str(seeded_colored)

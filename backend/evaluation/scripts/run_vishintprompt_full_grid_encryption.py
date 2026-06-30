@@ -96,8 +96,15 @@ def iter_dataset_images(import_root: Path) -> list[tuple[str, Path, Path]]:
     synthetic_root = import_root / "Sy.Dataset"
     if synthetic_root.exists():
         seen: set[Path] = set()
-        for pattern in ("*/charts", "*/chart"):
-            for charts_dir in sorted(synthetic_root.glob(pattern)):
+        for group_dir in sorted(synthetic_root.iterdir()):
+            if not group_dir.is_dir():
+                continue
+            if not any(group_dir.name.startswith(prefix) for prefix in DATASET_CATEGORY_PREFIXES):
+                continue
+            chart_dirs = [path for path in (group_dir / "charts", group_dir / "chart") if path.exists()]
+            if not chart_dirs:
+                chart_dirs = [group_dir]
+            for charts_dir in chart_dirs:
                 for path in sorted(charts_dir.rglob("*")):
                     if not path.is_file() or path.suffix.lower() not in IMAGE_EXTS:
                         continue

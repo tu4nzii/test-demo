@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import subprocess
 import sys
 import time
 import traceback
@@ -40,6 +41,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--limit", type=int, default=0, help="Optional smoke-test limit.")
     parser.add_argument("--resume", action="store_true", help="Skip samples with an existing evaluation cache.")
+    parser.add_argument("--isolate", action="store_true", help="Run each sample in a child process.")
+    parser.add_argument("--sample-id", default="", help=argparse.SUPPRESS)
+    parser.add_argument("--timeout-sec", type=int, default=180)
     parser.add_argument(
         "--manifest",
         type=Path,
@@ -119,8 +123,83 @@ def build_system_evaluation(chart_info: dict[str, Any]) -> Path:
     return result_path
 
 
+async def evaluate_one_sample(sample: dict[str, Any], mode: str) -> dict[str, Any]:
+    sample_id = str(sample["sample_id"])
+    chart_info = backend_main.register_dataset_sample(sample_id)
+    if not chart_info.get("processed"):
+        return {
+            "status": "skipped_no_grid_cache",
+            "reason": "dataset preview sample has no cached encrypted grid",
+        }
+    if mode == "model":
+        result_path = await backend_main.evaluate_processed_chart(chart_info)
+    else:
+        result_path = build_system_evaluation(chart_info)
+    payload = backend_main.normalize_result_payload(backend_main.load_json(result_path), result_path)
+    return {
+        "status": "success",
+        "result_path": str(result_path),
+        "object_count": payload.get("summary", {}).get("object_count"),
+        "chart_runs": payload.get("summary", {}).get("chart_runs"),
+        "system_cv_fallback": payload.get("summary", {}).get("system_cv_fallback"),
+    }
+
+
+def run_isolated_sample(sample: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:
+    command = [
+        sys.executable,
+        str(Path(__file__).resolve()),
+        "--source",
+        args.source,
+        "--sample-id",
+        str(sample["sample_id"]),
+        "--mode",
+        args.mode,
+    ]
+    started = time.perf_counter()
+    try:
+        completed = subprocess.run(
+            command,
+            cwd=str(ROOT),
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            capture_output=True,
+            timeout=args.timeout_sec,
+        )
+    except subprocess.TimeoutExpired as exc:
+        return {
+            "status": "failed",
+            "error": f"timeout after {args.timeout_sec}s",
+            "stdout_tail": (exc.stdout or "")[-4000:],
+            "stderr_tail": (exc.stderr or "")[-4000:],
+            "elapsed_sec": round(time.perf_counter() - started, 3),
+        }
+    result: dict[str, Any] = {
+        "elapsed_sec": round(time.perf_counter() - started, 3),
+        "stdout_tail": completed.stdout[-4000:],
+        "stderr_tail": completed.stderr[-4000:],
+    }
+    if completed.returncode != 0:
+        result.update({"status": "failed", "error": f"child exited with code {completed.returncode}"})
+        return result
+    try:
+        payload = json.loads(completed.stdout.strip().splitlines()[-1])
+        if isinstance(payload, dict):
+            result.update(payload)
+    except Exception as exc:
+        result.update({"status": "failed", "error": f"could not parse child output: {exc}"})
+    return result
+
+
 async def run() -> int:
     args = parse_args()
+    if args.sample_id:
+        sample = backend_main.dataset_sample_by_id(args.sample_id)
+        result = await evaluate_one_sample(sample, args.mode)
+        print(json.dumps(result, ensure_ascii=False), flush=True)
+        return 0 if result.get("status") in {"success", "skipped_no_grid_cache"} else 1
+
     samples = iter_samples(args.source, args.category)
     if args.limit and args.limit > 0:
         samples = samples[: args.limit]
@@ -163,33 +242,27 @@ async def run() -> int:
             else:
                 if eval_path.exists():
                     eval_path.unlink()
-                chart_info = backend_main.register_dataset_sample(sample_id)
-                if not chart_info.get("processed"):
+                if args.isolate:
+                    result = run_isolated_sample(sample, args)
+                else:
+                    result = await evaluate_one_sample(sample, args.mode)
+                if result.get("status") == "skipped_no_grid_cache":
                     record["status"] = "skipped_no_grid_cache"
-                    record["reason"] = "dataset preview sample has no cached encrypted grid"
+                    record["reason"] = result.get("reason")
                     manifest["skipped"] += 1
                     print(f"[{index}/{len(samples)}] SKIP no grid {sample_id} {sample.get('relative_path')}", flush=True)
-                else:
-                    if args.mode == "model":
-                        result_path = await backend_main.evaluate_processed_chart(chart_info)
-                    else:
-                        result_path = build_system_evaluation(chart_info)
-                    payload = backend_main.normalize_result_payload(backend_main.load_json(result_path), result_path)
-                    record.update(
-                        {
-                            "status": "success",
-                            "result_path": str(result_path),
-                            "object_count": payload.get("summary", {}).get("object_count"),
-                            "chart_runs": payload.get("summary", {}).get("chart_runs"),
-                            "system_cv_fallback": payload.get("summary", {}).get("system_cv_fallback"),
-                        }
-                    )
+                elif result.get("status") == "success":
+                    record.update(result)
                     manifest["success"] += 1
                     print(
                         f"[{index}/{len(samples)}] OK {sample_id} {sample.get('relative_path')} "
                         f"objects={record.get('object_count')}",
                         flush=True,
                     )
+                else:
+                    record.update(result)
+                    manifest["failed"] += 1
+                    print(f"[{index}/{len(samples)}] FAIL {sample_id} {sample.get('relative_path')}: {result.get('error')}", flush=True)
         except Exception as exc:
             record.update(
                 {

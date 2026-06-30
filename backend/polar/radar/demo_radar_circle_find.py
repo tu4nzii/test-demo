@@ -580,17 +580,22 @@ class RadarChartEncoder:
             print(f"LLM分析结果: {tick1}, {tick2}, {max_tick_value}, {res}")
             
             # 加密处理
-            if tick1 and tick2:
+            if tick1 is not None and tick2 is not None:
                 result, r_ticks, argument = self.encrypt_rose_chart_with_tick(
                     image_path, tick_interval, tick1, tick2, max_tick_value, min_tick_value
                 )
-            elif tick1 and tick2 is None:
+            elif tick1 is not None and tick2 is None:
                 result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
                     image_path, tick_interval, tick1, self.first_r, max_tick_value, min_tick_value
                 )
-            elif tick1 is None and tick2:
+            elif tick1 is None and tick2 is not None:
                 result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
                     image_path, tick_interval, tick2, self.second_r, max_tick_value, min_tick_value
+                )
+            elif max_tick_value is not None and tick_interval is not None:
+                outer_radius = max(self.first_r, self.second_r)
+                result, r_ticks, argument = self.encrypt_rose_chart_one_tick(
+                    image_path, tick_interval, max_tick_value, outer_radius, max_tick_value, min_tick_value
                 )
             else:
                 print("未识别出正确的刻度")
