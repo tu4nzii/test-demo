@@ -1,12 +1,18 @@
 import json
 import os
 import shutil
+import sys
+from pathlib import Path
 from typing import Any, Dict, Optional, Protocol, Type
 
-from demo_radar.demo_axis_find_radar import RadarChartAxisFinder
-from demo_radar.demo_radar_circle_find import RadarChartEncoder
-from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
-from demo_rose.demo_rose_circle_find import RoseChartEncoder
+BACKEND_DIR = Path(__file__).resolve().parents[1]
+if str(BACKEND_DIR) not in sys.path:
+    sys.path.insert(0, str(BACKEND_DIR))
+
+from polar.radar.demo_axis_find_radar import RadarChartAxisFinder
+from polar.radar.demo_radar_circle_find import RadarChartEncoder
+from polar.rose.demo_axis_find_rose import RoseChartAxisFinder
+from polar.rose.demo_rose_circle_find import RoseChartEncoder
 from evaluation import evaluate_chart_data
 from Grid_generation.circular_angle_grid import process_circular_angle_chart
 from Grid_generation.grid_generation import process_chart

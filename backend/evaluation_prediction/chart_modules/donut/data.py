@@ -64,10 +64,11 @@ def _load_backend_generated_dataset(config_path: str | Path, chart_type: str) ->
     axes = _read_json_dict(_sibling_axes_path(path))
     merged = dict(data)
     merged.update({key: value for key, value in axes.items() if key not in {"chart_id"}})
+    _strip_reference_fields(merged)
     merged["chart_type"] = chart_type
     merged["chart_id"] = str(merged.get("chart_id") or path.stem.removesuffix("_image").removesuffix("_axes"))
     merged["image_paths"] = _image_paths(merged, path.parent)
-    merged["data_points"] = _label_map(merged)
+    merged["target_labels"] = _label_map(merged)
     return merged
 
 
@@ -109,10 +110,6 @@ def _resolve_path(value: str, base_dir: Path) -> Path:
 
 
 def _label_map(dataset: dict[str, Any]) -> dict[str, None]:
-    for key in ("data_points", "data"):
-        value = dataset.get(key)
-        if isinstance(value, dict) and value:
-            return {str(name): None for name in value.keys()}
     names = []
     colors = dataset.get("colors")
     if isinstance(colors, list):
@@ -122,6 +119,11 @@ def _label_map(dataset: dict[str, Any]) -> dict[str, None]:
                 if name and name not in names:
                     names.append(name)
     return {name: None for name in names}
+
+
+def _strip_reference_fields(dataset: dict[str, Any]) -> None:
+    for key in ("data", "data_points", "ground_truth", "labels", "reference_config_path", "reference_chart_id"):
+        dataset.pop(key, None)
 
 
 def _target_names(dataset: dict[str, Any]) -> list[str]:

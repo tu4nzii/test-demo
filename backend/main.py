@@ -266,6 +266,31 @@ def dataset_evaluation_cache_path(sample_id: str) -> Path:
     return DATASET_PREVIEW_CACHE_DIR / sample_id / f"{sample_id}_evaluation.json"
 
 
+def evaluation_cache_usable(path: Path, chart_type: Optional[str] = None) -> bool:
+    if not path.exists():
+        return False
+    try:
+        payload = load_json(path)
+    except Exception:
+        return False
+
+    cache_chart_type = str(chart_type or payload.get("chart_type") or "").strip().lower()
+    prediction_error = str(payload.get("prediction_runner_error") or "")
+    if "unexpected keyword argument 'chart_type'" in prediction_error:
+        return False
+    if cache_chart_type in {"pie", "donut", "radar", "rose"}:
+        processed_json = payload.get("processed_json")
+        if isinstance(processed_json, dict):
+            if any(key in processed_json for key in ("data", "data_points", "ground_truth", "labels")):
+                return False
+        predictions = payload.get("predictions")
+        summary = payload.get("summary") if isinstance(payload.get("summary"), dict) else {}
+        chart_runs = int(summary.get("chart_runs") or 0)
+        if not isinstance(predictions, list) or (not predictions and chart_runs == 0):
+            return False
+    return True
+
+
 def seed_preview_cache_from_batch_record(record: Dict[str, Any], output_dir: Path, image_stem: str) -> tuple[Optional[str], Optional[str]]:
     copied = record.get("copied") if isinstance(record.get("copied"), dict) else {}
     encrypted_src = copied.get("encrypted_grid")
@@ -530,7 +555,7 @@ def register_dataset_sample(sample_id: str) -> Dict[str, Any]:
         chart_info["encrypted_image_path"] = encrypted_image_path
         chart_info["colored_image_path"] = colored_image_path
     evaluation_path = dataset_evaluation_cache_path(sample_id)
-    if evaluation_path.exists():
+    if evaluation_cache_usable(evaluation_path, chart_type):
         chart_info["evaluated"] = True
         chart_info["evaluation_results_path"] = str(evaluation_path)
     charts_db[chart_id] = chart_info
@@ -627,7 +652,7 @@ def strip_external_reference_data(
     data.pop("reference_config_path", None)
     data.pop("reference_chart_id", None)
 
-    keys = ["data_points", "ground_truth"]
+    keys = ["data_points", "ground_truth", "labels"]
     if not preserve_data:
         keys.append("data")
     for key in keys:
@@ -658,7 +683,7 @@ def processed_json_payload(eval_json_path: Union[str, Path], chart_type: Optiona
         merge_tick_sidecar(data, path.parent, path.stem)
     strip_external_reference_data(
         data,
-        preserve_data=chart_type in {"pie", "donut"},
+        preserve_data=False,
         preserve_series_color=True,
     )
     ensure_series_color_from_colors(data)
@@ -709,7 +734,7 @@ def enrich_generated_json(
     merge_tick_sidecar(generated_data, output_dir, Path(chart_info["image_path"]).stem)
     strip_external_reference_data(
         generated_data,
-        preserve_data=chart_info["chart_type"] in {"pie", "donut"},
+        preserve_data=False,
         preserve_series_color=True,
     )
     ensure_radar_series_color(generated_data, chart_info, output_dir)
@@ -806,7 +831,7 @@ def axis_data_from_generated_sidecar(chart_info: Dict[str, Any], output_dir: Pat
 def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
     image_stem = Path(chart_info["image_path"]).stem
     if chart_info["chart_type"] == "radar":
-        from demo_radar.demo_axis_find_radar import RadarChartAxisFinder
+        from polar.radar.demo_axis_find_radar import RadarChartAxisFinder
 
         finder = RadarChartAxisFinder()
         finder.output_dir = str(output_dir)
@@ -820,7 +845,7 @@ def save_axis_data(chart_info: Dict[str, Any], output_dir: Path) -> None:
         return
 
     if chart_info["chart_type"] == "rose":
-        from demo_rose.demo_axis_find_rose import RoseChartAxisFinder
+        from polar.rose.demo_axis_find_rose import RoseChartAxisFinder
 
         finder = RoseChartAxisFinder()
         finder.output_dir = str(output_dir)
@@ -953,7 +978,7 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
             merge_tick_sidecar(data, output_dir, Path(chart_info["image_path"]).stem)
             strip_external_reference_data(
                 data,
-                preserve_data=chart_info["chart_type"] in {"pie", "donut"},
+                preserve_data=False,
                 preserve_series_color=True,
             )
             ensure_radar_series_color(data, chart_info, output_dir)
@@ -979,6 +1004,10 @@ def resolve_eval_json(chart_info: Dict[str, Any]) -> Path:
         )
 
     fallback_path = output_dir / f"{chart_info['chart_id']}.json"
+    if isinstance(processed_data, dict):
+        strip_external_reference_data(processed_data, preserve_data=False, preserve_series_color=True)
+        ensure_radar_series_color(processed_data, chart_info, output_dir)
+        ensure_series_color_from_colors(processed_data)
     write_json(fallback_path, processed_data)
     return fallback_path
 
@@ -1415,7 +1444,7 @@ async def evaluate_processed_chart(chart_info: Dict[str, Any]) -> Path:
     dataset_eval_path = None
     if chart_info.get("dataset_preview") and dataset_sample.get("sample_id"):
         dataset_eval_path = dataset_evaluation_cache_path(str(dataset_sample["sample_id"]))
-        if dataset_eval_path.exists():
+        if evaluation_cache_usable(dataset_eval_path, chart_info["chart_type"]):
             chart_info.update({"evaluated": True, "evaluation_results_path": str(dataset_eval_path)})
             return dataset_eval_path
 

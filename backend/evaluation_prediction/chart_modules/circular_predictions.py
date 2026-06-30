@@ -64,11 +64,6 @@ def complete_circular_predictions(
 
 def system_label_order(dataset: dict[str, Any]) -> list[str]:
     names: list[str] = []
-    for key in ("data_points", "data"):
-        value = dataset.get(key)
-        if isinstance(value, dict):
-            for name in value:
-                _append_name(names, name)
     colors = dataset.get("colors")
     if isinstance(colors, list):
         for item in colors:

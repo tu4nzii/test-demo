@@ -16,7 +16,7 @@ from typing import Iterable
 _GPT54_PROFILE = {
     "base_url": "http://dsiclab-model.ic.h3i.buaa.edu.cn/v1",
     "model_name": "gpt-5.4",
-    "api_key": "sk-CbLDZcUuoj5NphrQfMQqh1ltqNBTkg85n7nMSFrsyxex5SOb",
+    "api_key": "",
 }
 
 _VVEAI_GEMINI_PROFILE = {
@@ -37,7 +37,7 @@ MODEL_PROFILES = {
     "vveai_gpt41": {
         "base_url": "https://api.vveai.com/v1",
         "model_name": "gpt-4.1",
-        "api_key": "sk-wI6yoFNGxIi8kFHuE68882A8Ed06427aAaA3548662439c8d",
+        "api_key": "",
     },
     "vveai_gemini": _VVEAI_GEMINI_PROFILE,
     "gemini": _VVEAI_GEMINI_PROFILE,

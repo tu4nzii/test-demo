@@ -104,11 +104,13 @@ async def run_prediction_async(
     else:
         raise ValueError(f"Unsupported prediction chart type: {chart_type}")
 
-    return await run_experiment(
-        batch_size=batch_size,
-        config_paths=[str(config_json_path)],
-        chart_type=chart_type,
-    )
+    kwargs: dict[str, Any] = {
+        "batch_size": batch_size,
+        "config_paths": [str(config_json_path)],
+    }
+    if chart_type in {"v_bar", "h_bar", "line"}:
+        kwargs["chart_type"] = chart_type
+    return await run_experiment(**kwargs)
 
 
 def run_bar_prediction(

@@ -117,11 +117,13 @@ CARTESIAN_CHART_TYPES = frozenset(
 
 
 def get_chart_definition(chart_type: str) -> ChartDefinition:
-    return CHARTS_BY_TYPE.get(chart_type, CHARTS_BY_TYPE[DEFAULT_CHART_TYPE])
+    if chart_type in CHARTS_BY_TYPE:
+        return CHARTS_BY_TYPE[chart_type]
+    raise ValueError(f"Unsupported chart type: {chart_type!r}")
 
 
 def normalize_chart_type(chart_type: str) -> str:
-    return chart_type if chart_type in CHARTS_BY_TYPE else DEFAULT_CHART_TYPE
+    return chart_type if chart_type in CHARTS_BY_TYPE else "unknown"
 
 
 def get_coordinate_system(chart_type: str) -> CoordinateSystem:
