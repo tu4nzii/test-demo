@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -36,6 +37,14 @@ MAX_CROP_ATTEMPTS = 5
 DEFAULT_MARK_DIAMETER = 20.0
 MIN_MARK_DIAMETER = 4.0
 MAX_MARK_DIAMETER = 220.0
+
+
+def _experiment_types() -> list[tuple[str, str]]:
+    raw = os.getenv("CHART_POINT_EXPERIMENT_TYPES", "").strip()
+    if not raw:
+        return EXPERIMENT_TYPES
+    enabled = {item.strip() for item in raw.split(",") if item.strip()}
+    return [item for item in EXPERIMENT_TYPES if item[0] in enabled]
 
 
 def _valid_prediction(pred: tuple[Any, Any]) -> bool:
@@ -158,7 +167,7 @@ async def _run_target(
     feedback_history: list[tuple[Any, Any]] = []
     feedback_pred: tuple[Any, Any] | None = None
 
-    for prompt_type, image_type in EXPERIMENT_TYPES:
+    for prompt_type, image_type in _experiment_types():
         for run_idx in range(1, repeat_times + 1):
             used_image = image_path(config, dataset, image_type)
             local_x_ticks = dataset["x_ticks"]

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import math
 import re
+from difflib import SequenceMatcher
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
@@ -144,9 +145,7 @@ def _ocr_point_labels(dataset: dict[str, Any]) -> list[dict[str, str]]:
     if bounds is None:
         return []
     left, top, right, bottom = bounds
-    legend_names = _legend_names(dataset)
-    targets: list[dict[str, str]] = []
-    seen: set[str] = set()
+    candidates: list[dict[str, Any]] = []
     image = _open_no_grid_image(dataset)
     for item in items:
         if not isinstance(item, dict):
@@ -156,22 +155,30 @@ def _ocr_point_labels(dataset: dict[str, Any]) -> list[dict[str, str]]:
             continue
         if item.get("role") in {"x_axis", "y_axis"} or item.get("label_kind") == "axis_label":
             continue
-        if _normalize_name_key(text) in legend_names:
-            continue
         center = _center(item)
         if center is None:
             continue
         x, y = center
-        if not (left - 18 <= x <= right + 18 and top - 18 <= y <= bottom + 18):
+        if not (left <= x <= right and top <= y <= bottom):
             continue
         score = _float_or_none(item.get("score"))
         if score is not None and score < 0.65:
             continue
+        candidates.append({"text": text, "item": item, "center": center, "box": _box_bounds(item)})
+
+    targets: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for group in _group_ocr_label_candidates(candidates):
+        text = _clean_point_label(" ".join(str(item["text"]) for item in group))
+        if not text or not _looks_like_point_label(text):
+            continue
+        text = _canonical_point_label(dataset, text)
+        representative = _merge_candidate_items(group)
         key = _normalize_name_key(text)
         if key in seen:
             continue
         seen.add(key)
-        category = _category_near_label(dataset, item, image)
+        category = _category_near_label(dataset, representative, image)
         targets.append({"name": text, "category": category})
     return targets
 
@@ -252,6 +259,43 @@ def _legend_names(dataset: dict[str, Any]) -> set[str]:
     return {name for name in names if name}
 
 
+def _canonical_point_label(dataset: dict[str, Any], text: str) -> str:
+    normalized = _normalize_name_key(text)
+    best_name = text
+    best_score = 0.0
+    for name in _series_or_color_names(dataset):
+        candidate = _normalize_name_key(name)
+        if not candidate:
+            continue
+        score = SequenceMatcher(None, normalized, candidate).ratio()
+        if score > best_score:
+            best_score = score
+            best_name = name
+    return best_name if best_score >= 0.62 else text
+
+
+def _series_or_color_names(dataset: dict[str, Any]) -> list[str]:
+    names: list[str] = []
+    series_color = dataset.get("series_color")
+    if isinstance(series_color, dict):
+        names.extend(str(name).strip() for name in series_color if str(name).strip())
+    colors = dataset.get("colors")
+    if isinstance(colors, list):
+        for item in colors:
+            if isinstance(item, dict) and item.get("name"):
+                text = str(item.get("name")).strip()
+                if text:
+                    names.append(text)
+    unique: list[str] = []
+    seen: set[str] = set()
+    for name in names:
+        key = _normalize_name_key(name)
+        if key and key not in seen:
+            seen.add(key)
+            unique.append(name)
+    return unique
+
+
 def _category_for_point(dataset: dict[str, Any], point_name: str) -> str:
     key = _normalize_name_key(point_name)
     for name in _legend_names(dataset):
@@ -312,6 +356,74 @@ def _box_bounds(item: dict[str, Any]) -> tuple[float, float, float, float] | Non
     return min(xs), min(ys), max(xs), max(ys)
 
 
+def _group_ocr_label_candidates(candidates: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+    groups: list[list[dict[str, Any]]] = []
+    for candidate in sorted(candidates, key=lambda item: (item["center"][1], item["center"][0])):
+        placed = False
+        for group in groups:
+            if any(_same_local_label(candidate, existing) for existing in group):
+                group.append(candidate)
+                placed = True
+                break
+        if not placed:
+            groups.append([candidate])
+
+    changed = True
+    while changed:
+        changed = False
+        merged: list[list[dict[str, Any]]] = []
+        for group in groups:
+            target = None
+            for existing in merged:
+                if any(_same_local_label(left, right) for left in group for right in existing):
+                    target = existing
+                    break
+            if target is None:
+                merged.append(group)
+            else:
+                target.extend(group)
+                changed = True
+        groups = merged
+
+    for group in groups:
+        group.sort(key=lambda item: (item["center"][1], item["center"][0]))
+    return groups
+
+
+def _same_local_label(left: dict[str, Any], right: dict[str, Any]) -> bool:
+    left_box = left.get("box")
+    right_box = right.get("box")
+    if left_box is None or right_box is None:
+        return False
+    l0, t0, l1, t1 = left_box
+    r0, u0, r1, u1 = right_box
+    horizontal_overlap = min(l1, r1) - max(l0, r0)
+    vertical_overlap = min(t1, u1) - max(t0, u0)
+    min_width = max(1.0, min(l1 - l0, r1 - r0))
+    min_height = max(1.0, min(t1 - t0, u1 - u0))
+    x_gap = max(0.0, max(l0, r0) - min(l1, r1))
+    y_gap = max(0.0, max(t0, u0) - min(t1, u1))
+
+    same_stacked_label = horizontal_overlap >= min_width * 0.35 and y_gap <= 14
+    same_text_line = vertical_overlap >= min_height * 0.35 and x_gap <= 18
+    return same_stacked_label or same_text_line
+
+
+def _merge_candidate_items(group: list[dict[str, Any]]) -> dict[str, Any]:
+    boxes = [item.get("box") for item in group if item.get("box") is not None]
+    if not boxes:
+        return group[0]["item"]
+    left = min(box[0] for box in boxes)
+    top = min(box[1] for box in boxes)
+    right = max(box[2] for box in boxes)
+    bottom = max(box[3] for box in boxes)
+    return {
+        "text": " ".join(str(item["text"]) for item in group),
+        "box": [[left, top], [right, top], [right, bottom], [left, bottom]],
+        "center": [(left + right) / 2, (top + bottom) / 2],
+    }
+
+
 def _open_no_grid_image(dataset: dict[str, Any]) -> Image.Image | None:
     try:
         path = resolve_image_path(dataset, "no_grid")
@@ -320,6 +432,51 @@ def _open_no_grid_image(dataset: dict[str, Any]) -> Image.Image | None:
     except Exception:
         return None
     return None
+
+
+def _has_nearby_point_mark(
+    item: dict[str, Any],
+    image: Image.Image,
+    bounds: tuple[float, float, float, float],
+) -> bool:
+    box = _box_bounds(item)
+    if box is None:
+        center = _center(item)
+        if center is None:
+            return False
+        x, y = center
+        box = (x - 8, y - 8, x + 8, y + 8)
+    left, top, right, bottom = box
+    plot_left, plot_top, plot_right, plot_bottom = bounds
+    margin = 38
+    sample_left = max(int(plot_left), int(left - margin))
+    sample_top = max(int(plot_top), int(top - margin))
+    sample_right = min(int(plot_right), int(right + margin))
+    sample_bottom = min(int(plot_bottom), int(bottom + margin))
+    if sample_right <= sample_left or sample_bottom <= sample_top:
+        return False
+
+    label_left = int(left) - 2
+    label_top = int(top) - 2
+    label_right = int(right) + 2
+    label_bottom = int(bottom) + 2
+    colored_pixels = 0
+    dark_pixels = 0
+    for y in range(sample_top, sample_bottom):
+        for x in range(sample_left, sample_right):
+            if label_left <= x <= label_right and label_top <= y <= label_bottom:
+                continue
+            r, g, b = image.getpixel((x, y))[:3]
+            if max(r, g, b) > 248:
+                continue
+            chroma = max(r, g, b) - min(r, g, b)
+            if chroma >= 28 and max(r, g, b) >= 80:
+                colored_pixels += 1
+            elif max(r, g, b) < 80:
+                dark_pixels += 1
+            if colored_pixels >= 24 or dark_pixels >= 36:
+                return True
+    return False
 
 
 def _legend_colors(dataset: dict[str, Any]) -> dict[str, tuple[int, int, int]]:

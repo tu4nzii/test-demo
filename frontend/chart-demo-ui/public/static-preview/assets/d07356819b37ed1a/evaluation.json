@@ -1,944 +1,748 @@
 {
-    "success": true,
-    "mode": "prediction_extraction",
-    "chart_id": "dataset_d07356819b37ed1a",
-    "chart_type": "scatter",
-    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_ticks.json",
-    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_ticks.json",
-    "summary": {
-        "object_count": 13,
-        "chart_runs": 1,
-        "system_cv_fallback": false
+  "success": true,
+  "mode": "prediction_extraction",
+  "cache_mode": "system_ocr_grid_mapping",
+  "chart_id": "dataset_d07356819b37ed1a",
+  "chart_type": "scatter",
+  "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_ticks.json",
+  "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_ticks.json",
+  "summary": {
+    "object_count": 10,
+    "chart_runs": 0,
+    "system_cv_fallback": false,
+    "label_target_count": 10
+  },
+  "predictions": [
+    {
+      "id": "High School Teachers",
+      "series_name": "",
+      "category": "",
+      "label": "High School Teachers",
+      "axis": "xy",
+      "value": {
+        "x": 17.0116,
+        "y": 66.9796
+      },
+      "x": 17.0116,
+      "y": 66.9796,
+      "pixel": {
+        "x": 957.26,
+        "y": 219.1
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     },
-    "predictions": [
-        {
-            "id": "Postmen",
-            "series_name": "Postmen",
-            "label": "Postmen",
-            "axis": "xy",
-            "value": {
-                "x": 9.0,
-                "y": 0.0
-            },
-            "x": 9.0,
-            "y": 0.0,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Postmen_rt0_round3_adaptive.png"
-        },
-        {
-            "id": "Nurses' aides",
-            "series_name": "Nurses' aides",
-            "label": "Nurses' aides",
-            "axis": "xy",
-            "value": {
-                "x": 11.15,
-                "y": 9.5
-            },
-            "x": 11.15,
-            "y": 9.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Nurses' aides_rt1_round3_crop.png"
-        },
-        {
-            "id": "Train drivers",
-            "series_name": "Train drivers",
-            "label": "Train drivers",
-            "axis": "xy",
-            "value": {
-                "x": 12.8,
-                "y": 57.5
-            },
-            "x": 12.8,
-            "y": 57.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Train drivers_rt2_round3_crop.png"
-        },
-        {
-            "id": "Police",
-            "series_name": "Police",
-            "label": "Police",
-            "axis": "xy",
-            "value": {
-                "x": 14.25,
-                "y": 42.5
-            },
-            "x": 14.25,
-            "y": 42.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Police_rt2_round3_crop.png"
-        },
-        {
-            "id": "Librarians",
-            "series_name": "Librarians",
-            "label": "Librarians",
-            "axis": "xy",
-            "value": {
-                "x": 15.0,
-                "y": 45.0
-            },
-            "x": 15.0,
-            "y": 45.0,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Librarians_rt2_round3_crop.png"
-        },
-        {
-            "id": "Midwives",
-            "series_name": "Midwives",
-            "label": "Midwives",
-            "axis": "xy",
-            "value": {
-                "x": 15.5,
-                "y": 27.5
-            },
-            "x": 15.5,
-            "y": 27.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Midwives_rt1_round3_crop.png"
-        },
-        {
-            "id": "Pedagogues",
-            "series_name": "Pedagogues",
-            "label": "Pedagogues",
-            "axis": "xy",
-            "value": {
-                "x": 15.5,
-                "y": 15.5
-            },
-            "x": 15.5,
-            "y": 15.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Pedagogues_rt1_round1_crop.png"
-        },
-        {
-            "id": "Prison Guards",
-            "series_name": "Prison Guards",
-            "label": "Prison Guards",
-            "axis": "xy",
-            "value": {
-                "x": 14.75,
-                "y": 17.5
-            },
-            "x": 14.75,
-            "y": 17.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Prison Guards_rt1_round3_crop.png"
-        },
-        {
-            "id": "School Teachers",
-            "series_name": "School Teachers",
-            "label": "School Teachers",
-            "axis": "xy",
-            "value": {
-                "x": 15.75,
-                "y": 46.25
-            },
-            "x": 15.75,
-            "y": 46.25,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\School Teachers_rt2_round3_crop.png"
-        },
-        {
-            "id": "Nurses",
-            "series_name": "Nurses",
-            "label": "Nurses",
-            "axis": "xy",
-            "value": {
-                "x": 15.5,
-                "y": 30.0
-            },
-            "x": 15.5,
-            "y": 30.0,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Nurses_rt2_round3_crop.png"
-        },
-        {
-            "id": "Social Workers",
-            "series_name": "Social Workers",
-            "label": "Social Workers",
-            "axis": "xy",
-            "value": {
-                "x": 15.5,
-                "y": 23.75
-            },
-            "x": 15.5,
-            "y": 23.75,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Social Workers_rt1_round3_crop.png"
-        },
-        {
-            "id": "High School Teachers",
-            "series_name": "High School Teachers",
-            "label": "High School Teachers",
-            "axis": "xy",
-            "value": {
-                "x": 17.15,
-                "y": 67.5
-            },
-            "x": 17.15,
-            "y": 67.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\High School Teachers_rt2_round3_crop.png"
-        },
-        {
-            "id": "Doctors",
-            "series_name": "Doctors",
-            "label": "Doctors",
-            "axis": "xy",
-            "value": {
-                "x": 17.75,
-                "y": 97.5
-            },
-            "x": 17.75,
-            "y": 97.5,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Doctors_rt3_round3_crop.png"
-        }
-    ],
-    "artifacts": [
-        {
-            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image",
-            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image",
-            "record_count": 156,
-            "object_count": 13,
-            "predictions": [
-                {
-                    "id": "Postmen",
-                    "series_name": "Postmen",
-                    "label": "Postmen",
-                    "axis": "xy",
-                    "value": {
-                        "x": 9.0,
-                        "y": 0.0
-                    },
-                    "x": 9.0,
-                    "y": 0.0,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Postmen_rt0_round3_adaptive.png"
-                },
-                {
-                    "id": "Nurses' aides",
-                    "series_name": "Nurses' aides",
-                    "label": "Nurses' aides",
-                    "axis": "xy",
-                    "value": {
-                        "x": 11.15,
-                        "y": 9.5
-                    },
-                    "x": 11.15,
-                    "y": 9.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Nurses' aides_rt1_round3_crop.png"
-                },
-                {
-                    "id": "Train drivers",
-                    "series_name": "Train drivers",
-                    "label": "Train drivers",
-                    "axis": "xy",
-                    "value": {
-                        "x": 12.8,
-                        "y": 57.5
-                    },
-                    "x": 12.8,
-                    "y": 57.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Train drivers_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Police",
-                    "series_name": "Police",
-                    "label": "Police",
-                    "axis": "xy",
-                    "value": {
-                        "x": 14.25,
-                        "y": 42.5
-                    },
-                    "x": 14.25,
-                    "y": 42.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Police_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Librarians",
-                    "series_name": "Librarians",
-                    "label": "Librarians",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.0,
-                        "y": 45.0
-                    },
-                    "x": 15.0,
-                    "y": 45.0,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Librarians_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Midwives",
-                    "series_name": "Midwives",
-                    "label": "Midwives",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.5,
-                        "y": 27.5
-                    },
-                    "x": 15.5,
-                    "y": 27.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Midwives_rt1_round3_crop.png"
-                },
-                {
-                    "id": "Pedagogues",
-                    "series_name": "Pedagogues",
-                    "label": "Pedagogues",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.5,
-                        "y": 15.5
-                    },
-                    "x": 15.5,
-                    "y": 15.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Pedagogues_rt1_round1_crop.png"
-                },
-                {
-                    "id": "Prison Guards",
-                    "series_name": "Prison Guards",
-                    "label": "Prison Guards",
-                    "axis": "xy",
-                    "value": {
-                        "x": 14.75,
-                        "y": 17.5
-                    },
-                    "x": 14.75,
-                    "y": 17.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Prison Guards_rt1_round3_crop.png"
-                },
-                {
-                    "id": "School Teachers",
-                    "series_name": "School Teachers",
-                    "label": "School Teachers",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.75,
-                        "y": 46.25
-                    },
-                    "x": 15.75,
-                    "y": 46.25,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\School Teachers_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Nurses",
-                    "series_name": "Nurses",
-                    "label": "Nurses",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.5,
-                        "y": 30.0
-                    },
-                    "x": 15.5,
-                    "y": 30.0,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Nurses_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Social Workers",
-                    "series_name": "Social Workers",
-                    "label": "Social Workers",
-                    "axis": "xy",
-                    "value": {
-                        "x": 15.5,
-                        "y": 23.75
-                    },
-                    "x": 15.5,
-                    "y": 23.75,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Social Workers_rt1_round3_crop.png"
-                },
-                {
-                    "id": "High School Teachers",
-                    "series_name": "High School Teachers",
-                    "label": "High School Teachers",
-                    "axis": "xy",
-                    "value": {
-                        "x": 17.15,
-                        "y": 67.5
-                    },
-                    "x": 17.15,
-                    "y": 67.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\High School Teachers_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Doctors",
-                    "series_name": "Doctors",
-                    "label": "Doctors",
-                    "axis": "xy",
-                    "value": {
-                        "x": 17.75,
-                        "y": 97.5
-                    },
-                    "x": 17.75,
-                    "y": 97.5,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image\\raw_crops\\Doctors_rt3_round3_crop.png"
-                }
-            ]
-        }
-    ],
-    "processed_json": {
-        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image",
-        "chart_type": "scatter",
-        "x_ticks": [
-            9.0,
-            10.0,
-            11.0,
-            12.0,
-            13.0,
-            14.0,
-            15.0,
-            16.0,
-            17.0,
-            18.0
-        ],
-        "y_ticks": [
-            100.0,
-            90.0,
-            80.0,
-            70.0,
-            60.0,
-            50.0,
-            40.0,
-            30.0,
-            20.0,
-            10.0,
-            0.0
-        ],
-        "x_pixels": [
-            104,
-            211,
-            318,
-            424,
-            530,
-            638,
-            744,
-            850,
-            956,
-            1064
-        ],
-        "y_pixels": [
-            50,
-            100,
-            152,
-            204,
-            254,
-            306,
-            356,
-            408,
-            458,
-            510,
-            562
-        ],
-        "x_ticks_encrypted": [
-            9.0,
-            9.5,
-            10.0,
-            10.5,
-            11.0,
-            11.5,
-            12.0,
-            12.5,
-            13.0,
-            13.5,
-            14.0,
-            14.5,
-            15.0,
-            15.5,
-            16.0,
-            16.5,
-            17.0,
-            17.5,
-            18.0
-        ],
-        "y_ticks_encrypted": [
-            100.0,
-            95.0,
-            90.0,
-            85.0,
-            80.0,
-            75.0,
-            70.0,
-            65.0,
-            60.0,
-            55.0,
-            50.0,
-            45.0,
-            40.0,
-            35.0,
-            30.0,
-            25.0,
-            20.0,
-            15.0,
-            10.0,
-            5.0,
-            0.0
-        ],
-        "x_pixels_encrypted": [
-            104,
-            158,
-            211,
-            264,
-            318,
-            371,
-            424,
-            477,
-            530,
-            584,
-            638,
-            691,
-            744,
-            797,
-            850,
-            903,
-            956,
-            1010,
-            1064
-        ],
-        "y_pixels_encrypted": [
-            50,
-            75,
-            100,
-            126,
-            152,
-            178,
-            204,
-            229,
-            254,
-            280,
-            306,
-            331,
-            356,
-            382,
-            408,
-            433,
-            458,
-            484,
-            510,
-            536,
-            562
-        ],
-        "x_axis_type": "数值轴",
-        "y_axis_type": "数值轴",
-        "x_axis_scale": "linear",
-        "y_axis_scale": "linear",
-        "x_label_orientation_angle": 0.0,
-        "y_label_orientation_angle": 0.0,
-        "x_skipped_encrypted_intervals": [],
-        "y_skipped_encrypted_intervals": [],
-        "x_dense_encrypted_interval_warnings": [],
-        "y_dense_encrypted_interval_warnings": [
-            {
-                "left_tick": 100.0,
-                "right_tick": 90.0,
-                "left_pixel": 50,
-                "right_pixel": 100,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 25.0,
-                "label_axis_extent": 26.0,
-                "required_spacing": 33.2,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 90.0,
-                "right_tick": 80.0,
-                "left_pixel": 100,
-                "right_pixel": 152,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 26.0,
-                "label_axis_extent": 26.0,
-                "required_spacing": 33.2,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 80.0,
-                "right_tick": 70.0,
-                "left_pixel": 152,
-                "right_pixel": 204,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 26.0,
-                "label_axis_extent": 26.0,
-                "required_spacing": 33.2,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 70.0,
-                "right_tick": 60.0,
-                "left_pixel": 204,
-                "right_pixel": 254,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 25.0,
-                "label_axis_extent": 23.0,
-                "required_spacing": 29.6,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 50.0,
-                "right_tick": 40.0,
-                "left_pixel": 306,
-                "right_pixel": 356,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 25.0,
-                "label_axis_extent": 21.0,
-                "required_spacing": 27.2,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 40.0,
-                "right_tick": 30.0,
-                "left_pixel": 356,
-                "right_pixel": 408,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 26.0,
-                "label_axis_extent": 23.0,
-                "required_spacing": 29.6,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 30.0,
-                "right_tick": 20.0,
-                "left_pixel": 408,
-                "right_pixel": 458,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 25.0,
-                "label_axis_extent": 24.0,
-                "required_spacing": 30.8,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 20.0,
-                "right_tick": 10.0,
-                "left_pixel": 458,
-                "right_pixel": 510,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 26.0,
-                "label_axis_extent": 30.0,
-                "required_spacing": 38.0,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            },
-            {
-                "left_tick": 10.0,
-                "right_tick": 0.0,
-                "left_pixel": 510,
-                "right_pixel": 562,
-                "reason": "dense_label_spacing",
-                "encrypted_neighbor_spacing": 26.0,
-                "label_axis_extent": 30.0,
-                "required_spacing": 38.0,
-                "spacing_ratio": 1.2,
-                "spacing_tolerance": 2.0,
-                "axis_key": "y"
-            }
-        ],
-        "x_axis_encryption_policy": "all_numeric_midpoints",
-        "y_axis_encryption_policy": "all_numeric_midpoints",
-        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image.png",
-        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_grid.png",
-        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
-        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
-        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
-        "generation_cache_disabled": true,
-        "colors": [
-            {
-                "name": "Postmen",
-                "color": "#0070c0"
-            },
-            {
-                "name": "Nurses' aides",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Train drivers",
-                "color": "#0070c0"
-            },
-            {
-                "name": "Police",
-                "color": "#0070c0"
-            },
-            {
-                "name": "Librarians",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Midwives",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Pedagogues",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Prison Guards",
-                "color": "#0070c0"
-            },
-            {
-                "name": "School Teachers",
-                "color": "#808080"
-            },
-            {
-                "name": "Nurses",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Social Workers",
-                "color": "#808080"
-            },
-            {
-                "name": "High School Teachers",
-                "color": "#0070c0"
-            },
-            {
-                "name": "Doctors",
-                "color": "#0070c0"
-            }
-        ],
-        "series_color": {
-            "Postmen": "#0070c0",
-            "Nurses' aides": "#ff0000",
-            "Train drivers": "#0070c0",
-            "Police": "#0070c0",
-            "Librarians": "#ff0000",
-            "Midwives": "#ff0000",
-            "Pedagogues": "#ff0000",
-            "Prison Guards": "#0070c0",
-            "School Teachers": "#808080",
-            "Nurses": "#ff0000",
-            "Social Workers": "#808080",
-            "High School Teachers": "#0070c0",
-            "Doctors": "#0070c0"
-        },
-        "axis_repair": {
-            "hint": {
-                "x_axis_missing": false,
-                "y_axis_missing": false,
-                "x_ticks_missing": false,
-                "y_ticks_missing": false,
-                "x_axis_role": "numeric",
-                "y_axis_role": "numeric",
-                "x_axis_position": "bottom",
-                "y_axis_position": "left",
-                "plot_area_style": "explicit_axes",
-                "has_background_grid": true,
-                "x_tick_recovery_from_grid": false,
-                "y_tick_recovery_from_grid": false,
-                "bar_layout": "single",
-                "bar_orientation": "unknown",
-                "confidence": 1.0,
-                "reason": "The chart has clear x and y axes with visible tick marks and labels. The plot area is defined by these axes and has a background grid.",
-                "axis_tick_labels": {
-                    "x_ticks": [
-                        "9",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18"
-                    ],
-                    "y_ticks": [
-                        "0",
-                        "10",
-                        "20",
-                        "30",
-                        "40",
-                        "50",
-                        "60",
-                        "70",
-                        "80",
-                        "90",
-                        "100"
-                    ],
-                    "x_ticks_encrypted": [
-                        "9.0",
-                        "9.5",
-                        "10.0",
-                        "10.5",
-                        "11.0",
-                        "11.5",
-                        "12.0",
-                        "12.5",
-                        "13.0",
-                        "13.5",
-                        "14.0",
-                        "14.5",
-                        "15.0",
-                        "15.5",
-                        "16.0",
-                        "16.5",
-                        "17.0",
-                        "17.5",
-                        "18.0"
-                    ],
-                    "y_ticks_encrypted": [
-                        "0.0",
-                        "5.0",
-                        "10.0",
-                        "15.0",
-                        "20.0",
-                        "25.0",
-                        "30.0",
-                        "35.0",
-                        "40.0",
-                        "45.0",
-                        "50.0",
-                        "55.0",
-                        "60.0",
-                        "65.0",
-                        "70.0",
-                        "75.0",
-                        "80.0",
-                        "85.0",
-                        "90.0",
-                        "95.0",
-                        "100.0"
-                    ],
-                    "x_axis_type": "numeric",
-                    "y_axis_type": "numeric",
-                    "source": "upload_detection"
-                },
-                "series_items": {
-                    "items": [
-                        {
-                            "name": "Postmen",
-                            "color": "#0070c0"
-                        },
-                        {
-                            "name": "Nurses' aides",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Train drivers",
-                            "color": "#0070c0"
-                        },
-                        {
-                            "name": "Police",
-                            "color": "#0070c0"
-                        },
-                        {
-                            "name": "Librarians",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Midwives",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Pedagogues",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Prison Guards",
-                            "color": "#0070c0"
-                        },
-                        {
-                            "name": "School Teachers",
-                            "color": "#808080"
-                        },
-                        {
-                            "name": "Nurses",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Social Workers",
-                            "color": "#808080"
-                        },
-                        {
-                            "name": "High School Teachers",
-                            "color": "#0070c0"
-                        },
-                        {
-                            "name": "Doctors",
-                            "color": "#0070c0"
-                        }
-                    ],
-                    "source": "upload_detection",
-                    "kind": "point_labels"
-                }
-            },
-            "source": "enhanced_grid_first"
-        },
-        "enhanced_grid_reconstruction": {
-            "enabled": true,
-            "error": null,
-            "source": "computed",
-            "outputs": {
-                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_preview.png",
-                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1.png",
-                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1_overlay.png",
-                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1_selection.json",
-                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_axis_fusion.json",
-                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_grid_label_bindings.json",
-                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_grid_layers.json",
-                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_mllm_axis.json",
-                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_ocr_axis.json",
-                "mllm_cache_root": ""
-            }
-        },
-        "encrypted_tick_source": "enhanced_grid_label_bindings",
-        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
-        "cartesian_flow": "enhanced_grid_first",
-        "legacy_cartesian_flow_used": false,
-        "image_paths": {
-            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
-            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
-            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
-            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
-            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
-            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_grid.png"
-        }
+    {
+      "id": "Train drivers",
+      "series_name": "",
+      "category": "",
+      "label": "Train drivers",
+      "axis": "xy",
+      "value": {
+        "x": 11.6132,
+        "y": 61.0
+      },
+      "x": 11.6132,
+      "y": 61.0,
+      "pixel": {
+        "x": 383.0,
+        "y": 249.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Librarians",
+      "series_name": "",
+      "category": "",
+      "label": "Librarians",
+      "axis": "xy",
+      "value": {
+        "x": 14.9942,
+        "y": 45.9624
+      },
+      "x": 14.9942,
+      "y": 45.9624,
+      "pixel": {
+        "x": 743.39,
+        "y": 326.19
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "School Teachers",
+      "series_name": "",
+      "category": "",
+      "label": "School Teachers",
+      "axis": "xy",
+      "value": {
+        "x": 16.0377,
+        "y": 47.4
+      },
+      "x": 16.0377,
+      "y": 47.4,
+      "pixel": {
+        "x": 854.0,
+        "y": 319.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Police",
+      "series_name": "",
+      "category": "",
+      "label": "Police",
+      "axis": "xy",
+      "value": {
+        "x": 14.325,
+        "y": 41.5279
+      },
+      "x": 14.325,
+      "y": 41.5279,
+      "pixel": {
+        "x": 672.45,
+        "y": 348.36
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Nurses",
+      "series_name": "",
+      "category": "",
+      "label": "Nurses",
+      "axis": "xy",
+      "value": {
+        "x": 15.4992,
+        "y": 29.9916
+      },
+      "x": 15.4992,
+      "y": 29.9916,
+      "pixel": {
+        "x": 796.92,
+        "y": 408.04
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Prison Guards",
+      "series_name": "",
+      "category": "",
+      "label": "Prison Guards",
+      "axis": "xy",
+      "value": {
+        "x": 14.9977,
+        "y": 17.4003
+      },
+      "x": 14.9977,
+      "y": 17.4003,
+      "pixel": {
+        "x": 743.76,
+        "y": 471.52
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Social Workers",
+      "series_name": "",
+      "category": "",
+      "label": "Social Workers",
+      "axis": "xy",
+      "value": {
+        "x": 15.4994,
+        "y": 14.9848
+      },
+      "x": 15.4994,
+      "y": 14.9848,
+      "pixel": {
+        "x": 796.94,
+        "y": 484.08
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Nurses' aides",
+      "series_name": "",
+      "category": "",
+      "label": "Nurses' aides",
+      "axis": "xy",
+      "value": {
+        "x": 11.2311,
+        "y": 11.5385
+      },
+      "x": 11.2311,
+      "y": 11.5385,
+      "pixel": {
+        "x": 342.5,
+        "y": 502.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Pedagogues",
+      "series_name": "",
+      "category": "",
+      "label": "Pedagogues",
+      "axis": "xy",
+      "value": {
+        "x": 15.6981,
+        "y": 11.1538
+      },
+      "x": 15.6981,
+      "y": 11.1538,
+      "pixel": {
+        "x": 818.0,
+        "y": 504.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     }
+  ],
+  "artifacts": [],
+  "processed_json": {
+    "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image",
+    "chart_type": "scatter",
+    "x_ticks": [
+      9.0,
+      10.0,
+      11.0,
+      12.0,
+      13.0,
+      14.0,
+      15.0,
+      16.0,
+      17.0,
+      18.0
+    ],
+    "y_ticks": [
+      100.0,
+      90.0,
+      80.0,
+      70.0,
+      60.0,
+      50.0,
+      40.0,
+      30.0,
+      20.0,
+      10.0,
+      0.0
+    ],
+    "x_pixels": [
+      104,
+      211,
+      318,
+      424,
+      530,
+      638,
+      744,
+      850,
+      956,
+      1064
+    ],
+    "y_pixels": [
+      50,
+      100,
+      152,
+      204,
+      254,
+      306,
+      356,
+      408,
+      458,
+      510,
+      562
+    ],
+    "x_ticks_encrypted": [
+      9.0,
+      9.5,
+      10.0,
+      10.5,
+      11.0,
+      11.5,
+      12.0,
+      12.5,
+      13.0,
+      13.5,
+      14.0,
+      14.5,
+      15.0,
+      15.5,
+      16.0,
+      16.5,
+      17.0,
+      17.5,
+      18.0
+    ],
+    "y_ticks_encrypted": [
+      100.0,
+      95.0,
+      90.0,
+      85.0,
+      80.0,
+      75.0,
+      70.0,
+      65.0,
+      60.0,
+      55.0,
+      50.0,
+      45.0,
+      40.0,
+      35.0,
+      30.0,
+      25.0,
+      20.0,
+      15.0,
+      10.0,
+      5.0,
+      0.0
+    ],
+    "x_pixels_encrypted": [
+      104,
+      158,
+      211,
+      264,
+      318,
+      371,
+      424,
+      477,
+      530,
+      584,
+      638,
+      691,
+      744,
+      797,
+      850,
+      903,
+      956,
+      1010,
+      1064
+    ],
+    "y_pixels_encrypted": [
+      50,
+      75,
+      100,
+      126,
+      152,
+      178,
+      204,
+      229,
+      254,
+      280,
+      306,
+      331,
+      356,
+      382,
+      408,
+      433,
+      458,
+      484,
+      510,
+      536,
+      562
+    ],
+    "x_axis_type": "数值轴",
+    "y_axis_type": "数值轴",
+    "x_axis_scale": "linear",
+    "y_axis_scale": "linear",
+    "x_label_orientation_angle": 0.0,
+    "y_label_orientation_angle": 0.0,
+    "x_skipped_encrypted_intervals": [],
+    "y_skipped_encrypted_intervals": [],
+    "x_dense_encrypted_interval_warnings": [],
+    "y_dense_encrypted_interval_warnings": [
+      {
+        "left_tick": 100.0,
+        "right_tick": 90.0,
+        "left_pixel": 50,
+        "right_pixel": 100,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 25.0,
+        "label_axis_extent": 26.0,
+        "required_spacing": 33.2,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 90.0,
+        "right_tick": 80.0,
+        "left_pixel": 100,
+        "right_pixel": 152,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 26.0,
+        "label_axis_extent": 26.0,
+        "required_spacing": 33.2,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 80.0,
+        "right_tick": 70.0,
+        "left_pixel": 152,
+        "right_pixel": 204,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 26.0,
+        "label_axis_extent": 26.0,
+        "required_spacing": 33.2,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 70.0,
+        "right_tick": 60.0,
+        "left_pixel": 204,
+        "right_pixel": 254,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 25.0,
+        "label_axis_extent": 23.0,
+        "required_spacing": 29.6,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 50.0,
+        "right_tick": 40.0,
+        "left_pixel": 306,
+        "right_pixel": 356,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 25.0,
+        "label_axis_extent": 21.0,
+        "required_spacing": 27.2,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 40.0,
+        "right_tick": 30.0,
+        "left_pixel": 356,
+        "right_pixel": 408,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 26.0,
+        "label_axis_extent": 23.0,
+        "required_spacing": 29.6,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 30.0,
+        "right_tick": 20.0,
+        "left_pixel": 408,
+        "right_pixel": 458,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 25.0,
+        "label_axis_extent": 24.0,
+        "required_spacing": 30.8,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 20.0,
+        "right_tick": 10.0,
+        "left_pixel": 458,
+        "right_pixel": 510,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 26.0,
+        "label_axis_extent": 30.0,
+        "required_spacing": 38.0,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      },
+      {
+        "left_tick": 10.0,
+        "right_tick": 0.0,
+        "left_pixel": 510,
+        "right_pixel": 562,
+        "reason": "dense_label_spacing",
+        "encrypted_neighbor_spacing": 26.0,
+        "label_axis_extent": 30.0,
+        "required_spacing": 38.0,
+        "spacing_ratio": 1.2,
+        "spacing_tolerance": 2.0,
+        "axis_key": "y"
+      }
+    ],
+    "x_axis_encryption_policy": "all_numeric_midpoints",
+    "y_axis_encryption_policy": "all_numeric_midpoints",
+    "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image.png",
+    "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_grid.png",
+    "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
+    "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
+    "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+    "generation_cache_disabled": true,
+    "colors": [
+      {
+        "name": "Postmen",
+        "color": "#0070c0"
+      },
+      {
+        "name": "Nurses' aides",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Train drivers",
+        "color": "#0070c0"
+      },
+      {
+        "name": "Police",
+        "color": "#0070c0"
+      },
+      {
+        "name": "Librarians",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Midwives",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Pedagogues",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Prison Guards",
+        "color": "#0070c0"
+      },
+      {
+        "name": "School Teachers",
+        "color": "#808080"
+      },
+      {
+        "name": "Nurses",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Social Workers",
+        "color": "#808080"
+      },
+      {
+        "name": "High School Teachers",
+        "color": "#0070c0"
+      },
+      {
+        "name": "Doctors",
+        "color": "#0070c0"
+      }
+    ],
+    "series_color": {
+      "Postmen": "#0070c0",
+      "Nurses' aides": "#ff0000",
+      "Train drivers": "#0070c0",
+      "Police": "#0070c0",
+      "Librarians": "#ff0000",
+      "Midwives": "#ff0000",
+      "Pedagogues": "#ff0000",
+      "Prison Guards": "#0070c0",
+      "School Teachers": "#808080",
+      "Nurses": "#ff0000",
+      "Social Workers": "#808080",
+      "High School Teachers": "#0070c0",
+      "Doctors": "#0070c0"
+    },
+    "axis_repair": {
+      "hint": {
+        "x_axis_missing": false,
+        "y_axis_missing": false,
+        "x_ticks_missing": false,
+        "y_ticks_missing": false,
+        "x_axis_role": "numeric",
+        "y_axis_role": "numeric",
+        "x_axis_position": "bottom",
+        "y_axis_position": "left",
+        "plot_area_style": "explicit_axes",
+        "has_background_grid": true,
+        "x_tick_recovery_from_grid": false,
+        "y_tick_recovery_from_grid": false,
+        "bar_layout": "single",
+        "bar_orientation": "unknown",
+        "confidence": 1.0,
+        "reason": "The chart has clear x and y axes with visible tick marks and labels. The plot area is defined by these axes and has a background grid.",
+        "axis_tick_labels": {
+          "x_ticks": [
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"
+          ],
+          "y_ticks": [
+            "0",
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100"
+          ],
+          "x_ticks_encrypted": [
+            "9.0",
+            "9.5",
+            "10.0",
+            "10.5",
+            "11.0",
+            "11.5",
+            "12.0",
+            "12.5",
+            "13.0",
+            "13.5",
+            "14.0",
+            "14.5",
+            "15.0",
+            "15.5",
+            "16.0",
+            "16.5",
+            "17.0",
+            "17.5",
+            "18.0"
+          ],
+          "y_ticks_encrypted": [
+            "0.0",
+            "5.0",
+            "10.0",
+            "15.0",
+            "20.0",
+            "25.0",
+            "30.0",
+            "35.0",
+            "40.0",
+            "45.0",
+            "50.0",
+            "55.0",
+            "60.0",
+            "65.0",
+            "70.0",
+            "75.0",
+            "80.0",
+            "85.0",
+            "90.0",
+            "95.0",
+            "100.0"
+          ],
+          "x_axis_type": "numeric",
+          "y_axis_type": "numeric",
+          "source": "upload_detection"
+        },
+        "series_items": {
+          "items": [
+            {
+              "name": "Postmen",
+              "color": "#0070c0"
+            },
+            {
+              "name": "Nurses' aides",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Train drivers",
+              "color": "#0070c0"
+            },
+            {
+              "name": "Police",
+              "color": "#0070c0"
+            },
+            {
+              "name": "Librarians",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Midwives",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Pedagogues",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Prison Guards",
+              "color": "#0070c0"
+            },
+            {
+              "name": "School Teachers",
+              "color": "#808080"
+            },
+            {
+              "name": "Nurses",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Social Workers",
+              "color": "#808080"
+            },
+            {
+              "name": "High School Teachers",
+              "color": "#0070c0"
+            },
+            {
+              "name": "Doctors",
+              "color": "#0070c0"
+            }
+          ],
+          "source": "upload_detection",
+          "kind": "point_labels"
+        }
+      },
+      "source": "enhanced_grid_first"
+    },
+    "enhanced_grid_reconstruction": {
+      "enabled": true,
+      "error": null,
+      "source": "computed",
+      "outputs": {
+        "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_preview.png",
+        "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1.png",
+        "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1_overlay.png",
+        "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_final1_selection.json",
+        "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_axis_fusion.json",
+        "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_grid_label_bindings.json",
+        "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_grid_layers.json",
+        "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_mllm_axis.json",
+        "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_3\\Final-RealDataset\\ALL\\ScatterPlot11_324ef75c\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot11_324ef75c_image_ocr_axis.json",
+        "mllm_cache_root": ""
+      }
+    },
+    "encrypted_tick_source": "enhanced_grid_label_bindings",
+    "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+    "cartesian_flow": "enhanced_grid_first",
+    "legacy_cartesian_flow_used": false,
+    "image_paths": {
+      "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
+      "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid.png",
+      "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
+      "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
+      "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_with_grid_color.png",
+      "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\d07356819b37ed1a\\output\\d07356819b37ed1a_original_grid.png"
+    }
+  },
+  "note": "Dataset preview point cache rebuilt from system-generated OCR/grid outputs only; dataset GT/reference JSON is not used."
 }

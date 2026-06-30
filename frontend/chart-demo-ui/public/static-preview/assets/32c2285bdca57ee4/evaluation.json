@@ -1,1096 +1,710 @@
 {
-    "success": true,
-    "mode": "prediction_extraction",
-    "chart_id": "dataset_32c2285bdca57ee4",
-    "chart_type": "scatter",
-    "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_ticks.json",
-    "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_ticks.json",
-    "summary": {
-        "object_count": 22,
-        "chart_runs": 1,
-        "system_cv_fallback": false
+  "success": true,
+  "mode": "prediction_extraction",
+  "cache_mode": "system_ocr_grid_mapping",
+  "chart_id": "dataset_32c2285bdca57ee4",
+  "chart_type": "scatter",
+  "source_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_ticks.json",
+  "system_json": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_ticks.json",
+  "summary": {
+    "object_count": 14,
+    "chart_runs": 0,
+    "system_cv_fallback": false,
+    "label_target_count": 14
+  },
+  "predictions": [
+    {
+      "id": "Pilot",
+      "series_name": "",
+      "category": "",
+      "label": "Pilot",
+      "axis": "xy",
+      "value": {
+        "x": 0.5432,
+        "y": 0.553
+      },
+      "x": 0.5432,
+      "y": 0.553,
+      "pixel": {
+        "x": 709.0,
+        "y": 129.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     },
-    "predictions": [
-        {
-            "id": "Socialite",
-            "series_name": "Socialite",
-            "label": "Socialite",
-            "axis": "xy",
-            "value": {
-                "x": 0.125,
-                "y": 0.25
-            },
-            "x": 0.125,
-            "y": 0.25,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Socialite_rt2_round3_crop.png"
-        },
-        {
-            "id": "Receptionist",
-            "series_name": "Receptionist",
-            "label": "Receptionist",
-            "axis": "xy",
-            "value": {
-                "x": 0.175,
-                "y": 0.35
-            },
-            "x": 0.175,
-            "y": 0.35,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Receptionist_rt2_round3_crop.png"
-        },
-        {
-            "id": "Stylist",
-            "series_name": "Stylist",
-            "label": "Stylist",
-            "axis": "xy",
-            "value": {
-                "x": 0.15,
-                "y": 0.38
-            },
-            "x": 0.15,
-            "y": 0.38,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Stylist_rt2_round3_crop.png"
-        },
-        {
-            "id": "Hairdresser",
-            "series_name": "Hairdresser",
-            "label": "Hairdresser",
-            "axis": "xy",
-            "value": {
-                "x": 0.225,
-                "y": 0.3625
-            },
-            "x": 0.225,
-            "y": 0.3625,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Hairdresser_rt2_round3_crop.png"
-        },
-        {
-            "id": "Homemaker",
-            "series_name": "Homemaker",
-            "label": "Homemaker",
-            "axis": "xy",
-            "value": {
-                "x": 0.275,
-                "y": 0.41
-            },
-            "x": 0.275,
-            "y": 0.41,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Homemaker_rt2_round3_crop.png"
-        },
-        {
-            "id": "Nanny",
-            "series_name": "Nanny",
-            "label": "Nanny",
-            "axis": "xy",
-            "value": {
-                "x": 0.375,
-                "y": 0.405
-            },
-            "x": 0.375,
-            "y": 0.405,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Nanny_rt2_round3_crop.png"
-        },
-        {
-            "id": "Bookkeeper",
-            "series_name": "Bookkeeper",
-            "label": "Bookkeeper",
-            "axis": "xy",
-            "value": {
-                "x": 0.2,
-                "y": 0.2
-            },
-            "x": 0.2,
-            "y": 0.2,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Bookkeeper_rt1_round3_crop.png"
-        },
-        {
-            "id": "Designer",
-            "series_name": "Designer",
-            "label": "Designer",
-            "axis": "xy",
-            "value": {
-                "x": 0.385,
-                "y": 0.435
-            },
-            "x": 0.385,
-            "y": 0.435,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Designer_rt2_round3_crop.png"
-        },
-        {
-            "id": "Counselor",
-            "series_name": "Counselor",
-            "label": "Counselor",
-            "axis": "xy",
-            "value": {
-                "x": 0.385,
-                "y": 0.45
-            },
-            "x": 0.385,
-            "y": 0.45,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Counselor_rt2_round3_crop.png"
-        },
-        {
-            "id": "Librarian",
-            "series_name": "Librarian",
-            "label": "Librarian",
-            "axis": "xy",
-            "value": {
-                "x": 0.385,
-                "y": 0.44
-            },
-            "x": 0.385,
-            "y": 0.44,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Librarian_rt2_round3_crop.png"
-        },
-        {
-            "id": "Nurse",
-            "series_name": "Nurse",
-            "label": "Nurse",
-            "axis": "xy",
-            "value": {
-                "x": 0.49,
-                "y": 0.62
-            },
-            "x": 0.49,
-            "y": 0.62,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Nurse_rt3_round3_crop.png"
-        },
-        {
-            "id": "Financier",
-            "series_name": "Financier",
-            "label": "Financier",
-            "axis": "xy",
-            "value": {
-                "x": 0.165,
-                "y": 0.055
-            },
-            "x": 0.165,
-            "y": 0.055,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Financier_rt0_round3_adaptive.png"
-        },
-        {
-            "id": "Maestro",
-            "series_name": "Maestro",
-            "label": "Maestro",
-            "axis": "xy",
-            "value": {
-                "x": 0.218,
-                "y": 0.115
-            },
-            "x": 0.218,
-            "y": 0.115,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Maestro_rt0_round3_adaptive.png"
-        },
-        {
-            "id": "Protege",
-            "series_name": "Protege",
-            "label": "Protege",
-            "axis": "xy",
-            "value": {
-                "x": 0.155,
-                "y": 0.155
-            },
-            "x": 0.155,
-            "y": 0.155,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Protege_rt0_round3_adaptive.png"
-        },
-        {
-            "id": "Philosopher",
-            "series_name": "Philosopher",
-            "label": "Philosopher",
-            "axis": "xy",
-            "value": {
-                "x": 0.275,
-                "y": 0.18
-            },
-            "x": 0.275,
-            "y": 0.18,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Philosopher_rt1_round3_crop.png"
-        },
-        {
-            "id": "Skipper",
-            "series_name": "Skipper",
-            "label": "Skipper",
-            "axis": "xy",
-            "value": {
-                "x": 0.375,
-                "y": 0.21
-            },
-            "x": 0.375,
-            "y": 0.21,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Skipper_rt1_round3_crop.png"
-        },
-        {
-            "id": "Broadcaster",
-            "series_name": "Broadcaster",
-            "label": "Broadcaster",
-            "axis": "xy",
-            "value": {
-                "x": 0.29,
-                "y": 0.26
-            },
-            "x": 0.29,
-            "y": 0.26,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Broadcaster_rt2_round3_crop.png"
-        },
-        {
-            "id": "Warrior",
-            "series_name": "Warrior",
-            "label": "Warrior",
-            "axis": "xy",
-            "value": {
-                "x": 0.33,
-                "y": 0.33
-            },
-            "x": 0.33,
-            "y": 0.33,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Warrior_rt2_round3_crop.png"
-        },
-        {
-            "id": "Architect",
-            "series_name": "Architect",
-            "label": "Architect",
-            "axis": "xy",
-            "value": {
-                "x": 0.38,
-                "y": 0.25
-            },
-            "x": 0.38,
-            "y": 0.25,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Architect_rt2_round3_crop.png"
-        },
-        {
-            "id": "Pilot",
-            "series_name": "Pilot",
-            "label": "Pilot",
-            "axis": "xy",
-            "value": {
-                "x": 0.51,
-                "y": 0.52
-            },
-            "x": 0.51,
-            "y": 0.52,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Pilot_rt3_round3_crop.png"
-        },
-        {
-            "id": "Captain",
-            "series_name": "Captain",
-            "label": "Captain",
-            "axis": "xy",
-            "value": {
-                "x": 0.85,
-                "y": 0.475
-            },
-            "x": 0.85,
-            "y": 0.475,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Captain_rt2_round3_crop.png"
-        },
-        {
-            "id": "Boss",
-            "series_name": "Boss",
-            "label": "Boss",
-            "axis": "xy",
-            "value": {
-                "x": 0.85,
-                "y": 0.45
-            },
-            "x": 0.85,
-            "y": 0.45,
-            "prompt_type": "feedback_crop_adaptive",
-            "image_type": "grid_with_grid",
-            "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Boss_rt2_round3_crop.png"
-        }
-    ],
-    "artifacts": [
-        {
-            "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image",
-            "result_dir": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image",
-            "record_count": 264,
-            "object_count": 22,
-            "predictions": [
-                {
-                    "id": "Socialite",
-                    "series_name": "Socialite",
-                    "label": "Socialite",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.125,
-                        "y": 0.25
-                    },
-                    "x": 0.125,
-                    "y": 0.25,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Socialite_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Receptionist",
-                    "series_name": "Receptionist",
-                    "label": "Receptionist",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.175,
-                        "y": 0.35
-                    },
-                    "x": 0.175,
-                    "y": 0.35,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Receptionist_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Stylist",
-                    "series_name": "Stylist",
-                    "label": "Stylist",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.15,
-                        "y": 0.38
-                    },
-                    "x": 0.15,
-                    "y": 0.38,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Stylist_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Hairdresser",
-                    "series_name": "Hairdresser",
-                    "label": "Hairdresser",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.225,
-                        "y": 0.3625
-                    },
-                    "x": 0.225,
-                    "y": 0.3625,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Hairdresser_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Homemaker",
-                    "series_name": "Homemaker",
-                    "label": "Homemaker",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.275,
-                        "y": 0.41
-                    },
-                    "x": 0.275,
-                    "y": 0.41,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Homemaker_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Nanny",
-                    "series_name": "Nanny",
-                    "label": "Nanny",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.375,
-                        "y": 0.405
-                    },
-                    "x": 0.375,
-                    "y": 0.405,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Nanny_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Bookkeeper",
-                    "series_name": "Bookkeeper",
-                    "label": "Bookkeeper",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.2,
-                        "y": 0.2
-                    },
-                    "x": 0.2,
-                    "y": 0.2,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Bookkeeper_rt1_round3_crop.png"
-                },
-                {
-                    "id": "Designer",
-                    "series_name": "Designer",
-                    "label": "Designer",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.385,
-                        "y": 0.435
-                    },
-                    "x": 0.385,
-                    "y": 0.435,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Designer_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Counselor",
-                    "series_name": "Counselor",
-                    "label": "Counselor",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.385,
-                        "y": 0.45
-                    },
-                    "x": 0.385,
-                    "y": 0.45,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Counselor_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Librarian",
-                    "series_name": "Librarian",
-                    "label": "Librarian",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.385,
-                        "y": 0.44
-                    },
-                    "x": 0.385,
-                    "y": 0.44,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Librarian_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Nurse",
-                    "series_name": "Nurse",
-                    "label": "Nurse",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.49,
-                        "y": 0.62
-                    },
-                    "x": 0.49,
-                    "y": 0.62,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Nurse_rt3_round3_crop.png"
-                },
-                {
-                    "id": "Financier",
-                    "series_name": "Financier",
-                    "label": "Financier",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.165,
-                        "y": 0.055
-                    },
-                    "x": 0.165,
-                    "y": 0.055,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Financier_rt0_round3_adaptive.png"
-                },
-                {
-                    "id": "Maestro",
-                    "series_name": "Maestro",
-                    "label": "Maestro",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.218,
-                        "y": 0.115
-                    },
-                    "x": 0.218,
-                    "y": 0.115,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Maestro_rt0_round3_adaptive.png"
-                },
-                {
-                    "id": "Protege",
-                    "series_name": "Protege",
-                    "label": "Protege",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.155,
-                        "y": 0.155
-                    },
-                    "x": 0.155,
-                    "y": 0.155,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Protege_rt0_round3_adaptive.png"
-                },
-                {
-                    "id": "Philosopher",
-                    "series_name": "Philosopher",
-                    "label": "Philosopher",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.275,
-                        "y": 0.18
-                    },
-                    "x": 0.275,
-                    "y": 0.18,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Philosopher_rt1_round3_crop.png"
-                },
-                {
-                    "id": "Skipper",
-                    "series_name": "Skipper",
-                    "label": "Skipper",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.375,
-                        "y": 0.21
-                    },
-                    "x": 0.375,
-                    "y": 0.21,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Skipper_rt1_round3_crop.png"
-                },
-                {
-                    "id": "Broadcaster",
-                    "series_name": "Broadcaster",
-                    "label": "Broadcaster",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.29,
-                        "y": 0.26
-                    },
-                    "x": 0.29,
-                    "y": 0.26,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Broadcaster_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Warrior",
-                    "series_name": "Warrior",
-                    "label": "Warrior",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.33,
-                        "y": 0.33
-                    },
-                    "x": 0.33,
-                    "y": 0.33,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Warrior_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Architect",
-                    "series_name": "Architect",
-                    "label": "Architect",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.38,
-                        "y": 0.25
-                    },
-                    "x": 0.38,
-                    "y": 0.25,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Architect_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Pilot",
-                    "series_name": "Pilot",
-                    "label": "Pilot",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.51,
-                        "y": 0.52
-                    },
-                    "x": 0.51,
-                    "y": 0.52,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Pilot_rt3_round3_crop.png"
-                },
-                {
-                    "id": "Captain",
-                    "series_name": "Captain",
-                    "label": "Captain",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.85,
-                        "y": 0.475
-                    },
-                    "x": 0.85,
-                    "y": 0.475,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Captain_rt2_round3_crop.png"
-                },
-                {
-                    "id": "Boss",
-                    "series_name": "Boss",
-                    "label": "Boss",
-                    "axis": "xy",
-                    "value": {
-                        "x": 0.85,
-                        "y": 0.45
-                    },
-                    "x": 0.85,
-                    "y": 0.45,
-                    "prompt_type": "feedback_crop_adaptive",
-                    "image_type": "grid_with_grid",
-                    "image_path": "F:\\program\\test-demo\\backend\\evaluation_prediction\\results\\scatter\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image\\raw_crops\\Boss_rt2_round3_crop.png"
-                }
-            ]
-        }
-    ],
-    "processed_json": {
-        "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image",
-        "chart_type": "scatter",
-        "x_ticks": [
-            0.1,
-            0.2,
-            0.3,
-            0.4,
-            0.5,
-            0.6
-        ],
-        "y_ticks": [
-            0.6,
-            0.5,
-            0.4,
-            0.3,
-            0.2,
-            0.1
-        ],
-        "x_pixels": [
-            183,
-            302,
-            420,
-            538,
-            658,
-            776
-        ],
-        "y_pixels": [
-            90,
-            173,
-            255,
-            338,
-            420,
-            502
-        ],
-        "x_ticks_encrypted": [
-            0.1,
-            0.15,
-            0.2,
-            0.25,
-            0.3,
-            0.35,
-            0.4,
-            0.45,
-            0.5,
-            0.55,
-            0.6
-        ],
-        "y_ticks_encrypted": [
-            0.6,
-            0.55,
-            0.5,
-            0.45,
-            0.4,
-            0.35,
-            0.3,
-            0.25,
-            0.2,
-            0.15,
-            0.1
-        ],
-        "x_pixels_encrypted": [
-            183,
-            242,
-            302,
-            361,
-            420,
-            479,
-            538,
-            598,
-            658,
-            717,
-            776
-        ],
-        "y_pixels_encrypted": [
-            90,
-            132,
-            173,
-            214,
-            255,
-            296,
-            338,
-            379,
-            420,
-            461,
-            502
-        ],
-        "x_axis_type": "数值轴",
-        "y_axis_type": "数值轴",
-        "x_axis_scale": "linear",
-        "y_axis_scale": "linear",
-        "x_label_orientation_angle": 0.0,
-        "y_label_orientation_angle": 0.0,
-        "x_skipped_encrypted_intervals": [],
-        "y_skipped_encrypted_intervals": [],
-        "x_dense_encrypted_interval_warnings": [],
-        "y_dense_encrypted_interval_warnings": [],
-        "x_axis_encryption_policy": "all_numeric_midpoints",
-        "y_axis_encryption_policy": "all_numeric_midpoints",
-        "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image.png",
-        "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_grid.png",
-        "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
-        "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
-        "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
-        "generation_cache_disabled": true,
-        "colors": [
-            {
-                "name": "Socialite",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Receptionist",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Stylist",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Hairdresser",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Homemaker",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Nanny",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Bookkeeper",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Designer",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Counselor",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Librarian",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Nurse",
-                "color": "#0000ff"
-            },
-            {
-                "name": "Financier",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Maestro",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Protege",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Philosopher",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Skipper",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Broadcaster",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Warrior",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Architect",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Pilot",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Captain",
-                "color": "#ff0000"
-            },
-            {
-                "name": "Boss",
-                "color": "#ff0000"
-            }
-        ],
-        "series_color": {
-            "Socialite": "#0000ff",
-            "Receptionist": "#0000ff",
-            "Stylist": "#0000ff",
-            "Hairdresser": "#0000ff",
-            "Homemaker": "#0000ff",
-            "Nanny": "#0000ff",
-            "Bookkeeper": "#0000ff",
-            "Designer": "#0000ff",
-            "Counselor": "#0000ff",
-            "Librarian": "#0000ff",
-            "Nurse": "#0000ff",
-            "Financier": "#ff0000",
-            "Maestro": "#ff0000",
-            "Protege": "#ff0000",
-            "Philosopher": "#ff0000",
-            "Skipper": "#ff0000",
-            "Broadcaster": "#ff0000",
-            "Warrior": "#ff0000",
-            "Architect": "#ff0000",
-            "Pilot": "#ff0000",
-            "Captain": "#ff0000",
-            "Boss": "#ff0000"
-        },
-        "axis_repair": {
-            "hint": {
-                "x_axis_missing": false,
-                "y_axis_missing": false,
-                "x_ticks_missing": false,
-                "y_ticks_missing": false,
-                "x_axis_role": "numeric",
-                "y_axis_role": "numeric",
-                "x_axis_position": "bottom",
-                "y_axis_position": "left",
-                "plot_area_style": "explicit_axes",
-                "has_background_grid": true,
-                "x_tick_recovery_from_grid": false,
-                "y_tick_recovery_from_grid": false,
-                "bar_layout": "single",
-                "bar_orientation": "unknown",
-                "confidence": 1.0,
-                "reason": "The chart is a scatter plot with clear x and y axes, tick marks, and labels. The data points are plotted based on two numerical variables.",
-                "axis_tick_labels": {
-                    "x_ticks": [
-                        "0.1",
-                        "0.2",
-                        "0.3",
-                        "0.4",
-                        "0.5",
-                        "0.6"
-                    ],
-                    "y_ticks": [
-                        "0.1",
-                        "0.2",
-                        "0.3",
-                        "0.4",
-                        "0.5",
-                        "0.6"
-                    ],
-                    "x_ticks_encrypted": [
-                        "0.1",
-                        "0.15",
-                        "0.2",
-                        "0.25",
-                        "0.3",
-                        "0.35",
-                        "0.4",
-                        "0.45",
-                        "0.5",
-                        "0.55",
-                        "0.6"
-                    ],
-                    "y_ticks_encrypted": [
-                        "0.1",
-                        "0.15",
-                        "0.2",
-                        "0.25",
-                        "0.3",
-                        "0.35",
-                        "0.4",
-                        "0.45",
-                        "0.5",
-                        "0.55",
-                        "0.6"
-                    ],
-                    "x_axis_type": "numeric",
-                    "y_axis_type": "numeric",
-                    "source": "upload_detection"
-                },
-                "series_items": {
-                    "items": [
-                        {
-                            "name": "Socialite",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Receptionist",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Stylist",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Hairdresser",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Homemaker",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Nanny",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Bookkeeper",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Designer",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Counselor",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Librarian",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Nurse",
-                            "color": "#0000ff"
-                        },
-                        {
-                            "name": "Financier",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Maestro",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Protege",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Philosopher",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Skipper",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Broadcaster",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Warrior",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Architect",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Pilot",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Captain",
-                            "color": "#ff0000"
-                        },
-                        {
-                            "name": "Boss",
-                            "color": "#ff0000"
-                        }
-                    ],
-                    "source": "upload_detection",
-                    "kind": "point_labels"
-                }
-            },
-            "source": "enhanced_grid_first"
-        },
-        "enhanced_grid_reconstruction": {
-            "enabled": true,
-            "error": null,
-            "source": "computed",
-            "outputs": {
-                "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_preview.png",
-                "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2.png",
-                "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2_overlay.png",
-                "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2_selection.json",
-                "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_axis_fusion.json",
-                "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_grid_label_bindings.json",
-                "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_grid_layers.json",
-                "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_mllm_axis.json",
-                "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_ocr_axis.json",
-                "mllm_cache_root": ""
-            }
-        },
-        "encrypted_tick_source": "enhanced_grid_label_bindings",
-        "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
-        "cartesian_flow": "enhanced_grid_first",
-        "legacy_cartesian_flow_used": false,
-        "image_paths": {
-            "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
-            "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
-            "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
-            "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
-            "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
-            "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_grid.png"
-        }
+    {
+      "id": "Bookkeeper",
+      "series_name": "",
+      "category": "",
+      "label": "Bookkeeper",
+      "axis": "xy",
+      "value": {
+        "x": 0.2735,
+        "y": 0.4404
+      },
+      "x": 0.2735,
+      "y": 0.4404,
+      "pixel": {
+        "x": 388.78,
+        "y": 221.84
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Counselor",
+      "series_name": "",
+      "category": "",
+      "label": "Counselor",
+      "axis": "xy",
+      "value": {
+        "x": 0.4031,
+        "y": 0.454
+      },
+      "x": 0.4031,
+      "y": 0.454,
+      "pixel": {
+        "x": 541.75,
+        "y": 210.75
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Boss",
+      "series_name": "",
+      "category": "",
+      "label": "Boss",
+      "axis": "xy",
+      "value": {
+        "x": 0.5661,
+        "y": 0.4393
+      },
+      "x": 0.5661,
+      "y": 0.4393,
+      "pixel": {
+        "x": 736.0,
+        "y": 222.8
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Designer",
+      "series_name": "",
+      "category": "",
+      "label": "Designer",
+      "axis": "xy",
+      "value": {
+        "x": 0.3486,
+        "y": 0.4317
+      },
+      "x": 0.3486,
+      "y": 0.4317,
+      "pixel": {
+        "x": 477.3,
+        "y": 229.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Librarian",
+      "series_name": "",
+      "category": "",
+      "label": "Librarian",
+      "axis": "xy",
+      "value": {
+        "x": 0.3883,
+        "y": 0.4097
+      },
+      "x": 0.3883,
+      "y": 0.4097,
+      "pixel": {
+        "x": 524.21,
+        "y": 247.05
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Captain",
+      "series_name": "",
+      "category": "",
+      "label": "Captain",
+      "axis": "xy",
+      "value": {
+        "x": 0.5784,
+        "y": 0.4018
+      },
+      "x": 0.5784,
+      "y": 0.4018,
+      "pixel": {
+        "x": 750.5,
+        "y": 253.5
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Warrior",
+      "series_name": "",
+      "category": "",
+      "label": "Warrior",
+      "axis": "xy",
+      "value": {
+        "x": 0.3496,
+        "y": 0.3404
+      },
+      "x": 0.3496,
+      "y": 0.3404,
+      "pixel": {
+        "x": 478.5,
+        "y": 304.5
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Broadcaster",
+      "series_name": "",
+      "category": "",
+      "label": "Broadcaster",
+      "axis": "xy",
+      "value": {
+        "x": 0.2887,
+        "y": 0.2912
+      },
+      "x": 0.2887,
+      "y": 0.2912,
+      "pixel": {
+        "x": 406.69,
+        "y": 345.2
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Architect",
+      "series_name": "",
+      "category": "",
+      "label": "Architect",
+      "axis": "xy",
+      "value": {
+        "x": 0.3852,
+        "y": 0.2488
+      },
+      "x": 0.3852,
+      "y": 0.2488,
+      "pixel": {
+        "x": 520.5,
+        "y": 380.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Skipper",
+      "series_name": "",
+      "category": "",
+      "label": "Skipper",
+      "axis": "xy",
+      "value": {
+        "x": 0.3326,
+        "y": 0.2012
+      },
+      "x": 0.3326,
+      "y": 0.2012,
+      "pixel": {
+        "x": 458.5,
+        "y": 419.0
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Philosopher",
+      "series_name": "",
+      "category": "",
+      "label": "Philosopher",
+      "axis": "xy",
+      "value": {
+        "x": 0.2731,
+        "y": 0.193
+      },
+      "x": 0.2731,
+      "y": 0.193,
+      "pixel": {
+        "x": 388.25,
+        "y": 425.77
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Protege a6aiol Protege",
+      "series_name": "",
+      "category": "",
+      "label": "Protege a6aiol Protege",
+      "axis": "xy",
+      "value": {
+        "x": 0.2088,
+        "y": 0.1545
+      },
+      "x": 0.2088,
+      "y": 0.1545,
+      "pixel": {
+        "x": 312.4,
+        "y": 457.32
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
+    },
+    {
+      "id": "Maestro",
+      "series_name": "",
+      "category": "",
+      "label": "Maestro",
+      "axis": "xy",
+      "value": {
+        "x": 0.222,
+        "y": 0.1364
+      },
+      "x": 0.222,
+      "y": 0.1364,
+      "pixel": {
+        "x": 327.91,
+        "y": 472.15
+      },
+      "prompt_type": "system_ocr_grid_mapping",
+      "image_type": "grid_with_grid",
+      "source": "system_ocr_grid_mapping"
     }
+  ],
+  "artifacts": [],
+  "processed_json": {
+    "chart_id": "vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image",
+    "chart_type": "scatter",
+    "x_ticks": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6
+    ],
+    "y_ticks": [
+      0.6,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1
+    ],
+    "x_pixels": [
+      183,
+      302,
+      420,
+      538,
+      658,
+      776
+    ],
+    "y_pixels": [
+      90,
+      173,
+      255,
+      338,
+      420,
+      502
+    ],
+    "x_ticks_encrypted": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "y_ticks_encrypted": [
+      0.6,
+      0.55,
+      0.5,
+      0.45,
+      0.4,
+      0.35,
+      0.3,
+      0.25,
+      0.2,
+      0.15,
+      0.1
+    ],
+    "x_pixels_encrypted": [
+      183,
+      242,
+      302,
+      361,
+      420,
+      479,
+      538,
+      598,
+      658,
+      717,
+      776
+    ],
+    "y_pixels_encrypted": [
+      90,
+      132,
+      173,
+      214,
+      255,
+      296,
+      338,
+      379,
+      420,
+      461,
+      502
+    ],
+    "x_axis_type": "数值轴",
+    "y_axis_type": "数值轴",
+    "x_axis_scale": "linear",
+    "y_axis_scale": "linear",
+    "x_label_orientation_angle": 0.0,
+    "y_label_orientation_angle": 0.0,
+    "x_skipped_encrypted_intervals": [],
+    "y_skipped_encrypted_intervals": [],
+    "x_dense_encrypted_interval_warnings": [],
+    "y_dense_encrypted_interval_warnings": [],
+    "x_axis_encryption_policy": "all_numeric_midpoints",
+    "y_axis_encryption_policy": "all_numeric_midpoints",
+    "image_path": "F:\\program\\test-demo\\backend\\data\\upload\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image.png",
+    "basic_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_grid.png",
+    "encrypted_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
+    "colored_grid_path": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
+    "encrypted_label_style_version": "ocr_box_position_white_bg_axis_all_or_none_v1",
+    "generation_cache_disabled": true,
+    "colors": [
+      {
+        "name": "Socialite",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Receptionist",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Stylist",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Hairdresser",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Homemaker",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Nanny",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Bookkeeper",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Designer",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Counselor",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Librarian",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Nurse",
+        "color": "#0000ff"
+      },
+      {
+        "name": "Financier",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Maestro",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Protege",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Philosopher",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Skipper",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Broadcaster",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Warrior",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Architect",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Pilot",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Captain",
+        "color": "#ff0000"
+      },
+      {
+        "name": "Boss",
+        "color": "#ff0000"
+      }
+    ],
+    "series_color": {
+      "Socialite": "#0000ff",
+      "Receptionist": "#0000ff",
+      "Stylist": "#0000ff",
+      "Hairdresser": "#0000ff",
+      "Homemaker": "#0000ff",
+      "Nanny": "#0000ff",
+      "Bookkeeper": "#0000ff",
+      "Designer": "#0000ff",
+      "Counselor": "#0000ff",
+      "Librarian": "#0000ff",
+      "Nurse": "#0000ff",
+      "Financier": "#ff0000",
+      "Maestro": "#ff0000",
+      "Protege": "#ff0000",
+      "Philosopher": "#ff0000",
+      "Skipper": "#ff0000",
+      "Broadcaster": "#ff0000",
+      "Warrior": "#ff0000",
+      "Architect": "#ff0000",
+      "Pilot": "#ff0000",
+      "Captain": "#ff0000",
+      "Boss": "#ff0000"
+    },
+    "axis_repair": {
+      "hint": {
+        "x_axis_missing": false,
+        "y_axis_missing": false,
+        "x_ticks_missing": false,
+        "y_ticks_missing": false,
+        "x_axis_role": "numeric",
+        "y_axis_role": "numeric",
+        "x_axis_position": "bottom",
+        "y_axis_position": "left",
+        "plot_area_style": "explicit_axes",
+        "has_background_grid": true,
+        "x_tick_recovery_from_grid": false,
+        "y_tick_recovery_from_grid": false,
+        "bar_layout": "single",
+        "bar_orientation": "unknown",
+        "confidence": 1.0,
+        "reason": "The chart is a scatter plot with clear x and y axes, tick marks, and labels. The data points are plotted based on two numerical variables.",
+        "axis_tick_labels": {
+          "x_ticks": [
+            "0.1",
+            "0.2",
+            "0.3",
+            "0.4",
+            "0.5",
+            "0.6"
+          ],
+          "y_ticks": [
+            "0.1",
+            "0.2",
+            "0.3",
+            "0.4",
+            "0.5",
+            "0.6"
+          ],
+          "x_ticks_encrypted": [
+            "0.1",
+            "0.15",
+            "0.2",
+            "0.25",
+            "0.3",
+            "0.35",
+            "0.4",
+            "0.45",
+            "0.5",
+            "0.55",
+            "0.6"
+          ],
+          "y_ticks_encrypted": [
+            "0.1",
+            "0.15",
+            "0.2",
+            "0.25",
+            "0.3",
+            "0.35",
+            "0.4",
+            "0.45",
+            "0.5",
+            "0.55",
+            "0.6"
+          ],
+          "x_axis_type": "numeric",
+          "y_axis_type": "numeric",
+          "source": "upload_detection"
+        },
+        "series_items": {
+          "items": [
+            {
+              "name": "Socialite",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Receptionist",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Stylist",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Hairdresser",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Homemaker",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Nanny",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Bookkeeper",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Designer",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Counselor",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Librarian",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Nurse",
+              "color": "#0000ff"
+            },
+            {
+              "name": "Financier",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Maestro",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Protege",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Philosopher",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Skipper",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Broadcaster",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Warrior",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Architect",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Pilot",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Captain",
+              "color": "#ff0000"
+            },
+            {
+              "name": "Boss",
+              "color": "#ff0000"
+            }
+          ],
+          "source": "upload_detection",
+          "kind": "point_labels"
+        }
+      },
+      "source": "enhanced_grid_first"
+    },
+    "enhanced_grid_reconstruction": {
+      "enabled": true,
+      "error": null,
+      "source": "computed",
+      "outputs": {
+        "preview_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_preview.png",
+        "final_grid_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2.png",
+        "final_overlay_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2_overlay.png",
+        "final_selection_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_final2_selection.json",
+        "axis_fusion_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_axis_fusion.json",
+        "grid_label_bindings_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_grid_label_bindings.json",
+        "grid_layers_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_grid_layers.json",
+        "mllm_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_mllm_axis.json",
+        "ocr_axis_path": "F:\\program\\test-demo\\backend\\evaluation\\recheck_outputs\\vishintprompt_full_grid_encryption_latest\\shard_2\\Final-RealDataset\\ALL\\ScatterPlot10_90d38d1d\\work\\vishint_Final-Re_fbdfbc9a_ALL_ScatterPlot10_90d38d1d_image_ocr_axis.json",
+        "mllm_cache_root": ""
+      }
+    },
+    "encrypted_tick_source": "enhanced_grid_label_bindings",
+    "basic_grid_source": "standard_native_grid_from_enhanced_bindings",
+    "cartesian_flow": "enhanced_grid_first",
+    "legacy_cartesian_flow_used": false,
+    "image_paths": {
+      "grid_with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
+      "with_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid.png",
+      "grid_with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
+      "with_grid_color": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
+      "colored_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_with_grid_color.png",
+      "basic_grid": "F:\\program\\test-demo\\backend\\data\\dataset_preview_cache\\32c2285bdca57ee4\\output\\32c2285bdca57ee4_original_grid.png"
+    }
+  },
+  "note": "Dataset preview point cache rebuilt from system-generated OCR/grid outputs only; dataset GT/reference JSON is not used."
 }
