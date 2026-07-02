@@ -4,19 +4,28 @@ from __future__ import annotations
 
 import asyncio
 import os
-import re
 from pathlib import Path
 from typing import Any
 
 from PIL import Image
 
-from ...common.runtime import get_repeat_times
+from gemini_calls import get_last_modal_call_id, reset_modal_call_context, set_modal_call_context
+
+from ...common.chart_io import safe_filename
+from ...common.runtime import get_prompt_rounds, get_repeat_times, numeric_axis_span, point_prediction_consistent
+from ...common.full_flow_selection import write_xy_full_flow_selection
+from ...common.amplifier_style import (
+    amplifier_point_grid_density,
+    amplifier_point_output_side,
+    amplifier_point_source_window,
+)
 
 from .data import PointChartConfig, PointTarget, image_path, iter_targets, load_datasets
 from .evaluation import compute_mae, compute_relative_error, save_results
 from .geometry import compute_pixel_relative_error_xy, pixel_to_value
+from ..scatter.mark_size import MarkDiameterEstimate, crop_size_from_mark_diameter, estimate_mark_diameter
 from .model import PointModelClient
-from .prompts import build_point_exists_prompt, generate_prompt
+from .prompts import generate_prompt
 from .visual import (
     chart_result_dir,
     crop_draw_ticks_resize,
@@ -32,7 +41,7 @@ EXPERIMENT_TYPES = [
     ("feedback_crop_adaptive", "grid_with_grid"),
 ]
 
-PREFERRED_PROMPTS = ["feedback_crop_adaptive", "feedback", "grid", "baseline"]
+PREFERRED_PROMPTS = ["full_flow_final", "feedback_crop_adaptive", "feedback", "grid"]
 MAX_CROP_ATTEMPTS = 5
 DEFAULT_MARK_DIAMETER = 20.0
 MIN_MARK_DIAMETER = 4.0
@@ -51,7 +60,7 @@ def _valid_prediction(pred: tuple[Any, Any]) -> bool:
     try:
         float(pred[0])
         float(pred[1])
-        return pred != (-1, -1)
+        return True
     except Exception:
         return False
 
@@ -97,9 +106,12 @@ def _record(
     run: int,
     used_image_path: Path,
     pred: tuple[Any, Any],
+    call_id: str | None = None,
+    extra: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     gt = (target.gt_x, target.gt_y)
     pred_x, pred_y = pred
+    prediction_readable = _valid_prediction(pred)
     x_re, y_re = compute_relative_error(pred, gt)
     x_abs_err = abs(float(pred_x) - target.gt_x) if _valid_prediction(pred) and target.gt_x is not None else None
     y_abs_err = abs(float(pred_y) - target.gt_y) if _valid_prediction(pred) and target.gt_y is not None else None
@@ -127,8 +139,9 @@ def _record(
     except Exception:
         pixel_rel_x, pixel_rel_y = None, None
 
-    return {
+    record = {
         "chart_id": dataset["chart_id"],
+        "call_id": call_id,
         "point_name": target.point_name,
         "category": target.category,
         "prompt_type": prompt_type,
@@ -139,6 +152,7 @@ def _record(
         "gt_y": target.gt_y,
         "pred_x": pred_x,
         "pred_y": pred_y,
+        "prediction_readable": prediction_readable,
         "pixel_rel_x": pixel_rel_x,
         "pixel_rel_y": pixel_rel_y,
         "mae": compute_mae(pred, gt),
@@ -152,6 +166,9 @@ def _record(
         "y_err_over_range": y_err_over_range,
         "xy_err_over_range": xy_err_over_range,
     }
+    if extra:
+        record.update(extra)
+    return record
 
 
 async def _run_target(
@@ -168,11 +185,18 @@ async def _run_target(
     feedback_pred: tuple[Any, Any] | None = None
 
     for prompt_type, image_type in _experiment_types():
-        for run_idx in range(1, repeat_times + 1):
+        prompt_rounds = get_prompt_rounds(prompt_type, repeat_times)
+        valid_amp_count = 0
+        expand_next_crop = False
+        for run_idx in range(1, prompt_rounds + 1):
             used_image = image_path(config, dataset, image_type)
             local_x_ticks = dataset["x_ticks"]
             local_y_ticks = dataset["y_ticks"]
+            local_x_pixels = dataset["x_pixels"]
+            local_y_pixels = dataset["y_pixels"]
             pred_feedback = history[-1] if history else None
+            record_extra: dict[str, Any] = {}
+            estimated_mark: MarkDiameterEstimate | None = None
 
             if prompt_type == "feedback" and pred_feedback is not None:
                 used_image = draw_prediction_overlay(
@@ -198,15 +222,15 @@ async def _run_target(
                             dataset=dataset,
                             target=target,
                             prompt_type=prompt_type,
-                            image_type=image_type,
-                            run=run_idx,
-                            used_image_path=used_image,
-                            pred=(-1, -1),
-                        )
+                        image_type=image_type,
+                        run=run_idx,
+                        used_image_path=used_image,
+                        pred=(None, None),
+                        extra={"skip_reason": "missing_feedback_prediction"},
+                    )
                     )
                     print(f"[{config.chart_type} runner] skip adaptive crop without valid feedback @ {target.point_name}")
                     continue
-                exists_prompt = build_point_exists_prompt(target.point_name, config.mark_name, target.visual_name)
                 crop_result = await _try_generate_crop_until_point_detected(
                     config=config,
                     client=client,
@@ -221,7 +245,8 @@ async def _run_target(
                     x_pixels=dataset["x_pixels"],
                     y_pixels=dataset["y_pixels"],
                     feedback_round=run_idx,
-                    judge_prompt=exists_prompt,
+                    init_crop_size=int(max(60, 120 / (2 ** valid_amp_count)) * (2.0 if expand_next_crop else 1.0)),
+                    expand_crop=expand_next_crop,
                 )
                 if crop_result is None:
                     records.append(
@@ -233,12 +258,29 @@ async def _run_target(
                             image_type=image_type,
                             run=run_idx,
                             used_image_path=used_image,
-                            pred=(-1, -1),
+                            pred=(None, None),
+                            extra={"skip_reason": "adaptive_crop_failed"},
                         )
                     )
                     print(f"[{config.chart_type} runner] adaptive crop failed to include target @ {target.point_name}")
                     continue
-                used_image, local_x_ticks, local_y_ticks, _, _, _, _, _ = crop_result
+                (
+                    used_image,
+                    local_x_ticks,
+                    local_y_ticks,
+                    local_x_pixels,
+                    local_y_pixels,
+                    _,
+                    _,
+                    _,
+                    record_extra,
+                ) = crop_result
+                if "estimated_mark_diameter_px" in record_extra:
+                    estimated_mark = MarkDiameterEstimate(
+                        diameter_px=float(record_extra["estimated_mark_diameter_px"]),
+                        source=str(record_extra.get("mark_size_source") or "unknown"),
+                        confidence=float(record_extra.get("mark_size_confidence") or 0.0),
+                    )
 
             prompt = generate_prompt(
                 item_name=target.point_name,
@@ -246,8 +288,14 @@ async def _run_target(
                 x_ticks=local_x_ticks,
                 y_ticks=local_y_ticks,
                 mark_name=config.mark_name,
+                x_pixels=local_x_pixels,
+                y_pixels=local_y_pixels,
                 visual_name=target.visual_name,
                 pred_feedback=pred_feedback,
+                estimated_mark_diameter_px=(
+                    estimated_mark.diameter_px if estimated_mark is not None else None
+                ),
+                mark_size_source=estimated_mark.source if estimated_mark is not None else None,
             )
 
             print("\n==============================")
@@ -255,7 +303,23 @@ async def _run_target(
             print(f"[{config.chart_type}] Image: {used_image}")
             print("==============================\n")
 
-            pred = await client.predict_coords(prompt, used_image, target.point_name)
+            token = set_modal_call_context(
+                {
+                    "chart_name": dataset.get("chart_id"),
+                    "processing_object": target.point_name,
+                    "object_category": target.category,
+                    "gt": {"x": target.gt_x, "y": target.gt_y},
+                    "stage": "amplifier" if prompt_type == "feedback_crop_adaptive" else prompt_type,
+                    "round": run_idx,
+                    "image_path": str(used_image),
+                    "stage_support": record_extra or None,
+                }
+            )
+            try:
+                pred = await client.predict_coords(prompt, used_image, target.point_name)
+                call_id = get_last_modal_call_id()
+            finally:
+                reset_modal_call_context(token)
             pred = _normalize_prediction(pred, dataset, used_image)
             records.append(
                 _record(
@@ -267,14 +331,17 @@ async def _run_target(
                     run=run_idx,
                     used_image_path=used_image,
                     pred=pred,
+                    call_id=call_id,
+                    extra=record_extra,
                 )
             )
             if _valid_prediction(pred):
-                history.append(pred)
+                if prompt_type != "baseline":
+                    history.append(pred)
                 if prompt_type == "feedback":
                     feedback_pred = pred
                     feedback_history.append(pred)
-                    draw_prediction_overlay(
+                    overlay_path = draw_prediction_overlay(
                         config=config,
                         chart_id=dataset["chart_id"],
                         original_img_path=image_path(config, dataset, "grid_with_grid"),
@@ -288,42 +355,35 @@ async def _run_target(
                         prompt_type=prompt_type,
                         image_type=image_type,
                     )
+                    records[-1]["image_path"] = str(overlay_path)
+                if (
+                    prompt_type in {"feedback", "feedback_crop_adaptive"}
+                    and pred_feedback is not None
+                    and point_prediction_consistent(
+                        pred,
+                        pred_feedback,
+                        x_span=numeric_axis_span(dataset.get("x_ticks")),
+                        y_span=numeric_axis_span(dataset.get("y_ticks")),
+                    )
+                ):
+                    stage_name = "amplifier" if prompt_type == "feedback_crop_adaptive" else prompt_type
+                    print(f"[{config.chart_type}] {stage_name} prediction stabilized at round {run_idx}; stop refinement.")
+                    break
+                if prompt_type == "feedback_crop_adaptive":
+                    valid_amp_count += 1
+                    expand_next_crop = False
                 print(f"[{config.chart_type}] Success {run_idx}/{repeat_times} [{prompt_type} - {image_type}] @ {target.point_name}")
             else:
+                if prompt_type == "feedback_crop_adaptive":
+                    expand_next_crop = True
+                    print(
+                        f"[{config.chart_type}] amplifier round {run_idx} reported target not readable @ {target.point_name}: {pred}; "
+                        "next amplifier round will expand ROI."
+                    )
+                    continue
                 print(f"[{config.chart_type}] Invalid prediction [{prompt_type} - {image_type}] @ {target.point_name}: {pred}")
 
     return records
-
-
-async def _estimate_diameter_via_llm(
-    *,
-    client: PointModelClient,
-    image_path: Path,
-    point_name: str,
-    mark_name: str,
-    visual_name: str,
-) -> float:
-    mark = "bubble" if mark_name == "bubble" else "circle"
-    target = f"{point_name}"
-    if visual_name and visual_name != point_name:
-        target += f" / {visual_name}"
-    prompt = (
-        f"Estimate the visible diameter in pixels of the {mark} corresponding to [{target}] in this chart image. "
-        f"Return only a JSON object like {{\"diameter\": 24}}. "
-        f"If the exact object is hard to identify, estimate the typical diameter of that target mark."
-    )
-    content = await client.call_text(prompt, image_path, f"diameter:{point_name}")
-    candidates: list[float] = []
-    for match in re.findall(r"\d+(?:\.\d+)?", str(content or "")):
-        try:
-            value = float(match)
-        except Exception:
-            continue
-        if MIN_MARK_DIAMETER <= value <= MAX_MARK_DIAMETER:
-            candidates.append(value)
-    if candidates:
-        return candidates[0]
-    return DEFAULT_MARK_DIAMETER
 
 
 async def _try_generate_crop_until_point_detected(
@@ -341,17 +401,55 @@ async def _try_generate_crop_until_point_detected(
     x_pixels: list[int],
     y_pixels: list[int],
     feedback_round: int,
-    judge_prompt: str,
     init_crop_size: int = 120,
+    expand_crop: bool = False,
     max_attempts: int = MAX_CROP_ATTEMPTS,
-) -> tuple[Path, list[float], list[float], list[float], list[float], Any, int, int] | None:
-    crop_size = init_crop_size
-    diameter = await _estimate_diameter_via_llm(
-        client=client,
+) -> tuple[Path, list[float], list[float], list[float], list[float], Any, int, int, dict[str, Any]] | None:
+    estimated_mark = estimate_mark_diameter(
         image_path=image_path,
-        point_name=point_name,
+        pred_coord=pred_coord,
+        x_ticks=x_ticks,
+        y_ticks=y_ticks,
+        x_pixels=x_pixels,
+        y_pixels=y_pixels,
         mark_name=mark_name,
-        visual_name=visual_name,
+        default_diameter=DEFAULT_MARK_DIAMETER,
+        min_diameter=MIN_MARK_DIAMETER,
+        max_diameter=MAX_MARK_DIAMETER,
+    )
+    crop_size = crop_size_from_mark_diameter(
+        base_crop_size=init_crop_size,
+        estimate=estimated_mark,
+        mark_name=mark_name,
+        expand=expand_crop,
+    )
+    diameter = estimated_mark.diameter_px
+    x_plot_span = _axis_pixel_span(x_pixels)
+    y_plot_span = _axis_pixel_span(y_pixels)
+    if mark_name == "bubble":
+        crop_size = _bubble_source_window(
+            requested_size_px=crop_size,
+            diameter_px=diameter,
+            round_index=feedback_round,
+            x_plot_span_px=x_plot_span,
+            y_plot_span_px=y_plot_span,
+            expand_crop=expand_crop,
+        )
+    else:
+        crop_size = amplifier_point_source_window(
+            crop_size,
+            feedback_round,
+            x_plot_span_px=x_plot_span,
+            y_plot_span_px=y_plot_span,
+            roi_scale=2.0 if expand_crop else 1.0,
+            min_px=60,
+        )
+    crop_meta = estimated_mark.as_record_fields()
+    crop_meta.update(
+        {
+            "adaptive_crop_size_px": crop_size,
+            "adaptive_crop_expanded": bool(expand_crop),
+        }
     )
 
     for attempt in range(max_attempts):
@@ -369,10 +467,11 @@ async def _try_generate_crop_until_point_detected(
                 diameter=diameter,
                 feedback_round=feedback_round,
                 base_crop_size=crop_size,
-                resize_to=(224, 224),
+                resize_to=(amplifier_point_output_side(crop_size), amplifier_point_output_side(crop_size)),
             )
         else:
-            output_side = min(max(224, crop_size), 1024)
+            output_side = amplifier_point_output_side(crop_size)
+            grid_density = amplifier_point_grid_density()
             result = crop_draw_ticks_resize(
                 config=config,
                 chart_id=chart_id,
@@ -386,29 +485,64 @@ async def _try_generate_crop_until_point_detected(
                 feedback_round=feedback_round,
                 window_size=crop_size,
                 output_size=(output_side, output_side),
-                font_size=8 if crop_size <= 180 else 10,
-                x_grid_density=1,
-                y_grid_density=1,
+                font_size=18 if output_side >= 768 else 14,
+                x_grid_density=grid_density,
+                y_grid_density=grid_density,
             )
 
         crop_path = result[0]
-        exists = await client.check_exists(judge_prompt, crop_path)
         print(
             f"[{config.chart_type} runner] adaptive crop attempt={attempt + 1}/{max_attempts} "
-            f"size={crop_size} contains target={exists} @ {point_name}"
+            f"size={crop_size} diameter={diameter:.2f} source={estimated_mark.source} centered on feedback @ {point_name}"
         )
-        if exists:
-            return result
-        crop_size *= 2
+        return (*result, crop_meta)
     return None
 
 
+def _axis_pixel_span(pixels: list[int | float]) -> float | None:
+    values = [float(value) for value in pixels if value is not None]
+    if len(values) < 2:
+        return None
+    return max(values) - min(values)
+
+
+def _bubble_source_window(
+    *,
+    requested_size_px: float,
+    diameter_px: float,
+    round_index: int,
+    x_plot_span_px: float | None,
+    y_plot_span_px: float | None,
+    expand_crop: bool,
+) -> int:
+    """Keep bubble crops object-complete instead of shrinking like scatter crops.
+
+    Bubble marks carry area and often internal labels.  If later amplifier
+    rounds crop tighter than the bubble body, MLLMs tend to read an overlapping
+    neighbor or the label pixels instead of the target bubble center.
+    """
+    spans = [float(value) for value in (x_plot_span_px, y_plot_span_px) if value and value > 0]
+    min_object_context = max(140.0, float(diameter_px) * 3.4)
+    requested = max(float(requested_size_px), min_object_context)
+    if expand_crop:
+        requested *= 1.45
+    if spans:
+        plot_span = min(spans)
+        max_fraction_schedule = (0.54, 0.50, 0.46)
+        index = max(1, int(round_index)) - 1
+        max_window = plot_span * max_fraction_schedule[min(index, len(max_fraction_schedule) - 1)]
+        requested = min(requested, max_window)
+    return int(min(max(round(requested), 140), 720))
+
+
 def _prediction_pair(record: dict[str, Any]) -> tuple[float, float] | None:
+    if str(record.get("prediction_readable", "")).strip().lower() == "false":
+        return None
     try:
         pair = float(record["pred_x"]), float(record["pred_y"])
     except Exception:
         return None
-    return pair if _valid_prediction(pair) else None
+    return pair
 
 
 def _select_predictions(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -426,7 +560,7 @@ def _select_predictions(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 chosen = candidates[-1]
                 break
         if chosen is None:
-            chosen = point_records[-1]
+            continue
         pair = _prediction_pair(chosen)
         if pair is None:
             continue
@@ -449,8 +583,6 @@ def _select_predictions(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def _fallback_center(dataset: dict[str, Any], target: PointTarget) -> tuple[float, float]:
-    if target.gt_x is not None and target.gt_y is not None:
-        return target.gt_x, target.gt_y
     return _axis_midpoint(dataset.get("x_ticks", [])), _axis_midpoint(dataset.get("y_ticks", []))
 
 
@@ -464,6 +596,31 @@ def _axis_midpoint(ticks: Any) -> float:
     if not values:
         return 0.0
     return (min(values) + max(values)) / 2
+
+
+def _ensure_existing_image_path(record: dict[str, Any], config: PointChartConfig) -> None:
+    raw_path = record.get("image_path")
+    if raw_path and Path(str(raw_path)).exists():
+        return
+    chart_id = str(record.get("chart_id") or "")
+    point_name = safe_filename(str(record.get("point_name") or record.get("id") or ""))
+    prompt_type = safe_filename(str(record.get("selection_source_prompt_type") or record.get("prompt_type") or ""))
+    image_type = safe_filename(str(record.get("image_type") or ""))
+    if not chart_id or not point_name:
+        return
+    search_dir = chart_result_dir(config, chart_id) / "tempy"
+    if not search_dir.exists():
+        return
+    patterns = [
+        f"*{point_name}*{prompt_type}*{image_type}*.png",
+        f"*{point_name}*.png",
+    ]
+    candidates: list[Path] = []
+    for pattern in patterns:
+        candidates.extend(search_dir.glob(pattern))
+    candidates = [path for path in candidates if path.exists()]
+    if candidates:
+        record["image_path"] = str(max(candidates, key=lambda path: path.stat().st_mtime))
 
 
 async def run_experiment(
@@ -493,18 +650,34 @@ async def run_experiment(
     by_chart: dict[str, list[dict[str, Any]]] = {}
     for record in all_records:
         by_chart.setdefault(record["chart_id"], []).append(record)
+    dataset_by_chart = {str(dataset.get("chart_id")): dataset for dataset in datasets}
 
     summaries: list[dict[str, Any]] = []
     for chart_id, records in by_chart.items():
+        for record in records:
+            _ensure_existing_image_path(record, config)
         result_dir = chart_result_dir(config, chart_id)
         save_results(records, result_dir)
+        final_records = write_xy_full_flow_selection(
+            records=records,
+            result_dir=result_dir,
+            x_ticks=dataset_by_chart.get(chart_id, {}).get("x_ticks"),
+            y_ticks=dataset_by_chart.get(chart_id, {}).get("y_ticks"),
+        )
+        if not final_records:
+            final_records = [
+                record
+                for record in records
+                if record.get("prompt_type") in {"feedback_crop_adaptive", "feedback", "grid"}
+            ]
         print(f"[{config.chart_type}] Saved results for {chart_id}: {result_dir}")
-        predictions = _select_predictions(records)
+        predictions = _select_predictions(final_records)
         summaries.append(
             {
                 "chart_id": chart_id,
                 "result_dir": str(result_dir),
                 "record_count": len(records),
+                "full_flow_final_count": len(final_records),
                 "object_count": len(predictions),
                 "predictions": predictions,
             }

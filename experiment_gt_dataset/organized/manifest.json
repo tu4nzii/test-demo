@@ -1,0 +1,1692 @@
+{
+  "layout_version": "experiment_gt_dataset_clean_v1",
+  "root": "F:\\program\\test-demo\\experiment_gt_dataset\\organized",
+  "records": [
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart1",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart1.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart1_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart1_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart11",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart11.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart11_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart11_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart13",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart13.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart13_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart13_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart16",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart16.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart16_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart16_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart2",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart2.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart2_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart2_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart21",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart21.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart21_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart21_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "BarChart8",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\BarChart8.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\BarChart8_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\BarChart8_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "GroupedBarChart12",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\GroupedBarChart12.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\GroupedBarChart12_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\GroupedBarChart12_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "GroupedBarChart16",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\GroupedBarChart16.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\GroupedBarChart16_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\GroupedBarChart16_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "GroupedBarChart18",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\GroupedBarChart18.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\GroupedBarChart18_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\GroupedBarChart18_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "GroupedBarChart2",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\GroupedBarChart2.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\GroupedBarChart2_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\GroupedBarChart2_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "hBar_GT",
+      "chart_type": "h_bar",
+      "chart_id": "GroupedBarChart8",
+      "image": "Final-RealDataset\\hBar_GT\\chart\\GroupedBarChart8.png",
+      "gt_grid": "Final-RealDataset\\hBar_GT\\gt_grid\\GroupedBarChart8_grid.png",
+      "config": "Final-RealDataset\\hBar_GT\\chart_configs\\GroupedBarChart8_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart12",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart12.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart12_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart12_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart14",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart14.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart14_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart14_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart15",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart15.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart15_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart15_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart17",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart17.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart17_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart17_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart18",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart18.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart18_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart18_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart19",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart19.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart19_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart19_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart22",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart22.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart22_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart22_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart24",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart24.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart24_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart24_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart3",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart3.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart3_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart3_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "BarChart9",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\BarChart9.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\BarChart9_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\BarChart9_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart1",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart1.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart1_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart1_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart10",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart10.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart10_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart10_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart13",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart13.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart13_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart13_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart14",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart14.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart14_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart14_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart19",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart19.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart19_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart19_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart20",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart20.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart20_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart20_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart21",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart21.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart21_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart21_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart24",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart24.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart24_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart24_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart27",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart27.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart27_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart27_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart5",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart5.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart5_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart5_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "vBar_GT",
+      "chart_type": "v_bar",
+      "chart_id": "GroupedBarChart7",
+      "image": "Final-RealDataset\\vBar_GT\\chart\\GroupedBarChart7.png",
+      "gt_grid": "Final-RealDataset\\vBar_GT\\gt_grid\\GroupedBarChart7_grid.png",
+      "config": "Final-RealDataset\\vBar_GT\\chart_configs\\GroupedBarChart7_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph1",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph1.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph1_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph1_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph10",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph10.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph10_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph10_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph11",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph11.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph11_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph11_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph12",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph12.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph12_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph12_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph13",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph13.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph13_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph13_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph17",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph17.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph17_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph17_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph18",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph18.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph18_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph18_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph22",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph22.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph22_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph22_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph23",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph23.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph23_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph23_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph26",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph26.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph26_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph26_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph27",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph27.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph27_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph27_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph28",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph28.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph28_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph28_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph30",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph30.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph30_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph30_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph33",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph33.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph33_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph33_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph35",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph35.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph35_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph35_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph36",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph36.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph36_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph36_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph37",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph37.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph37_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph37_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph38",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph38.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph38_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph38_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph39",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph39.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph39_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph39_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph40",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph40.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph40_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph40_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph6",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph6.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph6_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph6_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph7",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph7.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph7_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph7_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Line_GT",
+      "chart_type": "line",
+      "chart_id": "lineGraph9",
+      "image": "Final-RealDataset\\Line_GT\\chart\\LineGraph9.png",
+      "gt_grid": "Final-RealDataset\\Line_GT\\gt_grid\\LineGraph9_grid.png",
+      "config": "Final-RealDataset\\Line_GT\\chart_configs\\LineGraph9_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot1",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot1.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot1_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot1_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot10",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot10.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot10_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot10_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot11",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot11.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot11_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot11_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot15",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot15.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot15_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot15_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot5",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot5.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot5_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot5_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot6",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot6.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot6_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot6_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot7",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot7.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot7_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot7_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot8",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot8.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot8_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot8_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Scatter_GT",
+      "chart_type": "scatter",
+      "chart_id": "ScatterPlot9",
+      "image": "Final-RealDataset\\Scatter_GT\\chart\\ScatterPlot9.png",
+      "gt_grid": "Final-RealDataset\\Scatter_GT\\gt_grid\\ScatterPlot9_grid.png",
+      "config": "Final-RealDataset\\Scatter_GT\\chart_configs\\ScatterPlot9_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart10",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart10.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart10_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart10_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart11",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart11.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart11_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart11_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart12",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart12.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart12_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart12_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart14",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart14.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart14_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart14_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart15",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart15.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart15_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart15_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart16",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart16.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart16_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart16_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart19",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart19.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart19_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart19_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart20",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart20.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart20_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart20_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart26",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart26.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart26_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart26_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart4",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart4.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart4_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart4_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Bubble_GT",
+      "chart_type": "bubble",
+      "chart_id": "BubbleChart7",
+      "image": "Final-RealDataset\\Bubble_GT\\chart\\BubbleChart7.png",
+      "gt_grid": "Final-RealDataset\\Bubble_GT\\gt_grid\\BubbleChart7_grid.png",
+      "config": "Final-RealDataset\\Bubble_GT\\chart_configs\\BubbleChart7_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_10",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart10.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart10_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart10_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_15",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart15.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart15_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart15_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_20",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart20.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart20_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart20_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_22",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart22.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart22_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart22_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_24",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart24.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart24_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart24_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_3",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart3.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart3_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart3_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Radar_GT",
+      "chart_type": "radar",
+      "chart_id": "radarchart_4",
+      "image": "Final-RealDataset\\Radar_GT\\chart\\RadarChart4.png",
+      "gt_grid": "Final-RealDataset\\Radar_GT\\gt_grid\\RadarChart4_gt_encrypt.png",
+      "config": "Final-RealDataset\\Radar_GT\\chart_configs\\RadarChart4_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Rose_GT",
+      "chart_type": "rose",
+      "chart_id": "plotivy-nightingale-rose-chart",
+      "image": "Final-RealDataset\\Rose_GT\\chart\\plotivy-nightingale-rose-chart.png",
+      "gt_grid": "Final-RealDataset\\Rose_GT\\gt_grid\\plotivy-nightingale-rose-chart_gt_encrypt.png",
+      "config": "Final-RealDataset\\Rose_GT\\chart_configs\\plotivy-nightingale-rose-chart_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Rose_GT",
+      "chart_type": "rose",
+      "chart_id": "Rose1",
+      "image": "Final-RealDataset\\Rose_GT\\chart\\Rose1.png",
+      "gt_grid": "Final-RealDataset\\Rose_GT\\gt_grid\\Rose1_gt_encrypt.png",
+      "config": "Final-RealDataset\\Rose_GT\\chart_configs\\Rose1_encrypted.json"
+    },
+    {
+      "source": "Final-RealDataset",
+      "group": "Rose_GT",
+      "chart_type": "rose",
+      "chart_id": "RoseDiagramExample2",
+      "image": "Final-RealDataset\\Rose_GT\\chart\\RoseDiagramExample2.png",
+      "gt_grid": "Final-RealDataset\\Rose_GT\\gt_grid\\RoseDiagramExample2_gt_encrypt.png",
+      "config": "Final-RealDataset\\Rose_GT\\chart_configs\\RoseDiagramExample2_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_000",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_000.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_000+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_000_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_001",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_001.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_001+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_001_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_002",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_002.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_002+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_002_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_003",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_003.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_003+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_003_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_004",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_004.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_004+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_004_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_005",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_005.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_005+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_005_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_006",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_006.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_006+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_006_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_007",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_007.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_007+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_007_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_008",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_008.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_008+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_008_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_009",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_009.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_009+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_009_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_010",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_010.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_010+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_010_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_011",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_011.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_011+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_011_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_012",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_012.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_012+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_012_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_013",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_013.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_013+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_013_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_014",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_014.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_014+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_014_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_015",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_015.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_015+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_015_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_016",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_016.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_016+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_016_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_017",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_017.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_017+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_017_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_019",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_019.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_019+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_019_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_020",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_020.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_020+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_020_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_021",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_021.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_021+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_021_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_022",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_022.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_022+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_022_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_023",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_023.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_023+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_023_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_024",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_024.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_024+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_024_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_025",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_025.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_025+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_025_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_026",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_026.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_026+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_026_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_027",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_027.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_027+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_027_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_028",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_028.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_028+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_028_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_029",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_029.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_029+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_029_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_030",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_030.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_030+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_030_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_031",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_031.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_031+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_031_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_032",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_032.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_032+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_032_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_033",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_033.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_033+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_033_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_034",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_034.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_034+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_034_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_035",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_035.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_035+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_035_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_036",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_036.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_036+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_036_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_037",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_037.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_037+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_037_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_038",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_038.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_038+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_038_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_039",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_039.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_039+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_039_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_040",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_040.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_040+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_040_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_041",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_041.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_041+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_041_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_042",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_042.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_042+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_042_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_043",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_043.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_043+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_043_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_044",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_044.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_044+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_044_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_045",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_045.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_045+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_045_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_046",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_046.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_046+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_046_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_047",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_047.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_047+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_047_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_048",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_048.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_048+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_048_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_049",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_049.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_049+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_049_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Radar_50_GT",
+      "chart_type": "radar",
+      "chart_id": "radar_050",
+      "image": "Sy.Dataset\\Radar_50_GT\\chart\\radar_050.png",
+      "gt_grid": "Sy.Dataset\\Radar_50_GT\\gt_grid\\radar_050+encode.jpg",
+      "config": "Sy.Dataset\\Radar_50_GT\\chart_configs\\radar_050_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_000",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_000.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_000+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_000_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_001",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_001.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_001+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_001_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_003",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_003.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_003+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_003_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_004",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_004.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_004+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_004_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_005",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_005.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_005+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_005_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_006",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_006.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_006+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_006_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_007",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_007.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_007+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_007_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_008",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_008.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_008+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_008_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_011",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_011.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_011+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_011_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_012",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_012.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_012+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_012_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_013",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_013.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_013+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_013_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_014",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_014.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_014+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_014_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_015",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_015.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_015+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_015_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_016",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_016.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_016+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_016_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_017",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_017.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_017+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_017_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_019",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_019.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_019+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_019_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_020",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_020.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_020+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_020_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_021",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_021.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_021+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_021_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_022",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_022.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_022+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_022_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_024",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_024.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_024+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_024_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_025",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_025.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_025+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_025_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_027",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_027.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_027+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_027_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_028",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_028.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_028+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_028_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_029",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_029.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_029+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_029_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_030",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_030.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_030+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_030_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_032",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_032.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_032+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_032_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_033",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_033.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_033+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_033_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_036",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_036.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_036+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_036_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_037",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_037.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_037+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_037_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_040",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_040.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_040+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_040_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_041",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_041.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_041+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_041_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_042",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_042.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_042+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_042_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_043",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_043.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_043+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_043_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_044",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_044.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_044+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_044_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_045",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_045.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_045+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_045_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_048",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_048.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_048+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_048_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_049",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_049.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_049+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_049_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_052",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_052.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_052+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_052_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_053",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_053.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_053+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_053_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_055",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_055.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_055+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_055_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_056",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_056.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_056+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_056_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_058",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_058.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_058+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_058_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_060",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_060.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_060+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_060_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_061",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_061.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_061+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_061_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_064",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_064.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_064+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_064_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_065",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_065.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_065+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_065_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_066",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_066.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_066+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_066_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_068",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_068.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_068+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_068_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_069",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_069.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_069+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_069_encrypted.json"
+    },
+    {
+      "source": "Sy.Dataset",
+      "group": "Rose_50_GT",
+      "chart_type": "rose",
+      "chart_id": "rose_101",
+      "image": "Sy.Dataset\\Rose_50_GT\\chart\\rose_101.png",
+      "gt_grid": "Sy.Dataset\\Rose_50_GT\\gt_grid\\rose_101+encode.jpg",
+      "config": "Sy.Dataset\\Rose_50_GT\\chart_configs\\rose_101_encrypted.json"
+    }
+  ],
+  "counts": {
+    "Final-RealDataset/hBar_GT": 12,
+    "Final-RealDataset/vBar_GT": 21,
+    "Final-RealDataset/Line_GT": 23,
+    "Final-RealDataset/Scatter_GT": 9,
+    "Final-RealDataset/Bubble_GT": 11,
+    "Final-RealDataset/Radar_GT": 7,
+    "Final-RealDataset/Rose_GT": 3,
+    "Sy.Dataset/Radar_50_GT": 50,
+    "Sy.Dataset/Rose_50_GT": 50
+  },
+  "missing": []
+}

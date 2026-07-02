@@ -1,0 +1,111 @@
+{
+  "chart_id": "BubbleChart7",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart7.png",
+    "with_grid": "gt_grid/BubbleChart7_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart7_grid.png"
+  },
+  "data_points": {
+    "Costa Rica": [
+      21056.91,
+      7.07
+    ],
+    "Finland": [
+      51056.91,
+      7.84
+    ],
+    "Denmark": [
+      55203.25,
+      7.55
+    ],
+    "Unitied States": [
+      63577.24,
+      6.95
+    ],
+    "Switzerland": [
+      71382.11,
+      7.57
+    ],
+    "Ireland": [
+      93577.23,
+      7.09
+    ],
+    "Singapore": [
+      98455.28,
+      6.37
+    ],
+    "Luxembourg": [
+      118292.68,
+      7.33
+    ]
+  },
+  "x_ticks": [
+    20000,
+    30000.0,
+    40000,
+    50000.0,
+    60000,
+    70000.0,
+    80000,
+    90000.0,
+    100000
+  ],
+  "y_ticks": [
+    5,
+    5.5,
+    6,
+    6.5,
+    7,
+    7.5,
+    8
+  ],
+  "x_pixels": [
+    197,
+    320,
+    443,
+    566,
+    689,
+    812,
+    935,
+    1058,
+    1181
+  ],
+  "y_pixels": [
+    860,
+    774,
+    688,
+    602,
+    517,
+    432,
+    346
+  ],
+  "series_color": {
+    "Costa Rica": [
+      "#9467BD"
+    ],
+    "Finland": [
+      "#17BECF"
+    ],
+    "Denmark": [
+      "#17BECF"
+    ],
+    "Unitied States": [
+      "#7F7F7F"
+    ],
+    "Switzerland": [
+      "#17BECF"
+    ],
+    "Ireland": [
+      "#17BECF"
+    ],
+    "Singapore": [
+      "#BCBD22"
+    ],
+    "Luxembourg": [
+      "#17BECF"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart7_encrypted.json"
+}

@@ -1,0 +1,322 @@
+{
+  "chart_id": "radarchart_3",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "chart/RadarChart3.png",
+    "with_grid": "gt_grid/RadarChart3_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RadarChart3_gt_encrypt.png"
+  },
+  "labels": [
+    "Energy",
+    "Danceability",
+    "Liveness",
+    "Valence",
+    "Acousticness",
+    "Speechiness",
+    "Popularity"
+  ],
+  "data_points": {
+    "Hey, Soul Sister": {
+      "Energy": 89.0,
+      "Danceability": 67.0,
+      "Liveness": 8.0,
+      "Valence": 80.0,
+      "Acousticness": 19.0,
+      "Speechiness": 4.0,
+      "Popularity": 84.0
+    },
+    "A Thousand Yars": {
+      "Energy": 41.0,
+      "Danceability": 42.0,
+      "Liveness": 11.0,
+      "Valence": 16.0,
+      "Acousticness": 31.0,
+      "Speechiness": 3.0,
+      "Popularity": 81.0
+    },
+    "Titanium (feat. Sia)": {
+      "Energy": 79.0,
+      "Danceability": 60.0,
+      "Liveness": 13.0,
+      "Valence": 30.0,
+      "Acousticness": 7.0,
+      "Speechiness": 10.0,
+      "Popularity": 80.0
+    },
+    "Underneath the Tree": {
+      "Energy": 81.0,
+      "Danceability": 51.0,
+      "Liveness": 21.0,
+      "Valence": 69.0,
+      "Acousticness": 0.0,
+      "Speechiness": 5.0,
+      "Popularity": 88.0
+    },
+    "All of Me": {
+      "Energy": 26.0,
+      "Danceability": 42.0,
+      "Liveness": 13.0,
+      "Valence": 33.0,
+      "Acousticness": 92.0,
+      "Speechiness": 3.0,
+      "Popularity": 86.0
+    },
+    "Thinking out Loud": {
+      "Energy": 45.0,
+      "Danceability": 78.0,
+      "Liveness": 18.0,
+      "Valence": 59.0,
+      "Acousticness": 47.0,
+      "Speechiness": 3.0,
+      "Popularity": 84.0
+    },
+    "Cake By The Ocean": {
+      "Energy": 75.0,
+      "Danceability": 77.0,
+      "Liveness": 4.0,
+      "Valence": 90.0,
+      "Acousticness": 15.0,
+      "Speechiness": 5.0,
+      "Popularity": 81.0
+    },
+    "Shape of You": {
+      "Energy": 65.0,
+      "Danceability": 83.0,
+      "Liveness": 9.0,
+      "Valence": 93.0,
+      "Acousticness": 58.0,
+      "Speechiness": 8.0,
+      "Popularity": 87.0
+    },
+    "One Kiss (with Dua Lipa)": {
+      "Energy": 86.0,
+      "Danceability": 79.0,
+      "Liveness": 8.0,
+      "Valence": 59.0,
+      "Acousticness": 4.0,
+      "Speechiness": 11.0,
+      "Popularity": 86.0
+    },
+    "Memories": {
+      "Energy": 32.0,
+      "Danceability": 76.0,
+      "Liveness": 8.0,
+      "Valence": 57.0,
+      "Acousticness": 84.0,
+      "Speechiness": 5.0,
+      "Popularity": 99.0
+    }
+  },
+  "theta_ticks": [
+    "Energy",
+    "Danceability",
+    "Liveness",
+    "Valence",
+    "Acousticness",
+    "Speechiness",
+    "Popularity"
+  ],
+  "theta_angles": [
+    0.0,
+    51.43,
+    102.86,
+    154.29,
+    205.71,
+    257.14,
+    308.57
+  ],
+  "r_ticks": [
+    20.0,
+    40.0,
+    60.0,
+    80.0,
+    100.0
+  ],
+  "r_pixels": [
+    44.0,
+    88.0,
+    132.0,
+    176.0,
+    220.0
+  ],
+  "center": [
+    389,
+    319
+  ],
+  "series_color": {
+    "Hey, Soul Sister": "#ff7f0e",
+    "A Thousand Years": "#2ca02c",
+    "Titanium (feat. Sia)": "#d62728",
+    "Underneath the Tree": "#9467bd",
+    "All of Me": "#8c564b",
+    "Thinking out Loud": "#e377c2",
+    "Cake By The Ocean": "#7f7f7f",
+    "Shape of You": "#bcbd22",
+    "One Kiss (with Dua Lipa)": "#17becf",
+    "Memories": "#1f77b4"
+  },
+  "num_entities": 10,
+  "fill_enabled": true,
+  "num_vars": 7,
+  "pred_coords": [
+    389,
+    319
+  ],
+  "argument": {
+    "a": 2.2000000000000006,
+    "b": -1.0235696059456986e-13,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Energy": "0",
+    "Danceability": "51.43",
+    "Liveness": "102.86",
+    "Valence": "154.29",
+    "Acousticness": "205.71",
+    "Speechiness": "257.14",
+    "Popularity": "308.57"
+  },
+  "image": "RadarChart3.png",
+  "json": "RadarChart3.json",
+  "output": "RadarChart3_gt_encrypt.png",
+  "source_files": {
+    "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart3.json",
+    "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart3.png"
+  },
+  "data": {
+    "Hey, Soul Sister": {
+      "Energy": 89.0,
+      "Danceability": 67.0,
+      "Liveness": 8.0,
+      "Valence": 80.0,
+      "Acousticness": 19.0,
+      "Speechiness": 4.0,
+      "Popularity": 84.0
+    },
+    "A Thousand Yars": {
+      "Energy": 41.0,
+      "Danceability": 42.0,
+      "Liveness": 11.0,
+      "Valence": 16.0,
+      "Acousticness": 31.0,
+      "Speechiness": 3.0,
+      "Popularity": 81.0
+    },
+    "Titanium (feat. Sia)": {
+      "Energy": 79.0,
+      "Danceability": 60.0,
+      "Liveness": 13.0,
+      "Valence": 30.0,
+      "Acousticness": 7.0,
+      "Speechiness": 10.0,
+      "Popularity": 80.0
+    },
+    "Underneath the Tree": {
+      "Energy": 81.0,
+      "Danceability": 51.0,
+      "Liveness": 21.0,
+      "Valence": 69.0,
+      "Acousticness": 0.0,
+      "Speechiness": 5.0,
+      "Popularity": 88.0
+    },
+    "All of Me": {
+      "Energy": 26.0,
+      "Danceability": 42.0,
+      "Liveness": 13.0,
+      "Valence": 33.0,
+      "Acousticness": 92.0,
+      "Speechiness": 3.0,
+      "Popularity": 86.0
+    },
+    "Thinking out Loud": {
+      "Energy": 45.0,
+      "Danceability": 78.0,
+      "Liveness": 18.0,
+      "Valence": 59.0,
+      "Acousticness": 47.0,
+      "Speechiness": 3.0,
+      "Popularity": 84.0
+    },
+    "Cake By The Ocean": {
+      "Energy": 75.0,
+      "Danceability": 77.0,
+      "Liveness": 4.0,
+      "Valence": 90.0,
+      "Acousticness": 15.0,
+      "Speechiness": 5.0,
+      "Popularity": 81.0
+    },
+    "Shape of You": {
+      "Energy": 65.0,
+      "Danceability": 83.0,
+      "Liveness": 9.0,
+      "Valence": 93.0,
+      "Acousticness": 58.0,
+      "Speechiness": 8.0,
+      "Popularity": 87.0
+    },
+    "One Kiss (with Dua Lipa)": {
+      "Energy": 86.0,
+      "Danceability": 79.0,
+      "Liveness": 8.0,
+      "Valence": 59.0,
+      "Acousticness": 4.0,
+      "Speechiness": 11.0,
+      "Popularity": 86.0
+    },
+    "Memories": {
+      "Energy": 32.0,
+      "Danceability": 76.0,
+      "Liveness": 8.0,
+      "Valence": 57.0,
+      "Acousticness": 84.0,
+      "Speechiness": 5.0,
+      "Popularity": 99.0
+    }
+  },
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0,
+      60.0,
+      70.0,
+      80.0,
+      90.0,
+      100.0
+    ],
+    "encrypted_r_pixels": [
+      22.0,
+      44.0,
+      66.0,
+      88.0,
+      110.0,
+      132.0,
+      154.0,
+      176.0,
+      198.0,
+      220.0
+    ],
+    "encrypted_ring_ticks": [
+      10.0,
+      30.0,
+      50.0,
+      70.0,
+      90.0
+    ],
+    "encrypted_ring_pixels": [
+      22.0,
+      66.0,
+      110.0,
+      154.0,
+      198.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Real_radarchart_withgrid\\RadarChart3.json"
+}

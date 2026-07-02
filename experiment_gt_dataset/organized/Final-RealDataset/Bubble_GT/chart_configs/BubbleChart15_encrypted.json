@@ -1,0 +1,365 @@
+{
+  "chart_id": "BubbleChart15",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart15.png",
+    "with_grid": "gt_grid/BubbleChart15_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart15_grid.png"
+  },
+  "data_points": {
+    "Burundi": [
+      1036.1671,
+      63.651
+    ],
+    "Somalia": [
+      1401.6473,
+      58.816
+    ],
+    "Democratic Republic of Congo": [
+      1559.338,
+      61.895
+    ],
+    "Malawi": [
+      1649.2987,
+      67.353
+    ],
+    "Solomon Islands": [
+      2339.575,
+      70.528
+    ],
+    "Chad": [
+      2433.0989,
+      55.069
+    ],
+    "Lesotho": [
+      2595.8296,
+      57.375
+    ],
+    "Ethiopia": [
+      2757.9592,
+      67.315
+    ],
+    "Togo": [
+      2842.2307,
+      62.74
+    ],
+    "Mali": [
+      2860.4282,
+      60.439
+    ],
+    "Haiti": [
+      2965.9463,
+      64.936
+    ],
+    "Guinea": [
+      3904.824,
+      60.74
+    ],
+    "Nepal": [
+      4861.2305,
+      70.354
+    ],
+    "Pakistan": [
+      5418.7695,
+      67.649
+    ],
+    "Kenya": [
+      5691.825,
+      63.646
+    ],
+    "Congo": [
+      6172.2876,
+      65.772
+    ],
+    "Cote d'Ivoire": [
+      6520.899,
+      61.944
+    ],
+    "Cambodia": [
+      6695.292,
+      70.668
+    ],
+    "Nigeria": [
+      7843.8345,
+      54.462
+    ],
+    "Laos": [
+      8372.156,
+      68.964
+    ],
+    "Angola": [
+      8788.261,
+      64.617
+    ],
+    "India": [
+      9301.756,
+      72.003
+    ],
+    "Tunisia": [
+      12650.962,
+      76.508
+    ],
+    "Bolivia": [
+      11616.157,
+      68.581
+    ],
+    "South Africa": [
+      13695.376,
+      66.139
+    ],
+    "Indonesia": [
+      13889.975,
+      71.146
+    ],
+    "Equatorial Guinea": [
+      15688.238,
+      63.707
+    ],
+    "Gabon": [
+      18701.422,
+      68.337
+    ],
+    "Brazil": [
+      19079.812,
+      75.848
+    ],
+    "China": [
+      22687.076,
+      77.953
+    ],
+    "Azerbaijan": [
+      21310.738,
+      74.429
+    ],
+    "Serbia": [
+      25735.24,
+      76.769
+    ],
+    "Turkey": [
+      35069.17,
+      77.156
+    ],
+    "Russia": [
+      39887.34,
+      73.154
+    ],
+    "United States": [
+      74158.72,
+      79.304
+    ],
+    "Portugal": [
+      41768.254,
+      82.36
+    ],
+    "Japan": [
+      45858.66,
+      84.712
+    ],
+    "Guyana": [
+      49312.36,
+      70.18
+    ],
+    "Hong Kong": [
+      64434.56,
+      85.511
+    ],
+    "Netherlands": [
+      70198.93,
+      82.158
+    ],
+    "Greenland": [
+      71037.54,
+      70.055
+    ],
+    "Brunei": [
+      76616.7,
+      75.327
+    ]
+  },
+  "x_ticks": [
+    2000,
+    3500.0,
+    5000,
+    7500.0,
+    10000,
+    15000.0,
+    20000,
+    35000.0,
+    50000,
+    75000.0,
+    100000
+  ],
+  "y_ticks": [
+    55,
+    57.5,
+    60,
+    62.5,
+    65,
+    67.5,
+    70,
+    72.5,
+    75,
+    77.5,
+    80,
+    82.5,
+    85
+  ],
+  "x_pixels": [
+    157,
+    218,
+    280,
+    326,
+    373,
+    420,
+    466,
+    528,
+    589,
+    636,
+    682
+  ],
+  "y_pixels": [
+    463,
+    436,
+    409,
+    382,
+    355,
+    328,
+    301,
+    274,
+    247,
+    220,
+    193,
+    166,
+    138
+  ],
+  "series_color": {
+    "Burundi": [
+      "#B577B0"
+    ],
+    "Somalia": [
+      "#B577B0"
+    ],
+    "Democratic Republic of Congo": [
+      "#B577B0"
+    ],
+    "Malawi": [
+      "#B577B0"
+    ],
+    "Solomon Islands": [
+      "#60BBC8"
+    ],
+    "Chad": [
+      "#B577B0"
+    ],
+    "Lesotho": [
+      "#B577B0"
+    ],
+    "Ethiopia": [
+      "#B577B0"
+    ],
+    "Togo": [
+      "#B577B0"
+    ],
+    "Mali": [
+      "#B577B0"
+    ],
+    "Haiti": [
+      "#EA8B7B"
+    ],
+    "Guinea": [
+      "#B577B0"
+    ],
+    "Nepal": [
+      "#339D98"
+    ],
+    "Pakistan": [
+      "#339D98"
+    ],
+    "Kenya": [
+      "#B577B0"
+    ],
+    "Congo": [
+      "#B577B0"
+    ],
+    "Cote d'Ivoire": [
+      "#B577B0"
+    ],
+    "Cambodia": [
+      "#339D98"
+    ],
+    "Nigeria": [
+      "#B577B0"
+    ],
+    "Laos": [
+      "#339D98"
+    ],
+    "Angola": [
+      "#B577B0"
+    ],
+    "India": [
+      "#339D98"
+    ],
+    "Tunisia": [
+      "#B577B0"
+    ],
+    "Bolivia": [
+      "#A05961"
+    ],
+    "South Africa": [
+      "#B577B0"
+    ],
+    "Indonesia": [
+      "#339D98"
+    ],
+    "Equatorial Guinea": [
+      "#B577B0"
+    ],
+    "Gabon": [
+      "#B577B0"
+    ],
+    "Brazil": [
+      "#A05961"
+    ],
+    "China": [
+      "#339D98"
+    ],
+    "Azerbaijan": [
+      "#339D98"
+    ],
+    "Serbia": [
+      "#7088B0"
+    ],
+    "Turkey": [
+      "#339D98"
+    ],
+    "Russia": [
+      "#7088B0"
+    ],
+    "United States": [
+      "#EA8B7B"
+    ],
+    "Portugal": [
+      "#7088B0"
+    ],
+    "Japan": [
+      "#339D98"
+    ],
+    "Guyana": [
+      "#A05961"
+    ],
+    "Hong Kong": [
+      "#339D98"
+    ],
+    "Netherlands": [
+      "#7088B0"
+    ],
+    "Greenland": [
+      "#EA8B7B"
+    ],
+    "Brunei": [
+      "#339D98"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart15_encrypted.json"
+}

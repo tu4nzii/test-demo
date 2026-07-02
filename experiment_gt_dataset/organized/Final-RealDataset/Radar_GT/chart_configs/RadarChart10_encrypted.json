@@ -1,0 +1,171 @@
+{
+  "chart_id": "radarchart_10",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "chart/RadarChart10.png",
+    "with_grid": "gt_grid/RadarChart10_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RadarChart10_gt_encrypt.png"
+  },
+  "labels": [
+    "Lithuania",
+    "Czechia",
+    "Ireland",
+    "Germany",
+    "Australia",
+    "Austria",
+    "UK",
+    "Belgium",
+    "The Netherlands"
+  ],
+  "data_points": {
+    "Beer Consumption": {
+      "Lithuania": 501.0,
+      "Czechia": 301.0,
+      "Ireland": 266.0,
+      "Germany": 165.0,
+      "Australia": 139.0,
+      "Austria": 336.0,
+      "UK": 290.0,
+      "Belgium": 325.0,
+      "The Netherlands": 40.0
+    }
+  },
+  "theta_ticks": [
+    "Lithuania",
+    "Czechia",
+    "Ireland",
+    "Germany",
+    "Australia",
+    "Austria",
+    "UK",
+    "Belgium",
+    "The Netherlands"
+  ],
+  "theta_angles": [
+    0.0,
+    40.0,
+    80.0,
+    120.0,
+    160.0,
+    200.0,
+    240.0,
+    280.0,
+    320.0
+  ],
+  "r_ticks": [
+    100.0,
+    200.0,
+    300.0,
+    400.0,
+    500.0,
+    600.0
+  ],
+  "r_pixels": [
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0,
+    180.0
+  ],
+  "center": [
+    445,
+    248
+  ],
+  "series_color": {
+    "Beer Consumption": "#66b3ee"
+  },
+  "num_entities": 1,
+  "fill_enabled": false,
+  "num_vars": 9,
+  "pred_coords": [
+    445,
+    248
+  ],
+  "argument": {
+    "a": 0.3,
+    "b": 7.330015918578665e-14,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Lithuania": "0",
+    "Czechia": "40",
+    "Ireland": "80",
+    "Germany": "120",
+    "Australia": "160",
+    "Austria": "200",
+    "UK": "240",
+    "Belgium": "280",
+    "The Netherlands": "320"
+  },
+  "image": "RadarChart10.png",
+  "json": "RadarChart10.json",
+  "output": "RadarChart10_gt_encrypt.png",
+  "source_files": {
+    "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart10.json",
+    "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart10.png"
+  },
+  "data": {
+    "Beer Consumption": {
+      "Lithuania": 501.0,
+      "Czechia": 301.0,
+      "Ireland": 266.0,
+      "Germany": 165.0,
+      "Australia": 139.0,
+      "Austria": 336.0,
+      "UK": 290.0,
+      "Belgium": 325.0,
+      "The Netherlands": 40.0
+    }
+  },
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      50.0,
+      100.0,
+      150.0,
+      200.0,
+      250.0,
+      300.0,
+      350.0,
+      400.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0
+    ],
+    "encrypted_r_pixels": [
+      15.0,
+      30.0,
+      45.0,
+      60.0,
+      75.0,
+      90.0,
+      105.0,
+      120.0,
+      135.0,
+      150.0,
+      165.0,
+      180.0
+    ],
+    "encrypted_ring_ticks": [
+      50.0,
+      150.0,
+      250.0,
+      350.0,
+      450.0,
+      550.0
+    ],
+    "encrypted_ring_pixels": [
+      15.0,
+      45.0,
+      75.0,
+      105.0,
+      135.0,
+      165.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Real_radarchart_withgrid\\RadarChart10.json"
+}

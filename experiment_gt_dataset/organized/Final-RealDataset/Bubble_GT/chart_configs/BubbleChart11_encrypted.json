@@ -1,0 +1,131 @@
+{
+  "chart_id": "BubbleChart11",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart11.png",
+    "with_grid": "gt_grid/BubbleChart11_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart11_grid.png"
+  },
+  "data_points": {
+    "CAN": [
+      80.66,
+      1.67
+    ],
+    "DEU": [
+      79.84,
+      1.36
+    ],
+    "EGY": [
+      72.73,
+      2.78
+    ],
+    "GBR": [
+      80.05,
+      2
+    ],
+    "IRN": [
+      72.49,
+      1.7
+    ],
+    "IRQ": [
+      68.09,
+      4.77
+    ],
+    "RUS": [
+      68.6,
+      1.54
+    ],
+    "USA": [
+      78.09,
+      2.05
+    ]
+  },
+  "x_ticks": [
+    68,
+    69.0,
+    70,
+    71.0,
+    72,
+    73.0,
+    74,
+    75.0,
+    76,
+    77.0,
+    78,
+    79.0,
+    80,
+    81.0,
+    82
+  ],
+  "y_ticks": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    3.5,
+    4,
+    4.5,
+    5
+  ],
+  "x_pixels": [
+    161,
+    202,
+    244,
+    285,
+    326,
+    368,
+    409,
+    450,
+    491,
+    532,
+    574,
+    615,
+    656,
+    698,
+    739
+  ],
+  "y_pixels": [
+    404,
+    373,
+    342,
+    312,
+    281,
+    250,
+    219,
+    188,
+    158,
+    127,
+    96
+  ],
+  "series_color": {
+    "CAN": [
+      "#5C85D6"
+    ],
+    "DEU": [
+      "#E36141"
+    ],
+    "EGY": [
+      "#FFAD33"
+    ],
+    "GBR": [
+      "#E36141"
+    ],
+    "IRN": [
+      "#FFAD33"
+    ],
+    "IRQ": [
+      "#FFAD33"
+    ],
+    "RUS": [
+      "#E36141"
+    ],
+    "USA": [
+      "#5C85D6"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart11_encrypted.json"
+}

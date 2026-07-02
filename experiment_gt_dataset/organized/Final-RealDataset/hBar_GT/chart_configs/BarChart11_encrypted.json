@@ -1,0 +1,71 @@
+{
+  "chart_id": "BarChart11",
+  "image_paths": {
+    "no_grid": "chart/BarChart11.png",
+    "with_grid": "gt_grid/BarChart11_grid.png",
+    "grid_with_grid": "gt_grid/BarChart11_grid.png"
+  },
+  "data_points": {
+    "Human Activity Frequency in Chitwan National Park,Nepal": {
+      "Disturbing tiger kill": 5,
+      "Fishing": 8,
+      "Forest products": 11,
+      "Fuelwood/timber": 5,
+      "Grass/fodder": 44,
+      "Herding": 7,
+      "Sleeping in house": 3,
+      "Toilet": 2,
+      "Walking": 3
+    }
+  },
+  "x_ticks": [
+    0,
+    5.0,
+    10,
+    15.0,
+    20,
+    25.0,
+    30,
+    35.0,
+    40
+  ],
+  "y_ticks": [
+    "Disturbing tiger kill",
+    "Fishing",
+    "Forest products",
+    "Fuelwood/timber",
+    "Grass/fodder",
+    "Herding",
+    "Sleeping in house",
+    "Toilet",
+    "Walking"
+  ],
+  "x_pixels": [
+    186,
+    224,
+    262,
+    300,
+    337,
+    375,
+    413,
+    451,
+    489
+  ],
+  "y_pixels": [
+    299,
+    269,
+    239,
+    209,
+    179,
+    149,
+    118,
+    88,
+    58
+  ],
+  "series_color": {
+    "Human Activity Frequency in Chitwan National Park,Nepal": "#595959"
+  },
+  "chart_type": "h_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "hbar_real_datasets\\chart_configs\\BarChart11_encrypted.json"
+}

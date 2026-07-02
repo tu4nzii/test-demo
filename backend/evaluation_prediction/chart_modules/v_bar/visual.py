@@ -7,6 +7,16 @@ from typing import Any
 
 from PIL import Image, ImageDraw, ImageFont
 
+from ...common.amplifier_style import (
+    AMPLIFIER_BAR_DASH_GAP,
+    AMPLIFIER_BAR_DASH_LENGTH,
+    AMPLIFIER_GRID_COLOR,
+    amplifier_half_window,
+    amplifier_label_pad,
+    amplifier_output_side,
+    amplifier_tick_divisor,
+    draw_centered_label_box,
+)
 from ...common.chart_io import ensure_dir, safe_filename
 from ...common.paths import RESULTS_ROOT
 
@@ -72,8 +82,7 @@ def draw_prediction_overlay(
 
     safe_point_name = safe_filename(point_name)
     if final_overlay:
-        round_suffix = f"_run{run_index}" if run_index is not None else ""
-        filename = f"final_overlay_{safe_point_name}_{prompt_type}_{image_type}{round_suffix}.png"
+        filename = f"final_overlay_{safe_point_name}_{prompt_type}_{image_type}.png"
     else:
         round_no = int(run_index) if run_index is not None else 1
         filename = f"overlay_{safe_point_name}_{prompt_type}_{image_type}_run{round_no}.png"
@@ -108,7 +117,7 @@ def _dense_ticks_for_crop(
     lo, hi = sorted((top_px, bottom_px))
     dense_ticks: list[float] = []
     dense_pixels: list[float] = []
-    preferred = max(2, 2 ** max(1, int(round_index)))
+    preferred = amplifier_tick_divisor(round_index)
     divisors = [preferred] + [divisor for divisor in (2, 3, 4, 5, 6, 8, 10, 12, 16) if divisor != preferred]
     for divisor in divisors:
         dense_ticks.clear()
@@ -142,14 +151,18 @@ def crop_bar_window(
     y_ticks: list[float],
     y_pixels: list[int],
     round_index: int = 1,
+    zoom_round_index: int | None = None,
+    roi_scale: float = 1.0,
     attempt_index: int = 0,
     pad_x: int | None = None,
     pad_y: int | None = None,
     chart_type: str = "v_bar",
+    series_name: str | None = None,
+    series_order: list[str] | None = None,
 ) -> tuple[Path, list[float], tuple[float, float]]:
     img = Image.open(image_path).convert("RGB")
     width, height = img.size
-    center_x = category_pixel(x_label, x_ticks, x_pixels)
+    group_center_x = category_pixel(x_label, x_ticks, x_pixels)
     pairs = _numeric_pairs(y_ticks, y_pixels)
     if len(pairs) < 2:
         raise ValueError("At least two numeric y ticks are required for v_bar amplifier crop.")
@@ -158,27 +171,53 @@ def crop_bar_window(
     clamped_value = min(max(float(center_value), min_value), max_value)
     center_y = numeric_pixel(clamped_value, y_ticks, y_pixels)
     span_x = category_span(x_label, x_ticks, x_pixels, img.size)
-    half_x = max(18, (pad_x if pad_x is not None else span_x // 2 + 8))
+    order = [str(item) for item in (series_order or []) if str(item).strip()]
+    lane_center_x = group_center_x
+    lane_half_x = max(8, int(round(span_x * 0.08)))
+    if series_name and len(order) > 1 and str(series_name) in order:
+        slot = max(8.0, float(span_x) / len(order))
+        index = order.index(str(series_name))
+        lane_center_x = int(round(group_center_x - ((len(order) - 1) / 2.0 - index) * slot))
+        lane_half_x = max(8, int(round(slot / 2.0 + 5)))
+    if pad_x is not None:
+        half_x = max(18, pad_x)
+    elif series_name and len(order) > 1:
+        half_x = max(24, span_x // 2 + 8)
+    else:
+        # Keep the whole target group visible while excluding adjacent groups.
+        # Grouped bars are especially sensitive to horizontal distractors: once
+        # a tall neighbor enters the crop, the local ruler can make that neighbor
+        # look like the intended target.
+        half_x = max(24, min(span_x // 2 + 8, int(round(span_x * 0.38))))
 
     pixel_gaps = [abs(right - left) for (_, left), (_, right) in zip(pairs, pairs[1:])]
     base_span = sorted(pixel_gaps)[len(pixel_gaps) // 2] if pixel_gaps else 90
-    shrink = 2 ** max(0, round_index - 1)
-    half_y = int(max(18, (pad_y if pad_y is not None else base_span) / shrink))
+    zoom_round = zoom_round_index if zoom_round_index is not None else round_index
+    base_window = pad_y if pad_y is not None else base_span
 
-    left = max(0, center_x - half_x)
-    right = min(width, center_x + half_x)
-    top = max(0, int(center_y - half_y))
-    bottom = min(height, int(center_y + half_y))
+    left = max(0, group_center_x - half_x)
+    right = min(width, group_center_x + half_x)
+    plot_top = int(max(0, min(y_pixels)))
+    plot_bottom = int(min(height, max(y_pixels)))
+    half_y = amplifier_half_window(
+        base_window,
+        zoom_round,
+        roi_scale=roi_scale,
+        min_px=36,
+        plot_span_px=max(1, plot_bottom - plot_top),
+    )
+    top = max(plot_top, int(center_y - half_y))
+    bottom = min(plot_bottom, int(center_y + half_y))
     if bottom <= top:
-        bottom = min(height, top + 12)
+        bottom = min(plot_bottom, top + 12)
 
     raw_crop = img.crop((left, top, right, bottom))
     crop_w, crop_h = raw_crop.size
     if crop_w <= 0 or crop_h <= 0:
         raise ValueError(f"Invalid crop area: {(left, top, right, bottom)}")
 
-    out_size = 240
-    label_pad = 76
+    out_size = amplifier_output_side(crop_w, crop_h)
+    label_pad = amplifier_label_pad()
     scale = min(out_size / max(1, crop_w), out_size / max(1, crop_h))
     new_w = max(1, int(round(crop_w * scale)))
     new_h = max(1, int(round(crop_h * scale)))
@@ -189,11 +228,26 @@ def crop_bar_window(
     offset_y = (out_size - new_h) // 2
     canvas.paste(resized, (offset_x, offset_y))
     draw = ImageDraw.Draw(canvas)
-    font = _font(14)
+    font = _font(18)
 
     crop_left = offset_x
     crop_right = offset_x + new_w
     draw.text((crop_left + 4, offset_y + 4), f"R{round_index}", font=font, fill="black")
+    if series_name and len(order) > 1:
+        lane_x = offset_x + int(round(((lane_center_x - left) / crop_w) * new_w))
+        lane_half = max(5, int(round((lane_half_x / max(1, crop_w)) * new_w)))
+        lane_left = max(crop_left, lane_x - lane_half)
+        lane_right = min(crop_right, lane_x + lane_half)
+        draw.line((lane_x, offset_y, lane_x, offset_y + new_h), fill=(255, 0, 0), width=2)
+        draw.rectangle((lane_left, offset_y, lane_right, offset_y + new_h), outline=(255, 0, 0), width=2)
+        target_label = f"target lane: {series_name}"
+        label_bbox = draw.textbbox((0, 0), target_label, font=font)
+        label_w = label_bbox[2] - label_bbox[0] + 8
+        label_h = label_bbox[3] - label_bbox[1] + 6
+        lx = min(max(crop_left + 4, 0), max(0, canvas.width - label_w - 2))
+        ly = max(2, offset_y - label_h - 4)
+        draw.rectangle((lx, ly, lx + label_w, ly + label_h), fill="white", outline=(255, 0, 0), width=1)
+        draw.text((lx + 4, ly + 3), target_label, font=font, fill=(255, 0, 0))
 
     dense_ticks, dense_pixels = _dense_ticks_for_crop(pairs, top, bottom, round_index=round_index)
     visible_ticks: list[float] = []
@@ -208,26 +262,40 @@ def crop_bar_window(
         if offset_y <= local_y <= offset_y + new_h and key not in seen_ticks:
             seen_ticks.add(key)
             mapped_ticks.append((tick, local_y))
-            visible_ticks.append(tick)
 
     dash_region = 5
-    dash_len = 10
-    dash_gap = 4
+    dash_len = AMPLIFIER_BAR_DASH_LENGTH
+    dash_gap = AMPLIFIER_BAR_DASH_GAP
     tick_len = 6
     for tick, tick_y in mapped_ticks:
         x = crop_left
         while x < crop_right:
             x_end = min(x + dash_len, crop_right)
-            draw.line((x, tick_y, x_end, tick_y), fill="gray", width=1)
+            draw.line((x, tick_y, x_end, tick_y), fill=AMPLIFIER_GRID_COLOR, width=1)
             x += dash_len + dash_gap
         text = _format_tick(tick)
         bbox = draw.textbbox((0, 0), text, font=font)
         tw = bbox[2] - bbox[0]
         th = bbox[3] - bbox[1]
+        if tick_y < th / 2 + 4 or tick_y > canvas.height - th / 2 - 4:
+            continue
         tick_x0 = crop_left - dash_region - tick_len
         tick_x1 = crop_left - dash_region
+        label_center_x = max(6 + tw / 2, tick_x0 - 8 - tw / 2)
+        x = label_center_x
+        while x < crop_left:
+            x_end = min(x + dash_len, crop_left)
+            draw.line((x, tick_y, x_end, tick_y), fill=AMPLIFIER_GRID_COLOR, width=1)
+            x += dash_len + dash_gap
         draw.line((tick_x0, tick_y, tick_x1, tick_y), fill="black", width=1)
-        draw.text((tick_x0 - 4 - tw, tick_y - th // 2), text, font=font, fill="black")
+        draw_centered_label_box(
+            draw,
+            text,
+            (label_center_x, tick_y),
+            font=font,
+            fill=(0, 0, 0),
+        )
+        visible_ticks.append(tick)
         tick_x0 = crop_right + dash_region
         tick_x1 = tick_x0 + tick_len
         draw.line((tick_x0, tick_y, tick_x1, tick_y), fill="black", width=1)

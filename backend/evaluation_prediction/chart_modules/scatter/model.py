@@ -117,7 +117,7 @@ class PointModelClient:
     async def predict_coords(self, prompt: str, image_path: Path, point_name: str) -> tuple[Any, Any]:
         content = await self.call_text(prompt, image_path, point_name)
         if not content:
-            return (-1, -1)
+            return (None, None)
         parsed = parse_model_json(content)
         return extract_coords(parsed, point_name)
 

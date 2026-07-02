@@ -21,6 +21,12 @@ def _format_ticks(ticks: list[Any]) -> str:
     return ", ".join(str(item) for item in ticks)
 
 
+def _format_tick_pixel_pairs(ticks: list[Any], pixels: list[Any] | None) -> str:
+    if not pixels:
+        return ""
+    return ", ".join(f"{tick}->{pixel}px" for tick, pixel in zip(ticks, pixels))
+
+
 def _format_visible_ticks(visible_ticks: list[Any] | None) -> str:
     visible_ticks = visible_ticks or []
     return ", ".join(str(round(float(y), 2)) for y in sorted(set(visible_ticks)))
@@ -44,12 +50,16 @@ def generate_prompt(
     x_ticks: list[Any],
     y_ticks: list[Any],
     series_color: dict[str, str],
+    x_pixels: list[Any] | None = None,
+    y_pixels: list[Any] | None = None,
     visible_ticks: list[Any] | None = None,
     pred_feedback: tuple[Any, Any] | None = None,
 ) -> str:
     series_name, x_label = split_item_name(item_name)
     x_tick_str = _format_ticks(x_ticks)
     y_tick_str = _format_ticks(y_ticks)
+    x_pixel_str = _format_tick_pixel_pairs(x_ticks, x_pixels)
+    y_pixel_str = _format_tick_pixel_pairs(y_ticks, y_pixels)
     color_desc = generate_series_color_description(series_color)
 
     if prompt_type == "baseline":
@@ -65,6 +75,11 @@ def generate_prompt(
         You are given a cropped line chart image centered around [{item_name}].
         The cropped region includes the target x-axis category [{x_label}] and y-axis reference ticks [{visible_tick_str}].
         Locate the series [{series_name}] line point in this crop and estimate its y value by interpolation.
+        The red horizontal guide labels are original chart y-axis values. Use the two nearest red horizontal
+        guides around the visible line point and estimate the fractional position between them.
+        The red vertical guide marks the target x category; read where the target-colored line intersects this guide.
+        Do not output crop pixel coordinates, resized-image pixel coordinates, or the position of nearby text labels.
+        If the target series point at [{x_label}] is not visible or cannot be confidently identified in this crop, return the same JSON shape with `"readable": false` and use `null` for y.
         {color_desc}
         """
     elif prompt_type in {"grid", "feedback"}:
@@ -72,6 +87,8 @@ def generate_prompt(
         You are analyzing a line chart with reference grid lines aligned with these axis ticks:
         - X-axis ticks: [{x_tick_str}]
         - Y-axis ticks: [{y_tick_str}]
+        - GT X tick-to-pixel mapping: [{x_pixel_str}]
+        - GT Y tick-to-pixel mapping: [{y_pixel_str}]
         {color_desc}
 
         Locate the series [{series_name}] at x-axis category [{x_label}].
@@ -87,6 +104,7 @@ def generate_prompt(
 
     base_prompt += f"""
     Only respond in this JSON format:
-    {{"datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
+    {{"readable": true, "datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
+    If the target is not readable in an amplifier crop, set `"readable": false` and use null for y.
     """
     return base_prompt

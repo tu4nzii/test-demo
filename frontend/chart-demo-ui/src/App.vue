@@ -1,4 +1,4 @@
-<!-- src/App.vue -->
+﻿<!-- src/App.vue -->
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
 import axios from 'axios';
@@ -42,10 +42,14 @@ const datasetSource = ref('realworld');
 const datasetCategory = ref('');
 const datasetCategories = ref([]);
 const selectedDatasetSampleId = ref('');
+const selectedExperimentSampleIds = ref([]);
+const experimentBatchResults = ref([]);
+const isRunningExperimentBatch = ref(false);
+const experimentBatchProgress = ref({ current: 0, total: 0, sampleName: '' });
 const selectedStaticDatasetSample = ref(null);
 const isLoadingDataset = ref(false);
 const staticPreviewManifest = ref(null);
-const staticPreviewMode = ref(FORCE_STATIC_PREVIEW);
+const staticPreviewMode = ref(false);
 const datasetSourceOptions = [
   { value: 'realworld', label: 'Final-RealDataset' },
   { value: 'synthetic', label: 'Sy.Dataset' },
@@ -78,9 +82,9 @@ function startMessageCountdown() {
 }
 
 // --- Computed Properties for Disabling Buttons ---
-const isUploadDisabled = computed(() => !imageFile.value || isLoadingUpload.value || staticPreviewMode.value);
-const isProcessDisabled = computed(() => !chartId.value || isLoadingProcess.value);
-const isEvaluateDisabled = computed(() => !processedImageUrl.value || isLoadingEvaluate.value);
+const isUploadDisabled = computed(() => true);
+const isProcessDisabled = computed(() => true);
+const isEvaluateDisabled = computed(() => !selectedDatasetSampleId.value || isLoadingEvaluate.value || isRunningExperimentBatch.value);
 const hasColoredGridPreview = computed(() => Boolean(processedColoredImageUrl.value));
 const hasGridPreview = computed(() => Boolean(processedStandardImageUrl.value || processedColoredImageUrl.value));
 const previewImageUrl = computed(() => {
@@ -88,11 +92,11 @@ const previewImageUrl = computed(() => {
   if (gridLinePreviewMode.value === 'color' && processedColoredImageUrl.value) return processedColoredImageUrl.value;
   return processedStandardImageUrl.value || processedImageUrl.value;
 });
-const previewImageTitle = computed(() => (gridLinePreviewMode.value === 'original' ? '原图' : '加密图片'));
+const previewImageTitle = computed(() => (gridLinePreviewMode.value === 'original' ? '原图' : 'GT 网格图'));
 const previewPlaceholderText = computed(() => (
   gridLinePreviewMode.value === 'original'
-    ? '上传图片或选择数据集样例后显示'
-    : '处理后的图片将在此处显示'
+    ? '选择实验样本后显示原图'
+    : '选择实验样本后显示 GT 网格图'
 ));
 const evaluationSummary = computed(() => {
   if (!evaluationResults.value) return [];
@@ -212,6 +216,23 @@ const polarVisualPredictions = computed(() => {
     showSeriesName: visibleSeriesNames.value,
   }));
 });
+const selectedExperimentCount = computed(() => selectedExperimentSampleIds.value.length);
+const allCurrentSamplesSelected = computed(() => {
+  const sampleIds = datasetSamples.value.map((sample) => sample.sample_id).filter(Boolean);
+  return Boolean(sampleIds.length) && sampleIds.every((id) => selectedExperimentSampleIds.value.includes(id));
+});
+const selectedExperimentSamples = computed(() => {
+  const selected = new Set(selectedExperimentSampleIds.value);
+  return datasetSamples.value.filter((sample) => selected.has(sample.sample_id));
+});
+const experimentSelectionSummary = computed(() => {
+  if (isRunningExperimentBatch.value) {
+    const { current, total, sampleName } = experimentBatchProgress.value;
+    return 'Running ' + current + '/' + total + (sampleName ? ' - ' + sampleName : '');
+  }
+  if (selectedExperimentCount.value) return 'Selected ' + selectedExperimentCount.value + ' experiment objects';
+  return 'No experiment object selected';
+});
 const evaluationJson = computed(() => {
   if (!evaluationResults.value) return '';
   const processedJson = evaluationResults.value.processed_json || evaluationResults.value.source_payload;
@@ -223,11 +244,7 @@ const evaluationJson = computed(() => {
 
 // Handle file selection from input fields
 function showStaticUploadNotice() {
-  window.alert(
-    '当前页面运行在 GitHub Pages 静态部署环境。GitHub Pages 的特性决定了它不能提供后端服务，因此无法在页面上处理自定义上传图片。\n\n'
-      + '我们已如实提供本地完整运行后的论文数据集缓存，用于论文完整性与功能演示；这些缓存均基于 VisHintPrompt 框架和 Gemini-2.5-flash-lite 得出。\n\n'
-      + '开发者在本地启动后端后，自定义上传、加密处理和评估预测功能仍会正常可用。'
-  );
+  window.alert('实验版不支持上传图表，请从 GT 数据集中选择实验对象。');
 }
 
 function handleUploadHeadingClick(event) {
@@ -316,7 +333,7 @@ function formatPercentage(value) {
   if (value === undefined || value === null || value === '') return '-';
   const numberValue = Number(value);
   if (!Number.isFinite(numberValue)) return value;
-  return `${Number(numberValue.toFixed(4)).toString()}%`;
+  return Number(numberValue.toFixed(4)).toString() + '%';
 }
 
 function datasetCategoryDisplayLabel(category) {
@@ -332,7 +349,7 @@ function joinUrl(base, path) {
   if (/^https?:\/\//i.test(value) || value.startsWith('blob:') || value.startsWith('data:')) {
     return value;
   }
-  return `${String(base).replace(/\/+$/, '')}/${value.replace(/^\/+/, '')}`;
+  return String(base).replace(/\/+$/, '') + '/' + value.replace(/^\/+/, '');
 }
 
 function staticPreviewUrl(path) {
@@ -346,6 +363,27 @@ function backendUrl(path) {
 function sampleImageSrc(sample) {
   if (!sample) return '';
   return sample.static_preview ? staticPreviewUrl(sample.image_url) : backendUrl(sample.image_url);
+}
+
+function isExperimentSampleSelected(sample) {
+  return Boolean(sample?.sample_id && selectedExperimentSampleIds.value.includes(sample.sample_id));
+}
+
+function setExperimentSelection(sample) {
+  if (!sample?.sample_id) return;
+  selectedExperimentSampleIds.value = [sample.sample_id];
+}
+
+function selectAllCurrentCategorySamples() {
+  selectedExperimentSampleIds.value = datasetSamples.value
+    .map((sample) => sample.sample_id)
+    .filter(Boolean);
+}
+
+function clearExperimentSelection() {
+  selectedExperimentSampleIds.value = [];
+  experimentBatchResults.value = [];
+  experimentBatchProgress.value = { current: 0, total: 0, sampleName: '' };
 }
 
 async function loadStaticPreviewManifest() {
@@ -373,7 +411,7 @@ function applyStaticDatasetSamples() {
   const samples = Array.isArray(source?.samples) ? source.samples : [];
   datasetSamples.value = samples
     .filter((sample) => !datasetCategory.value || datasetCategory.value === 'all' || sample.category === datasetCategory.value)
-    .slice(0, 36);
+    .slice(0, 200);
 }
 
 function predictionNumericValue(item) {
@@ -388,7 +426,7 @@ function predictionNumericValue(item) {
 function predictionDisplayValue(item) {
   if (item?.axis === 'theta' && item?.percentage !== undefined && item?.percentage !== null) {
     const percentage = Number(item.percentage);
-    return Number.isFinite(percentage) ? `${Number(percentage.toFixed(4))}%` : item.percentage;
+    return Number.isFinite(percentage) ? Number(percentage.toFixed(4)).toString() + '%' : item.percentage;
   }
   const xValue = item?.x ?? item?.value?.x;
   const yValue = item?.y ?? item?.value?.y;
@@ -434,8 +472,8 @@ async function fetchDatasetSamples() {
       applyStaticDatasetSamples();
       return;
     }
-    const response = await axios.get(`${API_URL}/api/dataset-preview/samples/`, {
-      params: { source: datasetSource.value, category: datasetCategory.value, limit: 36 },
+    const response = await axios.get(`${API_URL}/api/gt-experiment/samples/`, {
+      params: { source: datasetSource.value, category: datasetCategory.value, limit: 200 },
     });
     if (Array.isArray(response.data.categories) && response.data.categories.length) {
       datasetCategories.value = response.data.categories;
@@ -446,14 +484,8 @@ async function fetchDatasetSamples() {
     datasetSamples.value = response.data.samples || [];
   } catch (error) {
     console.error('Dataset sample load error:', error);
-    try {
-      staticPreviewMode.value = true;
-      await loadStaticPreviewManifest();
-      applyStaticDatasetCategories();
-      applyStaticDatasetSamples();
-    } catch (staticError) {
-      console.error('Static dataset sample load error:', staticError);
-    }
+    datasetSamples.value = [];
+    errorMessage.value = `GT 实验样本加载失败: ${error.response?.data?.detail || error.message}`;
   } finally {
     isLoadingDataset.value = false;
   }
@@ -468,7 +500,7 @@ async function fetchDatasetCategories() {
       datasetSamples.value = [];
       return;
     }
-    const response = await axios.get(`${API_URL}/api/dataset-preview/categories/`, {
+    const response = await axios.get(`${API_URL}/api/gt-experiment/categories/`, {
       params: { source: datasetSource.value },
     });
     datasetCategories.value = response.data.categories || [];
@@ -476,16 +508,10 @@ async function fetchDatasetCategories() {
     datasetSamples.value = [];
   } catch (error) {
     console.error('Dataset category load error:', error);
-    try {
-      staticPreviewMode.value = true;
-      await loadStaticPreviewManifest();
-      applyStaticDatasetCategories();
-      datasetSamples.value = [];
-    } catch (staticError) {
-      console.error('Static dataset category load error:', staticError);
-      datasetCategories.value = [];
-      datasetCategory.value = '';
-    }
+    datasetCategories.value = [];
+    datasetCategory.value = '';
+    datasetSamples.value = [];
+    errorMessage.value = `GT 实验类别加载失败: ${error.response?.data?.detail || error.message}`;
   } finally {
     isLoadingDataset.value = false;
   }
@@ -497,6 +523,8 @@ async function setDatasetSource(source) {
   datasetCategory.value = '';
   datasetCategories.value = [];
   selectedDatasetSampleId.value = '';
+  selectedExperimentSampleIds.value = [];
+  experimentBatchResults.value = [];
   selectedStaticDatasetSample.value = null;
   datasetSamples.value = [];
   await fetchDatasetCategories();
@@ -507,17 +535,23 @@ function setDatasetCategory(category) {
   if (datasetCategory.value === category || isLoadingDataset.value) return;
   datasetCategory.value = category;
   selectedDatasetSampleId.value = '';
+  selectedExperimentSampleIds.value = [];
+  experimentBatchResults.value = [];
   selectedStaticDatasetSample.value = null;
   datasetSamples.value = [];
   fetchDatasetSamples();
 }
 
-async function selectDatasetSample(sample) {
+async function selectDatasetSample(sample, options = {}) {
   if (!sample || isLoadingDataset.value) return;
+  const { updateExperimentSelection = true } = options;
   clearMessages();
   resetProcessedResults(true);
   imageFile.value = null;
   selectedDatasetSampleId.value = sample.sample_id;
+  if (updateExperimentSelection) {
+    setExperimentSelection(sample);
+  }
   selectedStaticDatasetSample.value = sample.static_preview ? sample : null;
   isLoadingDataset.value = true;
 
@@ -543,7 +577,7 @@ async function selectDatasetSample(sample) {
       return;
     }
     const response = await axios.post(
-      `${API_URL}/api/dataset-preview/select/`,
+      `${API_URL}/api/gt-experiment/select/`,
       null,
       { params: { sample_id: sample.sample_id } }
     );
@@ -558,18 +592,51 @@ async function selectDatasetSample(sample) {
     if (data.evaluated && data.results_url) {
       hasEvaluationCache = await loadEvaluationResultsFromUrl(data.results_url, data.chart_id);
     }
-    if (data.cached && hasEvaluationCache) {
-      statusMessage.value = '已载入数据集样例，并复用缓存的网格和评估预测结果。';
-    } else if (data.cached) {
-      statusMessage.value = '已载入数据集样例，并复用缓存网格结果。';
-    } else {
-      statusMessage.value = '已载入数据集样例，可直接进行加密处理。';
-    }
+    statusMessage.value = 'Loaded GT experiment sample.';
   } catch (error) {
     console.error('Dataset sample select error:', error);
-    errorMessage.value = `数据集样例载入失败: ${error.response?.data?.detail || error.message}`;
+    errorMessage.value = `数据集样本载入失败: ${error.response?.data?.detail || error.message}`;
   } finally {
     isLoadingDataset.value = false;
+  }
+}
+
+async function runSelectedExperimentSamples() {
+  if (isRunningExperimentBatch.value || !selectedExperimentSamples.value.length) return;
+
+  const queue = [...selectedExperimentSamples.value];
+  isRunningExperimentBatch.value = true;
+  experimentBatchResults.value = [];
+  experimentBatchProgress.value = { current: 0, total: queue.length, sampleName: '' };
+  clearMessages();
+
+  try {
+    for (let index = 0; index < queue.length; index += 1) {
+      const sample = queue[index];
+      experimentBatchProgress.value = {
+        current: index + 1,
+        total: queue.length,
+        sampleName: sample.name || sample.sample_id,
+      };
+
+      await selectDatasetSample(sample, { updateExperimentSelection: false });
+      await evaluateChart({ fromBatch: true });
+
+      experimentBatchResults.value.push({
+        sample_id: sample.sample_id,
+        name: sample.name,
+        chart_type: sample.chart_type,
+        status: evaluationResults.value ? 'done' : 'no_result',
+        object_count: evaluationResults.value?.summary?.object_count ?? evaluationResults.value?.predictions?.length ?? 0,
+      });
+    }
+    statusMessage.value = 'Experiment batch completed: ' + queue.length + ' samples';
+  } catch (error) {
+    console.error('Experiment batch run error:', error);
+    errorMessage.value = `实验批量运行失败: ${error.response?.data?.detail || error.message}`;
+  } finally {
+    isRunningExperimentBatch.value = false;
+    experimentBatchProgress.value = { current: 0, total: queue.length, sampleName: '' };
   }
 }
 
@@ -595,7 +662,7 @@ async function uploadFiles() {
     chartId.value = response.data.chart_id;
     chartType.value = response.data.chart_type;
     confidence.value = response.data.confidence;
-    statusMessage.value = `上传成功！图表ID: ${chartId.value}`;
+    statusMessage.value = `上传成功，图表 ID: ${chartId.value}`;
   } catch (error) {
     console.error("Upload error:", error);
     errorMessage.value = `上传失败: ${error.response?.data?.detail || error.message}`;
@@ -605,57 +672,17 @@ async function uploadFiles() {
 }
 
 // 2. Process the uploaded chart
-async function processImage() {
-  if (isProcessDisabled.value) return;
-
-  if (selectedStaticDatasetSample.value) {
-    clearMessages();
-    applyProcessedImageUrls(selectedStaticDatasetSample.value, true);
-    if (processedStandardImageUrl.value || processedColoredImageUrl.value) {
-      statusMessage.value = 'Loaded cached static encryption preview.';
-    } else {
-      errorMessage.value = 'Static preview has no cached encryption result for this sample.';
-    }
-    return;
-  }
-  
-  clearMessages();
-  processedImageUrl.value = '';
-  processedStandardImageUrl.value = '';
-  processedColoredImageUrl.value = '';
-  gridLinePreviewMode.value = 'standard';
-  evaluationResults.value = null;
-  evaluationView.value = 'visual';
-  isDetailsFullscreen.value = false;
-  isLoadingProcess.value = true;
-  const requestChartId = chartId.value;
-  
-  try {
-    // 修正: 不再使用 FormData，而是将 chart_id 作为 URL 查询参数传递
-    // POST 请求的第二个参数是请求体(body)，这里我们没有 body，所以设为 null
-    const response = await axios.post(
-      `${API_URL}/api/process/`, 
-      null, // 请求体为空
-      { 
-        params: { chart_id: chartId.value } // 将 chart_id 作为查询参数
-      }
-    );
-    
-    // 构造完整的图片 URL
-    if (requestChartId !== chartId.value) return;
-    applyProcessedImageUrls(response.data);
-    statusMessage.value = '加密处理成功！';
-  } catch (error) {
-    console.error("Processing error:", error);
-    errorMessage.value = `处理失败: ${error.response?.data?.detail || error.message}`;
-  } finally {
-    isLoadingProcess.value = false;
+// 2. GT grid is provided by annotation in the experiment branch.
+async function processImage(options = {}) {
+  if (!options.fromBatch) {
+    statusMessage.value = 'GT grid is provided by annotation; encryption is disabled in this experiment branch.';
   }
 }
 
-// 3. 评估处理后的图表并获取结果 (已修正)
-async function evaluateChart() {
-  if (isEvaluateDisabled.value) return;
+// 3. Run GT-based evaluation prediction
+async function evaluateChart(options = {}) {
+  const { fromBatch = false } = options;
+  if (!fromBatch && isEvaluateDisabled.value) return;
 
   if (selectedStaticDatasetSample.value) {
     clearMessages();
@@ -685,18 +712,17 @@ async function evaluateChart() {
   const requestChartId = chartId.value;
 
   try {
-    // 修正: 同样，将 chart_id 作为 URL 查询参数传递
     const evalResponse = await axios.post(
-      `${API_URL}/api/evaluate/`, 
-      null, // 请求体为空
+      `${API_URL}/api/gt-experiment/run/`, 
+      null,
       { 
-        params: { chart_id: chartId.value } // 将 chart_id 作为查询参数
+        params: { sample_id: selectedDatasetSampleId.value }
       }
     );
-    statusMessage.value = '评估请求成功，正在获取结果...';
-    
-    await loadEvaluationResultsFromUrl(evalResponse.data.results_url, requestChartId);
-    statusMessage.value = '评估结果获取成功！';
+    if (requestChartId !== chartId.value) return;
+    evaluationResults.value = evalResponse.data;
+    evaluationView.value = 'visual';
+    statusMessage.value = 'GT 评估预测完成。';
   } catch (error) {
     console.error("Evaluation error:", error);
     errorMessage.value = `评估失败: ${error.response?.data?.detail || error.message}`;
@@ -741,7 +767,7 @@ onBeforeUnmount(() => {
             <div class="sidebar-brand">图表智能分析</div>
             <label
               class="clickable-heading"
-              :class="{ disabled: isLoadingUpload || staticPreviewMode }"
+              :class="{ disabled: isUploadDisabled }"
               for="image-upload"
               role="button"
               tabindex="0"
@@ -757,13 +783,13 @@ onBeforeUnmount(() => {
               type="file"
               @change="handleImageUpload"
               accept="image/png, image/jpeg"
-              :disabled="isLoadingUpload || staticPreviewMode"
+              :disabled="isUploadDisabled"
             />
           </div>
 
           <div class="dataset-preview-panel" :class="{ compact: chartId }">
             <div class="dataset-preview-header">
-              <h3>数据集快速预览</h3>
+              <h3>实验对象</h3>
               <div class="dataset-source-toggle" role="group" aria-label="dataset source">
                 <button
                   v-for="option in datasetSourceOptions"
@@ -777,7 +803,7 @@ onBeforeUnmount(() => {
                 </button>
               </div>
               <button type="button" class="text-button" @click="fetchDatasetSamples" :disabled="isLoadingDataset">
-                {{ isLoadingDataset ? '加载中' : '刷新' }}
+                {{ isLoadingDataset ? 'Loading' : 'Refresh' }}
               </button>
             </div>
             <div v-if="datasetCategories.length" class="dataset-category-list" role="group" aria-label="dataset category">
@@ -793,21 +819,62 @@ onBeforeUnmount(() => {
                 <small>{{ category.count }}</small>
               </button>
             </div>
+            <div class="experiment-selection-bar">
+              <span class="experiment-selection-status">{{ experimentSelectionSummary }}</span>
+              <div class="experiment-selection-actions">
+                <button
+                  type="button"
+                  class="mini-button"
+                  :disabled="!datasetSamples.length || isLoadingDataset || isRunningExperimentBatch || allCurrentSamplesSelected"
+                  @click="selectAllCurrentCategorySamples"
+                >
+                  全选当前类
+                </button>
+                <button
+                  type="button"
+                  class="mini-button"
+                  :disabled="!selectedExperimentCount || isRunningExperimentBatch"
+                  @click="clearExperimentSelection"
+                >
+                  清空
+                </button>
+                <button
+                  type="button"
+                  class="mini-button primary"
+                  :disabled="!selectedExperimentCount || isLoadingDataset || isRunningExperimentBatch"
+                  @click="runSelectedExperimentSamples"
+                >
+                  运行所选
+                </button>
+              </div>
+            </div>
             <div v-if="datasetSamples.length" class="dataset-sample-grid">
               <button
                 v-for="sample in datasetSamples"
                 :key="sample.sample_id"
                 type="button"
                 class="dataset-sample-button"
-                :class="{ active: selectedDatasetSampleId === sample.sample_id }"
+                :class="{ active: selectedDatasetSampleId === sample.sample_id, selected: isExperimentSampleSelected(sample) }"
                 :disabled="isLoadingDataset"
                 @click="selectDatasetSample(sample)"
+                :title="sample.name"
               >
+                <span v-if="isExperimentSampleSelected(sample)" class="sample-selected-indicator">OK</span>
                 <img :src="sampleImageSrc(sample)" :alt="sample.name" />
               </button>
             </div>
             <div v-else class="dataset-empty">
-              {{ isLoadingDataset ? '正在加载数据集样例' : '暂无可用样例' }}
+              {{ isLoadingDataset ? 'Loading samples' : 'No samples' }}
+            </div>
+            <div v-if="experimentBatchResults.length" class="experiment-result-strip">
+              <div
+                v-for="item in experimentBatchResults.slice(-4)"
+                :key="item.sample_id"
+                class="experiment-result-item"
+              >
+                <span>{{ item.name }}</span>
+                <small>{{ item.chart_type }} · {{ item.object_count }}</small>
+              </div>
             </div>
           </div>
 
@@ -816,7 +883,7 @@ onBeforeUnmount(() => {
             <h3>图表信息</h3>
             <div class="info-grid">
               <div class="info-item">
-                <span class="info-label">图表ID:</span>
+                <span class="info-label">图表 ID:</span>
                 <span class="info-value">{{ chartId }}</span>
               </div>
               <div class="info-item">
@@ -843,7 +910,7 @@ onBeforeUnmount(() => {
               @keydown.enter.prevent="processImage"
               @keydown.space.prevent="processImage"
             >
-              2. 加密处理{{ isLoadingProcess ? '中...' : '' }}
+              2. GT 网格预览{{ isLoadingProcess ? '中...' : '' }}
             </h2>
             <div class="heading-actions">
               <div v-if="originalImageUrl || hasGridPreview" class="grid-preview-toggle compact" role="group" aria-label="grid line preview mode">
@@ -861,7 +928,7 @@ onBeforeUnmount(() => {
                   :disabled="!processedStandardImageUrl"
                   @click="setGridLinePreviewMode('standard')"
                 >
-                  标准灰色
+                  GT 网格
                 </button>
                 <button
                   type="button"
@@ -886,7 +953,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
           <div v-if="processedImageUrl && !hasColoredGridPreview" class="preview-hint">
-            当前样例仅提供标准灰色网格预览。
+            当前样例仅提供标准 GT 网格预览。
           </div>
         </div>
 
@@ -928,7 +995,7 @@ onBeforeUnmount(() => {
                 <table v-if="isPointPredictionChart && pointVisualPredictions.length" class="results-table academic point-prediction-table">
                   <thead>
                     <tr>
-                      <th>点名称</th>
+                      <th>Point</th>
                       <th v-if="pointVisualHasCategory">Category</th>
                       <th>X</th>
                       <th>Y</th>
@@ -946,7 +1013,7 @@ onBeforeUnmount(() => {
                 <table v-else-if="isCircularPredictionChart && circularVisualPredictions.length" class="results-table academic point-prediction-table">
                   <thead>
                     <tr>
-                      <th>标签名</th>
+                      <th>Label</th>
                       <th>占比</th>
                       <th>起始角度</th>
                       <th>结束角度</th>
@@ -996,7 +1063,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
                 <div v-else class="placeholder compact">
-                  <p>暂无可视化预测对象</p>
+                  <p>No visual prediction objects.</p>
                 </div>
               </div>
 
@@ -1012,7 +1079,7 @@ onBeforeUnmount(() => {
                 <table class="results-table academic">
                   <thead>
                     <tr>
-                      <th>标签名</th>
+                      <th>Label</th>
                       <th>Value</th>
                     </tr>
                   </thead>
@@ -1061,7 +1128,7 @@ onBeforeUnmount(() => {
         <table class="results-table academic">
           <thead>
             <tr>
-              <th>标签名</th>
+              <th>Label</th>
               <th>Value</th>
             </tr>
           </thead>
@@ -1216,7 +1283,7 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
-/* 列样式 */
+/* 鍒楁牱寮?*/
 .column {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -1351,7 +1418,7 @@ onBeforeUnmount(() => {
   font-size: 1.1rem;
 }
 
-/* 输入组样式 */
+/* 杈撳叆缁勬牱寮?*/
 .input-group {
   display: flex;
   flex-direction: column;
@@ -1383,7 +1450,7 @@ input[type="file"]:focus {
   box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
 }
 
-/* 按钮样式 */
+/* 鎸夐挳鏍峰紡 */
 .dataset-preview-panel {
   margin-bottom: 1rem;
   border: 1px solid #d9e1ea;
@@ -1522,6 +1589,66 @@ input[type="file"]:focus {
   font-weight: 700;
 }
 
+.experiment-selection-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #d9e1ea;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.experiment-selection-status {
+  min-width: 0;
+  color: #2f4054;
+  font-size: 0.76rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.experiment-selection-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mini-button {
+  min-height: 26px;
+  border: 1px solid #b8c7d6;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #1f3a56;
+  cursor: pointer;
+  padding: 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mini-button.primary {
+  border-color: #0066cc;
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.mini-button:disabled {
+  cursor: not-allowed;
+  color: #8a96a3;
+  background-color: #f2f5f8;
+}
+
+.mini-button.primary:disabled {
+  border-color: #c8d2dc;
+  background-color: #dbe4ee;
+  color: #ffffff;
+}
+
 .dataset-sample-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1537,6 +1664,7 @@ input[type="file"]:focus {
 }
 
 .dataset-sample-button {
+  position: relative;
   display: block;
   border: 1px solid #d4dde7;
   border-radius: 4px;
@@ -1555,8 +1683,39 @@ input[type="file"]:focus {
   box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.12);
 }
 
+.dataset-sample-button.selected {
+  border-color: #1f8f5f;
+  box-shadow: 0 0 0 2px rgba(31, 143, 95, 0.14);
+}
+
+.dataset-sample-button.active.selected {
+  border-color: #0066cc;
+  box-shadow:
+    0 0 0 2px rgba(0, 102, 204, 0.12),
+    0 0 0 4px rgba(31, 143, 95, 0.12);
+}
+
 .dataset-sample-button:disabled {
   cursor: wait;
+}
+
+.sample-selected-indicator {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background-color: #1f8f5f;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .dataset-sample-button img {
@@ -1580,6 +1739,42 @@ input[type="file"]:focus {
   border: 1px dashed #cbd6e2;
   border-radius: 4px;
   font-size: 0.9rem;
+}
+
+.experiment-result-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+}
+
+.experiment-result-item {
+  min-width: 0;
+  border: 1px solid #dde6ef;
+  border-radius: 4px;
+  background-color: #f8fbff;
+  padding: 0.35rem 0.45rem;
+}
+
+.experiment-result-item span,
+.experiment-result-item small {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.experiment-result-item span {
+  color: #26384b;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.experiment-result-item small {
+  color: #607086;
+  font-size: 0.68rem;
+  font-weight: 600;
 }
 
 .action-button {
@@ -1686,7 +1881,7 @@ input[type="file"]:focus {
   font-size: 0.86rem;
 }
 
-/* 评估结果区域 */
+/* 璇勪及缁撴灉鍖哄煙 */
 .evaluation-preview {
   flex: 1;
   display: flex;
@@ -1747,7 +1942,7 @@ input[type="file"]:focus {
   background-color: #f5f5f5;
 }
 
-/* 占位符样式 */
+/* 鍗犱綅绗︽牱寮?*/
 
 .view-toggle,
 .grid-preview-toggle {
@@ -2046,7 +2241,7 @@ input[type="file"]:focus {
   white-space: nowrap;
 }
 
-/* 响应式设计 */
+/* 鍝嶅簲寮忚璁?*/
 @media (max-width: 900px) {
   :global(html),
   :global(body) {
@@ -2175,6 +2370,15 @@ input[type="file"]:focus {
   .dataset-source-toggle {
     flex: 1 1 100%;
     min-width: 0;
+  }
+
+  .experiment-selection-bar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .experiment-selection-actions {
+    flex-wrap: wrap;
   }
 
   .dataset-sample-grid {

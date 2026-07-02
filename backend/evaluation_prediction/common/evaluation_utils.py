@@ -17,7 +17,13 @@ DEFAULT_ROUND_GROUPS = ("chart_id", "point", "prompt_type", "image_type")
 XY_ROUND_GROUPS = ("chart_id", "point_name", "prompt_type", "image_type")
 
 
+def _is_invalid_sentinel(value: Any) -> bool:
+    return str(value).strip().lower() in {"", "none", "null", "nan"}
+
+
 def numeric_mae(pred: Any, gt: Any, digits: int = 4) -> float | None:
+    if _is_invalid_sentinel(pred):
+        return None
     try:
         return round(abs(float(pred) - float(gt)), digits)
     except Exception:
@@ -25,6 +31,8 @@ def numeric_mae(pred: Any, gt: Any, digits: int = 4) -> float | None:
 
 
 def numeric_relative_error(pred: Any, gt: Any, digits: int = 4) -> float | None:
+    if _is_invalid_sentinel(pred):
+        return None
     try:
         gt_value = float(gt)
         if gt_value == 0:
@@ -85,8 +93,10 @@ def save_axis_results(
     axis_key = axis.lower()
     axis_name = axis.upper()
     df.to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
+    all_rounds_df = df.copy()
+    all_rounds_df["round_index"] = all_rounds_df.groupby(list(DEFAULT_ROUND_GROUPS)).cumcount()
+    all_rounds_df.to_csv(result_dir / final_csv, index=False, encoding="utf-8")
     final_df = final_rounds(df, DEFAULT_ROUND_GROUPS)
-    final_df.to_csv(result_dir / final_csv, index=False, encoding="utf-8")
 
     summary = final_df.groupby(["prompt_type", "image_type"]).agg(
         **{

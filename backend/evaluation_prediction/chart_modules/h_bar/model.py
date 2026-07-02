@@ -16,6 +16,12 @@ from ...common.model_config import get_chat_completion_urls, get_model_name
 from .parser import extract_coords
 
 
+JSON_ONLY_SYSTEM_PROMPT = (
+    "You are a precise chart-reading assistant. Always return only valid JSON. "
+    "Do not include Markdown fences, explanations, calculations, or prose."
+)
+
+
 class HBarModelClient:
     def __init__(
         self,
@@ -56,6 +62,7 @@ class HBarModelClient:
         return {
             "model": self.model_name,
             "messages": [
+                {"role": "system", "content": JSON_ONLY_SYSTEM_PROMPT},
                 {
                     "role": "user",
                     "content": [
@@ -65,6 +72,9 @@ class HBarModelClient:
                 }
             ],
             "max_tokens": 512,
+            "max_completion_tokens": 512,
+            "temperature": 0,
+            "response_format": {"type": "json_object"},
         }
 
     async def call_text(self, prompt: str, image_path: Path, label: str) -> str | None:
@@ -75,6 +85,9 @@ class HBarModelClient:
             self._payload(prompt, image_path)["messages"],
             model=self.model_name,
             max_tokens=512,
+            response_format={"type": "json_object"},
+            extra_payload={"max_completion_tokens": 512},
+            temperature=0,
             urls=request_urls,
             timeout=self.timeout,
             max_retries=self.max_retries,
@@ -84,7 +97,7 @@ class HBarModelClient:
     async def predict_coords(self, prompt: str, image_path: Path, point_name: str) -> tuple[Any, Any]:
         content = await self.call_text(prompt, image_path, point_name)
         if not content:
-            return (-1, -1)
+            return (None, None)
         parsed = parse_model_json(content)
         return extract_coords(parsed, point_name)
 

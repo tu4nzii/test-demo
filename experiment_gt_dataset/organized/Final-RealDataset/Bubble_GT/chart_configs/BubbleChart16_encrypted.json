@@ -1,0 +1,222 @@
+{
+  "chart_id": "BubbleChart16",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart16.png",
+    "with_grid": "gt_grid/BubbleChart16_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart16_grid.png"
+  },
+  "data_points": {
+    "Democratic Republic of Congo": [
+      844.172,
+      60.9789
+    ],
+    "Malawi": [
+      1190.0509,
+      66.037
+    ],
+    "Chad": [
+      1393.5635,
+      54.5275
+    ],
+    "North Korea": [
+      1568.847,
+      73.6411
+    ],
+    "Mali": [
+      1651.9413,
+      60.0347
+    ],
+    "Ethiopia": [
+      2289.409,
+      66.8971
+    ],
+    "Lesotho": [
+      2312.9583,
+      56.8119
+    ],
+    "Kenya": [
+      3403.9238,
+      63.5491
+    ],
+    "Palestine": [
+      4775.202,
+      76.6624
+    ],
+    "Nigeria": [
+      5070.4927,
+      54.079
+    ],
+    "Pakistan": [
+      5531.723,
+      67.4167
+    ],
+    "Angola": [
+      6118.905,
+      64.2455
+    ],
+    "India": [
+      7765.593,
+      71.6984
+    ],
+    "South Africa": [
+      11415.887,
+      65.4536
+    ],
+    "Indonesia": [
+      12801.671,
+      70.9246
+    ],
+    "Algeria": [
+      13506.444,
+      76.1289
+    ],
+    "China": [
+      19238.18,
+      78.2021
+    ],
+    "Equatorial Guinea": [
+      22707.22,
+      63.3545
+    ],
+    "Russia": [
+      25437.107,
+      72.5174
+    ],
+    "Japan": [
+      38268.79,
+      84.0541
+    ],
+    "United States": [
+      58487.465,
+      77.9789
+    ]
+  },
+  "x_ticks": [
+    1000,
+    1500.0,
+    2000,
+    3500.0,
+    5000,
+    7500.0,
+    10000,
+    15000.0,
+    20000,
+    35000.0,
+    50000,
+    75000.0,
+    100000
+  ],
+  "y_ticks": [
+    20,
+    25.0,
+    30,
+    35.0,
+    40,
+    45.0,
+    50,
+    55.0,
+    60,
+    65.0,
+    70,
+    75.0,
+    80
+  ],
+  "x_pixels": [
+    130,
+    170,
+    211,
+    265,
+    319,
+    360,
+    400,
+    441,
+    482,
+    536,
+    589,
+    630,
+    671
+  ],
+  "y_pixels": [
+    463,
+    437,
+    411,
+    385,
+    359,
+    333,
+    307,
+    281,
+    255,
+    230,
+    204,
+    178,
+    152
+  ],
+  "series_color": {
+    "Democratic Republic of Congo": [
+      "#B577B0"
+    ],
+    "Malawi": [
+      "#B577B0"
+    ],
+    "Chad": [
+      "#B577B0"
+    ],
+    "North Korea": [
+      "#339D98"
+    ],
+    "Mali": [
+      "#B577B0"
+    ],
+    "Ethiopia": [
+      "#B577B0"
+    ],
+    "Lesotho": [
+      "#B577B0"
+    ],
+    "Kenya": [
+      "#B577B0"
+    ],
+    "Palestine": [
+      "#339D98"
+    ],
+    "Nigeria": [
+      "#B577B0"
+    ],
+    "Pakistan": [
+      "#339D98"
+    ],
+    "Angola": [
+      "#B577B0"
+    ],
+    "India": [
+      "#339D98"
+    ],
+    "South Africa": [
+      "#B577B0"
+    ],
+    "Indonesia": [
+      "#339D98"
+    ],
+    "Algeria": [
+      "#B577B0"
+    ],
+    "China": [
+      "#339D98"
+    ],
+    "Equatorial Guinea": [
+      "#B577B0"
+    ],
+    "Russia": [
+      "#7088B0"
+    ],
+    "Japan": [
+      "#339D98"
+    ],
+    "United States": [
+      "#EA8B7B"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart16_encrypted.json"
+}

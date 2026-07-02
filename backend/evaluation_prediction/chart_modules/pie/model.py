@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import base64
 import random
+import re
 import sys
 from typing import Any
 
@@ -62,6 +63,18 @@ def normalize_value(value: Any) -> Any:
     if isinstance(value, list):
         return [normalize_value(v) for v in value]
     return value
+
+
+def _extract_json_object(text: str) -> str:
+    cleaned = re.sub(r"^```json", "", text.strip())
+    cleaned = re.sub(r"```$", "", cleaned).strip()
+    if cleaned.startswith("{") and cleaned.endswith("}"):
+        return cleaned
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start >= 0 and end > start:
+        return cleaned[start : end + 1]
+    return cleaned
 
 
 def _same_label(left: Any, right: Any) -> bool:
@@ -143,6 +156,7 @@ async def call_llm_once(prompt: str, image_path: str, item_name: str | None = No
         txt = txt[7:-3].strip()
 
     try:
+        txt = _extract_json_object(txt)
         parsed = await parse_model_output(txt, prompt)
         if not parsed:
             raise ValueError("Failed to parse model output")

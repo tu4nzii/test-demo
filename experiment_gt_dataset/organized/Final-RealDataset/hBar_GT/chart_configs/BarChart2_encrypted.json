@@ -1,0 +1,82 @@
+{
+  "chart_id": "BarChart2",
+  "image_paths": {
+    "no_grid": "chart/BarChart2.png",
+    "with_grid": "gt_grid/BarChart2_grid.png",
+    "grid_with_grid": "gt_grid/BarChart2_grid.png"
+  },
+  "data_points": {
+    "none": {
+      "South Korea": 400,
+      "Canada": 430,
+      "United Kingdom": 448,
+      "Netherlands": 470,
+      "Italy": 540,
+      "France": 580,
+      "Japan": 690,
+      "United States": 1100,
+      "China": 1200,
+      "Germany": 1380
+    }
+  },
+  "x_ticks": [
+    0,
+    100.0,
+    200,
+    300.0,
+    400,
+    500.0,
+    600,
+    700.0,
+    800,
+    900.0,
+    1000,
+    1100.0,
+    1200
+  ],
+  "y_ticks": [
+    "Germany",
+    "China",
+    "United States",
+    "Japan",
+    "France",
+    "Italy",
+    "Netherlands",
+    "United Kingdom",
+    "Canada",
+    "South Korea"
+  ],
+  "x_pixels": [
+    110,
+    148,
+    186,
+    224,
+    262,
+    300,
+    338,
+    376,
+    414,
+    452,
+    490,
+    528,
+    566
+  ],
+  "y_pixels": [
+    317,
+    285,
+    255,
+    226,
+    194,
+    164,
+    134,
+    103,
+    73,
+    43
+  ],
+  "series_color": {
+    "none": "#26A0FC"
+  },
+  "chart_type": "h_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "hbar_real_datasets\\chart_configs\\BarChart2_encrypted.json"
+}

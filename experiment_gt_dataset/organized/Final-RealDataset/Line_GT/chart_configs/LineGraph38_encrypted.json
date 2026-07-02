@@ -1,0 +1,74 @@
+{
+  "chart_id": "lineGraph38",
+  "image_paths": {
+    "no_grid": "chart/LineGraph38.png",
+    "with_grid": "gt_grid/LineGraph38_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph38_grid.png"
+  },
+  "data_points": {
+    "Annual average": {
+      "Oct 31,1988": 8.11,
+      "Feb 25,1998": 8.1,
+      "Aug 18.2003": 8.0899,
+      "Feb 7.2009": 8.1084,
+      "Jul 31.2014": 8.0704,
+      "Sep 1.2022": 8.0455
+    },
+    "Monthly average": {
+      "Feb 25,1998": 8.113,
+      "Aug 18.2003": 8.08,
+      "Feb 7.2009": 8.0812,
+      "Jul 31.2014": 8.0513,
+      "Sep 1.2022": 8.0342
+    }
+  },
+  "x_ticks": [
+    "Oct 31,1988",
+    "Feb 25,1998",
+    "Aug 18.2003",
+    "Feb 7.2009",
+    "Jul 31.2014",
+    "Sep 1.2022"
+  ],
+  "y_ticks": [
+    8.04,
+    8.05,
+    8.06,
+    8.07,
+    8.08,
+    8.09,
+    8.1,
+    8.11,
+    8.12,
+    8.129999999999999,
+    8.14
+  ],
+  "x_pixels": [
+    68,
+    242,
+    344,
+    446,
+    548,
+    698
+  ],
+  "y_pixels": [
+    469,
+    434,
+    400,
+    366,
+    332,
+    298,
+    263,
+    229,
+    195,
+    160,
+    126
+  ],
+  "series_color": {
+    "Annual average": "#042C5E",
+    "Monthly average": "#C15065"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph38_encrypted.json"
+}

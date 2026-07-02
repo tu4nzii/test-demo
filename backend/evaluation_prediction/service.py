@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import asyncio
+import os
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -21,13 +23,27 @@ SUPPORTED_PREDICTION_TYPES = {
 SUPPORTED_BAR_TYPES = {"v_bar", "h_bar"}
 
 
+def sync_results_root_from_env() -> None:
+    """Keep already-imported runners aligned with the experiment output root."""
+    raw = os.getenv("EVALUATION_PREDICTION_RESULTS_ROOT")
+    if not raw:
+        return
+    root = Path(raw).expanduser().resolve()
+
+    from .common import paths as common_paths
+
+    common_paths.RESULTS_ROOT = root
+    for module_name, module in list(sys.modules.items()):
+        if not module_name.startswith("backend.evaluation_prediction") and not module_name.startswith("evaluation_prediction"):
+            continue
+        if hasattr(module, "RESULTS_ROOT"):
+            setattr(module, "RESULTS_ROOT", root)
+        if module_name.endswith(".chart_modules.line.visual") and hasattr(module, "RESULT_ROOT"):
+            setattr(module, "RESULT_ROOT", root / "line")
+
+
 def normalize_prediction_type(chart_type: str) -> str:
-    text = str(chart_type or "").lower()
-    if text == "v_stacked_bar":
-        return "v_bar"
-    if text == "h_stacked_bar":
-        return "h_bar"
-    return text
+    return str(chart_type or "").lower()
 
 
 async def run_bar_prediction_async(
@@ -36,6 +52,7 @@ async def run_bar_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
+    sync_results_root_from_env()
     chart_type = normalize_prediction_type(chart_type)
     if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment
@@ -68,6 +85,7 @@ async def run_prediction_async(
     *,
     batch_size: int | None = 1,
 ) -> list[dict[str, Any]]:
+    sync_results_root_from_env()
     chart_type = normalize_prediction_type(chart_type)
     if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment

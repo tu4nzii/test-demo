@@ -1,0 +1,137 @@
+{
+  "chart_id": "radarchart_4",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "chart/RadarChart4.png",
+    "with_grid": "gt_grid/RadarChart4_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RadarChart4_gt_encrypt.png"
+  },
+  "labels": [
+    "Timeliness",
+    "Consistency",
+    "Validity",
+    "Completeness",
+    "Accuracy",
+    "Uniqueness"
+  ],
+  "data_points": {
+    "Data Quality": {
+      "Timeliness": 52.46,
+      "Consistency": 60,
+      "Validity": 60,
+      "Completeness": 55,
+      "Accuracy": 50,
+      "Uniqueness": 80
+    }
+  },
+  "theta_ticks": [
+    "Timeliness",
+    "Consistency",
+    "Validity",
+    "Completeness",
+    "Accuracy",
+    "Uniqueness"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    25.0,
+    50.0,
+    75.0,
+    100.0
+  ],
+  "r_pixels": [
+    37.0,
+    75.0,
+    112.0,
+    150.0
+  ],
+  "center": [
+    200,
+    200
+  ],
+  "series_color": {
+    "Data Quality": "#ff9999"
+  },
+  "num_entities": 1,
+  "fill_enabled": true,
+  "num_vars": 6,
+  "pred_coords": [
+    200,
+    200
+  ],
+  "argument": {
+    "a": 1.5039999999999998,
+    "b": -0.49999999999994815,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Timeliness": "0",
+    "Consistency": "60",
+    "Validity": "120",
+    "Completeness": "180",
+    "Accuracy": "240",
+    "Uniqueness": "300"
+  },
+  "image": "RadarChart4.png",
+  "json": "RadarChart4.json",
+  "output": "RadarChart4_gt_encrypt.png",
+  "source_files": {
+    "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart4.json",
+    "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart4.png"
+  },
+  "data": {
+    "Data Quality": {
+      "Timeliness": 52.46,
+      "Consistency": 80.57,
+      "Validity": 84.54,
+      "Completeness": 91.82,
+      "Accuracy": 41.5,
+      "Uniqueness": 27.02
+    }
+  },
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      12.5,
+      25.0,
+      37.5,
+      50.0,
+      62.5,
+      75.0,
+      87.5,
+      100.0
+    ],
+    "encrypted_r_pixels": [
+      18.5,
+      37.0,
+      56.0,
+      75.0,
+      93.5,
+      112.0,
+      131.0,
+      150.0
+    ],
+    "encrypted_ring_ticks": [
+      12.5,
+      37.5,
+      62.5,
+      87.5
+    ],
+    "encrypted_ring_pixels": [
+      18.5,
+      56.0,
+      93.5,
+      131.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Real_radarchart_withgrid\\RadarChart4.json"
+}

@@ -1,0 +1,73 @@
+{
+  "chart_id": "GroupedBarChart14",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart14.png",
+    "with_grid": "gt_grid/GroupedBarChart14_grid.png",
+    "grid_with_grid": "gt_grid/GroupedBarChart14_grid.png"
+  },
+  "data_points": {
+    "2008": {
+      "Firma A": 10,
+      "Firma B": 20
+    },
+    "2009": {
+      "Firma A": 20,
+      "Firma B": 30
+    },
+    "2010": {
+      "Firma A": 30,
+      "Firma B": 40
+    },
+    "2011": {
+      "Firma A": 40,
+      "Firma B": 50
+    }
+  },
+  "x_ticks": [
+    "Firma A",
+    "Firma B"
+  ],
+  "y_ticks": [
+    0,
+    5.0,
+    10,
+    15.0,
+    20,
+    25.0,
+    30,
+    35.0,
+    40,
+    45.0,
+    50,
+    55.0,
+    60
+  ],
+  "x_pixels": [
+    177,
+    427
+  ],
+  "y_pixels": [
+    396,
+    364,
+    332,
+    300,
+    268,
+    236,
+    204,
+    172,
+    140,
+    108,
+    76,
+    44,
+    12
+  ],
+  "series_color": {
+    "2008": "#4F81BD",
+    "2009": "#C0504D",
+    "2010": "#9BBB59",
+    "2011": "#8064A2"
+  },
+  "chart_type": "v_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "vbar_real_datasets\\chart_configs\\GroupedBarChart14_encrypted.json"
+}

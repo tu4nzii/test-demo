@@ -1,0 +1,81 @@
+{
+  "chart_id": "GroupedBarChart16",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart16.png",
+    "with_grid": "gt_grid/GroupedBarChart16_grid.png",
+    "grid_with_grid": "gt_grid/GroupedBarChart16_grid.png"
+  },
+  "data_points": {
+    "deep blue": {
+      "Q1": 100,
+      "Q2": 123.5,
+      "Q3": 234.5,
+      "Q4": 291.5
+    },
+    "yellow": {
+      "Q1": 120.5,
+      "Q2": 67.5,
+      "Q3": 231.5,
+      "Q4": 197.5
+    },
+    "green": {
+      "Q1": 45.5,
+      "Q2": 124.5,
+      "Q3": 189.5,
+      "Q4": 143.5
+    },
+    "blue": {
+      "Q1": 87,
+      "Q2": 154.5,
+      "Q3": 210.5,
+      "Q4": 215.5
+    }
+  },
+  "x_ticks": [
+    0,
+    25.0,
+    50,
+    75.0,
+    100,
+    125.0,
+    150,
+    175.0,
+    200,
+    225.0,
+    250
+  ],
+  "y_ticks": [
+    "Q4",
+    "Q3",
+    "Q2",
+    "Q1"
+  ],
+  "x_pixels": [
+    30,
+    80,
+    130,
+    180,
+    231,
+    281,
+    331,
+    381,
+    431,
+    481,
+    531
+  ],
+  "y_pixels": [
+    330,
+    248,
+    166,
+    84
+  ],
+  "series_color": {
+    "deep blue": "#1274AC",
+    "yellow": "#FFE162",
+    "green": "#4CD180",
+    "blue": "#0074E6"
+  },
+  "chart_type": "h_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "hbar_real_datasets\\chart_configs\\GroupedBarChart16_encrypted.json"
+}

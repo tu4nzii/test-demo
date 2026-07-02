@@ -121,4 +121,4 @@ backend/model_api_config.py
 model_api_config.py
 ```
 
-当前默认 Gemini profile 为 `gemini-2.5-flash-lite`。密钥通过本地 ignored secret 或环境变量注入。
+当前默认 Gemini profile 为 `gemini-2.5-flash-nothinking`。密钥通过本地 ignored secret 或环境变量注入。

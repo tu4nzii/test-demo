@@ -1,0 +1,119 @@
+{
+  "chart_id": "GroupedBarChart20",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart20.png",
+    "with_grid": "gt_grid/GroupedBarChart20_grid.png",
+    "grid_with_grid": "gt_grid/GroupedBarChart20_grid.png"
+  },
+  "data_points": {
+    "IF": {
+      "Fair": 15.87,
+      "Good": 79.35,
+      "Very Good": 285.66,
+      "Premium": 253.92,
+      "Ideal": 1222.18
+    },
+    "VVS1": {
+      "Fair": 15.87,
+      "Good": 206.31,
+      "Very Good": 809.37,
+      "Premium": 634.8,
+      "Ideal": 2079.35
+    },
+    "VVS2": {
+      "Fair": 190.44,
+      "Good": 301.53,
+      "Very Good": 1253.92,
+      "Premium": 888.72,
+      "Ideal": 2634.8
+    },
+    "VS1": {
+      "Fair": 285.66,
+      "Good": 666.54,
+      "Very Good": 1793.5,
+      "Premium": 1984.13,
+      "Ideal": 3618.93
+    },
+    "VS2": {
+      "Fair": 396.75,
+      "Good": 1000,
+      "Very Good": 2681.93,
+      "Premium": 3380.88,
+      "Ideal": 5095.22
+    },
+    "SI1": {
+      "Fair": 428.49,
+      "Good": 1571.32,
+      "Very Good": 3269.79,
+      "Premium": 3603.06,
+      "Ideal": 4301.53
+    },
+    "SI2": {
+      "Fair": 491.97,
+      "Good": 1095.22,
+      "Very Good": 2126.96,
+      "Premium": 2984.13,
+      "Ideal": 3618.93
+    },
+    "I1": {
+      "Fair": 238.05,
+      "Good": 111.09,
+      "Very Good": 111.09,
+      "Premium": 253.92,
+      "Ideal": 174.57
+    }
+  },
+  "x_ticks": [
+    "Fair",
+    "Good",
+    "Very Good",
+    "Premium",
+    "Ideal"
+  ],
+  "y_ticks": [
+    0,
+    500.0,
+    1000,
+    1500.0,
+    2000,
+    2500.0,
+    3000,
+    3500.0,
+    4000,
+    4500.0,
+    5000
+  ],
+  "x_pixels": [
+    135,
+    282,
+    428,
+    576,
+    724
+  ],
+  "y_pixels": [
+    360,
+    328,
+    297,
+    266,
+    235,
+    204,
+    172,
+    140,
+    109,
+    78,
+    46
+  ],
+  "series_color": {
+    "IF": "#FDE725",
+    "VVS1": "#9FDA3A",
+    "VVS2": "#4AC16D",
+    "VS1": "#1FA187",
+    "VS2": "#277F8E",
+    "SI1": "#365C8D",
+    "SI2": "#46337E",
+    "I1": "#440154"
+  },
+  "chart_type": "v_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "vbar_real_datasets\\chart_configs\\GroupedBarChart20_encrypted.json"
+}

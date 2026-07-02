@@ -1,0 +1,327 @@
+{
+  "chart_id": "ScatterPlot6",
+  "chart_type": "scatter",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot6.png",
+    "with_grid": "gt_grid/ScatterPlot6_grid.png",
+    "grid_with_grid": "gt_grid/ScatterPlot6_grid.png"
+  },
+  "data_points": {
+    "Costa Rica": [
+      26973.436,
+      7.274
+    ],
+    "Denmark": [
+      71431.29,
+      7.521
+    ],
+    "Australia": [
+      60303.98,
+      6.974
+    ],
+    "Ireland": [
+      119037.734,
+      6.889
+    ],
+    "France": [
+      54799.348,
+      6.593
+    ],
+    "Bahrain": [
+      58891.832,
+      6.03
+    ],
+    "Hong Kong": [
+      66153.98,
+      5.491
+    ],
+    "Russia": [
+      41704.71,
+      5.945
+    ],
+    "Turkey": [
+      36154.492,
+      5.262
+    ],
+    "Argentina": [
+      26771.965,
+      6.397
+    ],
+    "Brazil": [
+      19652.365,
+      6.494
+    ],
+    "Belize": [
+      12621.408,
+      6.711
+    ],
+    "Nicaragua": [
+      7661.602,
+      6.33
+    ],
+    "Honduras": [
+      6585.8555,
+      5.964
+    ],
+    "Ecuador": [
+      13935.539,
+      5.965
+    ],
+    "Algeria": [
+      15501.92,
+      5.571
+    ],
+    "Azerbaijan": [
+      22072.148,
+      4.875
+    ],
+    "Iran": [
+      17484.133,
+      5.093
+    ],
+    "Iraq": [
+      12725.043,
+      4.976
+    ],
+    "Laos": [
+      8600.324,
+      5.301
+    ],
+    "Nepal": [
+      5046.816,
+      5.311
+    ],
+    "Bangladesh": [
+      8486.785,
+      3.851
+    ],
+    "Cambodia": [
+      7008.889,
+      4.341
+    ],
+    "Tunisia": [
+      12774.916,
+      4.552
+    ],
+    "Egypt": [
+      16798.152,
+      3.817
+    ],
+    "Botswana": [
+      18068.506,
+      3.438
+    ],
+    "Zimbabwe": [
+      5215.253,
+      3.396
+    ],
+    "Cameroon": [
+      4916.9336,
+      4.887
+    ],
+    "Benin": [
+      3901.326,
+      4.357
+    ],
+    "Comoros": [
+      3482.535,
+      3.754
+    ],
+    "Chad": [
+      2412.866,
+      4.384
+    ],
+    "Liberia": [
+      1646.0586,
+      4.277
+    ],
+    "Niger": [
+      1803.4369,
+      4.725
+    ],
+    "Mozambique": [
+      1500.3143,
+      5.19
+    ],
+    "DR Congo": [
+      1602.075,
+      3.469
+    ]
+  },
+  "x_ticks": [
+    2000,
+    3500.0,
+    5000,
+    7500.0,
+    10000,
+    15000.0,
+    20000,
+    35000.0,
+    50000,
+    75000.0,
+    100000
+  ],
+  "y_ticks": [
+    2,
+    2.5,
+    3,
+    3.5,
+    4,
+    4.5,
+    5,
+    5.5,
+    6,
+    6.5,
+    7
+  ],
+  "x_pixels": [
+    122,
+    187,
+    252,
+    302,
+    351,
+    400,
+    449,
+    514,
+    580,
+    629,
+    678
+  ],
+  "y_pixels": [
+    454,
+    426,
+    397,
+    369,
+    341,
+    312,
+    284,
+    256,
+    228,
+    200,
+    172
+  ],
+  "series_color": {
+    "Albania": [
+      "#7088B0"
+    ],
+    "Algeria": [
+      "#B577B0"
+    ],
+    "Argentina": [
+      "#A05961"
+    ],
+    "Australia": [
+      "#60BBC8"
+    ],
+    "Azerbaijan": [
+      "#339D98"
+    ],
+    "Burundi": [
+      "#B577B0"
+    ],
+    "Mozambique": [
+      "#B577B0"
+    ],
+    "DR Congo": [
+      "#B577B0"
+    ],
+    "Liberia": [
+      "#B577B0"
+    ],
+    "Niger": [
+      "#B577B0"
+    ],
+    "Chad": [
+      "#B577B0"
+    ],
+    "Rwanda": [
+      "#B577B0"
+    ],
+    "Comoros": [
+      "#B577B0"
+    ],
+    "Benin": [
+      "#B577B0"
+    ],
+    "Cmeroon": [
+      "#B577B0"
+    ],
+    "Nigeria": [
+      "#B577B0"
+    ],
+    "Tunisia": [
+      "#B577B0"
+    ],
+    "Egypt": [
+      "#B577B0"
+    ],
+    "Botswana": [
+      "#B577B0"
+    ],
+    "Nepal": [
+      "#339D98"
+    ],
+    "Cambodia": [
+      "#339D98"
+    ],
+    "Bangladesh": [
+      "#339D98"
+    ],
+    "Laos": [
+      "#339D98"
+    ],
+    "Lebanon": [
+      "#339D98"
+    ],
+    "Iraq": [
+      "#339D98"
+    ],
+    "Iran": [
+      "#339D98"
+    ],
+    "Turkey": [
+      "#339D98"
+    ],
+    "Bahrain": [
+      "#339D98"
+    ],
+    "Hong Kong": [
+      "#339D98"
+    ],
+    "Honduras": [
+      "#EA8B7B"
+    ],
+    "Nicaragua": [
+      "#EA8B7B"
+    ],
+    "Belize": [
+      "#EA8B7B"
+    ],
+    "Costa Rica": [
+      "#EA8B7B"
+    ],
+    "Ecuador": [
+      "#A05961"
+    ],
+    "Brazil": [
+      "#A05961"
+    ],
+    "Belarus": [
+      "#7088B0"
+    ],
+    "Russia": [
+      "#7088B0"
+    ],
+    "France": [
+      "#7088B0"
+    ],
+    "Denmark": [
+      "#7088B0"
+    ],
+    "Ireland": [
+      "#7088B0"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\scatter\\ScatterPlot6_encrypted.json"
+}

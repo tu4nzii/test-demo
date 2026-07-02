@@ -12,11 +12,6 @@ async def _run(
     chart_ids: list[str] | None,
     config_paths: list[str] | None,
 ) -> None:
-    if chart_type == "v_stacked_bar":
-        chart_type = "v_bar"
-    elif chart_type == "h_stacked_bar":
-        chart_type = "h_bar"
-
     if chart_type == "v_bar":
         from .chart_modules.v_bar.runner import run_experiment
 

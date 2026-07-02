@@ -2,13 +2,21 @@
 
 from __future__ import annotations
 
-from math import hypot
 from pathlib import Path
 from typing import Any, Callable
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from ...common.amplifier_style import (
+    AMPLIFIER_GRID_COLOR,
+    AMPLIFIER_POINT_DASH_GAP,
+    AMPLIFIER_POINT_DASH_LENGTH,
+    AMPLIFIER_TARGET_SIDE,
+    draw_centered_label_box,
+    draw_amplifier_dashed_line,
+    draw_rotated_centered_label_box,
+)
 from ...common.chart_io import ensure_dir, safe_filename
 
 from .data import PointChartConfig
@@ -49,25 +57,20 @@ def _draw_dashed_line(
     start: tuple[float, float],
     end: tuple[float, float],
     *,
-    fill: str | tuple[int, int, int] = "gray",
+    fill: str | tuple[int, int, int] = AMPLIFIER_GRID_COLOR,
     width: int = 1,
-    dash_length: int = 1,
-    gap_length: int = 4,
+    dash_length: int = AMPLIFIER_POINT_DASH_LENGTH,
+    gap_length: int = AMPLIFIER_POINT_DASH_GAP,
 ) -> None:
-    x1, y1 = start
-    x2, y2 = end
-    total = hypot(x2 - x1, y2 - y1)
-    if total <= 0:
-        return
-    step = dash_length + gap_length
-    for index in range(int(total // step) + 1):
-        start_frac = (index * step) / total
-        end_frac = min((index * step + dash_length) / total, 1)
-        sx = x1 + (x2 - x1) * start_frac
-        sy = y1 + (y2 - y1) * start_frac
-        ex = x1 + (x2 - x1) * end_frac
-        ey = y1 + (y2 - y1) * end_frac
-        draw.line([(sx, sy), (ex, ey)], fill=fill, width=width)
+    draw_amplifier_dashed_line(
+        draw,
+        start,
+        end,
+        fill=fill,
+        width=width,
+        dash_length=dash_length,
+        gap_length=gap_length,
+    )
 
 
 def _draw_tick_text(
@@ -83,16 +86,22 @@ def _draw_tick_text(
     bbox = draw.textbbox((0, 0), text, font=font)
     text_w, text_h = bbox[2] - bbox[0], bbox[3] - bbox[1]
     if axis == "x":
-        txt_img = Image.new("RGBA", (max(1, text_w * 3), max(1, text_h * 3)), (255, 255, 255, 0))
-        txt_draw = ImageDraw.Draw(txt_img)
-        txt_draw.text((text_w * 1.5, text_h * 1.5), text, fill=color, font=font, anchor="mm")
-        rotated = txt_img.rotate(45, expand=1, resample=Image.BICUBIC)
-        crop_box = rotated.getbbox()
-        if crop_box:
-            rotated = rotated.crop(crop_box)
-        image.paste(rotated, (int(position - rotated.width / 2), image.height - rotated.height), rotated)
+        draw_rotated_centered_label_box(
+            image,
+            text,
+            (position, image.height - max(12, text_h)),
+            45,
+            font=font,
+            fill=color,
+        )
     else:
-        draw.text((4, position - text_h / 2), text, fill=color, font=font)
+        draw_centered_label_box(
+            draw,
+            text,
+            (6 + text_w / 2, position),
+            font=font,
+            fill=color,
+        )
 
 
 def draw_prediction_overlay(
@@ -146,10 +155,10 @@ def crop_draw_ticks_resize(
     y_pixels: list[int],
     feedback_round: int = 1,
     window_size: int = 120,
-    output_size: tuple[int, int] | None = (224, 224),
-    font_size: int = 10,
-    x_grid_density: int = 0,
-    y_grid_density: int = 0,
+    output_size: tuple[int, int] | None = (AMPLIFIER_TARGET_SIDE, AMPLIFIER_TARGET_SIDE),
+    font_size: int = 18,
+    x_grid_density: int = 2,
+    y_grid_density: int = 2,
 ) -> tuple[Path, list[float], list[float], list[float], list[float], Callable[[float, float], tuple[float, float]], int, int]:
     img = Image.open(image_path).convert("RGB")
     width, height = img.size
@@ -175,7 +184,7 @@ def crop_draw_ticks_resize(
     def add_x_tick(value: float, pixel: float, *, interpolated: bool = False) -> None:
         if left <= pixel <= right:
             rel = pixel - left
-            _draw_dashed_line(draw, (rel, 0), (rel, crop.height), fill="lightgray" if interpolated else "gray")
+            _draw_dashed_line(draw, (rel, 0), (rel, crop.height))
             _draw_tick_text(crop, draw, rel, _format_tick_value(value), axis="x", font=font)
             new_x_ticks.append(round(float(value), 4))
             new_x_pixels.append(float(rel))
@@ -183,7 +192,7 @@ def crop_draw_ticks_resize(
     def add_y_tick(value: float, pixel: float, *, interpolated: bool = False) -> None:
         if upper <= pixel <= lower:
             rel = pixel - upper
-            _draw_dashed_line(draw, (0, rel), (crop.width, rel), fill="lightgray" if interpolated else "gray")
+            _draw_dashed_line(draw, (0, rel), (crop.width, rel))
             _draw_tick_text(crop, draw, rel, _format_tick_value(value), axis="y", font=font)
             new_y_ticks.append(round(float(value), 4))
             new_y_pixels.append(float(rel))
@@ -242,14 +251,21 @@ def generate_expanded_crop_with_grid_by_diameter(
     diameter: float,
     feedback_round: int = 1,
     base_crop_size: int = 120,
-    resize_to: tuple[int, int] = (224, 224),
+    resize_to: tuple[int, int] = (AMPLIFIER_TARGET_SIDE, AMPLIFIER_TARGET_SIDE),
 ) -> tuple[Path, list[float], list[float], list[float], list[float], Callable[[float, float], tuple[float, float]], int, int]:
     base_img = Image.open(image_path).convert("RGB")
     pixel_x, pixel_y = data_to_pixel(pred_coord, x_ticks, y_ticks, x_pixels, y_pixels)
     diameter = max(8.0, min(float(diameter), 180.0))
     rounded_diameter = round(diameter / 10) * 10
     grid_span = diameter * 2 if rounded_diameter <= 10 else diameter
-    canvas_size = max(base_crop_size, int(grid_span * 6))
+    x_value_span = float(x_ticks[1]) - float(x_ticks[0]) if len(x_ticks) > 1 else 1.0
+    y_value_span = float(y_ticks[1]) - float(y_ticks[0]) if len(y_ticks) > 1 else 1.0
+    x_pixel_span = float(x_pixels[1]) - float(x_pixels[0]) if len(x_pixels) > 1 else 20.0
+    y_pixel_span = float(y_pixels[1]) - float(y_pixels[0]) if len(y_pixels) > 1 else 20.0
+    axis_local_span = min(abs(x_pixel_span), abs(y_pixel_span))
+    if axis_local_span > 0:
+        grid_span = max(12.0, min(grid_span, axis_local_span / 3.0))
+    canvas_size = max(base_crop_size, int(grid_span * 8))
 
     left = int(max(pixel_x - base_crop_size // 2, 0))
     upper = int(max(pixel_y - base_crop_size // 2, 0))
@@ -275,10 +291,6 @@ def generate_expanded_crop_with_grid_by_diameter(
 
     tick_x, px_x = closest_tick(pred_coord[0], x_ticks, x_pixels)
     tick_y, px_y = closest_tick(pred_coord[1], y_ticks, y_pixels)
-    x_value_span = float(x_ticks[1]) - float(x_ticks[0]) if len(x_ticks) > 1 else 1.0
-    y_value_span = float(y_ticks[1]) - float(y_ticks[0]) if len(y_ticks) > 1 else 1.0
-    x_pixel_span = float(x_pixels[1]) - float(x_pixels[0]) if len(x_pixels) > 1 else 20.0
-    y_pixel_span = float(y_pixels[1]) - float(y_pixels[0]) if len(y_pixels) > 1 else 20.0
 
     grid_center_x = paste_x + (px_x - left)
     grid_center_y = paste_y + (px_y - upper)
@@ -306,10 +318,10 @@ def generate_expanded_crop_with_grid_by_diameter(
                 tick_val = tick_start + direction * index * (grid_span / pixel_span) * value_span
                 scaled_pos = pos * scale
                 if axis == "x":
-                    _draw_dashed_line(draw, (scaled_pos, 0), (scaled_pos, resize_to[1]), fill="gray")
+                    _draw_dashed_line(draw, (scaled_pos, 0), (scaled_pos, resize_to[1]))
                     _draw_tick_text(resized, draw, scaled_pos, _format_tick_value(tick_val), axis="x", font=font)
                 else:
-                    _draw_dashed_line(draw, (0, scaled_pos), (resize_to[0], scaled_pos), fill="gray")
+                    _draw_dashed_line(draw, (0, scaled_pos), (resize_to[0], scaled_pos))
                     _draw_tick_text(resized, draw, scaled_pos, _format_tick_value(tick_val), axis="y", font=font)
                 if direction == 1:
                     tick_list.append(round(tick_val, 4))

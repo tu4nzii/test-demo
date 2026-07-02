@@ -9,6 +9,7 @@ import os
 import re
 from PIL import Image, ImageDraw, ImageFont
 
+from ...common.amplifier_style import amplifier_max_side, amplifier_target_side
 from .model import call_llm_once
 
 
@@ -219,6 +220,7 @@ def crop_sector_for_amplifier(
         return None
 
     def _llm_validate_contains(image_path_, item_name_):
+        return None
         import asyncio
         if "call_llm_once" not in globals():
             return None
@@ -388,7 +390,7 @@ def crop_sector_for_amplifier(
     # ----------------------------------------------------------------------
     # ⭐（7）若 zoom 过小 → 强制放大
     # ----------------------------------------------------------------------
-    MIN_TARGET = 1500
+    MIN_TARGET = amplifier_target_side(family="sector")
     zw, zh = zoomed.size
     ss = min(zw, zh)
 
@@ -400,6 +402,15 @@ def crop_sector_for_amplifier(
         )
         cx_new = int(cx_new * scale2)
         cy_new = int(cy_new * scale2)
+    long_side = max(zoomed.size)
+    if long_side > amplifier_max_side():
+        scale3 = amplifier_max_side() / long_side
+        zoomed = zoomed.resize(
+            (max(1, int(zoomed.width * scale3)), max(1, int(zoomed.height * scale3))),
+            Image.BICUBIC,
+        )
+        cx_new = int(cx_new * scale3)
+        cy_new = int(cy_new * scale3)
 
     # ----------------------------------------------------------------------
     # ⭐（8）扫描真实半径（新版）
@@ -920,6 +931,7 @@ def crop_sector_for_amplifier(
         return None
 
     def _llm_validate_contains(image_path_, item_name_):
+        return None
         import asyncio
         if "call_llm_once" not in globals():
             return None
@@ -1097,7 +1109,7 @@ def crop_sector_for_amplifier(
     # =====================================================
     # ⑤.5 若 zoom 后仍然太小 → 强制放大到目标尺寸
     # =====================================================
-    MIN_TARGET_SIZE = 1500
+    MIN_TARGET_SIZE = amplifier_target_side(family="sector")
 
     zw, zh = zoomed.size
     short_side_after_zoom = min(zw, zh)
@@ -1112,6 +1124,16 @@ def crop_sector_for_amplifier(
         cx_new = int(cx_new * scale2)
         cy_new = int(cy_new * scale2)
         print(f"[AMP AUTO-UPSCALE] enlarged ×{scale2:.2f} → size={zoomed.size}")
+    long_side = max(zoomed.size)
+    if long_side > amplifier_max_side():
+        scale3 = amplifier_max_side() / long_side
+        zoomed = zoomed.resize(
+            (max(1, int(zoomed.width * scale3)), max(1, int(zoomed.height * scale3))),
+            Image.BICUBIC,
+        )
+        cx_new = int(cx_new * scale3)
+        cy_new = int(cy_new * scale3)
+        print(f"[AMP AUTO-DOWNSCALE] capped ×{scale3:.2f} → size={zoomed.size}")
 
     # =====================================================
     # ⑥ 扫描真实半径（鲁棒版）

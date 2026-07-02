@@ -6,10 +6,12 @@ import re
 from pathlib import Path
 from typing import Any, Iterable
 import unicodedata
+import os
 
 from PIL import Image
 
 from .chart_io import read_json
+from .gt_grid_renderer import render_gt_grid_image
 from .paths import ASSETS_ROOT, BACKEND_ROOT, PROJECT_ROOT
 
 
@@ -39,10 +41,13 @@ def load_backend_generated_dataset(config_path: str | Path, chart_type: str) -> 
     merged.update(ticks)
     merged["chart_type"] = chart_type
     merged["chart_id"] = str(base.get("chart_id") or ticks.get("chart_id") or path.stem)
-    _strip_external_reference_data(merged)
-    # Backend upload prediction must not consume GT/reference data. Targets are
-    # derived from the current system output: ticks plus extracted colors/labels.
-    merged["data_points"] = {}
+    if _preserve_gt_targets():
+        _strip_external_reference_metadata(merged)
+    else:
+        _strip_external_reference_data(merged)
+        # Backend upload prediction must not consume GT/reference data. Targets are
+        # derived from the current system output: ticks plus extracted colors/labels.
+        merged["data_points"] = {}
     merged["series_color"] = _series_color(merged, chart_type)
     merged["image_paths"] = _image_paths(merged, path.parent, path)
 
@@ -103,10 +108,18 @@ def _data_points(dataset: dict[str, Any]) -> dict[str, Any]:
 
 
 def _strip_external_reference_data(dataset: dict[str, Any]) -> None:
-    dataset.pop("reference_config_path", None)
-    dataset.pop("reference_chart_id", None)
+    _strip_external_reference_metadata(dataset)
     for key in ("data", "data_points", "ground_truth", "labels"):
         dataset.pop(key, None)
+
+
+def _strip_external_reference_metadata(dataset: dict[str, Any]) -> None:
+    dataset.pop("reference_config_path", None)
+    dataset.pop("reference_chart_id", None)
+
+
+def _preserve_gt_targets() -> bool:
+    return os.getenv("CHART_EXPERIMENT_PRESERVE_GT", "").strip().lower() in {"1", "true", "yes"}
 
 
 def _series_color(dataset: dict[str, Any], chart_type: str | None = None) -> dict[str, str]:
@@ -276,6 +289,11 @@ def _image_paths(dataset: dict[str, Any], base_dir: Path, config_path: Path) -> 
         image_paths.get("with_grid"),
         dataset.get("basic_grid_path"),
     )
+    rendered_grid = None
+    if with_grid is None or not with_grid.exists():
+        rendered_grid = render_gt_grid_image(config_path, dataset=dataset)
+        if rendered_grid is not None:
+            with_grid = rendered_grid
     basic_grid = _first_path(
         base_dir,
         dataset.get("basic_grid_path"),
@@ -283,6 +301,8 @@ def _image_paths(dataset: dict[str, Any], base_dir: Path, config_path: Path) -> 
         image_paths.get("with_grid"),
         with_grid,
     )
+    if rendered_grid is not None and rendered_grid.exists() and (basic_grid is None or not basic_grid.exists()):
+        basic_grid = rendered_grid
 
     paths = {
         "no_grid": no_grid,
@@ -312,8 +332,12 @@ def _resolve_path(value: str | Path, base_dir: Path) -> Path:
     path = Path(value)
     if path.is_absolute():
         return path.resolve()
+    dataset_root = base_dir.parent
     candidates = [
         (base_dir / path).resolve(),
+        (dataset_root / path).resolve(),
+        (dataset_root / "charts" / path.name).resolve(),
+        (dataset_root / "chart" / path.name).resolve(),
         (BACKEND_ROOT / path).resolve(),
         (PROJECT_ROOT / path).resolve(),
     ]
@@ -349,10 +373,13 @@ def _prefer_data_categories(dataset: dict[str, Any], chart_type: str) -> None:
     labels = _category_labels(dataset)
     if not labels:
         return
+
     if (base_type == "v_bar" or chart_type == "line") and _same_length(dataset.get("x_pixels"), labels):
-        dataset["x_ticks"] = labels
+        if not _axis_labels_already_match(dataset.get("x_ticks"), labels):
+            dataset["x_ticks"] = _labels_for_existing_pixels("x", labels, dataset.get("x_pixels"))
     elif base_type == "h_bar" and _same_length(dataset.get("y_pixels"), labels):
-        dataset["y_ticks"] = labels
+        if not _axis_labels_already_match(dataset.get("y_ticks"), labels):
+            dataset["y_ticks"] = _labels_for_existing_pixels("y", labels, dataset.get("y_pixels"))
     elif base_type == "v_bar" or chart_type == "line":
         inferred = _infer_category_pixels(dataset, "x", len(labels))
         if inferred:
@@ -363,6 +390,27 @@ def _prefer_data_categories(dataset: dict[str, Any], chart_type: str) -> None:
         if inferred:
             dataset["y_ticks"] = labels
             dataset["y_pixels"] = inferred
+
+
+def _axis_labels_already_match(ticks: Any, labels: list[str]) -> bool:
+    if not isinstance(ticks, list) or len(ticks) != len(labels):
+        return False
+    normalized_ticks = [_normalize_text_label(value) for value in ticks]
+    if any(_is_placeholder_category_tick(value) for value in ticks):
+        return False
+    normalized_labels = [_normalize_text_label(value) for value in labels]
+    return set(normalized_ticks) == set(normalized_labels)
+
+
+def _labels_for_existing_pixels(axis: str, labels: list[str], pixels: Any) -> list[str]:
+    if axis != "y" or not isinstance(pixels, list) or len(pixels) < 2:
+        return labels
+    numeric_pixels = [float(value) for value in pixels if isinstance(value, (int, float))]
+    if len(numeric_pixels) != len(pixels):
+        return labels
+    if numeric_pixels[0] > numeric_pixels[-1]:
+        return list(reversed(labels))
+    return labels
 
 
 def _category_labels(dataset: dict[str, Any]) -> list[str]:

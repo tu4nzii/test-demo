@@ -1,0 +1,130 @@
+{
+  "chart_id": "Rose1",
+  "image_paths": {
+    "no_grid": "chart/Rose1.png",
+    "with_grid": "gt_grid/Rose1_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/Rose1_gt_encrypt.png"
+  },
+  "center": [
+    265,
+    259
+  ],
+  "series_color": {
+    "Product A": "#ff6384",
+    "Product B": "#36a2eb",
+    "Product C": "#cc65fe",
+    "Product D": "#ffce56",
+    "Product E": "#4bc0c0"
+  },
+  "r_ticks": [
+    0.0,
+    30.0,
+    60.0,
+    90.0,
+    120.0,
+    150.0
+  ],
+  "r_pixels": [
+    0.0,
+    34.0,
+    69.0,
+    103.0,
+    136.0,
+    171.0
+  ],
+  "theta_ticks": [
+    "Product A",
+    "Product B",
+    "Product C",
+    "Product D",
+    "Product E"
+  ],
+  "theta_angles": [
+    90.0,
+    18.0,
+    306.0,
+    234.0,
+    162.0
+  ],
+  "chart_type": "rose",
+  "pred_coords": [
+    265,
+    259
+  ],
+  "argument": {
+    "a": 1.1380952380952378,
+    "b": 0.1428571428571531,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Product A": "90",
+    "Product B": "18",
+    "Product C": "306",
+    "Product D": "234",
+    "Product E": "162"
+  },
+  "labels": [
+    "Product A",
+    "Product B",
+    "Product C",
+    "Product D",
+    "Product E"
+  ],
+  "data": {
+    "Product A": 120,
+    "Product B": 90,
+    "Product C": 150,
+    "Product D": 80,
+    "Product E": 130
+  },
+  "num_entities": 5,
+  "fill_enabled": true,
+  "num_vars": 5,
+  "image": "Rose1.png",
+  "json": "Rose1.json",
+  "output": "Rose1_gt_encrypt.png",
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      15.0,
+      30.0,
+      45.0,
+      60.0,
+      75.0,
+      90.0,
+      105.0,
+      120.0,
+      135.0,
+      150.0
+    ],
+    "encrypted_r_pixels": [
+      17.0,
+      34.0,
+      51.5,
+      69.0,
+      86.0,
+      103.0,
+      119.5,
+      136.0,
+      153.5,
+      171.0
+    ],
+    "encrypted_ring_ticks": [
+      15.0,
+      45.0,
+      75.0,
+      105.0,
+      135.0
+    ],
+    "encrypted_ring_pixels": [
+      17.0,
+      51.5,
+      86.0,
+      119.5,
+      153.5
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Realrosechart_withgrid\\Rose1.json"
+}

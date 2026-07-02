@@ -10,7 +10,23 @@ from ...common.axis_utils import marker_span_for_tick
 
 
 def build_numeric_mapper(tick_values: list[float], tick_pixels: list[int]):
-    return lambda value: float(np.interp(float(value), tick_values, tick_pixels))
+    pairs = sorted((float(value), float(pixel)) for value, pixel in zip(tick_values, tick_pixels))
+
+    def map_value(value: float) -> float:
+        target = float(value)
+        if len(pairs) < 2:
+            return pairs[0][1] if pairs else 0.0
+        if target < pairs[0][0]:
+            (v0, p0), (v1, p1) = pairs[0], pairs[1]
+        elif target > pairs[-1][0]:
+            (v0, p0), (v1, p1) = pairs[-2], pairs[-1]
+        else:
+            return float(np.interp(target, [item[0] for item in pairs], [item[1] for item in pairs]))
+        if v1 == v0:
+            return p1
+        return p0 + (target - v0) * (p1 - p0) / (v1 - v0)
+
+    return map_value
 
 
 def normalize_label(label: Any) -> str:

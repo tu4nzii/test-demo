@@ -1,0 +1,67 @@
+{
+  "chart_id": "rose_069",
+  "image_paths": {
+    "no_grid": "chart/rose_069.png",
+    "with_grid": "gt_grid/rose_069+encode.jpg",
+    "grid_with_grid": "gt_grid/rose_069+encode.jpg"
+  },
+  "center": {
+    "x": 461,
+    "y": 606
+  },
+  "data_points": {
+    "WR": 15.8,
+    "PEWR": 13.600000000000001,
+    "GXK": 14.0,
+    "DIIF": 14.600000000000001,
+    "DFG": 17.8,
+    "NCDK": 18.2,
+    "YHO": 12.4,
+    "OUER": 10.8,
+    "TM": 12.4
+  },
+  "series_color": {
+    "WR": "#f2f2f2",
+    "PEWR": "#ffffcc",
+    "GXK": "#e5d8bd",
+    "DIIF": "#fddaec",
+    "DFG": "#b3cde3",
+    "NCDK": "#fed9a6",
+    "YHO": "#decbe4",
+    "OUER": "#fbb4ae",
+    "TM": "#ccebc5"
+  },
+  "r_ticks": [
+    "10",
+    "20"
+  ],
+  "r_pixels": [
+    151,
+    302
+  ],
+  "theta_ticks": [
+    "WR",
+    "PEWR",
+    "GXK",
+    "DIIF",
+    "DFG",
+    "NCDK",
+    "YHO",
+    "OUER",
+    "TM"
+  ],
+  "theta_angles": [
+    0.0,
+    40.0,
+    80.0,
+    120.0,
+    160.0,
+    200.0,
+    240.0,
+    280.0,
+    320.0
+  ],
+  "chart_type": "rose",
+  "gt_grid_source": "provided",
+  "source_config_path": "Sy_rosechart_eval_50_withgrid\\eval_50\\rose_069.json"
+}

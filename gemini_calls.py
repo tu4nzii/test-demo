@@ -9,9 +9,11 @@ model_api_config.py.
 from __future__ import annotations
 
 import asyncio
+import contextvars
 import json
 import os
 import time
+import uuid
 from typing import Any, Iterable
 
 import aiohttp
@@ -29,6 +31,26 @@ BASE_TIMEOUT = aiohttp.ClientTimeout(
 MAX_RETRIES = int(os.getenv("MLLM_MAX_RETRIES", "3"))
 RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 FAILURE_TEXT = "The model API request failed."
+_MODAL_CONTEXT: contextvars.ContextVar[dict[str, Any]] = contextvars.ContextVar(
+    "modal_call_context",
+    default={},
+)
+_LAST_MODAL_CALL_ID: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "last_modal_call_id",
+    default=None,
+)
+
+
+def set_modal_call_context(context: dict[str, Any] | None) -> contextvars.Token:
+    return _MODAL_CONTEXT.set(dict(context or {}))
+
+
+def reset_modal_call_context(token: contextvars.Token) -> None:
+    _MODAL_CONTEXT.reset(token)
+
+
+def get_last_modal_call_id() -> str | None:
+    return _LAST_MODAL_CALL_ID.get()
 
 
 def _extract_response_text(result: dict[str, Any]) -> str:
@@ -54,6 +76,74 @@ def _extract_response_text(result: dict[str, Any]) -> str:
         return "\n".join(part.get("text", "") for part in parts if isinstance(part, dict))
 
     return ""
+
+
+def _text_prompt_from_messages(messages: list) -> str:
+    parts: list[str] = []
+    for message in messages:
+        if not isinstance(message, dict):
+            continue
+        content = message.get("content")
+        if isinstance(content, str):
+            parts.append(content)
+        elif isinstance(content, list):
+            for item in content:
+                if isinstance(item, dict) and item.get("type") == "text":
+                    parts.append(str(item.get("text") or ""))
+    return "\n".join(part for part in parts if part)
+
+
+def _rough_token_count(text: str) -> int:
+    if not text:
+        return 0
+    # Lightweight fallback when the OpenAI-compatible endpoint does not return usage.
+    return max(1, (len(text) + 3) // 4)
+
+
+def _usage(result: dict[str, Any] | None) -> dict[str, int | None]:
+    if not isinstance(result, dict):
+        return {"input_tokens": None, "output_tokens": None, "total_tokens": None}
+    usage = result.get("usage") if isinstance(result.get("usage"), dict) else {}
+    input_tokens = (
+        usage.get("prompt_tokens")
+        or usage.get("input_tokens")
+        or usage.get("promptTokenCount")
+    )
+    output_tokens = (
+        usage.get("completion_tokens")
+        or usage.get("output_tokens")
+        or usage.get("candidatesTokenCount")
+    )
+    total_tokens = usage.get("total_tokens") or usage.get("totalTokenCount")
+    return {
+        "input_tokens": int(input_tokens) if isinstance(input_tokens, (int, float)) else None,
+        "output_tokens": int(output_tokens) if isinstance(output_tokens, (int, float)) else None,
+        "total_tokens": int(total_tokens) if isinstance(total_tokens, (int, float)) else None,
+    }
+
+
+def _write_modal_log(entry: dict[str, Any]) -> None:
+    log_path = os.getenv("GT_MODAL_CALL_LOG_PATH", "").strip()
+    if not log_path:
+        return
+    try:
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        with open(log_path, "a", encoding="utf-8") as file:
+            file.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"Could not write modal call log: {exc}")
+
+
+def _write_modal_full_log(entry: dict[str, Any]) -> None:
+    log_path = os.getenv("GT_MODAL_FULL_LOG_PATH", "").strip()
+    if not log_path:
+        return
+    try:
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
+        with open(log_path, "a", encoding="utf-8") as file:
+            file.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except Exception as exc:
+        print(f"Could not write full modal call log: {exc}")
 
 
 def _normalize_urls(urls: Iterable[str] | None = None) -> list[str]:
@@ -105,6 +195,7 @@ async def chat_completion_request(
     headers: dict[str, str] | None = None,
     timeout: aiohttp.ClientTimeout | None = None,
     max_retries: int | None = None,
+    modal_context: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
     """Send one OpenAI-compatible chat-completions request with retries."""
     payload = _build_payload(
@@ -118,6 +209,33 @@ async def chat_completion_request(
     request_urls = _normalize_urls(urls)
     attempts = int(max_retries or MAX_RETRIES)
     request_timeout = timeout or BASE_TIMEOUT
+    text_prompt = _text_prompt_from_messages(messages)
+    prompt_text_tokens = _rough_token_count(text_prompt)
+    started_at = time.perf_counter()
+    context = {**_MODAL_CONTEXT.get(), **(modal_context or {})}
+    call_id = str(uuid.uuid4())
+    _LAST_MODAL_CALL_ID.set(call_id)
+    retry_events: list[dict[str, Any]] = []
+
+    def write_logs(entry: dict[str, Any], *, result: dict[str, Any] | None = None, response_text: str | None = None) -> None:
+        summary_entry = {
+            **context,
+            **entry,
+            "call_id": call_id,
+            "text_prompt_tokens": prompt_text_tokens,
+            "model": payload.get("model"),
+        }
+        _write_modal_log(summary_entry)
+        _write_modal_full_log(
+            {
+                **summary_entry,
+                "request_payload": payload,
+                "request_urls": request_urls,
+                "retry_events": retry_events,
+                "response_json": result,
+                "response_text": response_text,
+            }
+        )
 
     async with aiohttp.ClientSession(timeout=request_timeout) as session:
         for attempt in range(1, attempts + 1):
@@ -126,30 +244,90 @@ async def chat_completion_request(
                 async with session.post(url, headers=headers or get_headers(), json=payload) as response:
                     text = await response.text()
                     if response.status in RETRYABLE_STATUS:
+                        retry_events.append({"attempt": attempt, "url": url, "status": response.status, "text": text})
                         print(f"Retryable model API HTTP {response.status}: {text[:200]}")
                         await asyncio.sleep(min(2 * attempt, 20))
                         continue
                     if response.status != 200:
                         print(f"Model API HTTP {response.status}: {text[:200]}")
+                        duration_ms = round((time.perf_counter() - started_at) * 1000, 3)
+                        write_logs(
+                            {
+                                "attempts": attempt,
+                                "input_tokens": None,
+                                "output_tokens": None,
+                                "total_tokens": None,
+                                "request_duration_ms": duration_ms,
+                                "url": url,
+                                "success": False,
+                                "error": f"HTTP {response.status}",
+                                "response_status": response.status,
+                            },
+                            response_text=text,
+                        )
                         return None
 
                     try:
                         result = json.loads(text)
                     except json.JSONDecodeError:
                         print(f"Model API returned non-JSON response: {text[:200]}")
+                        duration_ms = round((time.perf_counter() - started_at) * 1000, 3)
+                        write_logs(
+                            {
+                                "attempts": attempt,
+                                "input_tokens": None,
+                                "output_tokens": None,
+                                "total_tokens": None,
+                                "request_duration_ms": duration_ms,
+                                "url": url,
+                                "success": False,
+                                "error": "non_json_response",
+                                "response_status": response.status,
+                            },
+                            response_text=text,
+                        )
                         return None
 
-                    if _extract_response_text(result):
+                    response_text = _extract_response_text(result)
+                    if response_text:
+                        duration_ms = round((time.perf_counter() - started_at) * 1000, 3)
+                        usage = _usage(result)
+                        write_logs(
+                            {
+                                "attempts": attempt,
+                                "input_tokens": usage["input_tokens"],
+                                "output_tokens": usage["output_tokens"],
+                                "total_tokens": usage["total_tokens"],
+                                "request_duration_ms": duration_ms,
+                                "url": url,
+                                "success": True,
+                                "raw_prediction": response_text,
+                            },
+                            result=result,
+                            response_text=response_text,
+                        )
                         return result
 
                     print(f"Unexpected model API response: {text[:200]}")
+                    retry_events.append({"attempt": attempt, "url": url, "status": response.status, "text": text})
                     await asyncio.sleep(min(2 * attempt, 20))
             except Exception as e:
+                retry_events.append({"attempt": attempt, "url": url, "error": str(e)})
                 print(f"Model API attempt {attempt} failed: {e}")
                 if attempt < attempts:
                     await asyncio.sleep(min(2 * attempt, 20))
 
     print("All model API attempts failed.")
+    write_logs(
+        {
+            "attempts": attempts,
+            "input_tokens": None,
+            "output_tokens": None,
+            "total_tokens": None,
+            "request_duration_ms": round((time.perf_counter() - started_at) * 1000, 3),
+            "success": False,
+        }
+    )
     return None
 
 
@@ -174,6 +352,7 @@ def chat_completion_request_sync(
     timeout_seconds: int | float | None = None,
     max_retries: int | None = None,
     retry_backoff_seconds: float | None = None,
+    modal_context: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
     """Synchronous variant for existing CV modules that are not async."""
     payload = _build_payload(
@@ -188,6 +367,33 @@ def chat_completion_request_sync(
     attempts = int(max_retries or MAX_RETRIES)
     request_timeout = timeout_seconds or int(os.getenv("MLLM_TIMEOUT_SECONDS", "180"))
     retry_backoff = float(retry_backoff_seconds or os.getenv("MLLM_RETRY_BACKOFF_SECONDS", "2"))
+    text_prompt = _text_prompt_from_messages(messages)
+    prompt_text_tokens = _rough_token_count(text_prompt)
+    started_at = time.perf_counter()
+    context = {**_MODAL_CONTEXT.get(), **(modal_context or {})}
+    call_id = str(uuid.uuid4())
+    _LAST_MODAL_CALL_ID.set(call_id)
+    retry_events: list[dict[str, Any]] = []
+
+    def write_logs(entry: dict[str, Any], *, result: dict[str, Any] | None = None, response_text: str | None = None) -> None:
+        summary_entry = {
+            **context,
+            **entry,
+            "call_id": call_id,
+            "text_prompt_tokens": prompt_text_tokens,
+            "model": payload.get("model"),
+        }
+        _write_modal_log(summary_entry)
+        _write_modal_full_log(
+            {
+                **summary_entry,
+                "request_payload": payload,
+                "request_urls": request_urls,
+                "retry_events": retry_events,
+                "response_json": result,
+                "response_text": response_text,
+            }
+        )
 
     for attempt in range(1, attempts + 1):
         url = request_urls[(attempt - 1) % len(request_urls)]
@@ -199,29 +405,86 @@ def chat_completion_request_sync(
                 timeout=request_timeout,
             )
             if response.status_code in RETRYABLE_STATUS:
+                retry_events.append({"attempt": attempt, "url": url, "status": response.status_code, "text": response.text})
                 print(f"Retryable model API HTTP {response.status_code}: {response.text[:200]}")
                 if attempt < attempts:
                     time.sleep(min(retry_backoff * attempt, 20))
                 continue
             if response.status_code != 200:
                 print(f"Model API HTTP {response.status_code}: {response.text[:200]}")
+                write_logs(
+                    {
+                        "attempts": attempt,
+                        "input_tokens": None,
+                        "output_tokens": None,
+                        "total_tokens": None,
+                        "request_duration_ms": round((time.perf_counter() - started_at) * 1000, 3),
+                        "url": url,
+                        "success": False,
+                        "error": f"HTTP {response.status_code}",
+                        "response_status": response.status_code,
+                    },
+                    response_text=response.text,
+                )
                 return None
             try:
                 result = response.json()
             except ValueError:
                 print(f"Model API returned non-JSON response: {response.text[:200]}")
+                write_logs(
+                    {
+                        "attempts": attempt,
+                        "input_tokens": None,
+                        "output_tokens": None,
+                        "total_tokens": None,
+                        "request_duration_ms": round((time.perf_counter() - started_at) * 1000, 3),
+                        "url": url,
+                        "success": False,
+                        "error": "non_json_response",
+                        "response_status": response.status_code,
+                    },
+                    response_text=response.text,
+                )
                 return None
-            if _extract_response_text(result):
+            response_text = _extract_response_text(result)
+            if response_text:
+                usage = _usage(result)
+                write_logs(
+                    {
+                        "attempts": attempt,
+                        "input_tokens": usage["input_tokens"],
+                        "output_tokens": usage["output_tokens"],
+                        "total_tokens": usage["total_tokens"],
+                        "request_duration_ms": round((time.perf_counter() - started_at) * 1000, 3),
+                        "url": url,
+                        "success": True,
+                        "raw_prediction": response_text,
+                    },
+                    result=result,
+                    response_text=response_text,
+                )
                 return result
             print(f"Unexpected model API response: {response.text[:200]}")
+            retry_events.append({"attempt": attempt, "url": url, "status": response.status_code, "text": response.text})
             if attempt < attempts:
                 time.sleep(min(retry_backoff * attempt, 20))
         except Exception as e:
+            retry_events.append({"attempt": attempt, "url": url, "error": str(e)})
             print(f"Model API attempt {attempt} failed: {e}")
             if attempt < attempts:
                 time.sleep(min(retry_backoff * attempt, 20))
 
     print("All model API attempts failed.")
+    write_logs(
+        {
+            "attempts": attempts,
+            "input_tokens": None,
+            "output_tokens": None,
+            "total_tokens": None,
+            "request_duration_ms": round((time.perf_counter() - started_at) * 1000, 3),
+            "success": False,
+        }
+    )
     return None
 
 

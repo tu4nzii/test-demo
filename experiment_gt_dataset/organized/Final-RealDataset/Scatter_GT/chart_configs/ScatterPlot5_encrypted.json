@@ -1,0 +1,247 @@
+{
+  "chart_id": "ScatterPlot5",
+  "chart_type": "scatter",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot5.png",
+    "with_grid": "gt_grid/ScatterPlot5_grid.png",
+    "grid_with_grid": "gt_grid/ScatterPlot5_grid.png"
+  },
+  "data_points": {
+    "Russia": [
+      0.0,
+      0.3
+    ],
+    "South Korea": [
+      0.05,
+      0.05
+    ],
+    "India": [
+      0.1,
+      0.0
+    ],
+    "Singapore": [
+      0.15,
+      0.2
+    ],
+    "Italy": [
+      0.2,
+      0.8
+    ],
+    "Canada": [
+      0.25,
+      0.4
+    ],
+    "France": [
+      0.3,
+      0.7
+    ],
+    "United Kingdom": [
+      0.35,
+      0.35
+    ],
+    "Netherlands": [
+      0.4,
+      0.65
+    ],
+    "Spain": [
+      0.45,
+      0.6
+    ],
+    "Japan": [
+      0.5,
+      0.25
+    ],
+    "Poland": [
+      0.55,
+      0.1
+    ],
+    "United States": [
+      0.6,
+      0.15
+    ],
+    "China": [
+      0.7,
+      0.45
+    ],
+    "Norway": [
+      0.75,
+      0.75
+    ],
+    "Germany": [
+      0.8,
+      0.55
+    ],
+    "Sweden": [
+      0.85,
+      0.85
+    ],
+    "Iceland": [
+      0.9,
+      1.0
+    ],
+    "Finland": [
+      0.95,
+      0.95
+    ],
+    "Denmark": [
+      1.0,
+      0.9
+    ]
+  },
+  "x_ticks": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ],
+  "y_ticks": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0
+  ],
+  "x_pixels": [
+    87,
+    113,
+    139,
+    165,
+    191,
+    217,
+    243,
+    269,
+    295,
+    321,
+    347,
+    373,
+    399,
+    426,
+    452,
+    478,
+    505,
+    531,
+    557,
+    583,
+    609
+  ],
+  "y_pixels": [
+    591,
+    564,
+    536,
+    508,
+    480,
+    458,
+    435,
+    402,
+    370,
+    342,
+    314,
+    286,
+    259,
+    232,
+    204,
+    176,
+    148,
+    120,
+    93,
+    66,
+    38
+  ],
+  "series_color": {
+    "Russia": [
+      "#BA0538"
+    ],
+    "South Korea": [
+      "#CF1039"
+    ],
+    "India": [
+      "#BA103D"
+    ],
+    "Singapore": [
+      "#B20F3A"
+    ],
+    "Italy": [
+      "#E77052"
+    ],
+    "Canada": [
+      "#F8947A"
+    ],
+    "France": [
+      "#F54A43"
+    ],
+    "United Kingdom": [
+      "#F4765D"
+    ],
+    "Netherlands": [
+      "#F55F50"
+    ],
+    "Spain": [
+      "#7CC373"
+    ],
+    "Japan": [
+      "#E95247"
+    ],
+    "Poland": [
+      "#D91E3B"
+    ],
+    "United States": [
+      "#FF997B"
+    ],
+    "China": [
+      "#D1103D"
+    ],
+    "Norway": [
+      "#E24D47"
+    ],
+    "Germany": [
+      "#93DE81"
+    ],
+    "Sweden": [
+      "#80D174"
+    ],
+    "Iceland": [
+      "#BD0C40"
+    ],
+    "Finland": [
+      "#ED4C42"
+    ],
+    "Denmark": [
+      "#1A6B40"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\scatter\\ScatterPlot5_encrypted.json"
+}

@@ -1,0 +1,166 @@
+{
+  "chart_id": "BubbleChart19",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart19.png",
+    "with_grid": "gt_grid/BubbleChart19_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart19_grid.png"
+  },
+  "data_points": {
+    "New Zealand": [
+      63.61,
+      83.51
+    ],
+    "United States": [
+      65.43,
+      127.04
+    ],
+    "Hungary": [
+      65.43,
+      51.06
+    ],
+    "Russia": [
+      68.53,
+      19.36
+    ],
+    "Italy": [
+      69.25,
+      57.98
+    ],
+    "United Kingdom": [
+      71.06,
+      92.73
+    ],
+    "Norway": [
+      73.58,
+      83.33
+    ],
+    "France": [
+      74.3,
+      68.61
+    ],
+    "Spain": [
+      78.47,
+      69.68
+    ],
+    "Netherlands": [
+      80.36,
+      102.6
+    ],
+    "Finland": [
+      80.8,
+      92.19
+    ],
+    "Germany": [
+      86.42,
+      103.13
+    ],
+    "Belgium": [
+      95.07,
+      95.31
+    ]
+  },
+  "x_ticks": [
+    65,
+    67.5,
+    70,
+    72.5,
+    75,
+    77.5,
+    80,
+    82.5,
+    85,
+    87.5,
+    90,
+    92.5,
+    95
+  ],
+  "y_ticks": [
+    0,
+    12.5,
+    25,
+    37.5,
+    50,
+    62.5,
+    75,
+    87.5,
+    100,
+    112.5,
+    125,
+    137.5,
+    150
+  ],
+  "x_pixels": [
+    143,
+    178,
+    212,
+    246,
+    281,
+    316,
+    351,
+    386,
+    420,
+    454,
+    489,
+    524,
+    559
+  ],
+  "y_pixels": [
+    340,
+    316,
+    292,
+    268,
+    244,
+    220,
+    197,
+    173,
+    149,
+    125,
+    101,
+    76,
+    52
+  ],
+  "series_color": {
+    "New Zealand": [
+      "#BDDAF5"
+    ],
+    "United States": [
+      "#BDDAF5"
+    ],
+    "Hungary": [
+      "#BDDAF5"
+    ],
+    "Russia": [
+      "#BDDAF5"
+    ],
+    "Italy": [
+      "#BDDAF5"
+    ],
+    "United Kingdom": [
+      "#BDDAF5"
+    ],
+    "Norway": [
+      "#BDDAF5"
+    ],
+    "France": [
+      "#BDDAF5"
+    ],
+    "Spain": [
+      "#BDDAF5"
+    ],
+    "Netherlands": [
+      "#BDDAF5"
+    ],
+    "Finland": [
+      "#BDDAF5"
+    ],
+    "Germany": [
+      "#BDDAF5"
+    ],
+    "Belgium": [
+      "#BDDAF5"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart19_encrypted.json"
+}

@@ -1,0 +1,104 @@
+{
+  "chart_id": "lineGraph33",
+  "image_paths": {
+    "no_grid": "chart/LineGraph33.png",
+    "with_grid": "gt_grid/LineGraph33_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph33_grid.png"
+  },
+  "data_points": {
+    "Desktops": {
+      "Jan": 80,
+      "Feb": 44.5,
+      "Mar": 24.75,
+      "Apr": 19.25,
+      "May": 9.75,
+      "Jun": 4.5
+    },
+    "Laptops": {
+      "Jan": 30.5,
+      "Feb": 24.5,
+      "Mar": 34.5,
+      "Apr": 49,
+      "May": 44.75,
+      "Jun": 54.75
+    },
+    "Tablets": {
+      "Jan": 9.25,
+      "Feb": 14.25,
+      "Mar": 19.5,
+      "Apr": 34.5,
+      "May": 59.25,
+      "Jun": 94.5
+    }
+  },
+  "x_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun"
+  ],
+  "y_ticks": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95,
+    100
+  ],
+  "x_pixels": [
+    112,
+    238,
+    363,
+    488,
+    612,
+    737
+  ],
+  "y_pixels": [
+    519,
+    499,
+    479,
+    459,
+    439,
+    419,
+    399,
+    379,
+    359,
+    339,
+    319,
+    299,
+    279,
+    259,
+    239,
+    219,
+    199,
+    179,
+    159,
+    139,
+    119
+  ],
+  "series_color": {
+    "Desktops": "#6E6D71",
+    "Laptops": "#0B75FD",
+    "Tablets": "#FF04D5"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph33_encrypted.json"
+}

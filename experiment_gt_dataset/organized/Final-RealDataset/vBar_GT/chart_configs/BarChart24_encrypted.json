@@ -1,0 +1,63 @@
+{
+  "chart_id": "BarChart24",
+  "image_paths": {
+    "no_grid": "chart/BarChart24.png",
+    "with_grid": "gt_grid/BarChart24_grid.png",
+    "grid_with_grid": "gt_grid/BarChart24_grid.png"
+  },
+  "data_points": {
+    "carat count": {
+      "0.5": 1262.02,
+      "1.0": 1563.52,
+      "1.5": 801.72,
+      "2.0": 444.42,
+      "2.5": 23.82
+    }
+  },
+  "x_ticks": [
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "2.5"
+  ],
+  "y_ticks": [
+    0,
+    250.0,
+    500,
+    750.0,
+    1000,
+    1250.0,
+    1500,
+    1750.0,
+    2000,
+    2250.0,
+    2500
+  ],
+  "x_pixels": [
+    145,
+    236,
+    327,
+    418,
+    509
+  ],
+  "y_pixels": [
+    354,
+    322,
+    291,
+    260,
+    228,
+    197,
+    166,
+    134,
+    103,
+    72,
+    40
+  ],
+  "series_color": {
+    "carat count": "#474747"
+  },
+  "chart_type": "v_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "vbar_real_datasets\\chart_configs\\BarChart24_encrypted.json"
+}

@@ -1,0 +1,135 @@
+{
+  "chart_id": "GroupedBarChart21",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart21.png",
+    "with_grid": "gt_grid/GroupedBarChart21_grid.png",
+    "grid_with_grid": "gt_grid/GroupedBarChart21_grid.png"
+  },
+  "data_points": {
+    "light orange ": {
+      "AD": 198.95,
+      "AE": 133.68,
+      "AF": 73.68,
+      "AG": 108.42,
+      "AI": 173.68,
+      "AL": 94.21,
+      "AM": 149.47
+    },
+    "rose red": {
+      "AD": 127.89,
+      "AE": 46.32,
+      "AF": 43.68,
+      "AG": 178.42,
+      "AI": 14.74,
+      "AL": 84.21,
+      "AM": 37.37
+    },
+    "yellow": {
+      "AD": 159.47,
+      "AE": 76.84,
+      "AF": 73.68,
+      "AG": 74.74,
+      "AI": 158.42,
+      "AL": 83.16,
+      "AM": 96.32
+    },
+    "orange": {
+      "AD": 1.58,
+      "AE": 176.84,
+      "AF": 123.68,
+      "AG": 102.63,
+      "AI": 2.63,
+      "AL": 110.52,
+      "AM": 3.68
+    },
+    "cyan": {
+      "AD": 43.68,
+      "AE": 139.47,
+      "AF": 157.37,
+      "AG": 53.68,
+      "AI": 184.74,
+      "AL": 57.37,
+      "AM": 7.37
+    },
+    "light green": {
+      "AD": 133.68,
+      "AE": 64.74,
+      "AF": 153.68,
+      "AG": 88.42,
+      "AI": 135.79,
+      "AL": 173.68,
+      "AM": 23.89
+    }
+  },
+  "x_ticks": [
+    "AD",
+    "AE",
+    "AF",
+    "AG",
+    "AI",
+    "AL",
+    "AM"
+  ],
+  "y_ticks": [
+    0,
+    10.0,
+    20,
+    30.0,
+    40,
+    50.0,
+    60,
+    70.0,
+    80,
+    90.0,
+    100,
+    110.0,
+    120,
+    130.0,
+    140,
+    150.0,
+    160,
+    170.0,
+    180
+  ],
+  "x_pixels": [
+    141,
+    239,
+    337,
+    435,
+    533,
+    631,
+    729
+  ],
+  "y_pixels": [
+    440,
+    421,
+    402,
+    382,
+    363,
+    344,
+    325,
+    306,
+    286,
+    267,
+    248,
+    229,
+    210,
+    190,
+    171,
+    152,
+    133,
+    114,
+    95
+  ],
+  "series_color": {
+    "light orange": "#E8C1A0",
+    "rose red": "#F47560",
+    "yellow": "#F1E15B",
+    "orange": "#E8A838",
+    "cyan": "#61CDBB",
+    "light green": "#97E3D5"
+  },
+  "chart_type": "v_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "vbar_real_datasets\\chart_configs\\GroupedBarChart21_encrypted.json"
+}

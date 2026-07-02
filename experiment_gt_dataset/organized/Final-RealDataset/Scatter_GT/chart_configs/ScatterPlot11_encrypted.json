@@ -1,0 +1,194 @@
+{
+  "chart_id": "ScatterPlot11",
+  "chart_type": "scatter",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot11.png",
+    "with_grid": "gt_grid/ScatterPlot11_grid.png",
+    "grid_with_grid": "gt_grid/ScatterPlot11_grid.png"
+  },
+  "data_points": {
+    "Postmen": [
+      9.0,
+      0.0
+    ],
+    "Nurses'aides": [
+      11.18,
+      8.82
+    ],
+    "Train drivers": [
+      12.84,
+      57.06
+    ],
+    "Police": [
+      14.33,
+      41.76
+    ],
+    "Prison Guards": [
+      15.0,
+      17.45
+    ],
+    "Librarians": [
+      15.0,
+      46.08
+    ],
+    "Pedagogues": [
+      15.5,
+      15.1
+    ],
+    "Social Workers": [
+      15.5,
+      23.73
+    ],
+    "Midwives": [
+      15.5,
+      28.04
+    ],
+    "Nurses": [
+      15.5,
+      31.76
+    ],
+    "School Teachers": [
+      16.0,
+      44.7
+    ],
+    "High School Teachers": [
+      17.0,
+      67.06
+    ],
+    "Doctors": [
+      18.0,
+      100.0
+    ]
+  },
+  "x_ticks": [
+    9,
+    9.5,
+    10,
+    10.5,
+    11,
+    11.5,
+    12,
+    12.5,
+    13,
+    13.5,
+    14,
+    14.5,
+    15,
+    15.5,
+    16,
+    16.5,
+    17,
+    17.5,
+    18
+  ],
+  "y_ticks": [
+    0,
+    5.0,
+    10,
+    15.0,
+    20,
+    25.0,
+    30,
+    35.0,
+    40,
+    45.0,
+    50,
+    55.0,
+    60,
+    65.0,
+    70,
+    75.0,
+    80,
+    85.0,
+    90,
+    95.0,
+    100
+  ],
+  "x_pixels": [
+    104,
+    157,
+    210,
+    263,
+    316,
+    370,
+    423,
+    476,
+    530,
+    584,
+    637,
+    690,
+    743,
+    796,
+    850,
+    904,
+    957,
+    1010,
+    1063
+  ],
+  "y_pixels": [
+    562,
+    536,
+    510,
+    484,
+    459,
+    434,
+    408,
+    382,
+    357,
+    332,
+    306,
+    280,
+    255,
+    229,
+    203,
+    178,
+    153,
+    128,
+    102,
+    76,
+    49
+  ],
+  "series_color": {
+    "Postmen": [
+      "#1C74CA"
+    ],
+    "Nurses'aides": [
+      "#FE0000"
+    ],
+    "Train drivers": [
+      "#1874C9"
+    ],
+    "Police": [
+      "#1D73C3"
+    ],
+    "Prison Guards": [
+      "#1B73C5"
+    ],
+    "Librarians": [
+      "#FE0000"
+    ],
+    "Pedagogues": [
+      "#FE0000"
+    ],
+    "Social Workers": [
+      "#C0BFBD"
+    ],
+    "Midwives": [
+      "#FE0000"
+    ],
+    "Nurses": [
+      "#FE0000"
+    ],
+    "School Teachers": [
+      "#C1BEBE"
+    ],
+    "High School Teachers": [
+      "#1771C7"
+    ],
+    "Doctors": [
+      "#1572C9"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\scatter\\ScatterPlot11_encrypted.json"
+}

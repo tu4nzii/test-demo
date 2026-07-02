@@ -1,0 +1,164 @@
+{
+  "chart_id": "BubbleChart4",
+  "chart_type": "bubble",
+  "image_paths": {
+    "no_grid": "chart/BubbleChart4.png",
+    "with_grid": "gt_grid/BubbleChart4_grid.png",
+    "grid_with_grid": "gt_grid/BubbleChart4_grid.png"
+  },
+  "data_points": {
+    "PT": [
+      63.4,
+      51.8
+    ],
+    "NZ": [
+      64,
+      82.9
+    ],
+    "HU": [
+      65.4,
+      50.8
+    ],
+    "US": [
+      65.5,
+      126.4
+    ],
+    "RU": [
+      68.6,
+      20
+    ],
+    "IT": [
+      69.2,
+      57.6
+    ],
+    "UK": [
+      71,
+      93.2
+    ],
+    "NO": [
+      73.5,
+      83.1
+    ],
+    "FR": [
+      74.2,
+      68.5
+    ],
+    "ES": [
+      78.4,
+      70.1
+    ],
+    "SE": [
+      80.3,
+      86.1
+    ],
+    "NL": [
+      80.4,
+      102.5
+    ],
+    "FI": [
+      80.8,
+      91.5
+    ],
+    "DE": [
+      86.5,
+      102.9
+    ],
+    "BE": [
+      95,
+      95
+    ]
+  },
+  "x_ticks": [
+    65,
+    67.5,
+    70,
+    72.5,
+    75,
+    77.5,
+    80,
+    82.5,
+    85,
+    87.5,
+    90,
+    92.5,
+    95
+  ],
+  "y_ticks": [
+    50,
+    75.0,
+    100,
+    125.0,
+    150
+  ],
+  "x_pixels": [
+    262,
+    336,
+    410,
+    483,
+    556,
+    630,
+    704,
+    777,
+    850,
+    924,
+    998,
+    1071,
+    1144
+  ],
+  "y_pixels": [
+    515,
+    431,
+    347,
+    263,
+    179
+  ],
+  "series_color": {
+    "PT": [
+      "#FEB49A"
+    ],
+    "NZ": [
+      "#B5C5DE"
+    ],
+    "HU": [
+      "#80F1B9"
+    ],
+    "US": [
+      "#AAA7E2"
+    ],
+    "RU": [
+      "#95D7FE"
+    ],
+    "IT": [
+      "#C8F4F0"
+    ],
+    "UK": [
+      "#FFDAB5"
+    ],
+    "NO": [
+      "#BE3A33"
+    ],
+    "FR": [
+      "#97F0E5"
+    ],
+    "ES": [
+      "#EAB3FD"
+    ],
+    "SE": [
+      "#B5C5DE"
+    ],
+    "NL": [
+      "#FEB49A"
+    ],
+    "FI": [
+      "#7FF0B8"
+    ],
+    "DE": [
+      "#AAA7E2"
+    ],
+    "BE": [
+      "#96D7FF"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\bubble\\BubbleChart4_encrypted.json"
+}

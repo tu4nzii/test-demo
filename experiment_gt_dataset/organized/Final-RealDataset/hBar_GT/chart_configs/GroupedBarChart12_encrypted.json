@@ -1,0 +1,71 @@
+{
+  "chart_id": "GroupedBarChart12",
+  "image_paths": {
+    "no_grid": "chart/GroupedBarChart12.png",
+    "with_grid": "gt_grid/GroupedBarChart12_grid.png",
+    "grid_with_grid": "gt_grid/GroupedBarChart12_grid.png"
+  },
+  "data_points": {
+    "Liberal": {
+      "1.Never": 61.93,
+      "2.Once a week or less": 52.84,
+      "3.A few times a week": 52.84,
+      "4.Once a week": 75.57,
+      "5.Several times a day": 68.75
+    },
+    "Moderate": {
+      "1.Never": 46.02,
+      "2.Once a week or less": 63.07,
+      "3.A few times a week": 68.75,
+      "4.Once a week": 88.64,
+      "5.Several times a day": 98.3
+    },
+    "Conservative": {
+      "1.Never": 35.8,
+      "2.Once a week or less": 52.27,
+      "3.A few times a week": 75.57,
+      "4.Once a week": 106.82,
+      "5.Several times a day": 176.7
+    }
+  },
+  "x_ticks": [
+    0,
+    25.0,
+    50,
+    75.0,
+    100,
+    125.0,
+    150
+  ],
+  "y_ticks": [
+    "1.Never",
+    "2.Once a week or less",
+    "3.A few times a week",
+    "4.Once a week",
+    "5.Several times a day"
+  ],
+  "x_pixels": [
+    199,
+    221,
+    243,
+    265,
+    287,
+    308,
+    330
+  ],
+  "y_pixels": [
+    285,
+    232,
+    178,
+    125,
+    72
+  ],
+  "series_color": {
+    "Liberal": "#999999",
+    "Moderate": "#E2A01A",
+    "Conservative": "#61B3E8"
+  },
+  "chart_type": "h_bar",
+  "gt_grid_source": "provided",
+  "source_config_path": "hbar_real_datasets\\chart_configs\\GroupedBarChart12_encrypted.json"
+}

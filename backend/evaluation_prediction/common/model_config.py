@@ -21,13 +21,13 @@ _GPT54_PROFILE = {
 
 _VVEAI_GEMINI_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
-    "model_name": "gemini-2.5-flash-lite",
+    "model_name": "gemini-2.5-flash-nothinking",
     "api_key": "",
 }
 
 _WORK_PROFILE = {
     "base_url": "https://api.vveai.com/v1",
-    "model_name": "gemini-2.5-flash-lite",
+    "model_name": "gemini-2.5-flash-nothinking",
     "api_key": "",
 }
 

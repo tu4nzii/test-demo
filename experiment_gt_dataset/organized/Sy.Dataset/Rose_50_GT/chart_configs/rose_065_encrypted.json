@@ -1,0 +1,55 @@
+{
+  "chart_id": "rose_065",
+  "image_paths": {
+    "no_grid": "chart/rose_065.png",
+    "with_grid": "gt_grid/rose_065+encode.jpg",
+    "grid_with_grid": "gt_grid/rose_065+encode.jpg"
+  },
+  "center": {
+    "x": 461,
+    "y": 606
+  },
+  "data_points": {
+    "GMFA": 15.600000000000001,
+    "UMCJ": 15.8,
+    "EQHQ": 16.400000000000002,
+    "XXOU": 16.0,
+    "ES": 17.400000000000002,
+    "ZPXW": 18.6
+  },
+  "series_color": {
+    "GMFA": "#e377c2",
+    "UMCJ": "#1f77b4",
+    "EQHQ": "#9467bd",
+    "XXOU": "#2ca02c",
+    "ES": "#17becf",
+    "ZPXW": "#bcbd22"
+  },
+  "r_ticks": [
+    "10",
+    "20"
+  ],
+  "r_pixels": [
+    151,
+    302
+  ],
+  "theta_ticks": [
+    "GMFA",
+    "UMCJ",
+    "EQHQ",
+    "XXOU",
+    "ES",
+    "ZPXW"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "chart_type": "rose",
+  "gt_grid_source": "provided",
+  "source_config_path": "Sy_rosechart_eval_50_withgrid\\eval_50\\rose_065.json"
+}

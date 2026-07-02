@@ -1,0 +1,132 @@
+{
+  "chart_id": "radar_005",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "data_points": {
+    "BSEGJ": {
+      "G": 25.0,
+      "F": 99.0,
+      "H": 39.0,
+      "B": 53.0,
+      "E": 84.0,
+      "A": 22.0,
+      "C": 58.0,
+      "D": 95.0
+    },
+    "DIUP": {
+      "D": 79.0,
+      "F": 47.0,
+      "E": 87.0,
+      "G": 17.0,
+      "C": 61.0,
+      "H": 33.0,
+      "A": 17.0,
+      "B": 94.0
+    },
+    "RAJIUX": {
+      "A": 65.0,
+      "F": 31.0,
+      "G": 33.0,
+      "E": 20.0,
+      "D": 13.0,
+      "C": 47.0,
+      "B": 59.0,
+      "H": 84.0
+    },
+    "HGNGYW": {
+      "F": 24.0,
+      "G": 30.0,
+      "C": 17.0,
+      "H": 84.0,
+      "B": 83.0,
+      "D": 33.0,
+      "E": 70.0,
+      "A": 62.0
+    },
+    "MGBWGC": {
+      "H": 69.0,
+      "A": 91.0,
+      "B": 10.0,
+      "D": 20.0,
+      "C": 83.0,
+      "E": 11.0,
+      "F": 91.0,
+      "G": 21.0
+    },
+    "SROOT": {
+      "H": 54.0,
+      "G": 71.0,
+      "A": 23.0,
+      "F": 78.0,
+      "E": 54.0,
+      "C": 95.0,
+      "B": 99.0,
+      "D": 30.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "theta_angles": [
+    0.0,
+    45.0,
+    90.0,
+    135.0,
+    180.0,
+    225.0,
+    270.0,
+    315.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "chart/radar_005.png",
+    "with_grid": "gt_grid/radar_005+encode.jpg",
+    "grid_with_grid": "gt_grid/radar_005+encode.jpg"
+  },
+  "series_color": {
+    "BSEGJ": "#c5b0d5",
+    "DIUP": "#8c564b",
+    "RAJIUX": "#aec7e8",
+    "HGNGYW": "#ffbb78",
+    "MGBWGC": "#c49c94",
+    "SROOT": "#e377c2"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 8,
+  "gt_grid_source": "provided",
+  "source_config_path": "Syradarchart_eval_50_withgrid\\eval_50\\radar_005.json"
+}

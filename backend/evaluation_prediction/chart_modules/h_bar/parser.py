@@ -9,7 +9,7 @@ from typing import Any
 from ...common.json_utils import safe_json_loads as core_safe_json_loads
 
 
-FAILED_COORDS = (-1, -1)
+FAILED_COORDS = (None, None)
 
 
 def safe_json_loads(text: str) -> Any | None:
@@ -36,7 +36,17 @@ def _key_matches(key: Any, point_name: str) -> bool:
     return isinstance(key, str) and point_name.strip().lower() in key.strip().lower()
 
 
+def _is_unreadable(data: dict[str, Any]) -> bool:
+    for key in ("readable", "visible", "exists"):
+        if key in data and data[key] is False:
+            return True
+    return False
+
+
 def _extract_from_mapping(data: dict[str, Any], point_name: str) -> tuple[Any, Any] | None:
+    if _is_unreadable(data):
+        return FAILED_COORDS
+
     if "response" in data:
         response = data["response"]
         if isinstance(response, str):

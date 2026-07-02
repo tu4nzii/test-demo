@@ -1,0 +1,114 @@
+{
+  "chart_id": "radar_028",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "data_points": {
+    "IQFV": {
+      "A": 48.0,
+      "C": 10.0,
+      "F": 72.0,
+      "B": 28.0,
+      "D": 82.0,
+      "E": 72.0
+    },
+    "SBM": {
+      "A": 81.0,
+      "E": 62.0,
+      "B": 40.0,
+      "F": 26.0,
+      "D": 60.0,
+      "C": 44.0
+    },
+    "PQNSNC": {
+      "B": 70.0,
+      "F": 17.0,
+      "C": 58.0,
+      "A": 40.0,
+      "E": 28.0,
+      "D": 68.0
+    },
+    "AAASWP": {
+      "C": 45.0,
+      "D": 93.0,
+      "A": 54.0,
+      "F": 56.0,
+      "E": 32.0,
+      "B": 11.0
+    },
+    "HSR": {
+      "C": 55.0,
+      "A": 23.0,
+      "B": 65.0,
+      "E": 57.0,
+      "D": 14.0,
+      "F": 56.0
+    },
+    "IBGS": {
+      "C": 67.0,
+      "E": 73.0,
+      "B": 70.0,
+      "A": 83.0,
+      "F": 10.0,
+      "D": 10.0
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "r_pixels": [
+    56,
+    112,
+    167,
+    223,
+    278
+  ],
+  "center": [
+    492,
+    364
+  ],
+  "image_paths": {
+    "no_grid": "chart/radar_028.png",
+    "with_grid": "gt_grid/radar_028+encode.jpg",
+    "grid_with_grid": "gt_grid/radar_028+encode.jpg"
+  },
+  "series_color": {
+    "IQFV": "#c7c7c7",
+    "SBM": "#ff9896",
+    "PQNSNC": "#ff7f0e",
+    "AAASWP": "#dbdb8d",
+    "HSR": "#1f77b4",
+    "IBGS": "#ffbb78"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 6,
+  "gt_grid_source": "provided",
+  "source_config_path": "Syradarchart_eval_50_withgrid\\eval_50\\radar_028.json"
+}

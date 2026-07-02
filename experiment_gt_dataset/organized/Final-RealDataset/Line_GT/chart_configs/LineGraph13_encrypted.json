@@ -1,0 +1,79 @@
+{
+  "chart_id": "lineGraph13",
+  "image_paths": {
+    "no_grid": "chart/LineGraph13.png",
+    "with_grid": "gt_grid/LineGraph13_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph13_grid.png"
+  },
+  "data_points": {
+    "Product Trends by Month": {
+      "Jan": 10,
+      "Feb": 41,
+      "Mar": 35,
+      "Apr": 51,
+      "May": 49,
+      "Jun": 62,
+      "July": 69,
+      "Aug": 91,
+      "Sep": 148
+    }
+  },
+  "x_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "July",
+    "Aug",
+    "Sep"
+  ],
+  "y_ticks": [
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100,
+    110,
+    120,
+    130,
+    140
+  ],
+  "x_pixels": [
+    77,
+    144,
+    209,
+    276,
+    341,
+    407,
+    473,
+    539,
+    606
+  ],
+  "y_pixels": [
+    334,
+    310,
+    287,
+    264,
+    241,
+    218,
+    196,
+    172,
+    149,
+    126,
+    104,
+    81,
+    58
+  ],
+  "series_color": {
+    "Product Trends by Month": "#199AFB"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph13_encrypted.json"
+}

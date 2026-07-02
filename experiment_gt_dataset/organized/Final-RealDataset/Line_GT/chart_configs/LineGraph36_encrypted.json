@@ -1,0 +1,99 @@
+{
+  "chart_id": "lineGraph36",
+  "image_paths": {
+    "no_grid": "chart/LineGraph36.png",
+    "with_grid": "gt_grid/LineGraph36_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph36_grid.png"
+  },
+  "data_points": {
+    "New York": {
+      "Jan": 0.95,
+      "Feb": 2.25,
+      "Mar": 6,
+      "Apr": 12.15,
+      "May": 17.35,
+      "Jun": 22.25,
+      "Jul": 25.35,
+      "Aug": 24.6,
+      "Sep": 20.75,
+      "Oct": 14.4,
+      "Nov": 8.9,
+      "Dec": 4
+    },
+    "Los Angeles": {
+      "Jan": 14.7,
+      "Feb": 15.05,
+      "Mar": 15.75,
+      "Apr": 17.65,
+      "May": 18.85,
+      "Jun": 20.7,
+      "Jul": 22.95,
+      "Aug": 23.8,
+      "Sep": 23.1,
+      "Oct": 20.75,
+      "Nov": 17.25,
+      "Dec": 14.3
+    }
+  },
+  "x_ticks": [
+    0,
+    2.5,
+    5,
+    7.5,
+    10,
+    12.5,
+    15,
+    17.5,
+    20,
+    22.5,
+    25
+  ],
+  "y_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "x_pixels": [
+    73,
+    124,
+    175,
+    226,
+    276,
+    326,
+    377,
+    428,
+    478,
+    528,
+    579
+  ],
+  "y_pixels": [
+    325,
+    301,
+    276,
+    252,
+    227,
+    202,
+    177,
+    152,
+    128,
+    103,
+    78,
+    54
+  ],
+  "series_color": {
+    "New York": "#66C2A5",
+    "Los Angeles": "#FC8D62"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph36_encrypted.json"
+}

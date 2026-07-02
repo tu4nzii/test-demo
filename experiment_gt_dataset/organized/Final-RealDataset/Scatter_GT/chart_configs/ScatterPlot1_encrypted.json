@@ -1,0 +1,91 @@
+{
+  "chart_id": "ScatterPlot1",
+  "chart_type": "scatter",
+  "image_paths": {
+    "no_grid": "chart/ScatterPlot1.png",
+    "with_grid": "gt_grid/ScatterPlot1_grid.png",
+    "grid_with_grid": "gt_grid/ScatterPlot1_grid.png"
+  },
+  "data_points": {
+    "Shortest run": [
+      2.8,
+      9.9
+    ],
+    "Fastest run": [
+      5.0,
+      11.1
+    ],
+    "Most Average run": [
+      5.8,
+      9.7
+    ],
+    "Longest run": [
+      11.9,
+      8.22
+    ]
+  },
+  "x_ticks": [
+    2,
+    3.0,
+    4,
+    5.0,
+    6,
+    7.0,
+    8,
+    9.0,
+    10,
+    11.0,
+    12
+  ],
+  "y_ticks": [
+    8,
+    8.5,
+    9,
+    9.5,
+    10,
+    10.5,
+    11,
+    11.5,
+    12
+  ],
+  "x_pixels": [
+    370,
+    402,
+    435,
+    468,
+    500,
+    532,
+    565,
+    598,
+    630,
+    662,
+    695
+  ],
+  "y_pixels": [
+    485,
+    437,
+    389,
+    341,
+    293,
+    244,
+    196,
+    148,
+    100
+  ],
+  "series_color": {
+    "Shortest run": [
+      "#D695FF"
+    ],
+    "Fastest run": [
+      "#D695FF"
+    ],
+    "Most Average run": [
+      "#D695FF"
+    ],
+    "Longest run": [
+      "#D695FF"
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "scatter_bubble_real_datasets\\chart_configs\\scatter\\ScatterPlot1_encrypted.json"
+}

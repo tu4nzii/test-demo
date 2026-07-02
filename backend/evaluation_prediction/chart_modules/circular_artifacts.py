@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import math
 import re
+import csv
 from pathlib import Path
 from typing import Any
 
@@ -30,6 +31,8 @@ def save_circular_artifacts(
     ensure_dir(result_dir)
     all_records = _merge_prediction_records(dataset, records, predictions)
     pd.DataFrame(all_records).to_csv(result_dir / "experiment_results.csv", index=False, encoding="utf-8")
+    _save_full_flow_final_predictions(dataset, predictions, result_dir)
+    _save_full_flow_selection_audit(predictions, result_dir)
     _save_summary_and_plot(all_records, result_dir, str(dataset.get("chart_id", "")))
     _save_feedback_images(dataset, result_dir, predictions)
     _save_amplifier_images(dataset, chart_type, result_dir, predictions)
@@ -74,6 +77,81 @@ def _merge_prediction_records(
             }
         )
     return merged
+
+
+def _save_full_flow_final_predictions(
+    dataset: dict[str, Any],
+    predictions: list[dict[str, Any]],
+    result_dir: Path,
+) -> None:
+    rows: list[dict[str, Any]] = []
+    for item in predictions:
+        label = item.get("label") or item.get("id")
+        rows.append(
+            {
+                "chart_id": dataset.get("chart_id"),
+                "point": label,
+                "label": label,
+                "series_name": item.get("series_name", ""),
+                "prompt_type": "full_flow_final",
+                "image_type": "selected",
+                "run": "final",
+                "image_path": item.get("image_path"),
+                "gt": _target_gt(dataset, label),
+                "pred": item.get("value"),
+                "pred_pct": item.get("value"),
+                "percentage": item.get("percentage"),
+                "start_angle": item.get("start_angle"),
+                "end_angle": item.get("end_angle"),
+                "selection_source_prompt_type": item.get("prompt_type"),
+                "selection_source_image_type": item.get("image_type"),
+                "selection_reason": item.get("extraction_source") or item.get("prompt_type") or "selected_prediction",
+            }
+        )
+    _write_rows(result_dir / "full_flow_final_predictions.csv", rows)
+
+
+def _save_full_flow_selection_audit(predictions: list[dict[str, Any]], result_dir: Path) -> None:
+    rows = [
+        {
+            "point": item.get("label") or item.get("id"),
+            "reason": item.get("extraction_source") or item.get("prompt_type") or "selected_prediction",
+            "source_prompt_type": item.get("prompt_type"),
+            "source_image_type": item.get("image_type"),
+            "readable_full_flow_count": 1 if item.get("value") is not None else 0,
+        }
+        for item in predictions
+    ]
+    _write_rows(result_dir / "full_flow_final_selection_audit.csv", rows)
+
+
+def _target_gt(dataset: dict[str, Any], label: Any) -> Any:
+    data_points = dataset.get("data_points")
+    if not isinstance(data_points, dict):
+        return None
+    text = str(label or "").strip()
+    if text in data_points:
+        return data_points[text]
+    lowered = text.casefold()
+    for key, value in data_points.items():
+        if str(key).strip().casefold() == lowered:
+            return value
+    return None
+
+
+def _write_rows(path: Path, rows: list[dict[str, Any]]) -> None:
+    if not rows:
+        path.write_text("", encoding="utf-8")
+        return
+    columns: list[str] = []
+    for row in rows:
+        for key in row:
+            if key not in columns:
+                columns.append(key)
+    with path.open("w", encoding="utf-8", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=columns, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def _save_summary_and_plot(records: list[dict[str, Any]], result_dir: Path, chart_id: str) -> None:

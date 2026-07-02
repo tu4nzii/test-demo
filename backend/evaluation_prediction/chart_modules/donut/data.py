@@ -5,8 +5,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+import os
 
 from ...common.chart_io import filter_chart_configs, load_json_configs, read_json
+from ...common.gt_grid_renderer import render_gt_grid_image
 from ...common.paths import ASSETS_ROOT
 
 
@@ -67,7 +69,7 @@ def _load_backend_generated_dataset(config_path: str | Path, chart_type: str) ->
     _strip_reference_fields(merged)
     merged["chart_type"] = chart_type
     merged["chart_id"] = str(merged.get("chart_id") or path.stem.removesuffix("_image").removesuffix("_axes"))
-    merged["image_paths"] = _image_paths(merged, path.parent)
+    merged["image_paths"] = _image_paths(merged, path.parent, path)
     merged["target_labels"] = _label_map(merged)
     return merged
 
@@ -91,7 +93,7 @@ def _sibling_axes_path(path: Path) -> Path:
     return candidates[0]
 
 
-def _image_paths(dataset: dict[str, Any], base_dir: Path) -> dict[str, str]:
+def _image_paths(dataset: dict[str, Any], base_dir: Path, config_path: Path) -> dict[str, str]:
     image_paths = dataset.get("image_paths") if isinstance(dataset.get("image_paths"), dict) else {}
     no_grid = image_paths.get("no_grid") or dataset.get("image_path")
     with_grid = (
@@ -100,17 +102,45 @@ def _image_paths(dataset: dict[str, Any], base_dir: Path) -> dict[str, str]:
         or dataset.get("encrypted_grid_path")
         or dataset.get("basic_grid_path")
     )
+    if not with_grid or not _resolve_path(str(with_grid), base_dir).exists():
+        rendered = render_gt_grid_image(config_path, dataset=dataset)
+        if rendered is not None:
+            with_grid = str(rendered)
     paths = {"no_grid": no_grid, "with_grid": with_grid, "grid_with_grid": with_grid}
     return {key: str(_resolve_path(value, base_dir)) for key, value in paths.items() if isinstance(value, str) and value}
 
 
 def _resolve_path(value: str, base_dir: Path) -> Path:
     path = Path(value)
-    return path.resolve() if path.is_absolute() else (base_dir / path).resolve()
+    if path.is_absolute():
+        return path.resolve()
+    dataset_root = base_dir.parent
+    candidates = [
+        (base_dir / path).resolve(),
+        (dataset_root / path).resolve(),
+        (dataset_root / "charts" / path.name).resolve(),
+        (dataset_root / "chart" / path.name).resolve(),
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
 
 
 def _label_map(dataset: dict[str, Any]) -> dict[str, None]:
     names = []
+    data_points = dataset.get("data_points")
+    if isinstance(data_points, dict):
+        for name in data_points:
+            text = str(name).strip()
+            if text and text not in names:
+                names.append(text)
+    series_color = dataset.get("series_color")
+    if isinstance(series_color, dict):
+        for name in series_color:
+            text = str(name).strip()
+            if text and text not in names:
+                names.append(text)
     colors = dataset.get("colors")
     if isinstance(colors, list):
         for item in colors:
@@ -122,6 +152,10 @@ def _label_map(dataset: dict[str, Any]) -> dict[str, None]:
 
 
 def _strip_reference_fields(dataset: dict[str, Any]) -> None:
+    if os.getenv("CHART_EXPERIMENT_PRESERVE_GT", "").strip().lower() in {"1", "true", "yes"}:
+        for key in ("reference_config_path", "reference_chart_id"):
+            dataset.pop(key, None)
+        return
     for key in ("data", "data_points", "ground_truth", "labels", "reference_config_path", "reference_chart_id"):
         dataset.pop(key, None)
 

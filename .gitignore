@@ -15,6 +15,11 @@ recognized_text.json
 runtime_logs/
 data/output/
 sample_outputs/
+gt_runs/
+gt_full_object_results_package/
+experiment_gt_dataset/*
+!experiment_gt_dataset/organized/
+!experiment_gt_dataset/organized/**
 
 # Frontend build/cache
 frontend/chart-demo-ui/dist/

@@ -1,0 +1,180 @@
+{
+  "chart_id": "plotivy-nightingale-rose-chart",
+  "image_paths": {
+    "no_grid": "chart/plotivy-nightingale-rose-chart.png",
+    "with_grid": "gt_grid/plotivy-nightingale-rose-chart_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/plotivy-nightingale-rose-chart_gt_encrypt.png"
+  },
+  "center": [
+    442,
+    522
+  ],
+  "chart_type": "rose",
+  "pred_coords": [
+    442,
+    522
+  ],
+  "argument": {
+    "a": 1.3257142857142856,
+    "b": 0.2857142857143437,
+    "source": "gt_linear_fit"
+  },
+  "series_color": {
+    "Jan": "#5dace3",
+    "Feb": "#5dace3",
+    "Mar": "#52bd80",
+    "Apr": "#52bd80",
+    "May": "#52bd80",
+    "Jun": "#f1d040",
+    "Jul": "#f1d040",
+    "Aug": "#f1d040",
+    "Sep": "#ec984e",
+    "Oct": "#ec984e",
+    "Nov": "#ec984e",
+    "Dec": "#ec984e"
+  },
+  "axis_labels": {
+    "Jan": "90",
+    "Feb": "60",
+    "Mar": "30",
+    "Apr": "0",
+    "May": "330",
+    "Jun": "300",
+    "Jul": "270",
+    "Aug": "240",
+    "Sep": "210",
+    "Oct": "180",
+    "Nov": "150",
+    "Dec": "120"
+  },
+  "r_ticks": [
+    0.0,
+    50.0,
+    100.0,
+    150.0,
+    200.0,
+    250.0,
+    300.0
+  ],
+  "r_pixels": [
+    0.0,
+    67.0,
+    133.0,
+    199.0,
+    265.0,
+    332.0,
+    398.0
+  ],
+  "theta_ticks": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ],
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "data": {
+    "Jan": 95,
+    "Feb": 105,
+    "Mar": 130,
+    "Apr": 145,
+    "May": 155,
+    "Jun": 140,
+    "Jul": 135,
+    "Aug": 145,
+    "Sep": 160,
+    "Oct": 180,
+    "Nov": 220,
+    "Dec": 280
+  },
+  "num_entities": 12,
+  "fill_enabled": true,
+  "num_vars": 12,
+  "image": "plotivy-nightingale-rose-chart.png",
+  "json": "plotivy-nightingale-rose-chart.json",
+  "output": "plotivy-nightingale-rose-chart_gt_encrypt.png",
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      25.0,
+      50.0,
+      75.0,
+      100.0,
+      125.0,
+      150.0,
+      175.0,
+      200.0,
+      225.0,
+      250.0,
+      275.0,
+      300.0
+    ],
+    "encrypted_r_pixels": [
+      33.5,
+      67.0,
+      100.0,
+      133.0,
+      166.0,
+      199.0,
+      232.0,
+      265.0,
+      298.5,
+      332.0,
+      365.0,
+      398.0
+    ],
+    "encrypted_ring_ticks": [
+      25.0,
+      75.0,
+      125.0,
+      175.0,
+      225.0,
+      275.0
+    ],
+    "encrypted_ring_pixels": [
+      33.5,
+      100.0,
+      166.0,
+      232.0,
+      298.5,
+      365.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Realrosechart_withgrid\\plotivy-nightingale-rose-chart.json"
+}

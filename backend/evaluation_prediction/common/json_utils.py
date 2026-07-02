@@ -13,8 +13,8 @@ def clean_json_text(text: str) -> str:
     cleaned = re.sub(r"[\x00-\x1f]+", "", cleaned)
     cleaned = cleaned.replace("`", "").strip()
     cleaned = re.sub(r",\s*([}\]])", r"\1", cleaned)
-    cleaned = re.sub(r"\[x\s*,\s*y\]", "[-1, -1]", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r'"?x"?\s*,\s*"?y"?', '"-1", "-1"', cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\[x\s*,\s*y\]", "[null, null]", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r'"?x"?\s*,\s*"?y"?', 'null, null', cleaned, flags=re.IGNORECASE)
     return cleaned
 
 

@@ -1,0 +1,105 @@
+{
+  "chart_id": "radar_021",
+  "chart_type": "radar",
+  "labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "data_points": {
+    "AEFTFS": {
+      "A": 15.25,
+      "C": 22.25,
+      "D": 21.5,
+      "E": 22.75,
+      "B": 20.5
+    },
+    "OJLNQU": {
+      "C": 15.25,
+      "A": 15.0,
+      "E": 6.25,
+      "B": 13.5,
+      "D": 4.5
+    },
+    "BDU": {
+      "D": 13.5,
+      "E": 19.75,
+      "B": 15.5,
+      "C": 23.5,
+      "A": 16.25
+    },
+    "ERLXWO": {
+      "E": 11.5,
+      "B": 3.25,
+      "D": 9.25,
+      "C": 22.25,
+      "A": 19.25
+    },
+    "OJGCV": {
+      "E": 10.25,
+      "A": 10.25,
+      "D": 23.25,
+      "C": 4.0,
+      "B": 4.0
+    },
+    "XUH": {
+      "D": 13.5,
+      "E": 15.75,
+      "B": 8.5,
+      "C": 19.5,
+      "A": 22.5
+    }
+  },
+  "theta_ticks": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "theta_angles": [
+    0.0,
+    72.0,
+    144.0,
+    216.0,
+    288.0
+  ],
+  "r_ticks": [
+    5,
+    10,
+    15,
+    20,
+    25
+  ],
+  "r_pixels": [
+    46,
+    92,
+    138,
+    184,
+    230
+  ],
+  "center": [
+    307,
+    303
+  ],
+  "image_paths": {
+    "no_grid": "chart/radar_021.png",
+    "with_grid": "gt_grid/radar_021+encode.jpg",
+    "grid_with_grid": "gt_grid/radar_021+encode.jpg"
+  },
+  "series_color": {
+    "AEFTFS": "#98df8a",
+    "OJLNQU": "#9467bd",
+    "BDU": "#d62728",
+    "ERLXWO": "#aec7e8",
+    "OJGCV": "#17becf",
+    "XUH": "#ff9896"
+  },
+  "num_entities": 6,
+  "fill_enabled": true,
+  "num_vars": 5,
+  "gt_grid_source": "provided",
+  "source_config_path": "Syradarchart_eval_50_withgrid\\eval_50\\radar_021.json"
+}

@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import base64
+import hashlib
 import json
 import os
 import re
 from pathlib import Path
 from typing import Any, Callable, Iterable
+
+from .json_safety import sanitize_json_value
 
 
 PathLike = str | os.PathLike[str]
@@ -16,7 +19,12 @@ ConfigTransform = Callable[[dict[str, Any], Path, Path], dict[str, Any] | None]
 
 def safe_filename(name: str) -> str:
     """Return a Windows-safe filename fragment."""
-    return re.sub(r'[\\/:*?"<>|]', "_", str(name))
+    text = re.sub(r'[\\/:*?"<>|]', "_", str(name))
+    text = re.sub(r"\s+", " ", text).strip(" ._")
+    if len(text) <= 96:
+        return text or "item"
+    digest = hashlib.sha1(text.encode("utf-8", errors="replace")).hexdigest()[:10]
+    return f"{text[:82].rstrip(' ._')}_{digest}"
 
 
 def ensure_dir(path: PathLike) -> Path:
@@ -31,7 +39,10 @@ def read_json(path: PathLike) -> Any:
 
 
 def write_json(path: PathLike, data: Any) -> None:
-    Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    Path(path).write_text(
+        json.dumps(sanitize_json_value(data), ensure_ascii=False, indent=2, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def iter_json_files(config_dir: PathLike, recursive: bool = False, exclude_emu: bool = False) -> list[Path]:

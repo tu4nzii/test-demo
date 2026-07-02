@@ -1,0 +1,99 @@
+{
+  "chart_id": "lineGraph35",
+  "image_paths": {
+    "no_grid": "chart/LineGraph35.png",
+    "with_grid": "gt_grid/LineGraph35_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph35_grid.png"
+  },
+  "data_points": {
+    "Packet Tickets form 2012 to 2016": {
+      "Aug 2012": 52790.7,
+      "Nov 2012": 54418.6,
+      "Feb 2013": 54883.72,
+      "May 2013": 50000,
+      "Aug 2013": 53023.26,
+      "Nov 2013": 53720.93,
+      "Feb 2014": 52093.02,
+      "May 2014": 50697.67,
+      "Aug 2014": 47441.86,
+      "Nov 2014": 50000,
+      "Feb 2015": 52558.14,
+      "May 2015": 37906.98,
+      "Aug 2015": 43953.49,
+      "Nov 2015": 43953.49,
+      "Feb 2016": 91162.79
+    }
+  },
+  "x_ticks": [
+    "Aug 2012",
+    "Nov 2012",
+    "Feb 2013",
+    "May 2013",
+    "Aug 2013",
+    "Nov 2013",
+    "Feb 2014",
+    "May 2014",
+    "Aug 2014",
+    "Nov 2014",
+    "Feb 2015",
+    "May 2015",
+    "Aug 2015",
+    "Nov 2015",
+    "Feb 2016",
+    "May 2016"
+  ],
+  "y_ticks": [
+    30000,
+    35000,
+    40000,
+    45000,
+    50000,
+    55000,
+    60000,
+    65000,
+    70000,
+    75000,
+    80000,
+    85000,
+    90000
+  ],
+  "x_pixels": [
+    93,
+    124,
+    154,
+    184,
+    214,
+    245,
+    275,
+    305,
+    335,
+    366,
+    397,
+    426,
+    457,
+    487,
+    518,
+    548
+  ],
+  "y_pixels": [
+    313,
+    292,
+    270,
+    248,
+    227,
+    206,
+    184,
+    162,
+    141,
+    120,
+    98,
+    77,
+    56
+  ],
+  "series_color": {
+    "Packet Tickets form 2012 to 2016": "#8B0000"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph35_encrypted.json"
+}

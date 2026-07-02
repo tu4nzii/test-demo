@@ -1,0 +1,73 @@
+{
+  "chart_id": "lineGraph7",
+  "image_paths": {
+    "no_grid": "chart/LineGraph7.png",
+    "with_grid": "gt_grid/LineGraph7_grid.png",
+    "grid_with_grid": "gt_grid/LineGraph7_grid.png"
+  },
+  "data_points": {
+    "Trace 1": {
+      "1": 10,
+      "2": 15,
+      "3": 13,
+      "4": 17
+    },
+    "Trace 2": {
+      "1": 16,
+      "2": 5,
+      "3": 11,
+      "4": 9
+    }
+  },
+  "x_ticks": [
+    "1",
+    "1.5",
+    "2",
+    "2.5",
+    "3",
+    "3.5",
+    "4"
+  ],
+  "y_ticks": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "x_pixels": [
+    109,
+    185,
+    261,
+    337,
+    413,
+    490,
+    566
+  ],
+  "y_pixels": [
+    333,
+    314,
+    294,
+    274,
+    254,
+    234,
+    215,
+    196,
+    176,
+    156,
+    136
+  ],
+  "series_color": {
+    "Trace 1": "#1F77B4",
+    "Trace 2": "#FF7F0E"
+  },
+  "chart_type": "line",
+  "gt_grid_source": "provided",
+  "source_config_path": "line_real_datasets\\chart_configs\\LineGraph7_encrypted.json"
+}

@@ -1,0 +1,233 @@
+{
+  "chart_id": "radarchart_15",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "chart/RadarChart15.png",
+    "with_grid": "gt_grid/RadarChart15_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RadarChart15_gt_encrypt.png"
+  },
+  "labels": [
+    "Self-efficacy",
+    "Principled",
+    "Industrious",
+    "Competitive",
+    "Complexity",
+    "Cooperative",
+    "Perfectionism",
+    "Suspicious",
+    "Volatile",
+    "Assertive",
+    "Altruistic",
+    "Spontaneity",
+    "Team-orientated",
+    "Need for achievement"
+  ],
+  "data_points": {
+    "Personality": {
+      "Self-efficacy": 7.5,
+      "Principled": 8.0,
+      "Industrious": 2.0,
+      "Competitive": 3.5,
+      "Complexity": 4.0,
+      "Cooperative": 6.0,
+      "Perfectionism": 8.5,
+      "Suspicious": 5.0,
+      "Volatile": 4.0,
+      "Assertive": 5.5,
+      "Altruistic": 4.5,
+      "Spontaneity": 3.0,
+      "Team-orientated": 6.5,
+      "Need for achievement": 7.0
+    }
+  },
+  "theta_ticks": [
+    "Self-efficacy",
+    "Principled",
+    "Industrious",
+    "Competitive",
+    "Complexity",
+    "Cooperative",
+    "Perfectionism",
+    "Suspicious",
+    "Volatile",
+    "Assertive",
+    "Altruistic",
+    "Spontaneity",
+    "Team-orientated",
+    "Need for achievement"
+  ],
+  "theta_angles": [
+    0.0,
+    25.71,
+    51.43,
+    77.14,
+    102.86,
+    128.57,
+    154.29,
+    180.0,
+    205.71,
+    231.43,
+    257.14,
+    282.86,
+    308.57,
+    334.29
+  ],
+  "r_ticks": [
+    1.0,
+    2.0,
+    3.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "r_pixels": [
+    20.0,
+    40.0,
+    60.0,
+    80.0,
+    100.0,
+    120.0,
+    140.0,
+    160.0,
+    180.0,
+    200.0
+  ],
+  "center": [
+    357,
+    229
+  ],
+  "series_color": {
+    "Personality": "#4477aa"
+  },
+  "num_entities": 1,
+  "fill_enabled": true,
+  "num_vars": 14,
+  "pred_coords": [
+    357,
+    229
+  ],
+  "argument": {
+    "a": 19.999999999999993,
+    "b": -5.974526297932944e-14,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Self-efficacy": "0",
+    "Principled": "25.71",
+    "Industrious": "51.43",
+    "Competitive": "77.14",
+    "Complexity": "102.86",
+    "Cooperative": "128.57",
+    "Perfectionism": "154.29",
+    "Suspicious": "180",
+    "Volatile": "205.71",
+    "Assertive": "231.43",
+    "Altruistic": "257.14",
+    "Spontaneity": "282.86",
+    "Team-orientated": "308.57",
+    "Need for achievement": "334.29"
+  },
+  "image": "RadarChart15.png",
+  "json": "RadarChart15.json",
+  "output": "RadarChart15_gt_encrypt.png",
+  "source_files": {
+    "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart15.json",
+    "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart15.png"
+  },
+  "data": {
+    "Personality": {
+      "Self-efficacy": 7.5,
+      "Principled": 8.0,
+      "Industrious": 2.0,
+      "Competitive": 3.5,
+      "Complexity": 4.0,
+      "Cooperative": 6.0,
+      "Perfectionism": 8.5,
+      "Suspicious": 5.0,
+      "Volatile": 4.0,
+      "Assertive": 5.5,
+      "Altruistic": 4.5,
+      "Spontaneity": 3.0,
+      "Team-orientated": 6.5,
+      "Need for achievement": 7.0
+    }
+  },
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0,
+      4.5,
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0
+    ],
+    "encrypted_r_pixels": [
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0,
+      60.0,
+      70.0,
+      80.0,
+      90.0,
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0,
+      150.0,
+      160.0,
+      170.0,
+      180.0,
+      190.0,
+      200.0
+    ],
+    "encrypted_ring_ticks": [
+      0.5,
+      1.5,
+      2.5,
+      3.5,
+      4.5,
+      5.5,
+      6.5,
+      7.5,
+      8.5,
+      9.5
+    ],
+    "encrypted_ring_pixels": [
+      10.0,
+      30.0,
+      50.0,
+      70.0,
+      90.0,
+      110.0,
+      130.0,
+      150.0,
+      170.0,
+      190.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Real_radarchart_withgrid\\RadarChart15.json"
+}

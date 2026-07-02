@@ -18,7 +18,7 @@ Current system registry:
 - `radar`
 - `rose`
 
-Some internal runner code can still normalize or reuse stacked-bar helpers, but `main` does not currently register `v_stacked_bar` or `h_stacked_bar` as frontend/runtime chart types.
+The experiment version does not support `v_stacked_bar` or `h_stacked_bar` as processing objects. Some internal helper code may still exist for legacy compatibility, but service/CLI entry points do not map stacked bars into ordinary bar experiments.
 
 ## Backend Integration
 

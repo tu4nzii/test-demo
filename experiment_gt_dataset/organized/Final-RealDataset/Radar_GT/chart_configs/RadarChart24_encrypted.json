@@ -1,0 +1,154 @@
+{
+  "chart_id": "radarchart_24",
+  "chart_type": "radar",
+  "image_paths": {
+    "no_grid": "chart/RadarChart24.png",
+    "with_grid": "gt_grid/RadarChart24_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RadarChart24_gt_encrypt.png"
+  },
+  "labels": [
+    "0",
+    "60",
+    "120",
+    "180",
+    "240",
+    "300"
+  ],
+  "data_points": {
+    "Series 1": {
+      "0": 62.5,
+      "60": 70.0,
+      "120": 55.0,
+      "180": 45.0,
+      "240": 60.0,
+      "300": 75.0
+    },
+    "Series 2": {
+      "0": 50.0,
+      "60": 40.0,
+      "120": 35.0,
+      "180": 30.0,
+      "240": 38.0,
+      "300": 42.0
+    }
+  },
+  "theta_ticks": [
+    "0",
+    "60",
+    "120",
+    "180",
+    "240",
+    "300"
+  ],
+  "theta_angles": [
+    0.0,
+    60.0,
+    120.0,
+    180.0,
+    240.0,
+    300.0
+  ],
+  "r_ticks": [
+    25.0,
+    50.0,
+    75.0,
+    100.0
+  ],
+  "r_pixels": [
+    37.0,
+    75.0,
+    112.0,
+    150.0
+  ],
+  "center": [
+    318,
+    192
+  ],
+  "series_color": {
+    "Series 1": "#88ccdd",
+    "Series 2": "#ff8855"
+  },
+  "num_entities": 2,
+  "fill_enabled": false,
+  "num_vars": 6,
+  "pred_coords": [
+    318,
+    192
+  ],
+  "argument": {
+    "a": 1.5039999999999998,
+    "b": -0.49999999999994815,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "0": "0",
+    "60": "60",
+    "120": "120",
+    "180": "180",
+    "240": "240",
+    "300": "300"
+  },
+  "image": "RadarChart24.png",
+  "json": "RadarChart24.json",
+  "output": "RadarChart24_gt_encrypt.png",
+  "source_files": {
+    "json": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart24.json",
+    "image": "D:\\home work\\Agent.paper\\NEW\\test-demo\\backend\\real\\RadarChart-18 & RoseChart-6\\RadarChart-18-final\\RadarChart24.png"
+  },
+  "data": {
+    "Series 1": {
+      "0": 62.5,
+      "60": 77.0,
+      "120": 75.0,
+      "180": 70.0,
+      "240": 60.0,
+      "300": 75.0
+    },
+    "Series 2": {
+      "0": 50.0,
+      "60": 50.0,
+      "120": 55.0,
+      "180": 30.0,
+      "240": 38.0,
+      "300": 50.0
+    }
+  },
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      12.5,
+      25.0,
+      37.5,
+      50.0,
+      62.5,
+      75.0,
+      87.5,
+      100.0
+    ],
+    "encrypted_r_pixels": [
+      18.5,
+      37.0,
+      56.0,
+      75.0,
+      93.5,
+      112.0,
+      131.0,
+      150.0
+    ],
+    "encrypted_ring_ticks": [
+      12.5,
+      37.5,
+      62.5,
+      87.5
+    ],
+    "encrypted_ring_pixels": [
+      18.5,
+      56.0,
+      93.5,
+      131.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Real_radarchart_withgrid\\RadarChart24.json"
+}

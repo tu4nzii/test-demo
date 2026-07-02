@@ -64,6 +64,18 @@ def normalize_value(value: Any) -> Any:
     return value
 
 
+def _extract_json_object(text: str) -> str:
+    cleaned = re.sub(r"^```json", "", text.strip())
+    cleaned = re.sub(r"```$", "", cleaned).strip()
+    if cleaned.startswith("{") and cleaned.endswith("}"):
+        return cleaned
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start >= 0 and end > start:
+        return cleaned[start : end + 1]
+    return cleaned
+
+
 def _same_label(left: Any, right: Any) -> bool:
     return str(left or "").strip().casefold() == str(right or "").strip().casefold()
 
@@ -150,8 +162,7 @@ async def call_llm_once(prompt: str, image_path: str, item_name: str | None = No
 
     try:
         safe_print(f"Model Output Raw:\n{txt}\n")
-        txt = re.sub(r"^```json", "", txt)
-        txt = re.sub(r"```$", "", txt).strip()
+        txt = _extract_json_object(txt)
         result = json.loads(txt)
 
         datapoints_key = "datapoints"

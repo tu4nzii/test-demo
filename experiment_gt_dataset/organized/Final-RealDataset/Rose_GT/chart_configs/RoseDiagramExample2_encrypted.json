@@ -1,0 +1,164 @@
+{
+  "chart_id": "RoseDiagramExample2",
+  "image_paths": {
+    "no_grid": "chart/RoseDiagramExample2.png",
+    "with_grid": "gt_grid/RoseDiagramExample2_gt_encrypt.png",
+    "grid_with_grid": "gt_grid/RoseDiagramExample2_gt_encrypt.png"
+  },
+  "center": [
+    176,
+    142
+  ],
+  "series_color": {
+    "Label A": "#8da62b",
+    "Label B": "#8da62b",
+    "Label C": "#8da62b",
+    "Label D": "#8da62b",
+    "Label E": "#8da62b",
+    "Label F": "#8da62b",
+    "Label G": "#8da62b",
+    "Label H": "#8da62b",
+    "Label I": "#8da62b",
+    "Label J": "#8da62b",
+    "Label K": "#8da62b",
+    "Label L": "#8da62b"
+  },
+  "r_ticks": [
+    0.0,
+    20.0,
+    40.0,
+    60.0,
+    80.0
+  ],
+  "r_pixels": [
+    0.0,
+    26.0,
+    52.0,
+    78.0,
+    104.0
+  ],
+  "theta_ticks": [
+    "Label A",
+    "Label B",
+    "Label C",
+    "Label D",
+    "Label E",
+    "Label F",
+    "Label G",
+    "Label H",
+    "Label I",
+    "Label J",
+    "Label K",
+    "Label L"
+  ],
+  "theta_angles": [
+    90.0,
+    60.0,
+    30.0,
+    0.0,
+    330.0,
+    300.0,
+    270.0,
+    240.0,
+    210.0,
+    180.0,
+    150.0,
+    120.0
+  ],
+  "chart_type": "rose",
+  "pred_coords": [
+    176,
+    142
+  ],
+  "argument": {
+    "a": 1.3000000000000003,
+    "b": 1.683059646558811e-14,
+    "source": "gt_linear_fit"
+  },
+  "axis_labels": {
+    "Label A": "90",
+    "Label B": "60",
+    "Label C": "30",
+    "Label D": "0",
+    "Label E": "330",
+    "Label F": "300",
+    "Label G": "270",
+    "Label H": "240",
+    "Label I": "210",
+    "Label J": "180",
+    "Label K": "150",
+    "Label L": "120"
+  },
+  "labels": [
+    "Label A",
+    "Label B",
+    "Label C",
+    "Label D",
+    "Label E",
+    "Label F",
+    "Label G",
+    "Label H",
+    "Label I",
+    "Label J",
+    "Label K",
+    "Label L"
+  ],
+  "data": {
+    "Label A": 22,
+    "Label B": 48,
+    "Label C": 10,
+    "Label D": 30,
+    "Label E": 10,
+    "Label F": 63,
+    "Label G": 90,
+    "Label H": 70,
+    "Label I": 43,
+    "Label J": 15,
+    "Label K": 23,
+    "Label L": 33
+  },
+  "num_entities": 12,
+  "fill_enabled": true,
+  "num_vars": 12,
+  "image": "RoseDiagramExample2.png",
+  "json": "RoseDiagramExample2.json",
+  "output": "RoseDiagramExample2_gt_encrypt.png",
+  "encryption": {
+    "source": "groundtruth_metadata",
+    "rule": "double_density_labels_midpoint_rings",
+    "encrypted_r_ticks": [
+      10.0,
+      20.0,
+      30.0,
+      40.0,
+      50.0,
+      60.0,
+      70.0,
+      80.0
+    ],
+    "encrypted_r_pixels": [
+      13.0,
+      26.0,
+      39.0,
+      52.0,
+      65.0,
+      78.0,
+      91.0,
+      104.0
+    ],
+    "encrypted_ring_ticks": [
+      10.0,
+      30.0,
+      50.0,
+      70.0
+    ],
+    "encrypted_ring_pixels": [
+      13.0,
+      39.0,
+      65.0,
+      91.0
+    ]
+  },
+  "gt_grid_source": "provided",
+  "source_config_path": "Realrosechart_withgrid\\RoseDiagramExample2.json"
+}
