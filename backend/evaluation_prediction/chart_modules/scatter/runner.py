@@ -10,7 +10,7 @@ from typing import Any
 
 from PIL import Image
 
-from ...common.runtime import get_repeat_times
+from ...common.runtime import get_amplifier_rounds, get_repeat_times
 
 from .data import PointChartConfig, PointTarget, image_path, iter_targets, load_datasets
 from .evaluation import compute_mae, compute_relative_error, save_results
@@ -33,6 +33,7 @@ EXPERIMENT_TYPES = [
 ]
 
 PREFERRED_PROMPTS = ["feedback_crop_adaptive", "feedback", "grid", "baseline"]
+AMPLIFIER_STABILITY_REL_THRESHOLD = 0.01
 MAX_CROP_ATTEMPTS = 5
 DEFAULT_MARK_DIAMETER = 20.0
 MIN_MARK_DIAMETER = 4.0
@@ -54,6 +55,47 @@ def _valid_prediction(pred: tuple[Any, Any]) -> bool:
         return pred != (-1, -1)
     except Exception:
         return False
+
+
+def _axis_range(ticks: list[Any]) -> float:
+    values: list[float] = []
+    for tick in ticks:
+        try:
+            values.append(float(tick))
+        except Exception:
+            continue
+    return max(values) - min(values) if values else float("nan")
+
+
+def _scalar_stability_ratio(prev_value: Any, curr_value: Any, value_range: float) -> float | None:
+    try:
+        prev = float(prev_value)
+        curr = float(curr_value)
+    except Exception:
+        return None
+    denom = max(abs(prev), abs(float(value_range)) * 0.01, 1e-6)
+    return abs(curr - prev) / denom
+
+
+def _xy_stability_ratio(
+    prev_pred: tuple[Any, Any],
+    curr_pred: tuple[Any, Any],
+    dataset: dict[str, Any],
+) -> float | None:
+    x_ratio = _scalar_stability_ratio(prev_pred[0], curr_pred[0], _axis_range(dataset["x_ticks"]))
+    y_ratio = _scalar_stability_ratio(prev_pred[1], curr_pred[1], _axis_range(dataset["y_ticks"]))
+    ratios = [ratio for ratio in (x_ratio, y_ratio) if ratio is not None]
+    return max(ratios) if ratios else None
+
+
+def _strategy_repeat_times(prompt_type: str, repeat_times: int, amplifier_rounds: int) -> int:
+    if prompt_type in {"baseline", "grid"}:
+        return 1
+    if prompt_type == "feedback":
+        return 2
+    if prompt_type == "feedback_crop_adaptive":
+        return amplifier_rounds
+    return repeat_times
 
 
 def _normalize_prediction(pred: tuple[Any, Any], dataset: dict[str, Any], used_image_path: Path) -> tuple[Any, Any]:
@@ -99,6 +141,7 @@ def _record(
     run: int,
     used_image_path: Path,
     pred: tuple[Any, Any],
+    extra: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     gt = (target.gt_x, target.gt_y)
     pred_x, pred_y = pred
@@ -129,7 +172,7 @@ def _record(
     except Exception:
         pixel_rel_x, pixel_rel_y = None, None
 
-    return {
+    record = {
         "chart_id": dataset["chart_id"],
         "point_name": target.point_name,
         "category": target.category,
@@ -154,6 +197,9 @@ def _record(
         "y_err_over_range": y_err_over_range,
         "xy_err_over_range": xy_err_over_range,
     }
+    if extra:
+        record.update(extra)
+    return record
 
 
 async def _run_target(
@@ -163,18 +209,24 @@ async def _run_target(
     dataset: dict[str, Any],
     target: PointTarget,
     repeat_times: int,
+    amplifier_rounds: int,
 ) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     history: list[tuple[Any, Any]] = []
-    feedback_history: list[tuple[Any, Any]] = []
     feedback_pred: tuple[Any, Any] | None = None
+    grid_pred: tuple[Any, Any] | None = None
 
     for prompt_type, image_type in _experiment_types():
-        for run_idx in range(1, repeat_times + 1):
+        target_runs = _strategy_repeat_times(prompt_type, repeat_times, amplifier_rounds)
+        last_run_idx = 0
+        last_amplifier_pred: tuple[Any, Any] | None = None
+        last_amplifier_readable = True
+        for run_idx in range(1, target_runs + 1):
+            last_run_idx = run_idx
             used_image = image_path(config, dataset, image_type)
             local_x_ticks = dataset["x_ticks"]
             local_y_ticks = dataset["y_ticks"]
-            pred_feedback = history[-1] if history else None
+            pred_feedback = history[-1] if prompt_type == "feedback" and history and run_idx > 1 else None
 
             if prompt_type == "feedback" and pred_feedback is not None:
                 used_image = draw_prediction_overlay(
@@ -194,19 +246,8 @@ async def _run_target(
 
             if prompt_type == "feedback_crop_adaptive":
                 if not feedback_pred or not _valid_prediction(feedback_pred):
-                    fallback_record = _record(
-                        config=config,
-                        dataset=dataset,
-                        target=target,
-                        prompt_type=prompt_type,
-                        image_type=image_type,
-                        run=run_idx,
-                        used_image_path=used_image,
-                        pred=(-1, -1),
-                    )
-                    records.append(fallback_record)
                     print(f"[{config.chart_type} runner] skip adaptive crop without valid feedback @ {target.point_name}")
-                    continue
+                    break
                 exists_prompt = build_point_exists_prompt(target.point_name, config.mark_name, target.visual_name)
                 crop_result = await _try_generate_crop_until_point_detected(
                     config=config,
@@ -225,20 +266,8 @@ async def _run_target(
                     judge_prompt=exists_prompt,
                 )
                 if crop_result is None:
-                    records.append(
-                        _record(
-                            config=config,
-                            dataset=dataset,
-                            target=target,
-                            prompt_type=prompt_type,
-                            image_type=image_type,
-                            run=run_idx,
-                            used_image_path=used_image,
-                            pred=(-1, -1),
-                        )
-                    )
                     print(f"[{config.chart_type} runner] adaptive crop failed to include target @ {target.point_name}")
-                    continue
+                    break
                 used_image, local_x_ticks, local_y_ticks, _, _, _, _, _ = crop_result
 
             prompt = generate_prompt(
@@ -258,6 +287,31 @@ async def _run_target(
 
             pred = await client.predict_coords(prompt, used_image, target.point_name)
             pred = _normalize_prediction(pred, dataset, used_image)
+            response_readable = bool(client.last_readable)
+            feedback_stability_ratio = None
+            feedback_stop_reason = ""
+            amplifier_stability_ratio = None
+            amplifier_stop_reason = ""
+            if prompt_type == "feedback" and _valid_prediction(pred) and grid_pred and _valid_prediction(grid_pred):
+                feedback_stability_ratio = _xy_stability_ratio(grid_pred, pred, dataset)
+                if (
+                    feedback_stability_ratio is not None
+                    and feedback_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                ):
+                    feedback_stop_reason = "stable_with_grid"
+            if (
+                prompt_type == "feedback_crop_adaptive"
+                and _valid_prediction(pred)
+                and response_readable
+                and last_amplifier_pred is not None
+                and last_amplifier_readable
+            ):
+                amplifier_stability_ratio = _xy_stability_ratio(last_amplifier_pred, pred, dataset)
+                if (
+                    amplifier_stability_ratio is not None
+                    and amplifier_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                ):
+                    amplifier_stop_reason = "stable"
             records.append(
                 _record(
                     config=config,
@@ -268,30 +322,67 @@ async def _run_target(
                     run=run_idx,
                     used_image_path=used_image,
                     pred=pred,
+                    extra={
+                        "readable": response_readable if prompt_type == "feedback_crop_adaptive" else True,
+                        "feedback_stop_reason": feedback_stop_reason if prompt_type == "feedback" else "",
+                        "feedback_stability_ratio": (
+                            feedback_stability_ratio if prompt_type == "feedback" else None
+                        ),
+                        "amplifier_stop_reason": (
+                            amplifier_stop_reason if prompt_type == "feedback_crop_adaptive" else ""
+                        ),
+                        "amplifier_stability_ratio": (
+                            amplifier_stability_ratio if prompt_type == "feedback_crop_adaptive" else None
+                        ),
+                    },
                 )
             )
-            if _valid_prediction(pred):
+            if _valid_prediction(pred) and (prompt_type != "feedback_crop_adaptive" or response_readable):
                 history.append(pred)
+                if prompt_type == "grid":
+                    grid_pred = pred
                 if prompt_type == "feedback":
                     feedback_pred = pred
-                    feedback_history.append(pred)
-                    draw_prediction_overlay(
-                        config=config,
-                        chart_id=dataset["chart_id"],
-                        original_img_path=image_path(config, dataset, "grid_with_grid"),
-                        pred_coords=feedback_history,
-                        x_ticks=dataset["x_ticks"],
-                        y_ticks=dataset["y_ticks"],
-                        x_pixels=dataset["x_pixels"],
-                        y_pixels=dataset["y_pixels"],
-                        point_name=target.point_name,
-                        draw_all_preds=True,
-                        prompt_type=prompt_type,
-                        image_type=image_type,
+                if prompt_type == "feedback_crop_adaptive":
+                    last_amplifier_pred = pred
+                    last_amplifier_readable = response_readable
+                    feedback_pred = pred
+                print(f"[{config.chart_type}] Success {run_idx}/{target_runs} [{prompt_type} - {image_type}] @ {target.point_name}")
+                if prompt_type == "feedback" and feedback_stop_reason == "stable_with_grid":
+                    print(
+                        f"[{config.chart_type}] feedback stable early stop @ {target.point_name}: "
+                        f"ratio={float(feedback_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
                     )
-                print(f"[{config.chart_type}] Success {run_idx}/{repeat_times} [{prompt_type} - {image_type}] @ {target.point_name}")
+                    break
+                if prompt_type == "feedback_crop_adaptive" and amplifier_stop_reason == "stable":
+                    print(
+                        f"[{config.chart_type}] adaptive crop stable early stop @ {target.point_name}: "
+                        f"ratio={float(amplifier_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+                    )
+                    break
             else:
                 print(f"[{config.chart_type}] Invalid prediction [{prompt_type} - {image_type}] @ {target.point_name}: {pred}")
+                if prompt_type == "feedback_crop_adaptive":
+                    break
+
+        if prompt_type == "feedback" and feedback_pred and _valid_prediction(feedback_pred):
+            final_overlay_path = draw_prediction_overlay(
+                config=config,
+                chart_id=dataset["chart_id"],
+                original_img_path=image_path(config, dataset, "grid_with_grid"),
+                pred_coords=history,
+                x_ticks=dataset["x_ticks"],
+                y_ticks=dataset["y_ticks"],
+                x_pixels=dataset["x_pixels"],
+                y_pixels=dataset["y_pixels"],
+                point_name=target.point_name,
+                draw_all_preds=True,
+                prompt_type=prompt_type,
+                image_type=image_type,
+                run_index=last_run_idx or target_runs,
+                final_overlay=True,
+            )
+            print(f"[{config.chart_type}] Final feedback overlay saved: {final_overlay_path}")
 
     return records
 
@@ -479,12 +570,20 @@ async def run_experiment(
         return []
 
     repeat_times = get_repeat_times()
+    amplifier_rounds = get_amplifier_rounds()
     all_records: list[dict[str, Any]] = []
     async with PointModelClient() as client:
         for start in range(0, len(datasets), batch_size or len(datasets)):
             batch = datasets[start : start + (batch_size or len(datasets))]
             tasks = [
-                _run_target(config=config, client=client, dataset=dataset, target=target, repeat_times=repeat_times)
+                _run_target(
+                    config=config,
+                    client=client,
+                    dataset=dataset,
+                    target=target,
+                    repeat_times=repeat_times,
+                    amplifier_rounds=amplifier_rounds,
+                )
                 for dataset in batch
                 for target in iter_targets(dataset)
             ]

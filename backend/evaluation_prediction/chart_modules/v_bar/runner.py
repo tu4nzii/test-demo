@@ -24,6 +24,13 @@ EXPERIMENT_TYPES = [
 ]
 
 PREFERRED_PROMPTS = ["geometry", "amplifier", "feedback", "grid", "baseline"]
+AMPLIFIER_STABILITY_REL_THRESHOLD = 0.01
+
+AMPLIFIER_REFINE_PARAMS = {
+    1: {"half_ratio": 0.10, "zoom": 2, "grid_div": 1},
+    2: {"half_ratio": 0.05, "zoom": 4, "grid_div": 2},
+    3: {"half_ratio": 0.025, "zoom": 4, "grid_div": 2},
+}
 
 
 def _valid_prediction(pred: tuple[Any, Any]) -> bool:
@@ -63,6 +70,34 @@ def _fallback_numeric_step(ticks: list[Any]) -> float:
     return 1.0
 
 
+def _numeric_range(ticks: list[Any]) -> float:
+    values: list[float] = []
+    for tick in ticks:
+        try:
+            values.append(float(tick))
+        except Exception:
+            continue
+    return max(values) - min(values) if values else float("nan")
+
+
+def _stability_ratio(prev_value: Any, curr_value: Any, value_range: float) -> float | None:
+    try:
+        prev = float(prev_value)
+        curr = float(curr_value)
+    except Exception:
+        return None
+    denom = max(abs(prev), abs(float(value_range)) * 0.01, 1e-6)
+    return abs(curr - prev) / denom
+
+
+def _strategy_repeat_times(prompt_type: str, repeat_times: int) -> int:
+    if prompt_type in {"baseline", "grid"}:
+        return 1
+    if prompt_type == "feedback":
+        return 2
+    return repeat_times
+
+
 def _scan_offsets(max_attempts: int) -> list[int]:
     offsets = [0]
     for index in range(1, max_attempts):
@@ -81,10 +116,12 @@ async def _crop_until_bar_detected(
     max_attempts: int = 8,
     geometry_verified: bool = False,
     segment_pixel_span: int | None = None,
+    crop_params: dict[str, Any] | None = None,
 ) -> tuple[Path, list[float], tuple[float, float]] | None:
     chart_type = str(dataset.get("chart_type") or "v_bar")
     exists_prompt = build_color_prompt(target.point_name, dataset["series_color"], chart_type=chart_type)
     value_span = _fallback_numeric_step(dataset["y_ticks"])
+    crop_params = crop_params or {}
 
     for attempt_index, offset_units in enumerate(_scan_offsets(max_attempts)):
         shifted_center = center_value + offset_units * value_span
@@ -102,6 +139,9 @@ async def _crop_until_bar_detected(
                 round_index=round_index,
                 attempt_index=attempt_index,
                 pad_y=int(segment_pixel_span / 2 + 24) if segment_pixel_span else None,
+                half_ratio=crop_params.get("half_ratio"),
+                zoom_factor=crop_params.get("zoom"),
+                grid_div=crop_params.get("grid_div"),
                 chart_type=chart_type,
             )
         except Exception as exc:
@@ -136,11 +176,12 @@ def _record(
     run: int,
     used_image_path: Path,
     pred: tuple[Any, Any],
+    extra: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     pred_x, pred_y = pred
     mae = compute_mae(pred_y, target.gt_y)
     y_re = compute_relative_error(pred_y, target.gt_y)
-    return {
+    record = {
         "chart_id": dataset["chart_id"],
         "point": target.point_name,
         "series_name": target.series_name,
@@ -158,6 +199,9 @@ def _record(
         "x_re": -1,
         "y_re": y_re,
     }
+    if extra:
+        record.update(extra)
+    return record
 
 
 def _prediction_value(record: dict[str, Any]) -> float | None:
@@ -209,6 +253,7 @@ async def _run_target(
     records: list[dict[str, Any]] = []
     history: list[tuple[Any, Any]] = []
     feedback_pred: tuple[Any, Any] | None = None
+    grid_pred: tuple[Any, Any] | None = None
     chart_type = str(dataset.get("chart_type") or "v_bar")
     segment_prior = stacked_segment_prior(
         dataset,
@@ -246,7 +291,10 @@ async def _run_target(
                 print("[v_bar runner] Skip amplifier crop: no numeric center is available.")
                 continue
 
+            last_amplifier_pred: tuple[Any, Any] | None = None
+            last_amplifier_readable = True
             for amp_round in range(1, amplifier_rounds + 1):
+                amplifier_params = AMPLIFIER_REFINE_PARAMS.get(amp_round, AMPLIFIER_REFINE_PARAMS[3])
                 crop_result = await _crop_until_bar_detected(
                     client=client,
                     dataset=dataset,
@@ -259,6 +307,7 @@ async def _run_target(
                         if segment_prior is not None
                         else None
                     ),
+                    crop_params=amplifier_params,
                 )
                 if crop_result is None:
                     print(
@@ -291,6 +340,21 @@ async def _run_target(
                 pred = await client.predict_coords(prompt, used_image, target.point_name)
                 if _valid_prediction(pred):
                     pred = (target.x_label, pred[1])
+                response_readable = bool(client.last_readable)
+                valid_pred = _valid_prediction(pred) and response_readable
+                amplifier_stability_ratio = None
+                amplifier_stop_reason = ""
+                if valid_pred and last_amplifier_pred is not None and last_amplifier_readable:
+                    amplifier_stability_ratio = _stability_ratio(
+                        last_amplifier_pred[1],
+                        pred[1],
+                        _numeric_range(dataset["y_ticks"]),
+                    )
+                    if (
+                        amplifier_stability_ratio is not None
+                        and amplifier_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                    ):
+                        amplifier_stop_reason = "stable"
                 records.append(
                     _record(
                         dataset=dataset,
@@ -300,21 +364,37 @@ async def _run_target(
                         run=amp_round,
                         used_image_path=used_image,
                         pred=pred,
+                        extra={
+                            "readable": response_readable,
+                            "amplifier_stop_reason": amplifier_stop_reason,
+                            "amplifier_stability_ratio": amplifier_stability_ratio,
+                        },
                     )
                 )
-                if not _valid_prediction(pred):
+                if not valid_pred:
                     print(f"[v_bar] Invalid amplifier prediction round {amp_round} @ {target.point_name}: {pred}")
                     break
 
                 history.append(pred)
+                last_amplifier_pred = pred
+                last_amplifier_readable = response_readable
                 center_value = segment_prior.center_value if segment_prior is not None else float(pred[1])
                 print(
                     f"[v_bar] Success amplifier {amp_round}/{amplifier_rounds} "
                     f"@ {target.point_name}; next center={center_value:.4f}"
                 )
+                if amplifier_stop_reason == "stable":
+                    print(
+                        f"[v_bar] amplifier stable early stop @ {target.point_name}: "
+                        f"ratio={float(amplifier_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+                    )
+                    break
             continue
 
-        for run_idx in range(1, repeat_times + 1):
+        target_runs = _strategy_repeat_times(prompt_type, repeat_times)
+        last_run_idx = 0
+        for run_idx in range(1, target_runs + 1):
+            last_run_idx = run_idx
             used_image = image_path(dataset, image_type)
             visible_ticks = None
 
@@ -358,6 +438,19 @@ async def _run_target(
             if _valid_prediction(pred):
                 # Normalize x output to the requested category for stable records.
                 pred = (target.x_label, pred[1])
+            feedback_stability_ratio = None
+            feedback_stop_reason = ""
+            if prompt_type == "feedback" and _valid_prediction(pred) and grid_pred and _valid_prediction(grid_pred):
+                feedback_stability_ratio = _stability_ratio(
+                    grid_pred[1],
+                    pred[1],
+                    _numeric_range(dataset["y_ticks"]),
+                )
+                if (
+                    feedback_stability_ratio is not None
+                    and feedback_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                ):
+                    feedback_stop_reason = "stable_with_grid"
             records.append(
                 _record(
                     dataset=dataset,
@@ -367,13 +460,27 @@ async def _run_target(
                     run=run_idx,
                     used_image_path=used_image,
                     pred=pred,
+                    extra={
+                        "feedback_stop_reason": feedback_stop_reason if prompt_type == "feedback" else "",
+                        "feedback_stability_ratio": (
+                            feedback_stability_ratio if prompt_type == "feedback" else None
+                        ),
+                    },
                 )
             )
             if _valid_prediction(pred):
                 history.append(pred)
+                if prompt_type == "grid":
+                    grid_pred = pred
                 if prompt_type == "feedback":
                     feedback_pred = pred
-                print(f"[v_bar] Success {run_idx}/{repeat_times} [{prompt_type} - {image_type}] @ {target.point_name}")
+                print(f"[v_bar] Success {run_idx}/{target_runs} [{prompt_type} - {image_type}] @ {target.point_name}")
+                if prompt_type == "feedback" and feedback_stop_reason == "stable_with_grid":
+                    print(
+                        f"[v_bar] feedback stable early stop @ {target.point_name}: "
+                        f"ratio={float(feedback_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+                    )
+                    break
             else:
                 print(f"[v_bar] Invalid prediction [{prompt_type} - {image_type}] @ {target.point_name}: {pred}")
 
@@ -390,7 +497,7 @@ async def _run_target(
                 draw_all_preds=True,
                 prompt_type=prompt_type,
                 image_type=image_type,
-                run_index=repeat_times,
+                run_index=last_run_idx or target_runs,
                 final_overlay=True,
                 chart_type=chart_type,
                 stacked_start_value=stacked_start_value,

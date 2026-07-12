@@ -23,6 +23,10 @@ def temp_dir(config: PointChartConfig, chart_id: str) -> Path:
     return ensure_dir(chart_result_dir(config, chart_id) / "tempy")
 
 
+def feedback_dir(config: PointChartConfig, chart_id: str) -> Path:
+    return ensure_dir(chart_result_dir(config, chart_id) / "feedback")
+
+
 def raw_crop_dir(config: PointChartConfig, chart_id: str) -> Path:
     return ensure_dir(chart_result_dir(config, chart_id) / "raw_crops")
 
@@ -110,6 +114,7 @@ def draw_prediction_overlay(
     run_index: int | None = None,
     prompt_type: str = "feedback",
     image_type: str = "grid_with_grid",
+    final_overlay: bool = False,
 ) -> Path:
     img = Image.open(original_img_path).convert("RGB")
     draw = ImageDraw.Draw(img)
@@ -124,11 +129,15 @@ def draw_prediction_overlay(
             continue
         draw_crosshair(draw, x_pixel, y_pixel, color=colors[idx % len(colors)])
 
-    if run_index is None:
-        filename = f"final_overlay_{safe_filename(chart_id)}_{safe_filename(point_name)}_{prompt_type}_{image_type}.png"
+    safe_point_name = safe_filename(point_name)
+    if final_overlay:
+        round_suffix = f"_run{run_index}" if run_index is not None else ""
+        filename = f"final_overlay_{safe_point_name}_{prompt_type}_{image_type}{round_suffix}.png"
+    elif run_index is None:
+        filename = f"final_overlay_{safe_point_name}_{prompt_type}_{image_type}.png"
     else:
-        filename = f"overlay_{safe_filename(chart_id)}_{safe_filename(point_name)}_{prompt_type}_{image_type}_run{run_index}.png"
-    output = temp_dir(config, chart_id) / filename
+        filename = f"overlay_{safe_point_name}_{prompt_type}_{image_type}_run{run_index}.png"
+    output = feedback_dir(config, chart_id) / filename
     img.save(output)
     return output
 

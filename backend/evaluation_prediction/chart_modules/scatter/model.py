@@ -17,6 +17,17 @@ from ...common.model_config import get_chat_completion_urls, get_model_name
 from .parser import extract_coords
 
 
+def extract_readable_flag(payload: Any) -> bool:
+    if isinstance(payload, dict) and "readable" in payload:
+        value = payload.get("readable")
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, str):
+            return value.strip().lower() in {"true", "yes", "1", "readable"}
+        return bool(value)
+    return True
+
+
 JSON_ONLY_SYSTEM_PROMPT = (
     "You are a precise chart-reading assistant. Always return only valid JSON. "
     "Do not include Markdown fences, explanations, or prose."
@@ -56,6 +67,7 @@ class PointModelClient:
         self.timeout = timeout or aiohttp.ClientTimeout(total=300, connect=30, sock_connect=30, sock_read=240)
         self._session: aiohttp.ClientSession | None = None
         self._index = 0
+        self.last_readable = True
 
     async def __aenter__(self) -> "PointModelClient":
         await self._ensure_session()
@@ -115,10 +127,13 @@ class PointModelClient:
         return None if content == FAILURE_TEXT else content
 
     async def predict_coords(self, prompt: str, image_path: Path, point_name: str) -> tuple[Any, Any]:
+        self.last_readable = True
         content = await self.call_text(prompt, image_path, point_name)
         if not content:
+            self.last_readable = False
             return (-1, -1)
         parsed = parse_model_json(content)
+        self.last_readable = extract_readable_flag(parsed)
         return extract_coords(parsed, point_name)
 
     async def check_exists(self, prompt: str, image_path: Path) -> bool:

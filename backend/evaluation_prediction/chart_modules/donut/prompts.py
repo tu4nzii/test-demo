@@ -120,4 +120,11 @@ def generate_prompt(
                 {{"datapoints": [{{"{item_name}": {{"start_angle": <float>, "end_angle": <float>}}}}]}}
                 """
 
+    prompt += """
+
+Final angle convention rule:
+- Angles are measured clockwise with 0 degrees at the top.
+- The sector share is the clockwise span from start_angle to end_angle: ((end_angle - start_angle + 360) % 360) / 360.
+- If the sector crosses the 0-degree reference line, start_angle may be greater than end_angle. In that case, keep the crossing order instead of forcing start_angle < end_angle.
+"""
     return prompt.strip()

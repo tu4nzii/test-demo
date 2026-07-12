@@ -65,6 +65,7 @@ def generate_prompt(
         You are given a cropped line chart image centered around [{item_name}].
         The cropped region includes the target x-axis category [{x_label}] and y-axis reference ticks [{visible_tick_str}].
         Locate the series [{series_name}] line point in this crop and estimate its y value by interpolation.
+        If the target line point is not readable in this crop, set "readable": false and use null for y.
         {color_desc}
         """
     elif prompt_type in {"grid", "feedback"}:
@@ -85,8 +86,14 @@ def generate_prompt(
     else:
         raise ValueError(f"Unknown prompt_type: {prompt_type}")
 
-    base_prompt += f"""
-    Only respond in this JSON format:
-    {{"datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
-    """
+    if prompt_type == "amplifier":
+        base_prompt += f"""
+        Only respond in this JSON format:
+        {{"readable": true, "datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
+        """
+    else:
+        base_prompt += f"""
+        Only respond in this JSON format:
+        {{"datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
+        """
     return base_prompt

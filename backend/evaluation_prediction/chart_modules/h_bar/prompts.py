@@ -28,6 +28,16 @@ def get_color_name_approx(hex_color: str) -> str:
 def generate_series_color_description(series_color: dict[str, str]) -> str:
     lines = ["The chart uses specific colors for each series:"]
     for series, hex_val in series_color.items():
+        if isinstance(hex_val, dict):
+            lines.append(f'- "{series}" uses category-specific colors:')
+            for category, category_hex in hex_val.items():
+                rgb = hex_to_rgb(str(category_hex))
+                color_name = get_color_name_approx(str(category_hex))
+                lines.append(
+                    f'  - "{category}" is colored **{category_hex}** '
+                    f"(approx. {color_name}, RGB: {rgb})."
+                )
+            continue
         rgb = hex_to_rgb(hex_val)
         color_name = get_color_name_approx(hex_val)
         lines.append(f'- "{series}" is colored **{hex_val}** (approx. {color_name}, RGB: {rgb}).')

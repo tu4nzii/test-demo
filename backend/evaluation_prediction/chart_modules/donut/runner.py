@@ -16,7 +16,7 @@ from gemini_calls import FAILURE_TEXT, chat_with_gemini
 
 from ...common.chart_io import ensure_dir, image_to_data_url
 from ...common.paths import RESULTS_ROOT
-from ...common.runtime import get_repeat_times
+from ...common.runtime import get_amplifier_rounds, get_repeat_times
 
 from ..circular_artifacts import save_circular_artifacts
 from ..circular_fallback import color_area_predictions, records_from_predictions
@@ -35,12 +35,49 @@ EXPERIMENT_TYPES = [
 ]
 PREFERRED_PROMPTS = ["amplifier_pct", "amplifier", "feedback", "grid", "whole_chart", "baseline"]
 CHART_TYPE = "donut"
+AMPLIFIER_STABILITY_REL_THRESHOLD = 0.01
+
+
+def _strategy_repeat_times(prompt_type: str, repeat_times: int, amplifier_rounds: int) -> int:
+    if prompt_type in {"baseline", "grid"}:
+        return 1
+    if prompt_type == "feedback":
+        return 2
+    if prompt_type == "amplifier":
+        return amplifier_rounds
+    return repeat_times
+
+
+def _share_from_angles(start: Any, end: Any) -> float | None:
+    start_value = _number_or_none(start)
+    end_value = _number_or_none(end)
+    if start_value is None or end_value is None:
+        return None
+    return ((end_value - start_value + 360.0) % 360.0) / 360.0
+
+
+def _prediction_share(prediction: dict[str, Any] | None) -> float | None:
+    if not isinstance(prediction, dict):
+        return None
+    share = _number_or_none(prediction.get("value"))
+    if share is not None:
+        return share
+    return _share_from_angles(prediction.get("start_angle"), prediction.get("end_angle"))
+
+
+def _stability_ratio(prev_prediction: dict[str, Any] | None, curr_prediction: dict[str, Any] | None) -> float | None:
+    prev = _prediction_share(prev_prediction)
+    curr = _prediction_share(curr_prediction)
+    if prev is None or curr is None:
+        return None
+    denom = max(abs(prev), 0.01, 1e-6)
+    return abs(curr - prev) / denom
 
 
 async def _run_target(dataset: dict[str, Any], target: CircularTarget, repeat_times: int) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for prompt_type, image_type in EXPERIMENT_TYPES:
-        for run_idx in range(1, repeat_times + 1):
+        for run_idx in range(1, _strategy_repeat_times(prompt_type, repeat_times, repeat_times) + 1):
             used_image = image_path(dataset, image_type)
             prompt = generate_prompt(
                 target.point_name,
@@ -75,6 +112,7 @@ async def _run_refined_target(
     result_dir: Path,
     initial_prediction: dict[str, Any] | None,
     repeat_times: int,
+    amplifier_rounds: int,
 ) -> list[dict[str, Any]]:
     """Run the reference-style donut chain for one system-generated label."""
 
@@ -104,7 +142,8 @@ async def _run_refined_target(
     center, inner_radius, outer_radius = _donut_geometry(dataset, no_grid_image)
     last_pred = None
     feedback_image = str(with_grid_image)
-    feedback_rounds = max(1, repeat_times)
+    feedback_rounds = 1 + _strategy_repeat_times("feedback", repeat_times, amplifier_rounds)
+    grid_prediction: dict[str, Any] | None = None
 
     for round_idx in range(1, feedback_rounds + 1):
         prompt_type = "grid" if last_pred is None else "feedback"
@@ -117,6 +156,15 @@ async def _run_refined_target(
         print(f"[donut] {chart_id} | {target.point_name} | {prompt_type} round {round_idx}")
         raw_pred = await call_llm_once(prompt=prompt, image_path=used_image, item_name=target.point_name)
         prediction = _prediction_from_raw(raw_pred)
+        feedback_stability_ratio = None
+        feedback_stop_reason = ""
+        if prompt_type == "feedback" and grid_prediction is not None:
+            feedback_stability_ratio = _stability_ratio(grid_prediction, prediction)
+            if (
+                feedback_stability_ratio is not None
+                and feedback_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+            ):
+                feedback_stop_reason = "stable_with_grid"
         records.append(
             _record_from_prediction(
                 dataset,
@@ -127,6 +175,12 @@ async def _run_refined_target(
                 used_image,
                 prediction,
                 raw_pred,
+                extra={
+                    "feedback_stop_reason": feedback_stop_reason if prompt_type == "feedback" else "",
+                    "feedback_stability_ratio": (
+                        feedback_stability_ratio if prompt_type == "feedback" else None
+                    ),
+                },
             )
         )
 
@@ -138,7 +192,17 @@ async def _run_refined_target(
         elif last_pred is None:
             last_pred = _angles_from_prediction(initial_prediction)
 
+        if prompt_type == "grid" and _has_angles(prediction):
+            grid_prediction = prediction
+
         if not _has_angles(last_pred):
+            break
+
+        if prompt_type == "feedback" and feedback_stop_reason == "stable_with_grid":
+            print(
+                f"[donut] feedback stable early stop @ {target.point_name}: "
+                f"ratio={float(feedback_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+            )
             break
 
         if round_idx < feedback_rounds:
@@ -163,8 +227,9 @@ async def _run_refined_target(
     donut_visual.AMPLIFIER_OUTPUT_ROOT = str(result_dir.parent)
     amp_pred = dict(last_pred)
     last_amp_image: str | None = None
+    last_amp_prediction: dict[str, Any] | None = None
     try:
-        for amp_round in range(1, 4):
+        for amp_round in range(1, _strategy_repeat_times("amplifier", repeat_times, amplifier_rounds) + 1):
             try:
                 amp_image, drawn_angles, angle_order_hint = crop_sector_for_amplifier(
                     image_path=str(no_grid_image),
@@ -192,6 +257,15 @@ async def _run_refined_target(
             print(f"[donut] {chart_id} | {target.point_name} | amplifier round {amp_round}")
             raw_pred = await call_llm_once(prompt=prompt, image_path=amp_image, item_name=target.point_name)
             prediction = _prediction_from_raw(raw_pred)
+            amplifier_stability_ratio = None
+            amplifier_stop_reason = ""
+            if last_amp_prediction is not None and _has_angles(prediction):
+                amplifier_stability_ratio = _stability_ratio(last_amp_prediction, prediction)
+                if (
+                    amplifier_stability_ratio is not None
+                    and amplifier_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                ):
+                    amplifier_stop_reason = "stable"
             records.append(
                 _record_from_prediction(
                     dataset,
@@ -202,6 +276,11 @@ async def _run_refined_target(
                     amp_image,
                     prediction,
                     raw_pred,
+                    extra={
+                        "readable": _has_angles(prediction),
+                        "amplifier_stop_reason": amplifier_stop_reason,
+                        "amplifier_stability_ratio": amplifier_stability_ratio,
+                    },
                 )
             )
             if not _has_angles(prediction):
@@ -210,6 +289,13 @@ async def _run_refined_target(
                 "start_angle": float(prediction["start_angle"]),
                 "end_angle": float(prediction["end_angle"]),
             }
+            last_amp_prediction = prediction
+            if amplifier_stop_reason == "stable":
+                print(
+                    f"[donut] amplifier stable early stop @ {target.point_name}: "
+                    f"ratio={float(amplifier_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+                )
+                break
     finally:
         donut_visual.AMPLIFIER_OUTPUT_ROOT = previous_output_root
 
@@ -262,9 +348,10 @@ def _record_from_prediction(
     used_image: Any,
     prediction: dict[str, Any],
     raw_pred: Any,
+    extra: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     value = prediction.get("value") if isinstance(prediction, dict) else None
-    return {
+    record = {
         "chart_id": dataset["chart_id"],
         "point": point,
         "prompt_type": prompt_type,
@@ -278,6 +365,9 @@ def _record_from_prediction(
         "end_angle": prediction.get("end_angle") if isinstance(prediction, dict) else None,
         "raw_prediction": json.dumps(raw_pred, ensure_ascii=False),
     }
+    if extra:
+        record.update(extra)
+    return record
 
 
 def _has_angles(prediction: Any) -> bool:
@@ -499,6 +589,7 @@ async def run_experiment(
         return []
 
     repeat_times = get_repeat_times()
+    amplifier_rounds = get_amplifier_rounds()
     summaries: list[dict[str, Any]] = []
     for dataset in datasets:
         result_dir = _chart_result_dir(str(dataset["chart_id"]))
@@ -514,6 +605,7 @@ async def run_experiment(
                     result_dir=result_dir,
                     initial_prediction=initial_by_label.get(target.point_name.strip().casefold()),
                     repeat_times=repeat_times,
+                    amplifier_rounds=amplifier_rounds,
                 )
                 records.extend(refined_records)
 

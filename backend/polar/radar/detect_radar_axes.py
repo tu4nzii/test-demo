@@ -29,6 +29,8 @@ if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 
 from model_api_config import get_chat_completion_url, get_headers, get_model_name
+from polar.llm_debug import save_llm_error_response
+from polar.ocr_adapter import init_paddle_ocr_reader
 
 
 OCR_SCALE = 2.0
@@ -45,8 +47,7 @@ LLM_MODEL = get_model_name()
 
 
 def init_ocr():
-    import easyocr
-    return easyocr.Reader(["en"], gpu=False)
+    return init_paddle_ocr_reader("en")
 
 
 def clean_text(text: str) -> str:
@@ -246,6 +247,9 @@ def llm_count_axes(image_path: Path) -> int:
             }],
         }
         resp = requests.post(LLM_URL, headers=LLM_HEADERS, json=payload, timeout=20)
+        if not resp.ok:
+            save_llm_error_response(resp, "radar_axis_count")
+            return 0
         answer = resp.json()["choices"][0]["message"]["content"].strip()
         nums = re.findall(r"\d+", answer)
         value = int(nums[0]) if nums else 0
@@ -995,12 +999,18 @@ def llm_refine_labels(
                 resp = future.result(timeout=70)
 
             if resp.ok:
-                answer = resp.json()["choices"][0]["message"]["content"].strip()
+                payload = resp.json()
+                choices = payload.get("choices") if isinstance(payload, dict) else None
+                if not choices:
+                    consecutive_timeouts += 1
+                    continue
+                answer = choices[0]["message"]["content"].strip()
                 answer = re.sub(r'^["\']|["\']$', '', answer)
                 if answer and len(answer) <= 50:
                     refined[key] = answer
                 consecutive_timeouts = 0
             else:
+                save_llm_error_response(resp, "radar_axis_label_refine")
                 consecutive_timeouts += 1
         except (concurrent.futures.TimeoutError, Exception):
             consecutive_timeouts += 1

@@ -26,6 +26,8 @@ _project_root = Path(__file__).resolve().parent.parent.parent
 if str(_project_root) not in sys.path:
     sys.path.insert(0, str(_project_root))
 from model_api_config import get_chat_completion_url, get_headers, get_model_name
+from polar.llm_debug import save_llm_error_response
+from polar.ocr_adapter import init_paddle_ocr_reader
 
 class RadarChartEncoder:
     def __init__(self):
@@ -546,8 +548,7 @@ class RadarChartEncoder:
     def _init_ocr(self):
         if not hasattr(self, '_ocr_reader') or self._ocr_reader is None:
             try:
-                import easyocr
-                self._ocr_reader = easyocr.Reader(['en'], gpu=False)
+                self._ocr_reader = init_paddle_ocr_reader('en')
             except Exception as e:
                 print(f"[OCR] init failed: {e}")
                 self._ocr_reader = None
@@ -765,11 +766,18 @@ class RadarChartEncoder:
         
         try:
             response = requests.post(url=self.url, headers=self.headers, json=payload)
+            if response.status_code != 200:
+                save_llm_error_response(response, "radar_encrypt_find_tick")
+                return None
             result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            choices = result.get("choices") if isinstance(result, dict) else None
+            if not choices:
+                print(f"API response missing choices: {str(result)[:300]}")
+                return None
+            content = choices[0]["message"]["content"]
             data = self.extract_json_response(content)
             return data
-        except requests.exceptions.RequestException as e:
+        except (requests.exceptions.RequestException, KeyError, TypeError, ValueError) as e:
             print(f"API请求失败: {e}")
             return None
 
@@ -822,11 +830,18 @@ class RadarChartEncoder:
         
         try:
             response = requests.post(url=self.url, headers=self.headers, json=payload)
+            if response.status_code != 200:
+                save_llm_error_response(response, "radar_encrypt_tick_range")
+                return None
             result = response.json()
-            content = result["choices"][0]["message"]["content"]
+            choices = result.get("choices") if isinstance(result, dict) else None
+            if not choices:
+                print(f"API response missing choices: {str(result)[:300]}")
+                return None
+            content = choices[0]["message"]["content"]
             data = self.extract_json_response(content)
             return data
-        except requests.exceptions.RequestException as e:
+        except (requests.exceptions.RequestException, KeyError, TypeError, ValueError) as e:
             print(f"API请求错误: {e}")
             print(f"响应内容: {response.text if 'response' in locals() else '无响应'}")
             return None

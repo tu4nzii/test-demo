@@ -6,13 +6,18 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Protocol, Type
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from polar.radar.demo_axis_find_radar import RadarChartAxisFinder
-from polar.radar.demo_radar_circle_find import RadarChartEncoder
+from polar.radar.demo_radar_circle_find import RadarChartEncoder as LegacyRadarChartEncoder
+from polar.radar.encrypt_radar import RadarChartEncoder as RadarGridEncoder
 from polar.rose.demo_axis_find_rose import RoseChartAxisFinder
-from polar.rose.demo_rose_circle_find import RoseChartEncoder
+from polar.rose.demo_rose_circle_find import RoseChartEncoder as LegacyRoseChartEncoder
+from polar.rose.encrypt_rose import RoseChartEncoder as RoseGridEncoder
 from evaluation import evaluate_chart_data
 from Grid_generation.circular_angle_grid import process_circular_angle_chart
 from Grid_generation.grid_generation import process_chart
@@ -108,7 +113,8 @@ class PolarChartProcessor(BaseChartProcessor):
         axis_repair_hint: Optional[Dict[str, Any]] = None,
         disable_cache: bool = False,
     ) -> Optional[str]:
-        return self.encoder_cls().process_single_image(image_path, output_dir)
+        result = self.encoder_cls().process_single_image(image_path, output_dir)
+        return result if isinstance(result, str) else None
 
     def find_axis(
         self,
@@ -141,13 +147,27 @@ class PolarChartProcessor(BaseChartProcessor):
 
 class RoseChartProcessor(PolarChartProcessor):
     chart_type = "rose"
-    encoder_cls = RoseChartEncoder
+    encoder_cls = RoseGridEncoder
+    legacy_encoder_cls = LegacyRoseChartEncoder
     axis_finder_cls = RoseChartAxisFinder
+
+    def encode_image(
+        self,
+        image_path: str,
+        output_dir: str,
+        axis_repair_hint: Optional[Dict[str, Any]] = None,
+        disable_cache: bool = False,
+    ) -> Optional[str]:
+        result = self.encoder_cls().process_single_image(image_path, output_dir)
+        if isinstance(result, str):
+            return result
+        return self.legacy_encoder_cls().process_single_image(image_path, output_dir)
 
 
 class RadarChartProcessor(PolarChartProcessor):
     chart_type = "radar"
-    encoder_cls = RadarChartEncoder
+    encoder_cls = RadarGridEncoder
+    legacy_encoder_cls = LegacyRadarChartEncoder
     axis_finder_cls = RadarChartAxisFinder
 
     def encode_image(
@@ -157,7 +177,10 @@ class RadarChartProcessor(PolarChartProcessor):
         axis_repair_hint: Optional[Dict[str, Any]] = None,
         disable_cache: bool = False,
     ) -> Optional[str]:
-        return self.encoder_cls().process_single_image(
+        result = self.encoder_cls().process_single_image(image_path, output_dir)
+        if isinstance(result, str):
+            return result
+        return self.legacy_encoder_cls().process_single_image(
             image_path,
             output_dir,
             radar_grid_hint=axis_repair_hint,

@@ -38,6 +38,7 @@ from backend.polar.radar.detect_radar_axes import (
     title_like, boilerplate_like, metadata_like_text,
     LLM_URL, LLM_HEADERS, LLM_MODEL,
 )
+from backend.polar.llm_debug import save_llm_error_response
 
 
 # ---------------------------------------------------------------------------
@@ -272,8 +273,13 @@ def _llm_salvage_rose_axes(image_path: Path, reason: str) -> Tuple[Dict[int, str
         }
         resp = requests.post(LLM_URL, headers=LLM_HEADERS, json=payload, timeout=45)
         if not resp.ok:
-            return {}, {"llm_salvage_error": f"http_{resp.status_code}"}
-        answer = resp.json()["choices"][0]["message"]["content"].strip()
+            body_path = save_llm_error_response(resp, "rose_axis_salvage")
+            return {}, {"llm_salvage_error": f"http_{resp.status_code}", "llm_error_body_path": body_path}
+        payload = resp.json()
+        choices = payload.get("choices") if isinstance(payload, dict) else None
+        if not choices:
+            return {}, {"llm_salvage_error": "missing_choices", "llm_answer": str(payload)[:500]}
+        answer = choices[0]["message"]["content"].strip()
         labels = _parse_llm_axis_labels(answer)
         if not labels:
             return {}, {"llm_salvage_error": "parse_failed", "llm_answer": answer[:500]}

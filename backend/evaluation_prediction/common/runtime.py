@@ -27,9 +27,14 @@ def _positive_int_from_env(name: str, default: int) -> int:
     return value
 
 
+def get_amplifier_rounds(default: int = 3) -> int:
+    """Number of chained local-refinement rounds for chart readers."""
+    return _positive_int_from_env("CHART_AMPLIFIER_ROUNDS", default)
+
+
 def get_bar_amplifier_rounds(default: int = 3) -> int:
     """Number of chained amplifier refinement rounds for h_bar/v_bar."""
     raw = os.getenv("CHART_BAR_AMPLIFIER_ROUNDS")
     if raw is not None:
         return _positive_int_from_env("CHART_BAR_AMPLIFIER_ROUNDS", default)
-    return _positive_int_from_env("CHART_AMPLIFIER_ROUNDS", default)
+    return get_amplifier_rounds(default)

@@ -10,12 +10,13 @@ from typing import Any
 
 import pandas as pd
 from aiohttp import ClientTimeout
+from PIL import Image
 
 from gemini_calls import FAILURE_TEXT, chat_with_gemini
 
 from ...common.chart_io import ensure_dir, image_to_data_url
 from ...common.paths import RESULTS_ROOT
-from ...common.runtime import get_repeat_times
+from ...common.runtime import get_amplifier_rounds, get_repeat_times
 
 from ..circular_artifacts import save_circular_artifacts
 from ..circular_fallback import color_area_predictions, records_from_predictions
@@ -24,20 +25,59 @@ from ..circular_predictions import complete_circular_predictions, system_label_o
 from .data import CircularTarget, image_path, iter_targets, load_datasets
 from .model import call_llm_once
 from .prompts import generate_prompt
+from . import visual as pie_visual
+from .visual import crop_sector_for_amplifier, draw_angle_feedback
 
 
 EXPERIMENT_TYPES = [
     ("baseline", "no_grid"),
     ("grid", "with_grid"),
 ]
-PREFERRED_PROMPTS = ["grid", "baseline"]
 CHART_TYPE = "pie"
+PREFERRED_PROMPTS = ["amplifier_pct", "amplifier", "feedback", "grid", "whole_chart", "baseline"]
+AMPLIFIER_STABILITY_REL_THRESHOLD = 0.01
+
+
+def _strategy_repeat_times(prompt_type: str, repeat_times: int, amplifier_rounds: int) -> int:
+    if prompt_type in {"baseline", "grid"}:
+        return 1
+    if prompt_type == "feedback":
+        return 2
+    if prompt_type == "amplifier":
+        return amplifier_rounds
+    return repeat_times
+
+
+def _share_from_angles(start: Any, end: Any) -> float | None:
+    start_value = _number_or_none(start)
+    end_value = _number_or_none(end)
+    if start_value is None or end_value is None:
+        return None
+    return ((end_value - start_value + 360.0) % 360.0) / 360.0
+
+
+def _prediction_share(prediction: dict[str, Any] | None) -> float | None:
+    if not isinstance(prediction, dict):
+        return None
+    share = _number_or_none(prediction.get("value"))
+    if share is not None:
+        return share
+    return _share_from_angles(prediction.get("start_angle"), prediction.get("end_angle"))
+
+
+def _stability_ratio(prev_prediction: dict[str, Any] | None, curr_prediction: dict[str, Any] | None) -> float | None:
+    prev = _prediction_share(prev_prediction)
+    curr = _prediction_share(curr_prediction)
+    if prev is None or curr is None:
+        return None
+    denom = max(abs(prev), 0.01, 1e-6)
+    return abs(curr - prev) / denom
 
 
 async def _run_target(dataset: dict[str, Any], target: CircularTarget, repeat_times: int) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for prompt_type, image_type in EXPERIMENT_TYPES:
-        for run_idx in range(1, repeat_times + 1):
+        for run_idx in range(1, _strategy_repeat_times(prompt_type, repeat_times, repeat_times) + 1):
             used_image = image_path(dataset, image_type)
             prompt = generate_prompt(
                 target.point_name,
@@ -66,6 +106,215 @@ async def _run_target(dataset: dict[str, Any], target: CircularTarget, repeat_ti
     return records
 
 
+async def _run_refined_target(
+    dataset: dict[str, Any],
+    target: CircularTarget,
+    result_dir: Path,
+    initial_prediction: dict[str, Any] | None,
+    repeat_times: int,
+    amplifier_rounds: int,
+) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    chart_id = str(dataset["chart_id"])
+    if initial_prediction is not None:
+        records.append(
+            _record_from_prediction(
+                dataset,
+                target.point_name,
+                "whole_chart",
+                "with_grid",
+                1,
+                initial_prediction.get("image_path"),
+                initial_prediction,
+                initial_prediction,
+            )
+        )
+
+    try:
+        with_grid_image = image_path(dataset, "with_grid")
+        no_grid_image = image_path(dataset, "no_grid")
+    except Exception as exc:
+        print(f"[pie] Missing image path for {target.point_name}: {exc}")
+        return records
+
+    center, inner_radius, outer_radius = _pie_geometry(dataset, no_grid_image)
+    last_pred = None
+    feedback_image = str(with_grid_image)
+    feedback_rounds = 1 + _strategy_repeat_times("feedback", repeat_times, amplifier_rounds)
+    grid_prediction: dict[str, Any] | None = None
+
+    for round_idx in range(1, feedback_rounds + 1):
+        prompt_type = "grid" if last_pred is None else "feedback"
+        used_image = str(with_grid_image) if prompt_type == "grid" else feedback_image
+        prompt = generate_prompt(
+            item_name=target.point_name,
+            prompt_type=prompt_type,
+            prev_angle=last_pred,
+        )
+        print(f"[pie] {chart_id} | {target.point_name} | {prompt_type} round {round_idx}")
+        raw_pred = await call_llm_once(prompt=prompt, image_path=used_image, item_name=target.point_name)
+        prediction = _prediction_from_raw(raw_pred)
+        feedback_stability_ratio = None
+        feedback_stop_reason = ""
+        if prompt_type == "feedback" and grid_prediction is not None:
+            feedback_stability_ratio = _stability_ratio(grid_prediction, prediction)
+            if (
+                feedback_stability_ratio is not None
+                and feedback_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+            ):
+                feedback_stop_reason = "stable_with_grid"
+        records.append(
+            _record_from_prediction(
+                dataset,
+                target.point_name,
+                prompt_type,
+                "with_grid" if prompt_type == "grid" else "feedback",
+                round_idx,
+                used_image,
+                prediction,
+                raw_pred,
+                extra={
+                    "feedback_stop_reason": feedback_stop_reason if prompt_type == "feedback" else "",
+                    "feedback_stability_ratio": (
+                        feedback_stability_ratio if prompt_type == "feedback" else None
+                    ),
+                },
+            )
+        )
+
+        if _has_angles(prediction):
+            last_pred = {
+                "start_angle": float(prediction["start_angle"]),
+                "end_angle": float(prediction["end_angle"]),
+            }
+        elif last_pred is None:
+            last_pred = _angles_from_prediction(initial_prediction)
+
+        if prompt_type == "grid" and _has_angles(prediction):
+            grid_prediction = prediction
+
+        if not _has_angles(last_pred):
+            break
+
+        if prompt_type == "feedback" and feedback_stop_reason == "stable_with_grid":
+            print(
+                f"[pie] feedback stable early stop @ {target.point_name}: "
+                f"ratio={float(feedback_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+            )
+            break
+
+        if round_idx < feedback_rounds:
+            try:
+                feedback_image = draw_angle_feedback(
+                    image_path=str(with_grid_image),
+                    angle_deg=[float(last_pred["start_angle"]), float(last_pred["end_angle"])],
+                    output_path=str(result_dir / f"{_safe_name(target.point_name)}_feedback_round{round_idx}.png"),
+                    circle_center=center,
+                    inner_radius=outer_radius,
+                )
+            except Exception as exc:
+                print(f"[pie] Feedback image failed for {target.point_name}: {exc}")
+                break
+
+    if not _has_angles(last_pred):
+        last_pred = _angles_from_prediction(initial_prediction)
+    if not _has_angles(last_pred):
+        return records
+
+    previous_output_root = pie_visual.AMPLIFIER_OUTPUT_ROOT
+    pie_visual.AMPLIFIER_OUTPUT_ROOT = str(result_dir.parent)
+    amp_pred = dict(last_pred)
+    last_amp_image: str | None = None
+    last_amp_prediction: dict[str, Any] | None = None
+    try:
+        for amp_round in range(1, _strategy_repeat_times("amplifier", repeat_times, amplifier_rounds) + 1):
+            try:
+                amp_image, drawn_angles, angle_order_hint = crop_sector_for_amplifier(
+                    image_path=str(no_grid_image),
+                    centre=center,
+                    inner_r=inner_radius,
+                    outer_r=outer_radius,
+                    feedback_angles=amp_pred,
+                    chart_id=chart_id,
+                    point_name=target.point_name,
+                    save_suffix=f"_amp{amp_round}",
+                    amp_round=amp_round,
+                )
+            except Exception as exc:
+                print(f"[pie] Amplifier crop failed for {target.point_name}, round {amp_round}: {exc}")
+                break
+
+            last_amp_image = amp_image
+            prompt = generate_prompt(
+                item_name=target.point_name,
+                prompt_type="amplifier",
+                prev_angle=amp_pred,
+                drawn_angles=drawn_angles,
+                angle_order_hint=angle_order_hint,
+            )
+            print(f"[pie] {chart_id} | {target.point_name} | amplifier round {amp_round}")
+            raw_pred = await call_llm_once(prompt=prompt, image_path=amp_image, item_name=target.point_name)
+            prediction = _prediction_from_raw(raw_pred)
+            amplifier_stability_ratio = None
+            amplifier_stop_reason = ""
+            if last_amp_prediction is not None and _has_angles(prediction):
+                amplifier_stability_ratio = _stability_ratio(last_amp_prediction, prediction)
+                if (
+                    amplifier_stability_ratio is not None
+                    and amplifier_stability_ratio < AMPLIFIER_STABILITY_REL_THRESHOLD
+                ):
+                    amplifier_stop_reason = "stable"
+            records.append(
+                _record_from_prediction(
+                    dataset,
+                    target.point_name,
+                    "amplifier",
+                    "no_grid",
+                    amp_round,
+                    amp_image,
+                    prediction,
+                    raw_pred,
+                    extra={
+                        "readable": _has_angles(prediction),
+                        "amplifier_stop_reason": amplifier_stop_reason,
+                        "amplifier_stability_ratio": amplifier_stability_ratio,
+                    },
+                )
+            )
+            if not _has_angles(prediction):
+                break
+            amp_pred = {
+                "start_angle": float(prediction["start_angle"]),
+                "end_angle": float(prediction["end_angle"]),
+            }
+            last_amp_prediction = prediction
+            if amplifier_stop_reason == "stable":
+                print(
+                    f"[pie] amplifier stable early stop @ {target.point_name}: "
+                    f"ratio={float(amplifier_stability_ratio):.6f} < {AMPLIFIER_STABILITY_REL_THRESHOLD}"
+                )
+                break
+    finally:
+        pie_visual.AMPLIFIER_OUTPUT_ROOT = previous_output_root
+
+    if _has_angles(amp_pred):
+        final_prediction = _prediction_from_raw(amp_pred)
+        records.append(
+            _record_from_prediction(
+                dataset,
+                target.point_name,
+                "amplifier_pct",
+                "no_grid",
+                1,
+                last_amp_image or str(no_grid_image),
+                final_prediction,
+                amp_pred,
+            )
+        )
+
+    return records
+
+
 def _prediction_from_raw(raw_pred: Any) -> dict[str, float | None]:
     if isinstance(raw_pred, dict) and "start_angle" in raw_pred and "end_angle" in raw_pred:
         try:
@@ -86,6 +335,52 @@ def _prediction_from_raw(raw_pred: Any) -> dict[str, float | None]:
         return {"value": None, "percentage": None, "start_angle": None, "end_angle": None}
     value = number / 100.0 if abs(number) > 1.0 else number
     return {"value": value, "percentage": value * 100.0, "start_angle": None, "end_angle": None}
+
+
+def _record_from_prediction(
+    dataset: dict[str, Any],
+    point: str,
+    prompt_type: str,
+    image_type: str,
+    run: int,
+    used_image: Any,
+    prediction: dict[str, Any],
+    raw_pred: Any,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    value = prediction.get("value") if isinstance(prediction, dict) else None
+    record = {
+        "chart_id": dataset["chart_id"],
+        "point": point,
+        "prompt_type": prompt_type,
+        "image_type": image_type,
+        "run": run,
+        "image_path": str(used_image) if used_image else None,
+        "pred": value,
+        "pred_pct": value,
+        "percentage": prediction.get("percentage") if isinstance(prediction, dict) else None,
+        "start_angle": prediction.get("start_angle") if isinstance(prediction, dict) else None,
+        "end_angle": prediction.get("end_angle") if isinstance(prediction, dict) else None,
+        "raw_prediction": json.dumps(raw_pred, ensure_ascii=False),
+    }
+    if extra:
+        record.update(extra)
+    return record
+
+
+def _has_angles(prediction: Any) -> bool:
+    if not isinstance(prediction, dict):
+        return False
+    return _number_or_none(prediction.get("start_angle")) is not None and _number_or_none(prediction.get("end_angle")) is not None
+
+
+def _angles_from_prediction(prediction: dict[str, Any] | None) -> dict[str, float] | None:
+    if not _has_angles(prediction):
+        return None
+    return {
+        "start_angle": float(prediction["start_angle"]),
+        "end_angle": float(prediction["end_angle"]),
+    }
 
 
 def _prediction_value(record: dict[str, Any]) -> float | None:
@@ -230,6 +525,43 @@ def _number_or_none(raw: Any) -> float | None:
         return None
 
 
+def _pie_geometry(dataset: dict[str, Any], source_image: Path) -> tuple[tuple[int, int], int, int]:
+    with Image.open(source_image) as img:
+        width, height = img.size
+
+    raw_center = dataset.get("center")
+    if isinstance(raw_center, dict):
+        center = (int(raw_center.get("x", width // 2)), int(raw_center.get("y", height // 2)))
+    elif isinstance(raw_center, (list, tuple)) and len(raw_center) >= 2:
+        center = (int(raw_center[0]), int(raw_center[1]))
+    else:
+        center = (width // 2, height // 2)
+
+    raw_radius = dataset.get("r_pixels") or dataset.get("radius")
+    if isinstance(raw_radius, (list, tuple)):
+        radius_values = [_number_or_none(value) for value in raw_radius]
+        valid_radii = [int(value) for value in radius_values if value is not None and value > 0]
+        outer_radius = max(valid_radii) if valid_radii else int(min(width, height) * 0.35)
+    else:
+        outer_radius = int(_number_or_none(raw_radius) or min(width, height) * 0.35)
+
+    outer_radius = max(1, outer_radius)
+    return center, 0, outer_radius
+
+
+def _safe_name(value: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9_.-]+", "_", value).strip("_") or "segment"
+
+
+def _predictions_by_label(predictions: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    result: dict[str, dict[str, Any]] = {}
+    for item in predictions:
+        key = str(item.get("label") or item.get("id") or "").strip().casefold()
+        if key:
+            result[key] = item
+    return result
+
+
 def _chart_result_dir(chart_id: str) -> Path:
     return ensure_dir(RESULTS_ROOT / CHART_TYPE / chart_id)
 
@@ -252,27 +584,29 @@ async def run_experiment(
         return []
 
     repeat_times = get_repeat_times()
+    amplifier_rounds = get_amplifier_rounds()
     summaries: list[dict[str, Any]] = []
     for dataset in datasets:
         result_dir = _chart_result_dir(str(dataset["chart_id"]))
         targets = iter_targets(dataset)
         records: list[dict[str, Any]] = []
         if targets:
-            predictions = await _extract_all_segments(dataset)
-            predicted_labels = {
-                str(item.get("label") or item.get("id") or "").strip().casefold()
-                for item in predictions
-            }
-            missing_targets = [
-                target
-                for target in targets
-                if str(target.point_name).strip().casefold() not in predicted_labels
-            ]
-            if missing_targets:
-                tasks = [_run_target(dataset, target, repeat_times) for target in missing_targets]
-                for result in await asyncio.gather(*tasks):
-                    records.extend(result)
-                predictions.extend(_select_predictions(records))
+            initial_predictions = await _extract_all_segments(dataset)
+            initial_by_label = _predictions_by_label(initial_predictions)
+            for target in targets:
+                refined_records = await _run_refined_target(
+                    dataset=dataset,
+                    target=target,
+                    result_dir=result_dir,
+                    initial_prediction=initial_by_label.get(target.point_name.strip().casefold()),
+                    repeat_times=repeat_times,
+                    amplifier_rounds=amplifier_rounds,
+                )
+                records.extend(refined_records)
+
+            predictions = _select_predictions(records)
+            if not predictions:
+                predictions = initial_predictions
             if not predictions:
                 predictions = color_area_predictions(dataset, CHART_TYPE)
                 records.extend(records_from_predictions(dataset, predictions))

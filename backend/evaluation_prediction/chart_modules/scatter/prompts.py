@@ -41,13 +41,22 @@ def generate_prompt(
     x_tick_str = _format_ticks(x_ticks)
     y_tick_str = _format_ticks(y_ticks)
     mark = _mark_phrase(mark_name)
-    json_contract = (
-        f'CRITICAL OUTPUT RULE: Return only valid JSON and nothing else. '
-        f'Do not write explanations, Markdown fences, or prose. '
-        f'The complete response must be exactly one JSON object like this: '
-        f'{{"datapoints": [{{"{item_name}": [x, y]}}]}}. '
-        f'Use numeric x and y values; if uncertain, make the best estimate.'
-    )
+    if prompt_type == "feedback_crop_adaptive":
+        json_contract = (
+            f'CRITICAL OUTPUT RULE: Return only valid JSON and nothing else. '
+            f'Do not write explanations, Markdown fences, or prose. '
+            f'The complete response must be one JSON object like this: '
+            f'{{"readable": true, "datapoints": [{{"{item_name}": [x, y]}}]}}. '
+            f'Use numeric x and y values when readable; otherwise set "readable": false and use null values.'
+        )
+    else:
+        json_contract = (
+            f'CRITICAL OUTPUT RULE: Return only valid JSON and nothing else. '
+            f'Do not write explanations, Markdown fences, or prose. '
+            f'The complete response must be exactly one JSON object like this: '
+            f'{{"datapoints": [{{"{item_name}": [x, y]}}]}}. '
+            f'Use numeric x and y values; if uncertain, make the best estimate.'
+        )
     visual_hint = ""
     if visual_name and visual_name != item_name:
         visual_hint = f"The target id [{item_name}] is shown in the chart legend/label as [{visual_name}]."
@@ -82,12 +91,14 @@ def generate_prompt(
             Compare that marker with the true center of [{item_name}] and refine the coordinates.
             """
         if prompt_type == "feedback_crop_adaptive":
-            base_prompt += """
+            base_prompt += f"""
             This image is a cropped region around the target. Use only the visible tick labels and grid lines
             inside this crop. The crop may include one or more nearby labels, so first identify the mark whose
             visible label/legend identity is [{item_name}], then interpolate the center of that mark.
             Return the original chart data coordinates indicated by the red tick labels and grid lines.
             Do not return crop pixel coordinates, resized-image pixel coordinates, or relative positions inside the crop.
+            If the target mark is not readable in this crop, return the same JSON object with "readable": false
+            and null x/y values. If it is readable, include "readable": true.
             """
     else:
         raise ValueError(f"Unknown prompt_type: {prompt_type}")

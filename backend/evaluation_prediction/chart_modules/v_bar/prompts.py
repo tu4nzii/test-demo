@@ -146,7 +146,19 @@ def generate_prompt(
         Compare that mark with the true top edge of the target bar, then refine the y value.
         """
 
-    base_prompt += f"""
+    if prompt_type == "amplifier":
+        base_prompt += f"""
+    Return only valid JSON. Do not explain. Do not use Markdown.
+    Only respond in this JSON format:
+    {{"readable": true, "datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
+
+    The datapoints list must contain exactly one object and exactly the key "{item_name}".
+    If the target is not readable in an amplifier crop, set "readable": false and use null for both x and y:
+    {{"readable": false, "datapoints": [{{"{item_name}": [null, null]}}]}}
+    """
+    else:
+        base_prompt += f"""
+    Return only valid JSON. Do not explain. Do not use Markdown.
     Only respond in this JSON format:
     {{"datapoints": [{{"{item_name}": ["{x_label}", y]}}]}}
     """

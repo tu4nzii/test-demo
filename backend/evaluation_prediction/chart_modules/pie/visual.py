@@ -7,9 +7,22 @@ import json
 import math
 import os
 import re
+import sys
 from PIL import Image, ImageDraw, ImageFont
 
 from .model import call_llm_once
+
+
+AMPLIFIER_OUTPUT_ROOT: str | None = None
+
+
+def safe_print(*values) -> None:
+    text = " ".join(str(value) for value in values)
+    try:
+        sys.stdout.write(text + "\n")
+    except UnicodeEncodeError:
+        encoding = sys.stdout.encoding or "utf-8"
+        sys.stdout.write(text.encode(encoding, errors="replace").decode(encoding, errors="replace") + "\n")
 
 
 def draw_angle_feedback(
@@ -30,6 +43,8 @@ def draw_angle_feedback(
     - 每个角度：画径向线 + 小弧
     - 两个角度：额外画完整弧线（按顺时针从 start → end）
     """
+
+    print = safe_print
 
     import os, math
     from PIL import Image, ImageDraw
@@ -748,7 +763,8 @@ def crop_sector_for_amplifier(
     # ----------------------------------------------------------------------
     # ⭐（11）保存
     # ----------------------------------------------------------------------
-    out_dir = os.path.join("results_Pixtral", chart_id, "amplifier_img")
+    output_root = AMPLIFIER_OUTPUT_ROOT or "results_Pixtral"
+    out_dir = os.path.join(output_root, chart_id, "amplifier_img")
     os.makedirs(out_dir, exist_ok=True)
 
     safe_name = re.sub(r"[^a-zA-Z0-9_\-]+", "_", point_name)
@@ -1338,7 +1354,8 @@ def crop_sector_for_amplifier(
     # =====================================================
     # ⑨ 保存文件
     # =====================================================
-    out_dir = os.path.join("results_Qwen", chart_id, "amplifier_img")
+    output_root = AMPLIFIER_OUTPUT_ROOT or "results_Qwen"
+    out_dir = os.path.join(output_root, chart_id, "amplifier_img")
     os.makedirs(out_dir, exist_ok=True)
 
     safe_name = re.sub(r"[^a-zA-Z0-9_\-]+", "_", point_name)

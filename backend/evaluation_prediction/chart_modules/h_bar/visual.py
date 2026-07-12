@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +20,10 @@ def chart_result_dir(chart_id: str, chart_type: str = "h_bar") -> Path:
 
 def temp_dir(chart_id: str, chart_type: str = "h_bar") -> Path:
     return ensure_dir(chart_result_dir(chart_id, chart_type) / "tempy")
+
+
+def feedback_dir(chart_id: str, chart_type: str = "h_bar") -> Path:
+    return ensure_dir(chart_result_dir(chart_id, chart_type) / "feedback")
 
 
 def draw_prediction_overlay(
@@ -78,7 +83,7 @@ def draw_prediction_overlay(
     else:
         round_no = int(run_index) if run_index is not None else 1
         filename = f"overlay_{safe_point_name}_{prompt_type}_{image_type}_run{round_no}.png"
-    output = temp_dir(chart_id, chart_type) / filename
+    output = feedback_dir(chart_id, chart_type) / filename
     img.save(output)
     return output
 
@@ -128,9 +133,31 @@ def _dense_ticks_for_crop(
     left_px: int,
     right_px: int,
     round_index: int = 1,
+    grid_div: int | None = None,
+    value_min: float | None = None,
+    value_max: float | None = None,
 ) -> tuple[list[float], list[float]]:
     dense_ticks: list[float] = []
     dense_pixels: list[float] = []
+    if grid_div is not None:
+        values = [value for value, _ in pairs]
+        gaps = sorted(abs(right - left) for left, right in zip(values, values[1:]) if right != left)
+        if gaps:
+            base_step = gaps[len(gaps) // 2]
+            tick_step = base_step / (2 ** max(0, int(grid_div))) if int(grid_div) > 0 else base_step
+            region_min = min(values) if value_min is None else float(value_min)
+            region_max = max(values) if value_max is None else float(value_max)
+            start = math.floor(region_min / base_step) * base_step
+            end = math.ceil(region_max / base_step) * base_step
+            ticks = [p[0] for p in pairs]
+            pixels = [int(p[1]) for p in pairs]
+            value = start - tick_step
+            while value <= end + tick_step + 1e-9:
+                dense_ticks.append(round(value, 4))
+                dense_pixels.append(float(numeric_pixel(value, ticks, pixels)))
+                value += tick_step
+            return dense_ticks, dense_pixels
+
     preferred = max(2, 2 ** max(1, int(round_index)))
     divisors = [preferred] + [divisor for divisor in (2, 3, 4, 5, 6, 8, 10, 12, 16) if divisor != preferred]
     for divisor in divisors:
@@ -168,6 +195,10 @@ def crop_bar_window(
     attempt_index: int = 0,
     pad_x: int | None = None,
     pad_y: int | None = None,
+    half_ratio: float | None = None,
+    zoom_factor: int | float | None = None,
+    grid_div: int | None = None,
+    max_canvas_size: int | None = 768,
     chart_type: str = "h_bar",
 ) -> tuple[Path, list[float], tuple[float, float]]:
     img = Image.open(image_path).convert("RGB")
@@ -178,15 +209,26 @@ def crop_bar_window(
     min_value = min(value for value, _ in pairs)
     max_value = max(value for value, _ in pairs)
     clamped_value = min(max(float(center_value), min_value), max_value)
-    center_x = numeric_pixel(clamped_value, x_ticks, x_pixels)
+    value_pixels = sorted(pairs, key=lambda item: item[0])
+    v_min, p_min = value_pixels[0]
+    v_max, p_max = value_pixels[-1]
+    scale = (p_max - p_min) / (v_max - v_min) if v_max != v_min else 1.0
+    center_x = p_min + (clamped_value - v_min) * scale
     center_y = category_pixel(y_label, y_ticks, y_pixels)
     span_y = category_span(y_label, y_ticks, y_pixels, img.size)
-    half_y = max(18, (pad_y if pad_y is not None else span_y // 2 + 8))
+    half_y = max(18, (pad_y if pad_y is not None else span_y // 2))
 
     pixel_gaps = [abs(right - left) for (_, left), (_, right) in zip(pairs, pairs[1:])]
     base_span = sorted(pixel_gaps)[len(pixel_gaps) // 2] if pixel_gaps else 90
     shrink = 2 ** max(0, round_index - 1)
-    half_x = int(max(18, (pad_x if pad_x is not None else base_span) / shrink))
+    if half_ratio is not None:
+        p_by_value = sorted(pairs, key=lambda item: item[0])
+        value_span = max_value - min_value
+        axis_pixel_span = abs(p_by_value[-1][1] - p_by_value[0][1])
+        pixels_per_value = axis_pixel_span / value_span if value_span else 1.0
+        half_x = max(5.0, abs(value_span * float(half_ratio) * pixels_per_value))
+    else:
+        half_x = int(max(18, (pad_x if pad_x is not None else base_span) / shrink))
 
     left = max(0, int(center_x - half_x))
     right = min(width, int(center_x + half_x))
@@ -194,22 +236,33 @@ def crop_bar_window(
         right = min(width, left + 12)
     top = max(0, center_y - half_y)
     bottom = min(height, center_y + half_y)
+    min_val, max_val = value_range_from_pixels(left, right, x_ticks, x_pixels)
 
     raw_crop = img.crop((left, top, right, bottom))
     crop_w, crop_h = raw_crop.size
     if crop_w <= 0 or crop_h <= 0:
         raise ValueError(f"Invalid crop area: {(left, top, right, bottom)}")
 
-    out_size = 240
+    requested_zoom = float(zoom_factor) if zoom_factor is not None else 2 ** max(0, round_index - 1)
+    new_w = max(1, int(round(crop_w * requested_zoom)))
+    new_h = max(1, int(round(crop_h * requested_zoom)))
+    zoom = requested_zoom
     label_pad = 70
-    scale = min(out_size / max(1, crop_w), out_size / max(1, crop_h))
-    new_w = max(1, int(round(crop_w * scale)))
-    new_h = max(1, int(round(crop_h * scale)))
+    if max_canvas_size:
+        scale_down = min(
+            float(max_canvas_size) / max(new_w, 1),
+            float(max_canvas_size) / max(new_h + label_pad * 2, 1),
+            1.0,
+        )
+        if scale_down < 1.0:
+            new_w = max(1, int(round(new_w * scale_down)))
+            new_h = max(1, int(round(new_h * scale_down)))
+            zoom *= scale_down
     resized = raw_crop.resize((new_w, new_h), Image.NEAREST)
 
-    canvas = Image.new("RGB", (out_size, out_size + label_pad * 2), "white")
-    offset_x = (out_size - new_w) // 2
-    offset_y = label_pad + (out_size - new_h) // 2
+    canvas = Image.new("RGB", (new_w, new_h + label_pad * 2), "white")
+    offset_x = 0
+    offset_y = label_pad
     canvas.paste(resized, (offset_x, offset_y))
     draw = ImageDraw.Draw(canvas)
     font = _font(14)
@@ -218,7 +271,15 @@ def crop_bar_window(
     crop_bottom = offset_y + new_h
     draw.text((offset_x + 4, crop_top + 4), f"R{round_index}", font=font, fill="black")
 
-    dense_ticks, dense_pixels = _dense_ticks_for_crop(pairs, left, right, round_index=round_index)
+    dense_ticks, dense_pixels = _dense_ticks_for_crop(
+        pairs,
+        left,
+        right,
+        round_index=round_index,
+        grid_div=grid_div,
+        value_min=min_val,
+        value_max=max_val,
+    )
     visible_ticks: list[float] = []
     mapped_ticks: list[tuple[float, int]] = []
     seen_ticks: set[tuple[float, int]] = set()
@@ -270,7 +331,6 @@ def crop_bar_window(
     draw.line((offset_x, crop_top, offset_x + new_w, crop_top), fill="black", width=2)
     draw.line((offset_x, crop_bottom, offset_x + new_w, crop_bottom), fill="black", width=2)
 
-    min_val, max_val = value_range_from_pixels(left, right, x_ticks, x_pixels)
     if not visible_ticks:
         visible_ticks = visible_ticks_for_range(x_ticks, min_val, max_val)
 

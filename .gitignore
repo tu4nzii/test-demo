@@ -35,3 +35,11 @@ backend/evaluation/reports/*.csv
 backend/evaluation/recheck_outputs/
 backend/evaluation_prediction/results/
 backend/**/__pycache__/
+
+# Experiment/evaluation artifacts
+experiment_gt_dataset/
+gt_full_object_results_package/
+gt_runs/
+backend/evaluation/manual_line_detection_*/
+backend/data/polar/llm_errors/
+review/polar_chart_type_errors_*/
